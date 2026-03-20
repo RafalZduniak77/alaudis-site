@@ -55,6 +55,7 @@ export default function AlaudisARPreview() {
   function clearBackground() {
     setRoomImage(null);
     setRoomVideo(null);
+
     if (imageInputRef.current) imageInputRef.current.value = "";
     if (videoInputRef.current) videoInputRef.current.value = "";
   }
@@ -67,31 +68,15 @@ export default function AlaudisARPreview() {
       </div>
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+        {/* GÓRNY PASEK */}
+        <div className="mb-8 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
           <div className="flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              onClick={() => videoInputRef.current?.click()}
-              className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 transition hover:border-white hover:bg-white hover:text-black"
-            >
-              <span className="h-2 w-2 rounded-full bg-[#c79a5c]" />
-              <span className="text-[11px] uppercase tracking-[0.28em] text-white/60 hover:text-black">
-                Alaudis – podgląd premium
-              </span>
-            </button>
-
-            <span className="rounded-full border border-white/15 bg-black/30 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/70">
-              Gotowy GLB
-            </span>
-            <span className="rounded-full border border-white/15 bg-black/30 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/70">
-              Gotowy do AR
-            </span>
             <span className="rounded-full border border-[#c79a5c]/30 bg-[#c79a5c]/10 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-[#e6c08c]">
               Model pokazowy
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 xl:justify-end">
             <button
               type="button"
               onClick={() => imageInputRef.current?.click()}
@@ -136,6 +121,7 @@ export default function AlaudisARPreview() {
           </div>
         </div>
 
+        {/* VIEWER */}
         <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),rgba(255,255,255,0.025)_35%,rgba(0,0,0,0.55)_100%)] shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
           <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-white/8 to-transparent" />
 
@@ -187,7 +173,7 @@ export default function AlaudisARPreview() {
               ar-modes="webxr scene-viewer quick-look"
               camera-controls
               touch-action="pan-y"
-              shadow-intensity="1.05"
+              shadow-intensity="0"
               exposure="1"
               auto-rotate
               camera-orbit="45deg 75deg 105%"
@@ -241,6 +227,7 @@ export default function AlaudisARPreview() {
           </div>
         </div>
 
+        {/* DOLNE KARTY */}
         <div className="mt-6 grid gap-4 xl:grid-cols-[1.15fr_1fr_1fr_1fr]">
           <div className="rounded-[24px] border border-[#c79a5c]/20 bg-[linear-gradient(135deg,rgba(199,154,92,0.16),rgba(255,255,255,0.03))] p-6">
             <p className="text-[11px] uppercase tracking-[0.28em] text-[#e6c08c]">
