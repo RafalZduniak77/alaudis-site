@@ -79,33 +79,33 @@ export const groupMap: Record<string, string> = {
 
 export const previewImageMap: Record<string, string> = {
   // 🔥 OBUDOWA
-  "Heban polerowany": "/konfigurator/obudowa/heban-polerowany.jpg",
-  "Palisander": "/konfigurator/obudowa/palisander.jpg",
-  "Orzech amerykański": "/konfigurator/obudowa/orzech-amerykanski.jpg",
-  "Orzech włoski": "/konfigurator/obudowa/orzech-wloski.jpg",
-  "Orzech kaukaski": "/konfigurator/obudowa/orzech-kaukaski.jpg",
-  "Orzech czeczot": "/konfigurator/obudowa/orzech-czeczot.jpg",
-  "Bubinga": "/konfigurator/obudowa/bubinga.jpg",
-  "Mahoń pasiak": "/konfigurator/obudowa/mahon-pasiak.jpg",
-  "Mahoń piramidalny": "/konfigurator/obudowa/mahon-piramidalny.jpg",
-  "Biały poliester": "/konfigurator/obudowa/bialy-poliester.jpg",
-  "Czarny poliester": "/konfigurator/obudowa/czarny-poliester.jpg",
+  "Heban polerowany": "/konfigurator/heban-polerowany.jpg",
+  "Palisander": "/konfigurator/palisander.jpg",
+  "Orzech amerykański": "/konfigurator/orzech-amerykanski.jpg",
+  "Orzech włoski": "/konfigurator/orzech-wloski.jpg",
+  "Orzech kaukaski": "/konfigurator/orzech-kaukaski.jpg",
+  "Orzech czeczot": "/konfigurator/orzech-czeczot.jpg",
+  "Bubinga": "/konfigurator/bubinga.jpg",
+  "Mahoń pasiak": "/konfigurator/mahon-pasiak.jpg",
+  "Mahoń piramidalny": "/konfigurator/mahon-piramidalny.jpg",
+  "Biały poliester": "/konfigurator/bialy-poliester.jpg",
+  "Czarny poliester": "/konfigurator/czarny-poliester.jpg",
 
   // 🔥 AKUSTYKA
-  "Mostki rezonansowe klon": "/konfigurator/akustyka/mostki-klon.jpg",
-  "Mostki rezonansowe buk": "/konfigurator/akustyka/mostki-buk.jpg",
-  "Dno rezonansowe Strunz": "/konfigurator/akustyka/dno-strunz.jpg",
-  "Dno rezonansowe Chiresse": "/konfigurator/akustyka/dno-chiresse.jpg",
-  "Lakierowanie dna rezonansowego mat": "/konfigurator/akustyka/lakier-mat.jpg",
-  "Lakierowanie dna rezonansowego połysk": "/konfigurator/akustyka/lakier-polysk.jpg",
+  "Mostki rezonansowe klon": "/konfigurator/mostki-klon.jpg",
+  "Mostki rezonansowe buk": "/konfigurator/mostki-buk.jpg",
+  "Dno rezonansowe Strunz": "/konfigurator/dno-strunz.jpg",
+  "Dno rezonansowe Chiresse": "/konfigurator/dno-chiresse.jpg",
+  "Lakierowanie dna rezonansowego mat": "/konfigurator/lakier-mat.jpg",
+  "Lakierowanie dna rezonansowego połysk": "/konfigurator/lakier-polysk.jpg",
 
   // 🔥 MECHANIZM
-  "Młotki Alaudis": "/konfigurator/mechanizm/mlotki-alaudis.jpg",
-  "Młotki Renner": "/konfigurator/mechanizm/mlotki-renner.jpg",
-  "Młotki Abbel": "/konfigurator/mechanizm/mlotki-abbel.jpg",
-  "Mechanizm Alaudis SAP Renovation": "/konfigurator/mechanizm/mechanizm-alaudis.jpg",
-  "Mechanizm Renner": "/konfigurator/mechanizm/mechanizm-renner.jpg",
-  "Mechanizm Abbel": "/konfigurator/mechanizm/mechanizm-abbel.jpg",
+  "Młotki Alaudis": "/konfigurator/mlotki-alaudis.jpg",
+  "Młotki Renner": "/konfigurator/mlotki-renner.jpg",
+  "Młotki Abbel": "/konfigurator/mlotki-abbel.jpg",
+  "Mechanizm Alaudis SAP Renovation": "/konfigurator/mechanizm-alaudis.jpg",
+  "Mechanizm Renner": "/konfigurator/mechanizm-renner.jpg",
+  "Mechanizm Abbel": "/konfigurator/mechanizm-abbel.jpg",
 };
 
 export const defaultPreviewImage = "/hero.jpg";
