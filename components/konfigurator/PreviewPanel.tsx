@@ -1,8 +1,9 @@
+
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   imageSrc: string;
@@ -23,20 +24,15 @@ export default function PreviewPanel({ imageSrc }: Props) {
 
       return () => clearTimeout(timeout);
     }
-  }, [imageSrc]);
+  }, [imageSrc, current]);
 
   return (
     <>
-      {/* 🔥 TŁO */}
       <Image src="/hero.jpg" alt="" fill className="object-cover" />
       <div className="absolute inset-0 bg-black/50" />
 
-      {/* 🔥 LEWA CZĘŚĆ (ZDJĘCIE) */}
-      <div className="absolute left-0 top-0 h-full w-[60%] flex items-center justify-center px-10">
-
-        <div className="relative w-full max-w-[650px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-
-          {/* CURRENT */}
+      <div className="absolute left-0 top-0 flex h-full w-[60%] items-center justify-center px-10">
+        <div className="relative aspect-[4/3] w-full max-w-[650px] overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
           <Image
             src={current}
             alt=""
@@ -46,7 +42,6 @@ export default function PreviewPanel({ imageSrc }: Props) {
             }`}
           />
 
-          {/* NEXT */}
           {next && (
             <Image
               src={next}
@@ -60,7 +55,6 @@ export default function PreviewPanel({ imageSrc }: Props) {
         </div>
       </div>
 
-      {/* 🔙 STRZAŁKA */}
       <Link
         href="/"
         className="absolute left-6 top-10 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg"
@@ -68,7 +62,6 @@ export default function PreviewPanel({ imageSrc }: Props) {
         ←
       </Link>
 
-      {/* LOGO */}
       <div className="absolute left-[30%] top-10 z-30 -translate-x-1/2">
         <Image src="/logo-alaudis.png" alt="" width={120} height={50} />
       </div>

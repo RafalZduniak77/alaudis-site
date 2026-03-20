@@ -1,61 +1,84 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 type Props = {
-  selected: {
-    obudowa: string;
-    akustyka: Record<string, string>;
-    mechanizm: Record<string, string>;
-  };
+  imageSrc: string;
 };
 
-export default function PreviewPanel({ selected }: Props) {
-  // 🔥 wybór pierwszego dostępnego elementu do podglądu
-  const previewItem =
-    selected.obudowa ||
-    Object.values(selected.akustyka)[0] ||
-    Object.values(selected.mechanizm)[0] ||
-    "";
+export default function PreviewPanel({ imageSrc }: Props) {
+  const [current, setCurrent] = useState(imageSrc);
+  const [next, setNext] = useState<string | null>(null);
 
-  // 🔥 mapowanie zdjęć (dodawaj swoje)
-  const imageMap: Record<string, string> = {
-    "Mostki rezonansowe klon": "/mostki-klon.jpg",
-    "Mostki rezonansowe buk": "/mostki-buk.jpg",
+  useEffect(() => {
+    if (imageSrc !== current) {
+      setNext(imageSrc);
 
-    "Dno rezonansowe Strunz": "/dno-strunz.jpg",
-    "Dno rezonansowe Chiresse": "/dno-chiresse.jpg",
+      const timeout = setTimeout(() => {
+        setCurrent(imageSrc);
+        setNext(null);
+      }, 300);
 
-    "Lakierowanie dna rezonansowego mat": "/lakier-mat.jpg",
-    "Lakierowanie dna rezonansowego połysk": "/lakier-polysk.jpg",
-
-    "Młotki Renner": "/mlotki-renner.jpg",
-    "Młotki Abbel": "/mlotki-abbel.jpg",
-
-    "Mechanizm Renner": "/mechanizm-renner.jpg",
-
-    "Klawiatura Kluge": "/klawiatura-kluge.jpg",
-  };
-
-  const imageSrc = imageMap[previewItem] || "/hero.jpg";
+      return () => clearTimeout(timeout);
+    }
+  }, [imageSrc, current]);
 
   return (
-    <div className="absolute left-0 top-0 h-full w-[65%] flex items-center justify-center px-4">
+    <>
+      {/* TŁO */}
+      <Image
+        src="/hero.jpg"
+        alt="Tło konfiguratora"
+        fill
+        priority
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-black/50" />
 
-      {/* 🔥 DUŻY BOX PREMIUM */}
-      <div className="relative w-full max-w-[900px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+      {/* LEWA CZĘŚĆ - PODGLĄD */}
+      <div className="absolute left-0 top-0 flex h-full w-[60%] items-center justify-center px-10">
+        <div className="relative aspect-[4/3] w-full max-w-[650px] overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+          <Image
+            src={current}
+            alt="Podgląd konfiguracji"
+            fill
+            className={`object-contain transition-opacity duration-300 ${
+              next ? "opacity-0" : "opacity-100"
+            }`}
+          />
 
-        <Image
-          src={imageSrc}
-          alt="preview"
-          fill
-          className="object-contain scale-105 transition-all duration-500"
-        />
+          {next && (
+            <Image
+              src={next}
+              alt="Nowy podgląd konfiguracji"
+              fill
+              className="object-contain opacity-100 transition-opacity duration-300"
+            />
+          )}
 
-        {/* 🔥 glass overlay */}
-        <div className="absolute inset-0 bg-black/10 backdrop-blur-[2px]" />
-
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+        </div>
       </div>
-    </div>
+
+      {/* STRZAŁKA POWROTU */}
+      <Link
+        href="/"
+        className="absolute left-6 top-10 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg"
+      >
+        ←
+      </Link>
+
+      {/* LOGO */}
+      <div className="absolute left-[30%] top-10 z-30 -translate-x-1/2">
+        <Image
+          src="/logo-alaudis.png"
+          alt="Alaudis"
+          width={120}
+          height={50}
+        />
+      </div>
+    </>
   );
 }
