@@ -1,6 +1,6 @@
 "use client";
 
-import "@google/model-viewer";
+import { useEffect, useState } from "react";
 
 declare module "react" {
   namespace JSX {
@@ -11,6 +11,24 @@ declare module "react" {
 }
 
 export default function AlaudisARPreview() {
+  const [viewerReady, setViewerReady] = useState(false);
+
+  useEffect(() => {
+    let active = true;
+
+    import("@google/model-viewer")
+      .then(() => {
+        if (active) setViewerReady(true);
+      })
+      .catch((error) => {
+        console.error("Nie udało się załadować model-viewer:", error);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
   return (
     <section className="relative w-full overflow-hidden rounded-[36px] border border-white/10 bg-[#070707] p-4 sm:p-6 lg:p-8">
       <div className="pointer-events-none absolute inset-0">
@@ -55,29 +73,42 @@ export default function AlaudisARPreview() {
             </span>
           </div>
 
-          <model-viewer
-            src="/models/alaudis-demo.glb"
-            ios-src="/models/untitled.usdz"
-            alt="Pokazowy model fortepianu Alaudis"
-            ar
-            ar-modes="webxr scene-viewer quick-look"
-            camera-controls
-            touch-action="pan-y"
-            shadow-intensity="1.15"
-            exposure="0.95"
-            auto-rotate
-            camera-orbit="45deg 75deg 105%"
-            min-camera-orbit="auto auto 55%"
-            max-camera-orbit="auto auto 230%"
-            field-of-view="30deg"
-            interaction-prompt="auto"
-            style={{
-              width: "100%",
-              height: "78vh",
-              minHeight: "640px",
-              background: "transparent",
-            }}
-          />
+          {viewerReady ? (
+            <model-viewer
+              src="/models/alaudis-demo.glb"
+              ios-src="/models/untitled.usdz"
+              alt="Pokazowy model fortepianu Alaudis"
+              ar
+              ar-modes="webxr scene-viewer quick-look"
+              camera-controls
+              touch-action="pan-y"
+              shadow-intensity="1.15"
+              exposure="0.95"
+              auto-rotate
+              camera-orbit="45deg 75deg 105%"
+              min-camera-orbit="auto auto 55%"
+              max-camera-orbit="auto auto 230%"
+              field-of-view="30deg"
+              interaction-prompt="auto"
+              style={{
+                width: "100%",
+                height: "78vh",
+                minHeight: "640px",
+                background: "transparent",
+              }}
+            />
+          ) : (
+            <div
+              className="flex items-center justify-center text-white/50"
+              style={{
+                width: "100%",
+                height: "78vh",
+                minHeight: "640px",
+              }}
+            >
+              Ładowanie podglądu 3D...
+            </div>
+          )}
 
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20">
             <div className="flex flex-col gap-3 border-t border-white/10 bg-gradient-to-t from-black/70 via-black/35 to-transparent px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
