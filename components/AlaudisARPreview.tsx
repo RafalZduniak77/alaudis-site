@@ -2,7 +2,7 @@
 
 import "@google/model-viewer";
 
-declare global {
+declare module "react" {
   namespace JSX {
     interface IntrinsicElements {
       "model-viewer": any;
