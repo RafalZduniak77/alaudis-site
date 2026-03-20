@@ -1,65 +1,206 @@
+//
+//  page.tsx
+//
+
 import Image from "next/image";
+import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
+import Footer from "@/components/Footer"; // 👈 DODANE
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <main className="min-h-screen bg-black text-white">
+      {/* HERO */}
+      <section className="relative min-h-screen overflow-hidden">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/hero.jpg"
+          alt="Fortepian Alaudis"
+          fill
           priority
+          className="object-cover object-center"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+        {/* HEADER */}
+        <header className="absolute inset-x-0 top-0 z-30">
+          <div className="mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pt-12 pb-6 lg:px-10">
+            {/* LEWA STRONA - MENU */}
+            <div className="ml-8 flex items-center gap-4">
+              <a
+                href="#modele"
+                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+              >
+                Modele
+              </a>
+
+              <a
+                href="#kontakt"
+                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+              >
+                Kontakt
+              </a>
+
+              <a
+                href="#historia"
+                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+              >
+                Historia
+              </a>
+            </div>
+
+            {/* ŚRODEK - LOGO */}
+            <div className="justify-self-center pt-2">
+              <Image
+                src="/logo-alaudis.png"
+                alt="Logo Alaudis"
+                width={77}
+                height={25}
+                priority
+                className="h-auto w-[60px] object-contain opacity-95 md:w-[77px]"
+              />
+            </div>
+
+            {/* PRAWA STRONA */}
+            <div className="justify-self-end">
+              <a
+                href="/konfigurator"
+                className="rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+              >
+                Wejdź
+              </a>
+            </div>
+          </div>
+        </header>
+
+        {/* ŚRODEK */}
+        <div className="relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
+          <div className="mx-auto max-w-4xl pt-16">
+            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/85">
+              Calendario Alaudis
+            </p>
+
+            <h1 className="text-2xl font-light uppercase tracking-[0.06em] text-white sm:text-4xl lg:text-[44px] lg:leading-[1.12]">
+              Rzemiosło,
+              <br />
+              detal, tożsamość.
+            </h1>
+
+            <p className="mx-auto mt-7 max-w-2xl text-sm leading-8 text-white/90 sm:text-base">
+              Dopracowane cyfrowe doświadczenie inspirowane światem luksusowych
+              konfiguratorów — stworzone dla fortepianów premium,
+              indywidualnego charakteru i przyszłości marki Alaudis.
+            </p>
+
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a
+                href="#modele"
+                className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+              >
+                Odkryj modele
+              </a>
+
+              <a
+                href="/konfigurator"
+                className="rounded-full bg-white px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:bg-white/85"
+              >
+                Otwórz konfigurator
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* DÓŁ */}
+        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
+          <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
+            <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
+          </div>
+          <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/80">
+            Przewiń w dół
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* NOWA SEKCJA SCROLL MODELI */}
+      <ScrollModelsShowcase />
+
+      {/* SEKCJA MODELI */}
+      <section
+        id="modele"
+        className="grid gap-6 bg-neutral-950 px-6 py-20 sm:px-10 lg:grid-cols-3 lg:px-16"
+      >
+        {/* 1 */}
+        <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            Model
+          </p>
+          <h2 className="mt-4 text-3xl font-light">Alaudis 178</h2>
+          <p className="mt-5 leading-7 text-white/68">
+            Zrównoważony fortepian o eleganckiej obecności, lirycznej
+            wrażliwości i wyrafinowanych proporcjach do wyjątkowych wnętrz.
+          </p>
         </div>
-      </main>
-    </div>
+
+        {/* 2 — POPRAWIONE */}
+        <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            Model
+          </p>
+          <h2 className="mt-4 text-3xl font-light">Alaudis 215</h2>
+          <p className="mt-5 leading-7 text-white/68">
+            Koncertowa wizja Alaudis — głębsza, odważniejsza i stworzona do
+            przestrzeni, w których dźwięk i design muszą pozostać
+            niezapomniane.
+          </p>
+        </div>
+
+        {/* 3 — POPRAWIONE */}
+        <div
+          id="konfigurator"
+          className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8"
+        >
+          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            Model
+          </p>
+          <h2 className="mt-4 text-3xl font-light">Alaudis 275</h2>
+          <p className="mt-5 leading-7 text-white/68">
+            Największy model koncertowy Alaudis — pełna skala brzmienia,
+            projekcja i charakter sceniczny klasy premium.
+          </p>
+        </div>
+      </section>
+
+      {/* SEKCJA KONTAKT */}
+      <section
+        id="kontakt"
+        className="bg-black px-6 py-20 text-center sm:px-10 lg:px-16"
+      >
+        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          Kontakt
+        </p>
+        <h2 className="mt-4 text-3xl font-light text-white">Alaudis</h2>
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+          Skontaktuj się z nami, aby porozmawiać o modelach, indywidualnym
+          wykończeniu oraz konfiguracji fortepianu Alaudis.
+        </p>
+      </section>
+
+      {/* SEKCJA HISTORIA */}
+      <section
+        id="historia"
+        className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16"
+      >
+        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          Historia
+        </p>
+        <h2 className="mt-4 text-3xl font-light text-white">
+          Dziedzictwo Alaudis
+        </h2>
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+          Poznaj historię marki, filozofię tworzenia fortepianów oraz świat
+          rzemiosła, który stoi za wyjątkowym charakterem Alaudis.
+        </p>
+      </section>
+
+      {/* 🔥 FOOTER PREMIUM */}
+      <Footer />
+    </main>
   );
 }
