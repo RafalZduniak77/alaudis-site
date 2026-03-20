@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 declare module "react" {
   namespace JSX {
@@ -12,6 +12,11 @@ declare module "react" {
 
 export default function AlaudisARPreview() {
   const [viewerReady, setViewerReady] = useState(false);
+  const [roomImage, setRoomImage] = useState<string | null>(null);
+  const [roomVideo, setRoomVideo] = useState<string | null>(null);
+
+  const imageInputRef = useRef<HTMLInputElement | null>(null);
+  const videoInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -29,6 +34,31 @@ export default function AlaudisARPreview() {
     };
   }, []);
 
+  function handleRoomUpload(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const url = URL.createObjectURL(file);
+    setRoomImage(url);
+    setRoomVideo(null);
+  }
+
+  function handleVideoUpload(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const url = URL.createObjectURL(file);
+    setRoomVideo(url);
+    setRoomImage(null);
+  }
+
+  function clearBackground() {
+    setRoomImage(null);
+    setRoomVideo(null);
+    if (imageInputRef.current) imageInputRef.current.value = "";
+    if (videoInputRef.current) videoInputRef.current.value = "";
+  }
+
   return (
     <section className="relative w-full overflow-hidden rounded-[36px] border border-white/10 bg-[#070707] p-4 sm:p-6 lg:p-8">
       <div className="pointer-events-none absolute inset-0">
@@ -39,12 +69,16 @@ export default function AlaudisARPreview() {
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-wrap items-center gap-3">
-            <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2">
+            <button
+              type="button"
+              onClick={() => videoInputRef.current?.click()}
+              className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 transition hover:border-white hover:bg-white hover:text-black"
+            >
               <span className="h-2 w-2 rounded-full bg-[#c79a5c]" />
-              <span className="text-[11px] uppercase tracking-[0.28em] text-white/60">
+              <span className="text-[11px] uppercase tracking-[0.28em] text-white/60 hover:text-black">
                 Alaudis – podgląd premium
               </span>
-            </div>
+            </button>
 
             <span className="rounded-full border border-white/15 bg-black/30 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/70">
               Gotowy GLB
@@ -55,6 +89,50 @@ export default function AlaudisARPreview() {
             <span className="rounded-full border border-[#c79a5c]/30 bg-[#c79a5c]/10 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-[#e6c08c]">
               Model pokazowy
             </span>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={() => imageInputRef.current?.click()}
+              className="rounded-full border border-white/15 bg-black/30 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/75 transition hover:border-white hover:bg-white hover:text-black"
+            >
+              Wgraj zdjęcie salonu
+            </button>
+
+            <button
+              type="button"
+              onClick={() => videoInputRef.current?.click()}
+              className="rounded-full border border-white/15 bg-black/30 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/75 transition hover:border-white hover:bg-white hover:text-black"
+            >
+              Wgraj video salonu
+            </button>
+
+            {(roomImage || roomVideo) && (
+              <button
+                type="button"
+                onClick={clearBackground}
+                className="rounded-full border border-white/15 bg-black/30 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/75 transition hover:border-white hover:bg-white hover:text-black"
+              >
+                Usuń tło
+              </button>
+            )}
+
+            <input
+              ref={imageInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleRoomUpload}
+              className="hidden"
+            />
+
+            <input
+              ref={videoInputRef}
+              type="file"
+              accept="video/*"
+              onChange={handleVideoUpload}
+              className="hidden"
+            />
           </div>
         </div>
 
@@ -73,6 +151,33 @@ export default function AlaudisARPreview() {
             </span>
           </div>
 
+          {roomVideo && (
+            <video
+              src={roomVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 z-0 h-full w-full object-cover"
+            />
+          )}
+
+          {!roomVideo && roomImage && (
+            <div
+              className="absolute inset-0 z-0"
+              style={{
+                backgroundImage: `url(${roomImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            />
+          )}
+
+          {(roomImage || roomVideo) && (
+            <div className="pointer-events-none absolute inset-0 z-0 bg-black/10" />
+          )}
+
           {viewerReady ? (
             <model-viewer
               src="/models/alaudis-demo.glb"
@@ -82,8 +187,8 @@ export default function AlaudisARPreview() {
               ar-modes="webxr scene-viewer quick-look"
               camera-controls
               touch-action="pan-y"
-              shadow-intensity="1.15"
-              exposure="0.95"
+              shadow-intensity="1.05"
+              exposure="1"
               auto-rotate
               camera-orbit="45deg 75deg 105%"
               min-camera-orbit="auto auto 55%"
@@ -95,11 +200,13 @@ export default function AlaudisARPreview() {
                 height: "78vh",
                 minHeight: "640px",
                 background: "transparent",
+                position: "relative",
+                zIndex: 1,
               }}
             />
           ) : (
             <div
-              className="flex items-center justify-center text-white/50"
+              className="relative z-[1] flex items-center justify-center text-white/50"
               style={{
                 width: "100%",
                 height: "78vh",
@@ -118,7 +225,7 @@ export default function AlaudisARPreview() {
                 </p>
                 <p className="mt-2 text-sm text-white/75">
                   Przeciągnij, aby obrócić • przewijaj lub gestem przybliżaj i
-                  oddalaj • na telefonie uruchom AR
+                  oddalaj • możesz też wgrać zdjęcie lub video własnego salonu
                 </p>
               </div>
 
@@ -127,7 +234,7 @@ export default function AlaudisARPreview() {
                   Zoom aktywny
                 </span>
                 <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/65">
-                  Obsługa dotyku
+                  Własne tło
                 </span>
               </div>
             </div>
@@ -143,9 +250,8 @@ export default function AlaudisARPreview() {
               Cyfrowy podgląd premium
             </p>
             <p className="mt-3 text-sm leading-7 text-white/70">
-              Ten moduł jest bazą pod finalne doświadczenie marki:
-              konfigurator, wybór wykończeń i podgląd fortepianu w realnym
-              wnętrzu klienta.
+              Możesz dodać własne zdjęcie albo video wnętrza i zobaczyć
+              fortepian na tle salonu, gabinetu albo pokoju muzycznego.
             </p>
           </div>
 
@@ -162,12 +268,14 @@ export default function AlaudisARPreview() {
 
           <div className="rounded-[22px] border border-white/10 bg-black/20 p-5 backdrop-blur-sm">
             <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
-              AR
+              Wnętrze
             </p>
-            <p className="mt-3 text-lg font-light text-white">Telefon i tablet</p>
+            <p className="mt-3 text-lg font-light text-white">
+              Zdjęcie lub video
+            </p>
             <p className="mt-2 text-sm leading-7 text-white/60">
-              Na wspieranych urządzeniach możesz sprawdzić, jak fortepian
-              wygląda w realnym wnętrzu.
+              Wgraj zdjęcie albo film swojego salonu, aby zobaczyć fortepian na
+              tle własnego wnętrza.
             </p>
           </div>
 
@@ -176,11 +284,11 @@ export default function AlaudisARPreview() {
               Następny etap
             </p>
             <p className="mt-3 text-lg font-light text-white">
-              Warianty wykończeń
+              Wersja AR na telefon
             </p>
             <p className="mt-2 text-sm leading-7 text-white/60">
-              Kolejny krok to podpięcie docelowych modeli Alaudis i wersji
-              wykończeń do konfiguratora.
+              Kolejny krok to uruchomienie kamery telefonu i ustawienie
+              fortepianu bezpośrednio w realnej przestrzeni.
             </p>
           </div>
         </div>
