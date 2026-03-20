@@ -83,12 +83,6 @@ export default function Home() {
               detal, tożsamość.
             </h1>
 
-            <p className="mx-auto mt-7 max-w-2xl text-sm leading-8 text-white/90 sm:text-base">
-              Dopracowane cyfrowe doświadczenie inspirowane światem luksusowych
-              konfiguratorów — stworzone dla fortepianów premium,
-              indywidualnego charakteru i przyszłości marki Alaudis.
-            </p>
-
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href="/odkryj-modele"
@@ -143,7 +137,7 @@ export default function Home() {
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Model
           </p>
-          <h2 className="mt-4 text-3xl font-light">Alaudis 215</h2>
+          <h2 className="mt-4 text-3xl font-light">Alaudis 214</h2>
           <p className="mt-5 leading-7 text-white/68">
             Koncertowa wizja Alaudis — głębsza, odważniejsza i stworzona do
             przestrzeni, w których dźwięk i design muszą pozostać
