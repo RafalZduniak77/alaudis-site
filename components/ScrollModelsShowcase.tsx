@@ -64,11 +64,14 @@ const slides: ShowcaseSlide[] = [
 function SlideItem({ slide }: { slide: ShowcaseSlide }) {
   const ref = useRef<HTMLDivElement | null>(null);
 
-  const [scale, setScale] = useState(1);
-  const [translateY, setTranslateY] = useState(0);
+  const [transformStyle, setTransformStyle] = useState(
+    "translate3d(0, 0px, 0) scale(1)"
+  );
 
   useEffect(() => {
-    const handleScroll = () => {
+    let raf = 0;
+
+    const update = () => {
       if (!ref.current) return;
 
       const rect = ref.current.getBoundingClientRect();
@@ -82,47 +85,52 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
         Math.max(0, (start - rect.top) / (start - end))
       );
 
-      // 🔥 start DUŻY → oddala się
-      const newScale = 1 - progress * 0.45;
+      const scale = 1 - progress * 0.45;
+      const translateY = progress * 80;
 
-      // 🔥 lekki ruch (parallax)
-      const newTranslateY = progress * 80;
-
-      setScale(newScale);
-      setTranslateY(newTranslateY);
+      setTransformStyle(`translate3d(0, ${translateY}px, 0) scale(${scale})`);
     };
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    const handleScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    };
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    update();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   return (
-    <div ref={ref} className="py-8 flex justify-center">
-      {/* ✅ SLIDER NA CAŁĄ STRONĘ (prawie full width) */}
+    <div ref={ref} className="flex justify-center py-8">
       <div
-        className="w-full max-w-[98vw] transition-transform duration-100 will-change-transform"
+        className="w-full max-w-[98vw] will-change-transform [backface-visibility:hidden] [transform:translateZ(0)]"
         style={{
-          transform: `scale(${scale}) translateY(${translateY}px)`,
+          transform: transformStyle,
+          WebkitTransform: transformStyle,
+          transformOrigin: "center center",
+          WebkitTransformOrigin: "center center",
         }}
       >
         <div className="overflow-hidden rounded-[28px] border border-white/10 bg-black shadow-[0_30px_120px_rgba(0,0,0,0.6)]">
-          {/* FOTO */}
           <div className="relative aspect-[16/9] w-full">
             <Image
               src={slide.image}
               alt={slide.title}
               fill
-              className="object-cover object-center"
+              className="object-cover object-center [transform:translateZ(0)]"
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           </div>
 
-          {/* PANEL */}
-          <div className="bg-[#e9e9e9] px-8 py-7 text-black grid gap-6 md:grid-cols-[1.4fr_1fr_110px] items-center">
-            {/* LEWA */}
+          <div className="grid items-center gap-6 bg-[#e9e9e9] px-8 py-7 text-black md:grid-cols-[1.4fr_1fr_110px]">
             <div>
               <p className="text-[11px] uppercase tracking-[0.28em] text-black/45">
                 {slide.eyebrow}
@@ -135,7 +143,6 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
               <p className="mt-3 text-sm text-black/70">{slide.subtitle}</p>
             </div>
 
-            {/* ŚRODEK */}
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <p className="text-[11px] uppercase text-black/45">Wnętrze</p>
@@ -150,7 +157,6 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
               </div>
             </div>
 
-            {/* STRZAŁKA */}
             <div className="flex justify-end">
               <a
                 href="/konfigurator"
@@ -168,17 +174,13 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
 
 export default function ScrollModelsShowcase() {
   return (
-    <section className="bg-[#111] text-white px-0">
-      {/* HEADER */}
-      <div className="mx-auto max-w-[1600px] px-4 pt-24 pb-10">
+    <section className="bg-[#111] px-0 text-white">
+      <div className="mx-auto max-w-[1600px] px-4 pb-10 pt-24">
         <p className="text-[11px] uppercase tracking-[0.36em] text-white/45">
           Modele i wykończenia
         </p>
-
-      
       </div>
 
-      {/* SLIDERY */}
       {slides.map((slide) => (
         <SlideItem key={slide.id} slide={slide} />
       ))}
