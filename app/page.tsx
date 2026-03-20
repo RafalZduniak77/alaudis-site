@@ -4,7 +4,7 @@
 
 import Image from "next/image";
 import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
-import Footer from "@/components/Footer"; // 👈 DODANE
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -25,7 +25,7 @@ export default function Home() {
             {/* LEWA STRONA - MENU */}
             <div className="ml-8 flex items-center gap-4">
               <a
-                href="#modele"
+                href="/odkryj-modele"
                 className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Modele
@@ -91,7 +91,7 @@ export default function Home() {
 
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
-                href="#modele"
+                href="/odkryj-modele"
                 className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Odkryj modele
@@ -99,7 +99,7 @@ export default function Home() {
 
               <a
                 href="/konfigurator"
-                className="rounded-full bg-white px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:bg-white/85"
+                className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Otwórz konfigurator
               </a>
@@ -138,7 +138,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 2 — POPRAWIONE */}
+        {/* 2 */}
         <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Model
@@ -151,7 +151,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 3 — POPRAWIONE */}
+        {/* 3 */}
         <div
           id="konfigurator"
           className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8"
@@ -199,7 +199,7 @@ export default function Home() {
         </p>
       </section>
 
-      {/* 🔥 FOOTER PREMIUM */}
+      {/* FOOTER PREMIUM */}
       <Footer />
     </main>
   );
