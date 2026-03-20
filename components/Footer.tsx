@@ -14,7 +14,7 @@ export default function Footer() {
           <h4 style={styles.title}>MODELS</h4>
           <ul style={styles.list}>
             <li>Alaudis 178</li>
-            <li>Alaudis 215</li> {/* 🔥 POPRAWIONE */}
+            <li>Alaudis 214</li> {/* 🔥 POPRAWIONE */}
             <li>Alaudis 275</li>
           </ul>
         </div>
