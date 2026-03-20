@@ -11,8 +11,8 @@ export const options: OptionsMap = {
     "Bubinga",
     "Mahoń pasiak",
     "Mahoń piramidalny",
-    "Biały poliester",      // 🔥 NOWE
-    "Czarny poliester",     // 🔥 NOWE
+    "Biały poliester",
+    "Czarny poliester",
   ],
   akustyka: [
     "Dno rezonansowe Strunz",
@@ -88,28 +88,24 @@ export const previewImageMap: Record<string, string> = {
   "Bubinga": "/konfigurator/obudowa/bubinga.jpg",
   "Mahoń pasiak": "/konfigurator/obudowa/mahon-pasiak.jpg",
   "Mahoń piramidalny": "/konfigurator/obudowa/mahon-piramidalny.jpg",
-
-  "Biały poliester": "/konfigurator/obudowa/bialy-poliester.jpg",   // 🔥 NOWE
-  "Czarny poliester": "/konfigurator/obudowa/czarny-poliester.jpg", // 🔥 NOWE
+  "Biały poliester": "/konfigurator/obudowa/bialy-poliester.jpg",
+  "Czarny poliester": "/konfigurator/obudowa/czarny-poliester.jpg",
 
   // 🔥 AKUSTYKA
-  "Mostki rezonansowe klon": "/konfigurator/mostki-klon.jpg",
-  "Mostki rezonansowe buk": "/konfigurator/mostki-buk.jpg",
-
-  "Dno rezonansowe Strunz": "/konfigurator/dno-strunz.jpg",
-  "Dno rezonansowe Chiresse": "/konfigurator/dno-chiresse.jpg",
-
-  "Lakierowanie dna rezonansowego mat": "/konfigurator/lakier-mat.jpg",
-  "Lakierowanie dna rezonansowego połysk": "/konfigurator/lakier-polysk.jpg",
+  "Mostki rezonansowe klon": "/konfigurator/akustyka/mostki-klon.jpg",
+  "Mostki rezonansowe buk": "/konfigurator/akustyka/mostki-buk.jpg",
+  "Dno rezonansowe Strunz": "/konfigurator/akustyka/dno-strunz.jpg",
+  "Dno rezonansowe Chiresse": "/konfigurator/akustyka/dno-chiresse.jpg",
+  "Lakierowanie dna rezonansowego mat": "/konfigurator/akustyka/lakier-mat.jpg",
+  "Lakierowanie dna rezonansowego połysk": "/konfigurator/akustyka/lakier-polysk.jpg",
 
   // 🔥 MECHANIZM
-  "Młotki Alaudis": "/konfigurator/mlotki-alaudis.jpg",
-  "Młotki Renner": "/konfigurator/mlotki-renner.jpg",
-  "Młotki Abbel": "/konfigurator/mlotki-abbel.jpg",
-
-  "Mechanizm Alaudis SAP Renovation": "/konfigurator/mechanizm-alaudis.jpg",
-  "Mechanizm Renner": "/konfigurator/mechanizm-renner.jpg",
-  "Mechanizm Abbel": "/konfigurator/mechanizm-abbel.jpg",
+  "Młotki Alaudis": "/konfigurator/mechanizm/mlotki-alaudis.jpg",
+  "Młotki Renner": "/konfigurator/mechanizm/mlotki-renner.jpg",
+  "Młotki Abbel": "/konfigurator/mechanizm/mlotki-abbel.jpg",
+  "Mechanizm Alaudis SAP Renovation": "/konfigurator/mechanizm/mechanizm-alaudis.jpg",
+  "Mechanizm Renner": "/konfigurator/mechanizm/mechanizm-renner.jpg",
+  "Mechanizm Abbel": "/konfigurator/mechanizm/mechanizm-abbel.jpg",
 };
 
 export const defaultPreviewImage = "/hero.jpg";
