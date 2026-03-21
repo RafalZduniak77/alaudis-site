@@ -14,6 +14,7 @@
 // 8. pokazuje sekcję kontakt
 // 9. pokazuje sekcję historia
 // 10. dodaje footer na końcu
+// 11. ma po prawej rozwijane menu języków PL / EN / DE
 //
 // Co tutaj najłatwiej zmieniasz:
 // - zdjęcie hero
@@ -24,6 +25,7 @@
 // - linki kart modeli
 // - treści sekcji kontakt i historia
 // - kolejność sekcji
+// - aktywny język i wygląd menu językowego
 //
 // Najważniejsze importy:
 // - ScrollModelsShowcase -> sekcja przewijanych modeli
@@ -55,7 +57,7 @@ export default function Home() {
             HEADER
             - menu po lewej
             - logo na środku
-            - przycisk po prawej
+            - menu języków po prawej
            ================================================== */}
         <header className="absolute inset-x-0 top-0 z-30">
           <div className="mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pt-12 pb-6 lg:px-10">
@@ -95,14 +97,43 @@ export default function Home() {
               />
             </div>
 
-            {/* PRAWA STRONA - CTA */}
+            {/* PRAWA STRONA - MENU JĘZYKÓW */}
             <div className="justify-self-end">
-              <a
-                href="/konfigurator"
-                className="rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Wejdź
-              </a>
+              <details className="group relative">
+                <summary className="list-none rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black cursor-pointer">
+                  <span className="inline-flex items-center gap-2">
+                    PL
+                    <span className="text-[10px] transition group-open:rotate-180">
+                      ▼
+                    </span>
+                  </span>
+                </summary>
+
+                <div className="absolute right-0 mt-3 min-w-[150px] overflow-hidden rounded-2xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl">
+                  {/* AKTYWNY JĘZYK */}
+                  <button
+                    type="button"
+                    className="w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
+                  >
+                    PL
+                  </button>
+
+                  {/* PRZYGOTOWANE POD KOLEJNE WERSJE */}
+                  <button
+                    type="button"
+                    className="w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                  >
+                    EN
+                  </button>
+
+                  <button
+                    type="button"
+                    className="w-full border-t border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                  >
+                    DE
+                  </button>
+                </div>
+              </details>
             </div>
           </div>
         </header>
