@@ -107,7 +107,7 @@ export default function AlaudisARScene({
 
         {viewerReady ? (
           <model-viewer
-            key={modelFile}
+            key={`${modelFile}-${autoRotateEnabled ? "rotate-on" : "rotate-off"}`}
             src={modelFile}
             ios-src="/models/untitled.usdz"
             alt={`Pokazowy model fortepianu Alaudis - ${modelLabel}`}
@@ -122,7 +122,7 @@ export default function AlaudisARScene({
             min-camera-orbit={MODEL_VIEWER_SETTINGS.minCameraOrbit}
             max-camera-orbit={MODEL_VIEWER_SETTINGS.maxCameraOrbit}
             field-of-view={MODEL_VIEWER_SETTINGS.fieldOfView}
-            interaction-prompt="auto"
+            interaction-prompt="none"
             {...autoRotateProps}
             style={{
               width: "100%",
