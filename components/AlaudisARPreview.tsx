@@ -215,7 +215,7 @@ export default function AlaudisARPreview() {
               camera-controls
               touch-action="pan-y"
               shadow-intensity="0"
-              exposure="1"
+              exposure="0.72"
               auto-rotate
               camera-orbit="45deg 75deg 105%"
               min-camera-orbit="auto auto 55%"
@@ -323,4 +323,3 @@ export default function AlaudisARPreview() {
     </section>
   );
 }
-
