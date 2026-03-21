@@ -10,15 +10,39 @@ declare module "react" {
   }
 }
 
+type ModelOption = {
+  id: string;
+  label: string;
+  file: string;
+};
+
+const MODEL_OPTIONS: ModelOption[] = [
+  {
+    id: "heban-klasyczny",
+    label: "Heban klasyczny",
+    file: "/models/alaudis-demo.glb",
+  },
+  {
+    id: "czerwony-test",
+    label: "Czerwony test",
+    file: "/models/czerwony-polysk.glb",
+  },
+];
+
 export default function AlaudisARPreview() {
   const [viewerReady, setViewerReady] = useState(false);
   const [roomImage, setRoomImage] = useState<string | null>(null);
   const [roomVideo, setRoomVideo] = useState<string | null>(null);
+  const [selectedModelId, setSelectedModelId] = useState(MODEL_OPTIONS[0].id);
 
   const imageInputRef = useRef<HTMLInputElement | null>(null);
   const videoInputRef = useRef<HTMLInputElement | null>(null);
 
   const defaultRoomImage = "/wnetrze-default.jpg";
+
+  const selectedModel =
+    MODEL_OPTIONS.find((option) => option.id === selectedModelId) ??
+    MODEL_OPTIONS[0];
 
   useEffect(() => {
     let active = true;
@@ -74,9 +98,27 @@ export default function AlaudisARPreview() {
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-8 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="rounded-full border border-[#c79a5c]/30 bg-[#c79a5c]/10 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-[#e6c08c]">
-              Model pokazowy
-            </span>
+            <div className="relative">
+              <select
+                value={selectedModelId}
+                onChange={(e) => setSelectedModelId(e.target.value)}
+                className="appearance-none rounded-full border border-[#c79a5c]/30 bg-[#c79a5c]/10 px-4 py-2 pr-11 text-[11px] uppercase tracking-[0.22em] text-[#e6c08c] outline-none transition hover:border-[#c79a5c]/50"
+              >
+                {MODEL_OPTIONS.map((option) => (
+                  <option
+                    key={option.id}
+                    value={option.id}
+                    className="bg-[#111] text-white"
+                  >
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+
+              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[11px] text-[#e6c08c]">
+                ▼
+              </span>
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-3 xl:justify-end">
@@ -164,9 +206,10 @@ export default function AlaudisARPreview() {
 
           {viewerReady ? (
             <model-viewer
-              src="/models/alaudis-demo.glb"
+              key={selectedModel.file}
+              src={selectedModel.file}
               ios-src="/models/untitled.usdz"
-              alt="Pokazowy model fortepianu Alaudis"
+              alt={`Pokazowy model fortepianu Alaudis - ${selectedModel.label}`}
               ar
               ar-modes="webxr scene-viewer quick-look"
               camera-controls
@@ -218,7 +261,7 @@ export default function AlaudisARPreview() {
                   Zoom aktywny
                 </span>
                 <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/65">
-                  Własne tło
+                  Zmiana modelu
                 </span>
               </div>
             </div>
@@ -234,8 +277,8 @@ export default function AlaudisARPreview() {
               Cyfrowy podgląd premium
             </p>
             <p className="mt-3 text-sm leading-7 text-white/70">
-              Startujesz od domyślnego wnętrza premium, a później możesz dodać
-              własne zdjęcie albo video salonu.
+              Możesz przełączać wersje wykończeń i sprawdzać, jak fortepian
+              wygląda we wnętrzu premium albo na własnym tle.
             </p>
           </div>
 
@@ -252,14 +295,14 @@ export default function AlaudisARPreview() {
 
           <div className="rounded-[22px] border border-white/10 bg-black/20 p-5 backdrop-blur-sm">
             <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
-              Wnętrze
+              Wykończenie
             </p>
             <p className="mt-3 text-lg font-light text-white">
-              Zdjęcie lub video
+              Lista modeli
             </p>
             <p className="mt-2 text-sm leading-7 text-white/60">
-              Wgraj zdjęcie albo film swojego salonu, aby zobaczyć fortepian na
-              tle własnego wnętrza.
+              W lewym górnym polu wybierasz aktualną wersję modelu lub
+              wykończenia do podglądu.
             </p>
           </div>
 
@@ -268,11 +311,11 @@ export default function AlaudisARPreview() {
               Następny etap
             </p>
             <p className="mt-3 text-lg font-light text-white">
-              Wersja AR na telefon
+              Finalne wykończenia
             </p>
             <p className="mt-2 text-sm leading-7 text-white/60">
-              Kolejny krok to uruchomienie kamery telefonu i ustawienie
-              fortepianu bezpośrednio w realnej przestrzeni.
+              Kolejny krok to heban mat, orzech i palisander jako osobne,
+              dopracowane wersje pokazowe.
             </p>
           </div>
         </div>
@@ -280,3 +323,4 @@ export default function AlaudisARPreview() {
     </section>
   );
 }
+
