@@ -181,70 +181,64 @@ export default function AlaudisARPreview() {
             </span>
           </div>
 
-          {roomVideo ? (
-            <video
-              src={roomVideo}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 z-0 h-full w-full object-cover"
-            />
-          ) : (
-            <div
-              className="absolute inset-0 z-0"
-              style={{
-                backgroundImage: `url(${activeBackgroundImage})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            />
-          )}
+          <div className="relative h-[78vh] min-h-[640px] w-full">
+            {roomVideo ? (
+              <video
+                src={roomVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 z-0 h-full w-full object-cover"
+              />
+            ) : (
+              <div
+                className="absolute inset-0 z-0"
+                style={{
+                  backgroundImage: `url(${activeBackgroundImage})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              />
+            )}
 
-          <div className="pointer-events-none absolute inset-0 z-0 bg-black/10" />
+            <div className="pointer-events-none absolute inset-0 z-0 bg-black/10" />
 
-          {viewerReady ? (
-            <model-viewer
-              key={selectedModel.file}
-              src={selectedModel.file}
-              ios-src="/models/untitled.usdz"
-              alt={`Pokazowy model fortepianu Alaudis - ${selectedModel.label}`}
-              ar
-              ar-modes="webxr scene-viewer quick-look"
-              camera-controls
-              touch-action="pan-y"
-              shadow-intensity="0"
-              environment-image="neutral"
-              exposure="0.58"
-              auto-rotate
-              camera-orbit="45deg 75deg 105%"
-              camera-target="0m 0.15m 0m"
-              min-camera-orbit="auto auto 55%"
-              max-camera-orbit="auto auto 230%"
-              field-of-view="30deg"
-              interaction-prompt="auto"
-              style={{
-                width: "100%",
-                height: "78vh",
-                minHeight: "640px",
-                background: "transparent",
-                position: "relative",
-                zIndex: 1,
-              }}
-            />
-          ) : (
-            <div
-              className="relative z-[1] flex items-center justify-center text-white/50"
-              style={{
-                width: "100%",
-                height: "78vh",
-                minHeight: "640px",
-              }}
-            >
-              Ładowanie podglądu 3D...
-            </div>
-          )}
+            {viewerReady ? (
+              <model-viewer
+                key={selectedModel.file}
+                src={selectedModel.file}
+                ios-src="/models/untitled.usdz"
+                alt={`Pokazowy model fortepianu Alaudis - ${selectedModel.label}`}
+                ar
+                ar-modes="webxr scene-viewer quick-look"
+                camera-controls
+                touch-action="pan-y"
+                shadow-intensity="0"
+                exposure="0.72"
+                auto-rotate
+                camera-target="auto -0.95m auto"
+                camera-orbit="42deg 78deg 92%"
+                min-camera-orbit="auto auto 55%"
+                max-camera-orbit="auto auto 230%"
+                field-of-view="26deg"
+                interaction-prompt="auto"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  minHeight: "640px",
+                  background: "transparent",
+                  position: "relative",
+                  zIndex: 1,
+                }}
+              />
+            ) : (
+              <div className="relative z-[1] flex h-full w-full items-center justify-center text-white/50">
+                Ładowanie podglądu 3D...
+              </div>
+            )}
+          </div>
 
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20">
             <div className="flex flex-col gap-3 border-t border-white/10 bg-gradient-to-t from-black/70 via-black/35 to-transparent px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
