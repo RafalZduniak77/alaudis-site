@@ -18,6 +18,8 @@ export default function AlaudisARPreview() {
   const imageInputRef = useRef<HTMLInputElement | null>(null);
   const videoInputRef = useRef<HTMLInputElement | null>(null);
 
+  const defaultRoomImage = "/wnetrze-default.jpg";
+
   useEffect(() => {
     let active = true;
 
@@ -60,6 +62,8 @@ export default function AlaudisARPreview() {
     if (videoInputRef.current) videoInputRef.current.value = "";
   }
 
+  const activeBackgroundImage = roomImage ?? defaultRoomImage;
+
   return (
     <section className="relative w-full overflow-hidden rounded-[36px] border border-white/10 bg-[#070707] p-4 sm:p-6 lg:p-8">
       <div className="pointer-events-none absolute inset-0">
@@ -68,7 +72,6 @@ export default function AlaudisARPreview() {
       </div>
 
       <div className="relative mx-auto max-w-7xl">
-        {/* GÓRNY PASEK */}
         <div className="mb-8 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
           <div className="flex flex-wrap items-center gap-3">
             <span className="rounded-full border border-[#c79a5c]/30 bg-[#c79a5c]/10 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-[#e6c08c]">
@@ -121,7 +124,6 @@ export default function AlaudisARPreview() {
           </div>
         </div>
 
-        {/* VIEWER */}
         <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),rgba(255,255,255,0.025)_35%,rgba(0,0,0,0.55)_100%)] shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
           <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-white/8 to-transparent" />
 
@@ -137,7 +139,7 @@ export default function AlaudisARPreview() {
             </span>
           </div>
 
-          {roomVideo && (
+          {roomVideo ? (
             <video
               src={roomVideo}
               autoPlay
@@ -146,13 +148,11 @@ export default function AlaudisARPreview() {
               playsInline
               className="absolute inset-0 z-0 h-full w-full object-cover"
             />
-          )}
-
-          {!roomVideo && roomImage && (
+          ) : (
             <div
               className="absolute inset-0 z-0"
               style={{
-                backgroundImage: `url(${roomImage})`,
+                backgroundImage: `url(${activeBackgroundImage})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -160,9 +160,7 @@ export default function AlaudisARPreview() {
             />
           )}
 
-          {(roomImage || roomVideo) && (
-            <div className="pointer-events-none absolute inset-0 z-0 bg-black/10" />
-          )}
+          <div className="pointer-events-none absolute inset-0 z-0 bg-black/10" />
 
           {viewerReady ? (
             <model-viewer
@@ -227,7 +225,6 @@ export default function AlaudisARPreview() {
           </div>
         </div>
 
-        {/* DOLNE KARTY */}
         <div className="mt-6 grid gap-4 xl:grid-cols-[1.15fr_1fr_1fr_1fr]">
           <div className="rounded-[24px] border border-[#c79a5c]/20 bg-[linear-gradient(135deg,rgba(199,154,92,0.16),rgba(255,255,255,0.03))] p-6">
             <p className="text-[11px] uppercase tracking-[0.28em] text-[#e6c08c]">
@@ -237,8 +234,8 @@ export default function AlaudisARPreview() {
               Cyfrowy podgląd premium
             </p>
             <p className="mt-3 text-sm leading-7 text-white/70">
-              Możesz dodać własne zdjęcie albo video wnętrza i zobaczyć
-              fortepian na tle salonu, gabinetu albo pokoju muzycznego.
+              Startujesz od domyślnego wnętrza premium, a później możesz dodać
+              własne zdjęcie albo video salonu.
             </p>
           </div>
 
