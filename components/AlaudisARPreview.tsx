@@ -1,36 +1,14 @@
+
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-
-declare module "react" {
-  namespace JSX {
-    interface IntrinsicElements {
-      "model-viewer": any;
-    }
-  }
-}
-
-type ModelOption = {
-  id: string;
-  label: string;
-  file: string;
-};
-
-const MODEL_OPTIONS: ModelOption[] = [
-  {
-    id: "heban-klasyczny",
-    label: "Heban klasyczny",
-    file: "/models/alaudis-demo.glb",
-  },
-  {
-    id: "czerwony-test",
-    label: "Czerwony test",
-    file: "/models/czerwony-polysk.glb",
-  },
-];
+import { useRef, useState } from "react";
+import AlaudisARScene from "./AlaudisARScene";
+import {
+  INFO_CARDS,
+  MODEL_OPTIONS,
+} from "./alaudisArConfig";
 
 export default function AlaudisARPreview() {
-  const [viewerReady, setViewerReady] = useState(false);
   const [roomImage, setRoomImage] = useState<string | null>(null);
   const [roomVideo, setRoomVideo] = useState<string | null>(null);
   const [selectedModelId, setSelectedModelId] = useState(MODEL_OPTIONS[0].id);
@@ -38,27 +16,9 @@ export default function AlaudisARPreview() {
   const imageInputRef = useRef<HTMLInputElement | null>(null);
   const videoInputRef = useRef<HTMLInputElement | null>(null);
 
-  const defaultRoomImage = "/wnetrze-default.jpg";
-
   const selectedModel =
     MODEL_OPTIONS.find((option) => option.id === selectedModelId) ??
     MODEL_OPTIONS[0];
-
-  useEffect(() => {
-    let active = true;
-
-    import("@google/model-viewer")
-      .then(() => {
-        if (active) setViewerReady(true);
-      })
-      .catch((error) => {
-        console.error("Nie udało się załadować model-viewer:", error);
-      });
-
-    return () => {
-      active = false;
-    };
-  }, []);
 
   function handleRoomUpload(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
@@ -85,8 +45,6 @@ export default function AlaudisARPreview() {
     if (imageInputRef.current) imageInputRef.current.value = "";
     if (videoInputRef.current) videoInputRef.current.value = "";
   }
-
-  const activeBackgroundImage = roomImage ?? defaultRoomImage;
 
   return (
     <section className="relative w-full overflow-hidden rounded-[36px] border border-white/10 bg-[#070707] p-4 sm:p-6 lg:p-8">
@@ -166,154 +124,54 @@ export default function AlaudisARPreview() {
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),rgba(255,255,255,0.025)_35%,rgba(0,0,0,0.55)_100%)] shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
-          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-white/8 to-transparent" />
-
-          <div className="pointer-events-none absolute left-5 top-5 z-20 rounded-full border border-white/10 bg-black/35 px-4 py-2 backdrop-blur-sm">
-            <span className="text-[11px] uppercase tracking-[0.24em] text-white/75">
-              Doświadczenie Alaudis
-            </span>
-          </div>
-
-          <div className="pointer-events-none absolute right-5 top-5 z-20 rounded-full border border-white/10 bg-black/35 px-4 py-2 backdrop-blur-sm">
-            <span className="text-[11px] uppercase tracking-[0.24em] text-white/75">
-              Obrót / Zoom / AR
-            </span>
-          </div>
-
-          <div className="relative h-[78vh] min-h-[640px] w-full">
-            {roomVideo ? (
-              <video
-                src={roomVideo}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 z-0 h-full w-full object-cover"
-              />
-            ) : (
-              <div
-                className="absolute inset-0 z-0"
-                style={{
-                  backgroundImage: `url(${activeBackgroundImage})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              />
-            )}
-
-            <div className="pointer-events-none absolute inset-0 z-0 bg-black/10" />
-
-            {viewerReady ? (
-              <model-viewer
-                key={selectedModel.file}
-                src={selectedModel.file}
-                ios-src="/models/untitled.usdz"
-                alt={`Pokazowy model fortepianu Alaudis - ${selectedModel.label}`}
-                ar
-                ar-modes="webxr scene-viewer quick-look"
-                camera-controls
-                touch-action="pan-y"
-                shadow-intensity="0"
-                exposure="0.72"
-                auto-rotate
-                camera-target="auto 1.15m auto"
-                camera-orbit="42deg 78deg 92%"
-                min-camera-orbit="auto auto 55%"
-                max-camera-orbit="auto auto 230%"
-                field-of-view="26deg"
-                interaction-prompt="auto"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  minHeight: "640px",
-                  background: "transparent",
-                  position: "relative",
-                  zIndex: 1,
-                }}
-              />
-            ) : (
-              <div className="relative z-[1] flex h-full w-full items-center justify-center text-white/50">
-                Ładowanie podglądu 3D...
-              </div>
-            )}
-          </div>
-
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20">
-            <div className="flex flex-col gap-3 border-t border-white/10 bg-gradient-to-t from-black/70 via-black/35 to-transparent px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">
-                  Sterowanie
-                </p>
-                <p className="mt-2 text-sm text-white/75">
-                  Przeciągnij, aby obrócić • przewijaj lub gestem przybliżaj i
-                  oddalaj • możesz też wgrać zdjęcie lub video własnego salonu
-                </p>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/65">
-                  Zoom aktywny
-                </span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/65">
-                  Zmiana modelu
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <AlaudisARScene
+          modelFile={selectedModel.file}
+          modelLabel={selectedModel.label}
+          roomImage={roomImage}
+          roomVideo={roomVideo}
+        />
 
         <div className="mt-6 grid gap-4 xl:grid-cols-[1.15fr_1fr_1fr_1fr]">
-          <div className="rounded-[24px] border border-[#c79a5c]/20 bg-[linear-gradient(135deg,rgba(199,154,92,0.16),rgba(255,255,255,0.03))] p-6">
-            <p className="text-[11px] uppercase tracking-[0.28em] text-[#e6c08c]">
-              Sygnatura Alaudis
-            </p>
-            <p className="mt-3 text-2xl font-light text-white">
-              Cyfrowy podgląd premium
-            </p>
-            <p className="mt-3 text-sm leading-7 text-white/70">
-              Możesz przełączać wersje wykończeń i sprawdzać, jak fortepian
-              wygląda we wnętrzu premium albo na własnym tle.
-            </p>
-          </div>
+          {INFO_CARDS.map((card) => (
+            <div
+              key={card.title}
+              className={
+                card.featured
+                  ? "rounded-[24px] border border-[#c79a5c]/20 bg-[linear-gradient(135deg,rgba(199,154,92,0.16),rgba(255,255,255,0.03))] p-6"
+                  : "rounded-[22px] border border-white/10 bg-black/20 p-5 backdrop-blur-sm"
+              }
+            >
+              <p
+                className={
+                  card.featured
+                    ? "text-[11px] uppercase tracking-[0.28em] text-[#e6c08c]"
+                    : "text-[11px] uppercase tracking-[0.28em] text-white/45"
+                }
+              >
+                {card.eyebrow}
+              </p>
 
-          <div className="rounded-[22px] border border-white/10 bg-black/20 p-5 backdrop-blur-sm">
-            <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
-              Tryb
-            </p>
-            <p className="mt-3 text-lg font-light text-white">Podgląd 3D</p>
-            <p className="mt-2 text-sm leading-7 text-white/60">
-              Możesz obracać model, przybliżać go i oglądać proporcje fortepianu
-              z każdej strony.
-            </p>
-          </div>
+              <p
+                className={
+                  card.featured
+                    ? "mt-3 text-2xl font-light text-white"
+                    : "mt-3 text-lg font-light text-white"
+                }
+              >
+                {card.title}
+              </p>
 
-          <div className="rounded-[22px] border border-white/10 bg-black/20 p-5 backdrop-blur-sm">
-            <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
-              Wykończenie
-            </p>
-            <p className="mt-3 text-lg font-light text-white">
-              Lista modeli
-            </p>
-            <p className="mt-2 text-sm leading-7 text-white/60">
-              W lewym górnym polu wybierasz aktualną wersję modelu lub
-              wykończenia do podglądu.
-            </p>
-          </div>
-
-          <div className="rounded-[22px] border border-white/10 bg-black/20 p-5 backdrop-blur-sm">
-            <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
-              Następny etap
-            </p>
-            <p className="mt-3 text-lg font-light text-white">
-              Finalne wykończenia
-            </p>
-            <p className="mt-2 text-sm leading-7 text-white/60">
-              Kolejny krok to heban mat, orzech i palisander jako osobne,
-              dopracowane wersje pokazowe.
-            </p>
-          </div>
+              <p
+                className={
+                  card.featured
+                    ? "mt-3 text-sm leading-7 text-white/70"
+                    : "mt-2 text-sm leading-7 text-white/60"
+                }
+              >
+                {card.text}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
