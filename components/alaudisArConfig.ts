@@ -1,9 +1,30 @@
+// ==========================================================
+// ALAUDIS AR CONFIG
+// ==========================================================
+// Ten plik zbiera w jednym miejscu całą konfigurację modułu
+// podglądu 3D / AR na stronie Alaudis.
+//
+// Co tutaj ustawiasz:
+// 1. listę modeli do wyboru
+// 2. domyślne zdjęcie tła
+// 3. ustawienia model-viewer (kamera, zoom, pozycja modelu)
+// 4. teksty kart informacyjnych pod sekcją
+//
+// Najważniejsze pole do ustawiania wysokości fortepianu:
+// cameraTargetY
+// większa wartość = model niżej
+// mniejsza wartość = model wyżej
+// ==========================================================
+
 export type ModelOption = {
-  id: string;
-  label: string;
-  file: string;
+  id: string;     // wewnętrzny identyfikator modelu
+  label: string;  // nazwa widoczna na stronie
+  file: string;   // ścieżka do pliku .glb
 };
 
+// ----------------------------------------------------------
+// MODELE DOSTĘPNE W WYBORZE
+// ----------------------------------------------------------
 export const MODEL_OPTIONS: ModelOption[] = [
   {
     id: "heban-klasyczny",
@@ -17,22 +38,39 @@ export const MODEL_OPTIONS: ModelOption[] = [
   },
 ];
 
+// ----------------------------------------------------------
+// DOMYŚLNE TŁO SALONU
+// ----------------------------------------------------------
 export const DEFAULT_ROOM_IMAGE = "/wnetrze-default.jpg";
 
+// ----------------------------------------------------------
+// USTAWIENIA WIDOKU 3D
+// ----------------------------------------------------------
 export const MODEL_VIEWER_SETTINGS = {
+  // wysokość sekcji z modelem
   stageHeight: "78vh",
   stageMinHeight: 640,
 
+  // jasność modelu
   exposure: "0.72",
+
+  // ustawienie kamery na starcie
   cameraOrbit: "42deg 78deg 92%",
   minCameraOrbit: "auto auto 55%",
   maxCameraOrbit: "auto auto 230%",
+
+  // kąt widzenia
   fieldOfView: "28deg",
 
+  // NAJWAŻNIEJSZE:
   // większa wartość = model niżej
+  // mniejsza wartość = model wyżej
   cameraTargetY: "4.20m",
 };
 
+// ----------------------------------------------------------
+// KARTY INFORMACYJNE POD PODGLĄDEM
+// ----------------------------------------------------------
 export const INFO_CARDS = [
   {
     eyebrow: "Sygnatura Alaudis",

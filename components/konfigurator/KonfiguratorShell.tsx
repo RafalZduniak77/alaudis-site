@@ -1,9 +1,37 @@
+// ==========================================================
+// KONFIGURATOR SHELL
+// ==========================================================
+// To jest główny plik logiki konfiguratora.
 //
-//  Untitled 3.swift
-//  
+// Za co odpowiada ten plik:
+// 1. trzyma cały stan konfiguratora
+// 2. pilnuje aktywnej zakładki
+// 3. obsługuje wybór opcji
+// 4. zmienia zdjęcie preview po kliknięciu
+// 5. obsługuje zapis konfiguracji
+// 6. obsługuje wysyłkę konfiguracji mailem
+// 7. obsługuje eksport PDF
+// 8. steruje przewijaniem sekcji
+// 9. przesuwa czerwoną linię pod aktywną zakładką
+// 10. łączy PreviewPanel i ConfiguratorPanel
 //
-//  Created by Rafal Zduniak on 19/03/2026.
+// Co tutaj najłatwiej zmieniasz:
+// - startową zakładkę
+// - startowy obraz preview
+// - sposób zapisu
+// - sposób wysyłki maila
+// - wygląd i działanie aktywnej zakładki
+// - logikę wyboru opcji
 //
+// Najważniejsze rzeczy:
+// - selected        -> wszystkie wybrane opcje
+// - previewImage    -> aktualny obraz podglądu
+// - handleSelect    -> co dzieje się po wyborze opcji
+// - handleSave      -> zapis konfiguracji
+// - handleSend      -> wysyłka konfiguracji
+// - handlePDF       -> eksport PDF
+// ==========================================================
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -18,32 +46,60 @@ import {
 } from "./data";
 
 export default function KonfiguratorShell() {
+  // --------------------------------------------------------
+  // GŁÓWNE STANY
+  // --------------------------------------------------------
+
+  // aktywna zakładka u góry panelu
   const [activeTab, setActiveTab] = useState<ConfigTab>("obudowa");
+
+  // tytuł oferty wpisywany przez użytkownika
   const [offerTitle, setOfferTitle] = useState("");
+
+  // czy rozwijane menu akcji jest otwarte
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // aktualny obraz preview po lewej stronie
   const [previewImage, setPreviewImage] = useState<string>(defaultPreviewImage);
 
+  // wszystkie wybrane opcje konfiguratora
   const [selected, setSelected] = useState<SelectedState>({
     obudowa: "",
     akustyka: {},
     mechanizm: {},
   });
 
+  // --------------------------------------------------------
+  // REFY DO SCROLLA I ZAKŁADEK
+  // --------------------------------------------------------
+
+  // scrollowalny obszar z opcjami
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // refy do sekcji
   const obudowaRef = useRef<HTMLDivElement>(null);
   const akustykaRef = useRef<HTMLDivElement>(null);
   const mechanizmRef = useRef<HTMLDivElement>(null);
 
+  // ref do czerwonej linii pod zakładkami
   const underlineRef = useRef<HTMLDivElement>(null);
+
+  // ref do kontenera zakładek
   const tabsContainerRef = useRef<HTMLDivElement>(null);
 
+  // refy do przycisków zakładek
   const tabRefs = {
     obudowa: useRef<HTMLButtonElement>(null),
     akustyka: useRef<HTMLButtonElement>(null),
     mechanizm: useRef<HTMLButtonElement>(null),
   };
 
+  // --------------------------------------------------------
+  // USTALANIE AKTYWNEJ ZAKŁADKI PODCZAS SCROLLA
+  // --------------------------------------------------------
+  // Gdy użytkownik przewija listę opcji,
+  // sprawdzamy która sekcja jest najbliżej środka
+  // i ustawiamy ją jako aktywną.
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
@@ -95,6 +151,11 @@ export default function KonfiguratorShell() {
     return () => container.removeEventListener("scroll", onScroll);
   }, []);
 
+  // --------------------------------------------------------
+  // PRZESUWANIE CZERWONEJ LINI POD AKTYWNĄ ZAKŁADKĄ
+  // --------------------------------------------------------
+  // Po zmianie activeTab ustawiamy szerokość i pozycję
+  // underline pod odpowiednim przyciskiem.
   useEffect(() => {
     const el = tabRefs[activeTab].current;
     const underline = underlineRef.current;
@@ -109,6 +170,13 @@ export default function KonfiguratorShell() {
     }
   }, [activeTab]);
 
+  // --------------------------------------------------------
+  // WYBÓR OPCJI
+  // --------------------------------------------------------
+  // Gdy użytkownik kliknie opcję:
+  // - dla "obudowa" zapisujemy jedną wartość
+  // - dla "akustyka" i "mechanizm" zapisujemy wartość w grupie
+  // - zmieniamy obraz preview jeśli istnieje w previewImageMap
   const handleSelect = (tab: ConfigTab, value: string) => {
     if (tab === "obudowa") {
       setSelected((prev) => ({ ...prev, obudowa: value }));
@@ -126,6 +194,11 @@ export default function KonfiguratorShell() {
     setPreviewImage(previewImageMap[value] || defaultPreviewImage);
   };
 
+  // --------------------------------------------------------
+  // ZAPIS KONFIGURACJI
+  // --------------------------------------------------------
+  // Zapisujemy dane do localStorage,
+  // żeby można było później je odczytać lokalnie w przeglądarce.
   const handleSave = () => {
     localStorage.setItem(
       "alaudis-config",
@@ -137,6 +210,12 @@ export default function KonfiguratorShell() {
     alert("Zapisano konfigurację ✅");
   };
 
+  // --------------------------------------------------------
+  // WYSYŁKA KONFIGURACJI
+  // --------------------------------------------------------
+  // Tworzymy tekst konfiguracji,
+  // kopiujemy go do schowka
+  // i otwieramy mailto z gotową treścią.
   const handleSend = () => {
     const text = `
 Alaudis konfiguracja: ${offerTitle}
@@ -156,6 +235,10 @@ ${Object.values(selected.mechanizm).join(", ")}
     )}&body=${encodeURIComponent(text)}`;
   };
 
+  // --------------------------------------------------------
+  // EXPORT PDF
+  // --------------------------------------------------------
+  // Generujemy prosty PDF z wybranymi opcjami.
   const handlePDF = async () => {
     const { jsPDF } = await import("jspdf");
     const doc = new jsPDF();
@@ -188,6 +271,10 @@ ${Object.values(selected.mechanizm).join(", ")}
     doc.save(`${offerTitle || "alaudis"}.pdf`);
   };
 
+  // --------------------------------------------------------
+  // SCROLL DO WYBRANEJ SEKCJI
+  // --------------------------------------------------------
+  // Po kliknięciu zakładki przewijamy do odpowiedniej sekcji.
   const scrollToSection = (tab: ConfigTab) => {
     const map = {
       obudowa: obudowaRef,
@@ -202,11 +289,16 @@ ${Object.values(selected.mechanizm).join(", ")}
     });
   };
 
+  // --------------------------------------------------------
+  // RENDER
+  // --------------------------------------------------------
   return (
     <main className="min-h-screen bg-black text-white">
       <section className="relative min-h-screen overflow-hidden">
+        {/* LEWA STRONA - PODGLĄD */}
         <PreviewPanel imageSrc={previewImage} />
 
+        {/* PRAWA STRONA - PANEL KONFIGURATORA */}
         <ConfiguratorPanel
           offerTitle={offerTitle}
           setOfferTitle={setOfferTitle}

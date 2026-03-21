@@ -1,8 +1,46 @@
+// ==========================================================
+// SCROLL MODELS SHOWCASE
+// ==========================================================
+// To jest sekcja galerii modeli i wykończeń na stronie głównej.
+//
+// Za co odpowiada ten plik:
+// 1. przechowuje listę slajdów (modele, zdjęcia, opisy)
+// 2. renderuje każdą kartę modelu
+// 3. dodaje efekt scroll:
+//    - karta przesuwa się lekko w dół
+//    - karta lekko się skaluje
+// 4. pokazuje zdjęcie, opis, detale i przycisk do konfiguratora
+//
+// Co tutaj najłatwiej zmieniasz:
+// - zdjęcia modeli
+// - nazwy modeli
+// - opisy
+// - wnętrze / wykończenie
+// - link przycisku
+// - siłę efektu scroll
+//
+// Najważniejsze miejsca:
+// - slides              -> cała zawartość galerii
+// - scale               -> siła zmniejszania przy scrollu
+// - translateY          -> siła przesunięcia przy scrollu
+// ==========================================================
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
+// ----------------------------------------------------------
+// TYP JEDNEGO SLAJDU
+// ----------------------------------------------------------
+// Każdy element galerii ma:
+// - id
+// - mały nagłówek
+// - tytuł
+// - podtytuł
+// - zdjęcie
+// - opis wnętrza
+// - opis wykończenia
 type ShowcaseSlide = {
   id: string;
   eyebrow: string;
@@ -13,6 +51,10 @@ type ShowcaseSlide = {
   exterior: string;
 };
 
+// ----------------------------------------------------------
+// LISTA SLAJDÓW
+// ----------------------------------------------------------
+// Tutaj podmieniasz zdjęcia, teksty i modele.
 const slides: ShowcaseSlide[] = [
   {
     id: "01",
@@ -61,6 +103,12 @@ const slides: ShowcaseSlide[] = [
   },
 ];
 
+// ==========================================================
+// POJEDYNCZA KARTA
+// ==========================================================
+// Ten komponent renderuje jeden slajd.
+// Ma własny efekt scroll - im niżej na ekranie,
+// tym bardziej się przesuwa i delikatnie zmniejsza.
 function SlideItem({ slide }: { slide: ShowcaseSlide }) {
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -77,6 +125,8 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
       const rect = ref.current.getBoundingClientRect();
       const windowH = window.innerHeight;
 
+      // start = wejście karty do okna
+      // end = wyjście karty ponad ekran
       const start = windowH;
       const end = -rect.height;
 
@@ -85,6 +135,7 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
         Math.max(0, (start - rect.top) / (start - end))
       );
 
+      // im większy progress, tym karta bardziej się skaluje i przesuwa
       const scale = 1 - progress * 0.45;
       const translateY = progress * 80;
 
@@ -119,6 +170,7 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
         }}
       >
         <div className="overflow-hidden rounded-[28px] border border-white/10 bg-black shadow-[0_30px_120px_rgba(0,0,0,0.6)]">
+          {/* ZDJĘCIE MODELU */}
           <div className="relative aspect-[16/9] w-full">
             <Image
               src={slide.image}
@@ -130,7 +182,9 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           </div>
 
+          {/* DOLNA CZĘŚĆ KARTY */}
           <div className="grid items-center gap-6 bg-[#e9e9e9] px-8 py-7 text-black md:grid-cols-[1.4fr_1fr_110px]">
+            {/* OPIS GŁÓWNY */}
             <div>
               <p className="text-[11px] uppercase tracking-[0.28em] text-black/45">
                 {slide.eyebrow}
@@ -143,6 +197,7 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
               <p className="mt-3 text-sm text-black/70">{slide.subtitle}</p>
             </div>
 
+            {/* DANE SZCZEGÓŁOWE */}
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <p className="text-[11px] uppercase text-black/45">Wnętrze</p>
@@ -157,6 +212,7 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
               </div>
             </div>
 
+            {/* PRZYCISK DO KONFIGURATORA */}
             <div className="flex justify-end">
               <a
                 href="/konfigurator"
@@ -172,6 +228,10 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
   );
 }
 
+// ==========================================================
+// GŁÓWNA SEKCJA
+// ==========================================================
+// Renderuje nagłówek sekcji i wszystkie slajdy z tablicy slides.
 export default function ScrollModelsShowcase() {
   return (
     <section className="bg-[#111] px-0 text-white">

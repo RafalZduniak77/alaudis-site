@@ -1,3 +1,29 @@
+// ==========================================================
+// ALAUDIS AR PREVIEW
+// ==========================================================
+// To jest główny komponent sekcji podglądu 3D / AR.
+//
+// Za co odpowiada ten plik:
+// 1. trzyma stan wybranego modelu
+// 2. trzyma stan zdjęcia tła i video tła
+// 3. obsługuje upload zdjęcia salonu
+// 4. obsługuje upload video salonu
+// 5. pozwala usunąć własne tło
+// 6. włącza / wyłącza auto obrót modelu
+// 7. przekazuje dane do komponentu AlaudisARScene
+// 8. renderuje karty informacyjne pod podglądem
+//
+// Najważniejsze stany w tym pliku:
+// - selectedModelId       -> który model jest wybrany
+// - roomImage             -> wgrane zdjęcie salonu
+// - roomVideo             -> wgrane video salonu
+// - autoRotateEnabled     -> czy model ma obracać się automatycznie
+//
+// Jeśli chcesz:
+// - zmienić startowy model -> zmieniasz selectedModelId
+// - wyłączyć auto obrót na starcie -> ustaw useState(false)
+// ==========================================================
+
 "use client";
 
 import { useRef, useState } from "react";
@@ -5,18 +31,46 @@ import AlaudisARScene from "./AlaudisARScene";
 import { INFO_CARDS, MODEL_OPTIONS } from "./alaudisArConfig";
 
 export default function AlaudisARPreview() {
+  // --------------------------------------------------------
+  // STANY GŁÓWNE KOMPONENTU
+  // --------------------------------------------------------
+
+  // przechowuje wgrane zdjęcie salonu
   const [roomImage, setRoomImage] = useState<string | null>(null);
+
+  // przechowuje wgrane video salonu
   const [roomVideo, setRoomVideo] = useState<string | null>(null);
+
+  // przechowuje aktualnie wybrany model
   const [selectedModelId, setSelectedModelId] = useState(MODEL_OPTIONS[0].id);
+
+  // steruje automatycznym obrotem modelu
+  // true = obraca się
+  // false = stoi nieruchomo
   const [autoRotateEnabled, setAutoRotateEnabled] = useState(true);
 
+  // ref do ukrytego inputa zdjęcia
   const imageInputRef = useRef<HTMLInputElement | null>(null);
+
+  // ref do ukrytego inputa video
   const videoInputRef = useRef<HTMLInputElement | null>(null);
 
+  // --------------------------------------------------------
+  // AKTUALNIE WYBRANY MODEL
+  // --------------------------------------------------------
+  // Na podstawie selectedModelId wyszukujemy model z listy.
+  // Jeśli coś pójdzie nie tak, bierzemy pierwszy model z listy.
   const selectedModel =
     MODEL_OPTIONS.find((option) => option.id === selectedModelId) ??
     MODEL_OPTIONS[0];
 
+  // --------------------------------------------------------
+  // UPLOAD ZDJĘCIA SALONU
+  // --------------------------------------------------------
+  // Po wybraniu zdjęcia:
+  // - tworzymy lokalny URL
+  // - ustawiamy zdjęcie jako tło
+  // - czyścimy video, żeby nie było dwóch teł naraz
   function handleRoomUpload(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -26,6 +80,13 @@ export default function AlaudisARPreview() {
     setRoomVideo(null);
   }
 
+  // --------------------------------------------------------
+  // UPLOAD VIDEO SALONU
+  // --------------------------------------------------------
+  // Po wybraniu video:
+  // - tworzymy lokalny URL
+  // - ustawiamy video jako tło
+  // - czyścimy zdjęcie, żeby nie było dwóch teł naraz
   function handleVideoUpload(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -35,6 +96,11 @@ export default function AlaudisARPreview() {
     setRoomImage(null);
   }
 
+  // --------------------------------------------------------
+  // USUWANIE WŁASNEGO TŁA
+  // --------------------------------------------------------
+  // Czyści wgrane zdjęcie i video
+  // oraz resetuje inputy plików
   function clearBackground() {
     setRoomImage(null);
     setRoomVideo(null);
@@ -43,15 +109,21 @@ export default function AlaudisARPreview() {
     if (videoInputRef.current) videoInputRef.current.value = "";
   }
 
+  // --------------------------------------------------------
+  // RENDER
+  // --------------------------------------------------------
   return (
     <section className="relative w-full overflow-hidden rounded-[36px] border border-white/10 bg-[#070707] p-4 sm:p-6 lg:p-8">
+      {/* TŁO DEKORACYJNE SEKCJI */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(201,154,92,0.18),transparent_28%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.08),transparent_22%),linear-gradient(to_bottom,rgba(255,255,255,0.03),rgba(255,255,255,0.01),rgba(0,0,0,0.12))]" />
         <div className="absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[#c79a5c]/10 blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-7xl">
+        {/* GÓRNY PASEK STEROWANIA */}
         <div className="mb-8 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+          {/* LEWY GÓRNY WYBÓR MODELU */}
           <div className="flex flex-wrap items-center gap-3">
             <div className="relative">
               <select
@@ -76,6 +148,7 @@ export default function AlaudisARPreview() {
             </div>
           </div>
 
+          {/* PRAWA CZĘŚĆ GÓRNEGO PASKA - UPLOAD TŁA */}
           <div className="flex flex-wrap gap-3 xl:justify-end">
             <button
               type="button"
@@ -103,6 +176,7 @@ export default function AlaudisARPreview() {
               </button>
             )}
 
+            {/* UKRYTY INPUT DLA ZDJĘCIA */}
             <input
               ref={imageInputRef}
               type="file"
@@ -111,6 +185,7 @@ export default function AlaudisARPreview() {
               className="hidden"
             />
 
+            {/* UKRYTY INPUT DLA VIDEO */}
             <input
               ref={videoInputRef}
               type="file"
@@ -121,6 +196,9 @@ export default function AlaudisARPreview() {
           </div>
         </div>
 
+        {/* GŁÓWNA SCENA 3D */}
+        {/* Tutaj przekazujemy wszystkie dane do komponentu,
+            który wyświetla model-viewer i dolne kontrolki */}
         <AlaudisARScene
           modelFile={selectedModel.file}
           modelLabel={selectedModel.label}
@@ -135,6 +213,7 @@ export default function AlaudisARPreview() {
           }
         />
 
+        {/* KARTY INFORMACYJNE POD SCENĄ */}
         <div className="mt-6 grid gap-4 xl:grid-cols-[1.15fr_1fr_1fr_1fr]">
           {INFO_CARDS.map((card) => (
             <div

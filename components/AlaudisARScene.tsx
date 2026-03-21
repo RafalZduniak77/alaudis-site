@@ -1,3 +1,33 @@
+// ==========================================================
+// ALAUDIS AR SCENE
+// ==========================================================
+// To jest komponent odpowiedzialny za właściwą scenę 3D.
+//
+// Za co odpowiada ten plik:
+// 1. ładuje bibliotekę @google/model-viewer
+// 2. wyświetla model 3D fortepianu
+// 3. pokazuje tło:
+//    - video salonu albo
+//    - zdjęcie salonu albo
+//    - domyślne tło z configu
+// 4. ustawia kamerę i parametry widoku z alaudisArConfig.ts
+// 5. obsługuje auto obrót modelu ON/OFF
+// 6. pokazuje dolne kontrolki sceny
+//
+// Najważniejsze dane przekazywane z zewnątrz:
+// - modelFile            -> plik .glb aktualnego modelu
+// - modelLabel           -> nazwa modelu
+// - roomImage            -> wgrane zdjęcie tła
+// - roomVideo            -> wgrane video tła
+// - selectedModelId      -> aktualnie wybrany model
+// - autoRotateEnabled    -> czy model ma obracać się automatycznie
+//
+// Ważne:
+// - interaction-prompt="none" wyłącza animowaną podpowiedź
+// - key z autoRotateEnabled wymusza odświeżenie viewer-a
+//   po zmianie ON/OFF, żeby model nie "bujał się" po wyłączeniu
+// ==========================================================
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -15,6 +45,11 @@ declare module "react" {
   }
 }
 
+// ----------------------------------------------------------
+// TYPY PROPSÓW
+// ----------------------------------------------------------
+// Ten komponent dostaje wszystkie dane z rodzica
+// AlaudisARPreview.tsx
 type Props = {
   modelFile: string;
   modelLabel: string;
@@ -38,8 +73,17 @@ export default function AlaudisARScene({
   autoRotateEnabled,
   onToggleAutoRotate,
 }: Props) {
+  // --------------------------------------------------------
+  // STAN GOTOWOŚCI VIEWERA
+  // --------------------------------------------------------
+  // false = biblioteka jeszcze się ładuje
+  // true  = model-viewer gotowy do użycia
   const [viewerReady, setViewerReady] = useState(false);
 
+  // --------------------------------------------------------
+  // ŁADOWANIE @google/model-viewer
+  // --------------------------------------------------------
+  // Po załadowaniu ustawiamy viewerReady = true
   useEffect(() => {
     let active = true;
 
@@ -56,25 +100,41 @@ export default function AlaudisARScene({
     };
   }, []);
 
+  // --------------------------------------------------------
+  // WYBÓR TŁA
+  // --------------------------------------------------------
+  // Kolejność:
+  // 1. jeśli jest własne zdjęcie -> użyj zdjęcia
+  // 2. jeśli nie ma zdjęcia -> użyj domyślnego tła
   const activeBackgroundImage = roomImage ?? DEFAULT_ROOM_IMAGE;
+
+  // --------------------------------------------------------
+  // AUTO OBRÓT
+  // --------------------------------------------------------
+  // Gdy autoRotateEnabled = true, dokładamy atrybut auto-rotate
+  // Gdy false, nie dokładamy go wcale
   const autoRotateProps = autoRotateEnabled ? { "auto-rotate": "" } : {};
 
   return (
     <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),rgba(255,255,255,0.025)_35%,rgba(0,0,0,0.55)_100%)] shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
+      {/* GÓRNA DELIKATNA POŚWIATA */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-white/8 to-transparent" />
 
+      {/* LEWY GÓRNY BADGE */}
       <div className="pointer-events-none absolute left-5 top-5 z-20 rounded-full border border-white/10 bg-black/35 px-4 py-2 backdrop-blur-sm">
         <span className="text-[11px] uppercase tracking-[0.24em] text-white/75">
           Doświadczenie Alaudis
         </span>
       </div>
 
+      {/* PRAWY GÓRNY BADGE */}
       <div className="pointer-events-none absolute right-5 top-5 z-20 rounded-full border border-white/10 bg-black/35 px-4 py-2 backdrop-blur-sm">
         <span className="text-[11px] uppercase tracking-[0.24em] text-white/75">
           Obrót / Zoom / AR
         </span>
       </div>
 
+      {/* OBSZAR SCENY 3D */}
       <div
         className="relative w-full"
         style={{
@@ -82,6 +142,7 @@ export default function AlaudisARScene({
           minHeight: MODEL_VIEWER_SETTINGS.stageMinHeight,
         }}
       >
+        {/* TŁO VIDEO - ma pierwszeństwo nad zdjęciem */}
         {roomVideo ? (
           <video
             src={roomVideo}
@@ -92,6 +153,7 @@ export default function AlaudisARScene({
             className="absolute inset-0 z-0 h-full w-full object-cover"
           />
         ) : (
+          // TŁO ZDJĘCIOWE
           <div
             className="absolute inset-0 z-0"
             style={{
@@ -103,10 +165,14 @@ export default function AlaudisARScene({
           />
         )}
 
+        {/* PRZYCIEMNIENIE NA TLE */}
         <div className="pointer-events-none absolute inset-0 z-0 bg-black/10" />
 
+        {/* MODEL 3D */}
         {viewerReady ? (
           <model-viewer
+            // key zawiera autoRotateEnabled,
+            // żeby po przełączeniu ON/OFF viewer odświeżył się całkiem
             key={`${modelFile}-${autoRotateEnabled ? "rotate-on" : "rotate-off"}`}
             src={modelFile}
             ios-src="/models/untitled.usdz"
@@ -133,24 +199,30 @@ export default function AlaudisARScene({
             }}
           />
         ) : (
+          // EKRAN ŁADOWANIA
           <div className="relative z-[1] flex h-full w-full items-center justify-center text-white/50">
             Ładowanie podglądu 3D...
           </div>
         )}
       </div>
 
+      {/* DOLNY PASEK STEROWANIA */}
       <div className="absolute inset-x-0 bottom-0 z-20">
         <div className="border-t border-white/10 bg-gradient-to-t from-black/70 via-black/35 to-transparent px-5 py-5">
           <div className="flex items-center justify-between gap-4">
+            {/* LEWA STRONA PASKA */}
             <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">
               Sterowanie
             </p>
 
+            {/* PRAWA STRONA PASKA - OPCJE W JEDNEJ LINII */}
             <div className="flex flex-nowrap items-center gap-2 overflow-x-auto sm:overflow-visible">
+              {/* INFO O ZOOMIE */}
               <span className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/65">
                 Zoom aktywny
               </span>
 
+              {/* PRZEŁĄCZNIK AUTO OBRÓT */}
               <button
                 type="button"
                 onClick={onToggleAutoRotate}
@@ -163,6 +235,7 @@ export default function AlaudisARScene({
                 Auto obrót {autoRotateEnabled ? "ON" : "OFF"}
               </button>
 
+              {/* WYBÓR MODELU W PRAWYM DOLNYM ROGU */}
               <div className="relative shrink-0">
                 <select
                   value={selectedModelId}

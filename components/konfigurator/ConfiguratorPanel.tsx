@@ -1,15 +1,50 @@
+// ==========================================================
+// CONFIGURATOR PANEL
+// ==========================================================
+// To jest prawy panel konfiguratora.
 //
-//  Untitled 2.swift
-//  
+// Za co odpowiada ten plik:
+// 1. pokazuje pole tytułu oferty
+// 2. pokazuje zakładki:
+//    - obudowa
+//    - akustyka
+//    - mechanizm
+// 3. pokazuje listę opcji dla każdej sekcji
+// 4. zaznacza aktywną opcję
+// 5. obsługuje przewijanie do sekcji po kliknięciu zakładki
+// 6. pokazuje czerwoną linię pod aktywną zakładką
+// 7. na dole wyświetla ActionMenu
 //
-//  Created by Rafal Zduniak on 19/03/2026.
+// Co tutaj najłatwiej zmieniasz:
+// - wygląd panelu po prawej
+// - wygląd zakładek
+// - wygląd listy opcji
+// - wysokość sekcji
+// - paddingi i odstępy
 //
+// Najważniejsze propsy:
+// - offerTitle           -> tytuł oferty
+// - setOfferTitle        -> zmiana tytułu oferty
+// - activeTab            -> aktualna aktywna zakładka
+// - selected             -> aktualnie wybrane opcje
+// - options              -> lista opcji dla sekcji
+// - groupMap             -> mapowanie opcji do grup
+// - onSelect             -> co zrobić po wyborze opcji
+// - onScrollToSection    -> przewijanie do sekcji
+// - menuOpen             -> czy ActionMenu jest otwarte
+// ==========================================================
+
 "use client";
 
 import { RefObject } from "react";
 import { ConfigTab, OptionsMap, SelectedState } from "./types";
 import ActionMenu from "./ActionMenu";
 
+// ----------------------------------------------------------
+// TYPY PROPSÓW
+// ----------------------------------------------------------
+// Ten komponent dostaje z zewnątrz wszystkie dane potrzebne
+// do wyświetlania panelu i obsługi kliknięć.
 type ConfiguratorPanelProps = {
   offerTitle: string;
   setOfferTitle: (value: string) => void;
@@ -61,6 +96,9 @@ export default function ConfiguratorPanel({
 }: ConfiguratorPanelProps) {
   return (
     <div className="absolute right-0 top-0 flex h-full w-full max-w-[520px] flex-col border-l border-white/10 bg-white/5 backdrop-blur-2xl">
+      {/* ====================================================
+          GÓRA PANELU - TYTUŁ OFERTY
+         ==================================================== */}
       <div className="p-6 pt-24">
         <input
           value={offerTitle}
@@ -70,6 +108,12 @@ export default function ConfiguratorPanel({
         />
       </div>
 
+      {/* ====================================================
+          ZAKŁADKI
+          - obudowa
+          - akustyka
+          - mechanizm
+         ==================================================== */}
       <div
         ref={tabsContainerRef}
         className="relative flex border-b border-white/10"
@@ -87,15 +131,19 @@ export default function ConfiguratorPanel({
           </button>
         ))}
 
+        {/* CZERWONA LINIA POD AKTYWNĄ ZAKŁADKĄ */}
         <div
           ref={underlineRef}
           className="absolute bottom-0 h-[2px] bg-red-500 transition-all duration-300"
         />
       </div>
 
+      {/* ====================================================
+          PRZEWIJANA ZAWARTOŚĆ PANELU
+         ==================================================== */}
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto px-6 py-8 space-y-24"
+        className="flex-1 space-y-24 overflow-y-auto px-6 py-8"
       >
         {(["obudowa", "akustyka", "mechanizm"] as ConfigTab[]).map((section) => (
           <div
@@ -109,11 +157,14 @@ export default function ConfiguratorPanel({
             }
             className="min-h-[80vh]"
           >
+            {/* TYTUŁ SEKCJI */}
             <h3 className="mb-6 uppercase tracking-wider opacity-80">
               {section}
             </h3>
 
+            {/* LISTA OPCJI W DANEJ SEKCJI */}
             {options[section].map((item) => {
+              // Sprawdzenie czy dana opcja jest aktualnie wybrana
               const isActive =
                 section === "obudowa"
                   ? selected.obudowa === item
@@ -137,6 +188,9 @@ export default function ConfiguratorPanel({
         ))}
       </div>
 
+      {/* ====================================================
+          DOLNE MENU AKCJI
+         ==================================================== */}
       <ActionMenu
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}

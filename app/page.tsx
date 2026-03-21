@@ -1,6 +1,32 @@
+// ==========================================================
+// HOME PAGE - ALAUDIS
+// ==========================================================
+// To jest główny plik strony głównej Alaudis.
 //
-//  page.tsx
+// Za co odpowiada ten plik:
+// 1. buduje cały homepage
+// 2. pokazuje hero z dużym zdjęciem w tle
+// 3. wyświetla górne menu z linkami
+// 4. pokazuje centralny slogan i przyciski CTA
+// 5. osadza sekcję przewijanych modeli
+// 6. pokazuje sekcję modeli 178 / 214 / 275
+// 7. pokazuje sekcję kontakt
+// 8. pokazuje sekcję historia
+// 9. dodaje footer na końcu
 //
+// Co tutaj najłatwiej zmieniasz:
+// - zdjęcie hero
+// - napisy w headerze
+// - slogan główny
+// - teksty przycisków
+// - opisy modeli
+// - treści sekcji kontakt i historia
+// - kolejność sekcji
+//
+// Najważniejsze importy:
+// - ScrollModelsShowcase -> sekcja przewijanych modeli
+// - Footer               -> stopka strony
+// ==========================================================
 
 import Image from "next/image";
 import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
@@ -9,7 +35,9 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* HERO */}
+      {/* ====================================================
+          HERO
+         ==================================================== */}
       <section className="relative min-h-screen overflow-hidden">
         <Image
           src="/hero.jpg"
@@ -19,7 +47,12 @@ export default function Home() {
           className="object-cover object-center"
         />
 
-        {/* HEADER */}
+        {/* ==================================================
+            HEADER
+            - menu po lewej
+            - logo na środku
+            - przycisk po prawej
+           ================================================== */}
         <header className="absolute inset-x-0 top-0 z-30">
           <div className="mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pt-12 pb-6 lg:px-10">
             {/* LEWA STRONA - MENU */}
@@ -58,7 +91,7 @@ export default function Home() {
               />
             </div>
 
-            {/* PRAWA STRONA */}
+            {/* PRAWA STRONA - CTA */}
             <div className="justify-self-end">
               <a
                 href="/konfigurator"
@@ -70,7 +103,12 @@ export default function Home() {
           </div>
         </header>
 
-        {/* ŚRODEK */}
+        {/* ==================================================
+            ŚRODEK HERO
+            - mały napis
+            - główny slogan
+            - dwa przyciski
+           ================================================== */}
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
           <div className="mx-auto max-w-4xl pt-16">
             <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/85">
@@ -101,7 +139,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* DÓŁ */}
+        {/* ==================================================
+            DÓŁ HERO
+            - wskaźnik przewijania
+           ================================================== */}
         <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
           <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
             <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
@@ -112,15 +153,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NOWA SEKCJA SCROLL MODELI */}
+      {/* ====================================================
+          SEKCJA PRZEWIJANYCH MODELI
+         ==================================================== */}
       <ScrollModelsShowcase />
 
-      {/* SEKCJA MODELI */}
+      {/* ====================================================
+          SEKCJA MODELI
+         ==================================================== */}
       <section
         id="modele"
         className="grid gap-6 bg-neutral-950 px-6 py-20 sm:px-10 lg:grid-cols-3 lg:px-16"
       >
-        {/* 1 */}
+        {/* MODEL 178 */}
         <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Model
@@ -132,7 +177,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 2 */}
+        {/* MODEL 214 */}
         <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Model
@@ -145,7 +190,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 3 */}
+        {/* MODEL 275 */}
         <div
           id="konfigurator"
           className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8"
@@ -161,7 +206,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEKCJA KONTAKT */}
+      {/* ====================================================
+          SEKCJA KONTAKT
+         ==================================================== */}
       <section
         id="kontakt"
         className="bg-black px-6 py-20 text-center sm:px-10 lg:px-16"
@@ -176,7 +223,9 @@ export default function Home() {
         </p>
       </section>
 
-      {/* SEKCJA HISTORIA */}
+      {/* ====================================================
+          SEKCJA HISTORIA
+         ==================================================== */}
       <section
         id="historia"
         className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16"
@@ -193,7 +242,9 @@ export default function Home() {
         </p>
       </section>
 
-      {/* FOOTER PREMIUM */}
+      {/* ====================================================
+          FOOTER
+         ==================================================== */}
       <Footer />
     </main>
   );

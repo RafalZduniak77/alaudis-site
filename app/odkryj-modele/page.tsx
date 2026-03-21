@@ -1,3 +1,30 @@
+// ==========================================================
+// ODKRYJ MODELE PAGE
+// ==========================================================
+// To jest główny plik strony "Odkryj modele".
+//
+// Za co odpowiada ten plik:
+// 1. buduje całą stronę
+// 2. pokazuje górny hero section z tłem
+// 3. pokazuje przycisk Powrót i przycisk Konfigurator
+// 4. wyświetla logo Alaudis
+// 5. pokazuje nagłówek i opis strony
+// 6. osadza moduł 3D / AR: AlaudisARPreview
+// 7. dodaje Footer na końcu strony
+//
+// Co tutaj najłatwiej zmieniasz:
+// - zdjęcie hero w tle
+// - tytuł strony
+// - opis pod tytułem
+// - link przycisku Powrót
+// - link przycisku Konfigurator
+// - wielkość paddingów i odstępów
+//
+// Najważniejsze importy:
+// - Footer             -> stopka strony
+// - AlaudisARPreview   -> główny moduł 3D / AR
+// ==========================================================
+
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import AlaudisARPreview from "@/components/AlaudisARPreview";
@@ -5,7 +32,11 @@ import AlaudisARPreview from "@/components/AlaudisARPreview";
 export default function OdkryjModelePage() {
   return (
     <main className="min-h-screen bg-black text-white">
+      {/* ====================================================
+          HERO SECTION
+         ==================================================== */}
       <section className="relative overflow-hidden border-b border-white/10">
+        {/* TŁO HERO */}
         <div className="absolute inset-0">
           <Image
             src="/hero.jpg"
@@ -17,8 +48,15 @@ export default function OdkryjModelePage() {
           <div className="absolute inset-0 bg-black/70" />
         </div>
 
+        {/* ==================================================
+            GÓRNY PASEK
+            - Powrót
+            - Logo
+            - Konfigurator
+           ================================================== */}
         <header className="relative z-20">
           <div className="mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pt-12 pb-6 lg:px-10">
+            {/* LEWA STRONA - POWRÓT */}
             <div className="ml-8 flex items-center gap-4">
               <a
                 href="/"
@@ -28,6 +66,7 @@ export default function OdkryjModelePage() {
               </a>
             </div>
 
+            {/* ŚRODEK - LOGO */}
             <div className="justify-self-center pt-2">
               <Image
                 src="/logo-alaudis.png"
@@ -39,6 +78,7 @@ export default function OdkryjModelePage() {
               />
             </div>
 
+            {/* PRAWA STRONA - KONFIGURATOR */}
             <div className="justify-self-end">
               <a
                 href="/konfigurator"
@@ -50,6 +90,9 @@ export default function OdkryjModelePage() {
           </div>
         </header>
 
+        {/* ==================================================
+            NAGŁÓWEK STRONY
+           ================================================== */}
         <div className="relative z-20 px-6 pb-16 pt-8 text-center">
           <div className="mx-auto max-w-4xl">
             <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/85">
@@ -69,12 +112,18 @@ export default function OdkryjModelePage() {
         </div>
       </section>
 
+      {/* ====================================================
+          SEKCJA Z MODUŁEM 3D / AR
+         ==================================================== */}
       <section className="bg-black px-4 py-8 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <AlaudisARPreview />
         </div>
       </section>
 
+      {/* ====================================================
+          STOPKA
+         ==================================================== */}
       <Footer />
     </main>
   );
