@@ -125,6 +125,9 @@ export default function AlaudisARPreview() {
           modelLabel={selectedModel.label}
           roomImage={roomImage}
           roomVideo={roomVideo}
+          modelOptions={MODEL_OPTIONS}
+          selectedModelId={selectedModelId}
+          onChangeModel={setSelectedModelId}
         />
 
         <div className="mt-6 grid gap-4 xl:grid-cols-[1.15fr_1fr_1fr_1fr]">

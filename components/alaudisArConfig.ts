@@ -49,7 +49,7 @@ export const INFO_CARDS = [
   {
     eyebrow: "Wykończenie",
     title: "Lista modeli",
-    text: "W lewym górnym polu wybierasz aktualną wersję modelu lub wykończenia do podglądu.",
+    text: "Model możesz zmieniać zarówno w lewym górnym rogu, jak i w prawym dolnym rogu podglądu.",
     featured: false,
   },
   {

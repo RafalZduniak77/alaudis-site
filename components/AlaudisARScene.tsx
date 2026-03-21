@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import {
   DEFAULT_ROOM_IMAGE,
   MODEL_VIEWER_SETTINGS,
+  type ModelOption,
 } from "./alaudisArConfig";
 
 declare module "react" {
@@ -19,6 +20,9 @@ type Props = {
   modelLabel: string;
   roomImage: string | null;
   roomVideo: string | null;
+  modelOptions: ModelOption[];
+  selectedModelId: string;
+  onChangeModel: (value: string) => void;
 };
 
 export default function AlaudisARScene({
@@ -26,6 +30,9 @@ export default function AlaudisARScene({
   modelLabel,
   roomImage,
   roomVideo,
+  modelOptions,
+  selectedModelId,
+  onChangeModel,
 }: Props) {
   const [viewerReady, setViewerReady] = useState(false);
 
@@ -127,9 +134,9 @@ export default function AlaudisARScene({
         )}
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20">
-        <div className="flex flex-col gap-3 border-t border-white/10 bg-gradient-to-t from-black/70 via-black/35 to-transparent px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
-          <div>
+      <div className="absolute inset-x-0 bottom-0 z-20">
+        <div className="flex flex-col gap-3 border-t border-white/10 bg-gradient-to-t from-black/70 via-black/35 to-transparent px-5 py-5 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-3xl">
             <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">
               Sterowanie
             </p>
@@ -139,13 +146,32 @@ export default function AlaudisARScene({
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2 sm:justify-end">
             <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/65">
               Zoom aktywny
             </span>
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/65">
-              Zmiana modelu
-            </span>
+
+            <div className="relative">
+              <select
+                value={selectedModelId}
+                onChange={(e) => onChangeModel(e.target.value)}
+                className="appearance-none rounded-full border border-white/10 bg-white/5 px-4 py-2 pr-11 text-[11px] uppercase tracking-[0.22em] text-white/75 outline-none transition hover:border-white/25"
+              >
+                {modelOptions.map((option) => (
+                  <option
+                    key={option.id}
+                    value={option.id}
+                    className="bg-[#111] text-white"
+                  >
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+
+              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[11px] text-white/60">
+                ▼
+              </span>
+            </div>
           </div>
         </div>
       </div>
