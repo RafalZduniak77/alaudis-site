@@ -10,9 +10,10 @@
 // 4. pokazuje centralny slogan i przyciski CTA
 // 5. osadza sekcję przewijanych modeli
 // 6. pokazuje sekcję modeli 178 / 214 / 275
-// 7. pokazuje sekcję kontakt
-// 8. pokazuje sekcję historia
-// 9. dodaje footer na końcu
+// 7. pozwala klikać w karty modeli i przechodzić na podstrony
+// 8. pokazuje sekcję kontakt
+// 9. pokazuje sekcję historia
+// 10. dodaje footer na końcu
 //
 // Co tutaj najłatwiej zmieniasz:
 // - zdjęcie hero
@@ -20,15 +21,18 @@
 // - slogan główny
 // - teksty przycisków
 // - opisy modeli
+// - linki kart modeli
 // - treści sekcji kontakt i historia
 // - kolejność sekcji
 //
 // Najważniejsze importy:
 // - ScrollModelsShowcase -> sekcja przewijanych modeli
 // - Footer               -> stopka strony
+// - Link                 -> klikalne przejścia do podstron modeli
 // ==========================================================
 
 import Image from "next/image";
+import Link from "next/link";
 import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
 import Footer from "@/components/Footer";
 
@@ -160,13 +164,19 @@ export default function Home() {
 
       {/* ====================================================
           SEKCJA MODELI
+          - każda karta prowadzi do osobnej podstrony modelu
          ==================================================== */}
       <section
         id="modele"
         className="grid gap-6 bg-neutral-950 px-6 py-20 sm:px-10 lg:grid-cols-3 lg:px-16"
       >
-        {/* MODEL 178 */}
-        <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
+        {/* ==================================================
+            MODEL 178
+           ================================================== */}
+        <Link
+          href="/modele/178"
+          className="block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
+        >
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Model
           </p>
@@ -175,10 +185,15 @@ export default function Home() {
             Zrównoważony fortepian o eleganckiej obecności, lirycznej
             wrażliwości i wyrafinowanych proporcjach do wyjątkowych wnętrz.
           </p>
-        </div>
+        </Link>
 
-        {/* MODEL 214 */}
-        <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
+        {/* ==================================================
+            MODEL 214
+           ================================================== */}
+        <Link
+          href="/modele/214"
+          className="block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
+        >
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Model
           </p>
@@ -188,12 +203,14 @@ export default function Home() {
             przestrzeni, w których dźwięk i design muszą pozostać
             niezapomniane.
           </p>
-        </div>
+        </Link>
 
-        {/* MODEL 275 */}
-        <div
-          id="konfigurator"
-          className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8"
+        {/* ==================================================
+            MODEL 275
+           ================================================== */}
+        <Link
+          href="/modele/275"
+          className="block rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:from-white/15 hover:to-white/[0.05]"
         >
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Model
@@ -203,7 +220,7 @@ export default function Home() {
             Największy model koncertowy Alaudis — pełna skala brzmienia,
             projekcja i charakter sceniczny klasy premium.
           </p>
-        </div>
+        </Link>
       </section>
 
       {/* ====================================================
