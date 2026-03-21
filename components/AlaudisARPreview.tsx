@@ -215,9 +215,11 @@ export default function AlaudisARPreview() {
               camera-controls
               touch-action="pan-y"
               shadow-intensity="0"
-              exposure="0.72"
+              environment-image="neutral"
+              exposure="0.58"
               auto-rotate
               camera-orbit="45deg 75deg 105%"
+              camera-target="0m 0.15m 0m"
               min-camera-orbit="auto auto 55%"
               max-camera-orbit="auto auto 230%"
               field-of-view="30deg"
