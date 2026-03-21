@@ -1,9 +1,3 @@
-//
-//  AlaudisARScene.tsx
-//  
-//
-//  Created by Rafal Zduniak on 21/03/2026.
-//
 "use client";
 
 import { useEffect, useState } from "react";

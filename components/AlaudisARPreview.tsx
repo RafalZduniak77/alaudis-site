@@ -1,12 +1,8 @@
-
 "use client";
 
 import { useRef, useState } from "react";
 import AlaudisARScene from "./AlaudisARScene";
-import {
-  INFO_CARDS,
-  MODEL_OPTIONS,
-} from "./alaudisArConfig";
+import { INFO_CARDS, MODEL_OPTIONS } from "./alaudisArConfig";
 
 export default function AlaudisARPreview() {
   const [roomImage, setRoomImage] = useState<string | null>(null);

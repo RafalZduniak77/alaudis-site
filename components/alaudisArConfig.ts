@@ -1,9 +1,3 @@
-//
-//  alaudisArConfig.ts
-//  
-//
-//  Created by Rafal Zduniak on 21/03/2026.
-//
 export type ModelOption = {
   id: string;
   label: string;
@@ -33,11 +27,10 @@ export const MODEL_VIEWER_SETTINGS = {
   cameraOrbit: "42deg 78deg 92%",
   minCameraOrbit: "auto auto 55%",
   maxCameraOrbit: "auto auto 230%",
-  fieldOfView: "26deg",
+  fieldOfView: "28deg",
 
-  // NAJWAŻNIEJSZE:
   // większa wartość = model niżej
-  cameraTargetY: "2.35m",
+  cameraTargetY: "4.20m",
 };
 
 export const INFO_CARDS = [
