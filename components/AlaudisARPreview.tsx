@@ -218,7 +218,7 @@ export default function AlaudisARPreview() {
                 shadow-intensity="0"
                 exposure="0.72"
                 auto-rotate
-                camera-target="auto -0.95m auto"
+                camera-target="auto 1.15m auto"
                 camera-orbit="42deg 78deg 92%"
                 min-camera-orbit="auto auto 55%"
                 max-camera-orbit="auto auto 230%"
