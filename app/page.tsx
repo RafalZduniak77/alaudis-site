@@ -174,7 +174,7 @@ export default function Home() {
             MODEL 178
            ================================================== */}
         <Link
-          href="/modele/178"
+          href="/fortepiany/alaudis-178"
           className="block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
         >
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -191,7 +191,7 @@ export default function Home() {
             MODEL 214
            ================================================== */}
         <Link
-          href="/modele/214"
+          href="/fortepiany/alaudis-214"
           className="block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
         >
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -209,7 +209,7 @@ export default function Home() {
             MODEL 275
            ================================================== */}
         <Link
-          href="/modele/275"
+          href="/fortepiany/alaudis-275"
           className="block rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:from-white/15 hover:to-white/[0.05]"
         >
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
