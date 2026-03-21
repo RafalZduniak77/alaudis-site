@@ -23,6 +23,8 @@ type Props = {
   modelOptions: ModelOption[];
   selectedModelId: string;
   onChangeModel: (value: string) => void;
+  autoRotateEnabled: boolean;
+  onToggleAutoRotate: () => void;
 };
 
 export default function AlaudisARScene({
@@ -33,6 +35,8 @@ export default function AlaudisARScene({
   modelOptions,
   selectedModelId,
   onChangeModel,
+  autoRotateEnabled,
+  onToggleAutoRotate,
 }: Props) {
   const [viewerReady, setViewerReady] = useState(false);
 
@@ -53,6 +57,7 @@ export default function AlaudisARScene({
   }, []);
 
   const activeBackgroundImage = roomImage ?? DEFAULT_ROOM_IMAGE;
+  const autoRotateProps = autoRotateEnabled ? { "auto-rotate": "" } : {};
 
   return (
     <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),rgba(255,255,255,0.025)_35%,rgba(0,0,0,0.55)_100%)] shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
@@ -112,13 +117,13 @@ export default function AlaudisARScene({
             touch-action="pan-y"
             shadow-intensity="0"
             exposure={MODEL_VIEWER_SETTINGS.exposure}
-            auto-rotate
             camera-target={`auto ${MODEL_VIEWER_SETTINGS.cameraTargetY} auto`}
             camera-orbit={MODEL_VIEWER_SETTINGS.cameraOrbit}
             min-camera-orbit={MODEL_VIEWER_SETTINGS.minCameraOrbit}
             max-camera-orbit={MODEL_VIEWER_SETTINGS.maxCameraOrbit}
             field-of-view={MODEL_VIEWER_SETTINGS.fieldOfView}
             interaction-prompt="auto"
+            {...autoRotateProps}
             style={{
               width: "100%",
               height: "100%",
@@ -150,6 +155,18 @@ export default function AlaudisARScene({
             <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/65">
               Zoom aktywny
             </span>
+
+            <button
+              type="button"
+              onClick={onToggleAutoRotate}
+              className={
+                autoRotateEnabled
+                  ? "rounded-full border border-[#c79a5c]/40 bg-[#c79a5c]/15 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-[#f0cd98] transition hover:border-[#c79a5c]/60 hover:bg-[#c79a5c]/20"
+                  : "rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/70 transition hover:border-white/25"
+              }
+            >
+              Auto obrót {autoRotateEnabled ? "ON" : "OFF"}
+            </button>
 
             <div className="relative">
               <select

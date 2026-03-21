@@ -8,6 +8,7 @@ export default function AlaudisARPreview() {
   const [roomImage, setRoomImage] = useState<string | null>(null);
   const [roomVideo, setRoomVideo] = useState<string | null>(null);
   const [selectedModelId, setSelectedModelId] = useState(MODEL_OPTIONS[0].id);
+  const [autoRotateEnabled, setAutoRotateEnabled] = useState(true);
 
   const imageInputRef = useRef<HTMLInputElement | null>(null);
   const videoInputRef = useRef<HTMLInputElement | null>(null);
@@ -128,6 +129,10 @@ export default function AlaudisARPreview() {
           modelOptions={MODEL_OPTIONS}
           selectedModelId={selectedModelId}
           onChangeModel={setSelectedModelId}
+          autoRotateEnabled={autoRotateEnabled}
+          onToggleAutoRotate={() =>
+            setAutoRotateEnabled((prev) => !prev)
+          }
         />
 
         <div className="mt-6 grid gap-4 xl:grid-cols-[1.15fr_1fr_1fr_1fr]">
