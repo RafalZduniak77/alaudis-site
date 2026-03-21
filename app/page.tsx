@@ -62,7 +62,7 @@ export default function Home() {
             {/* LEWA STRONA - MENU */}
             <div className="ml-8 flex items-center gap-4">
               <a
-                href="/odkryj-modele"
+                href="#modele"
                 className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Modele
