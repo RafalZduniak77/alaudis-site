@@ -5,14 +5,15 @@
 //
 // Za co odpowiada ten plik:
 // 1. pokazuje hero modelu 275
-// 2. opisuje charakter brzmienia
-// 3. pokazuje przeznaczenie modelu
-// 4. pokazuje docelowe wnętrza
-// 5. pokazuje galerię zdjęć
-// 6. daje 2 główne wejścia:
+// 2. korzysta ze wspólnego górnego paska ModelPageTopBar
+// 3. opisuje charakter brzmienia
+// 4. pokazuje przeznaczenie modelu
+// 5. pokazuje docelowe wnętrza
+// 6. pokazuje galerię zdjęć
+// 7. daje 2 główne wejścia:
 //    - do konfiguratora
 //    - do podglądu 3D
-// 7. kończy się stopką Footer
+// 8. kończy się stopką Footer
 //
 // Co tutaj najłatwiej zmieniasz:
 // - zdjęcia modelu
@@ -20,19 +21,30 @@
 // - tytuł modelu
 // - opisy charakteru
 // - linki CTA
+// - aktywny język w górnym pasku
 // ==========================================================
 
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import ModelPageTopBar from "@/components/ModelPageTopBar";
 
 export default function ModelAlaudis275Page() {
   return (
     <main className="min-h-screen bg-black text-white">
       {/* ====================================================
+          WSPÓLNY GÓRNY PASEK
+          - zawsze widoczny
+          - powrót po lewej
+          - logo na środku
+          - języki po prawej
+         ==================================================== */}
+      <ModelPageTopBar backHref="/" activeLanguage="PL" />
+
+      {/* ====================================================
           HERO MODELU
          ==================================================== */}
-      <section className="relative overflow-hidden border-b border-white/10">
+      <section className="relative overflow-hidden border-b border-white/10 pt-28">
         <div className="absolute inset-0">
           <Image
             src="/galeria-home/5.JPG"
@@ -43,45 +55,6 @@ export default function ModelAlaudis275Page() {
           />
           <div className="absolute inset-0 bg-black/65" />
         </div>
-
-        {/* ==================================================
-            GÓRNY PASEK
-           ================================================== */}
-        <header className="relative z-20">
-          <div className="mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pb-6 pt-12 lg:px-10">
-            {/* LEWA STRONA - POWRÓT */}
-            <div className="ml-8 flex items-center gap-4">
-              <Link
-                href="/"
-                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Powrót
-              </Link>
-            </div>
-
-            {/* ŚRODEK - LOGO */}
-            <div className="justify-self-center pt-2">
-              <Image
-                src="/logo-alaudis.png"
-                alt="Logo Alaudis"
-                width={77}
-                height={25}
-                priority
-                className="h-auto w-[60px] object-contain opacity-95 md:w-[77px]"
-              />
-            </div>
-
-            {/* PRAWA STRONA - CTA */}
-            <div className="justify-self-end">
-              <Link
-                href="/konfigurator"
-                className="rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Konfigurator
-              </Link>
-            </div>
-          </div>
-        </header>
 
         {/* ==================================================
             TREŚĆ HERO
@@ -103,7 +76,9 @@ export default function ModelAlaudis275Page() {
               nie tylko wybrzmieć, ale wypełnić wnętrze autorytetem i klasą.
             </p>
 
-            {/* CTA HERO */}
+            {/* ==================================================
+                CTA HERO
+               ================================================== */}
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/konfigurator"
@@ -165,7 +140,9 @@ export default function ModelAlaudis275Page() {
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Przeznaczenie
             </p>
-            <h3 className="mt-4 text-2xl font-light">Scena i przestrzeń reprezentacyjna</h3>
+            <h3 className="mt-4 text-2xl font-light">
+              Scena i przestrzeń reprezentacyjna
+            </h3>
             <p className="mt-5 leading-8 text-white/68">
               Idealny do sal koncertowych, dużych rezydencji, hoteli klasy
               luxury, reprezentacyjnych przestrzeni firmowych i wnętrz, w
