@@ -140,54 +140,50 @@ export default function AlaudisARScene({
       </div>
 
       <div className="absolute inset-x-0 bottom-0 z-20">
-        <div className="flex flex-col gap-3 border-t border-white/10 bg-gradient-to-t from-black/70 via-black/35 to-transparent px-5 py-5 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-3xl">
+        <div className="border-t border-white/10 bg-gradient-to-t from-black/70 via-black/35 to-transparent px-5 py-5">
+          <div className="flex items-center justify-between gap-4">
             <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">
               Sterowanie
             </p>
-            <p className="mt-2 text-sm text-white/75">
-              Przeciągnij, aby obrócić • przewijaj lub gestem przybliżaj i
-              oddalaj • możesz też wgrać zdjęcie lub video własnego salonu
-            </p>
-          </div>
 
-          <div className="flex flex-wrap items-center gap-2 sm:justify-end">
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/65">
-              Zoom aktywny
-            </span>
-
-            <button
-              type="button"
-              onClick={onToggleAutoRotate}
-              className={
-                autoRotateEnabled
-                  ? "rounded-full border border-[#c79a5c]/40 bg-[#c79a5c]/15 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-[#f0cd98] transition hover:border-[#c79a5c]/60 hover:bg-[#c79a5c]/20"
-                  : "rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/70 transition hover:border-white/25"
-              }
-            >
-              Auto obrót {autoRotateEnabled ? "ON" : "OFF"}
-            </button>
-
-            <div className="relative">
-              <select
-                value={selectedModelId}
-                onChange={(e) => onChangeModel(e.target.value)}
-                className="appearance-none rounded-full border border-white/10 bg-white/5 px-4 py-2 pr-11 text-[11px] uppercase tracking-[0.22em] text-white/75 outline-none transition hover:border-white/25"
-              >
-                {modelOptions.map((option) => (
-                  <option
-                    key={option.id}
-                    value={option.id}
-                    className="bg-[#111] text-white"
-                  >
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-
-              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[11px] text-white/60">
-                ▼
+            <div className="flex flex-nowrap items-center gap-2 overflow-x-auto sm:overflow-visible">
+              <span className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/65">
+                Zoom aktywny
               </span>
+
+              <button
+                type="button"
+                onClick={onToggleAutoRotate}
+                className={
+                  autoRotateEnabled
+                    ? "whitespace-nowrap rounded-full border border-[#c79a5c]/40 bg-[#c79a5c]/15 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-[#f0cd98] transition hover:border-[#c79a5c]/60 hover:bg-[#c79a5c]/20"
+                    : "whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/70 transition hover:border-white/25"
+                }
+              >
+                Auto obrót {autoRotateEnabled ? "ON" : "OFF"}
+              </button>
+
+              <div className="relative shrink-0">
+                <select
+                  value={selectedModelId}
+                  onChange={(e) => onChangeModel(e.target.value)}
+                  className="appearance-none whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 pr-11 text-[11px] uppercase tracking-[0.22em] text-white/75 outline-none transition hover:border-white/25"
+                >
+                  {modelOptions.map((option) => (
+                    <option
+                      key={option.id}
+                      value={option.id}
+                      className="bg-[#111] text-white"
+                    >
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+
+                <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[11px] text-white/60">
+                  ▼
+                </span>
+              </div>
             </div>
           </div>
         </div>
