@@ -1,6 +1,5 @@
 //
 //  page.tsx
-//  
 //
 //  Created by Rafal Zduniak on 22/03/2026.
 //
@@ -236,11 +235,12 @@ export default function KontaktPage() {
                 </p>
               </div>
 
+              {/* NIP FIRMY */}
               <div>
                 <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
                   NIP
                 </p>
-                <p className="mt-3 text-xl text-white">[uzupełnij NIP]</p>
+                <p className="mt-3 text-xl text-white">6181893417</p>
               </div>
 
               <div>
@@ -294,4 +294,3 @@ export default function KontaktPage() {
     </main>
   );
 }
-
