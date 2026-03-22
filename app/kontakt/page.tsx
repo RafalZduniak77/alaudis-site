@@ -32,10 +32,10 @@
 // - teksty sekcji
 //
 // Ważne:
-// - menu wiadomości otwiera się do góry,
-//   żeby nie było obcinane przez kartę
-// - karta ma overflow-visible, ale zdjęcie nadal ma własne zaokrąglenia
-// - rozwijane menu dostało ciemnozielone tło w stylu premium
+// - menu wiadomości otwiera się teraz na dół
+// - karty są wydłużone, żeby dropdown mieścił się w środku
+// - napis "Dane firmy" został usunięty
+// - rozwijane menu dostało ciemnozielone tło premium
 // ==========================================================
 
 import Image from "next/image";
@@ -94,9 +94,8 @@ function getMailHref(name: string) {
 // - MAIL
 //
 // Najważniejsze:
-// - menu otwiera się DO GÓRY
-// - ma teraz ciemnozielone tło premium
-// - nie jest obcinane na dole karty
+// - menu otwiera się NA DÓŁ
+// - ma ciemnozielone tło premium
 // ==========================================================
 
 type MessageMenuProps = {
@@ -107,20 +106,20 @@ type MessageMenuProps = {
 function MessageMenu({ phoneRaw, personName }: MessageMenuProps) {
   return (
     <details className="group relative z-30">
-      <summary className="cursor-pointer list-none rounded-full border border-white/20 bg-black/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black">
+      <summary className="cursor-pointer list-none rounded-full border border-[#3c6b52]/70 bg-[#15261d]/90 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/90 transition hover:border-[#5b9473] hover:bg-[#1b3126] hover:text-white">
         <span className="inline-flex items-center gap-2">
           Wyślij wiadomość
           <span className="text-[10px] transition group-open:rotate-180">
-            ▲
+            ▼
           </span>
         </span>
       </summary>
 
-      {/* MENU OTWIERANE DO GÓRY */}
-      <div className="absolute bottom-full left-0 z-40 mb-3 min-w-[220px] overflow-hidden rounded-2xl border border-[#2f4f43]/80 bg-[#10201a]/95 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
+      {/* MENU OTWIERANE NA DÓŁ */}
+      <div className="absolute left-0 top-full z-40 mt-3 min-w-[220px] overflow-hidden rounded-2xl border border-[#426f57]/80 bg-[#193629]/96 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
         <a
           href={getSmsHref(phoneRaw, personName)}
-          className="block px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/80 transition hover:bg-[#173128] hover:text-white"
+          className="block px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/85 transition hover:bg-[#28513d] hover:text-white"
         >
           SMS
         </a>
@@ -129,14 +128,14 @@ function MessageMenu({ phoneRaw, personName }: MessageMenuProps) {
           href={getWhatsAppHref(phoneRaw, personName)}
           target="_blank"
           rel="noreferrer"
-          className="block border-t border-[#2f4f43]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/80 transition hover:bg-[#173128] hover:text-white"
+          className="block border-t border-[#426f57]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/85 transition hover:bg-[#28513d] hover:text-white"
         >
           WHATSAPP
         </a>
 
         <a
           href={getMailHref(personName)}
-          className="block border-t border-[#2f4f43]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/80 transition hover:bg-[#173128] hover:text-white"
+          className="block border-t border-[#426f57]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/85 transition hover:bg-[#28513d] hover:text-white"
         >
           MAIL
         </a>
@@ -207,7 +206,7 @@ export default function KontaktPage() {
             {/* ==================================================
                 PAULINA
                ================================================== */}
-            <div className="overflow-visible rounded-[32px] border border-white/10 bg-white/[0.03]">
+            <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03]">
               {/* ZDJĘCIE HANDLOWCA */}
               <div className="relative aspect-[5/4] w-full overflow-hidden rounded-t-[32px] bg-[#080808]">
                 <div className="absolute inset-0 p-5">
@@ -241,20 +240,27 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <div className="mt-8 flex flex-wrap gap-3">
-                  {/* ZADZWOŃ */}
-                  <a
-                    href={`tel:+${PAULINA_PHONE_RAW}`}
-                    className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-                  >
-                    Zadzwoń
-                  </a>
+                {/* ------------------------------------------------
+                    STREFA PRZYCISKÓW
+                    - specjalnie wydłużona
+                    - żeby dropdown mieścił się w dół
+                   ------------------------------------------------ */}
+                <div className="mt-8 min-h-[190px]">
+                  <div className="flex flex-wrap gap-3">
+                    {/* ZADZWOŃ */}
+                    <a
+                      href={`tel:+${PAULINA_PHONE_RAW}`}
+                      className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                    >
+                      Zadzwoń
+                    </a>
 
-                  {/* WYŚLIJ WIADOMOŚĆ */}
-                  <MessageMenu
-                    phoneRaw={PAULINA_PHONE_RAW}
-                    personName="Paulina"
-                  />
+                    {/* WYŚLIJ WIADOMOŚĆ */}
+                    <MessageMenu
+                      phoneRaw={PAULINA_PHONE_RAW}
+                      personName="Paulina"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -262,7 +268,7 @@ export default function KontaktPage() {
             {/* ==================================================
                 KRZYSZTOF
                ================================================== */}
-            <div className="overflow-visible rounded-[32px] border border-white/10 bg-white/[0.03]">
+            <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03]">
               {/* ZDJĘCIE HANDLOWCA */}
               <div className="relative aspect-[5/4] w-full overflow-hidden rounded-t-[32px] bg-[#080808]">
                 <div className="absolute inset-0 p-5">
@@ -296,20 +302,27 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <div className="mt-8 flex flex-wrap gap-3">
-                  {/* ZADZWOŃ */}
-                  <a
-                    href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
-                    className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-                  >
-                    Zadzwoń
-                  </a>
+                {/* ------------------------------------------------
+                    STREFA PRZYCISKÓW
+                    - specjalnie wydłużona
+                    - żeby dropdown mieścił się w dół
+                   ------------------------------------------------ */}
+                <div className="mt-8 min-h-[190px]">
+                  <div className="flex flex-wrap gap-3">
+                    {/* ZADZWOŃ */}
+                    <a
+                      href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
+                      className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                    >
+                      Zadzwoń
+                    </a>
 
-                  {/* WYŚLIJ WIADOMOŚĆ */}
-                  <MessageMenu
-                    phoneRaw={KRZYSZTOF_PHONE_RAW}
-                    personName="Krzysztof"
-                  />
+                    {/* WYŚLIJ WIADOMOŚĆ */}
+                    <MessageMenu
+                      phoneRaw={KRZYSZTOF_PHONE_RAW}
+                      personName="Krzysztof"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -319,21 +332,16 @@ export default function KontaktPage() {
 
       {/* ====================================================
           DANE FIRMY
+          - bez dużego napisu "Dane firmy"
+          - bardziej zwarte i premium
          ==================================================== */}
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1.2fr]">
-          {/* LEWA STRONA */}
-          <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-              SAP Renovation
-            </p>
-            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-              Dane firmy
-            </h2>
-          </div>
+        <div className="mx-auto max-w-5xl">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            SAP Renovation
+          </p>
 
-          {/* PRAWA STRONA */}
-          <div className="rounded-[32px] border border-white/10 bg-white/[0.03] p-8">
+          <div className="mt-10 rounded-[32px] border border-white/10 bg-white/[0.03] p-8 sm:p-10">
             <div className="grid gap-8 md:grid-cols-2">
               <div>
                 <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
