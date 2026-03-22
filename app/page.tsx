@@ -1,33 +1,6 @@
 // ==========================================================
 // HOME PAGE - ALAUDIS
 // ==========================================================
-// GŁÓWNY CEL TEJ WERSJI
-// ----------------------------------------------------------
-// Ta wersja homepage została przeredagowana tak, aby marka
-// brzmiała bardziej premium i bardziej luksusowo.
-//
-// Główny kierunek komunikacji:
-// "Alaudis nie jest fortepianem wybieranym z katalogu.
-//  Jest fortepianem komponowanym indywidualnie."
-//
-// Co zmieniliśmy w tej wersji:
-// 1. hero dostał nowe premium copy
-// 2. główne hasło zostało ustawione na:
-//    "Skomponuj swój Alaudis"
-// 3. CTA zostały przerobione na bardziej luksusowe
-// 4. sekcja modeli brzmi bardziej jak kolekcja
-// 5. kontakt został przesunięty w stronę prywatnej konsultacji
-// 6. historia została przesunięta w stronę rzemiosła i dziedzictwa
-// 7. cała strona ma ton bardziej "commissioning / atelier"
-//
-// POPRAWKI TEJ WERSJI
-// ----------------------------------------------------------
-// 1. kliknięcie "Kolekcja" zjeżdża wyraźnie niżej
-// 2. cały blok kolekcji ma większy oddech od góry
-// 3. sekcja modeli dostała wyższy z-index
-// 4. same karty modeli są nad wszystkimi ewentualnymi overlayami
-// 5. poprawione pod klikalność modelu 275
-// ==========================================================
 
 import Image from "next/image";
 import Link from "next/link";
@@ -49,9 +22,6 @@ export default function Home() {
           className="object-cover object-center"
         />
 
-        {/* ==================================================
-            DELIKATNA CIEMNA NAKŁADKA
-           ================================================== */}
         <div className="absolute inset-0 z-10 bg-black/30" />
 
         {/* ==================================================
@@ -59,7 +29,6 @@ export default function Home() {
            ================================================== */}
         <header className="absolute inset-x-0 top-0 z-30">
           <div className="mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pb-6 pt-12 lg:px-10">
-            {/* LEWA STRONA - MENU */}
             <div className="ml-8 flex items-center gap-4">
               <a
                 href="#modele"
@@ -68,12 +37,12 @@ export default function Home() {
                 Kolekcja
               </a>
 
-              <a
-                href="#kontakt"
+              <Link
+                href="/kontakt"
                 className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Konsultacja
-              </a>
+              </Link>
 
               <a
                 href="#historia"
@@ -83,7 +52,6 @@ export default function Home() {
               </a>
             </div>
 
-            {/* ŚRODEK - LOGO */}
             <div className="justify-self-center pt-2">
               <Image
                 src="/logo-alaudis.png"
@@ -95,7 +63,6 @@ export default function Home() {
               />
             </div>
 
-            {/* PRAWA STRONA - MENU JĘZYKÓW */}
             <div className="justify-self-end">
               <details className="group relative">
                 <summary className="list-none cursor-pointer rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black">
@@ -117,14 +84,14 @@ export default function Home() {
 
                   <button
                     type="button"
-                    className="w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                    className="w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
                   >
                     EN
                   </button>
 
                   <button
                     type="button"
-                    className="w-full border-t border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                    className="w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
                   >
                     DE
                   </button>
@@ -155,26 +122,23 @@ export default function Home() {
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
+              <Link
                 href="/konfigurator"
                 className="rounded-full border border-white/35 bg-white px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:border-white hover:bg-transparent hover:text-white"
               >
                 Rozpocznij kompozycję
-              </a>
+              </Link>
 
-              <a
-                href="#kontakt"
+              <Link
+                href="/kontakt"
                 className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Umów prywatną konsultację
-              </a>
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* ==================================================
-            DÓŁ HERO
-           ================================================== */}
         <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
           <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
             <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
@@ -193,25 +157,16 @@ export default function Home() {
       </div>
 
       {/* ====================================================
-          GŁÓWNY BLOK KOLEKCJI
-          ----------------------------------------------------
-          Tu trafia link #modele.
-          Został mocno odsunięty od góry, żeby po kliknięciu
-          nie lądować zbyt wysoko.
+          BLOK KOLEKCJI - TARGET DLA #modele
          ==================================================== */}
       <section
         id="modele"
-        className="relative z-20 bg-neutral-950 scroll-mt-[260px] sm:scroll-mt-[300px] lg:scroll-mt-[360px]"
+        className="relative z-20 scroll-mt-[320px] bg-neutral-950 sm:scroll-mt-[360px] lg:scroll-mt-[420px]"
       >
-        {/* ==================================================
-            DUŻY ODDECH NAD KOLEKCJĄ
-            --------------------------------------------------
-            To właśnie zepchnie kolekcję niżej po kliknięciu.
-           ================================================== */}
-        <div className="h-24 sm:h-28 lg:h-36" />
+        <div className="h-24 sm:h-32 lg:h-40" />
 
         {/* ==================================================
-            SEKCJA WPROWADZAJĄCA DO KOLEKCJI
+            WPROWADZENIE DO KOLEKCJI
            ================================================== */}
         <section className="px-6 pb-10 text-center sm:px-10 lg:px-16">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -233,13 +188,8 @@ export default function Home() {
 
         {/* ==================================================
             SEKCJA MODELI
-            --------------------------------------------------
-            relative + z-index dla pełnej klikalności kart
            ================================================== */}
         <section className="relative z-30 grid gap-6 px-6 pb-24 sm:px-10 lg:grid-cols-3 lg:px-16">
-          {/* ==================================================
-              MODEL 178
-             ================================================== */}
           <Link
             href="/fortepiany/alaudis-178"
             className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
@@ -261,9 +211,6 @@ export default function Home() {
             </p>
           </Link>
 
-          {/* ==================================================
-              MODEL 214
-             ================================================== */}
           <Link
             href="/fortepiany/alaudis-214"
             className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
@@ -275,8 +222,9 @@ export default function Home() {
             <h2 className="mt-4 text-3xl font-light">Alaudis 214</h2>
 
             <p className="mt-5 leading-7 text-white/68">
-              Fortepian o głębszej obecności i szerszej projekcji — dla przestrzeni,
-              które wymagają większej skali, wyrazistości i koncertowego charakteru.
+              Fortepian o głębszej obecności i szerszej projekcji — dla
+              przestrzeni, które wymagają większej skali, wyrazistości i
+              koncertowego charakteru.
             </p>
 
             <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
@@ -284,9 +232,6 @@ export default function Home() {
             </p>
           </Link>
 
-          {/* ==================================================
-              MODEL 275
-             ================================================== */}
           <Link
             href="/fortepiany/alaudis-275"
             className="relative z-30 block rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:from-white/15 hover:to-white/[0.05]"
@@ -331,19 +276,19 @@ export default function Home() {
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
+          <Link
             href="/konfigurator"
             className="rounded-full border border-white/35 bg-white px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:border-white hover:bg-transparent hover:text-white"
           >
             Rozpocznij kompozycję
-          </a>
+          </Link>
 
-          <a
+          <Link
             href="/kontakt"
             className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
           >
             Skontaktuj się z nami
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -368,9 +313,6 @@ export default function Home() {
         </p>
       </section>
 
-      {/* ====================================================
-          FOOTER
-         ==================================================== */}
       <Footer />
     </main>
   );
