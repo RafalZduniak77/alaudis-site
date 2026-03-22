@@ -1,13 +1,15 @@
 // ==========================================================
 // HOME PAGE - ALAUDIS
 // ==========================================================
-// POPRAWKA KIEROWANIA DO #modele
+// WERSJA POPRAWIONA
 // ----------------------------------------------------------
-// Co zostało poprawione:
-// 1. anchor #modele ma teraz osobny punkt zaczepienia
-// 2. usunięto sztuczny pusty blok wysokości
-// 3. zmniejszono przesadzony scroll offset
-// 4. sekcja kolekcji ląduje stabilniej i bardziej naturalnie
+// Co poprawiono w tej wersji:
+// 1. przywrócono hasło przewodnie:
+//    "RZEMIOSŁO, DETAL, TOŻSAMOŚĆ."
+// 2. poprawiono kierowanie do sekcji "Kolekcja"
+// 3. anchor #modele siedzi teraz dokładnie na sekcji intro
+// 4. usunięto pusty techniczny anchor, który zaniżał pozycję
+// 5. sekcja po kliknięciu "Kolekcja" ma ustawiać się jak na foto 2
 // ==========================================================
 
 import Image from "next/image";
@@ -30,6 +32,9 @@ export default function Home() {
           className="object-cover object-center"
         />
 
+        {/* ==================================================
+            DELIKATNA NAKŁADKA
+           ================================================== */}
         <div className="absolute inset-0 z-10 bg-black/30" />
 
         {/* ==================================================
@@ -43,21 +48,21 @@ export default function Home() {
                 href="#modele"
                 className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
-                Kolekcja
+                Modele
               </a>
 
               <Link
                 href="/kontakt"
                 className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
-                Konsultacja
+                Kontakt
               </Link>
 
               <a
                 href="#historia"
                 className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
-                Dziedzictwo
+                Historia
               </a>
             </div>
 
@@ -114,6 +119,7 @@ export default function Home() {
 
         {/* ==================================================
             ŚRODEK HERO
+            - przywrócone hasło przewodnie
            ================================================== */}
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
           <div className="mx-auto max-w-5xl pt-16">
@@ -122,14 +128,14 @@ export default function Home() {
             </p>
 
             <h1 className="text-2xl font-light uppercase tracking-[0.06em] text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
-              Skomponuj
+              Rzemiosło,
               <br />
-              swój Alaudis
+              detal, tożsamość.
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/72 sm:text-base sm:leading-8">
-              Fortepian tworzony indywidualnie — z wyselekcjonowanych materiałów,
-              rzemiosła, proporcji i charakteru brzmienia.
+              Każdy Alaudis powstaje z połączenia rzemiosła, proporcji,
+              szlachetnego materiału i indywidualnego charakteru brzmienia.
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -137,14 +143,14 @@ export default function Home() {
                 href="/konfigurator"
                 className="rounded-full border border-white/35 bg-white px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:border-white hover:bg-transparent hover:text-white"
               >
-                Rozpocznij kompozycję
+                Otwórz konfigurator
               </Link>
 
               <Link
-                href="/kontakt"
+                href="#modele"
                 className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
-                Umów prywatną konsultację
+                Odkryj modele
               </Link>
             </div>
           </div>
@@ -158,7 +164,7 @@ export default function Home() {
             <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
           </div>
           <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/80">
-            Odkryj kolekcję
+            Przewiń w dół
           </p>
         </div>
       </section>
@@ -173,21 +179,17 @@ export default function Home() {
       {/* ====================================================
           BLOK KOLEKCJI
           ----------------------------------------------------
-          Osobny anchor daje stabilniejsze trafienie po kliknięciu
-          "Kolekcja" niż ustawianie id bezpośrednio na dużej sekcji
-          z dodatkowymi sztucznymi odstępami.
+          id="modele" siedzi teraz dokładnie na sekcji intro,
+          więc kliknięcie prowadzi dokładnie do tego widoku.
          ==================================================== */}
       <section className="relative z-20 bg-neutral-950">
-        {/* NIEWIDOCZNY PUNKT DO SKOKU */}
-        <div
-          id="modele"
-          className="scroll-mt-20 sm:scroll-mt-24 lg:scroll-mt-28"
-        />
-
         {/* ==================================================
             WPROWADZENIE DO KOLEKCJI
            ================================================== */}
-        <section className="px-6 pb-10 pt-24 text-center sm:px-10 sm:pt-28 lg:px-16 lg:pt-32">
+        <section
+          id="modele"
+          className="scroll-mt-8 px-6 pb-10 pt-16 text-center sm:scroll-mt-10 sm:px-10 sm:pt-20 lg:scroll-mt-12 lg:px-16 lg:pt-24"
+        >
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Kolekcja Alaudis
           </p>
@@ -227,7 +229,7 @@ export default function Home() {
             </p>
 
             <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
-              Skomponuj ten model
+              Odkryj model
             </p>
           </Link>
 
@@ -249,7 +251,7 @@ export default function Home() {
             </p>
 
             <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
-              Skomponuj ten model
+              Odkryj model
             </p>
           </Link>
 
@@ -271,7 +273,7 @@ export default function Home() {
             </p>
 
             <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
-              Skomponuj ten model
+              Odkryj model
             </p>
           </Link>
         </section>
@@ -302,7 +304,7 @@ export default function Home() {
             href="/konfigurator"
             className="rounded-full border border-white/35 bg-white px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:border-white hover:bg-transparent hover:text-white"
           >
-            Rozpocznij kompozycję
+            Otwórz konfigurator
           </Link>
 
           <Link
