@@ -6,10 +6,9 @@
 // Co poprawiono w tej wersji:
 // 1. przywrócono hasło przewodnie:
 //    "RZEMIOSŁO, DETAL, TOŻSAMOŚĆ."
-// 2. poprawiono kierowanie do sekcji "Kolekcja"
-// 3. anchor #modele siedzi teraz dokładnie na sekcji intro
-// 4. usunięto pusty techniczny anchor, który zaniżał pozycję
-// 5. sekcja po kliknięciu "Kolekcja" ma ustawiać się jak na foto 2
+// 2. poprawiono kierowanie do sekcji "Modele"
+// 3. sekcja po kliknięciu "Modele" ustawia się wyżej
+// 4. zachowano premium układ strony
 // ==========================================================
 
 import Image from "next/image";
@@ -119,7 +118,6 @@ export default function Home() {
 
         {/* ==================================================
             ŚRODEK HERO
-            - przywrócone hasło przewodnie
            ================================================== */}
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
           <div className="mx-auto max-w-5xl pt-16">
@@ -178,9 +176,6 @@ export default function Home() {
 
       {/* ====================================================
           BLOK KOLEKCJI
-          ----------------------------------------------------
-          id="modele" siedzi teraz dokładnie na sekcji intro,
-          więc kliknięcie prowadzi dokładnie do tego widoku.
          ==================================================== */}
       <section className="relative z-20 bg-neutral-950">
         {/* ==================================================
@@ -188,7 +183,7 @@ export default function Home() {
            ================================================== */}
         <section
           id="modele"
-          className="scroll-mt-8 px-6 pb-10 pt-16 text-center sm:scroll-mt-10 sm:px-10 sm:pt-20 lg:scroll-mt-12 lg:px-16 lg:pt-24"
+          className="scroll-mt-0 px-6 pb-10 pt-10 text-center sm:scroll-mt-2 sm:px-10 sm:pt-14 lg:scroll-mt-4 lg:px-16 lg:pt-16"
         >
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Kolekcja Alaudis
@@ -341,3 +336,4 @@ export default function Home() {
     </main>
   );
 }
+
