@@ -67,21 +67,21 @@ export default function Home() {
                 href="#modele"
                 className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
-                Modele
+                Kolekcja
               </a>
 
               <a
                 href="/kontakt"
                 className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
-                Kontakt
+                Konsultacja
               </a>
 
               <a
                 href="#historia"
                 className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
-                Historia
+                Dziedzictwo
               </a>
             </div>
 
@@ -142,33 +142,43 @@ export default function Home() {
             ŚRODEK HERO
             - mały napis
             - główny slogan
+            - opis
             - dwa przyciski
            ================================================== */}
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
-          <div className="mx-auto max-w-4xl pt-16">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/85">
-              Calendario Alaudis
+          <div className="mx-auto max-w-5xl pt-16">
+            {/* MAŁY NAPIS NAD TYTUŁEM */}
+            <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/85">
+              Alaudis Atelier
             </p>
 
-            <h1 className="text-2xl font-light uppercase tracking-[0.06em] text-white sm:text-4xl lg:text-[44px] lg:leading-[1.12]">
+            {/* GŁÓWNY TYTUŁ HERO */}
+            <h1 className="text-3xl font-light uppercase tracking-[0.04em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.08]">
               Rzemiosło,
               <br />
               detal, tożsamość.
             </h1>
 
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            {/* OPIS POD TYTUŁEM */}
+            <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-white/82 sm:text-[18px]">
+              Fortepian tworzony indywidualnie — z wyselekcjonowanych materiałów,
+              rzemiosła, proporcji i charakteru brzmienia.
+            </p>
+
+            {/* PRZYCISKI CTA */}
+            <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
-                href="/odkryj-modele"
-                className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                href="/konfigurator"
+                className="rounded-full border border-white/35 bg-white px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:scale-[1.02] hover:border-white hover:bg-white/90"
               >
-                Odkryj modele
+                Rozpocznij kompozycję
               </a>
 
               <a
-                href="/konfigurator"
+                href="/kontakt"
                 className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
-                Otwórz konfigurator
+                Umów prywatną konsultację
               </a>
             </div>
           </div>
@@ -183,7 +193,7 @@ export default function Home() {
             <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
           </div>
           <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/80">
-            Przewiń w dół
+            Odkryj kolekcję
           </p>
         </div>
       </section>
@@ -297,4 +307,3 @@ export default function Home() {
     </main>
   );
 }
-
