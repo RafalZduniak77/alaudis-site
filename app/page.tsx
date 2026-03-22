@@ -1,6 +1,14 @@
 // ==========================================================
 // HOME PAGE - ALAUDIS
 // ==========================================================
+// POPRAWKA KIEROWANIA DO #modele
+// ----------------------------------------------------------
+// Co zostało poprawione:
+// 1. anchor #modele ma teraz osobny punkt zaczepienia
+// 2. usunięto sztuczny pusty blok wysokości
+// 3. zmniejszono przesadzony scroll offset
+// 4. sekcja kolekcji ląduje stabilniej i bardziej naturalnie
+// ==========================================================
 
 import Image from "next/image";
 import Link from "next/link";
@@ -29,6 +37,7 @@ export default function Home() {
            ================================================== */}
         <header className="absolute inset-x-0 top-0 z-30">
           <div className="mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pb-6 pt-12 lg:px-10">
+            {/* LEWA STRONA */}
             <div className="ml-8 flex items-center gap-4">
               <a
                 href="#modele"
@@ -52,6 +61,7 @@ export default function Home() {
               </a>
             </div>
 
+            {/* ŚRODEK */}
             <div className="justify-self-center pt-2">
               <Image
                 src="/logo-alaudis.png"
@@ -63,6 +73,7 @@ export default function Home() {
               />
             </div>
 
+            {/* PRAWA STRONA */}
             <div className="justify-self-end">
               <details className="group relative">
                 <summary className="list-none cursor-pointer rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black">
@@ -139,6 +150,9 @@ export default function Home() {
           </div>
         </div>
 
+        {/* ==================================================
+            DÓŁ HERO
+           ================================================== */}
         <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
           <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
             <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
@@ -157,18 +171,23 @@ export default function Home() {
       </div>
 
       {/* ====================================================
-          BLOK KOLEKCJI - TARGET DLA #modele
+          BLOK KOLEKCJI
+          ----------------------------------------------------
+          Osobny anchor daje stabilniejsze trafienie po kliknięciu
+          "Kolekcja" niż ustawianie id bezpośrednio na dużej sekcji
+          z dodatkowymi sztucznymi odstępami.
          ==================================================== */}
-      <section
-        id="modele"
-        className="relative z-20 scroll-mt-[320px] bg-neutral-950 sm:scroll-mt-[360px] lg:scroll-mt-[420px]"
-      >
-        <div className="h-24 sm:h-32 lg:h-40" />
+      <section className="relative z-20 bg-neutral-950">
+        {/* NIEWIDOCZNY PUNKT DO SKOKU */}
+        <div
+          id="modele"
+          className="scroll-mt-20 sm:scroll-mt-24 lg:scroll-mt-28"
+        />
 
         {/* ==================================================
             WPROWADZENIE DO KOLEKCJI
            ================================================== */}
-        <section className="px-6 pb-10 text-center sm:px-10 lg:px-16">
+        <section className="px-6 pb-10 pt-24 text-center sm:px-10 sm:pt-28 lg:px-16 lg:pt-32">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Kolekcja Alaudis
           </p>
@@ -181,8 +200,8 @@ export default function Home() {
 
           <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-white/68 sm:text-[17px]">
             Każdy model Alaudis powstaje jako osobna interpretacja proporcji,
-            charakteru i brzmienia — od wyrafinowanej obecności salonowej po pełną
-            skalę fortepianu koncertowego.
+            charakteru i brzmienia — od wyrafinowanej obecności salonowej po
+            pełną skalę fortepianu koncertowego.
           </p>
         </section>
 
@@ -190,6 +209,7 @@ export default function Home() {
             SEKCJA MODELI
            ================================================== */}
         <section className="relative z-30 grid gap-6 px-6 pb-24 sm:px-10 lg:grid-cols-3 lg:px-16">
+          {/* MODEL 178 */}
           <Link
             href="/fortepiany/alaudis-178"
             className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
@@ -211,6 +231,7 @@ export default function Home() {
             </p>
           </Link>
 
+          {/* MODEL 214 */}
           <Link
             href="/fortepiany/alaudis-214"
             className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
@@ -232,6 +253,7 @@ export default function Home() {
             </p>
           </Link>
 
+          {/* MODEL 275 */}
           <Link
             href="/fortepiany/alaudis-275"
             className="relative z-30 block rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:from-white/15 hover:to-white/[0.05]"
@@ -256,7 +278,7 @@ export default function Home() {
       </section>
 
       {/* ====================================================
-          SEKCJA KONTAKT / KONSULTACJA
+          SEKCJA KONTAKT
          ==================================================== */}
       <section
         id="kontakt"
@@ -293,7 +315,7 @@ export default function Home() {
       </section>
 
       {/* ====================================================
-          SEKCJA HISTORIA / DZIEDZICTWO
+          SEKCJA HISTORIA
          ==================================================== */}
       <section
         id="historia"
