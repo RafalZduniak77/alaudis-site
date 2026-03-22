@@ -1,264 +1,293 @@
 // ==========================================================
-// MODEL PAGE - ALAUDIS 275
+// HOME PAGE - ALAUDIS
 // ==========================================================
-// To jest osobna podstrona premium dla modelu Alaudis 275.
+// To jest główny plik strony głównej Alaudis.
 //
 // Za co odpowiada ten plik:
-// 1. pokazuje hero modelu 275
-// 2. korzysta ze wspólnego górnego paska ModelPageTopBar
-// 3. opisuje charakter brzmienia
-// 4. pokazuje przeznaczenie modelu
-// 5. pokazuje docelowe wnętrza
-// 6. pokazuje galerię zdjęć
-// 7. daje 2 główne wejścia:
-//    - do konfiguratora
-//    - do podglądu 3D
-// 8. kończy się stopką Footer
+// 1. buduje cały homepage
+// 2. pokazuje hero z dużym zdjęciem w tle
+// 3. wyświetla górne menu z linkami
+// 4. pokazuje centralny slogan i przyciski CTA
+// 5. osadza sekcję przewijanych modeli
+// 6. pokazuje sekcję modeli 178 / 214 / 275
+// 7. pozwala klikać w karty modeli i przechodzić na podstrony
+// 8. kieruje przyciskiem Kontakt na osobną podstronę /kontakt
+// 9. pokazuje sekcję historia
+// 10. dodaje footer na końcu
+// 11. ma po prawej rozwijane menu języków PL / EN / DE
 //
 // Co tutaj najłatwiej zmieniasz:
-// - zdjęcia modelu
-// - teksty sekcji
-// - tytuł modelu
-// - opisy charakteru
-// - linki CTA
-// - aktywny język w górnym pasku
+// - zdjęcie hero
+// - napisy w headerze
+// - slogan główny
+// - teksty przycisków
+// - opisy modeli
+// - linki kart modeli
+// - link kontaktu
+// - treści sekcji historii
+// - kolejność sekcji
+//
+// Najważniejsze importy:
+// - ScrollModelsShowcase -> sekcja przewijanych modeli
+// - Footer               -> stopka strony
+// - Link                 -> klikalne przejścia do podstron modeli
 // ==========================================================
 
 import Image from "next/image";
 import Link from "next/link";
+import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
 import Footer from "@/components/Footer";
-import ModelPageTopBar from "@/components/ModelPageTopBar";
 
-export default function ModelAlaudis275Page() {
+export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
       {/* ====================================================
-          WSPÓLNY GÓRNY PASEK
-          - zawsze widoczny
-          - powrót po lewej
-          - logo na środku
-          - języki po prawej
+          HERO
          ==================================================== */}
-      <ModelPageTopBar backHref="/" activeLanguage="PL" />
-
-      {/* ====================================================
-          HERO MODELU
-         ==================================================== */}
-      <section className="relative overflow-hidden border-b border-white/10 pt-28">
-        <div className="absolute inset-0">
-          <Image
-            src="/galeria-home/5.JPG"
-            alt="Alaudis 275"
-            fill
-            priority
-            className="object-cover object-center opacity-35"
-          />
-          <div className="absolute inset-0 bg-black/65" />
-        </div>
+      <section className="relative min-h-screen overflow-hidden">
+        <Image
+          src="/hero.jpg"
+          alt="Fortepian Alaudis"
+          fill
+          priority
+          className="object-cover object-center"
+        />
 
         {/* ==================================================
-            TREŚĆ HERO
+            HEADER
+            - menu po lewej
+            - logo na środku
+            - menu języków po prawej
            ================================================== */}
-        <div className="relative z-20 px-6 pb-20 pt-8 text-center">
-          <div className="mx-auto max-w-5xl">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/80">
-              Model koncertowy
+        <header className="absolute inset-x-0 top-0 z-30">
+          <div className="mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pb-6 pt-12 lg:px-10">
+            {/* LEWA STRONA - MENU */}
+            <div className="ml-8 flex items-center gap-4">
+              <a
+                href="#modele"
+                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+              >
+                Modele
+              </a>
+
+              <a
+                href="/kontakt"
+                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+              >
+                Kontakt
+              </a>
+
+              <a
+                href="#historia"
+                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+              >
+                Historia
+              </a>
+            </div>
+
+            {/* ŚRODEK - LOGO */}
+            <div className="justify-self-center pt-2">
+              <Image
+                src="/logo-alaudis.png"
+                alt="Logo Alaudis"
+                width={77}
+                height={25}
+                priority
+                className="h-auto w-[60px] object-contain opacity-95 md:w-[77px]"
+              />
+            </div>
+
+            {/* PRAWA STRONA - MENU JĘZYKÓW */}
+            <div className="justify-self-end">
+              <details className="group relative">
+                <summary className="cursor-pointer list-none rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black">
+                  <span className="inline-flex items-center gap-2">
+                    PL
+                    <span className="text-[10px] transition group-open:rotate-180">
+                      ▼
+                    </span>
+                  </span>
+                </summary>
+
+                <div className="absolute right-0 mt-3 min-w-[150px] overflow-hidden rounded-2xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl">
+                  {/* AKTYWNY JĘZYK */}
+                  <button
+                    type="button"
+                    className="w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
+                  >
+                    PL
+                  </button>
+
+                  {/* PRZYGOTOWANE POD KOLEJNE WERSJE */}
+                  <button
+                    type="button"
+                    className="w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                  >
+                    EN
+                  </button>
+
+                  <button
+                    type="button"
+                    className="w-full border-t border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                  >
+                    DE
+                  </button>
+                </div>
+              </details>
+            </div>
+          </div>
+        </header>
+
+        {/* ==================================================
+            ŚRODEK HERO
+            - mały napis
+            - główny slogan
+            - dwa przyciski
+           ================================================== */}
+        <div className="relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
+          <div className="mx-auto max-w-4xl pt-16">
+            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/85">
+              Calendario Alaudis
             </p>
 
-            <h1 className="text-3xl font-light uppercase tracking-[0.06em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.05]">
-              Alaudis 275
+            <h1 className="text-2xl font-light uppercase tracking-[0.06em] text-white sm:text-4xl lg:text-[44px] lg:leading-[1.12]">
+              Rzemiosło,
+              <br />
+              detal, tożsamość.
             </h1>
 
-            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/88 sm:text-base">
-              Największa koncertowa forma Alaudis. Model 275 został pomyślany
-              jako instrument o pełnej skali obecności — wizualnej, akustycznej
-              i scenicznej. To fortepian dla przestrzeni, w których dźwięk ma
-              nie tylko wybrzmieć, ale wypełnić wnętrze autorytetem i klasą.
-            </p>
-
-            {/* ==================================================
-                CTA HERO
-               ================================================== */}
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href="/konfigurator"
-                className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Otwórz konfigurator
-              </Link>
-
-              <Link
+              <a
                 href="/odkryj-modele"
                 className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
-                Zobacz w 3D
-              </Link>
+                Odkryj modele
+              </a>
+
+              <a
+                href="/konfigurator"
+                className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+              >
+                Otwórz konfigurator
+              </a>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* ====================================================
-          CHARAKTER BRZMIENIA
-         ==================================================== */}
-      <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-              Charakter brzmienia
-            </p>
-            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-              Monumentalny, nośny, sceniczny
-            </h2>
+        {/* ==================================================
+            DÓŁ HERO
+            - wskaźnik przewijania
+           ================================================== */}
+        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
+          <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
+            <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
           </div>
-
-          <div className="space-y-6 text-white/72">
-            <p className="leading-8">
-              Alaudis 275 reprezentuje pełną skalę koncertowego myślenia o
-              dźwięku. Oferuje szeroką projekcję, mocny fundament basowy,
-              rozbudowaną średnicę i górę zdolną do zachowania blasku nawet w
-              dużej przestrzeni.
-            </p>
-
-            <p className="leading-8">
-              To instrument dla tych, którzy oczekują brzmienia o autorytecie:
-              wyrazistego, głębokiego i scenicznie przekonującego. Jednocześnie
-              pozostaje elegancki i kontrolowany, dzięki czemu łączy potęgę z
-              kulturą muzyczną klasy premium.
-            </p>
-          </div>
+          <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/80">
+            Przewiń w dół
+          </p>
         </div>
       </section>
 
       {/* ====================================================
-          PRZEZNACZENIE + WNĘTRZA
+          SEKCJA PRZEWIJANYCH MODELI
          ==================================================== */}
-      <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
-        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
-          {/* PRZEZNACZENIE */}
-          <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-              Przeznaczenie
-            </p>
-            <h3 className="mt-4 text-2xl font-light">
-              Scena i przestrzeń reprezentacyjna
-            </h3>
-            <p className="mt-5 leading-8 text-white/68">
-              Idealny do sal koncertowych, dużych rezydencji, hoteli klasy
-              luxury, reprezentacyjnych przestrzeni firmowych i wnętrz, w
-              których fortepian ma mieć siłę wizualnego i akustycznego centrum.
-            </p>
-          </div>
-
-          {/* WNĘTRZA */}
-          <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-              Docelowe wnętrza
-            </p>
-            <h3 className="mt-4 text-2xl font-light">
-              Monumentalna elegancja
-            </h3>
-            <p className="mt-5 leading-8 text-white/68">
-              Najlepiej odnajduje się w wysokich, otwartych i reprezentacyjnych
-              przestrzeniach — tam, gdzie materia, światło i skala wnętrza
-              pozwalają w pełni wybrzmieć obecności instrumentu koncertowego.
-            </p>
-          </div>
-
-          {/* TOŻSAMOŚĆ */}
-          <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-              Tożsamość modelu
-            </p>
-            <h3 className="mt-4 text-2xl font-light">Pełna skala Alaudis</h3>
-            <p className="mt-5 leading-8 text-white/68">
-              Alaudis 275 jest najbardziej rozbudowaną i najbardziej sceniczną
-              formą marki. To model dla tych, którzy szukają nie kompromisu,
-              lecz pełnego koncertowego doświadczenia w estetyce premium.
-            </p>
-          </div>
-        </div>
-      </section>
+      <ScrollModelsShowcase />
 
       {/* ====================================================
-          GALERIA
+          SEKCJA MODELI
+          - każda karta prowadzi do osobnej podstrony modelu
          ==================================================== */}
-      <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
+      <section
+        id="modele"
+        className="grid gap-6 bg-neutral-950 px-6 py-20 sm:px-10 lg:grid-cols-3 lg:px-16"
+      >
+        {/* ==================================================
+            MODEL 178
+           ================================================== */}
+        <Link
+          href="/fortepiany/alaudis-178"
+          className="block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
+        >
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-            Galeria
+            Model
           </p>
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Alaudis 275 w wykończeniach premium
-          </h2>
+          <h2 className="mt-4 text-3xl font-light">Alaudis 178</h2>
+          <p className="mt-5 leading-7 text-white/68">
+            Zrównoważony fortepian o eleganckiej obecności, lirycznej
+            wrażliwości i wyrafinowanych proporcjach do wyjątkowych wnętrz.
+          </p>
+        </Link>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {/* ZDJĘCIE 1 */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/5.JPG"
-                alt="Alaudis 275 - widok 1"
-                fill
-                className="object-cover"
-              />
-            </div>
+        {/* ==================================================
+            MODEL 214
+           ================================================== */}
+        <Link
+          href="/fortepiany/alaudis-214"
+          className="block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
+        >
+          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            Model
+          </p>
+          <h2 className="mt-4 text-3xl font-light">Alaudis 214</h2>
+          <p className="mt-5 leading-7 text-white/68">
+            Koncertowa wizja Alaudis — głębsza, odważniejsza i stworzona do
+            przestrzeni, w których dźwięk i design muszą pozostać
+            niezapomniane.
+          </p>
+        </Link>
 
-            {/* ZDJĘCIE 2 */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/3.jpg"
-                alt="Alaudis 275 - widok 2"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            {/* ZDJĘCIE 3 */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/4.JPG"
-                alt="Alaudis 275 - widok 3"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
+        {/* ==================================================
+            MODEL 275
+           ================================================== */}
+        <Link
+          href="/fortepiany/alaudis-275"
+          className="block rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:from-white/15 hover:to-white/[0.05]"
+        >
+          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            Model
+          </p>
+          <h2 className="mt-4 text-3xl font-light">Alaudis 275</h2>
+          <p className="mt-5 leading-7 text-white/68">
+            Największy model koncertowy Alaudis — pełna skala brzmienia,
+            projekcja i charakter sceniczny klasy premium.
+          </p>
+        </Link>
       </section>
 
       {/* ====================================================
-          KOŃCOWE CTA
+          SEKCJA KONTAKT
          ==================================================== */}
-      <section className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-4xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-            Następny krok
-          </p>
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Skonfiguruj Alaudis 275 lub zobacz go w 3D
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
-            Przejdź do konfiguratora, aby dobrać wykończenie i charakter
-            instrumentu, albo otwórz podgląd 3D i sprawdź, jak model koncertowy
-            prezentuje się w przestrzeni premium.
-          </p>
+      <section
+        id="kontakt"
+        className="bg-black px-6 py-20 text-center sm:px-10 lg:px-16"
+      >
+        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          Kontakt
+        </p>
+        <h2 className="mt-4 text-3xl font-light text-white">Alaudis</h2>
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+          Skontaktuj się z nami, aby porozmawiać o modelach, indywidualnym
+          wykończeniu oraz konfiguracji fortepianu Alaudis.
+        </p>
+      </section>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/konfigurator"
-              className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-            >
-              Otwórz konfigurator
-            </Link>
-
-            <Link
-              href="/odkryj-modele"
-              className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-            >
-              Zobacz w 3D
-            </Link>
-          </div>
-        </div>
+      {/* ====================================================
+          SEKCJA HISTORIA
+         ==================================================== */}
+      <section
+        id="historia"
+        className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16"
+      >
+        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          Historia
+        </p>
+        <h2 className="mt-4 text-3xl font-light text-white">
+          Dziedzictwo Alaudis
+        </h2>
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+          Poznaj historię marki, filozofię tworzenia fortepianów oraz świat
+          rzemiosła, który stoi za wyjątkowym charakterem Alaudis.
+        </p>
       </section>
 
       {/* ====================================================
@@ -268,3 +297,4 @@ export default function ModelAlaudis275Page() {
     </main>
   );
 }
+
