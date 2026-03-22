@@ -36,6 +36,7 @@
 // - karty są wydłużone, żeby dropdown mieścił się w środku
 // - napis "Dane firmy" został usunięty
 // - rozwijane menu dostało ciemnozielone tło premium
+// - usunięto duży nagłówek "Osoby do bezpośredniego kontaktu"
 // ==========================================================
 
 import Image from "next/image";
@@ -46,9 +47,6 @@ import ModelPageTopBar from "@/components/ModelPageTopBar";
 // ==========================================================
 // DANE KONTAKTOWE
 // ==========================================================
-// Tutaj trzymamy podstawowe dane handlowców,
-// żeby łatwiej było później zmieniać numery lub treści wiadomości.
-// ==========================================================
 
 const PAULINA_PHONE_RAW = "48668216422";
 const PAULINA_PHONE_DISPLAY = "+48 668 216 422";
@@ -58,11 +56,6 @@ const KRZYSZTOF_PHONE_DISPLAY = "+48 609 809 703";
 
 // ==========================================================
 // POMOCNICZE LINKI WIADOMOŚCI
-// ==========================================================
-// Generujemy linki do:
-// - SMS
-// - WhatsApp
-// - Mail
 // ==========================================================
 
 function getSmsHref(phone: string, name: string) {
@@ -88,15 +81,6 @@ function getMailHref(name: string) {
 // ==========================================================
 // MENU WIADOMOŚCI
 // ==========================================================
-// To jest wspólny przycisk rozwijany:
-// - SMS
-// - WHATSAPP
-// - MAIL
-//
-// Najważniejsze:
-// - menu otwiera się NA DÓŁ
-// - ma ciemnozielone tło premium
-// ==========================================================
 
 type MessageMenuProps = {
   phoneRaw: string;
@@ -115,7 +99,6 @@ function MessageMenu({ phoneRaw, personName }: MessageMenuProps) {
         </span>
       </summary>
 
-      {/* MENU OTWIERANE NA DÓŁ */}
       <div className="absolute left-0 top-full z-40 mt-3 min-w-[220px] overflow-hidden rounded-2xl border border-[#426f57]/80 bg-[#193629]/96 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
         <a
           href={getSmsHref(phoneRaw, personName)}
@@ -197,9 +180,6 @@ export default function KontaktPage() {
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Zespół kontaktowy
             </p>
-            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-              Osoby do bezpośredniego kontaktu
-            </h2>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
@@ -242,12 +222,9 @@ export default function KontaktPage() {
 
                 {/* ------------------------------------------------
                     STREFA PRZYCISKÓW
-                    - specjalnie wydłużona
-                    - żeby dropdown mieścił się w dół
                    ------------------------------------------------ */}
                 <div className="mt-8 min-h-[190px]">
                   <div className="flex flex-wrap gap-3">
-                    {/* ZADZWOŃ */}
                     <a
                       href={`tel:+${PAULINA_PHONE_RAW}`}
                       className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
@@ -255,7 +232,6 @@ export default function KontaktPage() {
                       Zadzwoń
                     </a>
 
-                    {/* WYŚLIJ WIADOMOŚĆ */}
                     <MessageMenu
                       phoneRaw={PAULINA_PHONE_RAW}
                       personName="Paulina"
@@ -304,12 +280,9 @@ export default function KontaktPage() {
 
                 {/* ------------------------------------------------
                     STREFA PRZYCISKÓW
-                    - specjalnie wydłużona
-                    - żeby dropdown mieścił się w dół
                    ------------------------------------------------ */}
                 <div className="mt-8 min-h-[190px]">
                   <div className="flex flex-wrap gap-3">
-                    {/* ZADZWOŃ */}
                     <a
                       href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
                       className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
@@ -317,7 +290,6 @@ export default function KontaktPage() {
                       Zadzwoń
                     </a>
 
-                    {/* WYŚLIJ WIADOMOŚĆ */}
                     <MessageMenu
                       phoneRaw={KRZYSZTOF_PHONE_RAW}
                       personName="Krzysztof"
@@ -332,8 +304,6 @@ export default function KontaktPage() {
 
       {/* ====================================================
           DANE FIRMY
-          - bez dużego napisu "Dane firmy"
-          - bardziej zwarte i premium
          ==================================================== */}
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-5xl">
@@ -361,7 +331,6 @@ export default function KontaktPage() {
                 </p>
               </div>
 
-              {/* NIP FIRMY */}
               <div>
                 <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
                   NIP
