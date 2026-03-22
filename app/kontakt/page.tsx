@@ -13,8 +13,12 @@
 // 2. korzysta ze wspólnego górnego paska ModelPageTopBar
 // 3. pokazuje 2 handlowców ze zdjęciami
 // 4. pokazuje numery telefonów i przyciski kontaktowe
-// 5. pokazuje dane firmy SAP Renovation
-// 6. kończy się stopką Footer
+// 5. pokazuje rozwijane menu "Wyślij wiadomość":
+//    - SMS
+//    - WHATSAPP
+//    - MAIL
+// 6. pokazuje dane firmy SAP Renovation
+// 7. kończy się stopką Footer
 //
 // Co tutaj najłatwiej zmieniasz:
 // - zdjęcie hero
@@ -23,9 +27,12 @@
 // - numery telefonów
 // - adres firmy
 // - NIP
+// - treści wiadomości SMS / WhatsApp / Mail
 // - teksty sekcji
 //
 // Ważne:
+// - zdjęcia handlowców są teraz osadzone spokojniej,
+//   żeby mieściły się w ramkach i nie były ucinane
 // - wgraj zdjęcia do folderu public/kontakt/
 // - przykładowe ścieżki w tym pliku:
 //   /kontakt/paulina-przybylska.jpg
@@ -36,6 +43,51 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
+
+// ==========================================================
+// DANE KONTAKTOWE
+// ==========================================================
+// Tutaj trzymamy podstawowe dane handlowców,
+// żeby łatwiej było później zmieniać numery lub treści wiadomości.
+// ==========================================================
+
+const PAULINA_PHONE_RAW = "48668216422";
+const PAULINA_PHONE_DISPLAY = "+48 668 216 422";
+
+const KRZYSZTOF_PHONE_RAW = "48609809703";
+const KRZYSZTOF_PHONE_DISPLAY = "+48 609 809 703";
+
+// ==========================================================
+// POMOCNICZE LINKI WIADOMOŚCI
+// ==========================================================
+// Generujemy linki do:
+// - SMS
+// - WhatsApp
+// - Mail
+//
+// Mail jest bez wpisanego adresata,
+// żeby nie zgadywać adresu mailowego.
+// ==========================================================
+
+function getSmsHref(phone: string, name: string) {
+  return `sms:+${phone}?body=${encodeURIComponent(
+    `Dzień dobry ${name}, chciałbym porozmawiać o modelach Alaudis.`
+  )}`;
+}
+
+function getWhatsAppHref(phone: string, name: string) {
+  return `https://wa.me/${phone}?text=${encodeURIComponent(
+    `Dzień dobry ${name}, chciałbym porozmawiać o modelach Alaudis.`
+  )}`;
+}
+
+function getMailHref(name: string) {
+  return `mailto:?subject=${encodeURIComponent(
+    `Kontakt Alaudis`
+  )}&body=${encodeURIComponent(
+    `Dzień dobry ${name},\n\nchciałbym porozmawiać o modelach Alaudis.\n`
+  )}`;
+}
 
 export default function KontaktPage() {
   return (
@@ -100,15 +152,24 @@ export default function KontaktPage() {
                 PAULINA
                ================================================== */}
             <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03]">
-              {/* ZDJĘCIE HANDLOWCA - ZMNIEJSZONE I SPOKOJNIEJSZE */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden">
-                <Image
-                  src="/kontakt/paulina-przybylska.jpg"
-                  alt="Paulina Przybylska"
-                  fill
-                  className="object-cover object-top scale-[0.88]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+              {/* ------------------------------------------------
+                  ZDJĘCIE HANDLOWCA
+                  - spokojniej osadzone
+                  - mieści się w ramce
+                  - nie ucina tak mocno twarzy i sylwetki
+                 ------------------------------------------------ */}
+              <div className="relative aspect-[5/4] w-full overflow-hidden bg-[#080808]">
+                <div className="absolute inset-0 p-5">
+                  <div className="relative h-full w-full">
+                    <Image
+                      src="/kontakt/paulina-przybylska.jpg"
+                      alt="Paulina Przybylska"
+                      fill
+                      className="object-contain object-center"
+                    />
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
               </div>
 
               <div className="p-8">
@@ -122,27 +183,58 @@ export default function KontaktPage() {
 
                 <p className="mt-5 text-lg text-white/78">
                   <a
-                    href="tel:+48668216422"
+                    href={`tel:+${PAULINA_PHONE_RAW}`}
                     className="transition hover:text-white"
                   >
-                    +48 668 216 422
+                    {PAULINA_PHONE_DISPLAY}
                   </a>
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
+                  {/* ZADZWOŃ */}
                   <a
-                    href="tel:+48668216422"
+                    href={`tel:+${PAULINA_PHONE_RAW}`}
                     className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
                   >
                     Zadzwoń
                   </a>
 
-                  <Link
-                    href="/konfigurator"
-                    className="rounded-full border border-white/20 bg-black/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black"
-                  >
-                    Otwórz konfigurator
-                  </Link>
+                  {/* WYŚLIJ WIADOMOŚĆ */}
+                  <details className="group relative">
+                    <summary className="cursor-pointer list-none rounded-full border border-white/20 bg-black/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black">
+                      <span className="inline-flex items-center gap-2">
+                        Wyślij wiadomość
+                        <span className="text-[10px] transition group-open:rotate-180">
+                          ▼
+                        </span>
+                      </span>
+                    </summary>
+
+                    <div className="absolute left-0 z-20 mt-3 min-w-[220px] overflow-hidden rounded-2xl border border-white/10 bg-black/90 shadow-2xl backdrop-blur-2xl">
+                      <a
+                        href={getSmsHref(PAULINA_PHONE_RAW, "Paulina")}
+                        className="block px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
+                      >
+                        SMS
+                      </a>
+
+                      <a
+                        href={getWhatsAppHref(PAULINA_PHONE_RAW, "Paulina")}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="block border-t border-white/10 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
+                      >
+                        WhatsApp
+                      </a>
+
+                      <a
+                        href={getMailHref("Paulina")}
+                        className="block border-t border-white/10 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
+                      >
+                        Mail
+                      </a>
+                    </div>
+                  </details>
                 </div>
               </div>
             </div>
@@ -151,15 +243,24 @@ export default function KontaktPage() {
                 KRZYSZTOF
                ================================================== */}
             <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03]">
-              {/* ZDJĘCIE HANDLOWCA - ZMNIEJSZONE I SPOKOJNIEJSZE */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden">
-                <Image
-                  src="/kontakt/krzysztof-skwarek.jpg"
-                  alt="Krzysztof Skwarek"
-                  fill
-                  className="object-cover object-top scale-[0.88]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+              {/* ------------------------------------------------
+                  ZDJĘCIE HANDLOWCA
+                  - spokojniej osadzone
+                  - mieści się w ramce
+                  - nie ucina tak mocno twarzy i sylwetki
+                 ------------------------------------------------ */}
+              <div className="relative aspect-[5/4] w-full overflow-hidden bg-[#080808]">
+                <div className="absolute inset-0 p-5">
+                  <div className="relative h-full w-full">
+                    <Image
+                      src="/kontakt/krzysztof-skwarek.jpg"
+                      alt="Krzysztof Skwarek"
+                      fill
+                      className="object-contain object-center"
+                    />
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
               </div>
 
               <div className="p-8">
@@ -173,27 +274,58 @@ export default function KontaktPage() {
 
                 <p className="mt-5 text-lg text-white/78">
                   <a
-                    href="tel:+48609809703"
+                    href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
                     className="transition hover:text-white"
                   >
-                    +48 609 809 703
+                    {KRZYSZTOF_PHONE_DISPLAY}
                   </a>
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
+                  {/* ZADZWOŃ */}
                   <a
-                    href="tel:+48609809703"
+                    href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
                     className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
                   >
                     Zadzwoń
                   </a>
 
-                  <Link
-                    href="/konfigurator"
-                    className="rounded-full border border-white/20 bg-black/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black"
-                  >
-                    Otwórz konfigurator
-                  </Link>
+                  {/* WYŚLIJ WIADOMOŚĆ */}
+                  <details className="group relative">
+                    <summary className="cursor-pointer list-none rounded-full border border-white/20 bg-black/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black">
+                      <span className="inline-flex items-center gap-2">
+                        Wyślij wiadomość
+                        <span className="text-[10px] transition group-open:rotate-180">
+                          ▼
+                        </span>
+                      </span>
+                    </summary>
+
+                    <div className="absolute left-0 z-20 mt-3 min-w-[220px] overflow-hidden rounded-2xl border border-white/10 bg-black/90 shadow-2xl backdrop-blur-2xl">
+                      <a
+                        href={getSmsHref(KRZYSZTOF_PHONE_RAW, "Krzysztof")}
+                        className="block px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
+                      >
+                        SMS
+                      </a>
+
+                      <a
+                        href={getWhatsAppHref(KRZYSZTOF_PHONE_RAW, "Krzysztof")}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="block border-t border-white/10 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
+                      >
+                        WhatsApp
+                      </a>
+
+                      <a
+                        href={getMailHref("Krzysztof")}
+                        className="block border-t border-white/10 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
+                      >
+                        Mail
+                      </a>
+                    </div>
+                  </details>
                 </div>
               </div>
             </div>
@@ -252,18 +384,18 @@ export default function KontaktPage() {
                 <div className="mt-3 space-y-2 text-xl text-white">
                   <p>
                     <a
-                      href="tel:+48668216422"
+                      href={`tel:+${PAULINA_PHONE_RAW}`}
                       className="transition hover:text-white/80"
                     >
-                      +48 668 216 422
+                      {PAULINA_PHONE_DISPLAY}
                     </a>
                   </p>
                   <p>
                     <a
-                      href="tel:+48609809703"
+                      href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
                       className="transition hover:text-white/80"
                     >
-                      +48 609 809 703
+                      {KRZYSZTOF_PHONE_DISPLAY}
                     </a>
                   </p>
                 </div>
@@ -279,10 +411,10 @@ export default function KontaktPage() {
               </Link>
 
               <Link
-                href="/konfigurator"
+                href="/kontakt"
                 className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
-                Otwórz konfigurator
+                Skontaktuj się z nami
               </Link>
             </div>
           </div>
