@@ -1,41 +1,51 @@
 // ==========================================================
-// ODKRYJ MODELE PAGE
+// ODKRYJ MODELE PAGE - ALAUDIS
 // ==========================================================
 // To jest główny plik strony "Odkryj modele".
 //
 // Za co odpowiada ten plik:
-// 1. buduje całą stronę
-// 2. pokazuje górny hero section z tłem
-// 3. pokazuje przycisk Powrót i przycisk Konfigurator
-// 4. wyświetla logo Alaudis
-// 5. pokazuje nagłówek i opis strony
-// 6. osadza moduł 3D / AR: AlaudisARPreview
-// 7. dodaje Footer na końcu strony
+// 1. buduje całą stronę odkrywania modeli
+// 2. korzysta ze wspólnego górnego paska ModelPageTopBar
+// 3. pokazuje hero z tłem i nagłówkiem strony
+// 4. pokazuje opis sekcji 3D / AR
+// 5. osadza moduł AlaudisARPreview
+// 6. dodaje Footer na końcu strony
 //
 // Co tutaj najłatwiej zmieniasz:
 // - zdjęcie hero w tle
 // - tytuł strony
 // - opis pod tytułem
 // - link przycisku Powrót
-// - link przycisku Konfigurator
-// - wielkość paddingów i odstępów
+// - aktywny język w górnym pasku
+// - odstępy sekcji
 //
 // Najważniejsze importy:
-// - Footer             -> stopka strony
-// - AlaudisARPreview   -> główny moduł 3D / AR
+// - ModelPageTopBar  -> wspólny górny pasek
+// - AlaudisARPreview -> moduł 3D / AR
+// - Footer           -> stopka strony
 // ==========================================================
 
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import AlaudisARPreview from "@/components/AlaudisARPreview";
+import ModelPageTopBar from "@/components/ModelPageTopBar";
 
 export default function OdkryjModelePage() {
   return (
     <main className="min-h-screen bg-black text-white">
       {/* ====================================================
-          HERO SECTION
+          WSPÓLNY GÓRNY PASEK
+          - zawsze widoczny
+          - powrót po lewej
+          - logo na środku
+          - języki po prawej
          ==================================================== */}
-      <section className="relative overflow-hidden border-b border-white/10">
+      <ModelPageTopBar backHref="/" activeLanguage="PL" />
+
+      {/* ====================================================
+          HERO STRONY
+         ==================================================== */}
+      <section className="relative overflow-hidden border-b border-white/10 pt-28">
         {/* TŁO HERO */}
         <div className="absolute inset-0">
           <Image
@@ -49,49 +59,7 @@ export default function OdkryjModelePage() {
         </div>
 
         {/* ==================================================
-            GÓRNY PASEK
-            - Powrót
-            - Logo
-            - Konfigurator
-           ================================================== */}
-        <header className="relative z-20">
-          <div className="mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pt-12 pb-6 lg:px-10">
-            {/* LEWA STRONA - POWRÓT */}
-            <div className="ml-8 flex items-center gap-4">
-              <a
-                href="/"
-                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Powrót
-              </a>
-            </div>
-
-            {/* ŚRODEK - LOGO */}
-            <div className="justify-self-center pt-2">
-              <Image
-                src="/logo-alaudis.png"
-                alt="Logo Alaudis"
-                width={77}
-                height={25}
-                priority
-                className="h-auto w-[60px] object-contain opacity-95 md:w-[77px]"
-              />
-            </div>
-
-            {/* PRAWA STRONA - KONFIGURATOR */}
-            <div className="justify-self-end">
-              <a
-                href="/konfigurator"
-                className="rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Konfigurator
-              </a>
-            </div>
-          </div>
-        </header>
-
-        {/* ==================================================
-            NAGŁÓWEK STRONY
+            TREŚĆ HERO
            ================================================== */}
         <div className="relative z-20 px-6 pb-16 pt-8 text-center">
           <div className="mx-auto max-w-4xl">
@@ -113,7 +81,7 @@ export default function OdkryjModelePage() {
       </section>
 
       {/* ====================================================
-          SEKCJA Z MODUŁEM 3D / AR
+          SEKCJA MODUŁU 3D / AR
          ==================================================== */}
       <section className="bg-black px-4 py-8 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-7xl">
@@ -122,7 +90,7 @@ export default function OdkryjModelePage() {
       </section>
 
       {/* ====================================================
-          STOPKA
+          FOOTER
          ==================================================== */}
       <Footer />
     </main>

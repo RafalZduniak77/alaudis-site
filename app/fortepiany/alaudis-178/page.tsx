@@ -22,6 +22,12 @@
 // - opisy charakteru
 // - linki CTA
 // - aktywny język w górnym pasku
+//
+// Ważne:
+// - rozwijane menu języków nie jest kodowane tutaj ręcznie
+// - bierze się z komponentu ModelPageTopBar
+// - jeśli chcesz zmienić wygląd listy PL / EN / DE,
+//   robisz to w: components/ModelPageTopBar.tsx
 // ==========================================================
 
 import Image from "next/image";
@@ -45,6 +51,7 @@ export default function ModelAlaudis178Page() {
           HERO MODELU
          ==================================================== */}
       <section className="relative overflow-hidden border-b border-white/10 pt-28">
+        {/* TŁO HERO */}
         <div className="absolute inset-0">
           <Image
             src="/galeria-home/1.jpg"
@@ -107,6 +114,7 @@ export default function ModelAlaudis178Page() {
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Charakter brzmienia
             </p>
+
             <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
               Liryczny, zrównoważony, elegancki
             </h2>
@@ -140,7 +148,9 @@ export default function ModelAlaudis178Page() {
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Przeznaczenie
             </p>
+
             <h3 className="mt-4 text-2xl font-light">Codzienna sztuka gry</h3>
+
             <p className="mt-5 leading-8 text-white/68">
               Idealny do prywatnych salonów muzycznych, apartamentów premium,
               butikowych przestrzeni oraz dla pianistów, którzy szukają
@@ -153,7 +163,9 @@ export default function ModelAlaudis178Page() {
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Docelowe wnętrza
             </p>
+
             <h3 className="mt-4 text-2xl font-light">Elegancja i proporcja</h3>
+
             <p className="mt-5 leading-8 text-white/68">
               Najlepiej odnajduje się we wnętrzach nowoczesnych, klasycznych,
               art déco i soft luxury — tam, gdzie detal, światło, materiały
@@ -166,7 +178,9 @@ export default function ModelAlaudis178Page() {
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Tożsamość modelu
             </p>
+
             <h3 className="mt-4 text-2xl font-light">Forma premium</h3>
+
             <p className="mt-5 leading-8 text-white/68">
               Alaudis 178 został pomyślany jako instrument dla osób, które
               oczekują nie tylko jakości wykonania, lecz także piękna
@@ -184,6 +198,7 @@ export default function ModelAlaudis178Page() {
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Galeria
           </p>
+
           <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
             Alaudis 178 w wykończeniach premium
           </h2>
@@ -230,9 +245,11 @@ export default function ModelAlaudis178Page() {
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Następny krok
           </p>
+
           <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
             Skonfiguruj Alaudis 178 lub zobacz go w 3D
           </h2>
+
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
             Przejdź do konfiguratora, aby wybrać wykończenie i detale, albo
             zobacz model w przestrzeni 3D i sprawdź, jak prezentuje się we

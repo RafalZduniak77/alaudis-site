@@ -1,36 +1,38 @@
 // ==========================================================
 // HOME PAGE - ALAUDIS
 // ==========================================================
-// To jest główny plik strony głównej Alaudis.
+// GŁÓWNY CEL TEJ WERSJI
+// ----------------------------------------------------------
+// Ta wersja homepage została przeredagowana tak, aby marka
+// brzmiała bardziej premium i bardziej luksusowo.
 //
-// Za co odpowiada ten plik:
-// 1. buduje cały homepage
-// 2. pokazuje hero z dużym zdjęciem w tle
-// 3. wyświetla górne menu z linkami
-// 4. pokazuje centralny slogan i przyciski CTA
-// 5. osadza sekcję przewijanych modeli
-// 6. pokazuje sekcję modeli 178 / 214 / 275
-// 7. pozwala klikać w karty modeli i przechodzić na podstrony
-// 8. kieruje przyciskiem Kontakt na osobną podstronę /kontakt
-// 9. pokazuje sekcję historia
-// 10. dodaje footer na końcu
-// 11. ma po prawej rozwijane menu języków PL / EN / DE
+// Główny kierunek komunikacji:
+// "Alaudis nie jest fortepianem wybieranym z katalogu.
+//  Jest fortepianem komponowanym indywidualnie."
 //
-// Co tutaj najłatwiej zmieniasz:
+// Co zmieniliśmy w tej wersji:
+// 1. hero dostał nowe premium copy
+// 2. główne hasło zostało ustawione na:
+//    "Skomponuj swój Alaudis"
+// 3. CTA zostały przerobione na bardziej luksusowe
+// 4. sekcja modeli brzmi bardziej jak kolekcja
+// 5. kontakt został przesunięty w stronę prywatnej konsultacji
+// 6. historia została przesunięta w stronę rzemiosła i dziedzictwa
+// 7. cała strona ma ton bardziej "commissioning / atelier"
+//
+// Nadal możesz tu łatwo zmieniać:
 // - zdjęcie hero
-// - napisy w headerze
+// - teksty menu
 // - slogan główny
-// - teksty przycisków
+// - CTA
 // - opisy modeli
-// - linki kart modeli
-// - link kontaktu
-// - treści sekcji historii
+// - opisy sekcji kontakt / historia
 // - kolejność sekcji
 //
-// Najważniejsze importy:
-// - ScrollModelsShowcase -> sekcja przewijanych modeli
-// - Footer               -> stopka strony
-// - Link                 -> klikalne przejścia do podstron modeli
+// Ważne:
+// - ta strona ma własne rozwijane menu języków w headerze
+// - na podstronach modeli / kontaktu / odkryj-modele
+//   lista języków bierze się ze wspólnego ModelPageTopBar
 // ==========================================================
 
 import Image from "next/image";
@@ -52,6 +54,13 @@ export default function Home() {
           priority
           className="object-cover object-center"
         />
+
+        {/* ==================================================
+            DELIKATNA CIEMNA NAKŁADKA
+            - poprawia czytelność tekstu
+            - daje bardziej kinowy premium klimat
+           ================================================== */}
+        <div className="absolute inset-0 z-10 bg-black/30" />
 
         {/* ==================================================
             HEADER
@@ -100,7 +109,7 @@ export default function Home() {
             {/* PRAWA STRONA - MENU JĘZYKÓW */}
             <div className="justify-self-end">
               <details className="group relative">
-                <summary className="cursor-pointer list-none rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black">
+                <summary className="list-none cursor-pointer rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black">
                   <span className="inline-flex items-center gap-2">
                     PL
                     <span className="text-[10px] transition group-open:rotate-180">
@@ -118,17 +127,17 @@ export default function Home() {
                     PL
                   </button>
 
-                  {/* PRZYGOTOWANE POD KOLEJNE WERSJE */}
+                  {/* KOLEJNE WERSJE JĘZYKOWE */}
                   <button
                     type="button"
-                    className="w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                    className="w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
                   >
                     EN
                   </button>
 
                   <button
                     type="button"
-                    className="w-full border-t border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                    className="w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
                   >
                     DE
                   </button>
@@ -140,36 +149,32 @@ export default function Home() {
 
         {/* ==================================================
             ŚRODEK HERO
-            - mały napis
-            - główny slogan
-            - opis
-            - dwa przyciski
+            - premium eyebrow
+            - główne hasło
+            - krótki opis
+            - dwa główne CTA
            ================================================== */}
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
           <div className="mx-auto max-w-5xl pt-16">
-            {/* MAŁY NAPIS NAD TYTUŁEM */}
-            <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/85">
+            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/85">
               Alaudis Atelier
             </p>
 
-            {/* GŁÓWNY TYTUŁ HERO */}
-            <h1 className="text-3xl font-light uppercase tracking-[0.04em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.08]">
-              Rzemiosło,
+            <h1 className="text-2xl font-light uppercase tracking-[0.06em] text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
+              Skomponuj
               <br />
-              detal, tożsamość.
+              swój Alaudis
             </h1>
 
-            {/* OPIS POD TYTUŁEM */}
-            <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-white/82 sm:text-[18px]">
+            <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/72 sm:text-base sm:leading-8">
               Fortepian tworzony indywidualnie — z wyselekcjonowanych materiałów,
               rzemiosła, proporcji i charakteru brzmienia.
             </p>
 
-            {/* PRZYCISKI CTA */}
-            <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href="/konfigurator"
-                className="rounded-full border border-white/35 bg-white px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:scale-[1.02] hover:border-white hover:bg-white/90"
+                className="rounded-full border border-white/35 bg-white px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:border-white hover:bg-transparent hover:text-white"
               >
                 Rozpocznij kompozycję
               </a>
@@ -204,12 +209,34 @@ export default function Home() {
       <ScrollModelsShowcase />
 
       {/* ====================================================
+          SEKCJA WPROWADZAJĄCA DO KOLEKCJI
+          - lekki blok tekstowy przed kartami modeli
+         ==================================================== */}
+      <section className="bg-neutral-950 px-6 pb-8 pt-20 text-center sm:px-10 lg:px-16">
+        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          Kolekcja Alaudis
+        </p>
+
+        <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+          Trzy skale obecności.
+          <br />
+          Jedna filozofia rzemiosła.
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-3xl leading-8 text-white/68">
+          Każdy model Alaudis powstaje jako osobna interpretacja proporcji,
+          charakteru i brzmienia — od wyrafinowanej obecności salonowej po pełną
+          skalę fortepianu koncertowego.
+        </p>
+      </section>
+
+      {/* ====================================================
           SEKCJA MODELI
           - każda karta prowadzi do osobnej podstrony modelu
          ==================================================== */}
       <section
         id="modele"
-        className="grid gap-6 bg-neutral-950 px-6 py-20 sm:px-10 lg:grid-cols-3 lg:px-16"
+        className="grid gap-6 bg-neutral-950 px-6 pb-20 sm:px-10 lg:grid-cols-3 lg:px-16"
       >
         {/* ==================================================
             MODEL 178
@@ -221,10 +248,17 @@ export default function Home() {
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Model
           </p>
+
           <h2 className="mt-4 text-3xl font-light">Alaudis 178</h2>
+
           <p className="mt-5 leading-7 text-white/68">
-            Zrównoważony fortepian o eleganckiej obecności, lirycznej
-            wrażliwości i wyrafinowanych proporcjach do wyjątkowych wnętrz.
+            Liryczna interpretacja fortepianu klasy premium — elegancka,
+            wyważona i stworzona do wnętrz, w których detal ma taką samą wagę
+            jak dźwięk.
+          </p>
+
+          <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
+            Skomponuj ten model
           </p>
         </Link>
 
@@ -238,11 +272,17 @@ export default function Home() {
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Model
           </p>
+
           <h2 className="mt-4 text-3xl font-light">Alaudis 214</h2>
+
           <p className="mt-5 leading-7 text-white/68">
-            Koncertowa wizja Alaudis — głębsza, odważniejsza i stworzona do
-            przestrzeni, w których dźwięk i design muszą pozostać
-            niezapomniane.
+            Fortepian o głębszej obecności i szerszej projekcji — dla
+            przestrzeni, które wymagają większej skali, wyrazistości i
+            koncertowego charakteru.
+          </p>
+
+          <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
+            Skomponuj ten model
           </p>
         </Link>
 
@@ -256,47 +296,76 @@ export default function Home() {
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Model
           </p>
+
           <h2 className="mt-4 text-3xl font-light">Alaudis 275</h2>
+
           <p className="mt-5 leading-7 text-white/68">
-            Największy model koncertowy Alaudis — pełna skala brzmienia,
-            projekcja i charakter sceniczny klasy premium.
+            Największa forma koncertowa Alaudis — pełna skala brzmienia,
+            projekcja i sceniczna obecność zaprojektowana dla najbardziej
+            wymagających przestrzeni.
+          </p>
+
+          <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
+            Skomponuj ten model
           </p>
         </Link>
       </section>
 
       {/* ====================================================
-          SEKCJA KONTAKT
+          SEKCJA KONTAKT / KONSULTACJA
          ==================================================== */}
       <section
         id="kontakt"
         className="bg-black px-6 py-20 text-center sm:px-10 lg:px-16"
       >
         <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-          Kontakt
+          Prywatna konsultacja
         </p>
-        <h2 className="mt-4 text-3xl font-light text-white">Alaudis</h2>
+
+        <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+          Porozmawiajmy o Twoim Alaudis
+        </h2>
+
         <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
-          Skontaktuj się z nami, aby porozmawiać o modelach, indywidualnym
-          wykończeniu oraz konfiguracji fortepianu Alaudis.
+          Skontaktuj się z nami, aby omówić model, wykończenie, charakter
+          instrumentu oraz indywidualną kompozycję fortepianu Alaudis.
         </p>
+
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href="/konfigurator"
+            className="rounded-full border border-white/35 bg-white px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:border-white hover:bg-transparent hover:text-white"
+          >
+            Rozpocznij kompozycję
+          </a>
+
+          <a
+            href="/kontakt"
+            className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+          >
+            Skontaktuj się z nami
+          </a>
+        </div>
       </section>
 
       {/* ====================================================
-          SEKCJA HISTORIA
+          SEKCJA HISTORIA / DZIEDZICTWO
          ==================================================== */}
       <section
         id="historia"
         className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16"
       >
         <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-          Historia
+          Dziedzictwo i rzemiosło
         </p>
-        <h2 className="mt-4 text-3xl font-light text-white">
-          Dziedzictwo Alaudis
+
+        <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+          Świat Alaudis
         </h2>
+
         <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
-          Poznaj historię marki, filozofię tworzenia fortepianów oraz świat
-          rzemiosła, który stoi za wyjątkowym charakterem Alaudis.
+          Poznaj filozofię marki, proces tworzenia instrumentów oraz rzemiosło,
+          które nadaje każdemu Alaudis jego indywidualną tożsamość.
         </p>
       </section>
 

@@ -1,24 +1,26 @@
 // ==========================================================
 // MODEL PAGE TOP BAR
 // ==========================================================
-// To jest wspólny górny pasek dla podstron modeli premium.
+// To jest wspólny górny pasek dla podstron Alaudis.
 //
 // Za co odpowiada ten plik:
 // 1. pokazuje zawsze widoczny przycisk Powrót po lewej
 // 2. pokazuje logo Alaudis na środku
-// 3. pokazuje przełącznik języka po prawej
+// 3. pokazuje rozwijane menu języków po prawej
 // 4. jest przyklejony do góry ekranu podczas scrolla
-// 5. daje spójny wygląd na wszystkich podstronach modeli
+// 5. daje spójny wygląd na wszystkich podstronach
 //
 // Co tutaj najłatwiej zmieniasz:
 // - link przycisku Powrót
 // - aktywny język
-// - wygląd przycisków językowych
+// - wygląd rozwijanego menu języków
 // - pozycję i styl całego paska
 //
 // Ważne:
-// - Na tym etapie PL jest aktywne
-// - EN i DE są przygotowane wizualnie pod kolejne tłumaczenia
+// - ten komponent jest wspólny
+// - po zmianie automatycznie poprawi się na wszystkich stronach,
+//   które go używają
+// - na tym etapie języki są przygotowane wizualnie
 // ==========================================================
 
 "use client";
@@ -26,6 +28,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// ==========================================================
+// TYPY JĘZYKÓW
+// ==========================================================
+// Tutaj określamy dostępne wersje językowe.
+// ==========================================================
 type LanguageKey = "PL" | "EN" | "DE";
 
 type ModelPageTopBarProps = {
@@ -33,8 +40,11 @@ type ModelPageTopBarProps = {
   activeLanguage?: LanguageKey;
 };
 
-const LANGUAGES: LanguageKey[] = ["PL", "EN", "DE"];
-
+// ==========================================================
+// KOMPONENT GŁÓWNY
+// ==========================================================
+// To jest wspólny header wszystkich ważnych podstron.
+// ==========================================================
 export default function ModelPageTopBar({
   backHref = "/",
   activeLanguage = "PL",
@@ -45,6 +55,7 @@ export default function ModelPageTopBar({
           STAŁY PASEK U GÓRY
          ==================================================== */}
       <div className="fixed inset-x-0 top-0 z-50">
+        {/* DELIKATNE TŁO / BLUR */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/45 to-transparent backdrop-blur-md" />
 
         <div className="relative mx-auto grid max-w-7xl grid-cols-3 items-center px-6 pb-4 pt-10 lg:px-10">
@@ -75,29 +86,56 @@ export default function ModelPageTopBar({
           </div>
 
           {/* ==================================================
-              PRAWA STRONA - WERSJE JĘZYKOWE
+              PRAWA STRONA - ROZWIJANE MENU JĘZYKÓW
+              - dokładnie w stylu strony głównej
              ================================================== */}
           <div className="justify-self-end">
-            <div className="flex items-center gap-2 rounded-full border border-white/15 bg-black/20 p-1 backdrop-blur-md">
-              {LANGUAGES.map((lang) => {
-                const isActive = lang === activeLanguage;
+            <details className="group relative">
+              <summary className="list-none cursor-pointer rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black">
+                <span className="inline-flex items-center gap-2">
+                  {activeLanguage}
+                  <span className="text-[10px] transition group-open:rotate-180">
+                    ▼
+                  </span>
+                </span>
+              </summary>
 
-                return (
-                  <button
-                    key={lang}
-                    type="button"
-                    disabled={!isActive}
-                    className={
-                      isActive
-                        ? "rounded-full border border-white/35 bg-white/10 px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-white"
-                        : "rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-white/55"
-                    }
-                  >
-                    {lang}
-                  </button>
-                );
-              })}
-            </div>
+              <div className="absolute right-0 mt-3 min-w-[150px] overflow-hidden rounded-2xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl">
+                {/* AKTYWNY JĘZYK */}
+                <button
+                  type="button"
+                  className={
+                    activeLanguage === "PL"
+                      ? "w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
+                      : "w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                  }
+                >
+                  PL
+                </button>
+
+                <button
+                  type="button"
+                  className={
+                    activeLanguage === "EN"
+                      ? "w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
+                      : "w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                  }
+                >
+                  EN
+                </button>
+
+                <button
+                  type="button"
+                  className={
+                    activeLanguage === "DE"
+                      ? "w-full bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
+                      : "w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                  }
+                >
+                  DE
+                </button>
+              </div>
+            </details>
           </div>
         </div>
       </div>

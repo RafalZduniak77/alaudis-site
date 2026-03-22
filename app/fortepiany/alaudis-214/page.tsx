@@ -22,6 +22,12 @@
 // - opisy charakteru
 // - linki CTA
 // - aktywny język w górnym pasku
+//
+// Ważne:
+// - rozwijane menu języków nie jest kodowane tutaj ręcznie
+// - bierze się z komponentu ModelPageTopBar
+// - jeśli chcesz zmienić wygląd listy PL / EN / DE,
+//   robisz to w: components/ModelPageTopBar.tsx
 // ==========================================================
 
 import Image from "next/image";
@@ -45,6 +51,7 @@ export default function ModelAlaudis214Page() {
           HERO MODELU
          ==================================================== */}
       <section className="relative overflow-hidden border-b border-white/10 pt-28">
+        {/* TŁO HERO */}
         <div className="absolute inset-0">
           <Image
             src="/galeria-home/3.jpg"
@@ -107,6 +114,7 @@ export default function ModelAlaudis214Page() {
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Charakter brzmienia
             </p>
+
             <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
               Pełniejszy, śpiewny, bardziej koncertowy
             </h2>
@@ -140,7 +148,11 @@ export default function ModelAlaudis214Page() {
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Przeznaczenie
             </p>
-            <h3 className="mt-4 text-2xl font-light">Salon i scena kameralna</h3>
+
+            <h3 className="mt-4 text-2xl font-light">
+              Salon i scena kameralna
+            </h3>
+
             <p className="mt-5 leading-8 text-white/68">
               Idealny do przestronnych rezydencji, prywatnych sal muzycznych,
               butikowych hoteli i kameralnych scen, gdzie instrument ma być nie
@@ -153,13 +165,16 @@ export default function ModelAlaudis214Page() {
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Docelowe wnętrza
             </p>
+
             <h3 className="mt-4 text-2xl font-light">
               Przestrzeń, światło, obecność
             </h3>
+
             <p className="mt-5 leading-8 text-white/68">
               Najlepiej odnajduje się we wnętrzach nowoczesnych premium,
-              klasycznych apartamentach, salach reprezentacyjnych i przestrzeniach,
-              w których fortepian ma stać się wyraźnym centrum kompozycji.
+              klasycznych apartamentach, salach reprezentacyjnych i
+              przestrzeniach, w których fortepian ma stać się wyraźnym centrum
+              kompozycji.
             </p>
           </div>
 
@@ -168,7 +183,11 @@ export default function ModelAlaudis214Page() {
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Tożsamość modelu
             </p>
-            <h3 className="mt-4 text-2xl font-light">Między elegancją a skalą</h3>
+
+            <h3 className="mt-4 text-2xl font-light">
+              Między elegancją a skalą
+            </h3>
+
             <p className="mt-5 leading-8 text-white/68">
               Alaudis 214 to propozycja dla tych, którzy chcą zachować klasę
               wizualną modelu premium, ale wejść w bardziej rozbudowaną skalę
@@ -186,6 +205,7 @@ export default function ModelAlaudis214Page() {
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Galeria
           </p>
+
           <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
             Alaudis 214 w wykończeniach premium
           </h2>
@@ -232,9 +252,11 @@ export default function ModelAlaudis214Page() {
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Następny krok
           </p>
+
           <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
             Skonfiguruj Alaudis 214 lub zobacz go w 3D
           </h2>
+
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
             Przejdź do konfiguratora, aby dopasować wykończenie i detale, albo
             zobacz model w podglądzie 3D i sprawdź jego obecność w przestrzeni.
