@@ -20,20 +20,13 @@
 // 6. historia została przesunięta w stronę rzemiosła i dziedzictwa
 // 7. cała strona ma ton bardziej "commissioning / atelier"
 //
-// Nadal możesz tu łatwo zmieniać:
-// - zdjęcie hero
-// - teksty menu
-// - slogan główny
-// - CTA
-// - opisy modeli
-// - opisy sekcji kontakt / historia
-// - kolejność sekcji
-//
-// POPRAWKA TEJ WERSJI:
+// POPRAWKI TEJ WERSJI
 // ----------------------------------------------------------
-// Kliknięcie "Kolekcja" prowadzi teraz do całego bloku kolekcji,
-// a nie do samej siatki kart.
-// Dzięki temu modele ustawiają się wizualnie równiej na ekranie.
+// 1. kliknięcie "Kolekcja" zjeżdża wyraźnie niżej
+// 2. cały blok kolekcji ma większy oddech od góry
+// 3. sekcja modeli dostała wyższy z-index
+// 4. same karty modeli są nad wszystkimi ewentualnymi overlayami
+// 5. poprawione pod klikalność modelu 275
 // ==========================================================
 
 import Image from "next/image";
@@ -58,16 +51,11 @@ export default function Home() {
 
         {/* ==================================================
             DELIKATNA CIEMNA NAKŁADKA
-            - poprawia czytelność tekstu
-            - daje bardziej kinowy premium klimat
            ================================================== */}
         <div className="absolute inset-0 z-10 bg-black/30" />
 
         {/* ==================================================
             HEADER
-            - menu po lewej
-            - logo na środku
-            - menu języków po prawej
            ================================================== */}
         <header className="absolute inset-x-0 top-0 z-30">
           <div className="mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pb-6 pt-12 lg:px-10">
@@ -120,7 +108,6 @@ export default function Home() {
                 </summary>
 
                 <div className="absolute right-0 mt-3 min-w-[150px] overflow-hidden rounded-2xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl">
-                  {/* AKTYWNY JĘZYK */}
                   <button
                     type="button"
                     className="w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
@@ -128,7 +115,6 @@ export default function Home() {
                     PL
                   </button>
 
-                  {/* KOLEJNE WERSJE JĘZYKOWE */}
                   <button
                     type="button"
                     className="w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
@@ -150,10 +136,6 @@ export default function Home() {
 
         {/* ==================================================
             ŚRODEK HERO
-            - premium eyebrow
-            - główne hasło
-            - krótki opis
-            - dwa główne CTA
            ================================================== */}
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
           <div className="mx-auto max-w-5xl pt-16">
@@ -192,7 +174,6 @@ export default function Home() {
 
         {/* ==================================================
             DÓŁ HERO
-            - wskaźnik przewijania
            ================================================== */}
         <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
           <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
@@ -207,35 +188,43 @@ export default function Home() {
       {/* ====================================================
           SEKCJA PRZEWIJANYCH MODELI
          ==================================================== */}
-      <ScrollModelsShowcase />
+      <div className="relative z-0">
+        <ScrollModelsShowcase />
+      </div>
 
       {/* ====================================================
-          BLOK KOLEKCJI - TARGET DLA #modele
+          GŁÓWNY BLOK KOLEKCJI
           ----------------------------------------------------
-          To tutaj przenieśliśmy id="modele", aby po kliknięciu
-          "Kolekcja" strona ustawiała się estetycznie wyżej
-          i pokazywała wprowadzenie + karty modeli.
+          Tu trafia link #modele.
+          Został mocno odsunięty od góry, żeby po kliknięciu
+          nie lądować zbyt wysoko.
          ==================================================== */}
       <section
         id="modele"
-        className="scroll-mt-24 bg-neutral-950 sm:scroll-mt-28 lg:scroll-mt-32"
+        className="relative z-20 bg-neutral-950 scroll-mt-[260px] sm:scroll-mt-[300px] lg:scroll-mt-[360px]"
       >
         {/* ==================================================
-            SEKCJA WPROWADZAJĄCA DO KOLEKCJI
-            - lekki blok tekstowy przed kartami modeli
+            DUŻY ODDECH NAD KOLEKCJĄ
+            --------------------------------------------------
+            To właśnie zepchnie kolekcję niżej po kliknięciu.
            ================================================== */}
-        <section className="px-6 pb-8 pt-20 text-center sm:px-10 lg:px-16">
+        <div className="h-24 sm:h-28 lg:h-36" />
+
+        {/* ==================================================
+            SEKCJA WPROWADZAJĄCA DO KOLEKCJI
+           ================================================== */}
+        <section className="px-6 pb-10 text-center sm:px-10 lg:px-16">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Kolekcja Alaudis
           </p>
 
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[58px] lg:leading-[1.08]">
             Trzy skale obecności.
             <br />
             Jedna filozofia rzemiosła.
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl leading-8 text-white/68">
+          <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-white/68 sm:text-[17px]">
             Każdy model Alaudis powstaje jako osobna interpretacja proporcji,
             charakteru i brzmienia — od wyrafinowanej obecności salonowej po pełną
             skalę fortepianu koncertowego.
@@ -244,15 +233,16 @@ export default function Home() {
 
         {/* ==================================================
             SEKCJA MODELI
-            - każda karta prowadzi do osobnej podstrony modelu
+            --------------------------------------------------
+            relative + z-index dla pełnej klikalności kart
            ================================================== */}
-        <section className="grid gap-6 px-6 pb-20 sm:px-10 lg:grid-cols-3 lg:px-16">
+        <section className="relative z-30 grid gap-6 px-6 pb-24 sm:px-10 lg:grid-cols-3 lg:px-16">
           {/* ==================================================
               MODEL 178
              ================================================== */}
           <Link
             href="/fortepiany/alaudis-178"
-            className="block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
+            className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
           >
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Model
@@ -276,7 +266,7 @@ export default function Home() {
              ================================================== */}
           <Link
             href="/fortepiany/alaudis-214"
-            className="block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
+            className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
           >
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Model
@@ -299,7 +289,7 @@ export default function Home() {
              ================================================== */}
           <Link
             href="/fortepiany/alaudis-275"
-            className="block rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:from-white/15 hover:to-white/[0.05]"
+            className="relative z-30 block rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:from-white/15 hover:to-white/[0.05]"
           >
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Model
