@@ -28,13 +28,14 @@
 // - adres firmy
 // - NIP
 // - treści wiadomości SMS / WhatsApp / Mail
+// - kolory rozwijanego menu wiadomości
 // - teksty sekcji
 //
 // Ważne:
-// - menu wiadomości otwiera się teraz do góry,
+// - menu wiadomości otwiera się do góry,
 //   żeby nie było obcinane przez kartę
 // - karta ma overflow-visible, ale zdjęcie nadal ma własne zaokrąglenia
-// - wgraj zdjęcia do folderu public/kontakt/
+// - rozwijane menu dostało ciemnozielone tło w stylu premium
 // ==========================================================
 
 import Image from "next/image";
@@ -94,7 +95,8 @@ function getMailHref(name: string) {
 //
 // Najważniejsze:
 // - menu otwiera się DO GÓRY
-// - dzięki temu nie jest obcinane na dole karty
+// - ma teraz ciemnozielone tło premium
+// - nie jest obcinane na dole karty
 // ==========================================================
 
 type MessageMenuProps = {
@@ -115,10 +117,10 @@ function MessageMenu({ phoneRaw, personName }: MessageMenuProps) {
       </summary>
 
       {/* MENU OTWIERANE DO GÓRY */}
-      <div className="absolute bottom-full left-0 z-40 mb-3 min-w-[220px] overflow-hidden rounded-2xl border border-white/10 bg-black/90 shadow-2xl backdrop-blur-2xl">
+      <div className="absolute bottom-full left-0 z-40 mb-3 min-w-[220px] overflow-hidden rounded-2xl border border-[#2f4f43]/80 bg-[#10201a]/95 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
         <a
           href={getSmsHref(phoneRaw, personName)}
-          className="block px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
+          className="block px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/80 transition hover:bg-[#173128] hover:text-white"
         >
           SMS
         </a>
@@ -127,14 +129,14 @@ function MessageMenu({ phoneRaw, personName }: MessageMenuProps) {
           href={getWhatsAppHref(phoneRaw, personName)}
           target="_blank"
           rel="noreferrer"
-          className="block border-t border-white/10 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
+          className="block border-t border-[#2f4f43]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/80 transition hover:bg-[#173128] hover:text-white"
         >
           WHATSAPP
         </a>
 
         <a
           href={getMailHref(personName)}
-          className="block border-t border-white/10 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
+          className="block border-t border-[#2f4f43]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/80 transition hover:bg-[#173128] hover:text-white"
         >
           MAIL
         </a>
