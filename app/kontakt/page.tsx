@@ -12,7 +12,7 @@
 // 1. pokazuje premium hero strony kontaktowej
 // 2. korzysta ze wspólnego górnego paska ModelPageTopBar
 // 3. pokazuje 2 handlowców ze zdjęciami
-// 4. pokazuje numery telefonów i przyciski kontaktowe
+// 4. pokazuje numery telefonów, maile i przyciski kontaktowe
 // 5. pokazuje rozwijane menu "Wyślij wiadomość":
 //    - SMS
 //    - WHATSAPP
@@ -25,6 +25,7 @@
 // - zdjęcia handlowców
 // - imiona i nazwiska
 // - numery telefonów
+// - adresy e-mail
 // - adres firmy
 // - NIP
 // - treści wiadomości SMS / WhatsApp / Mail
@@ -32,11 +33,10 @@
 // - teksty sekcji
 //
 // Ważne:
-// - menu wiadomości otwiera się teraz na dół
+// - menu wiadomości otwiera się na dół
 // - karty są wydłużone, żeby dropdown mieścił się w środku
-// - napis "Dane firmy" został usunięty
+// - napis "Osoby do bezpośredniego kontaktu" został usunięty
 // - rozwijane menu dostało ciemnozielone tło premium
-// - usunięto duży nagłówek "Osoby do bezpośredniego kontaktu"
 // ==========================================================
 
 import Image from "next/image";
@@ -47,15 +47,25 @@ import ModelPageTopBar from "@/components/ModelPageTopBar";
 // ==========================================================
 // DANE KONTAKTOWE
 // ==========================================================
+// Tutaj trzymamy podstawowe dane handlowców,
+// żeby łatwiej było później zmieniać numery, maile i treści.
+// ==========================================================
 
 const PAULINA_PHONE_RAW = "48668216422";
 const PAULINA_PHONE_DISPLAY = "+48 668 216 422";
+const PAULINA_EMAIL = "Paulina@saprenovation.eu";
 
 const KRZYSZTOF_PHONE_RAW = "48609809703";
 const KRZYSZTOF_PHONE_DISPLAY = "+48 609 809 703";
+const KRZYSZTOF_EMAIL = "Krzysztof@saprenovation.eu";
 
 // ==========================================================
 // POMOCNICZE LINKI WIADOMOŚCI
+// ==========================================================
+// Generujemy linki do:
+// - SMS
+// - WhatsApp
+// - Mail
 // ==========================================================
 
 function getSmsHref(phone: string, name: string) {
@@ -70,8 +80,8 @@ function getWhatsAppHref(phone: string, name: string) {
   )}`;
 }
 
-function getMailHref(name: string) {
-  return `mailto:?subject=${encodeURIComponent(
+function getMailHref(email: string, name: string) {
+  return `mailto:${email}?subject=${encodeURIComponent(
     `Kontakt Alaudis`
   )}&body=${encodeURIComponent(
     `Dzień dobry ${name},\n\nchciałbym porozmawiać o modelach Alaudis.\n`
@@ -81,13 +91,27 @@ function getMailHref(name: string) {
 // ==========================================================
 // MENU WIADOMOŚCI
 // ==========================================================
+// To jest wspólny przycisk rozwijany:
+// - SMS
+// - WHATSAPP
+// - MAIL
+//
+// Najważniejsze:
+// - menu otwiera się NA DÓŁ
+// - ma ciemnozielone tło premium
+// ==========================================================
 
 type MessageMenuProps = {
   phoneRaw: string;
   personName: string;
+  emailAddress: string;
 };
 
-function MessageMenu({ phoneRaw, personName }: MessageMenuProps) {
+function MessageMenu({
+  phoneRaw,
+  personName,
+  emailAddress,
+}: MessageMenuProps) {
   return (
     <details className="group relative z-30">
       <summary className="cursor-pointer list-none rounded-full border border-[#3c6b52]/70 bg-[#15261d]/90 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/90 transition hover:border-[#5b9473] hover:bg-[#1b3126] hover:text-white">
@@ -99,6 +123,7 @@ function MessageMenu({ phoneRaw, personName }: MessageMenuProps) {
         </span>
       </summary>
 
+      {/* MENU OTWIERANE NA DÓŁ */}
       <div className="absolute left-0 top-full z-40 mt-3 min-w-[220px] overflow-hidden rounded-2xl border border-[#426f57]/80 bg-[#193629]/96 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
         <a
           href={getSmsHref(phoneRaw, personName)}
@@ -117,7 +142,7 @@ function MessageMenu({ phoneRaw, personName }: MessageMenuProps) {
         </a>
 
         <a
-          href={getMailHref(personName)}
+          href={getMailHref(emailAddress, personName)}
           className="block border-t border-[#426f57]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/85 transition hover:bg-[#28513d] hover:text-white"
         >
           MAIL
@@ -211,6 +236,9 @@ export default function KontaktPage() {
                   Paulina Przybylska
                 </h3>
 
+                {/* ------------------------------------------------
+                    TELEFON
+                   ------------------------------------------------ */}
                 <p className="mt-5 text-lg text-white/78">
                   <a
                     href={`tel:+${PAULINA_PHONE_RAW}`}
@@ -221,10 +249,25 @@ export default function KontaktPage() {
                 </p>
 
                 {/* ------------------------------------------------
+                    E-MAIL
+                   ------------------------------------------------ */}
+                <p className="mt-3 text-lg text-white/78 break-all">
+                  <a
+                    href={`mailto:${PAULINA_EMAIL}`}
+                    className="transition hover:text-white"
+                  >
+                    {PAULINA_EMAIL}
+                  </a>
+                </p>
+
+                {/* ------------------------------------------------
                     STREFA PRZYCISKÓW
+                    - specjalnie wydłużona
+                    - żeby dropdown mieścił się w dół
                    ------------------------------------------------ */}
                 <div className="mt-8 min-h-[190px]">
                   <div className="flex flex-wrap gap-3">
+                    {/* ZADZWOŃ */}
                     <a
                       href={`tel:+${PAULINA_PHONE_RAW}`}
                       className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
@@ -232,9 +275,11 @@ export default function KontaktPage() {
                       Zadzwoń
                     </a>
 
+                    {/* WYŚLIJ WIADOMOŚĆ */}
                     <MessageMenu
                       phoneRaw={PAULINA_PHONE_RAW}
                       personName="Paulina"
+                      emailAddress={PAULINA_EMAIL}
                     />
                   </div>
                 </div>
@@ -269,6 +314,9 @@ export default function KontaktPage() {
                   Krzysztof Skwarek
                 </h3>
 
+                {/* ------------------------------------------------
+                    TELEFON
+                   ------------------------------------------------ */}
                 <p className="mt-5 text-lg text-white/78">
                   <a
                     href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
@@ -279,10 +327,25 @@ export default function KontaktPage() {
                 </p>
 
                 {/* ------------------------------------------------
+                    E-MAIL
+                   ------------------------------------------------ */}
+                <p className="mt-3 text-lg text-white/78 break-all">
+                  <a
+                    href={`mailto:${KRZYSZTOF_EMAIL}`}
+                    className="transition hover:text-white"
+                  >
+                    {KRZYSZTOF_EMAIL}
+                  </a>
+                </p>
+
+                {/* ------------------------------------------------
                     STREFA PRZYCISKÓW
+                    - specjalnie wydłużona
+                    - żeby dropdown mieścił się w dół
                    ------------------------------------------------ */}
                 <div className="mt-8 min-h-[190px]">
                   <div className="flex flex-wrap gap-3">
+                    {/* ZADZWOŃ */}
                     <a
                       href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
                       className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
@@ -290,9 +353,11 @@ export default function KontaktPage() {
                       Zadzwoń
                     </a>
 
+                    {/* WYŚLIJ WIADOMOŚĆ */}
                     <MessageMenu
                       phoneRaw={KRZYSZTOF_PHONE_RAW}
                       personName="Krzysztof"
+                      emailAddress={KRZYSZTOF_EMAIL}
                     />
                   </div>
                 </div>
@@ -304,6 +369,8 @@ export default function KontaktPage() {
 
       {/* ====================================================
           DANE FIRMY
+          - bez dużego napisu "Dane firmy"
+          - bardziej zwarte i premium
          ==================================================== */}
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-5xl">
@@ -331,6 +398,7 @@ export default function KontaktPage() {
                 </p>
               </div>
 
+              {/* NIP FIRMY */}
               <div>
                 <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
                   NIP
@@ -342,7 +410,7 @@ export default function KontaktPage() {
                 <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
                   Kontakt
                 </p>
-                <div className="mt-3 space-y-2 text-xl text-white">
+                <div className="mt-3 space-y-3 text-xl text-white">
                   <p>
                     <a
                       href={`tel:+${PAULINA_PHONE_RAW}`}
@@ -353,10 +421,26 @@ export default function KontaktPage() {
                   </p>
                   <p>
                     <a
+                      href={`mailto:${PAULINA_EMAIL}`}
+                      className="transition hover:text-white/80 break-all"
+                    >
+                      {PAULINA_EMAIL}
+                    </a>
+                  </p>
+                  <p>
+                    <a
                       href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
                       className="transition hover:text-white/80"
                     >
                       {KRZYSZTOF_PHONE_DISPLAY}
+                    </a>
+                  </p>
+                  <p>
+                    <a
+                      href={`mailto:${KRZYSZTOF_EMAIL}`}
+                      className="transition hover:text-white/80 break-all"
+                    >
+                      {KRZYSZTOF_EMAIL}
                     </a>
                   </p>
                 </div>
