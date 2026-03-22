@@ -31,12 +31,10 @@
 // - teksty sekcji
 //
 // Ważne:
-// - zdjęcia handlowców są teraz osadzone spokojniej,
-//   żeby mieściły się w ramkach i nie były ucinane
+// - menu wiadomości otwiera się teraz do góry,
+//   żeby nie było obcinane przez kartę
+// - karta ma overflow-visible, ale zdjęcie nadal ma własne zaokrąglenia
 // - wgraj zdjęcia do folderu public/kontakt/
-// - przykładowe ścieżki w tym pliku:
-//   /kontakt/paulina-przybylska.jpg
-//   /kontakt/krzysztof-skwarek.jpg
 // ==========================================================
 
 import Image from "next/image";
@@ -64,9 +62,6 @@ const KRZYSZTOF_PHONE_DISPLAY = "+48 609 809 703";
 // - SMS
 // - WhatsApp
 // - Mail
-//
-// Mail jest bez wpisanego adresata,
-// żeby nie zgadywać adresu mailowego.
 // ==========================================================
 
 function getSmsHref(phone: string, name: string) {
@@ -87,6 +82,65 @@ function getMailHref(name: string) {
   )}&body=${encodeURIComponent(
     `Dzień dobry ${name},\n\nchciałbym porozmawiać o modelach Alaudis.\n`
   )}`;
+}
+
+// ==========================================================
+// MENU WIADOMOŚCI
+// ==========================================================
+// To jest wspólny przycisk rozwijany:
+// - SMS
+// - WHATSAPP
+// - MAIL
+//
+// Najważniejsze:
+// - menu otwiera się DO GÓRY
+// - dzięki temu nie jest obcinane na dole karty
+// ==========================================================
+
+type MessageMenuProps = {
+  phoneRaw: string;
+  personName: string;
+};
+
+function MessageMenu({ phoneRaw, personName }: MessageMenuProps) {
+  return (
+    <details className="group relative z-30">
+      <summary className="cursor-pointer list-none rounded-full border border-white/20 bg-black/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black">
+        <span className="inline-flex items-center gap-2">
+          Wyślij wiadomość
+          <span className="text-[10px] transition group-open:rotate-180">
+            ▲
+          </span>
+        </span>
+      </summary>
+
+      {/* MENU OTWIERANE DO GÓRY */}
+      <div className="absolute bottom-full left-0 z-40 mb-3 min-w-[220px] overflow-hidden rounded-2xl border border-white/10 bg-black/90 shadow-2xl backdrop-blur-2xl">
+        <a
+          href={getSmsHref(phoneRaw, personName)}
+          className="block px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
+        >
+          SMS
+        </a>
+
+        <a
+          href={getWhatsAppHref(phoneRaw, personName)}
+          target="_blank"
+          rel="noreferrer"
+          className="block border-t border-white/10 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
+        >
+          WHATSAPP
+        </a>
+
+        <a
+          href={getMailHref(personName)}
+          className="block border-t border-white/10 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
+        >
+          MAIL
+        </a>
+      </div>
+    </details>
+  );
 }
 
 export default function KontaktPage() {
@@ -151,14 +205,9 @@ export default function KontaktPage() {
             {/* ==================================================
                 PAULINA
                ================================================== */}
-            <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03]">
-              {/* ------------------------------------------------
-                  ZDJĘCIE HANDLOWCA
-                  - spokojniej osadzone
-                  - mieści się w ramce
-                  - nie ucina tak mocno twarzy i sylwetki
-                 ------------------------------------------------ */}
-              <div className="relative aspect-[5/4] w-full overflow-hidden bg-[#080808]">
+            <div className="overflow-visible rounded-[32px] border border-white/10 bg-white/[0.03]">
+              {/* ZDJĘCIE HANDLOWCA */}
+              <div className="relative aspect-[5/4] w-full overflow-hidden rounded-t-[32px] bg-[#080808]">
                 <div className="absolute inset-0 p-5">
                   <div className="relative h-full w-full">
                     <Image
@@ -200,41 +249,10 @@ export default function KontaktPage() {
                   </a>
 
                   {/* WYŚLIJ WIADOMOŚĆ */}
-                  <details className="group relative">
-                    <summary className="cursor-pointer list-none rounded-full border border-white/20 bg-black/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black">
-                      <span className="inline-flex items-center gap-2">
-                        Wyślij wiadomość
-                        <span className="text-[10px] transition group-open:rotate-180">
-                          ▼
-                        </span>
-                      </span>
-                    </summary>
-
-                    <div className="absolute left-0 z-20 mt-3 min-w-[220px] overflow-hidden rounded-2xl border border-white/10 bg-black/90 shadow-2xl backdrop-blur-2xl">
-                      <a
-                        href={getSmsHref(PAULINA_PHONE_RAW, "Paulina")}
-                        className="block px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
-                      >
-                        SMS
-                      </a>
-
-                      <a
-                        href={getWhatsAppHref(PAULINA_PHONE_RAW, "Paulina")}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="block border-t border-white/10 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
-                      >
-                        WhatsApp
-                      </a>
-
-                      <a
-                        href={getMailHref("Paulina")}
-                        className="block border-t border-white/10 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
-                      >
-                        Mail
-                      </a>
-                    </div>
-                  </details>
+                  <MessageMenu
+                    phoneRaw={PAULINA_PHONE_RAW}
+                    personName="Paulina"
+                  />
                 </div>
               </div>
             </div>
@@ -242,14 +260,9 @@ export default function KontaktPage() {
             {/* ==================================================
                 KRZYSZTOF
                ================================================== */}
-            <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03]">
-              {/* ------------------------------------------------
-                  ZDJĘCIE HANDLOWCA
-                  - spokojniej osadzone
-                  - mieści się w ramce
-                  - nie ucina tak mocno twarzy i sylwetki
-                 ------------------------------------------------ */}
-              <div className="relative aspect-[5/4] w-full overflow-hidden bg-[#080808]">
+            <div className="overflow-visible rounded-[32px] border border-white/10 bg-white/[0.03]">
+              {/* ZDJĘCIE HANDLOWCA */}
+              <div className="relative aspect-[5/4] w-full overflow-hidden rounded-t-[32px] bg-[#080808]">
                 <div className="absolute inset-0 p-5">
                   <div className="relative h-full w-full">
                     <Image
@@ -291,41 +304,10 @@ export default function KontaktPage() {
                   </a>
 
                   {/* WYŚLIJ WIADOMOŚĆ */}
-                  <details className="group relative">
-                    <summary className="cursor-pointer list-none rounded-full border border-white/20 bg-black/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black">
-                      <span className="inline-flex items-center gap-2">
-                        Wyślij wiadomość
-                        <span className="text-[10px] transition group-open:rotate-180">
-                          ▼
-                        </span>
-                      </span>
-                    </summary>
-
-                    <div className="absolute left-0 z-20 mt-3 min-w-[220px] overflow-hidden rounded-2xl border border-white/10 bg-black/90 shadow-2xl backdrop-blur-2xl">
-                      <a
-                        href={getSmsHref(KRZYSZTOF_PHONE_RAW, "Krzysztof")}
-                        className="block px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
-                      >
-                        SMS
-                      </a>
-
-                      <a
-                        href={getWhatsAppHref(KRZYSZTOF_PHONE_RAW, "Krzysztof")}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="block border-t border-white/10 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
-                      >
-                        WhatsApp
-                      </a>
-
-                      <a
-                        href={getMailHref("Krzysztof")}
-                        className="block border-t border-white/10 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/75 transition hover:bg-white/10 hover:text-white"
-                      >
-                        Mail
-                      </a>
-                    </div>
-                  </details>
+                  <MessageMenu
+                    phoneRaw={KRZYSZTOF_PHONE_RAW}
+                    personName="Krzysztof"
+                  />
                 </div>
               </div>
             </div>
