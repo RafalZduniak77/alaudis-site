@@ -100,12 +100,13 @@ export default function KontaktPage() {
                 PAULINA
                ================================================== */}
             <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03]">
-              <div className="relative aspect-[4/3] w-full">
+              {/* ZDJĘCIE HANDLOWCA - ZMNIEJSZONE I SPOKOJNIEJSZE */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden">
                 <Image
                   src="/kontakt/paulina-przybylska.jpg"
                   alt="Paulina Przybylska"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top scale-[0.88]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               </div>
@@ -150,12 +151,13 @@ export default function KontaktPage() {
                 KRZYSZTOF
                ================================================== */}
             <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03]">
-              <div className="relative aspect-[4/3] w-full">
+              {/* ZDJĘCIE HANDLOWCA - ZMNIEJSZONE I SPOKOJNIEJSZE */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden">
                 <Image
                   src="/kontakt/krzysztof-skwarek.jpg"
                   alt="Krzysztof Skwarek"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top scale-[0.88]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               </div>
