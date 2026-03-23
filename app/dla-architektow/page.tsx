@@ -6,33 +6,14 @@
 // ==========================================================
 // PAGE - DLA ARCHITEKTÓW
 // ==========================================================
-// To jest osobna premium podstrona Alaudis:
-// "Dla architektów"
-//
-// Za co odpowiada ten plik:
-// 1. pokazuje pełnoekranowy hero w klimacie premium
-// 2. korzysta ze wspólnego górnego paska ModelPageTopBar
-// 3. pokazuje kierunek współpracy z architektami i projektantami
-// 4. buduje narrację o fortepianie jako części wnętrza luxury
-// 5. pokazuje obszary współpracy
-// 6. pokazuje korzyści dla projektów premium
-// 7. prowadzi do kontaktu i prywatnej konsultacji projektowej
-// 8. kończy się stopką Footer
-//
-// Co tutaj najłatwiej zmieniasz:
-// - zdjęcie hero
-// - tekst główny
-// - tytuł strony
-// - opisy sekcji
-// - zdjęcia galerii
-// - teksty współpracy
-// - linki CTA
-//
-// Ważne:
-// - styl jest spójny z premium językiem Alaudis
-// - hero zajmuje pełny ekran
-// - strona jest napisana pod rezydencje, apartamenty,
-//   hotele premium i projekty luxury
+// WERSJA UPROSZCZONA PREMIUM
+// ----------------------------------------------------------
+// Co poprawiono:
+// 1. usunięto duże pola / przyciski wyboru z hero
+// 2. hero zostało bardziej spokojne i luksusowe
+// 3. zostawiono elegancki przekaz + przewijanie w dół
+// 4. końcowe CTA zostało uproszczone do jednego głównego kroku
+// 5. całość jest bardziej premium i mniej przeładowana
 // ==========================================================
 
 import Image from "next/image";
@@ -52,7 +33,9 @@ export default function DlaArchitektowPage() {
           HERO - PEŁNY EKRAN
          ==================================================== */}
       <section className="relative min-h-screen overflow-hidden border-b border-white/10">
-        {/* TŁO HERO */}
+        {/* ==================================================
+            TŁO HERO
+           ================================================== */}
         <div className="absolute inset-0">
           <Image
             src="/hero.jpg"
@@ -65,7 +48,11 @@ export default function DlaArchitektowPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
         </div>
 
-        {/* TREŚĆ HERO */}
+        {/* ==================================================
+            TREŚĆ HERO
+            - bez dodatkowych przycisków wyboru
+            - spokojniejszy, bardziej luksusowy układ
+           ================================================== */}
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
           <div className="mx-auto max-w-5xl">
             <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/80">
@@ -87,27 +74,12 @@ export default function DlaArchitektowPage() {
               materiał, światło, charakter i obecność instrumentu w przestrzeni
               klasy premium.
             </p>
-
-            {/* CTA HERO */}
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href="#wspolpraca"
-                className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Zobacz zakres współpracy
-              </a>
-
-              <Link
-                href="/kontakt"
-                className="rounded-full border border-white/20 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Umów rozmowę projektową
-              </Link>
-            </div>
           </div>
         </div>
 
-        {/* WSKAŹNIK PRZEWIJANIA */}
+        {/* ==================================================
+            WSKAŹNIK PRZEWIJANIA
+           ================================================== */}
         <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
           <a href="#wspolpraca" className="block">
             <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
@@ -150,8 +122,8 @@ export default function DlaArchitektowPage() {
 
             <p className="leading-8">
               Dlatego Alaudis proponujemy jako element projektowy: świadomie
-              dobierany do materiałów, światła, skali wnętrza, stylistyki
-              mebli i zamierzonego języka całej realizacji.
+              dobierany do materiałów, światła, skali wnętrza, stylistyki mebli
+              i zamierzonego języka całej realizacji.
             </p>
           </div>
         </div>
@@ -245,7 +217,9 @@ export default function DlaArchitektowPage() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">Apartamenty premium</h3>
+              <h3 className="text-xl font-light text-white">
+                Apartamenty premium
+              </h3>
               <p className="mt-4 leading-7 text-white/68">
                 Dobór modelu do mniejszej, ale bardzo świadomie zaprojektowanej
                 przestrzeni.
@@ -319,6 +293,7 @@ export default function DlaArchitektowPage() {
 
       {/* ====================================================
           SEKCJA - CTA KOŃCOWE
+          - jedno główne wezwanie, bez nadmiaru opcji
          ==================================================== */}
       <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
@@ -336,19 +311,12 @@ export default function DlaArchitektowPage() {
             wykończeniu i roli instrumentu w całej kompozycji przestrzeni.
           </p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-10">
             <Link
               href="/kontakt"
-              className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+              className="inline-flex rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
             >
               Umów rozmowę projektową
-            </Link>
-
-            <Link
-              href="/odwiedz-atelier"
-              className="rounded-full border border-white/20 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black"
-            >
-              Odwiedź atelier
             </Link>
           </div>
         </div>

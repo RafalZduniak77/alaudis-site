@@ -6,32 +6,14 @@
 // ==========================================================
 // PAGE - ODWIEDŹ ATELIER
 // ==========================================================
-// To jest osobna premium podstrona Alaudis:
-// "Odwiedź atelier"
-//
-// Za co odpowiada ten plik:
-// 1. pokazuje pełnoekranowy hero w klimacie premium
-// 2. korzysta ze wspólnego górnego paska ModelPageTopBar
-// 3. buduje narrację wokół wizyty w atelier
-// 4. pokazuje czego można doświadczyć na spotkaniu
-// 5. pokazuje galerię miejsca / klimatu marki
-// 6. pokazuje lokalizację atelier
-// 7. prowadzi do kontaktu i prywatnej rozmowy
-// 8. kończy się stopką Footer
-//
-// Co tutaj najłatwiej zmieniasz:
-// - zdjęcie hero
-// - tekst główny
-// - tytuł strony
-// - opisy sekcji
-// - zdjęcia galerii
-// - adres
-// - linki CTA
-//
-// Ważne:
-// - styl jest spójny z premium językiem Alaudis
-// - hero zajmuje pełny ekran
-// - sekcje są zbudowane tak, żeby strona wyglądała luksusowo
+// WERSJA UPROSZCZONA PREMIUM
+// ----------------------------------------------------------
+// Co poprawiono:
+// 1. usunięto duże pola / przyciski wyboru z hero
+// 2. hero zostało bardziej spokojne i luksusowe
+// 3. zostawiono tylko elegancki przekaz + przewijanie w dół
+// 4. niższe sekcje nadal prowadzą użytkownika dalej
+// 5. całość wygląda bardziej premium i mniej "przeładowanie"
 // ==========================================================
 
 import Image from "next/image";
@@ -51,7 +33,9 @@ export default function OdwiedzAtelierPage() {
           HERO - PEŁNY EKRAN
          ==================================================== */}
       <section className="relative min-h-screen overflow-hidden border-b border-white/10">
-        {/* TŁO HERO */}
+        {/* ==================================================
+            TŁO HERO
+           ================================================== */}
         <div className="absolute inset-0">
           <Image
             src="/hero.jpg"
@@ -64,7 +48,11 @@ export default function OdwiedzAtelierPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
         </div>
 
-        {/* TREŚĆ HERO */}
+        {/* ==================================================
+            TREŚĆ HERO
+            - bez dodatkowych przycisków wyboru
+            - spokojniejszy, bardziej luksusowy układ
+           ================================================== */}
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
           <div className="mx-auto max-w-5xl">
             <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/80">
@@ -86,27 +74,12 @@ export default function OdwiedzAtelierPage() {
               nie tylko prezentacja modelu, ale doświadczenie jego skali,
               obecności i tożsamości.
             </p>
-
-            {/* CTA HERO */}
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href="/kontakt"
-                className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Umów prywatną rozmowę
-              </Link>
-
-              <a
-                href="#doswiadczenie"
-                className="rounded-full border border-white/20 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Zobacz doświadczenie wizyty
-              </a>
-            </div>
           </div>
         </div>
 
-        {/* WSKAŹNIK PRZEWIJANIA */}
+        {/* ==================================================
+            WSKAŹNIK PRZEWIJANIA
+           ================================================== */}
         <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
           <a href="#doswiadczenie" className="block">
             <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
@@ -146,7 +119,9 @@ export default function OdwiedzAtelierPage() {
             </p>
           </div>
 
-          {/* KARTY DOŚWIADCZENIA */}
+          {/* ==================================================
+              KARTY DOŚWIADCZENIA
+             ================================================== */}
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
               <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -282,19 +257,15 @@ export default function OdwiedzAtelierPage() {
               przebieg rozmowy do Twojego projektu.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            {/* ==================================================
+                TYLKO JEDNO GŁÓWNE CTA
+               ================================================== */}
+            <div className="mt-8">
               <Link
                 href="/kontakt"
-                className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                className="inline-flex rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Umów prywatną rozmowę
-              </Link>
-
-              <Link
-                href="/#modele"
-                className="rounded-full border border-white/20 bg-black/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Zobacz modele
               </Link>
             </div>
           </div>
@@ -303,6 +274,7 @@ export default function OdwiedzAtelierPage() {
 
       {/* ====================================================
           KOŃCOWE CTA
+          - jedno główne wezwanie, bez nadmiaru opcji
          ==================================================== */}
       <section className="bg-neutral-950 px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
@@ -320,19 +292,12 @@ export default function OdwiedzAtelierPage() {
             i kierunku indywidualnej kompozycji Alaudis.
           </p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-10">
             <Link
               href="/kontakt"
-              className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+              className="inline-flex rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
             >
               Umów prywatną rozmowę
-            </Link>
-
-            <Link
-              href="/"
-              className="rounded-full border border-white/20 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black"
-            >
-              Wróć do Alaudis
             </Link>
           </div>
         </div>
