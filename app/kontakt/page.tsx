@@ -13,7 +13,9 @@
 // 2. nagłówek został zmniejszony do bardziej premium proporcji
 // 3. dodano dodatkowe eleganckie zdanie pod opisem
 // 4. kontakt z handlowcami jest niżej, po przewinięciu
-// 5. dodano premium CTA do sekcji kontaktowej
+// 5. CTA prowadzą teraz do nowych podstron:
+//    - /odwiedz-atelier
+//    - /dla-architektow
 // 6. dodano wskaźnik przewijania na dole hero
 // 7. zachowano wszystkie maile, telefony i menu wiadomości
 // ==========================================================
@@ -166,18 +168,18 @@ export default function KontaktPage() {
                 PREMIUM CTA W HERO
                ================================================== */}
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href="#zespol"
+              <Link
+                href="/odwiedz-atelier"
                 className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
-                Zobacz kontakt
-              </a>
+                Odwiedź atelier
+              </Link>
 
               <Link
-                href="/"
+                href="/dla-architektow"
                 className="rounded-full border border-white/20 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black"
               >
-                Wróć na stronę główną
+                Dla architektów
               </Link>
             </div>
           </div>
@@ -424,17 +426,17 @@ export default function KontaktPage() {
 
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
-                href="/fortepiany/alaudis-178"
+                href="/odwiedz-atelier"
                 className="rounded-full border border-white/20 bg-black/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black"
               >
-                Zobacz modele
+                Odwiedź atelier
               </Link>
 
               <Link
-                href="/kontakt"
+                href="/dla-architektow"
                 className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
-                Skontaktuj się z nami
+                Dla architektów
               </Link>
             </div>
           </div>
