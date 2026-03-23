@@ -8,8 +8,7 @@
 //    "RZEMIOSŁO, DETAL, TOŻSAMOŚĆ."
 // 2. poprawiono kierowanie do sekcji "Modele"
 // 3. sekcja po kliknięciu "Modele" ustawia się wyżej
-// 4. przycisk "Otwórz konfigurator" nie jest już biały na starcie
-// 5. przycisk rozjaśnia się dopiero po najechaniu
+// 4. zachowano premium układ strony
 // ==========================================================
 
 import Image from "next/image";
@@ -140,7 +139,7 @@ export default function Home() {
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/konfigurator"
-                className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                className="rounded-full border border-white/35 bg-white px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:border-white hover:bg-transparent hover:text-white"
               >
                 Otwórz konfigurator
               </Link>
@@ -298,7 +297,7 @@ export default function Home() {
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href="/konfigurator"
-            className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+            className="rounded-full border border-white/35 bg-white px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:border-white hover:bg-transparent hover:text-white"
           >
             Otwórz konfigurator
           </Link>
@@ -337,3 +336,4 @@ export default function Home() {
     </main>
   );
 }
+
