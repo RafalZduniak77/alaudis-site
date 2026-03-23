@@ -10,10 +10,12 @@
 // ----------------------------------------------------------
 // Co poprawiono:
 // 1. sekcja "Porozmawiajmy" zajmuje cały ekran
-// 2. kontakt z handlowcami jest niżej, po przewinięciu
-// 3. dodano premium CTA do sekcji kontaktowej
-// 4. dodano wskaźnik przewijania na dole hero
-// 5. zachowano wszystkie maile, telefony i menu wiadomości
+// 2. nagłówek został zmniejszony do bardziej premium proporcji
+// 3. dodano dodatkowe eleganckie zdanie pod opisem
+// 4. kontakt z handlowcami jest niżej, po przewinięciu
+// 5. dodano premium CTA do sekcji kontaktowej
+// 6. dodano wskaźnik przewijania na dole hero
+// 7. zachowano wszystkie maile, telefony i menu wiadomości
 // ==========================================================
 
 import Image from "next/image";
@@ -138,20 +140,26 @@ export default function KontaktPage() {
         {/* ==================================================
             TREŚĆ HERO
             - pełne wyśrodkowanie w ekranie
+            - bardziej premium skala tytułu
            ================================================== */}
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
           <div className="mx-auto max-w-5xl">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/80">
+            <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/80">
               Kontakt Alaudis
             </p>
 
-            <h1 className="text-4xl font-light uppercase tracking-[0.06em] text-white sm:text-6xl lg:text-[88px] lg:leading-[0.98]">
+            <h1 className="text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
               Porozmawiajmy
             </h1>
 
             <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/88 sm:text-base sm:leading-9">
               Skontaktuj się z nami, aby porozmawiać o modelach Alaudis,
               wykończeniach premium, konfiguracji fortepianu oraz współpracy.
+            </p>
+
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/62 sm:text-[15px] sm:leading-8">
+              Prywatna rozmowa o modelu, wykończeniu i charakterze instrumentu
+              to najpiękniejszy początek indywidualnej kompozycji Alaudis.
             </p>
 
             {/* ==================================================
