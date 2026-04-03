@@ -1,27 +1,24 @@
 // ==========================================================
 // ALAUDIS AR SCENE
 // ==========================================================
-// WERSJA POD SIRV 360 SPIN
+// WERSJA POD SIRV 360 SPIN + AUTO OBRÓT ON/OFF
 // ----------------------------------------------------------
 // Co zmieniono w tej wersji:
-// 1. usunięto renderowanie model-viewer 3D
-// 2. dodano ładowanie Sirv JS
-// 3. dodano osadzenie gotowego spinu 360 z Sirv
-// 4. zachowano własne tło zdjęciowe / video
-// 5. zmieniono badge z "AR" na "360"
-// 6. pozostawiono wygląd sekcji premium
+// 1. renderowany jest gotowy spin 360 z Sirv
+// 2. przywrócono przełącznik auto obrotu ON/OFF
+// 3. gdy auto obrót jest włączony -> Sirv startuje z autospin
+// 4. gdy auto obrót jest wyłączony -> Sirv pokazuje spin bez autospin
+// 5. zachowano własne tło zdjęciowe / video
+// 6. zachowano premium wygląd sekcji
 //
 // UWAGA:
-// Ta wersja pokazuje GOTOWY SPIN 360 z Sirv:
+// Ta wersja używa gotowego spinu:
 // https://alaudis.sirv.com/Spins/alaudis-360/FOTKI%20ALAUDIS%20360/ALAUDIS%20360%20WOJTEK/ALAUDIS%20360%20WOJTEK.spin
-//
-// Jeśli później dodasz kolejne spiny, można tutaj zrobić mapowanie
-// osobnych spinów do osobnych modeli.
 // ==========================================================
 
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   DEFAULT_ROOM_IMAGE,
   MODEL_VIEWER_SETTINGS,
@@ -31,12 +28,10 @@ import {
 // ----------------------------------------------------------
 // DEKLARACJA DLA WINDOW.SIRV
 // ----------------------------------------------------------
-// Sirv po załadowaniu skryptu dodaje obiekt window.Sirv.
-// Dzięki temu TypeScript nie będzie zgłaszał błędów.
 declare global {
   interface Window {
     Sirv?: {
-      start?: () => void;
+      start?: (selector?: string | Element) => void;
     };
   }
 }
@@ -44,8 +39,6 @@ declare global {
 // ----------------------------------------------------------
 // TYPY PROPSÓW
 // ----------------------------------------------------------
-// Ten komponent dalej przyjmuje te same propsy,
-// żeby nie rozwalać reszty projektu.
 type Props = {
   modelFile: string;
   modelLabel: string;
@@ -61,7 +54,6 @@ type Props = {
 // ----------------------------------------------------------
 // STAŁY ADRES GOTOWEGO SPINU SIRV
 // ----------------------------------------------------------
-// To jest gotowy projekt 360 z wyciętych zdjęć.
 const SIRV_SPIN_URL =
   "https://alaudis.sirv.com/Spins/alaudis-360/FOTKI%20ALAUDIS%20360/ALAUDIS%20360%20WOJTEK/ALAUDIS%20360%20WOJTEK.spin";
 
@@ -69,19 +61,38 @@ export default function AlaudisARScene({
   modelLabel,
   roomImage,
   roomVideo,
+  modelOptions,
+  selectedModelId,
+  onChangeModel,
+  autoRotateEnabled,
+  onToggleAutoRotate,
 }: Props) {
   // --------------------------------------------------------
   // STAN GOTOWOŚCI SIRV
   // --------------------------------------------------------
-  // false = skrypt Sirv jeszcze się ładuje
-  // true  = można już renderować spin 360
   const [sirvReady, setSirvReady] = useState(false);
+
+  // --------------------------------------------------------
+  // WYBÓR TŁA
+  // --------------------------------------------------------
+  const activeBackgroundImage = roomImage ?? DEFAULT_ROOM_IMAGE;
+
+  // --------------------------------------------------------
+  // OPCJE SIRV
+  // --------------------------------------------------------
+  // Tutaj sterujemy auto obrotem ON/OFF.
+  const sirvOptions = useMemo(() => {
+    return [
+      "fullscreen.enable:true",
+      "hint.text:Przeciągnij aby obrócić",
+      "spin.allowZoom:true",
+      `spin.autospin.enable:${autoRotateEnabled ? "true" : "false"}`,
+    ].join(";");
+  }, [autoRotateEnabled]);
 
   // --------------------------------------------------------
   // ŁADOWANIE SKRYPTU SIRV
   // --------------------------------------------------------
-  // Jeśli skrypt już jest na stronie - używamy go.
-  // Jeśli nie - dokładamy go dynamicznie.
   useEffect(() => {
     let cancelled = false;
 
@@ -89,13 +100,11 @@ export default function AlaudisARScene({
       if (cancelled) return;
       setSirvReady(true);
 
-      // krótki delay, żeby div zdążył się wyrenderować
       window.setTimeout(() => {
         window.Sirv?.start?.();
       }, 0);
     };
 
-    // jeśli Sirv już jest gotowy
     if (window.Sirv) {
       activateSirv();
       return () => {
@@ -103,7 +112,6 @@ export default function AlaudisARScene({
       };
     }
 
-    // jeśli skrypt już istnieje w DOM
     const existingScript = document.querySelector(
       'script[data-sirv-script="true"]'
     ) as HTMLScriptElement | null;
@@ -116,7 +124,6 @@ export default function AlaudisARScene({
       };
     }
 
-    // jeśli skryptu jeszcze nie ma - dodajemy go
     const script = document.createElement("script");
     script.src = "https://scripts.sirv.com/sirvjs/v3/sirv.js";
     script.async = true;
@@ -132,10 +139,10 @@ export default function AlaudisARScene({
   }, []);
 
   // --------------------------------------------------------
-  // ODŚWIEŻENIE SPINU PO ZMIANIE TŁA
+  // ODŚWIEŻENIE SIRV PO ZMIANACH
   // --------------------------------------------------------
-  // Gdy zmienia się tło albo komponent odświeża się ponownie,
-  // próbujemy ponownie zainicjować Sirv.
+  // Gdy zmienia się auto obrót, tło albo model,
+  // uruchamiamy Sirv ponownie.
   useEffect(() => {
     if (!sirvReady) return;
 
@@ -146,15 +153,7 @@ export default function AlaudisARScene({
     return () => {
       window.clearTimeout(timer);
     };
-  }, [sirvReady, roomImage, roomVideo, modelLabel]);
-
-  // --------------------------------------------------------
-  // WYBÓR TŁA
-  // --------------------------------------------------------
-  // Kolejność:
-  // 1. jeśli jest własne zdjęcie -> użyj zdjęcia
-  // 2. jeśli nie ma zdjęcia -> użyj domyślnego tła
-  const activeBackgroundImage = roomImage ?? DEFAULT_ROOM_IMAGE;
+  }, [sirvReady, autoRotateEnabled, roomImage, roomVideo, modelLabel]);
 
   return (
     <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),rgba(255,255,255,0.025)_35%,rgba(0,0,0,0.55)_100%)] shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
@@ -194,7 +193,6 @@ export default function AlaudisARScene({
             className="absolute inset-0 z-0 h-full w-full object-cover"
           />
         ) : (
-          // TŁO ZDJĘCIOWE
           <div
             className="absolute inset-0 z-0"
             style={{
@@ -213,9 +211,10 @@ export default function AlaudisARScene({
         {sirvReady ? (
           <div className="relative z-[1] h-full w-full">
             <div
+              key={`sirv-${selectedModelId}-${autoRotateEnabled ? "on" : "off"}`}
               className="Sirv h-full w-full"
               data-src={SIRV_SPIN_URL}
-              data-options="fullscreen.enable:true;hint.text:Przeciągnij aby obrócić;spin.allowZoom:true;"
+              data-options={sirvOptions}
               style={{
                 width: "100%",
                 height: "100%",
@@ -223,35 +222,64 @@ export default function AlaudisARScene({
             />
           </div>
         ) : (
-          // EKRAN ŁADOWANIA
           <div className="relative z-[1] flex h-full w-full items-center justify-center text-white/50">
             Ładowanie podglądu 360...
           </div>
         )}
       </div>
 
-      {/* DOLNY PASEK INFORMACYJNY */}
+      {/* DOLNY PASEK STEROWANIA */}
       <div className="absolute inset-x-0 bottom-0 z-20">
         <div className="border-t border-white/10 bg-gradient-to-t from-black/70 via-black/35 to-transparent px-5 py-5">
           <div className="flex items-center justify-between gap-4">
-            {/* LEWA STRONA PASKA */}
+            {/* LEWA STRONA */}
             <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">
               Sterowanie
             </p>
 
-            {/* PRAWA STRONA PASKA */}
+            {/* PRAWA STRONA */}
             <div className="flex flex-nowrap items-center gap-2 overflow-x-auto sm:overflow-visible">
               <span className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/65">
                 Spin 360 aktywny
               </span>
 
-              <span className="whitespace-nowrap rounded-full border border-[#c79a5c]/40 bg-[#c79a5c]/15 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-[#f0cd98]">
-                Przeciągnij aby obrócić
-              </span>
+              <button
+                type="button"
+                onClick={onToggleAutoRotate}
+                className={
+                  autoRotateEnabled
+                    ? "whitespace-nowrap rounded-full border border-[#c79a5c]/40 bg-[#c79a5c]/15 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-[#f0cd98] transition hover:border-[#c79a5c]/60 hover:bg-[#c79a5c]/20"
+                    : "whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/70 transition hover:border-white/25"
+                }
+              >
+                Auto obrót {autoRotateEnabled ? "ON" : "OFF"}
+              </button>
 
               <span className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/70">
                 Zoom aktywny
               </span>
+
+              <div className="relative shrink-0">
+                <select
+                  value={selectedModelId}
+                  onChange={(e) => onChangeModel(e.target.value)}
+                  className="appearance-none whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 pr-11 text-[11px] uppercase tracking-[0.22em] text-white/75 outline-none transition hover:border-white/25"
+                >
+                  {modelOptions.map((option) => (
+                    <option
+                      key={option.id}
+                      value={option.id}
+                      className="bg-[#111] text-white"
+                    >
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+
+                <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[11px] text-white/60">
+                  ▼
+                </span>
+              </div>
             </div>
           </div>
         </div>
