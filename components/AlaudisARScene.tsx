@@ -11,7 +11,7 @@
 // 5. zachowano własne tło zdjęciowe / video
 // 6. zachowano premium wygląd sekcji
 // 7. całkowicie wyłączono hint "Drag to spin"
-// 8. dodano twarde ukrywanie hintu po stronie DOM
+// 8. naprawiono błąd znikania fortepianu przy OFF
 //
 // UWAGA:
 // Startowe wyłączenie auto obrotu ustawiane jest w:
@@ -87,12 +87,6 @@ export default function AlaudisARScene({
   // --------------------------------------------------------
   // OPCJE SIRV
   // --------------------------------------------------------
-  // Tutaj sterujemy:
-  // - fullscreen
-  // - całkowitym wyłączeniem hint message
-  // - wyłączeniem efektów hint
-  // - zoomem
-  // - auto obrotem ON/OFF
   const sirvOptions = useMemo(() => {
     return [
       "fullscreen.enable:true",
@@ -106,11 +100,12 @@ export default function AlaudisARScene({
   }, [autoRotateEnabled]);
 
   // --------------------------------------------------------
-  // FUNKCJA TWARDO UKRYWAJĄCA NAPIS "DRAG TO SPIN"
+  // FUNKCJA UKRYWAJĄCA WYŁĄCZNIE HINT SIRV
   // --------------------------------------------------------
-  // Sirv czasem mimo opcji dalej dokleja własny hint do DOM.
-  // Dlatego dodatkowo ręcznie chowamy wszystko,
-  // co wygląda jak hint lub zawiera tekst "Drag to spin".
+  // WAŻNE:
+  // Poprzednio sprawdzanie po całym textContent mogło ukryć
+  // większy kontener razem z fortepianem.
+  // Teraz chowamy tylko małe elementy hintu.
   const hideSirvHint = () => {
     const root = sirvHostRef.current;
     if (!root) return;
@@ -120,24 +115,44 @@ export default function AlaudisARScene({
     allNodes.forEach((node) => {
       const className =
         typeof node.className === "string" ? node.className.toLowerCase() : "";
-      const text = (node.textContent ?? "").trim().toLowerCase();
+
       const ariaLabel = (node.getAttribute("aria-label") ?? "")
         .trim()
         .toLowerCase();
+
       const title = (node.getAttribute("title") ?? "").trim().toLowerCase();
 
-      const shouldHide =
-        className.includes("hint") ||
-        text.includes("drag to spin") ||
-        ariaLabel.includes("drag to spin") ||
-        title.includes("drag to spin");
+      const directText = Array.from(node.childNodes)
+        .filter((child) => child.nodeType === Node.TEXT_NODE)
+        .map((child) => child.textContent ?? "")
+        .join(" ")
+        .trim()
+        .toLowerCase();
 
-      if (shouldHide) {
-        node.style.setProperty("display", "none", "important");
-        node.style.setProperty("opacity", "0", "important");
-        node.style.setProperty("visibility", "hidden", "important");
-        node.style.setProperty("pointer-events", "none", "important");
+      const shouldHideByClass =
+        className.includes("hint") || className.includes("sirv-hint");
+
+      const shouldHideByAttr =
+        ariaLabel.includes("drag to spin") || title.includes("drag to spin");
+
+      const shouldHideByDirectText = directText.includes("drag to spin");
+
+      if (!shouldHideByClass && !shouldHideByAttr && !shouldHideByDirectText) {
+        return;
       }
+
+      const target =
+        node.closest<HTMLElement>('[class*="hint"], [class*="Hint"]') ??
+        (shouldHideByDirectText ? node.parentElement ?? node : node);
+
+      if (!target) return;
+      if (target === root) return;
+      if (target.classList.contains("Sirv")) return;
+
+      target.style.setProperty("display", "none", "important");
+      target.style.setProperty("opacity", "0", "important");
+      target.style.setProperty("visibility", "hidden", "important");
+      target.style.setProperty("pointer-events", "none", "important");
     });
   };
 
@@ -211,7 +226,6 @@ export default function AlaudisARScene({
   // --------------------------------------------------------
   // OBSERWATOR DOM
   // --------------------------------------------------------
-  // Gdy Sirv po chwili doda hint do środka, obserwator go od razu ukryje.
   useEffect(() => {
     if (!sirvReady) return;
 
@@ -373,7 +387,7 @@ export default function AlaudisARScene({
         </div>
       </div>
 
-      {/* GLOBALNE DOPIĘCIE CSS - dodatkowe twarde ukrycie hintu Sirv */}
+      {/* DODATKOWE CSS POD HINT */}
       <style jsx global>{`
         .alaudis-sirv-host [class*="hint"],
         .alaudis-sirv-host [class*="Hint"],
@@ -381,9 +395,6 @@ export default function AlaudisARScene({
         .alaudis-sirv-host [aria-label*="drag to spin"],
         .alaudis-sirv-host [title*="Drag to spin"],
         .alaudis-sirv-host [title*="drag to spin"] {
-          display: none !important;
-          opacity: 0 !important;
-          visibility: hidden !important;
           pointer-events: none !important;
         }
       `}</style>
