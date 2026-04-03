@@ -23,7 +23,8 @@
 // - defaultPreviewImage
 //
 // UWAGA:
-// Podmieniłem ścieżki plików na dokładne nazwy, które podałeś:
+// W tej wersji sekcja OBUDOWA została podmieniona
+// na nowe nazwy i nowe pliki PNG:
 // - Bialy poliester połysk.png
 // - Czarny Poliester połysk.png
 // - Ferrari poliester połysk.png
@@ -42,14 +43,11 @@ import { OptionsMap } from "./types";
 // - mechanizm
 export const options: OptionsMap = {
   obudowa: [
-    "Biały poliester połysk",
+    "Bialy poliester połysk",
     "Czarny Poliester połysk",
-    "Efekt zachodu połysk",
-    "Okleina Jabłoń Indyjska połysk",
-    "Okleina Macassar połysk",
-    "Okleina Machoń płomienny połysk",
-    "Okleina Palisander Santos połysk",
-    "Okleina Orzech Włoski połysk",
+    "Ferrari poliester połysk",
+    "Heban polerowany",
+    "Okleina Jabłoń Indyjska -połysk",
   ],
 
   akustyka: [
@@ -151,14 +149,12 @@ export const previewImageMap: Record<string, string> = {
   // --------------------------------------------------------
   // OBUDOWA
   // --------------------------------------------------------
-  "Biały poliester połysk": "/konfigurator/Bialy poliester połysk.png",
+  "Bialy poliester połysk": "/konfigurator/Bialy poliester połysk.png",
   "Czarny Poliester połysk": "/konfigurator/Czarny Poliester połysk.png",
-  "Efekt zachodu połysk": "/konfigurator/Ferrari poliester połysk.png",
-  "Okleina Jabłoń Indyjska połysk": "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
-  "Okleina Macassar połysk": "/konfigurator/Heban polerowany.png",
-  "Okleina Machoń płomienny połysk": "/konfigurator/Okleina Machoń płomienny-połysk.jpg",
-  "Okleina Palisander Santos połysk": "/konfigurator/Okleina Palisander Santos -połysk.jpg",
-  "Okleina Orzech Włoski połysk": "/konfigurator/Okleina Orzech Włoski- połysk.jpg",
+  "Ferrari poliester połysk": "/konfigurator/Ferrari poliester połysk.png",
+  "Heban polerowany": "/konfigurator/Heban polerowany.png",
+  "Okleina Jabłoń Indyjska -połysk":
+    "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
 
   // --------------------------------------------------------
   // AKUSTYKA
@@ -168,7 +164,8 @@ export const previewImageMap: Record<string, string> = {
   "Dno rezonansowe Strunz": "/konfigurator/dno-strunz.jpg",
   "Dno rezonansowe Chiresse": "/konfigurator/dno-chiresse.jpg",
   "Lakierowanie dna rezonansowego mat": "/konfigurator/dno mat-strunz.jpg",
-  "Lakierowanie dna rezonansowego połysk": "/konfigurator/dno połysk-chiresse.jpg",
+  "Lakierowanie dna rezonansowego połysk":
+    "/konfigurator/dno połysk-chiresse.jpg",
 
   // --------------------------------------------------------
   // MECHANIZM
