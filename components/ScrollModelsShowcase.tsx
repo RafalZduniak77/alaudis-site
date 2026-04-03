@@ -25,13 +25,10 @@
 // - translateY          -> siła przesunięcia przy scrollu
 //
 // UWAGA:
-// W tej wersji podmienione zostały nazwy i pliki slajdów
-// na dokładnie te, które podałeś:
-// - Bialy poliester połysk.png
-// - Czarny Poliester połysk.png
-// - Ferrari poliester połysk.png
-// - Heban polerowany.png
-// - Okleina Jabłoń Indyjska -połysk.png
+// W tej wersji:
+// 1. fortepiany nie są ucinane (object-contain)
+// 2. nazwy wykończeń są skrócone bez słowa "połysk"
+// 3. informacja o połysku została przeniesiona do opisu
 // ==========================================================
 
 "use client";
@@ -68,35 +65,35 @@ const slides: ShowcaseSlide[] = [
   {
     id: "01",
     eyebrow: "Alaudis",
-    title: "Bialy poliester połysk",
-    subtitle: "Czysta forma, światło i nowoczesna elegancja.",
+    title: "Biały poliester",
+    subtitle: "Czysta forma, światło i nowoczesna elegancja w wysokim połysku.",
     image: "/konfigurator/Bialy poliester połysk.png",
-    interior: "Bialy poliester połysk",
+    interior: "Biały poliester",
     exterior: "Wysoki połysk",
   },
   {
     id: "02",
     eyebrow: "Alaudis",
-    title: "Czarny Poliester połysk",
-    subtitle: "Koncertowa klasyka i głęboka, szlachetna powierzchnia.",
+    title: "Czarny poliester",
+    subtitle: "Koncertowa klasyka i głęboka, szlachetna powierzchnia w połysku.",
     image: "/konfigurator/Czarny Poliester połysk.png",
-    interior: "Czarny Poliester połysk",
+    interior: "Czarny poliester",
     exterior: "Wysoki połysk",
   },
   {
     id: "03",
     eyebrow: "Alaudis",
-    title: "Ferrari poliester połysk",
-    subtitle: "Odważna interpretacja luksusu i wyjątkowej obecności.",
+    title: "Ferrari poliester",
+    subtitle: "Odważna interpretacja luksusu i wyjątkowej obecności w połysku.",
     image: "/konfigurator/Ferrari poliester połysk.png",
-    interior: "Ferrari poliester połysk",
+    interior: "Ferrari poliester",
     exterior: "Wysoki połysk",
   },
   {
     id: "04",
     eyebrow: "Alaudis",
     title: "Heban polerowany",
-    subtitle: "Ponadczasowa elegancja i klasyczne wyrafinowanie.",
+    subtitle: "Ponadczasowa elegancja i klasyczne wyrafinowanie w szlachetnym połysku.",
     image: "/konfigurator/Heban polerowany.png",
     interior: "Heban polerowany",
     exterior: "Polerowany połysk",
@@ -104,8 +101,8 @@ const slides: ShowcaseSlide[] = [
   {
     id: "05",
     eyebrow: "Alaudis",
-    title: "Okleina Jabłoń Indyjska -połysk",
-    subtitle: "Szlachetne usłojenie i dekoracyjny charakter premium.",
+    title: "Okleina Jabłoń Indyjska",
+    subtitle: "Szlachetne usłojenie i dekoracyjny charakter premium w połysku.",
     image: "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
     interior: "Jabłoń Indyjska",
     exterior: "Okleina połysk",
@@ -185,7 +182,7 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
               src={slide.image}
               alt={slide.title}
               fill
-              className="object-cover object-center [transform:translateZ(0)]"
+              className="object-contain object-center [transform:translateZ(0)]"
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
