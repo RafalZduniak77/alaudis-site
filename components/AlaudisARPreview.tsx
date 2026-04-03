@@ -1,7 +1,7 @@
 // ==========================================================
 // ALAUDIS AR PREVIEW
 // ==========================================================
-// To jest główny komponent sekcji podglądu 3D / AR.
+// To jest główny komponent sekcji podglądu 3D / 360.
 //
 // Za co odpowiada ten plik:
 // 1. trzyma stan wybranego modelu
@@ -9,7 +9,7 @@
 // 3. obsługuje upload zdjęcia salonu
 // 4. obsługuje upload video salonu
 // 5. pozwala usunąć własne tło
-// 6. włącza / wyłącza auto obrót modelu
+// 6. włącza / wyłącza auto obrót modelu / spinu
 // 7. przekazuje dane do komponentu AlaudisARScene
 // 8. renderuje karty informacyjne pod podglądem
 //
@@ -17,11 +17,11 @@
 // - selectedModelId       -> który model jest wybrany
 // - roomImage             -> wgrane zdjęcie salonu
 // - roomVideo             -> wgrane video salonu
-// - autoRotateEnabled     -> czy model ma obracać się automatycznie
+// - autoRotateEnabled     -> czy spin ma obracać się automatycznie
 //
-// Jeśli chcesz:
-// - zmienić startowy model -> zmieniasz selectedModelId
-// - wyłączyć auto obrót na starcie -> ustaw useState(false)
+// UWAGA:
+// W tej wersji auto obrót jest DOMYŚLNIE WYŁĄCZONY:
+// useState(false)
 // ==========================================================
 
 "use client";
@@ -44,10 +44,15 @@ export default function AlaudisARPreview() {
   // przechowuje aktualnie wybrany model
   const [selectedModelId, setSelectedModelId] = useState(MODEL_OPTIONS[0].id);
 
-  // steruje automatycznym obrotem modelu
+  // steruje automatycznym obrotem
   // true = obraca się
   // false = stoi nieruchomo
-  const [autoRotateEnabled, setAutoRotateEnabled] = useState(true);
+  // --------------------------------------------------------
+  // WAŻNE:
+  // tutaj ustawiamy startowo FALSE,
+  // więc po wejściu na stronę auto obrót jest wyłączony
+  // --------------------------------------------------------
+  const [autoRotateEnabled, setAutoRotateEnabled] = useState(false);
 
   // ref do ukrytego inputa zdjęcia
   const imageInputRef = useRef<HTMLInputElement | null>(null);
@@ -67,10 +72,6 @@ export default function AlaudisARPreview() {
   // --------------------------------------------------------
   // UPLOAD ZDJĘCIA SALONU
   // --------------------------------------------------------
-  // Po wybraniu zdjęcia:
-  // - tworzymy lokalny URL
-  // - ustawiamy zdjęcie jako tło
-  // - czyścimy video, żeby nie było dwóch teł naraz
   function handleRoomUpload(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -83,10 +84,6 @@ export default function AlaudisARPreview() {
   // --------------------------------------------------------
   // UPLOAD VIDEO SALONU
   // --------------------------------------------------------
-  // Po wybraniu video:
-  // - tworzymy lokalny URL
-  // - ustawiamy video jako tło
-  // - czyścimy zdjęcie, żeby nie było dwóch teł naraz
   function handleVideoUpload(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -99,8 +96,6 @@ export default function AlaudisARPreview() {
   // --------------------------------------------------------
   // USUWANIE WŁASNEGO TŁA
   // --------------------------------------------------------
-  // Czyści wgrane zdjęcie i video
-  // oraz resetuje inputy plików
   function clearBackground() {
     setRoomImage(null);
     setRoomVideo(null);
@@ -196,9 +191,7 @@ export default function AlaudisARPreview() {
           </div>
         </div>
 
-        {/* GŁÓWNA SCENA 3D */}
-        {/* Tutaj przekazujemy wszystkie dane do komponentu,
-            który wyświetla model-viewer i dolne kontrolki */}
+        {/* GŁÓWNA SCENA 360 */}
         <AlaudisARScene
           modelFile={selectedModel.file}
           modelLabel={selectedModel.label}
@@ -208,9 +201,7 @@ export default function AlaudisARPreview() {
           selectedModelId={selectedModelId}
           onChangeModel={setSelectedModelId}
           autoRotateEnabled={autoRotateEnabled}
-          onToggleAutoRotate={() =>
-            setAutoRotateEnabled((prev) => !prev)
-          }
+          onToggleAutoRotate={() => setAutoRotateEnabled((prev) => !prev)}
         />
 
         {/* KARTY INFORMACYJNE POD SCENĄ */}

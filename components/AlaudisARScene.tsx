@@ -12,8 +12,8 @@
 // 6. zachowano premium wygląd sekcji
 //
 // UWAGA:
-// Ta wersja używa gotowego spinu:
-// https://alaudis.sirv.com/Spins/alaudis-360/FOTKI%20ALAUDIS%20360/ALAUDIS%20360%20WOJTEK/ALAUDIS%20360%20WOJTEK.spin
+// Startowe wyłączenie auto obrotu ustawiane jest w:
+// components/AlaudisARPreview.tsx
 // ==========================================================
 
 "use client";
@@ -141,8 +141,6 @@ export default function AlaudisARScene({
   // --------------------------------------------------------
   // ODŚWIEŻENIE SIRV PO ZMIANACH
   // --------------------------------------------------------
-  // Gdy zmienia się auto obrót, tło albo model,
-  // uruchamiamy Sirv ponownie.
   useEffect(() => {
     if (!sirvReady) return;
 
