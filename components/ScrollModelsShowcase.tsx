@@ -23,6 +23,15 @@
 // - slides              -> cała zawartość galerii
 // - scale               -> siła zmniejszania przy scrollu
 // - translateY          -> siła przesunięcia przy scrollu
+//
+// UWAGA:
+// W tej wersji podmienione zostały nazwy i pliki slajdów
+// na dokładnie te, które podałeś:
+// - Bialy poliester połysk.png
+// - Czarny Poliester połysk.png
+// - Ferrari poliester połysk.png
+// - Heban polerowany.png
+// - Okleina Jabłoń Indyjska -połysk.png
 // ==========================================================
 
 "use client";
@@ -58,48 +67,48 @@ type ShowcaseSlide = {
 const slides: ShowcaseSlide[] = [
   {
     id: "01",
-    eyebrow: "Alaudis 178",
-    title: "Heban polerowany",
-    subtitle: "Klasyczna elegancja i głęboki połysk.",
-    image: "/galeria-home/1.jpg",
-    interior: "Heban polerowany",
-    exterior: "Czarny połysk",
+    eyebrow: "Alaudis",
+    title: "Bialy poliester połysk",
+    subtitle: "Czysta forma, światło i nowoczesna elegancja.",
+    image: "/konfigurator/Bialy poliester połysk.png",
+    interior: "Bialy poliester połysk",
+    exterior: "Wysoki połysk",
   },
   {
     id: "02",
-    eyebrow: "Alaudis 178",
-    title: "Palisander",
-    subtitle: "Szlachetne usłojenie i ciepły charakter.",
-    image: "/galeria-home/2.jpg",
-    interior: "Palisander",
-    exterior: "Naturalny połysk",
+    eyebrow: "Alaudis",
+    title: "Czarny Poliester połysk",
+    subtitle: "Koncertowa klasyka i głęboka, szlachetna powierzchnia.",
+    image: "/konfigurator/Czarny Poliester połysk.png",
+    interior: "Czarny Poliester połysk",
+    exterior: "Wysoki połysk",
   },
   {
     id: "03",
-    eyebrow: "Alaudis 275",
-    title: "Orzech amerykański",
-    subtitle: "Luksusowe wykończenie o koncertowej obecności.",
-    image: "/galeria-home/3.jpg",
-    interior: "Orzech amerykański",
-    exterior: "Satynowe wykończenie",
+    eyebrow: "Alaudis",
+    title: "Ferrari poliester połysk",
+    subtitle: "Odważna interpretacja luksusu i wyjątkowej obecności.",
+    image: "/konfigurator/Ferrari poliester połysk.png",
+    interior: "Ferrari poliester połysk",
+    exterior: "Wysoki połysk",
   },
   {
     id: "04",
-    eyebrow: "Alaudis 178",
-    title: "Wykończenie koncertowe",
-    subtitle: "Elegancka forma i detal premium.",
-    image: "/galeria-home/4.JPG",
-    interior: "Wykończenie premium",
-    exterior: "Połysk koncertowy",
+    eyebrow: "Alaudis",
+    title: "Heban polerowany",
+    subtitle: "Ponadczasowa elegancja i klasyczne wyrafinowanie.",
+    image: "/konfigurator/Heban polerowany.png",
+    interior: "Heban polerowany",
+    exterior: "Polerowany połysk",
   },
   {
     id: "05",
-    eyebrow: "Alaudis 275",
-    title: "Edycja premium",
-    subtitle: "Szlachetna sylwetka i luksusowa obecność.",
-    image: "/galeria-home/5.JPG",
-    interior: "Edycja premium",
-    exterior: "Wykończenie specjalne",
+    eyebrow: "Alaudis",
+    title: "Okleina Jabłoń Indyjska -połysk",
+    subtitle: "Szlachetne usłojenie i dekoracyjny charakter premium.",
+    image: "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
+    interior: "Jabłoń Indyjska",
+    exterior: "Okleina połysk",
   },
 ];
 
