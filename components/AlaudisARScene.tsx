@@ -10,6 +10,7 @@
 // 4. gdy auto obrót jest wyłączony -> Sirv pokazuje spin bez autospin
 // 5. zachowano własne tło zdjęciowe / video
 // 6. zachowano premium wygląd sekcji
+// 7. wyłączono napis "Drag to spin"
 //
 // UWAGA:
 // Startowe wyłączenie auto obrotu ustawiane jest w:
@@ -80,11 +81,15 @@ export default function AlaudisARScene({
   // --------------------------------------------------------
   // OPCJE SIRV
   // --------------------------------------------------------
-  // Tutaj sterujemy auto obrotem ON/OFF.
+  // Tutaj sterujemy:
+  // - fullscreen
+  // - wyłączeniem napisu "Drag to spin"
+  // - zoomem
+  // - auto obrotem ON/OFF
   const sirvOptions = useMemo(() => {
     return [
       "fullscreen.enable:true",
-      "hint.text:Przeciągnij aby obrócić",
+      "hint:false",
       "spin.allowZoom:true",
       `spin.autospin.enable:${autoRotateEnabled ? "true" : "false"}`,
     ].join(";");
