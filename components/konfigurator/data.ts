@@ -6,7 +6,7 @@
 // Za co odpowiada ten plik:
 // 1. przechowuje wszystkie opcje wyboru
 // 2. grupuje opcje w logiczne kategorie
-// 3. przypisuje zdjęcia podglądu do wybranych opcji
+// 3. przypisuje zdjęcia podglądu do wybranej opcji
 // 4. ustawia domyślny obraz podglądu
 //
 // Co tutaj najłatwiej zmieniasz:
@@ -21,6 +21,14 @@
 // - groupMap
 // - previewImageMap
 // - defaultPreviewImage
+//
+// UWAGA:
+// Podmieniłem ścieżki plików na dokładne nazwy, które podałeś:
+// - Bialy poliester połysk.png
+// - Czarny Poliester połysk.png
+// - Ferrari poliester połysk.png
+// - Heban polerowany.png
+// - Okleina Jabłoń Indyjska -połysk.png
 // ==========================================================
 
 import { OptionsMap } from "./types";
@@ -143,11 +151,11 @@ export const previewImageMap: Record<string, string> = {
   // --------------------------------------------------------
   // OBUDOWA
   // --------------------------------------------------------
-  "Biały poliester połysk": "/konfigurator/bialy-poliester-polysk.jpg",
-  "Czarny Poliester połysk": "/konfigurator/Czarny Poliester połysk.jpg",
-  "Efekt zachodu połysk": "/konfigurator/efekt-zachodu-polysk.jpg",
-  "Okleina Jabłoń Indyjska połysk": "/konfigurator/Okleina Jabłoń Indyjska -połysk.jpg",
-  "Okleina Macassar połysk": "/konfigurator/Okleina Macassar -połysk.jpg",
+  "Biały poliester połysk": "/konfigurator/Bialy poliester połysk.png",
+  "Czarny Poliester połysk": "/konfigurator/Czarny Poliester połysk.png",
+  "Efekt zachodu połysk": "/konfigurator/Ferrari poliester połysk.png",
+  "Okleina Jabłoń Indyjska połysk": "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
+  "Okleina Macassar połysk": "/konfigurator/Heban polerowany.png",
   "Okleina Machoń płomienny połysk": "/konfigurator/Okleina Machoń płomienny-połysk.jpg",
   "Okleina Palisander Santos połysk": "/konfigurator/Okleina Palisander Santos -połysk.jpg",
   "Okleina Orzech Włoski połysk": "/konfigurator/Okleina Orzech Włoski- połysk.jpg",
