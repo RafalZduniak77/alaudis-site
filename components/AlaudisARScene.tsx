@@ -2,22 +2,13 @@
 // ALAUDIS AR SCENE
 // ==========================================================
 // WERSJA POD 2 SPINY 360:
-// 1. CZARNY   -> obecny działający spin Sirv
-// 2. CZERWONY -> nowy lokalny spin z folderu /public/spins/alaudis-360-red
+// 1. CZARNY   -> spin Sirv z chmury
+// 2. CZERWONY -> lokalny spin z /public/spins/alaudis-360-red
 //
-// Co robi ta wersja:
-// 1. przełącza źródło spinu zależnie od wybranego wariantu
-// 2. zachowuje auto obrót ON / OFF
-// 3. zachowuje własne tło zdjęciowe / video
-// 4. zachowuje premium wygląd sekcji
-// 5. ukrywa hint "Drag to spin"
-// 6. odświeża Sirv po zmianie wariantu
-//
-// WAŻNE:
-// Aby czerwony spin działał, plik .spin musi być dostępny tutaj:
-// /public/spins/alaudis-360-red/ALAUDIS 2025 50 FOTEK CZERWONY.spin
-//
-// Jeśli nazwiesz ten plik inaczej, zmień tylko stałą RED_SPIN_URL poniżej.
+// NAPRAWA:
+// Sirv nie zawsze przeładowuje spin po samej zmianie data-src.
+// Dlatego tutaj przy każdej zmianie wariantu budujemy instancję
+// Sirv od nowa w kontenerze.
 // ==========================================================
 
 "use client";
@@ -58,11 +49,9 @@ type Props = {
 // ----------------------------------------------------------
 // ADRESY SPINÓW 360
 // ----------------------------------------------------------
-// CZARNY -> obecny działający spin Sirv z chmury
 const BLACK_SPIN_URL =
   "https://alaudis.sirv.com/Spins/alaudis-360/FOTKI%20ALAUDIS%20360/ALAUDIS%20360%20WOJTEK/ALAUDIS%20360%20WOJTEK.spin";
 
-// CZERWONY -> nowy spin lokalny z public/spins/alaudis-360-red
 const RED_SPIN_URL =
   "/spins/alaudis-360-red/ALAUDIS%202025%2050%20FOTEK%20CZERWONY.spin";
 
@@ -95,8 +84,6 @@ export default function AlaudisARScene({
   // --------------------------------------------------------
   // WYBÓR AKTUALNEGO SPINU
   // --------------------------------------------------------
-  // Jeśli wybrany jest wariant "czerwony", ładujemy lokalny plik .spin.
-  // W przeciwnym razie pokazujemy obecny działający czarny spin Sirv.
   const selectedSpinUrl =
     selectedModelId === "czerwony" ? RED_SPIN_URL : BLACK_SPIN_URL;
 
@@ -116,7 +103,7 @@ export default function AlaudisARScene({
   }, [autoRotateEnabled]);
 
   // --------------------------------------------------------
-  // FUNKCJA UKRYWAJĄCA WYŁĄCZNIE HINT SIRV
+  // FUNKCJA UKRYWAJĄCA HINT SIRV
   // --------------------------------------------------------
   const hideSirvHint = () => {
     const root = sirvHostRef.current;
@@ -177,11 +164,6 @@ export default function AlaudisARScene({
     const activateSirv = () => {
       if (cancelled) return;
       setSirvReady(true);
-
-      window.setTimeout(() => {
-        window.Sirv?.start?.();
-        hideSirvHint();
-      }, 0);
     };
 
     if (window.Sirv) {
@@ -220,32 +202,48 @@ export default function AlaudisARScene({
   }, []);
 
   // --------------------------------------------------------
-  // ODŚWIEŻENIE SIRV PO ZMIANACH
+  // PEŁNE ODTWORZENIE INSTANCJI SIRV PRZY ZMIANIE SPINU
   // --------------------------------------------------------
   useEffect(() => {
     if (!sirvReady) return;
 
+    const host = sirvHostRef.current;
+    if (!host) return;
+
+    host.innerHTML = "";
+
+    const mount = document.createElement("div");
+    mount.className = "Sirv h-full w-full";
+    mount.setAttribute("data-src", selectedSpinUrl);
+    mount.setAttribute("data-options", sirvOptions);
+    mount.style.width = "100%";
+    mount.style.height = "100%";
+
+    host.appendChild(mount);
+
     const timer = window.setTimeout(() => {
-      window.Sirv?.start?.();
+      window.Sirv?.start?.(mount);
       hideSirvHint();
     }, 0);
 
     return () => {
       window.clearTimeout(timer);
+      host.innerHTML = "";
     };
   }, [
     sirvReady,
+    selectedSpinUrl,
+    sirvOptions,
+    selectedModelId,
     autoRotateEnabled,
     roomImage,
     roomVideo,
-    modelLabel,
     modelFile,
-    selectedModelId,
-    selectedSpinUrl,
+    modelLabel,
   ]);
 
   // --------------------------------------------------------
-  // OBSERWATOR DOM
+  // OBSERWATOR DOM POD UKRYWANIE HINTU
   // --------------------------------------------------------
   useEffect(() => {
     if (!sirvReady) return;
@@ -276,7 +274,7 @@ export default function AlaudisARScene({
       observer.disconnect();
       timers.forEach((timer) => window.clearTimeout(timer));
     };
-  }, [sirvReady, autoRotateEnabled, selectedModelId, selectedSpinUrl]);
+  }, [sirvReady, selectedSpinUrl, autoRotateEnabled, selectedModelId]);
 
   return (
     <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),rgba(255,255,255,0.025)_35%,rgba(0,0,0,0.55)_100%)] shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
@@ -305,7 +303,6 @@ export default function AlaudisARScene({
           minHeight: MODEL_VIEWER_SETTINGS.stageMinHeight,
         }}
       >
-        {/* TŁO VIDEO - ma pierwszeństwo nad zdjęciem */}
         {roomVideo ? (
           <video
             src={roomVideo}
@@ -327,26 +324,13 @@ export default function AlaudisARScene({
           />
         )}
 
-        {/* PRZYCIEMNIENIE NA TLE */}
         <div className="pointer-events-none absolute inset-0 z-0 bg-black/10" />
 
-        {/* SPIN 360 Z SIRV */}
         {sirvReady ? (
           <div
             ref={sirvHostRef}
             className="alaudis-sirv-host relative z-[1] h-full w-full"
-          >
-            <div
-              key={`sirv-${selectedModelId}-${autoRotateEnabled ? "on" : "off"}`}
-              className="Sirv h-full w-full"
-              data-src={selectedSpinUrl}
-              data-options={sirvOptions}
-              style={{
-                width: "100%",
-                height: "100%",
-              }}
-            />
-          </div>
+          />
         ) : (
           <div className="relative z-[1] flex h-full w-full items-center justify-center text-white/50">
             Ładowanie podglądu 360...
@@ -358,12 +342,10 @@ export default function AlaudisARScene({
       <div className="absolute inset-x-0 bottom-0 z-20">
         <div className="border-t border-white/10 bg-gradient-to-t from-black/70 via-black/35 to-transparent px-5 py-5">
           <div className="flex items-center justify-between gap-4">
-            {/* LEWA STRONA */}
             <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">
               Sterowanie
             </p>
 
-            {/* PRAWA STRONA */}
             <div className="flex flex-nowrap items-center gap-2 overflow-x-auto sm:overflow-visible">
               <span className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/65">
                 Spin 360 aktywny
@@ -411,7 +393,7 @@ export default function AlaudisARScene({
         </div>
       </div>
 
-      {/* DODATKOWE CSS POD HINT */}
+      {/* CSS POD HINT */}
       <style jsx global>{`
         .alaudis-sirv-host [class*="hint"],
         .alaudis-sirv-host [class*="Hint"],
