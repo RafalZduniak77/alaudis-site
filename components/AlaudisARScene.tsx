@@ -1,21 +1,23 @@
 // ==========================================================
 // ALAUDIS AR SCENE
 // ==========================================================
-// WERSJA POD SIRV 360 SPIN + AUTO OBRÓT ON/OFF
-// ----------------------------------------------------------
-// Co zmieniono w tej wersji:
-// 1. renderowany jest gotowy spin 360 z Sirv
-// 2. przywrócono przełącznik auto obrotu ON/OFF
-// 3. gdy auto obrót jest włączony -> Sirv startuje z autospin
-// 4. gdy auto obrót jest wyłączony -> Sirv pokazuje spin bez autospin
-// 5. zachowano własne tło zdjęciowe / video
-// 6. zachowano premium wygląd sekcji
-// 7. całkowicie wyłączono hint "Drag to spin"
-// 8. naprawiono błąd znikania fortepianu przy OFF
+// WERSJA POD 2 SPINY 360:
+// 1. CZARNY   -> obecny działający spin Sirv
+// 2. CZERWONY -> nowy lokalny spin z folderu /public/spins/alaudis-360-red
 //
-// UWAGA:
-// Startowe wyłączenie auto obrotu ustawiane jest w:
-// components/AlaudisARPreview.tsx
+// Co robi ta wersja:
+// 1. przełącza źródło spinu zależnie od wybranego wariantu
+// 2. zachowuje auto obrót ON / OFF
+// 3. zachowuje własne tło zdjęciowe / video
+// 4. zachowuje premium wygląd sekcji
+// 5. ukrywa hint "Drag to spin"
+// 6. odświeża Sirv po zmianie wariantu
+//
+// WAŻNE:
+// Aby czerwony spin działał, plik .spin musi być dostępny tutaj:
+// /public/spins/alaudis-360-red/ALAUDIS 2025 50 FOTEK CZERWONY.spin
+//
+// Jeśli nazwiesz ten plik inaczej, zmień tylko stałą RED_SPIN_URL poniżej.
 // ==========================================================
 
 "use client";
@@ -54,12 +56,18 @@ type Props = {
 };
 
 // ----------------------------------------------------------
-// STAŁY ADRES GOTOWEGO SPINU SIRV
+// ADRESY SPINÓW 360
 // ----------------------------------------------------------
-const SIRV_SPIN_URL =
+// CZARNY -> obecny działający spin Sirv z chmury
+const BLACK_SPIN_URL =
   "https://alaudis.sirv.com/Spins/alaudis-360/FOTKI%20ALAUDIS%20360/ALAUDIS%20360%20WOJTEK/ALAUDIS%20360%20WOJTEK.spin";
 
+// CZERWONY -> nowy spin lokalny z public/spins/alaudis-360-red
+const RED_SPIN_URL =
+  "/spins/alaudis-360-red/ALAUDIS%202025%2050%20FOTEK%20CZERWONY.spin";
+
 export default function AlaudisARScene({
+  modelFile,
   modelLabel,
   roomImage,
   roomVideo,
@@ -85,6 +93,14 @@ export default function AlaudisARScene({
   const activeBackgroundImage = roomImage ?? DEFAULT_ROOM_IMAGE;
 
   // --------------------------------------------------------
+  // WYBÓR AKTUALNEGO SPINU
+  // --------------------------------------------------------
+  // Jeśli wybrany jest wariant "czerwony", ładujemy lokalny plik .spin.
+  // W przeciwnym razie pokazujemy obecny działający czarny spin Sirv.
+  const selectedSpinUrl =
+    selectedModelId === "czerwony" ? RED_SPIN_URL : BLACK_SPIN_URL;
+
+  // --------------------------------------------------------
   // OPCJE SIRV
   // --------------------------------------------------------
   const sirvOptions = useMemo(() => {
@@ -102,10 +118,6 @@ export default function AlaudisARScene({
   // --------------------------------------------------------
   // FUNKCJA UKRYWAJĄCA WYŁĄCZNIE HINT SIRV
   // --------------------------------------------------------
-  // WAŻNE:
-  // Poprzednio sprawdzanie po całym textContent mogło ukryć
-  // większy kontener razem z fortepianem.
-  // Teraz chowamy tylko małe elementy hintu.
   const hideSirvHint = () => {
     const root = sirvHostRef.current;
     if (!root) return;
@@ -221,7 +233,16 @@ export default function AlaudisARScene({
     return () => {
       window.clearTimeout(timer);
     };
-  }, [sirvReady, autoRotateEnabled, roomImage, roomVideo, modelLabel, selectedModelId]);
+  }, [
+    sirvReady,
+    autoRotateEnabled,
+    roomImage,
+    roomVideo,
+    modelLabel,
+    modelFile,
+    selectedModelId,
+    selectedSpinUrl,
+  ]);
 
   // --------------------------------------------------------
   // OBSERWATOR DOM
@@ -255,7 +276,7 @@ export default function AlaudisARScene({
       observer.disconnect();
       timers.forEach((timer) => window.clearTimeout(timer));
     };
-  }, [sirvReady, autoRotateEnabled, selectedModelId]);
+  }, [sirvReady, autoRotateEnabled, selectedModelId, selectedSpinUrl]);
 
   return (
     <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),rgba(255,255,255,0.025)_35%,rgba(0,0,0,0.55)_100%)] shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
@@ -311,11 +332,14 @@ export default function AlaudisARScene({
 
         {/* SPIN 360 Z SIRV */}
         {sirvReady ? (
-          <div ref={sirvHostRef} className="alaudis-sirv-host relative z-[1] h-full w-full">
+          <div
+            ref={sirvHostRef}
+            className="alaudis-sirv-host relative z-[1] h-full w-full"
+          >
             <div
               key={`sirv-${selectedModelId}-${autoRotateEnabled ? "on" : "off"}`}
               className="Sirv h-full w-full"
-              data-src={SIRV_SPIN_URL}
+              data-src={selectedSpinUrl}
               data-options={sirvOptions}
               style={{
                 width: "100%",

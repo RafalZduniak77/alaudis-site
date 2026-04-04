@@ -4,36 +4,49 @@
 // Ten plik zbiera w jednym miejscu całą konfigurację modułu
 // podglądu 3D / AR na stronie Alaudis.
 //
-// Co tutaj ustawiasz:
-// 1. listę modeli do wyboru
-// 2. domyślne zdjęcie tła
-// 3. ustawienia model-viewer (kamera, zoom, pozycja modelu)
-// 4. teksty kart informacyjnych pod sekcją
+// Za co odpowiada ten plik:
+// 1. definiuje listę modeli dostępnych do wyboru
+// 2. ustawia etykiety widoczne w selectcie
+// 3. przypisuje ścieżki do plików modeli
+// 4. trzyma domyślne tło salonu
+// 5. ustawia parametry widoku 3D / kamery
+// 6. trzyma treść kart informacyjnych pod podglądem
 //
-// Najważniejsze pole do ustawiania wysokości fortepianu:
-// cameraTargetY
-// większa wartość = model niżej
-// mniejsza wartość = model wyżej
+// WAŻNE:
+// W tej wersji ustawiamy DWA warianty do wyboru:
+// - Czarny
+// - Czerwony
+//
+// Na ten moment:
+// - Czarny    -> /models/alaudis-demo.glb
+// - Czerwony -> /models/czerwony-polysk.glb
+//
+// Jeśli później podepniemy osobny spin / osobny renderer 360,
+// to zrobimy to w kolejnym kroku w komponencie sceny.
 // ==========================================================
 
 export type ModelOption = {
   id: string;     // wewnętrzny identyfikator modelu
   label: string;  // nazwa widoczna na stronie
-  file: string;   // ścieżka do pliku .glb
+  file: string;   // ścieżka do pliku modelu
 };
 
 // ----------------------------------------------------------
 // MODELE DOSTĘPNE W WYBORZE
 // ----------------------------------------------------------
+// Tutaj definiujemy dwa warianty widoczne na stronie:
+// 1. Czarny
+// 2. Czerwony
+// ----------------------------------------------------------
 export const MODEL_OPTIONS: ModelOption[] = [
   {
-    id: "heban-klasyczny",
-    label: "Heban klasyczny",
+    id: "czarny",
+    label: "Czarny",
     file: "/models/alaudis-demo.glb",
   },
   {
-    id: "czerwony-test",
-    label: "Czerwony test",
+    id: "czerwony",
+    label: "Czerwony",
     file: "/models/czerwony-polysk.glb",
   },
 ];
