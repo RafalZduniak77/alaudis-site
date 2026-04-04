@@ -20,9 +20,6 @@
 // Na ten moment:
 // - Czarny    -> /models/alaudis-demo.glb
 // - Czerwony -> /models/czerwony-polysk.glb
-//
-// Jeśli później podepniemy osobny spin / osobny renderer 360,
-// to zrobimy to w kolejnym kroku w komponencie sceny.
 // ==========================================================
 
 export type ModelOption = {
@@ -33,10 +30,6 @@ export type ModelOption = {
 
 // ----------------------------------------------------------
 // MODELE DOSTĘPNE W WYBORZE
-// ----------------------------------------------------------
-// Tutaj definiujemy dwa warianty widoczne na stronie:
-// 1. Czarny
-// 2. Czerwony
 // ----------------------------------------------------------
 export const MODEL_OPTIONS: ModelOption[] = [
   {
@@ -93,20 +86,20 @@ export const INFO_CARDS = [
   },
   {
     eyebrow: "Tryb",
-    title: "Podgląd 3D",
-    text: "Możesz obracać model, przybliżać go i oglądać proporcje fortepianu z każdej strony.",
+    title: "Podgląd 3D i 360",
+    text: "Możesz obracać model, przybliżać go i oglądać fortepian z różnych perspektyw w zależności od wybranego wariantu.",
     featured: false,
   },
   {
     eyebrow: "Wykończenie",
     title: "Lista modeli",
-    text: "Model możesz zmieniać zarówno w lewym górnym rogu, jak i w prawym dolnym rogu podglądu.",
+    text: "Model możesz zmieniać w selektorze wariantów, przełączając czarny i czerwony.",
     featured: false,
   },
   {
     eyebrow: "Następny etap",
     title: "Finalne wykończenia",
-    text: "Kolejny krok to heban mat, orzech i palisander jako osobne, dopracowane wersje pokazowe.",
+    text: "Kolejny krok to następne dopracowane wersje pokazowe, w tym kolejne forniry i warianty premium.",
     featured: false,
   },
 ];

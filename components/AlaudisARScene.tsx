@@ -9,6 +9,14 @@
 // Sirv nie zawsze przeładowuje spin po samej zmianie data-src.
 // Dlatego tutaj przy każdej zmianie wariantu budujemy instancję
 // Sirv od nowa w kontenerze.
+//
+// DODATKOWO:
+// Trzymamy logikę tylko dla 2 wariantów:
+// - czarny
+// - czerwony
+//
+// Jeśli selectedModelId = "czerwony" -> czerwony spin
+// w każdym innym przypadku -> czarny spin
 // ==========================================================
 
 "use client";
@@ -49,11 +57,31 @@ type Props = {
 // ----------------------------------------------------------
 // ADRESY SPINÓW 360
 // ----------------------------------------------------------
+// CZARNY zostaje z Sirv cloud, bo już działa.
+// CZERWONY idzie lokalnie z /public/spins/alaudis-360-red
+// ----------------------------------------------------------
 const BLACK_SPIN_URL =
   "https://alaudis.sirv.com/Spins/alaudis-360/FOTKI%20ALAUDIS%20360/ALAUDIS%20360%20WOJTEK/ALAUDIS%20360%20WOJTEK.spin";
 
 const RED_SPIN_URL =
   "/spins/alaudis-360-red/ALAUDIS%202025%2050%20FOTEK%20CZERWONY.spin";
+
+// ----------------------------------------------------------
+// WYBÓR AKTUALNEGO SPINU
+// ----------------------------------------------------------
+function getSpinUrlByModelId(modelId: string): string {
+  const normalized = modelId
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+
+  if (normalized === "czerwony" || normalized.includes("czerw")) {
+    return RED_SPIN_URL;
+  }
+
+  return BLACK_SPIN_URL;
+}
 
 export default function AlaudisARScene({
   modelFile,
@@ -84,8 +112,9 @@ export default function AlaudisARScene({
   // --------------------------------------------------------
   // WYBÓR AKTUALNEGO SPINU
   // --------------------------------------------------------
-  const selectedSpinUrl =
-    selectedModelId === "czerwony" ? RED_SPIN_URL : BLACK_SPIN_URL;
+  const selectedSpinUrl = useMemo(() => {
+    return getSpinUrlByModelId(selectedModelId);
+  }, [selectedModelId]);
 
   // --------------------------------------------------------
   // OPCJE SIRV
@@ -168,6 +197,7 @@ export default function AlaudisARScene({
 
     if (window.Sirv) {
       activateSirv();
+
       return () => {
         cancelled = true;
       };
