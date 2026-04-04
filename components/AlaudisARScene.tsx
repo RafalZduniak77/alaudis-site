@@ -64,7 +64,7 @@ const BLACK_SPIN_URL =
   "https://alaudis.sirv.com/Spins/alaudis-360/FOTKI%20ALAUDIS%20360/ALAUDIS%20360%20WOJTEK/ALAUDIS%20360%20WOJTEK.spin";
 
 const RED_SPIN_URL =
-  "/spins/alaudis-360-red/ALAUDIS%202025%2050%20FOTEK%20CZERWONY.spin";
+  "/spins/alaudis-360-red/red.spin";
 
 // ----------------------------------------------------------
 // WYBÓR AKTUALNEGO SPINU
