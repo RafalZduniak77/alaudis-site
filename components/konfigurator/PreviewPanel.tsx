@@ -72,7 +72,7 @@ export default function PreviewPanel({ imageSrc }: Props) {
       {/* ====================================================
           TŁO CAŁEJ LEWEJ STRONY
          ==================================================== */}
-      <Image src="/hero.jpg" alt="" fill className="object-cover" />
+      <Image src="/hero.png" alt="" fill className="object-cover" />
       <div className="absolute inset-0 bg-black/50" />
 
       {/* ====================================================
