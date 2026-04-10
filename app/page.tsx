@@ -29,7 +29,7 @@ export default function Home() {
           alt="Fortepian Alaudis"
           fill
           priority
-          className="object-cover object-center"
+          className="object-contain object-center"
         />
 
         {/* ==================================================
