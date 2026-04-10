@@ -167,15 +167,24 @@ export const previewImageMap: Record<string, string> = {
   "Lakierowanie dna rezonansowego połysk":
     "/konfigurator/dno połysk-chiresse.jpg",
 
+  "Kolor ramy złoty": "/konfigurator/kolor ramy złoty.JPG",
+  "Kolor ramy srebrny": "/konfigurator/kolor ramy srebny.png",
+  "Struny basowe Heller": "/konfigurator/struny basowe Heller.JPG",
+
   // --------------------------------------------------------
   // MECHANIZM
   // --------------------------------------------------------
-  "Młotki Alaudis": "/konfigurator/mlotki-alaudis.jpg",
-  "Młotki Renner": "/konfigurator/mlotki-renner.jpg",
-  "Młotki Abbel": "/konfigurator/mlotki-abbel.jpg",
+  "Klawiatura Alaudis SAP Renovation":
+    "/konfigurator/klawiatura Alaudis SAP.jpg",
+  "Klawiatura Kluge": "/konfigurator/klawiatura Kluge.JPG",
 
-  "Mechanizm Alaudis SAP Renovation": "/konfigurator/mechanizm-alaudis.jpg",
-  "Mechanizm Renner": "/konfigurator/mechanizm-renner.jpg",
+  "Młotki Alaudis": "/konfigurator/mlotki-alaudis.jpg",
+  "Młotki Renner": "/konfigurator/młotki Renner.JPG",
+  "Młotki Abbel": "/konfigurator/młotki Abbel.JPG",
+
+  "Mechanizm Alaudis SAP Renovation":
+    "/konfigurator/mechanizm Alaudis SAP Renovation.jpg",
+  "Mechanizm Renner": "/konfigurator/mechanizm Renner.jpg",
   "Mechanizm Abbel": "/konfigurator/mechanizm-abbel.jpg",
 };
 
