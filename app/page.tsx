@@ -25,7 +25,7 @@ export default function Home() {
          ==================================================== */}
       <section className="relative min-h-screen overflow-hidden">
         <Image
-          src="/hero.jpg"
+          src="/hero.png"
           alt="Fortepian Alaudis"
           fill
           priority
