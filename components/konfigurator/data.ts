@@ -184,4 +184,4 @@ export const previewImageMap: Record<string, string> = {
 // ----------------------------------------------------------
 // To zdjęcie pokazuje się na starcie, zanim użytkownik
 // wybierze konkretną opcję z konfiguratora.
-export const defaultPreviewImage = "/hero.jpg";
+export const defaultPreviewImage = "/hero.png";
