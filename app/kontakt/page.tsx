@@ -33,8 +33,8 @@ const PAULINA_PHONE_RAW = "48668216422";
 const PAULINA_PHONE_DISPLAY = "+48 668 216 422";
 const PAULINA_EMAIL = "Paulina@saprenovation.eu";
 
-const KRZYSZTOF_PHONE_RAW = "48609809703";
-const KRZYSZTOF_PHONE_DISPLAY = "+48 609 809 703";
+const KRZYSZTOF_PHONE_RAW = "48606384105";
+const KRZYSZTOF_PHONE_DISPLAY = "+48 606 384 105";
 const KRZYSZTOF_EMAIL = "Krzysztof@saprenovation.eu";
 
 // ==========================================================
