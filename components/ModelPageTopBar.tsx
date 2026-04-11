@@ -1,3 +1,4 @@
+//
 // ==========================================================
 // MODEL PAGE TOP BAR
 // ==========================================================
@@ -33,7 +34,7 @@ import Link from "next/link";
 // ==========================================================
 // Tutaj określamy dostępne wersje językowe.
 // ==========================================================
-type LanguageKey = "PL" | "EN" | "DE";
+type LanguageKey = "PL" | "EN" | "DE" | "FR";
 
 type ModelPageTopBarProps = {
   backHref?: string;
@@ -128,11 +129,22 @@ export default function ModelPageTopBar({
                   type="button"
                   className={
                     activeLanguage === "DE"
+                      ? "w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
+                      : "w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                  }
+                >
+                  DE
+                </button>
+
+                <button
+                  type="button"
+                  className={
+                    activeLanguage === "FR"
                       ? "w-full bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
                       : "w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
                   }
                 >
-                  DE
+                  FR
                 </button>
               </div>
             </details>
