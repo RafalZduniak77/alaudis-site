@@ -10,6 +10,8 @@
 // 3. sekcja po kliknięciu "Modele" ustawia się wyżej
 // 4. przywrócono wcześniejszy przycisk:
 //    "Umów prywatną konsultację"
+// 5. naprawiono przełącznik języków na stronie głównej
+// 6. dodano FR i działające linki
 // ==========================================================
 
 import Image from "next/image";
@@ -91,26 +93,33 @@ export default function Home() {
                 </summary>
 
                 <div className="absolute right-0 mt-3 min-w-[150px] overflow-hidden rounded-2xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl">
-                  <button
-                    type="button"
-                    className="w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
+                  <Link
+                    href="/"
+                    className="block w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
                   >
                     PL
-                  </button>
+                  </Link>
 
-                  <button
-                    type="button"
-                    className="w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                  <Link
+                    href="/en"
+                    className="block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
                   >
                     EN
-                  </button>
+                  </Link>
 
-                  <button
-                    type="button"
-                    className="w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                  <Link
+                    href="/de"
+                    className="block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
                   >
                     DE
-                  </button>
+                  </Link>
+
+                  <Link
+                    href="/fr"
+                    className="block w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                  >
+                    FR
+                  </Link>
                 </div>
               </details>
             </div>
