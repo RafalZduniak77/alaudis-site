@@ -1,3 +1,4 @@
+//
 // ==========================================================
 // KONFIGURATOR SHELL
 // ==========================================================
@@ -14,27 +15,13 @@
 // 8. steruje przewijaniem sekcji
 // 9. przesuwa czerwoną linię pod aktywną zakładką
 // 10. łączy PreviewPanel i ConfiguratorPanel
-//
-// Co tutaj najłatwiej zmieniasz:
-// - startową zakładkę
-// - startowy obraz preview
-// - sposób zapisu
-// - sposób wysyłki maila
-// - wygląd i działanie aktywnej zakładki
-// - logikę wyboru opcji
-//
-// Najważniejsze rzeczy:
-// - selected        -> wszystkie wybrane opcje
-// - previewImage    -> aktualny obraz podglądu
-// - handleSelect    -> co dzieje się po wyborze opcji
-// - handleSave      -> zapis konfiguracji
-// - handleSend      -> wysyłka konfiguracji
-// - handlePDF       -> eksport PDF
+// 11. automatycznie zmienia język na podstawie adresu
 // ==========================================================
 
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import ConfiguratorPanel from "./ConfiguratorPanel";
 import PreviewPanel from "./PreviewPanel";
 import { ConfigTab, SelectedState } from "./types";
@@ -45,24 +32,135 @@ import {
   previewImageMap,
 } from "./data";
 
+type LanguageKey = "PL" | "EN" | "DE" | "FR";
+
+// --------------------------------------------------------
+// ROZPOZNAWANIE JĘZYKA
+// --------------------------------------------------------
+function getLanguageFromPathname(pathname: string): LanguageKey {
+  if (pathname === "/en/konfigurator" || pathname.startsWith("/en/konfigurator")) {
+    return "EN";
+  }
+
+  if (pathname === "/de/konfigurator" || pathname.startsWith("/de/konfigurator")) {
+    return "DE";
+  }
+
+  if (pathname === "/fr/konfigurator" || pathname.startsWith("/fr/konfigurator")) {
+    return "FR";
+  }
+
+  return "PL";
+}
+
+// --------------------------------------------------------
+// TEKSTY JĘZYKOWE
+// --------------------------------------------------------
+function getLabels(language: LanguageKey) {
+  if (language === "EN") {
+    return {
+      configTitleFallback: "Alaudis configuration",
+      saveAlert: "Configuration saved ✅",
+      cabinet: "Cabinet",
+      acoustics: "Acoustics",
+      action: "Action",
+      pdfFileName: "alaudis",
+      mailSubjectFallback: "Alaudis configuration",
+      composeText: (offerTitle: string, selected: SelectedState) => `
+Alaudis configuration: ${offerTitle}
+
+Cabinet: ${selected.obudowa}
+
+Acoustics:
+${Object.values(selected.akustyka).join(", ")}
+
+Action:
+${Object.values(selected.mechanizm).join(", ")}
+`,
+    };
+  }
+
+  if (language === "DE") {
+    return {
+      configTitleFallback: "Alaudis Konfiguration",
+      saveAlert: "Konfiguration gespeichert ✅",
+      cabinet: "Gehäuse",
+      acoustics: "Akustik",
+      action: "Mechanik",
+      pdfFileName: "alaudis",
+      mailSubjectFallback: "Alaudis Konfiguration",
+      composeText: (offerTitle: string, selected: SelectedState) => `
+Alaudis Konfiguration: ${offerTitle}
+
+Gehäuse: ${selected.obudowa}
+
+Akustik:
+${Object.values(selected.akustyka).join(", ")}
+
+Mechanik:
+${Object.values(selected.mechanizm).join(", ")}
+`,
+    };
+  }
+
+  if (language === "FR") {
+    return {
+      configTitleFallback: "Configuration Alaudis",
+      saveAlert: "Configuration enregistrée ✅",
+      cabinet: "Caisse",
+      acoustics: "Acoustique",
+      action: "Mécanique",
+      pdfFileName: "alaudis",
+      mailSubjectFallback: "Configuration Alaudis",
+      composeText: (offerTitle: string, selected: SelectedState) => `
+Configuration Alaudis : ${offerTitle}
+
+Caisse : ${selected.obudowa}
+
+Acoustique :
+${Object.values(selected.akustyka).join(", ")}
+
+Mécanique :
+${Object.values(selected.mechanizm).join(", ")}
+`,
+    };
+  }
+
+  return {
+    configTitleFallback: "Alaudis konfiguracja",
+    saveAlert: "Zapisano konfigurację ✅",
+    cabinet: "Obudowa",
+    acoustics: "Akustyka",
+    action: "Mechanizm",
+    pdfFileName: "alaudis",
+    mailSubjectFallback: "Alaudis konfiguracja",
+    composeText: (offerTitle: string, selected: SelectedState) => `
+Alaudis konfiguracja: ${offerTitle}
+
+Obudowa: ${selected.obudowa}
+
+Akustyka:
+${Object.values(selected.akustyka).join(", ")}
+
+Mechanizm:
+${Object.values(selected.mechanizm).join(", ")}
+`,
+  };
+}
+
 export default function KonfiguratorShell() {
+  const pathname = usePathname() || "/";
+  const language = getLanguageFromPathname(pathname);
+  const labels = useMemo(() => getLabels(language), [language]);
+
   // --------------------------------------------------------
   // GŁÓWNE STANY
   // --------------------------------------------------------
-
-  // aktywna zakładka u góry panelu
   const [activeTab, setActiveTab] = useState<ConfigTab>("obudowa");
-
-  // tytuł oferty wpisywany przez użytkownika
   const [offerTitle, setOfferTitle] = useState("");
-
-  // czy rozwijane menu akcji jest otwarte
   const [menuOpen, setMenuOpen] = useState(false);
-
-  // aktualny obraz preview po lewej stronie
   const [previewImage, setPreviewImage] = useState<string>(defaultPreviewImage);
 
-  // wszystkie wybrane opcje konfiguratora
   const [selected, setSelected] = useState<SelectedState>({
     obudowa: "",
     akustyka: {},
@@ -72,22 +170,13 @@ export default function KonfiguratorShell() {
   // --------------------------------------------------------
   // REFY DO SCROLLA I ZAKŁADEK
   // --------------------------------------------------------
-
-  // scrollowalny obszar z opcjami
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  // refy do sekcji
   const obudowaRef = useRef<HTMLDivElement>(null);
   const akustykaRef = useRef<HTMLDivElement>(null);
   const mechanizmRef = useRef<HTMLDivElement>(null);
-
-  // ref do czerwonej linii pod zakładkami
   const underlineRef = useRef<HTMLDivElement>(null);
-
-  // ref do kontenera zakładek
   const tabsContainerRef = useRef<HTMLDivElement>(null);
 
-  // refy do przycisków zakładek
   const tabRefs = {
     obudowa: useRef<HTMLButtonElement>(null),
     akustyka: useRef<HTMLButtonElement>(null),
@@ -97,9 +186,6 @@ export default function KonfiguratorShell() {
   // --------------------------------------------------------
   // USTALANIE AKTYWNEJ ZAKŁADKI PODCZAS SCROLLA
   // --------------------------------------------------------
-  // Gdy użytkownik przewija listę opcji,
-  // sprawdzamy która sekcja jest najbliżej środka
-  // i ustawiamy ją jako aktywną.
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
@@ -152,10 +238,8 @@ export default function KonfiguratorShell() {
   }, []);
 
   // --------------------------------------------------------
-  // PRZESUWANIE CZERWONEJ LINI POD AKTYWNĄ ZAKŁADKĄ
+  // PRZESUWANIE LINI POD AKTYWNĄ ZAKŁADKĄ
   // --------------------------------------------------------
-  // Po zmianie activeTab ustawiamy szerokość i pozycję
-  // underline pod odpowiednim przyciskiem.
   useEffect(() => {
     const el = tabRefs[activeTab].current;
     const underline = underlineRef.current;
@@ -173,10 +257,6 @@ export default function KonfiguratorShell() {
   // --------------------------------------------------------
   // WYBÓR OPCJI
   // --------------------------------------------------------
-  // Gdy użytkownik kliknie opcję:
-  // - dla "obudowa" zapisujemy jedną wartość
-  // - dla "akustyka" i "mechanizm" zapisujemy wartość w grupie
-  // - zmieniamy obraz preview jeśli istnieje w previewImageMap
   const handleSelect = (tab: ConfigTab, value: string) => {
     if (tab === "obudowa") {
       setSelected((prev) => ({ ...prev, obudowa: value }));
@@ -197,60 +277,48 @@ export default function KonfiguratorShell() {
   // --------------------------------------------------------
   // ZAPIS KONFIGURACJI
   // --------------------------------------------------------
-  // Zapisujemy dane do localStorage,
-  // żeby można było później je odczytać lokalnie w przeglądarce.
   const handleSave = () => {
     localStorage.setItem(
       "alaudis-config",
       JSON.stringify({
         title: offerTitle,
         config: selected,
+        language,
       })
     );
-    alert("Zapisano konfigurację ✅");
+    alert(labels.saveAlert);
   };
 
   // --------------------------------------------------------
   // WYSYŁKA KONFIGURACJI
   // --------------------------------------------------------
-  // Tworzymy tekst konfiguracji,
-  // kopiujemy go do schowka
-  // i otwieramy mailto z gotową treścią.
   const handleSend = () => {
-    const text = `
-Alaudis konfiguracja: ${offerTitle}
-
-Obudowa: ${selected.obudowa}
-
-Akustyka:
-${Object.values(selected.akustyka).join(", ")}
-
-Mechanizm:
-${Object.values(selected.mechanizm).join(", ")}
-`;
+    const text = labels.composeText(
+      offerTitle || labels.configTitleFallback,
+      selected
+    );
 
     navigator.clipboard.writeText(text);
     window.location.href = `mailto:?subject=${encodeURIComponent(
-      offerTitle || "Alaudis konfiguracja"
+      offerTitle || labels.mailSubjectFallback
     )}&body=${encodeURIComponent(text)}`;
   };
 
   // --------------------------------------------------------
   // EXPORT PDF
   // --------------------------------------------------------
-  // Generujemy prosty PDF z wybranymi opcjami.
   const handlePDF = async () => {
     const { jsPDF } = await import("jspdf");
     const doc = new jsPDF();
 
-    doc.text(offerTitle || "Alaudis konfiguracja", 10, 15);
+    doc.text(offerTitle || labels.configTitleFallback, 10, 15);
 
     let y = 30;
 
-    doc.text(`Obudowa: ${selected.obudowa}`, 10, y);
+    doc.text(`${labels.cabinet}: ${selected.obudowa}`, 10, y);
     y += 10;
 
-    doc.text("Akustyka:", 10, y);
+    doc.text(`${labels.acoustics}:`, 10, y);
     y += 8;
 
     Object.values(selected.akustyka).forEach((i) => {
@@ -260,7 +328,7 @@ ${Object.values(selected.mechanizm).join(", ")}
 
     y += 6;
 
-    doc.text("Mechanizm:", 10, y);
+    doc.text(`${labels.action}:`, 10, y);
     y += 8;
 
     Object.values(selected.mechanizm).forEach((i) => {
@@ -268,13 +336,12 @@ ${Object.values(selected.mechanizm).join(", ")}
       y += 6;
     });
 
-    doc.save(`${offerTitle || "alaudis"}.pdf`);
+    doc.save(`${offerTitle || labels.pdfFileName}.pdf`);
   };
 
   // --------------------------------------------------------
   // SCROLL DO WYBRANEJ SEKCJI
   // --------------------------------------------------------
-  // Po kliknięciu zakładki przewijamy do odpowiedniej sekcji.
   const scrollToSection = (tab: ConfigTab) => {
     const map = {
       obudowa: obudowaRef,
@@ -295,10 +362,8 @@ ${Object.values(selected.mechanizm).join(", ")}
   return (
     <main className="min-h-screen bg-black text-white">
       <section className="relative min-h-screen overflow-hidden">
-        {/* LEWA STRONA - PODGLĄD */}
         <PreviewPanel imageSrc={previewImage} />
 
-        {/* PRAWA STRONA - PANEL KONFIGURATORA */}
         <ConfiguratorPanel
           offerTitle={offerTitle}
           setOfferTitle={setOfferTitle}

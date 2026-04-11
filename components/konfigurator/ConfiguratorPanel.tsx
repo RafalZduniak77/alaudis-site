@@ -1,3 +1,4 @@
+//
 // ==========================================================
 // CONFIGURATOR PANEL
 // ==========================================================
@@ -14,37 +15,20 @@
 // 5. obsługuje przewijanie do sekcji po kliknięciu zakładki
 // 6. pokazuje czerwoną linię pod aktywną zakładką
 // 7. na dole wyświetla ActionMenu
-//
-// Co tutaj najłatwiej zmieniasz:
-// - wygląd panelu po prawej
-// - wygląd zakładek
-// - wygląd listy opcji
-// - wysokość sekcji
-// - paddingi i odstępy
-//
-// Najważniejsze propsy:
-// - offerTitle           -> tytuł oferty
-// - setOfferTitle        -> zmiana tytułu oferty
-// - activeTab            -> aktualna aktywna zakładka
-// - selected             -> aktualnie wybrane opcje
-// - options              -> lista opcji dla sekcji
-// - groupMap             -> mapowanie opcji do grup
-// - onSelect             -> co zrobić po wyborze opcji
-// - onScrollToSection    -> przewijanie do sekcji
-// - menuOpen             -> czy ActionMenu jest otwarte
+// 8. automatycznie zmienia język na podstawie adresu
+// 9. tłumaczy widoczne nazwy opcji bez zmiany logiki data.ts
 // ==========================================================
 
 "use client";
 
-import { RefObject } from "react";
+import { RefObject, useMemo } from "react";
+import { usePathname } from "next/navigation";
 import { ConfigTab, OptionsMap, SelectedState } from "./types";
 import ActionMenu from "./ActionMenu";
 
 // ----------------------------------------------------------
 // TYPY PROPSÓW
 // ----------------------------------------------------------
-// Ten komponent dostaje z zewnątrz wszystkie dane potrzebne
-// do wyświetlania panelu i obsługi kliknięć.
 type ConfiguratorPanelProps = {
   offerTitle: string;
   setOfferTitle: (value: string) => void;
@@ -72,6 +56,221 @@ type ConfiguratorPanelProps = {
   onPdf: () => void;
 };
 
+type LanguageKey = "PL" | "EN" | "DE" | "FR";
+
+// ----------------------------------------------------------
+// ROZPOZNAWANIE JĘZYKA
+// ----------------------------------------------------------
+function getLanguageFromPathname(pathname: string): LanguageKey {
+  if (pathname === "/en/konfigurator" || pathname.startsWith("/en/konfigurator")) {
+    return "EN";
+  }
+
+  if (pathname === "/de/konfigurator" || pathname.startsWith("/de/konfigurator")) {
+    return "DE";
+  }
+
+  if (pathname === "/fr/konfigurator" || pathname.startsWith("/fr/konfigurator")) {
+    return "FR";
+  }
+
+  return "PL";
+}
+
+// ----------------------------------------------------------
+// ETYKIETY JĘZYKOWE
+// ----------------------------------------------------------
+function getLabels(language: LanguageKey) {
+  if (language === "EN") {
+    return {
+      offerTitlePlaceholder: "Offer title...",
+      tabs: {
+        obudowa: "CABINET",
+        akustyka: "ACOUSTICS",
+        mechanizm: "ACTION",
+      },
+      sections: {
+        obudowa: "Cabinet",
+        akustyka: "Acoustics",
+        mechanizm: "Action",
+      },
+    };
+  }
+
+  if (language === "DE") {
+    return {
+      offerTitlePlaceholder: "Angebotstitel...",
+      tabs: {
+        obudowa: "GEHÄUSE",
+        akustyka: "AKUSTIK",
+        mechanizm: "MECHANIK",
+      },
+      sections: {
+        obudowa: "Gehäuse",
+        akustyka: "Akustik",
+        mechanizm: "Mechanik",
+      },
+    };
+  }
+
+  if (language === "FR") {
+    return {
+      offerTitlePlaceholder: "Titre de l’offre...",
+      tabs: {
+        obudowa: "CAISSE",
+        akustyka: "ACOUSTIQUE",
+        mechanizm: "MÉCANIQUE",
+      },
+      sections: {
+        obudowa: "Caisse",
+        akustyka: "Acoustique",
+        mechanizm: "Mécanique",
+      },
+    };
+  }
+
+  return {
+    offerTitlePlaceholder: "Tytuł oferty...",
+    tabs: {
+      obudowa: "OBUDOWA",
+      akustyka: "AKUSTYKA",
+      mechanizm: "MECHANIZM",
+    },
+    sections: {
+      obudowa: "obudowa",
+      akustyka: "akustyka",
+      mechanizm: "mechanizm",
+    },
+  };
+}
+
+// ----------------------------------------------------------
+// TŁUMACZENIA OPCJI
+// ----------------------------------------------------------
+function translateOption(value: string, language: LanguageKey) {
+  if (language === "PL") return value;
+
+  const mapEN: Record<string, string> = {
+    "Bialy poliester połysk": "White polyester gloss",
+    "Czarny Poliester połysk": "Black polyester gloss",
+    "Ferrari poliester połysk": "Ferrari polyester gloss",
+    "Heban polerowany": "Polished ebony",
+    "Okleina Jabłoń Indyjska -połysk": "Indian apple veneer gloss",
+
+    "Dno rezonansowe Strunz": "Strunz soundboard",
+    "Dno rezonansowe Chiresse": "Chiresse soundboard",
+    "Lakierowanie dna rezonansowego mat": "Soundboard lacquer matte",
+    "Lakierowanie dna rezonansowego połysk": "Soundboard lacquer gloss",
+    "Mostki rezonansowe klon": "Maple bridges",
+    "Mostki rezonansowe buk": "Beech bridges",
+    "Kolor ramy złoty": "Gold plate color",
+    "Kolor ramy srebrny": "Silver plate color",
+    "Struny stalowe Roslau": "Roslau steel strings",
+    "Struny stalowe Paulelo": "Paulelo steel strings",
+    "Struny basowe Heller": "Heller bass strings",
+    "Struny basowe SAP Renovation": "SAP Renovation bass strings",
+    "Kołki stroikowe niklowane": "Nickel tuning pins",
+    "Kołki stroikowe Blau": "Blau tuning pins",
+    "Kolor sukna czerwony": "Red felt color",
+    "Kolor sukna biały": "White felt color",
+    "Kolor sukna czarny": "Black felt color",
+
+    "Klawiatura Alaudis SAP Renovation": "Alaudis SAP Renovation keyboard",
+    "Klawiatura Kluge": "Kluge keyboard",
+    "Mechanizm Alaudis SAP Renovation": "Alaudis SAP Renovation action",
+    "Mechanizm Renner": "Renner action",
+    "Mechanizm Abbel": "Abbel action",
+    "Młotki Alaudis": "Alaudis hammers",
+    "Młotki Renner": "Renner hammers",
+    "Młotki Abbel": "Abbel hammers",
+    "Tłumiki Alaudis": "Alaudis dampers",
+    "Tłumiki Renner": "Renner dampers",
+    "Tłumiki Abbel": "Abbel dampers",
+  };
+
+  const mapDE: Record<string, string> = {
+    "Bialy poliester połysk": "Weißer Polyester Hochglanz",
+    "Czarny Poliester połysk": "Schwarzer Polyester Hochglanz",
+    "Ferrari poliester połysk": "Ferrari-Polyester Hochglanz",
+    "Heban polerowany": "Polierter Ebenholz",
+    "Okleina Jabłoń Indyjska -połysk": "Indischer Apfelbaumfurnier Hochglanz",
+
+    "Dno rezonansowe Strunz": "Strunz Resonanzboden",
+    "Dno rezonansowe Chiresse": "Chiresse Resonanzboden",
+    "Lakierowanie dna rezonansowego mat": "Resonanzboden Lack matt",
+    "Lakierowanie dna rezonansowego połysk": "Resonanzboden Lack hochglanz",
+    "Mostki rezonansowe klon": "Ahornstege",
+    "Mostki rezonansowe buk": "Buchenstege",
+    "Kolor ramy złoty": "Rahmenfarbe Gold",
+    "Kolor ramy srebrny": "Rahmenfarbe Silber",
+    "Struny stalowe Roslau": "Roslau Stahlsaiten",
+    "Struny stalowe Paulelo": "Paulelo Stahlsaiten",
+    "Struny basowe Heller": "Heller Basssaiten",
+    "Struny basowe SAP Renovation": "SAP Renovation Basssaiten",
+    "Kołki stroikowe niklowane": "Vernickelte Stimmwirbel",
+    "Kołki stroikowe Blau": "Blau Stimmwirbel",
+    "Kolor sukna czerwony": "Filzfarbe Rot",
+    "Kolor sukna biały": "Filzfarbe Weiß",
+    "Kolor sukna czarny": "Filzfarbe Schwarz",
+
+    "Klawiatura Alaudis SAP Renovation": "Alaudis SAP Renovation Klaviatur",
+    "Klawiatura Kluge": "Kluge Klaviatur",
+    "Mechanizm Alaudis SAP Renovation": "Alaudis SAP Renovation Mechanik",
+    "Mechanizm Renner": "Renner Mechanik",
+    "Mechanizm Abbel": "Abbel Mechanik",
+    "Młotki Alaudis": "Alaudis Hämmer",
+    "Młotki Renner": "Renner Hämmer",
+    "Młotki Abbel": "Abbel Hämmer",
+    "Tłumiki Alaudis": "Alaudis Dämpfer",
+    "Tłumiki Renner": "Renner Dämpfer",
+    "Tłumiki Abbel": "Abbel Dämpfer",
+  };
+
+  const mapFR: Record<string, string> = {
+    "Bialy poliester połysk": "Polyester blanc brillant",
+    "Czarny Poliester połysk": "Polyester noir brillant",
+    "Ferrari poliester połysk": "Polyester Ferrari brillant",
+    "Heban polerowany": "Ébène poli",
+    "Okleina Jabłoń Indyjska -połysk": "Placage pommier indien brillant",
+
+    "Dno rezonansowe Strunz": "Table d’harmonie Strunz",
+    "Dno rezonansowe Chiresse": "Table d’harmonie Chiresse",
+    "Lakierowanie dna rezonansowego mat": "Vernis table d’harmonie mat",
+    "Lakierowanie dna rezonansowego połysk": "Vernis table d’harmonie brillant",
+    "Mostki rezonansowe klon": "Chevalets en érable",
+    "Mostki rezonansowe buk": "Chevalets en hêtre",
+    "Kolor ramy złoty": "Couleur du cadre or",
+    "Kolor ramy srebrny": "Couleur du cadre argent",
+    "Struny stalowe Roslau": "Cordes acier Roslau",
+    "Struny stalowe Paulelo": "Cordes acier Paulelo",
+    "Struny basowe Heller": "Cordes basses Heller",
+    "Struny basowe SAP Renovation": "Cordes basses SAP Renovation",
+    "Kołki stroikowe niklowane": "Chevilles nickelées",
+    "Kołki stroikowe Blau": "Chevilles Blau",
+    "Kolor sukna czerwony": "Couleur du feutre rouge",
+    "Kolor sukna biały": "Couleur du feutre blanc",
+    "Kolor sukna czarny": "Couleur du feutre noir",
+
+    "Klawiatura Alaudis SAP Renovation": "Clavier Alaudis SAP Renovation",
+    "Klawiatura Kluge": "Clavier Kluge",
+    "Mechanizm Alaudis SAP Renovation": "Mécanique Alaudis SAP Renovation",
+    "Mechanizm Renner": "Mécanique Renner",
+    "Mechanizm Abbel": "Mécanique Abbel",
+    "Młotki Alaudis": "Marteaux Alaudis",
+    "Młotki Renner": "Marteaux Renner",
+    "Młotki Abbel": "Marteaux Abbel",
+    "Tłumiki Alaudis": "Étouffoirs Alaudis",
+    "Tłumiki Renner": "Étouffoirs Renner",
+    "Tłumiki Abbel": "Étouffoirs Abbel",
+  };
+
+  if (language === "EN") return mapEN[value] || value;
+  if (language === "DE") return mapDE[value] || value;
+  if (language === "FR") return mapFR[value] || value;
+
+  return value;
+}
+
 export default function ConfiguratorPanel({
   offerTitle,
   setOfferTitle,
@@ -94,6 +293,10 @@ export default function ConfiguratorPanel({
   onSend,
   onPdf,
 }: ConfiguratorPanelProps) {
+  const pathname = usePathname() || "/";
+  const language = getLanguageFromPathname(pathname);
+  const labels = useMemo(() => getLabels(language), [language]);
+
   return (
     <div className="absolute right-0 top-0 flex h-full w-full max-w-[520px] flex-col border-l border-white/10 bg-white/5 backdrop-blur-2xl">
       {/* ====================================================
@@ -103,16 +306,13 @@ export default function ConfiguratorPanel({
         <input
           value={offerTitle}
           onChange={(e) => setOfferTitle(e.target.value)}
-          placeholder="Tytuł oferty..."
+          placeholder={labels.offerTitlePlaceholder}
           className="w-full rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-md"
         />
       </div>
 
       {/* ====================================================
           ZAKŁADKI
-          - obudowa
-          - akustyka
-          - mechanizm
          ==================================================== */}
       <div
         ref={tabsContainerRef}
@@ -127,11 +327,10 @@ export default function ConfiguratorPanel({
               activeTab === tab ? "text-white" : "text-white/70"
             }`}
           >
-            {tab.toUpperCase()}
+            {labels.tabs[tab]}
           </button>
         ))}
 
-        {/* CZERWONA LINIA POD AKTYWNĄ ZAKŁADKĄ */}
         <div
           ref={underlineRef}
           className="absolute bottom-0 h-[2px] bg-red-500 transition-all duration-300"
@@ -157,14 +356,11 @@ export default function ConfiguratorPanel({
             }
             className="min-h-[80vh]"
           >
-            {/* TYTUŁ SEKCJI */}
             <h3 className="mb-6 uppercase tracking-wider opacity-80">
-              {section}
+              {labels.sections[section]}
             </h3>
 
-            {/* LISTA OPCJI W DANEJ SEKCJI */}
             {options[section].map((item) => {
-              // Sprawdzenie czy dana opcja jest aktualnie wybrana
               const isActive =
                 section === "obudowa"
                   ? selected.obudowa === item
@@ -174,13 +370,13 @@ export default function ConfiguratorPanel({
                 <button
                   key={item}
                   onClick={() => onSelect(section, item)}
-                  className={`mb-3 w-full rounded-xl p-4 transition ${
+                  className={`mb-3 w-full rounded-xl p-4 text-left transition ${
                     isActive
                       ? "border border-white/30 bg-white/10 backdrop-blur-md"
                       : "bg-white/5 hover:bg-white/10"
                   }`}
                 >
-                  {item}
+                  {translateOption(item, language)}
                 </button>
               );
             })}
@@ -188,9 +384,6 @@ export default function ConfiguratorPanel({
         ))}
       </div>
 
-      {/* ====================================================
-          DOLNE MENU AKCJI
-         ==================================================== */}
       <ActionMenu
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}

@@ -1,3 +1,4 @@
+//
 // ==========================================================
 // PREVIEW PANEL
 // ==========================================================
@@ -7,37 +8,47 @@
 // 1. pokazuje tło całej lewej części ekranu
 // 2. pokazuje główne zdjęcie aktualnego podglądu
 // 3. robi płynne przejście między zdjęciami
-// 4. pokazuje przycisk powrotu do strony głównej
+// 4. pokazuje przycisk powrotu do właściwej strony głównej języka
 // 5. pokazuje logo Alaudis u góry
-//
-// Co tutaj najłatwiej zmieniasz:
-// - tło całej lewej strony
-// - wielkość ramki ze zdjęciem
-// - czas przejścia między obrazami
-// - pozycję logo
-// - pozycję przycisku powrotu
-//
-// Najważniejsze rzeczy:
-// - imageSrc   -> nowe zdjęcie przekazywane z konfiguratora
-// - current    -> aktualnie widoczne zdjęcie
-// - next       -> następne zdjęcie do płynnego przejścia
 // ==========================================================
 
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 
 // ----------------------------------------------------------
 // PROPSY KOMPONENTU
 // ----------------------------------------------------------
-// imageSrc to aktualne zdjęcie, które ma być pokazane
 type Props = {
   imageSrc: string;
 };
 
+// ----------------------------------------------------------
+// POMOCNICZA FUNKCJA
+// ----------------------------------------------------------
+function getHomeHref(pathname: string) {
+  if (pathname === "/en/konfigurator" || pathname.startsWith("/en/konfigurator")) {
+    return "/en";
+  }
+
+  if (pathname === "/de/konfigurator" || pathname.startsWith("/de/konfigurator")) {
+    return "/de";
+  }
+
+  if (pathname === "/fr/konfigurator" || pathname.startsWith("/fr/konfigurator")) {
+    return "/fr";
+  }
+
+  return "/";
+}
+
 export default function PreviewPanel({ imageSrc }: Props) {
+  const pathname = usePathname() || "/";
+  const homeHref = useMemo(() => getHomeHref(pathname), [pathname]);
+
   // --------------------------------------------------------
   // current = aktualnie widoczne zdjęcie
   // next    = nowe zdjęcie, które wchodzi płynnie na ekran
@@ -48,12 +59,6 @@ export default function PreviewPanel({ imageSrc }: Props) {
   // --------------------------------------------------------
   // PŁYNNA ZMIANA ZDJĘCIA
   // --------------------------------------------------------
-  // Gdy imageSrc się zmienia:
-  // 1. ustawiamy nowe zdjęcie jako "next"
-  // 2. po 300 ms podmieniamy je na "current"
-  // 3. czyścimy "next"
-  //
-  // Dzięki temu obraz nie zmienia się nagle, tylko płynnie.
   useEffect(() => {
     if (imageSrc !== current) {
       setNext(imageSrc);
@@ -109,7 +114,7 @@ export default function PreviewPanel({ imageSrc }: Props) {
           PRZYCISK POWROTU
          ==================================================== */}
       <Link
-        href="/"
+        href={homeHref}
         className="absolute left-6 top-10 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg"
       >
         ←

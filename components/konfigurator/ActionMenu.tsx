@@ -1,33 +1,26 @@
+//
 // ==========================================================
 // ACTION MENU
 // ==========================================================
 // To jest komponent rozwijanego menu akcji oferty.
 //
 // Za co odpowiada ten plik:
-// 1. pokazuje główny przycisk "ZARZĄDZAJ OFERTĄ"
+// 1. pokazuje główny przycisk zarządzania ofertą
 // 2. otwiera i zamyka rozwijane menu
 // 3. uruchamia akcje:
 //    - zapis konfiguracji
 //    - wysłanie konfiguracji
 //    - eksport PDF
-// 4. po kliknięciu zamyka menu
-//
-// Co tutaj najłatwiej zmieniasz:
-// - tekst głównego przycisku
-// - teksty pozycji w menu
-// - kolejność pozycji
-// - kolory, paddingi i styl menu
-//
-// Najważniejsze propsy:
-// - menuOpen       -> czy menu jest otwarte
-// - setMenuOpen    -> otwieranie / zamykanie menu
-// - onSave         -> akcja zapisu
-// - onSend         -> akcja wysyłki
-// - onPdf          -> akcja eksportu PDF
+// 4. automatycznie zmienia język na podstawie adresu
 // ==========================================================
 
 "use client";
 
+import { usePathname } from "next/navigation";
+
+// ----------------------------------------------------------
+// TYPY
+// ----------------------------------------------------------
 type ActionMenuProps = {
   menuOpen: boolean;
   setMenuOpen: (value: boolean) => void;
@@ -36,6 +29,66 @@ type ActionMenuProps = {
   onPdf: () => void;
 };
 
+type LanguageKey = "PL" | "EN" | "DE" | "FR";
+
+// ----------------------------------------------------------
+// ROZPOZNAWANIE JĘZYKA
+// ----------------------------------------------------------
+function getLanguageFromPathname(pathname: string): LanguageKey {
+  if (pathname === "/en/konfigurator" || pathname.startsWith("/en/konfigurator")) {
+    return "EN";
+  }
+
+  if (pathname === "/de/konfigurator" || pathname.startsWith("/de/konfigurator")) {
+    return "DE";
+  }
+
+  if (pathname === "/fr/konfigurator" || pathname.startsWith("/fr/konfigurator")) {
+    return "FR";
+  }
+
+  return "PL";
+}
+
+// ----------------------------------------------------------
+// TEKSTY
+// ----------------------------------------------------------
+function getLabels(language: LanguageKey) {
+  if (language === "EN") {
+    return {
+      manage: "MANAGE OFFER",
+      save: "💾 Save configuration",
+      send: "✉️ Send configuration",
+      pdf: "📄 Export PDF",
+    };
+  }
+
+  if (language === "DE") {
+    return {
+      manage: "ANGEBOT VERWALTEN",
+      save: "💾 Konfiguration speichern",
+      send: "✉️ Konfiguration senden",
+      pdf: "📄 PDF exportieren",
+    };
+  }
+
+  if (language === "FR") {
+    return {
+      manage: "GÉRER L’OFFRE",
+      save: "💾 Enregistrer la configuration",
+      send: "✉️ Envoyer la configuration",
+      pdf: "📄 Exporter en PDF",
+    };
+  }
+
+  return {
+    manage: "ZARZĄDZAJ OFERTĄ",
+    save: "💾 Zapisz konfigurację",
+    send: "✉️ Wyślij konfigurację",
+    pdf: "📄 Export PDF",
+  };
+}
+
 export default function ActionMenu({
   menuOpen,
   setMenuOpen,
@@ -43,6 +96,10 @@ export default function ActionMenu({
   onSend,
   onPdf,
 }: ActionMenuProps) {
+  const pathname = usePathname() || "/";
+  const language = getLanguageFromPathname(pathname);
+  const labels = getLabels(language);
+
   return (
     <div className="border-t border-white/10 p-6">
       <div className="relative">
@@ -51,7 +108,7 @@ export default function ActionMenu({
           onClick={() => setMenuOpen(!menuOpen)}
           className="w-full rounded-full bg-red-600 py-4"
         >
-          ZARZĄDZAJ OFERTĄ
+          {labels.manage}
         </button>
 
         {/* ROZWIJANE MENU */}
@@ -65,7 +122,7 @@ export default function ActionMenu({
               }}
               className="w-full px-6 py-4 text-left transition hover:bg-white/10"
             >
-              💾 Zapisz konfigurację
+              {labels.save}
             </button>
 
             {/* WYŚLIJ */}
@@ -76,7 +133,7 @@ export default function ActionMenu({
               }}
               className="w-full border-t border-white/10 px-6 py-4 text-left transition hover:bg-white/10"
             >
-              ✉️ Wyślij konfigurację
+              {labels.send}
             </button>
 
             {/* PDF */}
@@ -87,7 +144,7 @@ export default function ActionMenu({
               }}
               className="w-full border-t border-white/10 px-6 py-4 text-left transition hover:bg-white/10"
             >
-              📄 Export PDF
+              {labels.pdf}
             </button>
           </div>
         )}
