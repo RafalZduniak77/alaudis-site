@@ -10,6 +10,7 @@
 //    - karta przesuwa się lekko w dół
 //    - karta lekko się skaluje
 // 4. pokazuje zdjęcie, opis, detale i przycisk do konfiguratora
+// 5. automatycznie zmienia język na podstawie aktualnego adresu
 //
 // Co tutaj najłatwiej zmieniasz:
 // - zdjęcia modeli
@@ -20,101 +21,361 @@
 // - siłę efektu scroll
 //
 // Najważniejsze miejsca:
-// - slides              -> cała zawartość galerii
-// - scale               -> siła zmniejszania przy scrollu
-// - translateY          -> siła przesunięcia przy scrollu
+// - slidesByLanguage     -> cała zawartość galerii dla każdego języka
+// - scale                -> siła zmniejszania przy scrollu
+// - translateY           -> siła przesunięcia przy scrollu
 //
 // UWAGA:
 // W tej wersji:
 // 1. fortepiany nie są ucinane (object-contain)
-// 2. nazwy wykończeń są skrócone bez słowa "połysk"
-// 3. informacja o połysku została przeniesiona do opisu
+// 2. język dobiera się automatycznie po ścieżce
+// 3. przycisk prowadzi do właściwej wersji konfiguratora
 // ==========================================================
 
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 // ----------------------------------------------------------
-// TYP JEDNEGO SLAJDU
+// TYPY
 // ----------------------------------------------------------
-// Każdy element galerii ma:
-// - id
-// - mały nagłówek
-// - tytuł
-// - podtytuł
-// - zdjęcie
-// - opis wnętrza
-// - opis wykończenia
+type LanguageKey = "PL" | "EN" | "DE" | "FR";
+
 type ShowcaseSlide = {
   id: string;
   eyebrow: string;
   title: string;
   subtitle: string;
   image: string;
+  interiorLabel: string;
   interior: string;
+  exteriorLabel: string;
   exterior: string;
+  ctaHref: string;
+  sectionTitle: string;
 };
 
 // ----------------------------------------------------------
-// LISTA SLAJDÓW
+// ROZPOZNAWANIE JĘZYKA PO ŚCIEŻCE
 // ----------------------------------------------------------
-// Tutaj podmieniasz zdjęcia, teksty i modele.
-const slides: ShowcaseSlide[] = [
-  {
-    id: "01",
-    eyebrow: "Alaudis",
-    title: "Biały poliester",
-    subtitle: "Czysta forma, światło i nowoczesna elegancja w wysokim połysku.",
-    image: "/konfigurator/Bialy poliester połysk.png",
-    interior: "Biały poliester",
-    exterior: "Wysoki połysk",
-  },
-  {
-    id: "02",
-    eyebrow: "Alaudis",
-    title: "Czarny poliester",
-    subtitle: "Koncertowa klasyka i głęboka, szlachetna powierzchnia w połysku.",
-    image: "/konfigurator/Czarny Poliester połysk.png",
-    interior: "Czarny poliester",
-    exterior: "Wysoki połysk",
-  },
-  {
-    id: "03",
-    eyebrow: "Alaudis",
-    title: "Ferrari poliester",
-    subtitle: "Odważna interpretacja luksusu i wyjątkowej obecności w połysku.",
-    image: "/konfigurator/Ferrari poliester połysk.png",
-    interior: "Ferrari poliester",
-    exterior: "Wysoki połysk",
-  },
-  {
-    id: "04",
-    eyebrow: "Alaudis",
-    title: "Heban polerowany",
-    subtitle: "Ponadczasowa elegancja i klasyczne wyrafinowanie w szlachetnym połysku.",
-    image: "/konfigurator/Heban polerowany.png",
-    interior: "Heban polerowany",
-    exterior: "Polerowany połysk",
-  },
-  {
-    id: "05",
-    eyebrow: "Alaudis",
-    title: "Okleina Jabłoń Indyjska",
-    subtitle: "Szlachetne usłojenie i dekoracyjny charakter premium w połysku.",
-    image: "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
-    interior: "Jabłoń Indyjska",
-    exterior: "Okleina połysk",
-  },
-];
+function getLanguageFromPathname(pathname: string): LanguageKey {
+  if (pathname === "/en" || pathname.startsWith("/en/")) return "EN";
+  if (pathname === "/de" || pathname.startsWith("/de/")) return "DE";
+  if (pathname === "/fr" || pathname.startsWith("/fr/")) return "FR";
+  return "PL";
+}
+
+function getConfiguratorHref(language: LanguageKey) {
+  if (language === "PL") return "/konfigurator";
+  return `/${language.toLowerCase()}/konfigurator`;
+}
+
+// ----------------------------------------------------------
+// TREŚCI SLAJDÓW DLA KAŻDEGO JĘZYKA
+// ----------------------------------------------------------
+function getSlides(language: LanguageKey): ShowcaseSlide[] {
+  const configuratorHref = getConfiguratorHref(language);
+
+  if (language === "EN") {
+    return [
+      {
+        id: "01",
+        eyebrow: "Alaudis",
+        title: "White polyester",
+        subtitle:
+          "Pure form, light and modern elegance in a high-gloss finish.",
+        image: "/konfigurator/Bialy poliester połysk.png",
+        interiorLabel: "Interior",
+        interior: "White polyester",
+        exteriorLabel: "Finish",
+        exterior: "High gloss",
+        ctaHref: configuratorHref,
+        sectionTitle: "Models and finishes",
+      },
+      {
+        id: "02",
+        eyebrow: "Alaudis",
+        title: "Black polyester",
+        subtitle:
+          "Concert classic and a deep, noble surface in gloss.",
+        image: "/konfigurator/Czarny Poliester połysk.png",
+        interiorLabel: "Interior",
+        interior: "Black polyester",
+        exteriorLabel: "Finish",
+        exterior: "High gloss",
+        ctaHref: configuratorHref,
+        sectionTitle: "Models and finishes",
+      },
+      {
+        id: "03",
+        eyebrow: "Alaudis",
+        title: "Ferrari polyester",
+        subtitle:
+          "A bold interpretation of luxury and exceptional presence in gloss.",
+        image: "/konfigurator/Ferrari poliester połysk.png",
+        interiorLabel: "Interior",
+        interior: "Ferrari polyester",
+        exteriorLabel: "Finish",
+        exterior: "High gloss",
+        ctaHref: configuratorHref,
+        sectionTitle: "Models and finishes",
+      },
+      {
+        id: "04",
+        eyebrow: "Alaudis",
+        title: "Polished ebony",
+        subtitle:
+          "Timeless elegance and classical refinement in a noble gloss.",
+        image: "/konfigurator/Heban polerowany.png",
+        interiorLabel: "Interior",
+        interior: "Polished ebony",
+        exteriorLabel: "Finish",
+        exterior: "Polished gloss",
+        ctaHref: configuratorHref,
+        sectionTitle: "Models and finishes",
+      },
+      {
+        id: "05",
+        eyebrow: "Alaudis",
+        title: "Indian apple veneer",
+        subtitle:
+          "Noble grain and a decorative premium character in gloss.",
+        image: "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
+        interiorLabel: "Interior",
+        interior: "Indian apple",
+        exteriorLabel: "Finish",
+        exterior: "Gloss veneer",
+        ctaHref: configuratorHref,
+        sectionTitle: "Models and finishes",
+      },
+    ];
+  }
+
+  if (language === "DE") {
+    return [
+      {
+        id: "01",
+        eyebrow: "Alaudis",
+        title: "Weißer Polyester",
+        subtitle:
+          "Reine Form, Licht und moderne Eleganz in Hochglanz.",
+        image: "/konfigurator/Bialy poliester połysk.png",
+        interiorLabel: "Innenraum",
+        interior: "Weißer Polyester",
+        exteriorLabel: "Ausführung",
+        exterior: "Hochglanz",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelle und Ausführungen",
+      },
+      {
+        id: "02",
+        eyebrow: "Alaudis",
+        title: "Schwarzer Polyester",
+        subtitle:
+          "Konzertklassik und eine tiefe, edle Oberfläche in Glanz.",
+        image: "/konfigurator/Czarny Poliester połysk.png",
+        interiorLabel: "Innenraum",
+        interior: "Schwarzer Polyester",
+        exteriorLabel: "Ausführung",
+        exterior: "Hochglanz",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelle und Ausführungen",
+      },
+      {
+        id: "03",
+        eyebrow: "Alaudis",
+        title: "Ferrari-Polyester",
+        subtitle:
+          "Eine mutige Interpretation von Luxus und außergewöhnlicher Präsenz in Glanz.",
+        image: "/konfigurator/Ferrari poliester połysk.png",
+        interiorLabel: "Innenraum",
+        interior: "Ferrari-Polyester",
+        exteriorLabel: "Ausführung",
+        exterior: "Hochglanz",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelle und Ausführungen",
+      },
+      {
+        id: "04",
+        eyebrow: "Alaudis",
+        title: "Polierter Ebenholz",
+        subtitle:
+          "Zeitlose Eleganz und klassische Raffinesse in edlem Glanz.",
+        image: "/konfigurator/Heban polerowany.png",
+        interiorLabel: "Innenraum",
+        interior: "Polierter Ebenholz",
+        exteriorLabel: "Ausführung",
+        exterior: "Polierter Glanz",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelle und Ausführungen",
+      },
+      {
+        id: "05",
+        eyebrow: "Alaudis",
+        title: "Indischer Apfelbaumfurnier",
+        subtitle:
+          "Edle Maserung und dekorativer Premium-Charakter in Glanz.",
+        image: "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
+        interiorLabel: "Innenraum",
+        interior: "Indischer Apfelbaum",
+        exteriorLabel: "Ausführung",
+        exterior: "Glanzfurnier",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelle und Ausführungen",
+      },
+    ];
+  }
+
+  if (language === "FR") {
+    return [
+      {
+        id: "01",
+        eyebrow: "Alaudis",
+        title: "Polyester blanc",
+        subtitle:
+          "Pureté de la forme, lumière et élégance contemporaine en finition brillante.",
+        image: "/konfigurator/Bialy poliester połysk.png",
+        interiorLabel: "Intérieur",
+        interior: "Polyester blanc",
+        exteriorLabel: "Finition",
+        exterior: "Haut brillant",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modèles et finitions",
+      },
+      {
+        id: "02",
+        eyebrow: "Alaudis",
+        title: "Polyester noir",
+        subtitle:
+          "Le classique de concert et une surface profonde et noble en brillant.",
+        image: "/konfigurator/Czarny Poliester połysk.png",
+        interiorLabel: "Intérieur",
+        interior: "Polyester noir",
+        exteriorLabel: "Finition",
+        exterior: "Haut brillant",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modèles et finitions",
+      },
+      {
+        id: "03",
+        eyebrow: "Alaudis",
+        title: "Polyester Ferrari",
+        subtitle:
+          "Une interprétation audacieuse du luxe et d’une présence exceptionnelle en brillant.",
+        image: "/konfigurator/Ferrari poliester połysk.png",
+        interiorLabel: "Intérieur",
+        interior: "Polyester Ferrari",
+        exteriorLabel: "Finition",
+        exterior: "Haut brillant",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modèles et finitions",
+      },
+      {
+        id: "04",
+        eyebrow: "Alaudis",
+        title: "Ébène poli",
+        subtitle:
+          "Une élégance intemporelle et un raffinement classique dans un brillant noble.",
+        image: "/konfigurator/Heban polerowany.png",
+        interiorLabel: "Intérieur",
+        interior: "Ébène poli",
+        exteriorLabel: "Finition",
+        exterior: "Brillant poli",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modèles et finitions",
+      },
+      {
+        id: "05",
+        eyebrow: "Alaudis",
+        title: "Placage pommier indien",
+        subtitle:
+          "Un veinage noble et un caractère décoratif premium en brillant.",
+        image: "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
+        interiorLabel: "Intérieur",
+        interior: "Pommier indien",
+        exteriorLabel: "Finition",
+        exterior: "Placage brillant",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modèles et finitions",
+      },
+    ];
+  }
+
+  return [
+    {
+      id: "01",
+      eyebrow: "Alaudis",
+      title: "Biały poliester",
+      subtitle: "Czysta forma, światło i nowoczesna elegancja w wysokim połysku.",
+      image: "/konfigurator/Bialy poliester połysk.png",
+      interiorLabel: "Wnętrze",
+      interior: "Biały poliester",
+      exteriorLabel: "Wykończenie",
+      exterior: "Wysoki połysk",
+      ctaHref: configuratorHref,
+      sectionTitle: "Modele i wykończenia",
+    },
+    {
+      id: "02",
+      eyebrow: "Alaudis",
+      title: "Czarny poliester",
+      subtitle: "Koncertowa klasyka i głęboka, szlachetna powierzchnia w połysku.",
+      image: "/konfigurator/Czarny Poliester połysk.png",
+      interiorLabel: "Wnętrze",
+      interior: "Czarny poliester",
+      exteriorLabel: "Wykończenie",
+      exterior: "Wysoki połysk",
+      ctaHref: configuratorHref,
+      sectionTitle: "Modele i wykończenia",
+    },
+    {
+      id: "03",
+      eyebrow: "Alaudis",
+      title: "Ferrari poliester",
+      subtitle: "Odważna interpretacja luksusu i wyjątkowej obecności w połysku.",
+      image: "/konfigurator/Ferrari poliester połysk.png",
+      interiorLabel: "Wnętrze",
+      interior: "Ferrari poliester",
+      exteriorLabel: "Wykończenie",
+      exterior: "Wysoki połysk",
+      ctaHref: configuratorHref,
+      sectionTitle: "Modele i wykończenia",
+    },
+    {
+      id: "04",
+      eyebrow: "Alaudis",
+      title: "Heban polerowany",
+      subtitle:
+        "Ponadczasowa elegancja i klasyczne wyrafinowanie w szlachetnym połysku.",
+      image: "/konfigurator/Heban polerowany.png",
+      interiorLabel: "Wnętrze",
+      interior: "Heban polerowany",
+      exteriorLabel: "Wykończenie",
+      exterior: "Polerowany połysk",
+      ctaHref: configuratorHref,
+      sectionTitle: "Modele i wykończenia",
+    },
+    {
+      id: "05",
+      eyebrow: "Alaudis",
+      title: "Okleina Jabłoń Indyjska",
+      subtitle: "Szlachetne usłojenie i dekoracyjny charakter premium w połysku.",
+      image: "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
+      interiorLabel: "Wnętrze",
+      interior: "Jabłoń Indyjska",
+      exteriorLabel: "Wykończenie",
+      exterior: "Okleina połysk",
+      ctaHref: configuratorHref,
+      sectionTitle: "Modele i wykończenia",
+    },
+  ];
+}
 
 // ==========================================================
 // POJEDYNCZA KARTA
 // ==========================================================
-// Ten komponent renderuje jeden slajd.
-// Ma własny efekt scroll - im niżej na ekranie,
-// tym bardziej się przesuwa i delikatnie zmniejsza.
 function SlideItem({ slide }: { slide: ShowcaseSlide }) {
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -131,8 +392,6 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
       const rect = ref.current.getBoundingClientRect();
       const windowH = window.innerHeight;
 
-      // start = wejście karty do okna
-      // end = wyjście karty ponad ekran
       const start = windowH;
       const end = -rect.height;
 
@@ -141,7 +400,6 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
         Math.max(0, (start - rect.top) / (start - end))
       );
 
-      // im większy progress, tym karta bardziej się skaluje i przesuwa
       const scale = 1 - progress * 0.45;
       const translateY = progress * 80;
 
@@ -206,13 +464,15 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
             {/* DANE SZCZEGÓŁOWE */}
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <p className="text-[11px] uppercase text-black/45">Wnętrze</p>
+                <p className="text-[11px] uppercase text-black/45">
+                  {slide.interiorLabel}
+                </p>
                 <p className="mt-2 text-sm">{slide.interior}</p>
               </div>
 
               <div>
                 <p className="text-[11px] uppercase text-black/45">
-                  Wykończenie
+                  {slide.exteriorLabel}
                 </p>
                 <p className="mt-2 text-sm">{slide.exterior}</p>
               </div>
@@ -221,7 +481,7 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
             {/* PRZYCISK DO KONFIGURATORA */}
             <div className="flex justify-end">
               <a
-                href="/konfigurator"
+                href={slide.ctaHref}
                 className="flex h-16 w-16 items-center justify-center rounded-full border border-black/10 bg-white text-3xl transition hover:scale-110 hover:bg-black hover:text-white"
               >
                 →
@@ -237,13 +497,18 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
 // ==========================================================
 // GŁÓWNA SEKCJA
 // ==========================================================
-// Renderuje nagłówek sekcji i wszystkie slajdy z tablicy slides.
 export default function ScrollModelsShowcase() {
+  const pathname = usePathname() || "/";
+  const language = getLanguageFromPathname(pathname);
+
+  const slides = useMemo(() => getSlides(language), [language]);
+  const sectionTitle = slides[0]?.sectionTitle ?? "Modele i wykończenia";
+
   return (
     <section className="bg-[#111] px-0 text-white">
       <div className="mx-auto max-w-[1600px] px-4 pb-10 pt-24">
         <p className="text-[11px] uppercase tracking-[0.36em] text-white/45">
-          Modele i wykończenia
+          {sectionTitle}
         </p>
       </div>
 
