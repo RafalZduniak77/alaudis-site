@@ -21,18 +21,17 @@
 // - ten komponent jest wspólny
 // - po zmianie automatycznie poprawi się na wszystkich stronach,
 //   które go używają
-// - na tym etapie języki są przygotowane wizualnie
+// - tutaj języki działają już jako prawdziwe linki
 // ==========================================================
 
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 // ==========================================================
 // TYPY JĘZYKÓW
-// ==========================================================
-// Tutaj określamy dostępne wersje językowe.
 // ==========================================================
 type LanguageKey = "PL" | "EN" | "DE" | "FR";
 
@@ -42,14 +41,56 @@ type ModelPageTopBarProps = {
 };
 
 // ==========================================================
-// KOMPONENT GŁÓWNY
+// POMOCNICZE FUNKCJE JĘZYKOWE
 // ==========================================================
-// To jest wspólny header wszystkich ważnych podstron.
+function removeLanguagePrefix(pathname: string) {
+  if (pathname === "/en" || pathname === "/de" || pathname === "/fr") {
+    return "/";
+  }
+
+  if (pathname.startsWith("/en/")) {
+    return pathname.replace(/^\/en/, "") || "/";
+  }
+
+  if (pathname.startsWith("/de/")) {
+    return pathname.replace(/^\/de/, "") || "/";
+  }
+
+  if (pathname.startsWith("/fr/")) {
+    return pathname.replace(/^\/fr/, "") || "/";
+  }
+
+  return pathname || "/";
+}
+
+function buildLanguageHref(pathname: string, language: LanguageKey) {
+  const basePath = removeLanguagePrefix(pathname);
+
+  if (language === "PL") {
+    return basePath;
+  }
+
+  if (basePath === "/") {
+    return `/${language.toLowerCase()}`;
+  }
+
+  return `/${language.toLowerCase()}${basePath}`;
+}
+
+// ==========================================================
+// KOMPONENT GŁÓWNY
 // ==========================================================
 export default function ModelPageTopBar({
   backHref = "/",
   activeLanguage = "PL",
 }: ModelPageTopBarProps) {
+  const pathname = usePathname() || "/";
+
+  const plHref = buildLanguageHref(pathname, "PL");
+  const enHref = buildLanguageHref(pathname, "EN");
+  const deHref = buildLanguageHref(pathname, "DE");
+  const frHref = buildLanguageHref(pathname, "FR");
+
   return (
     <>
       {/* ====================================================
@@ -88,7 +129,6 @@ export default function ModelPageTopBar({
 
           {/* ==================================================
               PRAWA STRONA - ROZWIJANE MENU JĘZYKÓW
-              - dokładnie w stylu strony głównej
              ================================================== */}
           <div className="justify-self-end">
             <details className="group relative">
@@ -102,50 +142,49 @@ export default function ModelPageTopBar({
               </summary>
 
               <div className="absolute right-0 mt-3 min-w-[150px] overflow-hidden rounded-2xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl">
-                {/* AKTYWNY JĘZYK */}
-                <button
-                  type="button"
+                <Link
+                  href={plHref}
                   className={
                     activeLanguage === "PL"
-                      ? "w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
-                      : "w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                      ? "block w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
+                      : "block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
                   }
                 >
                   PL
-                </button>
+                </Link>
 
-                <button
-                  type="button"
+                <Link
+                  href={enHref}
                   className={
                     activeLanguage === "EN"
-                      ? "w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
-                      : "w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                      ? "block w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
+                      : "block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
                   }
                 >
                   EN
-                </button>
+                </Link>
 
-                <button
-                  type="button"
+                <Link
+                  href={deHref}
                   className={
                     activeLanguage === "DE"
-                      ? "w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
-                      : "w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                      ? "block w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
+                      : "block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
                   }
                 >
                   DE
-                </button>
+                </Link>
 
-                <button
-                  type="button"
+                <Link
+                  href={frHref}
                   className={
                     activeLanguage === "FR"
-                      ? "w-full bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
-                      : "w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                      ? "block w-full bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
+                      : "block w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
                   }
                 >
                   FR
-                </button>
+                </Link>
               </div>
             </details>
           </div>
