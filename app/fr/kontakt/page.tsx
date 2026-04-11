@@ -185,7 +185,7 @@ export default function KontaktPage() {
                 <div className="absolute inset-0 p-5">
                   <div className="relative h-full w-full">
                     <Image
-                      src="/kontakt/Poitr.jpg"
+                      src="/kontakt/Piotr.jpg"
                       alt="Piotr Soliński"
                       fill
                       className="object-contain object-center"
@@ -325,3 +325,4 @@ export default function KontaktPage() {
     </main>
   );
 }
+
