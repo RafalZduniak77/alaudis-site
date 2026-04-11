@@ -6,19 +6,6 @@
 // ==========================================================
 // CONTACT PAGE - ALAUDIS
 // ==========================================================
-// PREMIUM FULLSCREEN HERO VERSION
-// ----------------------------------------------------------
-// Was verbessert wurde:
-// 1. der Bereich „Lassen Sie uns sprechen“ füllt jetzt den ganzen Bildschirm
-// 2. die Überschrift wurde auf elegantere Premium-Proportionen reduziert
-// 3. unter der Beschreibung wurde ein zusätzlicher eleganter Satz ergänzt
-// 4. die Verkaufsansprechpartner befinden sich weiter unten, nach dem Scrollen
-// 5. die CTA-Buttons führen jetzt zu neuen Unterseiten:
-//    - /de/odwiedz-atelier
-//    - /de/dla-architektow
-// 6. ein Scroll-Hinweis wurde am unteren Rand des Hero-Bereichs hinzugefügt
-// 7. alle E-Mails, Telefonnummern und das Nachrichtenmenü wurden beibehalten
-// ==========================================================
 
 import Image from "next/image";
 import Link from "next/link";
@@ -26,16 +13,16 @@ import Footer from "@/components/Footer";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 
 // ==========================================================
-// KONTAKTDATEN
+// KONTAKTDATEN DE
 // ==========================================================
 
-const PAULINA_PHONE_RAW = "48668216422";
-const PAULINA_PHONE_DISPLAY = "+48 668 216 422";
-const PAULINA_EMAIL = "Paulina@saprenovation.eu";
+const SZYMON_PHONE_RAW = "48694424139";
+const SZYMON_PHONE_DISPLAY = "+48 694 424 139";
+const SZYMON_EMAIL = "Szymon@saprenovation.eu";
 
-const KRZYSZTOF_PHONE_RAW = "48606384105";
-const KRZYSZTOF_PHONE_DISPLAY = "+48 606 384 105";
-const KRZYSZTOF_EMAIL = "Krzysztof@saprenovation.eu";
+const MARTYNA_PHONE_RAW = "48531283984";
+const MARTYNA_PHONE_DISPLAY = "+48 531 283 984";
+const MARTYNA_EMAIL = "Martyna@saprenovation.eu";
 
 // ==========================================================
 // HILFSLINKS FÜR NACHRICHTEN
@@ -118,14 +105,8 @@ function MessageMenu({
 export default function KontaktPage() {
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* ====================================================
-          GEMEINSAME OBERE LEISTE
-         ==================================================== */}
       <ModelPageTopBar backHref="/de" activeLanguage="DE" />
 
-      {/* ====================================================
-          HERO-KONTAKTSEITE - VOLLBILDSCHIRM
-         ==================================================== */}
       <section className="relative min-h-screen overflow-hidden border-b border-white/10">
         <div className="absolute inset-0">
           <Image
@@ -191,9 +172,6 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      {/* ====================================================
-          KONTAKTTEAM
-         ==================================================== */}
       <section
         id="team"
         className="scroll-mt-20 bg-black px-6 py-24 sm:px-10 lg:px-16"
@@ -211,8 +189,8 @@ export default function KontaktPage() {
                 <div className="absolute inset-0 p-5">
                   <div className="relative h-full w-full">
                     <Image
-                      src="/kontakt/paulina-przybylska.jpg"
-                      alt="Paulina Przybylska"
+                      src="/kontakt/Szymon.jpg"
+                      alt="Szymon Żubertowski"
                       fill
                       className="object-contain object-center"
                     />
@@ -227,40 +205,40 @@ export default function KontaktPage() {
                 </p>
 
                 <h3 className="mt-4 text-3xl font-light text-white">
-                  Paulina Przybylska
+                  Szymon Żubertowski
                 </h3>
 
                 <p className="mt-5 text-lg text-white/78">
                   <a
-                    href={`tel:+${PAULINA_PHONE_RAW}`}
+                    href={`tel:+${SZYMON_PHONE_RAW}`}
                     className="transition hover:text-white"
                   >
-                    {PAULINA_PHONE_DISPLAY}
+                    {SZYMON_PHONE_DISPLAY}
                   </a>
                 </p>
 
                 <p className="mt-3 break-all text-lg text-white/78">
                   <a
-                    href={`mailto:${PAULINA_EMAIL}`}
+                    href={`mailto:${SZYMON_EMAIL}`}
                     className="transition hover:text-white"
                   >
-                    {PAULINA_EMAIL}
+                    {SZYMON_EMAIL}
                   </a>
                 </p>
 
                 <div className="mt-8 min-h-[190px]">
                   <div className="flex flex-wrap gap-3">
                     <a
-                      href={`tel:+${PAULINA_PHONE_RAW}`}
+                      href={`tel:+${SZYMON_PHONE_RAW}`}
                       className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
                     >
                       Anrufen
                     </a>
 
                     <MessageMenu
-                      phoneRaw={PAULINA_PHONE_RAW}
-                      personName="Paulina"
-                      emailAddress={PAULINA_EMAIL}
+                      phoneRaw={SZYMON_PHONE_RAW}
+                      personName="Szymon"
+                      emailAddress={SZYMON_EMAIL}
                     />
                   </div>
                 </div>
@@ -272,8 +250,8 @@ export default function KontaktPage() {
                 <div className="absolute inset-0 p-5">
                   <div className="relative h-full w-full">
                     <Image
-                      src="/kontakt/krzysztof-skwarek.jpg"
-                      alt="Krzysztof Skwarek"
+                      src="/kontakt/Martyna.jpg"
+                      alt="Martyna Kowalska"
                       fill
                       className="object-contain object-center"
                     />
@@ -288,40 +266,40 @@ export default function KontaktPage() {
                 </p>
 
                 <h3 className="mt-4 text-3xl font-light text-white">
-                  Krzysztof Skwarek
+                  Martyna Kowalska
                 </h3>
 
                 <p className="mt-5 text-lg text-white/78">
                   <a
-                    href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
+                    href={`tel:+${MARTYNA_PHONE_RAW}`}
                     className="transition hover:text-white"
                   >
-                    {KRZYSZTOF_PHONE_DISPLAY}
+                    {MARTYNA_PHONE_DISPLAY}
                   </a>
                 </p>
 
                 <p className="mt-3 break-all text-lg text-white/78">
                   <a
-                    href={`mailto:${KRZYSZTOF_EMAIL}`}
+                    href={`mailto:${MARTYNA_EMAIL}`}
                     className="transition hover:text-white"
                   >
-                    {KRZYSZTOF_EMAIL}
+                    {MARTYNA_EMAIL}
                   </a>
                 </p>
 
                 <div className="mt-8 min-h-[190px]">
                   <div className="flex flex-wrap gap-3">
                     <a
-                      href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
+                      href={`tel:+${MARTYNA_PHONE_RAW}`}
                       className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
                     >
                       Anrufen
                     </a>
 
                     <MessageMenu
-                      phoneRaw={KRZYSZTOF_PHONE_RAW}
-                      personName="Krzysztof"
-                      emailAddress={KRZYSZTOF_EMAIL}
+                      phoneRaw={MARTYNA_PHONE_RAW}
+                      personName="Martyna"
+                      emailAddress={MARTYNA_EMAIL}
                     />
                   </div>
                 </div>
@@ -331,9 +309,6 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      {/* ====================================================
-          FIRMENDATEN
-         ==================================================== */}
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-5xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -374,34 +349,34 @@ export default function KontaktPage() {
                 <div className="mt-3 space-y-3 text-xl text-white">
                   <p>
                     <a
-                      href={`tel:+${PAULINA_PHONE_RAW}`}
+                      href={`tel:+${SZYMON_PHONE_RAW}`}
                       className="transition hover:text-white/80"
                     >
-                      {PAULINA_PHONE_DISPLAY}
+                      {SZYMON_PHONE_DISPLAY}
                     </a>
                   </p>
                   <p>
                     <a
-                      href={`mailto:${PAULINA_EMAIL}`}
+                      href={`mailto:${SZYMON_EMAIL}`}
                       className="break-all transition hover:text-white/80"
                     >
-                      {PAULINA_EMAIL}
+                      {SZYMON_EMAIL}
                     </a>
                   </p>
                   <p>
                     <a
-                      href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
+                      href={`tel:+${MARTYNA_PHONE_RAW}`}
                       className="transition hover:text-white/80"
                     >
-                      {KRZYSZTOF_PHONE_DISPLAY}
+                      {MARTYNA_PHONE_DISPLAY}
                     </a>
                   </p>
                   <p>
                     <a
-                      href={`mailto:${KRZYSZTOF_EMAIL}`}
+                      href={`mailto:${MARTYNA_EMAIL}`}
                       className="break-all transition hover:text-white/80"
                     >
-                      {KRZYSZTOF_EMAIL}
+                      {MARTYNA_EMAIL}
                     </a>
                   </p>
                 </div>
@@ -427,9 +402,6 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      {/* ====================================================
-          FOOTER
-         ==================================================== */}
       <Footer />
     </main>
   );

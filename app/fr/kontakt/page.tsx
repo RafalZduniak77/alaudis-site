@@ -6,19 +6,6 @@
 // ==========================================================
 // CONTACT PAGE - ALAUDIS
 // ==========================================================
-// VERSION PREMIUM HERO PLEIN ÉCRAN
-// ----------------------------------------------------------
-// Ce qui a été amélioré :
-// 1. la section « Parlons-en » occupe maintenant tout l’écran
-// 2. le titre a été réduit pour des proportions plus premium
-// 3. une phrase élégante supplémentaire a été ajoutée sous la description
-// 4. les contacts commerciaux sont placés plus bas, après défilement
-// 5. les boutons CTA mènent maintenant vers de nouvelles sous-pages :
-//    - /fr/odwiedz-atelier
-//    - /fr/dla-architektow
-// 6. un indicateur de défilement a été ajouté en bas du hero
-// 7. tous les e-mails, numéros de téléphone et le menu de message ont été conservés
-// ==========================================================
 
 import Image from "next/image";
 import Link from "next/link";
@@ -26,16 +13,12 @@ import Footer from "@/components/Footer";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 
 // ==========================================================
-// DONNÉES DE CONTACT
+// DONNÉES DE CONTACT FR
 // ==========================================================
 
-const PAULINA_PHONE_RAW = "48668216422";
-const PAULINA_PHONE_DISPLAY = "+48 668 216 422";
-const PAULINA_EMAIL = "Paulina@saprenovation.eu";
-
-const KRZYSZTOF_PHONE_RAW = "48606384105";
-const KRZYSZTOF_PHONE_DISPLAY = "+48 606 384 105";
-const KRZYSZTOF_EMAIL = "Krzysztof@saprenovation.eu";
+const PIOTR_PHONE_RAW = "48694424237";
+const PIOTR_PHONE_DISPLAY = "+48 694 424 237";
+const PIOTR_EMAIL = "Piotr@saprenovation.eu";
 
 // ==========================================================
 // LIENS D’AIDE POUR LES MESSAGES
@@ -118,14 +101,8 @@ function MessageMenu({
 export default function KontaktPage() {
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* ====================================================
-          BARRE SUPÉRIEURE COMMUNE
-         ==================================================== */}
       <ModelPageTopBar backHref="/fr" activeLanguage="FR" />
 
-      {/* ====================================================
-          HERO DE LA PAGE CONTACT - PLEIN ÉCRAN
-         ==================================================== */}
       <section className="relative min-h-screen overflow-hidden border-b border-white/10">
         <div className="absolute inset-0">
           <Image
@@ -191,28 +168,25 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      {/* ====================================================
-          ÉQUIPE CONTACT
-         ==================================================== */}
       <section
         id="team"
         className="scroll-mt-20 bg-black px-6 py-24 sm:px-10 lg:px-16"
       >
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-5xl">
           <div className="mb-12">
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Équipe contact
             </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-8 lg:grid-cols-1">
             <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03]">
               <div className="relative aspect-[5/4] w-full overflow-hidden rounded-t-[32px] bg-[#080808]">
                 <div className="absolute inset-0 p-5">
                   <div className="relative h-full w-full">
                     <Image
-                      src="/kontakt/paulina-przybylska.jpg"
-                      alt="Paulina Przybylska"
+                      src="/kontakt/Poitr.jpg"
+                      alt="Piotr Soliński"
                       fill
                       className="object-contain object-center"
                     />
@@ -227,101 +201,40 @@ export default function KontaktPage() {
                 </p>
 
                 <h3 className="mt-4 text-3xl font-light text-white">
-                  Paulina Przybylska
+                  Piotr Soliński
                 </h3>
 
                 <p className="mt-5 text-lg text-white/78">
                   <a
-                    href={`tel:+${PAULINA_PHONE_RAW}`}
+                    href={`tel:+${PIOTR_PHONE_RAW}`}
                     className="transition hover:text-white"
                   >
-                    {PAULINA_PHONE_DISPLAY}
+                    {PIOTR_PHONE_DISPLAY}
                   </a>
                 </p>
 
                 <p className="mt-3 break-all text-lg text-white/78">
                   <a
-                    href={`mailto:${PAULINA_EMAIL}`}
+                    href={`mailto:${PIOTR_EMAIL}`}
                     className="transition hover:text-white"
                   >
-                    {PAULINA_EMAIL}
+                    {PIOTR_EMAIL}
                   </a>
                 </p>
 
                 <div className="mt-8 min-h-[190px]">
                   <div className="flex flex-wrap gap-3">
                     <a
-                      href={`tel:+${PAULINA_PHONE_RAW}`}
+                      href={`tel:+${PIOTR_PHONE_RAW}`}
                       className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
                     >
                       Appeler
                     </a>
 
                     <MessageMenu
-                      phoneRaw={PAULINA_PHONE_RAW}
-                      personName="Paulina"
-                      emailAddress={PAULINA_EMAIL}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03]">
-              <div className="relative aspect-[5/4] w-full overflow-hidden rounded-t-[32px] bg-[#080808]">
-                <div className="absolute inset-0 p-5">
-                  <div className="relative h-full w-full">
-                    <Image
-                      src="/kontakt/krzysztof-skwarek.jpg"
-                      alt="Krzysztof Skwarek"
-                      fill
-                      className="object-contain object-center"
-                    />
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-              </div>
-
-              <div className="p-8">
-                <p className="text-[11px] uppercase tracking-[0.32em] text-white/45">
-                  Contact commercial
-                </p>
-
-                <h3 className="mt-4 text-3xl font-light text-white">
-                  Krzysztof Skwarek
-                </h3>
-
-                <p className="mt-5 text-lg text-white/78">
-                  <a
-                    href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
-                    className="transition hover:text-white"
-                  >
-                    {KRZYSZTOF_PHONE_DISPLAY}
-                  </a>
-                </p>
-
-                <p className="mt-3 break-all text-lg text-white/78">
-                  <a
-                    href={`mailto:${KRZYSZTOF_EMAIL}`}
-                    className="transition hover:text-white"
-                  >
-                    {KRZYSZTOF_EMAIL}
-                  </a>
-                </p>
-
-                <div className="mt-8 min-h-[190px]">
-                  <div className="flex flex-wrap gap-3">
-                    <a
-                      href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
-                      className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-                    >
-                      Appeler
-                    </a>
-
-                    <MessageMenu
-                      phoneRaw={KRZYSZTOF_PHONE_RAW}
-                      personName="Krzysztof"
-                      emailAddress={KRZYSZTOF_EMAIL}
+                      phoneRaw={PIOTR_PHONE_RAW}
+                      personName="Piotr"
+                      emailAddress={PIOTR_EMAIL}
                     />
                   </div>
                 </div>
@@ -331,9 +244,6 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      {/* ====================================================
-          DONNÉES DE L’ENTREPRISE
-         ==================================================== */}
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-5xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -374,34 +284,18 @@ export default function KontaktPage() {
                 <div className="mt-3 space-y-3 text-xl text-white">
                   <p>
                     <a
-                      href={`tel:+${PAULINA_PHONE_RAW}`}
+                      href={`tel:+${PIOTR_PHONE_RAW}`}
                       className="transition hover:text-white/80"
                     >
-                      {PAULINA_PHONE_DISPLAY}
+                      {PIOTR_PHONE_DISPLAY}
                     </a>
                   </p>
                   <p>
                     <a
-                      href={`mailto:${PAULINA_EMAIL}`}
+                      href={`mailto:${PIOTR_EMAIL}`}
                       className="break-all transition hover:text-white/80"
                     >
-                      {PAULINA_EMAIL}
-                    </a>
-                  </p>
-                  <p>
-                    <a
-                      href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
-                      className="transition hover:text-white/80"
-                    >
-                      {KRZYSZTOF_PHONE_DISPLAY}
-                    </a>
-                  </p>
-                  <p>
-                    <a
-                      href={`mailto:${KRZYSZTOF_EMAIL}`}
-                      className="break-all transition hover:text-white/80"
-                    >
-                      {KRZYSZTOF_EMAIL}
+                      {PIOTR_EMAIL}
                     </a>
                   </p>
                 </div>
@@ -427,9 +321,6 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      {/* ====================================================
-          FOOTER
-         ==================================================== */}
       <Footer />
     </main>
   );
