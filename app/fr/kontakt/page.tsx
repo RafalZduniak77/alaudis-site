@@ -20,6 +20,10 @@ const PIOTR_PHONE_RAW = "48694424237";
 const PIOTR_PHONE_DISPLAY = "+48 694 424 237";
 const PIOTR_EMAIL = "Piotr@saprenovation.eu";
 
+const KRZYSZTOF_PHONE_RAW = "48606384105";
+const KRZYSZTOF_PHONE_DISPLAY = "+48 606 384 105";
+const KRZYSZTOF_EMAIL = "Krzysztof@saprenovation.eu";
+
 // ==========================================================
 // LIENS D’AIDE POUR LES MESSAGES
 // ==========================================================
@@ -172,14 +176,14 @@ export default function KontaktPage() {
         id="team"
         className="scroll-mt-20 bg-black px-6 py-24 sm:px-10 lg:px-16"
       >
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-7xl">
           <div className="mb-12">
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Équipe contact
             </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-1">
+          <div className="grid gap-8 lg:grid-cols-2">
             <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03]">
               <div className="relative aspect-[5/4] w-full overflow-hidden rounded-t-[32px] bg-[#080808]">
                 <div className="absolute inset-0 p-5">
@@ -235,6 +239,67 @@ export default function KontaktPage() {
                       phoneRaw={PIOTR_PHONE_RAW}
                       personName="Piotr"
                       emailAddress={PIOTR_EMAIL}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03]">
+              <div className="relative aspect-[5/4] w-full overflow-hidden rounded-t-[32px] bg-[#080808]">
+                <div className="absolute inset-0 p-5">
+                  <div className="relative h-full w-full">
+                    <Image
+                      src="/kontakt/krzysztof-skwarek.jpg"
+                      alt="Krzysztof Skwarek"
+                      fill
+                      className="object-contain object-center"
+                    />
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+              </div>
+
+              <div className="p-8">
+                <p className="text-[11px] uppercase tracking-[0.32em] text-white/45">
+                  Contact commercial
+                </p>
+
+                <h3 className="mt-4 text-3xl font-light text-white">
+                  Krzysztof Skwarek
+                </h3>
+
+                <p className="mt-5 text-lg text-white/78">
+                  <a
+                    href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
+                    className="transition hover:text-white"
+                  >
+                    {KRZYSZTOF_PHONE_DISPLAY}
+                  </a>
+                </p>
+
+                <p className="mt-3 break-all text-lg text-white/78">
+                  <a
+                    href={`mailto:${KRZYSZTOF_EMAIL}`}
+                    className="transition hover:text-white"
+                  >
+                    {KRZYSZTOF_EMAIL}
+                  </a>
+                </p>
+
+                <div className="mt-8 min-h-[190px]">
+                  <div className="flex flex-wrap gap-3">
+                    <a
+                      href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
+                      className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                    >
+                      Appeler
+                    </a>
+
+                    <MessageMenu
+                      phoneRaw={KRZYSZTOF_PHONE_RAW}
+                      personName="Krzysztof"
+                      emailAddress={KRZYSZTOF_EMAIL}
                     />
                   </div>
                 </div>
@@ -298,6 +363,22 @@ export default function KontaktPage() {
                       {PIOTR_EMAIL}
                     </a>
                   </p>
+                  <p>
+                    <a
+                      href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
+                      className="transition hover:text-white/80"
+                    >
+                      {KRZYSZTOF_PHONE_DISPLAY}
+                    </a>
+                  </p>
+                  <p>
+                    <a
+                      href={`mailto:${KRZYSZTOF_EMAIL}`}
+                      className="break-all transition hover:text-white/80"
+                    >
+                      {KRZYSZTOF_EMAIL}
+                    </a>
+                  </p>
                 </div>
               </div>
             </div>
@@ -325,4 +406,3 @@ export default function KontaktPage() {
     </main>
   );
 }
-
