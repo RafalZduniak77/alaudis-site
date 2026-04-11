@@ -11,6 +11,9 @@
 // 3. nach dem Klick auf „Modelle“ positioniert sich der Bereich höher
 // 4. der frühere Button wurde wiederhergestellt:
 //    "Private Beratung vereinbaren"
+// 5. der Sprachumschalter funktioniert
+// 6. der Header ist fixiert
+// 7. Premium Blur-Hintergrund unter dem Header hinzugefügt
 // ==========================================================
 
 import Image from "next/image";
@@ -38,8 +41,10 @@ export default function Home() {
         {/* ==================================================
             HEADER
            ================================================== */}
-        <header className="absolute inset-x-0 top-0 z-30">
-          <div className="mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pb-6 pt-12 lg:px-10">
+        <header className="fixed inset-x-0 top-0 z-50">
+          <div className="relative mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pb-6 pt-12 lg:px-10">
+            <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/75 via-black/45 to-transparent backdrop-blur-md" />
+
             {/* LINKE SEITE */}
             <div className="ml-8 flex items-center gap-4">
               <a
@@ -144,7 +149,7 @@ export default function Home() {
 
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
-                href="/konfigurator"
+                href="/de/konfigurator"
                 className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Konfigurator öffnen
@@ -289,7 +294,7 @@ export default function Home() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
-            href="/konfigurator"
+            href="/de/konfigurator"
             className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
           >
             Konfigurator öffnen

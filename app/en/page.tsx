@@ -11,6 +11,9 @@
 // 3. after clicking "Models", the section aligns higher
 // 4. the previous button was restored:
 //    "Book a private consultation"
+// 5. the language switcher works
+// 6. the header is fixed
+// 7. premium blur background added under the header
 // ==========================================================
 
 import Image from "next/image";
@@ -38,8 +41,10 @@ export default function Home() {
         {/* ==================================================
             HEADER
            ================================================== */}
-        <header className="absolute inset-x-0 top-0 z-30">
-          <div className="mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pb-6 pt-12 lg:px-10">
+        <header className="fixed inset-x-0 top-0 z-50">
+          <div className="relative mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pb-6 pt-12 lg:px-10">
+            <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/75 via-black/45 to-transparent backdrop-blur-md" />
+
             {/* LEFT */}
             <div className="ml-8 flex items-center gap-4">
               <a
@@ -144,7 +149,7 @@ export default function Home() {
 
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
-                href="/konfigurator"
+                href="/en/konfigurator"
                 className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Open configurator
@@ -290,7 +295,7 @@ export default function Home() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
-            href="/konfigurator"
+            href="/en/konfigurator"
             className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
           >
             Open configurator
