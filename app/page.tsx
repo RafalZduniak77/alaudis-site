@@ -34,7 +34,7 @@ export default function Home() {
             alt="Alaudis grand piano"
             fill
             priority
-            className="object-contain object-center scale-[0.86] sm:scale-[0.88] lg:scale-[0.9]"
+            className="object-contain object-center scale-[0.78] sm:scale-[0.82] lg:scale-[0.86] translate-y-[6%] sm:translate-y-[8%] lg:translate-y-[10%]"
           />
         {/* ==================================================
             DELIKATNA NAKŁADKA
