@@ -24,18 +24,9 @@ import ModelPageTopBar from "@/components/ModelPageTopBar";
 export default function DlaArchitektowPage() {
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* ====================================================
-          WSPÓLNY GÓRNY PASEK
-         ==================================================== */}
       <ModelPageTopBar backHref="/" activeLanguage="PL" />
 
-      {/* ====================================================
-          HERO - PEŁNY EKRAN
-         ==================================================== */}
       <section className="relative min-h-screen overflow-hidden border-b border-white/10">
-        {/* ==================================================
-            TŁO HERO
-           ================================================== */}
         <div className="absolute inset-0">
           <Image
             src="/hero.jpg"
@@ -48,11 +39,6 @@ export default function DlaArchitektowPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
         </div>
 
-        {/* ==================================================
-            TREŚĆ HERO
-            - bez dodatkowych przycisków wyboru
-            - spokojniejszy, bardziej luksusowy układ
-           ================================================== */}
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
           <div className="mx-auto max-w-5xl">
             <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/80">
@@ -77,9 +63,6 @@ export default function DlaArchitektowPage() {
           </div>
         </div>
 
-        {/* ==================================================
-            WSKAŹNIK PRZEWIJANIA
-           ================================================== */}
         <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
           <a href="#wspolpraca" className="block">
             <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
@@ -92,9 +75,6 @@ export default function DlaArchitektowPage() {
         </div>
       </section>
 
-      {/* ====================================================
-          SEKCJA - WPROWADZENIE
-         ==================================================== */}
       <section
         id="wspolpraca"
         className="scroll-mt-20 bg-black px-6 py-24 sm:px-10 lg:px-16"
@@ -129,9 +109,6 @@ export default function DlaArchitektowPage() {
         </div>
       </section>
 
-      {/* ====================================================
-          SEKCJA - OBSZARY WSPÓŁPRACY
-         ==================================================== */}
       <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -194,9 +171,6 @@ export default function DlaArchitektowPage() {
         </div>
       </section>
 
-      {/* ====================================================
-          SEKCJA - DLA JAKICH PROJEKTÓW
-         ==================================================== */}
       <section className="bg-black px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -227,7 +201,7 @@ export default function DlaArchitektowPage() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">Hotele luxury</h3>
+              <h3 className="text-xl font-light text-white">Hotele premium</h3>
               <p className="mt-4 leading-7 text-white/68">
                 Obecność instrumentu w lobby, apartamentach i przestrzeniach
                 o wysokim znaczeniu wizerunkowym.
@@ -247,9 +221,6 @@ export default function DlaArchitektowPage() {
         </div>
       </section>
 
-      {/* ====================================================
-          SEKCJA - GALERIA / NASTRÓJ
-         ==================================================== */}
       <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -291,10 +262,6 @@ export default function DlaArchitektowPage() {
         </div>
       </section>
 
-      {/* ====================================================
-          SEKCJA - CTA KOŃCOWE
-          - jedno główne wezwanie, bez nadmiaru opcji
-         ==================================================== */}
       <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -322,9 +289,6 @@ export default function DlaArchitektowPage() {
         </div>
       </section>
 
-      {/* ====================================================
-          FOOTER
-         ==================================================== */}
       <Footer />
     </main>
   );
