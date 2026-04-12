@@ -3,13 +3,14 @@
 // ==========================================================
 // PAGE - HISTORIA / ŚWIAT ALAUDIS
 // ==========================================================
-// WERSJA PREMIUM - FOTO + MNIEJSZE RAMKI OPISU
+// WERSJA PREMIUM - INTRO + PEŁNOEKRANOWE SEKCJE
 // ----------------------------------------------------------
-// Co poprawiono:
-// 1. mniejsze nagłówki
-// 2. mniejsze okna tekstowe
-// 3. poprawione przypisanie zdjęć
-// 4. bardziej elegancki, spokojny układ
+// Co tutaj jest:
+// 1. spokojny wstęp u góry jak na podanej referencji
+// 2. niżej sekcje full screen
+// 3. zdjęcia przewijają się sekcja po sekcji
+// 4. tekst jest w półprzezroczystej ramce na zdjęciu
+// 5. użyte są dokładne nazwy plików z folderu public/historia
 // ==========================================================
 
 import Image from "next/image";
@@ -35,8 +36,8 @@ const storySections: StorySection[] = [
       "Fortepian Alaudis jest dziełem ludzkich rąk, cierpliwości i miłości do dźwięku. Nie stosujemy produkcji seryjnej – każdy instrument powstaje indywidualnie, w procesie pełnym precyzji i mistrzowskiego rzemiosła.",
       "Naszym celem nie jest tylko zbudowanie fortepianu, lecz stworzenie dzieła sztuki – instrumentu o duszy, który zachwyci zarówno pianistę, jak i słuchacza.",
     ],
-    image: "/historia/1.jpg",
-    imageAlt: "Fortepian Alaudis - własna dusza",
+    image: "/historia/1 Dusza .jpg",
+    imageAlt: "Dusza fortepianu Alaudis",
     align: "left",
   },
   {
@@ -47,7 +48,7 @@ const storySections: StorySection[] = [
       "W SAP Alaudis drewno wybieramy tak, jak artysta wybiera barwy do obrazu. Szukamy w nim harmonii, elastyczności i duszy. Każdy gatunek ma swój głos – świerk rezonansowy daje ciepło i głębię, brzoza wnosi precyzję, a klon i buk – siłę i trwałość.",
       "Przez lata dojrzewa w naturalnych warunkach, zanim trafi w ręce naszych mistrzów. Dopiero wtedy zaczyna się prawdziwa przemiana – z surowego materiału w nośnik emocji.",
     ],
-    image: "/historia/2.jpg",
+    image: "/historia/2 Drewno gra.jpg",
     imageAlt: "Drewno do budowy fortepianu Alaudis",
     align: "right",
   },
@@ -59,8 +60,8 @@ const storySections: StorySection[] = [
       "Każdą warstwę układamy zgodnie z kierunkiem włókien, a następnie kleimy i gięmy na specjalnej formie. Pod kontrolowanym naciskiem i temperaturą obłogi tworzą jednolitą obręcz korpusu, która zachowuje kształt z absolutną precyzją.",
       "Taka laminowana obręcz zapewnia wyjątkową sztywność strukturalną, minimalizuje naprężenia i zwiększa stabilność stroju, a jednocześnie pozwala korpusowi aktywnie współpracować z płytą rezonansową.",
     ],
-    image: "/historia/3.jpg",
-    imageAlt: "Stabilność i rezonans konstrukcji fortepianu",
+    image: "/historia/3 Rezonans konstrukcji.jpg",
+    imageAlt: "Rezonans i stabilność konstrukcji fortepianu",
     align: "left",
   },
   {
@@ -71,7 +72,7 @@ const storySections: StorySection[] = [
       "Na korpus i elementy obudowy naniesiono 6 warstw podkładu oraz 9 warstw lakieru poliestrowego nawierzchniowego, co gwarantuje wyjątkowy połysk, odporność na zarysowania i trwałość.",
       "Ten wielowarstwowy cykl wykończeniowy umożliwia uzyskanie gładkiej, głębokiej i lustrzanej powierzchni, która nie tylko podkreśla estetykę, lecz także chroni konstrukcję instrumentu przez wiele lat.",
     ],
-    image: "/historia/4.jpg",
+    image: "/historia/4 Lakierowanie .jpg",
     imageAlt: "Lakierowanie fortepianu Alaudis",
     align: "right",
   },
@@ -83,7 +84,7 @@ const storySections: StorySection[] = [
       "Proces szlifowania i polerowania w SAP Renovation to połączenie mistrzowskiego rzemiosła z nowoczesną technologią. W przypadku fortepianu SAP Alaudis przeprowadzono go z wyjątkową dbałością o każdy detal.",
       "Ostateczna powierzchnia fortepianu SAP Alaudis nie tylko zachwyca połyskiem i estetyką, lecz stanowi również integralny element konstrukcji instrumentu.",
     ],
-    image: "/historia/5.jpg",
+    image: "/historia/5 Wykończenie.jpg",
     imageAlt: "Wykończenie i polerowanie fortepianu Alaudis",
     align: "left",
   },
@@ -95,7 +96,7 @@ const storySections: StorySection[] = [
       "Starannie sezonowane i selekcjonowane drewno, precyzyjnie dopasowane do ramy korpusu, tworzy aktywną powierzchnię rezonansową, która przenosi i wzmacnia drgania strun.",
       "Zaprojektowane w duchu najlepszych tradycji fortepianowych dno rezonansowe zapewnia instrumentowi pełną projekcję brzmienia i tonalną równowagę – od głębokich basów po przejrzyste wysokie tony.",
     ],
-    image: "/historia/6.jpg",
+    image: "/historia/6 Dno rezonansowe.jpg",
     imageAlt: "Dno rezonansowe fortepianu Alaudis",
     align: "right",
   },
@@ -107,7 +108,7 @@ const storySections: StorySection[] = [
       "Konstrukcja warstwowa została dodatkowo wzmocniona nakładką z litego klonu, co zapewnia wyjątkową stabilność mechaniczną i trwałość stroju.",
       "Taka budowa gwarantuje dużą sztywność w kierunku podłużnym, dzięki czemu energia drgań strun jest przenoszona z maksymalną efektywnością na płytę rezonansową.",
     ],
-    image: "/historia/7.jpg",
+    image: "/historia/7 Mostki klonowe .jpg",
     imageAlt: "Mostki klonowe fortepianu Alaudis",
     align: "left",
   },
@@ -119,7 +120,7 @@ const storySections: StorySection[] = [
       "Skala naciągu została zaprojektowana w dedykowanym programie kalkulacyjnym, który optymalizuje średnice, długości czynne i docelowe naprężenia z uwzględnieniem nieharmoniczności oraz zakładanych charakterystyk brzmieniowych.",
       "W fortepianie SAP Alaudis kluczowa jest zgodność doboru drutu, kołków i parametrów skali z wytrzymałością ramy i całej konstrukcji.",
     ],
-    image: "/historia/8.jpg",
+    image: "/historia/8 Naciąg.jpg",
     imageAlt: "Naciąg fortepianu Alaudis",
     align: "right",
   },
@@ -131,7 +132,7 @@ const storySections: StorySection[] = [
       "Ich konstrukcja wspiera głęboki, nasycony fundament dźwięku i pozwala utrzymać klarowność oraz nośność brzmienia w najniższym rejestrze.",
       "To właśnie te elementy współtworzą bogactwo i majestat pełnej skali fortepianu.",
     ],
-    image: "/historia/9.jpg",
+    image: "/historia/9 Struny basowe Heller.jpg",
     imageAlt: "Struny basowe Heller w fortepianie Alaudis",
     align: "left",
   },
@@ -143,7 +144,7 @@ const storySections: StorySection[] = [
       "Precyzyjnie formowane młotki, stabilne trzonki i dokładnie zestrojona geometria mechanizmu zapewniają czysty atak, szybkie odbicie oraz pełną kontrolę nad dynamiką dźwięku.",
       "Dzięki takiej konstrukcji SAP Alaudis charakteryzuje się wyjątkową responsywnością klawiatury, oferując precyzyjny dotyk od pianissimo po pełne fortissimo.",
     ],
-    image: "/historia/10.jpg",
+    image: "/historia/10 Mechanizm Renner.jpg",
     imageAlt: "Mechanizm Renner w fortepianie Alaudis",
     align: "right",
   },
@@ -155,7 +156,7 @@ const storySections: StorySection[] = [
       "Idealne spasowanie klawiszy, precyzja wykonania i estetyczne detale podkreślają luksusowy charakter instrumentu oraz wspierają pełnię jego działania.",
       "Klawiatura staje się nie tylko urządzeniem mechanicznym, lecz integralnym elementem artystycznego wyrazu pianisty.",
     ],
-    image: "/historia/11.jpg",
+    image: "/historia/11 Klawiatura Kluge.jpg",
     imageAlt: "Klawiatura Kluge w fortepianie Alaudis",
     align: "left",
   },
@@ -167,13 +168,13 @@ const storySections: StorySection[] = [
       "Każdy młotek jest indywidualnie kształtowany i intonowany, aby uzyskać idealną równowagę między atakiem, nośnością i barwą dźwięku.",
       "Rezultatem jest dźwięk o pełnym spektrum harmonicznym, idealnej równowadze rejestrów i wyjątkowej śpiewności charakterystycznej dla skowronka.",
     ],
-    image: "/historia/12.jpg",
+    image: "/historia/12 Ostateczna regulacja intonacja .jpg",
     imageAlt: "Ostateczna regulacja i intonacja fortepianu Alaudis",
     align: "right",
   },
 ];
 
-function StoryImageSection({
+function StoryFullscreenSection({
   eyebrow,
   title,
   text,
@@ -184,38 +185,45 @@ function StoryImageSection({
   const isLeft = align === "left";
 
   return (
-    <section className="relative overflow-hidden border-b border-white/10">
+    <section className="relative h-screen overflow-hidden border-t border-white/10">
+      {/* ==================================================
+          TŁO FOTO
+         ================================================== */}
       <div className="absolute inset-0">
         <Image
           src={image}
           alt={imageAlt}
           fill
+          priority={false}
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/44" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/55" />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/45" />
       </div>
 
-      <div className="relative z-20 mx-auto flex min-h-[84vh] max-w-7xl items-end px-6 py-10 sm:px-10 lg:px-16">
+      {/* ==================================================
+          TREŚĆ
+         ================================================== */}
+      <div className="relative z-20 mx-auto flex h-full max-w-7xl items-end px-6 pb-10 pt-28 sm:px-10 sm:pb-14 lg:px-16 lg:pb-16">
         <div
-          className={`w-full max-w-[380px] rounded-[22px] border border-white/15 bg-[linear-gradient(135deg,rgba(16,16,16,0.82),rgba(26,26,26,0.66))] p-5 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:max-w-[420px] sm:p-6 lg:max-w-[460px] lg:p-7 ${
+          className={`w-full max-w-[420px] rounded-[28px] border border-white/15 bg-[linear-gradient(135deg,rgba(14,14,14,0.72),rgba(26,26,26,0.52))] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-md sm:max-w-[500px] sm:p-7 lg:max-w-[560px] lg:p-8 ${
             isLeft ? "mr-auto" : "ml-auto"
           }`}
         >
-          <p className="text-[10px] uppercase tracking-[0.26em] text-white/62 sm:text-[11px] sm:tracking-[0.3em]">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-white/62 sm:text-[11px] sm:tracking-[0.34em]">
             {eyebrow}
           </p>
 
-          <h2 className="mt-3 text-xl font-light uppercase tracking-[0.03em] text-white sm:text-2xl lg:text-[30px] lg:leading-[1.15]">
+          <h2 className="mt-3 text-2xl font-light uppercase tracking-[0.03em] text-white sm:text-3xl lg:text-[42px] lg:leading-[1.08]">
             {title}
           </h2>
 
-          <div className="mt-4 space-y-4">
+          <div className="mt-5 space-y-4">
             {text.map((paragraph, index) => (
               <p
                 key={`${title}-${index}`}
-                className="text-sm leading-7 text-white/82 sm:text-[15px] sm:leading-8"
+                className="text-sm leading-7 text-white/84 sm:text-[15px] sm:leading-8 lg:text-base"
               >
                 {paragraph}
               </p>
@@ -230,12 +238,42 @@ function StoryImageSection({
 export default function HistoriaPage() {
   return (
     <main className="min-h-screen bg-black text-white">
+      {/* ====================================================
+          TOP BAR
+         ==================================================== */}
       <ModelPageTopBar backHref="/" activeLanguage="PL" />
 
+      {/* ====================================================
+          WSTĘP U GÓRY - JAK NA REFERENCJI
+         ==================================================== */}
+      <section className="bg-black px-6 pb-14 pt-28 text-center sm:px-10 sm:pb-16 lg:px-16 lg:pb-20">
+        <div className="mx-auto max-w-4xl">
+          <p className="text-[11px] uppercase tracking-[0.42em] text-white/45">
+            Dziedzictwo i rzemiosło
+          </p>
+
+          <h1 className="mt-5 text-3xl font-light text-white sm:text-4xl lg:text-[56px] lg:leading-[1.08]">
+            Świat Alaudis
+          </h1>
+
+          <p className="mx-auto mt-6 max-w-3xl leading-8 text-white/68 sm:text-[17px]">
+            Poznaj filozofię marki, proces tworzenia instrumentów oraz
+            rzemiosło, które nadaje każdemu Alaudis jego indywidualną
+            tożsamość.
+          </p>
+        </div>
+      </section>
+
+      {/* ====================================================
+          SEKCJE PEŁNOEKRANOWE
+         ==================================================== */}
       {storySections.map((section) => (
-        <StoryImageSection key={section.title} {...section} />
+        <StoryFullscreenSection key={section.title} {...section} />
       ))}
 
+      {/* ====================================================
+          CTA KOŃCOWE
+         ==================================================== */}
       <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
