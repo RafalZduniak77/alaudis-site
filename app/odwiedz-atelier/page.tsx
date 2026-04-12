@@ -199,6 +199,15 @@ export default function OdwiedzAtelierPage() {
 
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
+                src="/galeria-home/5.jpg"
+                alt="Atelier Alaudis - widok 2"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+              <Image
                 src="/galeria-home/5.JPG"
                 alt="Atelier Alaudis - widok 2"
                 fill
