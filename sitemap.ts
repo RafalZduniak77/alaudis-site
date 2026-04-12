@@ -1,8 +1,13 @@
-// ==========================================================
-// SITEMAP - ALAUDIS
-// ==========================================================
+//
+//  sitemap.ts
+//  
+//
+//  Created by Rafal Zduniak on 12/04/2026.
+//
 
-export default function sitemap() {
+import type { MetadataRoute } from "next";
+
+export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: "https://alaudis.eu",
