@@ -334,12 +334,13 @@ export default function HistoriaPage() {
                         : "flex justify-start"
                     }`}
                   >
-                    <div
-                      className={`max-w-[500px] rounded-[20px] border border-white/8 bg-black/[0.10] px-5 py-5 backdrop-blur-[6px] transition-all duration-500 sm:px-6 sm:py-6 ${
-                        isActive
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-8 opacity-35"
-                      }`}
+                      <div
+                        className={`max-w-[500px] rounded-[20px] border border-white/10 bg-black/[0.04] px-5 py-5 backdrop-blur-[3px] transition-all duration-500 sm:px-6 sm:py-6 ${
+                          isActive
+                            ? "translate-y-0 opacity-100"
+                            : "translate-y-8 opacity-35"
+                        }`}
+                      >
                     >
                       <p className="text-[10px] uppercase tracking-[0.26em] text-white/64 sm:text-[11px]">
                         {section.eyebrow}
