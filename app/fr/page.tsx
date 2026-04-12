@@ -1,4 +1,3 @@
-//
 // ==========================================================
 // HOME PAGE - ALAUDIS
 // ==========================================================
@@ -14,6 +13,7 @@
 // 5. le sélecteur de langue fonctionne
 // 6. le header est fixé
 // 7. ajout d’un fond premium flouté sous le header
+// 8. le piano du hero a été légèrement réduit
 // ==========================================================
 
 import Image from "next/image";
@@ -33,7 +33,7 @@ export default function Home() {
           alt="Piano à queue Alaudis"
           fill
           priority
-          className="object-contain object-center"
+          className="object-contain object-center scale-[0.86] sm:scale-[0.88] lg:scale-[0.9]"
         />
 
         <div className="absolute inset-0 z-10 bg-black/30" />
@@ -220,7 +220,8 @@ export default function Home() {
 
             <p className="mt-5 leading-7 text-white/68">
               Une interprétation lyrique du piano premium — élégante, équilibrée
-              et pensée pour les intérieurs où le détail compte autant que le son.
+              et pensée pour les intérieurs où le détail compte autant que le
+              son.
             </p>
 
             <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
@@ -239,8 +240,9 @@ export default function Home() {
             <h2 className="mt-4 text-3xl font-light">Alaudis 214</h2>
 
             <p className="mt-5 leading-7 text-white/68">
-              Un piano à queue à la présence plus profonde et à la projection plus large —
-              pour les espaces qui demandent plus d’ampleur, de clarté et un caractère plus concertant.
+              Un piano à queue à la présence plus profonde et à la projection
+              plus large — pour les espaces qui demandent plus d’ampleur, de
+              clarté et un caractère plus concertant.
             </p>
 
             <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
@@ -260,7 +262,8 @@ export default function Home() {
 
             <p className="mt-5 leading-7 text-white/68">
               La plus grande forme de concert Alaudis — pleine échelle sonore,
-              projection et présence scénique conçues pour les espaces les plus exigeants.
+              projection et présence scénique conçues pour les espaces les plus
+              exigeants.
             </p>
 
             <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
@@ -323,8 +326,9 @@ export default function Home() {
         </h2>
 
         <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
-          Découvrez la philosophie de la marque, le processus de création
-          des instruments et l’artisanat qui donne à chaque Alaudis sa propre identité.
+          Découvrez la philosophie de la marque, le processus de création des
+          instruments et l’artisanat qui donne à chaque Alaudis sa propre
+          identité.
         </p>
       </section>
 
