@@ -353,6 +353,12 @@ export default function Home() {
               Poznaj filozofię marki, proces tworzenia instrumentów oraz rzemiosło,
               które nadaje każdemu Alaudis jego indywidualną tożsamość.
             </p>
+
+            <div className="mt-10">
+              <span className="inline-flex rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white">
+                Otwórz historię
+              </span>
+            </div>
           </Link>
 
           {/* DESKTOP / TABLET: zwykła sekcja */}
