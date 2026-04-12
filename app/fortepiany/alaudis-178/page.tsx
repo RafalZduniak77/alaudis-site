@@ -40,10 +40,6 @@ export default function ModelAlaudis178Page() {
     <main className="min-h-screen bg-black text-white">
       {/* ====================================================
           WSPÓLNY GÓRNY PASEK
-          - zawsze widoczny
-          - powrót po lewej
-          - logo na środku
-          - języki po prawej
          ==================================================== */}
       <ModelPageTopBar backHref="/" activeLanguage="PL" />
 
@@ -54,7 +50,7 @@ export default function ModelAlaudis178Page() {
         {/* TŁO HERO */}
         <div className="absolute inset-0">
           <Image
-            src="/galeria-home/1.jpg"
+            src="/galeria-home/10.jpg"
             alt="Alaudis 178"
             fill
             priority
@@ -143,7 +139,6 @@ export default function ModelAlaudis178Page() {
          ==================================================== */}
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
-          {/* PRZEZNACZENIE */}
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Przeznaczenie
@@ -158,7 +153,6 @@ export default function ModelAlaudis178Page() {
             </p>
           </div>
 
-          {/* WNĘTRZA */}
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Docelowe wnętrza
@@ -173,7 +167,6 @@ export default function ModelAlaudis178Page() {
             </p>
           </div>
 
-          {/* TOŻSAMOŚĆ */}
           <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Tożsamość modelu
@@ -207,7 +200,7 @@ export default function ModelAlaudis178Page() {
             {/* ZDJĘCIE 1 */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
-                src="/galeria-home/1.jpg"
+                src="/galeria-home/10.jpg"
                 alt="Alaudis 178 - widok 1"
                 fill
                 className="object-cover"
@@ -217,7 +210,7 @@ export default function ModelAlaudis178Page() {
             {/* ZDJĘCIE 2 */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
-                src="/galeria-home/2.jpg"
+                src="/galeria-home/11.jpg"
                 alt="Alaudis 178 - widok 2"
                 fill
                 className="object-cover"
@@ -227,7 +220,7 @@ export default function ModelAlaudis178Page() {
             {/* ZDJĘCIE 3 */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
-                src="/galeria-home/4.JPG"
+                src="/galeria-home/12.jpg"
                 alt="Alaudis 178 - widok 3"
                 fill
                 className="object-cover"
