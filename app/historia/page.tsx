@@ -3,13 +3,13 @@
 // ==========================================================
 // PAGE - HISTORIA / ŚWIAT ALAUDIS
 // ==========================================================
-// WERSJA PREMIUM - FOTO + RAMKI OPISU
+// WERSJA PREMIUM - FOTO + MNIEJSZE RAMKI OPISU
 // ----------------------------------------------------------
-// Układ:
-// 1. duże zdjęcia sekcyjne
-// 2. mniejsze premium okna z opisem
-// 3. układ naprzemienny lewo / prawo
-// 4. wykorzystanie zdjęć 1.jpg - 12.jpg z public/historia
+// Co poprawiono:
+// 1. mniejsze nagłówki
+// 2. mniejsze okna tekstowe
+// 3. poprawione przypisanie zdjęć
+// 4. bardziej elegancki, spokojny układ
 // ==========================================================
 
 import Image from "next/image";
@@ -36,11 +36,11 @@ const storySections: StorySection[] = [
       "Naszym celem nie jest tylko zbudowanie fortepianu, lecz stworzenie dzieła sztuki – instrumentu o duszy, który zachwyci zarówno pianistę, jak i słuchacza.",
     ],
     image: "/historia/1.jpg",
-    imageAlt: "Fortepian Alaudis - filozofia marki",
+    imageAlt: "Fortepian Alaudis - własna dusza",
     align: "left",
   },
   {
-    eyebrow: "Materiał i brzmienie",
+    eyebrow: "Materiał i filozofia",
     title: "Fortepian to drewno, które gra",
     text: [
       "Wszystko zaczyna się od drewna. Z pozoru zwykłe deski, ułożone w sztaple, czekają na swój czas – na moment, w którym zamienią się w dźwięk. To właśnie w nich ukryta jest przyszła dusza fortepianu.",
@@ -60,44 +60,32 @@ const storySections: StorySection[] = [
       "Taka laminowana obręcz zapewnia wyjątkową sztywność strukturalną, minimalizuje naprężenia i zwiększa stabilność stroju, a jednocześnie pozwala korpusowi aktywnie współpracować z płytą rezonansową.",
     ],
     image: "/historia/3.jpg",
-    imageAlt: "Stabilność i rezonans fortepianu Alaudis",
+    imageAlt: "Stabilność i rezonans konstrukcji fortepianu",
     align: "left",
   },
   {
-    eyebrow: "Korpus i pokrywy",
-    title: "Lekkość, precyzja i komfort użytkowania",
-    text: [
-      "W SAP Alaudis do produkcji pokryw górnych wybraliśmy drewno Okoumé ze względu na jego wyjątkowe połączenie lekkości, stabilności i dźwięczności.",
-      "Okoumé umożliwia tworzenie pokryw, które są lżejsze niż tradycyjne elementy, a jednocześnie zachowują strukturę wielowarstwową. Konstrukcja ta ogranicza naprężenia drewna, poprawia jego stabilność wymiarową i zwiększa żywotność elementu.",
-      "Niższe obciążenie zawiasów, łatwiejsze podnoszenie dekli oraz większy komfort użytkowania idą tu w parze z korzyścią akustyczną – mniejsza masa oznacza mniej martwej struktury, która mogłaby pochłaniać drgania.",
-    ],
-    image: "/historia/4.jpg",
-    imageAlt: "Korpus fortepianu Alaudis",
-    align: "right",
-  },
-  {
     eyebrow: "Lakierowanie",
-    title: "Wielowarstwowa głębia wykończenia",
+    title: "Głębia powierzchni i ochrona",
     text: [
       "Lakierowanie fortepianu SAP Alaudis zostało przeprowadzone z najwyższą starannością przy użyciu systemu lakierniczego firmy ICA – renomowanego włoskiego producenta powłok dedykowanych instrumentom.",
       "Na korpus i elementy obudowy naniesiono 6 warstw podkładu oraz 9 warstw lakieru poliestrowego nawierzchniowego, co gwarantuje wyjątkowy połysk, odporność na zarysowania i trwałość.",
       "Ten wielowarstwowy cykl wykończeniowy umożliwia uzyskanie gładkiej, głębokiej i lustrzanej powierzchni, która nie tylko podkreśla estetykę, lecz także chroni konstrukcję instrumentu przez wiele lat.",
     ],
-    image: "/historia/5.jpg",
+    image: "/historia/4.jpg",
     imageAlt: "Lakierowanie fortepianu Alaudis",
-    align: "left",
+    align: "right",
   },
   {
-    eyebrow: "Wykończenie powierzchni",
-    title: "Głębia i trwałość",
+    eyebrow: "Wykończenie",
+    title: "Polerowanie i finalna jakość",
     text: [
       "SAP Renovation jest jednym z europejskich liderów w dziedzinie wykończeń fortepianów. Na przestrzeni ponad trzech dekad nasz zespół odrestaurował blisko 14 000 instrumentów.",
       "Proces szlifowania i polerowania w SAP Renovation to połączenie mistrzowskiego rzemiosła z nowoczesną technologią. W przypadku fortepianu SAP Alaudis przeprowadzono go z wyjątkową dbałością o każdy detal.",
       "Ostateczna powierzchnia fortepianu SAP Alaudis nie tylko zachwyca połyskiem i estetyką, lecz stanowi również integralny element konstrukcji instrumentu.",
     ],
-    image: "/historia/6.jpg",
-    imageAlt: "Głębia i trwałość wykończenia fortepianu Alaudis",
-    align: "right",
+    image: "/historia/5.jpg",
+    imageAlt: "Wykończenie i polerowanie fortepianu Alaudis",
+    align: "left",
   },
   {
     eyebrow: "Płyta rezonansowa",
@@ -107,9 +95,9 @@ const storySections: StorySection[] = [
       "Starannie sezonowane i selekcjonowane drewno, precyzyjnie dopasowane do ramy korpusu, tworzy aktywną powierzchnię rezonansową, która przenosi i wzmacnia drgania strun.",
       "Zaprojektowane w duchu najlepszych tradycji fortepianowych dno rezonansowe zapewnia instrumentowi pełną projekcję brzmienia i tonalną równowagę – od głębokich basów po przejrzyste wysokie tony.",
     ],
-    image: "/historia/7.jpg",
+    image: "/historia/6.jpg",
     imageAlt: "Dno rezonansowe fortepianu Alaudis",
-    align: "left",
+    align: "right",
   },
   {
     eyebrow: "Mostki rezonansowe",
@@ -119,9 +107,9 @@ const storySections: StorySection[] = [
       "Konstrukcja warstwowa została dodatkowo wzmocniona nakładką z litego klonu, co zapewnia wyjątkową stabilność mechaniczną i trwałość stroju.",
       "Taka budowa gwarantuje dużą sztywność w kierunku podłużnym, dzięki czemu energia drgań strun jest przenoszona z maksymalną efektywnością na płytę rezonansową.",
     ],
-    image: "/historia/8.jpg",
-    imageAlt: "Mostki rezonansowe fortepianu Alaudis",
-    align: "right",
+    image: "/historia/7.jpg",
+    imageAlt: "Mostki klonowe fortepianu Alaudis",
+    align: "left",
   },
   {
     eyebrow: "Naciąg",
@@ -131,21 +119,21 @@ const storySections: StorySection[] = [
       "Skala naciągu została zaprojektowana w dedykowanym programie kalkulacyjnym, który optymalizuje średnice, długości czynne i docelowe naprężenia z uwzględnieniem nieharmoniczności oraz zakładanych charakterystyk brzmieniowych.",
       "W fortepianie SAP Alaudis kluczowa jest zgodność doboru drutu, kołków i parametrów skali z wytrzymałością ramy i całej konstrukcji.",
     ],
-    image: "/historia/9.jpg",
+    image: "/historia/8.jpg",
     imageAlt: "Naciąg fortepianu Alaudis",
-    align: "left",
+    align: "right",
   },
   {
     eyebrow: "Struny basowe",
-    title: "Głębia i fundament brzmienia",
+    title: "Fundament niskiego rejestru",
     text: [
       "Struny basowe dostarczyła firma Hellerbass z Niemiec, specjalizująca się w precyzyjnie nawijanych strunach basowych dla producentów i renowatorów.",
       "Ich konstrukcja wspiera głęboki, nasycony fundament dźwięku i pozwala utrzymać klarowność oraz nośność brzmienia w najniższym rejestrze.",
       "To właśnie te elementy współtworzą bogactwo i majestat pełnej skali fortepianu.",
     ],
-    image: "/historia/10.jpg",
+    image: "/historia/9.jpg",
     imageAlt: "Struny basowe Heller w fortepianie Alaudis",
-    align: "right",
+    align: "left",
   },
   {
     eyebrow: "Mechanizm",
@@ -155,20 +143,32 @@ const storySections: StorySection[] = [
       "Precyzyjnie formowane młotki, stabilne trzonki i dokładnie zestrojona geometria mechanizmu zapewniają czysty atak, szybkie odbicie oraz pełną kontrolę nad dynamiką dźwięku.",
       "Dzięki takiej konstrukcji SAP Alaudis charakteryzuje się wyjątkową responsywnością klawiatury, oferując precyzyjny dotyk od pianissimo po pełne fortissimo.",
     ],
-    image: "/historia/11.jpg",
+    image: "/historia/10.jpg",
     imageAlt: "Mechanizm Renner w fortepianie Alaudis",
-    align: "left",
+    align: "right",
   },
   {
-    eyebrow: "Klawiatura i intonacja",
-    title: "Artystyczna ekspresja i ostateczny głos instrumentu",
+    eyebrow: "Klawiatura",
+    title: "Precyzja i komfort gry",
     text: [
       "Klawiatura fortepianu SAP Alaudis została opracowana we współpracy z renomowaną firmą Kluge, uznawaną za jednego z najlepszych producentów klawiatur klasy premium.",
       "Idealne spasowanie klawiszy, precyzja wykonania i estetyczne detale podkreślają luksusowy charakter instrumentu oraz wspierają pełnię jego działania.",
-      "Intonacja jest jednym z najbardziej wymagających etapów procesu wykończeniowego – to tutaj technika spotyka się ze sztuką, a instrument zyskuje indywidualną tożsamość brzmieniową.",
+      "Klawiatura staje się nie tylko urządzeniem mechanicznym, lecz integralnym elementem artystycznego wyrazu pianisty.",
+    ],
+    image: "/historia/11.jpg",
+    imageAlt: "Klawiatura Kluge w fortepianie Alaudis",
+    align: "left",
+  },
+  {
+    eyebrow: "Intonacja",
+    title: "Ostateczna regulacja brzmienia",
+    text: [
+      "Intonacja fortepianu SAP Alaudis to jeden z najbardziej wymagających etapów procesu wykończeniowego – moment, w którym technika spotyka się ze sztuką.",
+      "Każdy młotek jest indywidualnie kształtowany i intonowany, aby uzyskać idealną równowagę między atakiem, nośnością i barwą dźwięku.",
+      "Rezultatem jest dźwięk o pełnym spektrum harmonicznym, idealnej równowadze rejestrów i wyjątkowej śpiewności charakterystycznej dla skowronka.",
     ],
     image: "/historia/12.jpg",
-    imageAlt: "Klawiatura i intonacja fortepianu Alaudis",
+    imageAlt: "Ostateczna regulacja i intonacja fortepianu Alaudis",
     align: "right",
   },
 ];
@@ -185,9 +185,6 @@ function StoryImageSection({
 
   return (
     <section className="relative overflow-hidden border-b border-white/10">
-      {/* ==================================================
-          TŁO ZDJĘCIA
-         ================================================== */}
       <div className="absolute inset-0">
         <Image
           src={image}
@@ -196,28 +193,25 @@ function StoryImageSection({
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/42" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/42 via-transparent to-black/52" />
+        <div className="absolute inset-0 bg-black/44" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/55" />
       </div>
 
-      {/* ==================================================
-          TREŚĆ
-         ================================================== */}
-      <div className="relative z-20 mx-auto flex min-h-[88vh] max-w-7xl items-end px-6 py-10 sm:px-10 lg:px-16">
+      <div className="relative z-20 mx-auto flex min-h-[84vh] max-w-7xl items-end px-6 py-10 sm:px-10 lg:px-16">
         <div
-          className={`w-full max-w-[430px] rounded-[24px] border border-white/15 bg-[linear-gradient(135deg,rgba(17,17,17,0.82),rgba(28,28,28,0.64))] p-5 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:max-w-[470px] sm:p-6 lg:max-w-[500px] lg:p-7 ${
+          className={`w-full max-w-[380px] rounded-[22px] border border-white/15 bg-[linear-gradient(135deg,rgba(16,16,16,0.82),rgba(26,26,26,0.66))] p-5 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:max-w-[420px] sm:p-6 lg:max-w-[460px] lg:p-7 ${
             isLeft ? "mr-auto" : "ml-auto"
           }`}
         >
-          <p className="text-[10px] uppercase tracking-[0.28em] text-white/62 sm:text-[11px] sm:tracking-[0.32em]">
+          <p className="text-[10px] uppercase tracking-[0.26em] text-white/62 sm:text-[11px] sm:tracking-[0.3em]">
             {eyebrow}
           </p>
 
-          <h2 className="mt-3 text-2xl font-light uppercase tracking-[0.04em] text-white sm:text-3xl lg:text-[42px] lg:leading-[1.06]">
+          <h2 className="mt-3 text-xl font-light uppercase tracking-[0.03em] text-white sm:text-2xl lg:text-[30px] lg:leading-[1.15]">
             {title}
           </h2>
 
-          <div className="mt-5 space-y-4">
+          <div className="mt-4 space-y-4">
             {text.map((paragraph, index) => (
               <p
                 key={`${title}-${index}`}
@@ -236,21 +230,12 @@ function StoryImageSection({
 export default function HistoriaPage() {
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* ====================================================
-          TOP BAR
-         ==================================================== */}
       <ModelPageTopBar backHref="/" activeLanguage="PL" />
 
-      {/* ====================================================
-          SEKCJE HISTORII
-         ==================================================== */}
       {storySections.map((section) => (
         <StoryImageSection key={section.title} {...section} />
       ))}
 
-      {/* ====================================================
-          CTA KOŃCOWE
-         ==================================================== */}
       <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
