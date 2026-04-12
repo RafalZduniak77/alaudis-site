@@ -17,6 +17,7 @@
 // 9. sur téléphone, le header ne se chevauche plus
 // 10. sur téléphone, le logo est parfaitement centré
 // 11. sur téléphone, il y a un bouton Contact à gauche
+// 12. sur téléphone, le bloc Histoire est cliquable
 // ==========================================================
 
 import Image from "next/image";
@@ -74,12 +75,12 @@ export default function Home() {
                   Contact
                 </Link>
 
-                <a
-                  href="#histoire"
+                <Link
+                  href="/fr/historia"
                   className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
                 >
                   Histoire
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -327,9 +328,37 @@ export default function Home() {
       {/* ====================================================
           SECTION HISTOIRE
          ==================================================== */}
+
+      {/* MOBILE: bloc cliquable */}
+      <Link
+        href="/fr/historia"
+        className="block bg-neutral-950 px-6 py-20 text-center sm:hidden"
+      >
+        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          Héritage et artisanat
+        </p>
+
+        <h2 className="mt-4 text-3xl font-light text-white">
+          L’univers Alaudis
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+          Découvrez la philosophie de la marque, le processus de création des
+          instruments et l’artisanat qui donne à chaque Alaudis sa propre
+          identité.
+        </p>
+
+        <div className="mt-10">
+          <span className="inline-flex rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white">
+            Ouvrir l’histoire
+          </span>
+        </div>
+      </Link>
+
+      {/* DESKTOP / TABLETTE */}
       <section
         id="histoire"
-        className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16"
+        className="hidden bg-neutral-950 px-6 py-20 text-center sm:block sm:px-10 lg:px-16"
       >
         <p className="text-xs uppercase tracking-[0.32em] text-white/45">
           Héritage et artisanat

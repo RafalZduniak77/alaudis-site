@@ -1,24 +1,3 @@
-// ==========================================================
-// HOME PAGE - ALAUDIS
-// ==========================================================
-// VERBESSERTE VERSION
-// ----------------------------------------------------------
-// Was in dieser Version verbessert wurde:
-// 1. der Leitsatz wurde wiederhergestellt:
-//    "HANDWERK, DETAIL, IDENTITÄT."
-// 2. die Navigation zum Bereich „Modelle“ wurde verbessert
-// 3. nach dem Klick auf „Modelle“ positioniert sich der Bereich höher
-// 4. der frühere Button wurde wiederhergestellt:
-//    "Private Beratung vereinbaren"
-// 5. der Sprachumschalter funktioniert
-// 6. der Header ist fixiert
-// 7. Premium Blur-Hintergrund unter dem Header hinzugefügt
-// 8. der Flügel im Hero wurde leicht verkleinert
-// 9. auf dem Handy überlappt der Header nicht mehr
-// 10. auf dem Handy ist das Logo perfekt zentriert
-// 11. auf dem Handy gibt es links einen Kontakt-Button
-// ==========================================================
-
 import Image from "next/image";
 import Link from "next/link";
 import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
@@ -74,12 +53,12 @@ export default function Home() {
                   Kontakt
                 </Link>
 
-                <a
-                  href="#geschichte"
+                <Link
+                  href="/de/historia"
                   className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
                 >
                   Geschichte
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -326,9 +305,37 @@ export default function Home() {
       {/* ====================================================
           GESCHICHTSBEREICH
          ==================================================== */}
+
+      {/* MOBILE: klickbarer Block */}
+      <Link
+        href="/de/historia"
+        className="block bg-neutral-950 px-6 py-20 text-center sm:hidden"
+      >
+        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          Erbe und Handwerk
+        </p>
+
+        <h2 className="mt-4 text-3xl font-light text-white">
+          Die Welt von Alaudis
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+          Entdecken Sie die Philosophie der Marke, den Entstehungsprozess der
+          Instrumente und das Handwerk, das jedem Alaudis seine eigene Identität
+          verleiht.
+        </p>
+
+        <div className="mt-10">
+          <span className="inline-flex rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white">
+            Geschichte öffnen
+          </span>
+        </div>
+      </Link>
+
+      {/* DESKTOP / TABLET */}
       <section
         id="geschichte"
-        className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16"
+        className="hidden bg-neutral-950 px-6 py-20 text-center sm:block sm:px-10 lg:px-16"
       >
         <p className="text-xs uppercase tracking-[0.32em] text-white/45">
           Erbe und Handwerk
