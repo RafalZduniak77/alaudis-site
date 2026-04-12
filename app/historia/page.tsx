@@ -340,7 +340,7 @@ export default function HistoriaPage() {
                             ? "translate-y-0 opacity-100"
                             : "translate-y-8 opacity-35"
                         }`}
-                      >
+                      
                     >
                       <p className="text-[10px] uppercase tracking-[0.26em] text-white/64 sm:text-[11px]">
                         {section.eyebrow}
