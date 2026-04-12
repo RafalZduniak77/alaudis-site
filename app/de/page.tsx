@@ -14,6 +14,9 @@
 // 6. der Header ist fixiert
 // 7. Premium Blur-Hintergrund unter dem Header hinzugefügt
 // 8. der Flügel im Hero wurde leicht verkleinert
+// 9. auf dem Handy überlappt der Header nicht mehr
+// 10. auf dem Handy ist das Logo perfekt zentriert
+// 11. auf dem Handy gibt es links einen Kontakt-Button
 // ==========================================================
 
 import Image from "next/image";
@@ -28,13 +31,13 @@ export default function Home() {
           HERO
          ==================================================== */}
       <section className="relative min-h-screen overflow-hidden">
-          <Image
-            src="/hero.png"
-            alt="Alaudis grand piano"
-            fill
-            priority
-            className="object-contain object-center scale-[0.78] sm:scale-[0.82] lg:scale-[0.86] translate-y-[6%] sm:translate-y-[8%] lg:translate-y-[10%]"
-          />
+        <Image
+          src="/hero.png"
+          alt="Alaudis Flügel"
+          fill
+          priority
+          className="object-contain object-center scale-[0.78] translate-y-[6%] sm:scale-[0.82] sm:translate-y-[8%] lg:scale-[0.86] lg:translate-y-[10%]"
+        />
 
         <div className="absolute inset-0 z-10 bg-black/30" />
 
@@ -42,49 +45,60 @@ export default function Home() {
             HEADER
            ================================================== */}
         <header className="fixed inset-x-0 top-0 z-50">
-          <div className="relative mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pb-6 pt-12 lg:px-10">
+          <div className="relative mx-auto flex max-w-7xl items-start justify-between px-4 pb-4 pt-6 sm:grid sm:grid-cols-3 sm:px-6 sm:pb-6 sm:pt-12 lg:px-10">
             <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/75 via-black/45 to-transparent backdrop-blur-md" />
 
             {/* LINKE SEITE */}
-            <div className="ml-8 flex items-center gap-4">
-              <a
-                href="#modelle"
-                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Modelle
-              </a>
-
+            <div className="flex items-start sm:ml-4 sm:flex sm:items-center sm:gap-4">
+              {/* MOBILE: nur Kontakt */}
               <Link
                 href="/de/kontakt"
-                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                className="inline-flex rounded-full border border-white/35 bg-black/10 px-3 py-2 text-[10px] uppercase tracking-[0.2em] text-white transition hover:border-white hover:bg-white hover:text-black sm:hidden"
               >
                 Kontakt
               </Link>
 
-              <a
-                href="#geschichte"
-                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Geschichte
-              </a>
+              {/* TABLET / DESKTOP */}
+              <div className="hidden items-center gap-4 sm:flex">
+                <a
+                  href="#modelle"
+                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                >
+                  Modelle
+                </a>
+
+                <Link
+                  href="/de/kontakt"
+                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                >
+                  Kontakt
+                </Link>
+
+                <a
+                  href="#geschichte"
+                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                >
+                  Geschichte
+                </a>
+              </div>
             </div>
 
-            {/* MITTE */}
-            <div className="justify-self-center pt-2">
+            {/* MITTE - MOBILE ABSOLUT / DESKTOP NORMAL */}
+            <div className="absolute left-1/2 top-6 z-10 -translate-x-1/2 sm:static sm:left-auto sm:top-auto sm:z-auto sm:translate-x-0 sm:justify-self-center sm:pt-2">
               <Image
                 src="/logo-alaudis.png"
                 alt="Alaudis Logo"
                 width={77}
                 height={25}
                 priority
-                className="h-auto w-[60px] object-contain opacity-95 md:w-[77px]"
+                className="h-auto w-[58px] object-contain opacity-95 sm:w-[60px] md:w-[77px]"
               />
             </div>
 
             {/* RECHTE SEITE */}
-            <div className="justify-self-end">
+            <div className="flex items-start justify-end sm:justify-self-end">
               <details className="group relative">
-                <summary className="list-none cursor-pointer rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black">
+                <summary className="list-none cursor-pointer rounded-full border border-white/35 bg-black/10 px-3 py-2 text-[10px] uppercase tracking-[0.2em] text-white transition hover:border-white hover:bg-white hover:text-black sm:px-5 sm:text-[11px] sm:tracking-[0.24em]">
                   <span className="inline-flex items-center gap-2">
                     DE
                     <span className="text-[10px] transition group-open:rotate-180">
@@ -93,31 +107,31 @@ export default function Home() {
                   </span>
                 </summary>
 
-                <div className="absolute right-0 mt-3 min-w-[150px] overflow-hidden rounded-2xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl">
+                <div className="absolute right-0 mt-3 min-w-[130px] overflow-hidden rounded-2xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl sm:min-w-[150px]">
                   <Link
                     href="/"
-                    className="block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                    className="block w-full border-b border-white/10 px-4 py-3 text-left text-[10px] uppercase tracking-[0.2em] text-white/65 transition hover:bg-white/10 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
                   >
                     PL
                   </Link>
 
                   <Link
                     href="/en"
-                    className="block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                    className="block w-full border-b border-white/10 px-4 py-3 text-left text-[10px] uppercase tracking-[0.2em] text-white/65 transition hover:bg-white/10 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
                   >
                     EN
                   </Link>
 
                   <Link
                     href="/de"
-                    className="block w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
+                    className="block w-full border-b border-white/10 bg-white/10 px-4 py-3 text-left text-[10px] uppercase tracking-[0.2em] text-white sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
                   >
                     DE
                   </Link>
 
                   <Link
                     href="/fr"
-                    className="block w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                    className="block w-full px-4 py-3 text-left text-[10px] uppercase tracking-[0.2em] text-white/65 transition hover:bg-white/10 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
                   >
                     FR
                   </Link>
@@ -131,7 +145,7 @@ export default function Home() {
             HERO MITTE
            ================================================== */}
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
-          <div className="mx-auto max-w-5xl pt-16">
+          <div className="mx-auto max-w-5xl pt-16 sm:pt-20">
             <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/85">
               Alaudis Atelier
             </p>
