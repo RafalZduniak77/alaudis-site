@@ -3,35 +3,6 @@
 // ==========================================================
 // MODEL PAGE - ALAUDIS 178
 // ==========================================================
-// To jest osobna podstrona premium dla modelu Alaudis 178.
-//
-// Za co odpowiada ten plik:
-// 1. pokazuje hero modelu 178
-// 2. korzysta ze wspólnego górnego paska ModelPageTopBar
-// 3. opisuje charakter brzmienia
-// 4. pokazuje przeznaczenie modelu
-// 5. pokazuje docelowe wnętrza
-// 6. pokazuje galerię zdjęć
-// 7. pozwala otworzyć zdjęcie w dużym podglądzie
-// 8. daje 2 główne wejścia:
-//    - do konfiguratora
-//    - do podglądu 3D
-// 9. kończy się stopką Footer
-//
-// Co tutaj najłatwiej zmieniasz:
-// - zdjęcia modelu
-// - teksty sekcji
-// - tytuł modelu
-// - opisy charakteru
-// - linki CTA
-// - aktywny język w górnym pasku
-//
-// Ważne:
-// - rozwijane menu języków nie jest kodowane tutaj ręcznie
-// - bierze się z komponentu ModelPageTopBar
-// - jeśli chcesz zmienić wygląd listy PL / EN / DE,
-//   robisz to w: components/ModelPageTopBar.tsx
-// ==========================================================
 
 import { useState } from "react";
 import Image from "next/image";
@@ -39,17 +10,11 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 
-// ==========================================================
-// TYP ZDJĘCIA GALERII
-// ==========================================================
 type GalleryImage = {
   src: string;
   alt: string;
 };
 
-// ==========================================================
-// LISTA ZDJĘĆ
-// ==========================================================
 const galleryImages: GalleryImage[] = [
   {
     src: "/galeria-home/10.jpg",
@@ -66,37 +31,38 @@ const galleryImages: GalleryImage[] = [
 ];
 
 export default function ModelAlaudis178Page() {
-  // ========================================================
-  // STAN LIGHTBOXA
-  // ========================================================
-  const [activeImage, setActiveImage] = useState<GalleryImage | null>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
 
-  // ========================================================
-  // OTWIERANIE LIGHTBOXA
-  // ========================================================
-  const openLightbox = (image: GalleryImage) => {
-    setActiveImage(image);
+  const openLightbox = (index: number) => {
+    setActiveImageIndex(index);
   };
 
-  // ========================================================
-  // ZAMYKANIE LIGHTBOXA
-  // ========================================================
   const closeLightbox = () => {
-    setActiveImage(null);
+    setActiveImageIndex(null);
   };
+
+  const showPrevImage = () => {
+    if (activeImageIndex === null) return;
+    setActiveImageIndex(
+      activeImageIndex === 0 ? galleryImages.length - 1 : activeImageIndex - 1
+    );
+  };
+
+  const showNextImage = () => {
+    if (activeImageIndex === null) return;
+    setActiveImageIndex(
+      activeImageIndex === galleryImages.length - 1 ? 0 : activeImageIndex + 1
+    );
+  };
+
+  const activeImage =
+    activeImageIndex !== null ? galleryImages[activeImageIndex] : null;
 
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* ====================================================
-          WSPÓLNY GÓRNY PASEK
-         ==================================================== */}
       <ModelPageTopBar backHref="/" activeLanguage="PL" />
 
-      {/* ====================================================
-          HERO MODELU
-         ==================================================== */}
       <section className="relative overflow-hidden border-b border-white/10 pt-28">
-        {/* TŁO HERO */}
         <div className="absolute inset-0">
           <Image
             src="/galeria-home/10.jpg"
@@ -108,9 +74,6 @@ export default function ModelAlaudis178Page() {
           <div className="absolute inset-0 bg-black/65" />
         </div>
 
-        {/* ==================================================
-            TREŚĆ HERO
-           ================================================== */}
         <div className="relative z-20 px-6 pb-20 pt-8 text-center">
           <div className="mx-auto max-w-5xl">
             <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/80">
@@ -128,9 +91,6 @@ export default function ModelAlaudis178Page() {
               obcowania z instrumentem.
             </p>
 
-            {/* ==================================================
-                CTA HERO
-               ================================================== */}
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/konfigurator"
@@ -150,9 +110,6 @@ export default function ModelAlaudis178Page() {
         </div>
       </section>
 
-      {/* ====================================================
-          CHARAKTER BRZMIENIA
-         ==================================================== */}
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
@@ -183,9 +140,6 @@ export default function ModelAlaudis178Page() {
         </div>
       </section>
 
-      {/* ====================================================
-          PRZEZNACZENIE + WNĘTRZA
-         ==================================================== */}
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
@@ -232,9 +186,6 @@ export default function ModelAlaudis178Page() {
         </div>
       </section>
 
-      {/* ====================================================
-          GALERIA
-         ==================================================== */}
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -250,7 +201,7 @@ export default function ModelAlaudis178Page() {
               <button
                 key={image.src}
                 type="button"
-                onClick={() => openLightbox(image)}
+                onClick={() => openLightbox(index)}
                 className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10 text-left transition duration-300 hover:scale-[1.01] hover:border-white/20"
                 aria-label={`Otwórz zdjęcie ${index + 1} w większym formacie`}
               >
@@ -272,9 +223,6 @@ export default function ModelAlaudis178Page() {
         </div>
       </section>
 
-      {/* ====================================================
-          KOŃCOWE CTA
-         ==================================================== */}
       <section className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -309,15 +257,11 @@ export default function ModelAlaudis178Page() {
         </div>
       </section>
 
-      {/* ====================================================
-          LIGHTBOX
-         ==================================================== */}
       {activeImage && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/88 p-4 backdrop-blur-sm"
           onClick={closeLightbox}
         >
-          {/* PRZYCISK ZAMKNIĘCIA */}
           <button
             type="button"
             onClick={closeLightbox}
@@ -327,7 +271,30 @@ export default function ModelAlaudis178Page() {
             ×
           </button>
 
-          {/* KONTENER ZDJĘCIA */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              showPrevImage();
+            }}
+            className="absolute left-5 top-1/2 z-[110] flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/50 text-3xl text-white transition hover:border-white hover:bg-white hover:text-black"
+            aria-label="Poprzednie zdjęcie"
+          >
+            ←
+          </button>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              showNextImage();
+            }}
+            className="absolute right-5 top-1/2 z-[110] flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/50 text-3xl text-white transition hover:border-white hover:bg-white hover:text-black"
+            aria-label="Następne zdjęcie"
+          >
+            →
+          </button>
+
           <div
             className="relative h-[85vh] w-full max-w-6xl overflow-hidden rounded-[24px] border border-white/10 bg-black"
             onClick={(e) => e.stopPropagation()}
@@ -343,9 +310,6 @@ export default function ModelAlaudis178Page() {
         </div>
       )}
 
-      {/* ====================================================
-          FOOTER
-         ==================================================== */}
       <Footer />
     </main>
   );
