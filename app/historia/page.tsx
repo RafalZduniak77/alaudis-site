@@ -10,7 +10,7 @@
 // 2. zdjęcia są na cały ekran
 // 3. tekst jest na zdjęciu
 // 4. tekst raz po lewej, raz po prawej
-// 5. nagłówki są mniejsze
+// 5. czcionka jest taka jak w EN / DE / FR
 // 6. opisy mają ciasny układ
 // 7. pod tekstem jest minimalne, eleganckie blur tło
 // ==========================================================
@@ -334,30 +334,22 @@ export default function HistoriaPage() {
                         : "flex justify-start"
                     }`}
                   >
-                      <div
-                        className={`max-w-[500px] rounded-[20px] border border-white/10 bg-black/[0.04] px-5 py-5 backdrop-blur-[3px] transition-all duration-500 sm:px-6 sm:py-6 ${
-                          isActive
-                            ? "translate-y-0 opacity-100"
-                            : "translate-y-8 opacity-35"
-                        }`}
-                      
+                    <div
+                      className={`max-w-[500px] rounded-[20px] border border-white/10 bg-black/[0.04] px-5 py-5 backdrop-blur-[3px] transition-all duration-500 sm:px-6 sm:py-6 ${
+                        isActive
+                          ? "translate-y-0 opacity-100"
+                          : "translate-y-8 opacity-35"
+                      }`}
                     >
-                      <p className="text-[10px] uppercase tracking-[0.26em] text-white/64 sm:text-[11px]">
+                      <p className="text-xs text-white/60 uppercase">
                         {section.eyebrow}
                       </p>
 
-                      <h2 className="mt-3 text-[22px] font-light uppercase leading-[1.08] text-white sm:text-[26px] lg:text-[30px]">
-                        {section.title}
-                      </h2>
+                      <h2 className="text-2xl mt-2">{section.title}</h2>
 
-                      <div className="mt-5 space-y-1">
+                      <div className="mt-4 space-y-1 text-sm text-white/80">
                         {section.text.map((paragraph, i) => (
-                          <p
-                            key={`${section.title}-${i}`}
-                            className="text-[14px] leading-7 text-white/84 sm:text-[15px] sm:leading-8"
-                          >
-                            {paragraph}
-                          </p>
+                          <p key={`${section.title}-${i}`}>{paragraph}</p>
                         ))}
                       </div>
                     </div>
