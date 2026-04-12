@@ -14,6 +14,7 @@
 // 6. dodano FR i działające linki
 // 7. header został przypięty do góry
 // 8. dodano premium tło / blur pod headerem
+// 9. fortepian w hero został lekko pomniejszony i opuszczony
 // ==========================================================
 
 import Image from "next/image";
@@ -33,7 +34,7 @@ export default function Home() {
           alt="Fortepian Alaudis"
           fill
           priority
-          className="object-contain object-center"
+          className="object-contain object-center scale-[0.88] translate-y-6"
         />
 
         {/* ==================================================
