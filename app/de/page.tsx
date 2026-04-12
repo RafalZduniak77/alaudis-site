@@ -1,4 +1,3 @@
-//
 // ==========================================================
 // HOME PAGE - ALAUDIS
 // ==========================================================
@@ -14,6 +13,7 @@
 // 5. der Sprachumschalter funktioniert
 // 6. der Header ist fixiert
 // 7. Premium Blur-Hintergrund unter dem Header hinzugefügt
+// 8. der Flügel im Hero wurde leicht verkleinert
 // ==========================================================
 
 import Image from "next/image";
@@ -33,7 +33,7 @@ export default function Home() {
           alt="Alaudis Flügel"
           fill
           priority
-          className="object-contain object-center"
+          className="object-contain object-center scale-[0.86] sm:scale-[0.88] lg:scale-[0.9]"
         />
 
         <div className="absolute inset-0 z-10 bg-black/30" />

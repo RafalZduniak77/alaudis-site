@@ -1,4 +1,3 @@
-//
 // ==========================================================
 // HOME PAGE - ALAUDIS
 // ==========================================================
@@ -14,6 +13,7 @@
 // 5. the language switcher works
 // 6. the header is fixed
 // 7. premium blur background added under the header
+// 8. the piano in hero was slightly reduced
 // ==========================================================
 
 import Image from "next/image";
@@ -28,14 +28,17 @@ export default function Home() {
           HERO
          ==================================================== */}
       <section className="relative min-h-screen overflow-hidden">
-          <Image
-            src="/hero.png"
-            alt="Alaudis grand piano"
-            fill
-            priority
-            className="object-contain object-center scale-[0.86] sm:scale-[0.88] lg:scale-[0.9]"
-          />
-          
+        <Image
+          src="/hero.png"
+          alt="Alaudis grand piano"
+          fill
+          priority
+          className="object-contain object-center scale-[0.86] sm:scale-[0.88] lg:scale-[0.9]"
+        />
+
+        {/* ==================================================
+            DELICATE OVERLAY
+           ================================================== */}
         <div className="absolute inset-0 z-10 bg-black/30" />
 
         {/* ==================================================
