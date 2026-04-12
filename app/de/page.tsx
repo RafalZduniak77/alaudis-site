@@ -28,13 +28,13 @@ export default function Home() {
           HERO
          ==================================================== */}
       <section className="relative min-h-screen overflow-hidden">
-        <Image
-          src="/hero.png"
-          alt="Alaudis Flügel"
-          fill
-          priority
-          className="object-contain object-center scale-[0.86] sm:scale-[0.88] lg:scale-[0.9]"
-        />
+          <Image
+            src="/hero.png"
+            alt="Alaudis grand piano"
+            fill
+            priority
+            className="object-contain object-center scale-[0.78] sm:scale-[0.82] lg:scale-[0.86] translate-y-[6%] sm:translate-y-[8%] lg:translate-y-[10%]"
+          />
 
         <div className="absolute inset-0 z-10 bg-black/30" />
 
