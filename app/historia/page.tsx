@@ -3,14 +3,14 @@
 // ==========================================================
 // PAGE - HISTORIA / ŚWIAT ALAUDIS
 // ==========================================================
-// WERSJA PREMIUM - STICKY FOTO + SCROLLUJĄCY TEKST
+// WERSJA PREMIUM - FULLSCREEN FOTO + TEKST NA ZDJĘCIU
 // ----------------------------------------------------------
 // Co robi ta wersja:
-// 1. zdjęcie jest przypięte do ekranu
-// 2. tekst przewija się normalnie do góry
-// 3. aktywny blok tekstu zmienia aktywne zdjęcie
-// 4. brak ramek wokół tekstu
-// 5. mniejsze, bardziej eleganckie tytuły
+// 1. zdjęcia są na cały ekran
+// 2. aktywne zdjęcie zmienia się przy scrollu
+// 3. tekst jest nakładką na zdjęciu
+// 4. tekst raz po lewej, raz po prawej
+// 5. sekcje przewijają się jak story blocks
 // ==========================================================
 
 import { useEffect, useRef, useState } from "react";
@@ -210,14 +210,9 @@ export default function HistoriaPage() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* ====================================================
-          TOP BAR
-         ==================================================== */}
       <ModelPageTopBar backHref="/" activeLanguage="PL" />
 
-      {/* ====================================================
-          WSTĘP U GÓRY
-         ==================================================== */}
+      {/* WSTĘP */}
       <section className="bg-black px-6 pb-14 pt-28 text-center sm:px-10 sm:pb-16 lg:px-16 lg:pb-20">
         <div className="mx-auto max-w-4xl">
           <p className="text-[11px] uppercase tracking-[0.42em] text-white/45">
@@ -236,76 +231,78 @@ export default function HistoriaPage() {
         </div>
       </section>
 
-      {/* ====================================================
-          GŁÓWNA SEKCJA
-         ==================================================== */}
+      {/* GŁÓWNA SEKCJA */}
       <section className="relative">
-        <div className="grid lg:grid-cols-[1.08fr_0.92fr]">
-          {/* ==================================================
-              LEWA STRONA - STICKY FOTO
-             ================================================== */}
-          <div className="relative h-[55vh] lg:h-auto">
-            <div className="sticky top-0 h-[55vh] overflow-hidden border-y border-white/10 lg:h-screen">
-              {storySections.map((section, index) => (
-                <div
-                  key={section.title}
-                  className={`absolute inset-0 transition-opacity duration-700 ${
-                    activeIndex === index ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <Image
-                    src={section.image}
-                    alt={section.imageAlt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 55vw"
-                    className="object-cover object-center"
-                    priority={index === 0}
-                  />
-                  <div className="absolute inset-0 bg-black/28" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/18 via-transparent to-black/34" />
-                </div>
-              ))}
-            </div>
+        <div className="relative">
+          {/* STICKY WRAPPER */}
+          <div className="sticky top-0 h-screen overflow-hidden">
+            {storySections.map((section, index) => (
+              <div
+                key={section.title}
+                className={`absolute inset-0 transition-opacity duration-700 ${
+                  activeIndex === index ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <Image
+                  src={section.image}
+                  alt={section.imageAlt}
+                  fill
+                  priority={index === 0}
+                  className="object-cover"
+                  sizes="100vw"
+                />
+
+                <div className="absolute inset-0 bg-black/35" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+              </div>
+            ))}
           </div>
 
-          {/* ==================================================
-              PRAWA STRONA - SCROLLUJĄCE TEKSTY
-             ================================================== */}
-          <div className="bg-black">
+          {/* SCROLL CONTENT */}
+          <div className="relative z-10">
             {storySections.map((section, index) => {
               const isActive = activeIndex === index;
+
               return (
                 <div
                   key={section.title}
                   ref={(el) => {
                     itemRefs.current[index] = el;
                   }}
-                  className="flex min-h-[88vh] items-center border-b border-white/10 px-6 py-16 sm:px-10 lg:min-h-screen lg:px-16"
+                  className="flex h-screen items-center"
                 >
                   <div
-                    className={`w-full max-w-[520px] transition-all duration-500 ${
-                      isActive
-                        ? "translate-y-0 opacity-100"
-                        : "translate-y-6 opacity-55"
+                    className={`w-full px-6 sm:px-10 lg:px-16 ${
+                      section.align === "right"
+                        ? "flex justify-end"
+                        : "flex justify-start"
                     }`}
                   >
-                    <p className="text-[10px] uppercase tracking-[0.28em] text-white/52 sm:text-[11px] sm:tracking-[0.32em]">
-                      {section.eyebrow}
-                    </p>
+                    <div
+                      className={`max-w-[520px] transition-all duration-500 ${
+                        isActive
+                          ? "translate-y-0 opacity-100"
+                          : "translate-y-10 opacity-40"
+                      }`}
+                    >
+                      <p className="text-[11px] uppercase tracking-[0.3em] text-white/60">
+                        {section.eyebrow}
+                      </p>
 
-                    <h2 className="mt-3 text-[28px] font-light uppercase tracking-[0.03em] text-white sm:text-[34px] lg:text-[38px] lg:leading-[1.1]">
-                      {section.title}
-                    </h2>
+                      <h2 className="mt-3 text-[28px] font-light uppercase leading-[1.08] sm:text-[34px] lg:text-[38px]">
+                        {section.title}
+                      </h2>
 
-                    <div className="mt-6 space-y-5">
-                      {section.text.map((paragraph, paragraphIndex) => (
-                        <p
-                          key={`${section.title}-${paragraphIndex}`}
-                          className="text-[15px] leading-8 text-white/78 sm:text-base sm:leading-8"
-                        >
-                          {paragraph}
-                        </p>
-                      ))}
+                      <div className="mt-6 space-y-5">
+                        {section.text.map((paragraph, i) => (
+                          <p
+                            key={`${section.title}-${i}`}
+                            className="text-[15px] leading-8 text-white/82"
+                          >
+                            {paragraph}
+                          </p>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -315,9 +312,7 @@ export default function HistoriaPage() {
         </div>
       </section>
 
-      {/* ====================================================
-          CTA
-         ==================================================== */}
+      {/* CTA */}
       <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
