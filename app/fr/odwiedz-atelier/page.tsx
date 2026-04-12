@@ -169,7 +169,7 @@ export default function VisitezLatelierPage() {
 
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
-                src="/galeria-home/5.JPG"
+                src="/galeria-home/5.jpg"
                 alt="Atelier Alaudis - vue 2"
                 fill
                 className="object-cover"

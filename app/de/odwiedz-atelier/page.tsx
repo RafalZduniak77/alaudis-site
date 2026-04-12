@@ -123,8 +123,8 @@ export default function BesuchenSieDasAtelierPage() {
               <p className="mt-5 leading-8 text-white/68">
                 Besprechen Sie die Wahl der Ausführung, den Charakter der
                 Oberfläche, den Ton des Materials und die Gesamtkomposition des
-                Instruments so, dass sie harmonisch auf Architektur und Interieur
-                abgestimmt ist.
+                Instruments so, dass sie harmonisch auf Architektur und
+                Interieur abgestimmt ist.
               </p>
             </div>
 
@@ -170,7 +170,7 @@ export default function BesuchenSieDasAtelierPage() {
 
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
-                src="/galeria-home/5.JPG"
+                src="/galeria-home/5.jpg"
                 alt="Alaudis Atelier - Ansicht 2"
                 fill
                 className="object-cover"
@@ -250,7 +250,8 @@ export default function BesuchenSieDasAtelierPage() {
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
             Der beste Beginn eines Atelierbesuchs ist ein kurzer Kontakt —
             dadurch bereiten wir das Treffen rund um das passende Modell, den
-            Charakter und die Richtung der individuellen Alaudis-Komposition vor.
+            Charakter und die Richtung der individuellen Alaudis-Komposition
+            vor.
           </p>
 
           <div className="mt-10">
