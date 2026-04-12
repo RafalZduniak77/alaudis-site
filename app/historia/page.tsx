@@ -1,6 +1,19 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+// ==========================================================
+// PAGE - HISTORIA / ŚWIAT ALAUDIS
+// ==========================================================
+// WERSJA PREMIUM - STICKY FOTO + SCROLLUJĄCY TEKST
+// ----------------------------------------------------------
+// Co robi ta wersja:
+// 1. zdjęcie jest przypięte do ekranu
+// 2. tekst przewija się normalnie do góry
+// 3. aktywny blok tekstu zmienia aktywne zdjęcie
+// 4. brak ramek wokół tekstu
+// 5. mniejsze, bardziej eleganckie tytuły
+// ==========================================================
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
@@ -162,73 +175,38 @@ const storySections: StorySection[] = [
   },
 ];
 
-// ==========================================================
-// POMOCNICZE
-// ==========================================================
-function clamp(value: number, min: number, max: number) {
-  return Math.min(Math.max(value, min), max);
-}
-
-function getSlideOpacity(progress: number, index: number) {
-  const start = index;
-  const end = index + 1;
-
-  if (progress < start) return 0;
-  if (progress >= end) return 1;
-
-  return clamp(progress - start, 0, 1);
-}
-
-function getTextOffset(progress: number, index: number) {
-  const local = clamp(progress - index, 0, 1);
-  const translate = 28 - local * 28;
-  return `${translate}px`;
-}
-
 export default function HistoriaPage() {
-  const stickySectionRef = useRef<HTMLDivElement | null>(null);
-  const [progress, setProgress] = useState(0);
-
-  const totalSlides = storySections.length;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!stickySectionRef.current) return;
+    const observers: IntersectionObserver[] = [];
 
-      const rect = stickySectionRef.current.getBoundingClientRect();
-      const sectionHeight = stickySectionRef.current.offsetHeight;
-      const viewportHeight = window.innerHeight;
+    itemRefs.current.forEach((element, index) => {
+      if (!element) return;
 
-      const maxScrollable = sectionHeight - viewportHeight;
-      const passed = clamp(-rect.top, 0, maxScrollable);
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveIndex(index);
+            }
+          });
+        },
+        {
+          root: null,
+          threshold: 0.55,
+        }
+      );
 
-      const normalized =
-        maxScrollable > 0 ? (passed / maxScrollable) * totalSlides : 0;
-
-      setProgress(normalized);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
+      observer.observe(element);
+      observers.push(observer);
+    });
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
+      observers.forEach((observer) => observer.disconnect());
     };
-  }, [totalSlides]);
-
-  const slideStyles = useMemo(() => {
-    return storySections.map((_, index) => {
-      const opacity = getSlideOpacity(progress, index);
-      const textY = getTextOffset(progress, index);
-
-      return {
-        opacity,
-        textY,
-      };
-    });
-  }, [progress]);
+  }, []);
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -259,65 +237,71 @@ export default function HistoriaPage() {
       </section>
 
       {/* ====================================================
-          GŁÓWNA SEKCJA STICKY
+          GŁÓWNA SEKCJA
          ==================================================== */}
-      <section
-        ref={stickySectionRef}
-        className="relative"
-        style={{ height: `${totalSlides * 100}vh` }}
-      >
-        <div className="sticky top-0 h-screen overflow-hidden">
-          {storySections.map((section, index) => {
-            const style = slideStyles[index];
-            const isLeft = section.align === "left";
-
-            return (
-              <div
-                key={section.title}
-                className="absolute inset-0"
-                style={{
-                  opacity: style.opacity,
-                  zIndex: index + 1,
-                  pointerEvents: "none",
-                }}
-              >
-                {/* FOTO */}
-                <div className="absolute inset-0">
+      <section className="relative">
+        <div className="grid lg:grid-cols-[1.08fr_0.92fr]">
+          {/* ==================================================
+              LEWA STRONA - STICKY FOTO
+             ================================================== */}
+          <div className="relative h-[55vh] lg:h-auto">
+            <div className="sticky top-0 h-[55vh] overflow-hidden border-y border-white/10 lg:h-screen">
+              {storySections.map((section, index) => (
+                <div
+                  key={section.title}
+                  className={`absolute inset-0 transition-opacity duration-700 ${
+                    activeIndex === index ? "opacity-100" : "opacity-0"
+                  }`}
+                >
                   <Image
                     src={section.image}
                     alt={section.imageAlt}
                     fill
-                    sizes="100vw"
+                    sizes="(max-width: 1024px) 100vw, 55vw"
                     className="object-cover object-center"
                     priority={index === 0}
                   />
-                  <div className="absolute inset-0 bg-black/38" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/18 via-transparent to-black/42" />
+                  <div className="absolute inset-0 bg-black/28" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/18 via-transparent to-black/34" />
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {/* TEKST */}
-                <div className="relative z-20 mx-auto flex h-full max-w-7xl items-end px-6 pb-10 pt-28 sm:px-10 sm:pb-14 lg:px-16 lg:pb-16">
+          {/* ==================================================
+              PRAWA STRONA - SCROLLUJĄCE TEKSTY
+             ================================================== */}
+          <div className="bg-black">
+            {storySections.map((section, index) => {
+              const isActive = activeIndex === index;
+              return (
+                <div
+                  key={section.title}
+                  ref={(el) => {
+                    itemRefs.current[index] = el;
+                  }}
+                  className="flex min-h-[88vh] items-center border-b border-white/10 px-6 py-16 sm:px-10 lg:min-h-screen lg:px-16"
+                >
                   <div
-                    className={`w-full max-w-[440px] ${
-                      isLeft ? "mr-auto text-left" : "ml-auto text-left"
+                    className={`w-full max-w-[520px] transition-all duration-500 ${
+                      isActive
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-6 opacity-55"
                     }`}
-                    style={{
-                      transform: `translateY(${style.textY})`,
-                    }}
                   >
-                    <p className="text-[10px] uppercase tracking-[0.28em] text-white/72 sm:text-[11px] sm:tracking-[0.32em]">
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-white/52 sm:text-[11px] sm:tracking-[0.32em]">
                       {section.eyebrow}
                     </p>
 
-                    <h2 className="mt-3 text-xl font-light uppercase tracking-[0.03em] text-white sm:text-2xl lg:text-[30px] lg:leading-[1.12]">
+                    <h2 className="mt-3 text-[28px] font-light uppercase tracking-[0.03em] text-white sm:text-[34px] lg:text-[38px] lg:leading-[1.1]">
                       {section.title}
                     </h2>
 
-                    <div className="mt-5 space-y-4">
+                    <div className="mt-6 space-y-5">
                       {section.text.map((paragraph, paragraphIndex) => (
                         <p
                           key={`${section.title}-${paragraphIndex}`}
-                          className="text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8"
+                          className="text-[15px] leading-8 text-white/78 sm:text-base sm:leading-8"
                         >
                           {paragraph}
                         </p>
@@ -325,16 +309,16 @@ export default function HistoriaPage() {
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
 
       {/* ====================================================
           CTA
          ==================================================== */}
-      <section className="relative z-20 bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
+      <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Następny krok
