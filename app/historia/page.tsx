@@ -1,14 +1,13 @@
 // ==========================================================
 // PAGE - HISTORIA / ŚWIAT ALAUDIS
 // ==========================================================
-// NOWA PODSTRONA
+// WERSJA PREMIUM Z DUŻYM FOTO
 // ----------------------------------------------------------
 // Co zawiera ta wersja:
-// 1. hero z filozofią marki
-// 2. sekcję o idei Alaudis
-// 3. blok "Fortepian to drewno, które gra"
-// 4. sekcję o kolejnych elementach konstrukcji
-// 5. CTA na końcu
+// 1. duże hero ze zdjęciem na całą szerokość
+// 2. opis w eleganckiej ramce na zdjęciu
+// 3. klimat bardziej luxury / editorial
+// 4. dalsze sekcje pod hero
 // ==========================================================
 
 import Image from "next/image";
@@ -25,36 +24,59 @@ export default function HistoriaPage() {
       <ModelPageTopBar backHref="/" activeLanguage="PL" />
 
       {/* ====================================================
-          HERO
+          HERO PREMIUM - DUŻE FOTO + RAMKA OPISU
          ==================================================== */}
-      <section className="relative overflow-hidden border-b border-white/10 pt-28">
+      <section className="relative min-h-screen overflow-hidden border-b border-white/10">
+        {/* TŁO FOTO */}
         <div className="absolute inset-0">
           <Image
             src="/hero.jpg"
             alt="Świat Alaudis"
             fill
             priority
-            className="object-cover object-center opacity-30"
+            className="object-cover object-center opacity-90"
           />
-          <div className="absolute inset-0 bg-black/72" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-transparent to-black/55" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_72%,rgba(255,255,255,0.10),transparent_18%),radial-gradient(circle_at_78%_78%,rgba(201,154,92,0.16),transparent_20%)]" />
         </div>
 
-        <div className="relative z-20 px-6 pb-20 pt-8 text-center">
-          <div className="mx-auto max-w-5xl">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/80">
+        {/* ZAWARTOŚĆ HERO */}
+        <div className="relative z-20 min-h-screen px-6 pb-10 pt-28 sm:px-10 lg:px-16">
+          {/* MAŁY LABEL U GÓRY */}
+          <div className="mx-auto max-w-7xl text-center">
+            <p className="text-[11px] uppercase tracking-[0.48em] text-white/80">
               Dziedzictwo i filozofia
             </p>
+          </div>
 
-            <h1 className="text-3xl font-light uppercase tracking-[0.06em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.05]">
-              Świat Alaudis
-            </h1>
+          {/* DUŻA RAMKA OPISU */}
+          <div className="mx-auto flex min-h-[78vh] max-w-7xl items-end">
+            <div className="mb-6 w-full max-w-3xl rounded-[30px] border border-white/15 bg-[linear-gradient(135deg,rgba(255,255,255,0.10),rgba(255,255,255,0.04))] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:mb-10 sm:p-8 lg:p-10">
+              <p className="text-[11px] uppercase tracking-[0.32em] text-white/65">
+                Świat Alaudis
+              </p>
 
-            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/88 sm:text-base">
-              Alaudis powstał z pragnienia stworzenia instrumentu mistrzowskiego
-              — takiego, który zachwyca brzmieniem, porusza emocje i staje się
-              naturalnym przedłużeniem duszy pianisty.
-            </p>
+              <h1 className="mt-4 text-3xl font-light uppercase tracking-[0.05em] text-white sm:text-5xl lg:text-[62px] lg:leading-[1.04]">
+                Fortepian
+                <br />
+                o własnej duszy
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-sm leading-8 text-white/82 sm:text-base sm:leading-9">
+                SAP Alaudis to niezwykły fortepian, którego celem jest uchwycenie
+                czarującego piękna i dźwięku śpiewu skowronka. Powstał z
+                pragnienia stworzenia instrumentu mistrzowskiego — takiego,
+                który zachwyca brzmieniem, porusza emocje i staje się naturalnym
+                przedłużeniem duszy pianisty.
+              </p>
+
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-white/62 sm:text-[15px] sm:leading-8">
+                Nie tworzymy produkcji seryjnej. Każdy Alaudis powstaje
+                indywidualnie — z cierpliwości, ręcznej pracy, precyzji i miłości
+                do dźwięku.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -78,23 +100,22 @@ export default function HistoriaPage() {
 
           <div className="space-y-6 text-white/72">
             <p className="leading-8">
-              SAP Alaudis to niezwykły fortepian, którego celem jest uchwycenie
-              czarującego piękna i dźwięku śpiewu skowronka. Powstał z miłości do
-              dźwięku, rzemiosła i potrzeby stworzenia instrumentu o własnej
-              tożsamości.
+              Fortepian Alaudis jest dziełem ludzkich rąk, cierpliwości i miłości
+              do dźwięku. Każdy element — od płyty rezonansowej, przez mostki i
+              mechanikę, aż po lakierowanie i intonację — tworzony jest z
+              najwyższą dbałością o detal.
             </p>
 
             <p className="leading-8">
-              Nie stosujemy produkcji seryjnej — każdy instrument powstaje
-              indywidualnie, w procesie pełnym precyzji, cierpliwości i
-              mistrzowskiego rzemiosła. Każdy element, od płyty rezonansowej po
-              finalną intonację, tworzony jest z najwyższą dbałością o detal.
+              Naszym celem nie jest tylko zbudowanie fortepianu, lecz stworzenie
+              dzieła sztuki — instrumentu o duszy, który zachwyci zarówno
+              pianistę, jak i słuchacza.
             </p>
 
             <p className="leading-8">
-              Naszym celem nie jest jedynie zbudowanie fortepianu, lecz
-              stworzenie dzieła sztuki — instrumentu o duszy, który zachwyci
-              zarówno pianistę, jak i słuchacza.
+              W Alaudis łączymy klasyczne techniki rzemieślnicze z nowoczesnymi
+              rozwiązaniami akustycznymi, tworząc brzmienie pełne głębi, ciepła
+              i życia.
             </p>
           </div>
         </div>
@@ -123,9 +144,9 @@ export default function HistoriaPage() {
 
           <p className="mx-auto mt-6 max-w-3xl leading-8 text-white/68">
             W SAP Alaudis drewno wybieramy tak, jak artysta wybiera barwy do
-            obrazu. Szukamy harmonii, elastyczności i duszy. Każdy gatunek ma
-            swój głos — świerk rezonansowy daje ciepło i głębię, brzoza wnosi
-            precyzję, a klon i buk siłę oraz trwałość.
+            obrazu. Szukamy w nim harmonii, elastyczności i duszy. Każdy
+            gatunek ma swój głos — świerk rezonansowy daje ciepło i głębię,
+            brzoza wnosi precyzję, a klon i buk siłę i trwałość.
           </p>
         </div>
       </section>
@@ -181,102 +202,6 @@ export default function HistoriaPage() {
               akustyczny instrumentu. Odpowiada za projekcję, bogactwo barwy,
               długie wybrzmienie i tonalną równowagę.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================
-          KOLEJNE ELEMENTY KONSTRUKCJI
-         ==================================================== */}
-      <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-4xl">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-              Konstrukcja instrumentu
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
-              Brzmienie budowane
-              <br />
-              warstwa po warstwie
-            </h2>
-
-            <p className="mt-6 max-w-3xl leading-8 text-white/68">
-              W Alaudis klasyczne rzemiosło spotyka się z nowoczesną precyzją.
-              Każdy element konstrukcji — od mostków i strojnicy po mechanizm,
-              klawiaturę i intonację — współtworzy jedną, spójną architekturę
-              brzmienia.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-                Mostki rezonansowe
-              </p>
-
-              <h3 className="mt-4 text-2xl font-light text-white">
-                Precyzyjna transmisja drgań
-              </h3>
-
-              <p className="mt-5 leading-8 text-white/68">
-                Mostki Alaudis wykonane są z wyselekcjonowanego klonu twardego.
-                Ich warstwowa konstrukcja zapewnia wyjątkową stabilność
-                mechaniczną, efektywne przenoszenie energii strun na płytę
-                rezonansową i bogate spektrum alikwotów.
-              </p>
-            </div>
-
-            <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-                Strojnica
-              </p>
-
-              <h3 className="mt-4 text-2xl font-light text-white">
-                Stabilność stroju
-              </h3>
-
-              <p className="mt-5 leading-8 text-white/68">
-                Wielowarstwowa strojnica bukowa została zaprojektowana z myślą
-                o równomiernym uścisku kołków i długotrwałym utrzymaniu stroju.
-                Krzyżowy układ warstw zwiększa stabilność mechaniczną i
-                odporność na naprężenia.
-              </p>
-            </div>
-
-            <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-                Rama żeliwna
-              </p>
-
-              <h3 className="mt-4 text-2xl font-light text-white">
-                Konstrukcja i projekcja
-              </h3>
-
-              <p className="mt-5 leading-8 text-white/68">
-                Rama stabilizuje instrument i współpracuje z jego częścią
-                akustyczną. Odpowiednio zaprojektowany odlew oraz dokładna
-                integracja z korpusem pozwalają zachować mocną projekcję i
-                tonalną klarowność w całym zakresie.
-              </p>
-            </div>
-
-            <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-                Naciąg i mechanizm
-              </p>
-
-              <h3 className="mt-4 text-2xl font-light text-white">
-                Energia, kontrola, odpowiedź
-              </h3>
-
-              <p className="mt-5 leading-8 text-white/68">
-                Kołki stroikowe, struny, mechanizm Renner, klawiatura Kluge i
-                finalna intonacja tworzą wspólnie instrument o wysokiej
-                responsywności, pełnym spektrum harmonicznym i precyzyjnej
-                kontroli brzmienia.
-              </p>
-            </div>
           </div>
         </div>
       </section>
