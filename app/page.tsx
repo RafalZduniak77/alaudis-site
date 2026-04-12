@@ -15,10 +15,9 @@
 // 7. header został przypięty do góry
 // 8. dodano premium tło / blur pod headerem
 // 9. fortepian w hero został lekko pomniejszony i opuszczony
-// 10. na telefonie header się nie nakłada:
-//     - menu po lewej jest ukryte na mobile
-//     - logo jest wyśrodkowane
-//     - przełącznik języków dalej działa na telefonie
+// 10. na telefonie header się nie nakłada
+// 11. logo na telefonie jest idealnie wyśrodkowane
+// 12. na telefonie po lewej jest przycisk Kontakt
 // ==========================================================
 
 import Image from "next/image";
@@ -54,31 +53,42 @@ export default function Home() {
             <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/75 via-black/45 to-transparent backdrop-blur-md" />
 
             {/* LEWA STRONA */}
-            <div className="ml-4 hidden items-center gap-4 sm:flex">
-              <a
-                href="#modele"
-                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Modele
-              </a>
-
+            <div className="flex items-start sm:ml-4 sm:flex sm:items-center sm:gap-4">
+              {/* MOBILE: tylko Kontakt */}
               <Link
                 href="/kontakt"
-                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                className="inline-flex rounded-full border border-white/35 bg-black/10 px-3 py-2 text-[10px] uppercase tracking-[0.2em] text-white transition hover:border-white hover:bg-white hover:text-black sm:hidden"
               >
                 Kontakt
               </Link>
 
-              <a
-                href="#historia"
-                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Historia
-              </a>
+              {/* TABLET / DESKTOP */}
+              <div className="hidden items-center gap-4 sm:flex">
+                <a
+                  href="#modele"
+                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                >
+                  Modele
+                </a>
+
+                <Link
+                  href="/kontakt"
+                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                >
+                  Kontakt
+                </Link>
+
+                <a
+                  href="#historia"
+                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                >
+                  Historia
+                </a>
+              </div>
             </div>
 
-            {/* ŚRODEK */}
-            <div className="flex items-center justify-center pt-1 sm:justify-self-center sm:pt-2">
+            {/* ŚRODEK - MOBILE ABSOLUTE / DESKTOP NORMAL */}
+            <div className="absolute left-1/2 top-6 z-10 -translate-x-1/2 sm:static sm:left-auto sm:top-auto sm:z-auto sm:translate-x-0 sm:justify-self-center sm:pt-2">
               <Image
                 src="/logo-alaudis.png"
                 alt="Logo Alaudis"
