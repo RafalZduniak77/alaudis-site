@@ -332,26 +332,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ====================================================
-          SEKCJA HISTORIA
-         ==================================================== */}
-      <section
-        id="historia"
-        className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16"
-      >
-        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-          Dziedzictwo i rzemiosło
-        </p>
+          {/* ====================================================
+              SEKCJA HISTORIA
+             ==================================================== */}
 
-        <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-          Świat Alaudis
-        </h2>
+          {/* MOBILE: cała sekcja klikalna */}
+          <Link
+            href="/historia"
+            className="block bg-neutral-950 px-6 py-20 text-center sm:hidden"
+          >
+            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+              Dziedzictwo i rzemiosło
+            </p>
 
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
-          Poznaj filozofię marki, proces tworzenia instrumentów oraz rzemiosło,
-          które nadaje każdemu Alaudis jego indywidualną tożsamość.
-        </p>
-      </section>
+            <h2 className="mt-4 text-3xl font-light text-white">
+              Świat Alaudis
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+              Poznaj filozofię marki, proces tworzenia instrumentów oraz rzemiosło,
+              które nadaje każdemu Alaudis jego indywidualną tożsamość.
+            </p>
+          </Link>
+
+          {/* DESKTOP / TABLET: zwykła sekcja */}
+          <section
+            id="historia"
+            className="hidden bg-neutral-950 px-6 py-20 text-center sm:block sm:px-10 lg:px-16"
+          >
+            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+              Dziedzictwo i rzemiosło
+            </p>
+
+            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+              Świat Alaudis
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+              Poznaj filozofię marki, proces tworzenia instrumentów oraz rzemiosło,
+              które nadaje każdemu Alaudis jego indywidualną tożsamość.
+            </p>
+          </section>
 
       <Footer />
     </main>
