@@ -1,3 +1,5 @@
+"use client";
+
 // ==========================================================
 // MODEL PAGE - ALAUDIS 178
 // ==========================================================
@@ -10,10 +12,11 @@
 // 4. pokazuje przeznaczenie modelu
 // 5. pokazuje docelowe wnętrza
 // 6. pokazuje galerię zdjęć
-// 7. daje 2 główne wejścia:
+// 7. pozwala otworzyć zdjęcie w dużym podglądzie
+// 8. daje 2 główne wejścia:
 //    - do konfiguratora
 //    - do podglądu 3D
-// 8. kończy się stopką Footer
+// 9. kończy się stopką Footer
 //
 // Co tutaj najłatwiej zmieniasz:
 // - zdjęcia modelu
@@ -30,12 +33,58 @@
 //   robisz to w: components/ModelPageTopBar.tsx
 // ==========================================================
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 
+// ==========================================================
+// TYP ZDJĘCIA GALERII
+// ==========================================================
+type GalleryImage = {
+  src: string;
+  alt: string;
+};
+
+// ==========================================================
+// LISTA ZDJĘĆ
+// ==========================================================
+const galleryImages: GalleryImage[] = [
+  {
+    src: "/galeria-home/10.jpg",
+    alt: "Alaudis 178 - widok 1",
+  },
+  {
+    src: "/galeria-home/11.jpg",
+    alt: "Alaudis 178 - widok 2",
+  },
+  {
+    src: "/galeria-home/12.jpg",
+    alt: "Alaudis 178 - widok 3",
+  },
+];
+
 export default function ModelAlaudis178Page() {
+  // ========================================================
+  // STAN LIGHTBOXA
+  // ========================================================
+  const [activeImage, setActiveImage] = useState<GalleryImage | null>(null);
+
+  // ========================================================
+  // OTWIERANIE LIGHTBOXA
+  // ========================================================
+  const openLightbox = (image: GalleryImage) => {
+    setActiveImage(image);
+  };
+
+  // ========================================================
+  // ZAMYKANIE LIGHTBOXA
+  // ========================================================
+  const closeLightbox = () => {
+    setActiveImage(null);
+  };
+
   return (
     <main className="min-h-screen bg-black text-white">
       {/* ====================================================
@@ -197,35 +246,28 @@ export default function ModelAlaudis178Page() {
           </h2>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {/* ZDJĘCIE 1 */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/10.jpg"
-                alt="Alaudis 178 - widok 1"
-                fill
-                className="object-cover"
-              />
-            </div>
+            {galleryImages.map((image, index) => (
+              <button
+                key={image.src}
+                type="button"
+                onClick={() => openLightbox(image)}
+                className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10 text-left transition duration-300 hover:scale-[1.01] hover:border-white/20"
+                aria-label={`Otwórz zdjęcie ${index + 1} w większym formacie`}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition duration-500 hover:scale-105"
+                />
 
-            {/* ZDJĘCIE 2 */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/11.jpg"
-                alt="Alaudis 178 - widok 2"
-                fill
-                className="object-cover"
-              />
-            </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 
-            {/* ZDJĘCIE 3 */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/12.jpg"
-                alt="Alaudis 178 - widok 3"
-                fill
-                className="object-cover"
-              />
-            </div>
+                <div className="absolute bottom-4 right-4 rounded-full border border-white/20 bg-black/45 px-4 py-2 text-[10px] uppercase tracking-[0.24em] text-white/90 backdrop-blur-sm">
+                  Powiększ
+                </div>
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -266,6 +308,40 @@ export default function ModelAlaudis178Page() {
           </div>
         </div>
       </section>
+
+      {/* ====================================================
+          LIGHTBOX
+         ==================================================== */}
+      {activeImage && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/88 p-4 backdrop-blur-sm"
+          onClick={closeLightbox}
+        >
+          {/* PRZYCISK ZAMKNIĘCIA */}
+          <button
+            type="button"
+            onClick={closeLightbox}
+            className="absolute right-5 top-5 z-[110] flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/50 text-2xl text-white transition hover:border-white hover:bg-white hover:text-black"
+            aria-label="Zamknij podgląd zdjęcia"
+          >
+            ×
+          </button>
+
+          {/* KONTENER ZDJĘCIA */}
+          <div
+            className="relative h-[85vh] w-full max-w-6xl overflow-hidden rounded-[24px] border border-white/10 bg-black"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={activeImage.src}
+              alt={activeImage.alt}
+              fill
+              className="object-contain"
+              sizes="100vw"
+            />
+          </div>
+        </div>
+      )}
 
       {/* ====================================================
           FOOTER
