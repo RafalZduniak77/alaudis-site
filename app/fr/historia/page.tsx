@@ -138,7 +138,10 @@ export default function HistoriaPage() {
           {storySections.map((section, index) => (
             <div
               key={index}
-              ref={(el) => (itemRefs.current[index] = el)}
+                                                  ref={(el) => {
+                                                    itemRefs.current[index] = el;
+                                                  }}
+                                                  
               className="flex h-screen items-center px-10"
             >
               <div
