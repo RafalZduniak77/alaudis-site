@@ -14,6 +14,10 @@
 // 3. zostawiono tylko elegancki przekaz + przewijanie w dół
 // 4. niższe sekcje nadal prowadzą użytkownika dalej
 // 5. całość wygląda bardziej premium i mniej "przeładowanie"
+// 6. galeria została poprawiona do 3 zdjęć:
+//    - 3.jpg
+//    - 5.jpg
+//    - 2.jpg
 // ==========================================================
 
 import Image from "next/image";
@@ -50,8 +54,6 @@ export default function OdwiedzAtelierPage() {
 
         {/* ==================================================
             TREŚĆ HERO
-            - bez dodatkowych przycisków wyboru
-            - spokojniejszy, bardziej luksusowy układ
            ================================================== */}
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
           <div className="mx-auto max-w-5xl">
@@ -208,15 +210,6 @@ export default function OdwiedzAtelierPage() {
 
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
-                src="/galeria-home/5.JPG"
-                alt="Atelier Alaudis - widok 2"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
                 src="/galeria-home/2.jpg"
                 alt="Atelier Alaudis - widok 3"
                 fill
@@ -266,9 +259,6 @@ export default function OdwiedzAtelierPage() {
               przebieg rozmowy do Twojego projektu.
             </p>
 
-            {/* ==================================================
-                TYLKO JEDNO GŁÓWNE CTA
-               ================================================== */}
             <div className="mt-8">
               <Link
                 href="/kontakt"
@@ -283,7 +273,6 @@ export default function OdwiedzAtelierPage() {
 
       {/* ====================================================
           KOŃCOWE CTA
-          - jedno główne wezwanie, bez nadmiaru opcji
          ==================================================== */}
       <section className="bg-neutral-950 px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
