@@ -1,149 +1,142 @@
+import Link from "next/link";
+
 // ==========================================================
-// FOOTER
+// FOOTER - ALAUDIS
 // ==========================================================
-// To jest komponent stopki strony Alaudis.
-//
-// Za co odpowiada ten plik:
-// 1. pokazuje 4 kolumny w stopce
-// 2. wyświetla nazwę marki i podstawowe sekcje
-// 3. pokazuje modele fortepianów
-// 4. pokazuje linki / teksty do konfiguratora i firmy
-// 5. wyświetla dolny napis © 2026 ALAUDIS
-//
-// Co tutaj najłatwiej zmieniasz:
-// - nazwy modeli
-// - nazwy sekcji
-// - teksty w kolumnach
-// - odstępy, kolory, rozmiary liter
-// - układ siatki stopki
-//
-// Najważniejsze miejsca:
-// - MODELS         -> lista modeli
-// - CONFIGURATOR   -> opcje konfiguratora
-// - COMPANY        -> sekcja firmowa
-// - styles         -> cały wygląd stopki
+// Co zawiera ta wersja:
+// 1. kolumna ALAUDIS
+// 2. dodany link: Facebook Alaudis
+// 3. kolumny MODELS / CONFIGURATOR / COMPANY
+// 4. styl zgodny z obecną stroną
 // ==========================================================
 
-"use client";
+const FACEBOOK_ALAUDIS_URL =
+  "https://www.facebook.com/profile.php?id=61579105662197&locale=pl_PL";
 
 export default function Footer() {
   return (
-    <footer style={styles.footer}>
-      <div style={styles.grid}>
-        {/* -------------------------------------------------- */}
-        {/* KOLUMNA 1 - MARKA */}
-        {/* -------------------------------------------------- */}
+    <footer className="border-t border-white/6 bg-black px-6 py-16 sm:px-10 lg:px-16">
+      {/* ====================================================
+          GŁÓWNA SIATKA FOOTERA
+         ==================================================== */}
+      <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2 lg:grid-cols-4">
+        {/* ==================================================
+            KOLUMNA 1 - ALAUDIS
+           ================================================== */}
         <div>
-          <h4 style={styles.title}>ALAUDIS</h4>
-          <p style={styles.text}>Polish Grand Piano</p>
+          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            ALAUDIS
+          </p>
+
+          <p className="mt-8 text-[15px] text-white/88">Polish Grand Piano</p>
+
+          <Link
+            href={FACEBOOK_ALAUDIS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 block text-[15px] text-white/68 transition hover:text-white"
+          >
+            Facebook Alaudis
+          </Link>
         </div>
 
-        {/* -------------------------------------------------- */}
-        {/* KOLUMNA 2 - MODELE */}
-        {/* -------------------------------------------------- */}
+        {/* ==================================================
+            KOLUMNA 2 - MODELS
+           ================================================== */}
         <div>
-          <h4 style={styles.title}>MODELS</h4>
-          <ul style={styles.list}>
-            <li>Alaudis 178</li>
-            <li>Alaudis 214</li>
-            <li>Alaudis 275</li>
-          </ul>
+          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            MODELS
+          </p>
+
+          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/88">
+            <Link
+              href="/fortepiany/alaudis-178"
+              className="transition hover:text-white/68"
+            >
+              Alaudis 178
+            </Link>
+
+            <Link
+              href="/fortepiany/alaudis-214"
+              className="transition hover:text-white/68"
+            >
+              Alaudis 214
+            </Link>
+
+            <Link
+              href="/fortepiany/alaudis-275"
+              className="transition hover:text-white/68"
+            >
+              Alaudis 275
+            </Link>
+          </div>
         </div>
 
-        {/* -------------------------------------------------- */}
-        {/* KOLUMNA 3 - KONFIGURATOR */}
-        {/* -------------------------------------------------- */}
+        {/* ==================================================
+            KOLUMNA 3 - CONFIGURATOR
+           ================================================== */}
         <div>
-          <h4 style={styles.title}>CONFIGURATOR</h4>
-          <ul style={styles.list}>
-            <li>Choose finish</li>
-            <li>Choose color</li>
-            <li>Accessories</li>
-          </ul>
+          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            CONFIGURATOR
+          </p>
+
+          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/88">
+            <Link
+              href="/konfigurator"
+              className="transition hover:text-white/68"
+            >
+              Choose finish
+            </Link>
+
+            <Link
+              href="/konfigurator"
+              className="transition hover:text-white/68"
+            >
+              Choose color
+            </Link>
+
+            <Link
+              href="/konfigurator"
+              className="transition hover:text-white/68"
+            >
+              Accessories
+            </Link>
+          </div>
         </div>
 
-        {/* -------------------------------------------------- */}
-        {/* KOLUMNA 4 - FIRMA */}
-        {/* -------------------------------------------------- */}
+        {/* ==================================================
+            KOLUMNA 4 - COMPANY
+           ================================================== */}
         <div>
-          <h4 style={styles.title}>COMPANY</h4>
-          <ul style={styles.list}>
-            <li>About</li>
-            <li>Factory</li>
-            <li>Contact</li>
-          </ul>
+          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            COMPANY
+          </p>
+
+          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/88">
+            <Link href="/historia" className="transition hover:text-white/68">
+              About
+            </Link>
+
+            <Link href="/historia" className="transition hover:text-white/68">
+              Factory
+            </Link>
+
+            <Link href="/kontakt" className="transition hover:text-white/68">
+              Contact
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* ---------------------------------------------------- */}
-      {/* DOLNY NAPIS COPYRIGHT */}
-      {/* ---------------------------------------------------- */}
-      <div style={styles.bottom}>© 2026 ALAUDIS</div>
+      {/* ====================================================
+          DÓŁ FOOTERA
+         ==================================================== */}
+      <div className="mx-auto mt-16 max-w-7xl text-center">
+        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          © 2026 ALAUDIS
+        </p>
+      </div>
     </footer>
   );
 }
 
-// ==========================================================
-// STYLE STOPKI
-// ==========================================================
-// Tutaj sterujesz wyglądem całego footer-a.
-//
-// Najważniejsze pola:
-// - footer  -> tło i padding całej stopki
-// - grid    -> układ 4 kolumn
-// - title   -> styl nagłówków kolumn
-// - list    -> styl list pod nagłówkami
-// - text    -> zwykły tekst
-// - bottom  -> dolny napis copyright
-// ==========================================================
-const styles = {
-  // GŁÓWNY KONTENER STOPKI
-  footer: {
-    background: "#000",
-    color: "#fff",
-    padding: "80px 40px 40px",
-  },
-
-  // UKŁAD 4 KOLUMN
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
-    gap: "40px",
-    maxWidth: "1400px",
-    margin: "0 auto",
-  },
-
-  // NAGŁÓWKI KOLUMN
-  title: {
-    fontSize: "12px",
-    letterSpacing: "3px",
-    marginBottom: "20px",
-    opacity: 0.6,
-    textTransform: "uppercase" as const,
-  },
-
-  // LISTY W KOLUMNACH
-  list: {
-    listStyle: "none",
-    padding: 0,
-    margin: 0,
-    lineHeight: "34px",
-    opacity: 0.9,
-    fontSize: "15px",
-  },
-
-  // ZWYKŁY TEKST
-  text: {
-    opacity: 0.7,
-    fontSize: "15px",
-  },
-
-  // DOLNA LINIA COPYRIGHT
-  bottom: {
-    marginTop: "60px",
-    textAlign: "center" as const,
-    opacity: 0.4,
-    fontSize: "12px",
-    letterSpacing: "2px",
-  },
-};
