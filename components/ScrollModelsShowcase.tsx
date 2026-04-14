@@ -175,7 +175,7 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
         title: "Schwarzer Polyester",
         subtitle:
           "Konzertklassik und eine tiefe, edle Oberfläche in Glanz.",
-        image: "/konfigurator/Czarny Poliester połysk.png",
+        image: "/konfigurator/Czarny Poliester połysk-v2.png",
         interiorLabel: "Innenraum",
         interior: "Schwarzer Polyester",
         exteriorLabel: "Ausführung",
@@ -250,7 +250,7 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
         title: "Polyester noir",
         subtitle:
           "Le classique de concert et une surface profonde et noble en brillant.",
-        image: "/konfigurator/Czarny Poliester połysk.png",
+        image: "/konfigurator/Czarny Poliester połysk-v2.png",
         interiorLabel: "Intérieur",
         interior: "Polyester noir",
         exteriorLabel: "Finition",
@@ -322,7 +322,7 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
       eyebrow: "Alaudis",
       title: "Czarny poliester",
       subtitle: "Koncertowa klasyka i głęboka, szlachetna powierzchnia w połysku.",
-      image: "/konfigurator/Czarny Poliester połysk.png",
+      image: "/konfigurator/Czarny Poliester połysk-v2.png",
       interiorLabel: "Wnętrze",
       interior: "Czarny poliester",
       exteriorLabel: "Wykończenie",
