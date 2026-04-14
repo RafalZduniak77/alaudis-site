@@ -100,7 +100,7 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
         title: "Black polyester",
         subtitle:
           "Concert classic and a deep, noble surface in gloss.",
-        image: "/konfigurator/Czarny Poliester połysk.png",
+        image: "/konfigurator/Czarny Poliester połysk-v2.png",
         interiorLabel: "Interior",
         interior: "Black polyester",
         exteriorLabel: "Finish",
