@@ -234,7 +234,7 @@ export default function DlaArchitektowPage() {
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
-                src="/galeria-home/3.jpg"
+                src="/galeria-home/Salonik 1.jpg"
                 alt="Alaudis - inspiracja projektowa 1"
                 fill
                 className="object-cover"
@@ -243,7 +243,7 @@ export default function DlaArchitektowPage() {
 
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
-                src="/galeria-home/5.jpg"
+                src="/galeria-home/Salonik 2.jpg"
                 alt="Alaudis - inspiracja projektowa 2"
                 fill
                 className="object-cover"
@@ -252,7 +252,7 @@ export default function DlaArchitektowPage() {
 
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
-                src="/galeria-home/2.jpg"
+                src="/galeria-home/Konferencyjna 1.jpg"
                 alt="Alaudis - inspiracja projektowa 3"
                 fill
                 className="object-cover"
