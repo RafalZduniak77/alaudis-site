@@ -21,15 +21,6 @@
 // - groupMap
 // - previewImageMap
 // - defaultPreviewImage
-//
-// UWAGA:
-// W tej wersji sekcja OBUDOWA została podmieniona
-// na nowe nazwy i nowe pliki PNG:
-// - Bialy poliester połysk.png
-// - Czarny Poliester połysk.png
-// - Ferrari poliester połysk.png
-// - Heban polerowany.png
-// - Okleina Jabłoń Indyjska -połysk.png
 // ==========================================================
 
 import { OptionsMap } from "./types";
@@ -37,10 +28,6 @@ import { OptionsMap } from "./types";
 // ----------------------------------------------------------
 // LISTA OPCJI KONFIGURATORA
 // ----------------------------------------------------------
-// options dzieli wszystkie wybory na 3 sekcje:
-// - obudowa
-// - akustyka
-// - mechanizm
 export const options: OptionsMap = {
   obudowa: [
     "Bialy poliester połysk",
@@ -88,15 +75,6 @@ export const options: OptionsMap = {
 // ----------------------------------------------------------
 // MAPOWANIE OPCJI DO GRUP
 // ----------------------------------------------------------
-// groupMap mówi konfiguratorowi, które opcje należą do tej samej grupy.
-//
-// Przykład:
-// - "Dno rezonansowe Strunz" i "Dno rezonansowe Chiresse"
-//   należą do grupy "dno"
-//   czyli użytkownik powinien wybrać tylko jedną z nich
-//
-// Dzięki temu w akustyce i mechanizmie możesz mieć
-// po jednej aktywnej opcji z każdej grupy.
 export const groupMap: Record<string, string> = {
   "Dno rezonansowe Strunz": "dno",
   "Dno rezonansowe Chiresse": "dno",
@@ -142,9 +120,6 @@ export const groupMap: Record<string, string> = {
 // ----------------------------------------------------------
 // MAPA ZDJĘĆ PODGLĄDU
 // ----------------------------------------------------------
-// previewImageMap przypisuje obraz do wybranej opcji.
-// Gdy użytkownik kliknie daną opcję, konfigurator może
-// wyświetlić odpowiednie zdjęcie po lewej stronie / w preview.
 export const previewImageMap: Record<string, string> = {
   // --------------------------------------------------------
   // OBUDOWA
@@ -161,36 +136,68 @@ export const previewImageMap: Record<string, string> = {
   // --------------------------------------------------------
   "Mostki rezonansowe klon": "/konfigurator/mostki-klon.JPG",
   "Mostki rezonansowe buk": "/konfigurator/mostki-buk.JPG",
+
   "Dno rezonansowe Strunz": "/konfigurator/dno-strunz.jpg",
   "Dno rezonansowe Chiresse": "/konfigurator/dno-chiresse.jpg",
-  "Lakierowanie dna rezonansowego mat": "/konfigurator/dno mat-strunz.jpg",
+
+  "Lakierowanie dna rezonansowego mat":
+    "/konfigurator/dno mat-strunz.jpg",
   "Lakierowanie dna rezonansowego połysk":
     "/konfigurator/dno połysk-chiresse.jpg",
 
   "Kolor ramy złoty": "/konfigurator/kolor ramy złoty.JPG",
   "Kolor ramy srebrny": "/konfigurator/kolor ramy srebny.png",
-  "Struny basowe Heller": "/konfigurator/struny basowe Heller.JPG",
+
+  "Struny stalowe Roslau":
+    "/konfigurator/struny stalowe resalu.jpg",
+
+  "Struny basowe Heller":
+    "/konfigurator/struny basowe heller.jpg",
+
+  "Struny basowe SAP Renovation":
+    "/konfigurator/srtuny basowe sap.jpg",
+
+  "Kołki stroikowe niklowane":
+    "/konfigurator/kołki stroikowe niklowane.jpg",
+
+  "Kolor sukna czerwony":
+    "/konfigurator/kolor sukna czerwony.jpg",
 
   // --------------------------------------------------------
   // MECHANIZM
   // --------------------------------------------------------
   "Klawiatura Alaudis SAP Renovation":
     "/konfigurator/klawiatura Alaudis SAP.jpg",
-  "Klawiatura Kluge": "/konfigurator/klawiatura Kluge.JPG",
 
-  "Młotki Alaudis": "/konfigurator/mlotki-alaudis.jpg",
-  "Młotki Renner": "/konfigurator/młotki Renner.JPG",
-  "Młotki Abbel": "/konfigurator/młotki Abbel.JPG",
+  "Klawiatura Kluge":
+    "/konfigurator/klawiatura Kluge.JPG",
+
+  "Młotki Alaudis":
+    "/konfigurator/mlotki-alaudis.jpg",
+
+  "Młotki Renner":
+    "/konfigurator/młotki Renner.JPG",
+
+  "Młotki Abbel":
+    "/konfigurator/młotki Abbel.JPG",
 
   "Mechanizm Alaudis SAP Renovation":
     "/konfigurator/mechanizm Alaudis SAP Renovation.jpg",
-  "Mechanizm Renner": "/konfigurator/mechanizm Renner.jpg",
-  "Mechanizm Abbel": "/konfigurator/mechanizm-abbel.jpg",
+
+  "Mechanizm Renner":
+    "/konfigurator/mechanizm Renner.jpg",
+
+  "Mechanizm Abbel":
+    "/konfigurator/mechanizm-abbel.jpg",
+
+  "Tłumiki Alaudis":
+    "/konfigurator/tłumiki alaudis.jpg",
+
+  "Tłumiki Renner":
+    "/konfigurator/tłumiki renner.jpg",
 };
 
 // ----------------------------------------------------------
 // DOMYŚLNE ZDJĘCIE PODGLĄDU
 // ----------------------------------------------------------
-// To zdjęcie pokazuje się na starcie, zanim użytkownik
-// wybierze konkretną opcję z konfiguratora.
 export const defaultPreviewImage = "/hero.png";
