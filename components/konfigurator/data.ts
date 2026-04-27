@@ -160,8 +160,17 @@ export const previewImageMap: Record<string, string> = {
   "Kołki stroikowe niklowane":
     "/konfigurator/kołki stroikowe niklowane.jpg",
 
+  "Kołki stroikowe Blau":
+    "/konfigurator/kołki stroikowe blau.jpg",
+
   "Kolor sukna czerwony":
     "/konfigurator/kolor sukna czerwony.jpg",
+
+  "Kolor sukna biały":
+    "/konfigurator/kolor sukna biały.jpg",
+
+  "Kolor sukna czarny":
+    "/konfigurator/kolor sukna czarny.jpg",
 
   // --------------------------------------------------------
   // MECHANIZM
