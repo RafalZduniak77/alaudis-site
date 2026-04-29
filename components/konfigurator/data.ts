@@ -140,10 +140,16 @@ export const previewImageMap: Record<string, string> = {
   "Dno rezonansowe Strunz": "/konfigurator/dno-strunz.jpg",
   "Dno rezonansowe Chiresse": "/konfigurator/dno-chiresse.jpg",
 
+  // --------------------------------------------------------
+  // LAKIEROWANIE DNA REZONANSOWEGO
+  // Te dwa zdjęcia muszą być w folderze:
+  // public/konfigurator/
+  // --------------------------------------------------------
   "Lakierowanie dna rezonansowego mat":
-    "/konfigurator/dno mat-strunz.jpg",
+    "/konfigurator/lakierowanie dna rezonansowego mat.jpg",
+
   "Lakierowanie dna rezonansowego połysk":
-    "/konfigurator/dno połysk-chiresse.jpg",
+    "/konfigurator/lakierowanie dna rezonansowego połysk.jpg",
 
   "Kolor ramy złoty": "/konfigurator/kolor ramy złoty.JPG",
   "Kolor ramy srebrny": "/konfigurator/kolor ramy srebny.png",
