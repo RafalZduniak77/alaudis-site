@@ -1,336 +1,307 @@
+//
+//  page.tsx
+//
+//  Created by Rafal Zduniak on 23/03/2026.
+//
 // ==========================================================
-// HOME PAGE - ALAUDIS
+// PAGE - VISIT THE ATELIER
 // ==========================================================
-// IMPROVED VERSION
+// PREMIUM SIMPLIFIED VERSION
 // ----------------------------------------------------------
-// What was improved in this version:
-// 1. the main slogan was restored:
-//    "CRAFT, DETAIL, IDENTITY."
-// 2. navigation to the "Models" section was improved
-// 3. after clicking "Models", the section aligns higher
-// 4. the previous button was restored:
-//    "Book a private consultation"
-// 5. the language switcher works
-// 6. the header is fixed
-// 7. premium blur background added under the header
+// What this page does:
+// 1. displays the English version of the atelier visit page
+// 2. uses the shared ModelPageTopBar component
+// 3. uses EN as the active language
+// 4. keeps the same premium structure as the Polish version
+// 5. links all actions to English routes
+// 6. ends with the shared Footer component
 // ==========================================================
 
 import Image from "next/image";
 import Link from "next/link";
-import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
 import Footer from "@/components/Footer";
+import ModelPageTopBar from "@/components/ModelPageTopBar";
 
-export default function Home() {
+export default function VisitAtelierPage() {
   return (
     <main className="min-h-screen bg-black text-white">
       {/* ====================================================
-          HERO
+          SHARED TOP BAR
          ==================================================== */}
-      <section className="relative min-h-screen overflow-hidden">
-        <Image
-          src="/hero.png"
-          alt="Alaudis grand piano"
-          fill
-          priority
-          className="object-contain object-center"
-        />
+      <ModelPageTopBar backHref="/en" activeLanguage="EN" />
 
-        <div className="absolute inset-0 z-10 bg-black/30" />
+      {/* ====================================================
+          HERO - FULL SCREEN
+         ==================================================== */}
+      <section className="relative min-h-screen overflow-hidden border-b border-white/10">
+        {/* ==================================================
+            HERO BACKGROUND
+           ================================================== */}
+        <div className="absolute inset-0">
+          <Image
+            src="/hero.jpg"
+            alt="Visit the Alaudis atelier"
+            fill
+            priority
+            className="object-cover object-center opacity-35"
+          />
+          <div className="absolute inset-0 bg-black/72" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+        </div>
 
         {/* ==================================================
-            HEADER
+            HERO CONTENT
            ================================================== */}
-        <header className="fixed inset-x-0 top-0 z-50">
-          <div className="relative mx-auto grid max-w-7xl grid-cols-3 items-start px-6 pb-6 pt-12 lg:px-10">
-            <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/75 via-black/45 to-transparent backdrop-blur-md" />
-
-            {/* LEFT */}
-            <div className="ml-8 flex items-center gap-4">
-              <a
-                href="#models"
-                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Models
-              </a>
-
-              <Link
-                href="/en/kontakt"
-                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Contact
-              </Link>
-
-              <a
-                href="#history"
-                className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                History
-              </a>
-            </div>
-
-            {/* CENTER */}
-            <div className="justify-self-center pt-2">
-              <Image
-                src="/logo-alaudis.png"
-                alt="Alaudis logo"
-                width={77}
-                height={25}
-                priority
-                className="h-auto w-[60px] object-contain opacity-95 md:w-[77px]"
-              />
-            </div>
-
-            {/* RIGHT */}
-            <div className="justify-self-end">
-              <details className="group relative">
-                <summary className="list-none cursor-pointer rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black">
-                  <span className="inline-flex items-center gap-2">
-                    EN
-                    <span className="text-[10px] transition group-open:rotate-180">
-                      ▼
-                    </span>
-                  </span>
-                </summary>
-
-                <div className="absolute right-0 mt-3 min-w-[150px] overflow-hidden rounded-2xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl">
-                  <Link
-                    href="/"
-                    className="block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
-                  >
-                    PL
-                  </Link>
-
-                  <Link
-                    href="/en"
-                    className="block w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
-                  >
-                    EN
-                  </Link>
-
-                  <Link
-                    href="/de"
-                    className="block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
-                  >
-                    DE
-                  </Link>
-
-                  <Link
-                    href="/fr"
-                    className="block w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
-                  >
-                    FR
-                  </Link>
-                </div>
-              </details>
-            </div>
-          </div>
-        </header>
-
-        {/* ==================================================
-            HERO CENTER
-           ================================================== */}
-        <div className="relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
-          <div className="mx-auto max-w-5xl pt-16">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/85">
+        <div className="relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
+          <div className="mx-auto max-w-5xl">
+            <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/80">
               Alaudis Atelier
             </p>
 
-            <h1 className="text-2xl font-light uppercase tracking-[0.06em] text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
-              Craft,
-              <br />
-              detail, identity.
+            <h1 className="text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
+              Visit the atelier
             </h1>
 
-            <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/72 sm:text-base sm:leading-8">
-              Every Alaudis is created through the union of craftsmanship,
-              proportion, noble material, and an individual sound character.
+            <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/88 sm:text-base sm:leading-9">
+              Discover Alaudis in the space where craftsmanship, detail and the
+              character of the instrument meet a private conversation about the
+              model, finish and individual composition of the grand piano.
             </p>
 
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href="/en/konfigurator"
-                className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Open configurator
-              </Link>
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/62 sm:text-[15px] sm:leading-8">
+              A visit to the atelier is a calm, personal encounter with the
+              brand — not only a presentation of the model, but an experience of
+              its scale, presence and identity.
+            </p>
+          </div>
+        </div>
 
+        {/* ==================================================
+            SCROLL INDICATOR
+           ================================================== */}
+        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
+          <a href="#experience" className="block">
+            <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
+              <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
+            </div>
+            <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/80">
+              Scroll down
+            </p>
+          </a>
+        </div>
+      </section>
+
+      {/* ====================================================
+          SECTION - WHAT YOU EXPERIENCE
+         ==================================================== */}
+      <section
+        id="experience"
+        className="scroll-mt-20 bg-black px-6 py-24 sm:px-10 lg:px-16"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-4xl">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+              Visit experience
+            </p>
+
+            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
+              A meeting with the brand
+              <br />
+              in its natural environment
+            </h2>
+
+            <p className="mt-6 max-w-3xl leading-8 text-white/68">
+              In the atelier, you can see Alaudis models in a calm, private
+              context — up close, without haste, with the opportunity to discuss
+              proportions, finishes, the purpose of the instrument and its place
+              in a specific space.
+            </p>
+          </div>
+
+          {/* ==================================================
+              EXPERIENCE CARDS
+             ================================================== */}
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+                01
+              </p>
+
+              <h3 className="mt-4 text-2xl font-light text-white">
+                See the models up close
+              </h3>
+
+              <p className="mt-5 leading-8 text-white/68">
+                Discover the scale, line and presence of the grand piano in a
+                real space. See how the model is perceived not on a screen, but
+                in physical contact with material and detail.
+              </p>
+            </div>
+
+            <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+                02
+              </p>
+
+              <h3 className="mt-4 text-2xl font-light text-white">
+                Discuss the finishes
+              </h3>
+
+              <p className="mt-5 leading-8 text-white/68">
+                Talk through the choice of finish, the character of the surface,
+                the tone of the material and the overall composition of the
+                instrument so that it harmoniously corresponds with the
+                architecture and interior.
+              </p>
+            </div>
+
+            <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+                03
+              </p>
+
+              <h3 className="mt-4 text-2xl font-light text-white">
+                Define the direction of an individual composition
+              </h3>
+
+              <p className="mt-5 leading-8 text-white/68">
+                The visit can become the beginning of a private consultation —
+                a conversation about the model, the character of the instrument,
+                its purpose, preferred scale and the complete Alaudis language.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================
+          SECTION - GALLERY
+         ==================================================== */}
+      <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            Atelier space
+          </p>
+
+          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+            The place to meet Alaudis
+          </h2>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+              <Image
+                src="/galeria-home/Salonik 1.jpg"
+                alt="Alaudis atelier - view 1"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+              <Image
+                src="/galeria-home/Salonik 2.jpg"
+                alt="Alaudis atelier - view 2"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+              <Image
+                src="/galeria-home/Konferencyjna 1.jpg"
+                alt="Alaudis atelier - view 3"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================
+          SECTION - LOCATION / VISIT
+         ==================================================== */}
+      <section className="bg-black px-6 py-24 sm:px-10 lg:px-16">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1fr]">
+          <div>
+            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+              Location
+            </p>
+
+            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+              Book a visit to the atelier
+            </h2>
+
+            <p className="mt-6 max-w-2xl leading-8 text-white/68">
+              The meeting takes the form of a private conversation. This allows
+              us to calmly discuss the models, the expected scale of the
+              instrument, premium finishes and the place of the grand piano in a
+              specific space.
+            </p>
+          </div>
+
+          <div className="rounded-[32px] border border-white/10 bg-white/[0.03] p-8 sm:p-10">
+            <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+              Atelier / SAP Renovation
+            </p>
+
+            <p className="mt-5 text-2xl font-light text-white">
+              Obozowa 18
+              <br />
+              62-800 Kalisz
+            </p>
+
+            <p className="mt-6 leading-8 text-white/68">
+              Visits are best arranged in advance, so we can prepare a calm,
+              private meeting around the Alaudis models and properly adapt the
+              conversation to your project.
+            </p>
+
+            <div className="mt-8">
               <Link
                 href="/en/kontakt"
-                className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                className="inline-flex rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Book a private consultation
               </Link>
             </div>
           </div>
         </div>
-
-        {/* ==================================================
-            HERO BOTTOM
-           ================================================== */}
-        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
-          <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
-            <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
-          </div>
-          <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/80">
-            Scroll down
-          </p>
-        </div>
       </section>
 
-      <div className="relative z-0">
-        <ScrollModelsShowcase />
-      </div>
-
       {/* ====================================================
-          COLLECTION BLOCK
+          FINAL CTA
          ==================================================== */}
-      <section className="relative z-20 bg-neutral-950">
-        <section
-          id="models"
-          className="scroll-mt-0 px-6 pb-10 pt-10 text-center sm:scroll-mt-2 sm:px-10 sm:pt-14 lg:scroll-mt-4 lg:px-16 lg:pt-16"
-        >
+      <section className="bg-neutral-950 px-6 py-24 text-center sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-4xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-            Alaudis Collection
+            Next step
           </p>
 
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[58px] lg:leading-[1.08]">
-            Three scales of presence.
-            <br />
-            One philosophy of craftsmanship.
+          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+            Start with a private conversation
           </h2>
 
-          <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-white/68 sm:text-[17px]">
-            Each Alaudis model is created as a distinct interpretation of
-            proportion, character and sound — from refined living-space
-            presence to the full scale of a concert grand piano.
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+            The best beginning for a visit to the atelier is a short contact —
+            it allows us to prepare the meeting around the right model,
+            character and direction of your individual Alaudis composition.
           </p>
-        </section>
 
-        <section className="relative z-30 grid gap-6 px-6 pb-24 sm:px-10 lg:grid-cols-3 lg:px-16">
-          <Link
-            href="/fortepiany/alaudis-178"
-            className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
-          >
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-              Model
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light">Alaudis 178</h2>
-
-            <p className="mt-5 leading-7 text-white/68">
-              A lyrical interpretation of the premium grand piano — elegant,
-              balanced, and created for interiors where detail matters as much
-              as sound.
-            </p>
-
-            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
-              Discover model
-            </p>
-          </Link>
-
-          <Link
-            href="/fortepiany/alaudis-214"
-            className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
-          >
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-              Model
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light">Alaudis 214</h2>
-
-            <p className="mt-5 leading-7 text-white/68">
-              A grand piano with deeper presence and broader projection — for
-              spaces that call for greater scale, clarity and a more concert
-              character.
-            </p>
-
-            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
-              Discover model
-            </p>
-          </Link>
-
-          <Link
-            href="/fortepiany/alaudis-275"
-            className="relative z-30 block rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:from-white/15 hover:to-white/[0.05]"
-          >
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-              Model
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light">Alaudis 275</h2>
-
-            <p className="mt-5 leading-7 text-white/68">
-              The largest Alaudis concert form — full scale of sound,
-              projection, and stage presence designed for the most demanding
-              spaces.
-            </p>
-
-            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
-              Discover model
-            </p>
-          </Link>
-        </section>
-      </section>
-
-      {/* ====================================================
-          CONTACT SECTION
-         ==================================================== */}
-      <section
-        id="contact"
-        className="bg-black px-6 py-20 text-center sm:px-10 lg:px-16"
-      >
-        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-          Private consultation
-        </p>
-
-        <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-          Let&apos;s talk about your Alaudis
-        </h2>
-
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
-          Contact us to discuss the model, finish, sound character, and the
-          individual composition of your Alaudis grand piano.
-        </p>
-
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link
-            href="/en/konfigurator"
-            className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-          >
-            Open configurator
-          </Link>
-
-          <Link
-            href="/en/kontakt"
-            className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-          >
-            Contact us
-          </Link>
+          <div className="mt-10">
+            <Link
+              href="/en/kontakt"
+              className="inline-flex rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+            >
+              Book a private consultation
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* ====================================================
-          HISTORY SECTION
+          FOOTER
          ==================================================== */}
-      <section
-        id="history"
-        className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16"
-      >
-        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-          Heritage and craftsmanship
-        </p>
-
-        <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-          The world of Alaudis
-        </h2>
-
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
-          Discover the philosophy of the brand, the process of creating the
-          instruments, and the craftsmanship that gives every Alaudis its own
-          identity.
-        </p>
-      </section>
-
       <Footer />
     </main>
   );
