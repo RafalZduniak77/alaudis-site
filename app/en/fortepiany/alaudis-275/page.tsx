@@ -1,7 +1,34 @@
 // ==========================================================
 // MODEL PAGE - ALAUDIS 275
 // ==========================================================
+// To jest osobna podstrona premium dla modelu Alaudis 275.
 // Wersja językowa: EN
+//
+// Za co odpowiada ten plik:
+// 1. pokazuje hero modelu 275
+// 2. korzysta ze wspólnego górnego paska ModelPageTopBar
+// 3. opisuje charakter brzmienia
+// 4. pokazuje przeznaczenie modelu
+// 5. pokazuje docelowe wnętrza i sceny
+// 6. pokazuje galerię zdjęć
+// 7. daje 2 główne wejścia:
+//    - do konfiguratora
+//    - do podglądu 3D
+// 8. kończy się stopką Footer
+//
+// Co tutaj najłatwiej zmieniasz:
+// - zdjęcia modelu
+// - teksty sekcji
+// - tytuł modelu
+// - opisy charakteru
+// - linki CTA
+// - aktywny język w górnym pasku
+//
+// Ważne:
+// - rozwijane menu języków nie jest kodowane tutaj ręcznie
+// - bierze się z komponentu ModelPageTopBar
+// - jeśli chcesz zmienić wygląd listy PL / EN / DE,
+//   robisz to w: components/ModelPageTopBar.tsx
 // ==========================================================
 
 import Image from "next/image";
@@ -12,9 +39,20 @@ import ModelPageTopBar from "@/components/ModelPageTopBar";
 export default function ModelAlaudis275Page() {
   return (
     <main className="min-h-screen bg-black text-white">
+      {/* ====================================================
+          WSPÓLNY GÓRNY PASEK
+          - zawsze widoczny
+          - powrót po lewej
+          - logo na środku
+          - języki po prawej
+         ==================================================== */}
       <ModelPageTopBar backHref="/en" activeLanguage="EN" />
 
+      {/* ====================================================
+          HERO MODELU
+         ==================================================== */}
       <section className="relative overflow-hidden border-b border-white/10 pt-28">
+        {/* TŁO HERO */}
         <div className="absolute inset-0">
           <Image
             src="/galeria-home/3.jpg"
@@ -26,6 +64,9 @@ export default function ModelAlaudis275Page() {
           <div className="absolute inset-0 bg-black/65" />
         </div>
 
+        {/* ==================================================
+            TREŚĆ HERO
+           ================================================== */}
         <div className="relative z-20 px-6 pb-20 pt-8 text-center">
           <div className="mx-auto max-w-5xl">
             <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/80">
@@ -38,11 +79,15 @@ export default function ModelAlaudis275Page() {
 
             <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/88 sm:text-base">
               The largest concert form of Alaudis — created for full tonal
-              scale, wide projection and stage presence. This model is made for
+              scale, wide projection and stage presence. This is a model for
               spaces where the instrument not only completes the interior, but
-              becomes its main voice and central point.
+              becomes its main voice and the central point of the entire
+              composition.
             </p>
 
+            {/* ==================================================
+                CTA HERO
+               ================================================== */}
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/en/konfigurator"
@@ -62,6 +107,9 @@ export default function ModelAlaudis275Page() {
         </div>
       </section>
 
+      {/* ====================================================
+          CHARAKTER BRZMIENIA
+         ==================================================== */}
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
@@ -76,8 +124,8 @@ export default function ModelAlaudis275Page() {
 
           <div className="space-y-6 text-white/72">
             <p className="leading-8">
-              Alaudis 275 opens the full scale of the brand’s tonal language. It
-              offers extensive projection, a deep bass foundation, a broad
+              Alaudis 275 opens the full scale of the brand’s tonal language.
+              It offers extensive projection, a deep bass foundation, a broad
               harmonic breath and stage carrying power that allows the
               instrument to fill larger spaces freely.
             </p>
@@ -92,8 +140,12 @@ export default function ModelAlaudis275Page() {
         </div>
       </section>
 
+      {/* ====================================================
+          PRZEZNACZENIE + WNĘTRZA
+         ==================================================== */}
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
+          {/* PRZEZNACZENIE */}
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Purpose
@@ -105,11 +157,12 @@ export default function ModelAlaudis275Page() {
 
             <p className="mt-5 leading-8 text-white/68">
               Created for concert halls, large representative spaces, artistic
-              institutions and the most demanding private interiors where the
+              institutions and the most demanding private interiors, where the
               piano must offer full projection and a grand stage presence.
             </p>
           </div>
 
+          {/* WNĘTRZA */}
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Target interiors and stages
@@ -122,11 +175,12 @@ export default function ModelAlaudis275Page() {
             <p className="mt-5 leading-8 text-white/68">
               It is best suited to spaces with great breath: representative
               salons, concert halls, luxury hotels and interiors where the
-              instrument is intended to have a dominant, central and highly
-              prestigious character.
+              instrument is meant to have a dominant, unmistakably central and
+              highly prestigious character.
             </p>
           </div>
 
+          {/* TOŻSAMOŚĆ */}
           <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
               Model identity
@@ -137,15 +191,18 @@ export default function ModelAlaudis275Page() {
             </h3>
 
             <p className="mt-5 leading-8 text-white/68">
-              Alaudis 275 represents the peak scale of the brand — an instrument
-              with the most developed personality, the greatest breath and the
-              most concert-like nature. This is Alaudis in its fullest,
-              monumental and stage form.
+              Alaudis 275 represents the peak scale of the brand — an
+              instrument with the most developed personality, the greatest
+              breath and the most concert-like nature. This is Alaudis in its
+              fullest, most monumental and most stage-oriented form.
             </p>
           </div>
         </div>
       </section>
 
+      {/* ====================================================
+          GALERIA
+         ==================================================== */}
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -157,6 +214,7 @@ export default function ModelAlaudis275Page() {
           </h2>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {/* ZDJĘCIE 1 */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
                 src="/galeria-home/3.jpg"
@@ -166,6 +224,7 @@ export default function ModelAlaudis275Page() {
               />
             </div>
 
+            {/* ZDJĘCIE 2 */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
                 src="/galeria-home/5.JPG"
@@ -175,6 +234,7 @@ export default function ModelAlaudis275Page() {
               />
             </div>
 
+            {/* ZDJĘCIE 3 */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
                 src="/galeria-home/2.jpg"
@@ -187,6 +247,9 @@ export default function ModelAlaudis275Page() {
         </div>
       </section>
 
+      {/* ====================================================
+          KOŃCOWE CTA
+         ==================================================== */}
       <section className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -198,9 +261,9 @@ export default function ModelAlaudis275Page() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
-            Go to the configurator to choose the finish and details, or view the
-            model in 3D and check its scale, proportions and stage presence in
-            space.
+            Go to the configurator to adapt the finish and details, or view the
+            model in 3D preview and check its scale, proportions and stage
+            presence in space.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -221,6 +284,9 @@ export default function ModelAlaudis275Page() {
         </div>
       </section>
 
+      {/* ====================================================
+          FOOTER
+         ==================================================== */}
       <Footer />
     </main>
   );
