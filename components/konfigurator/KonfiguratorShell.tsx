@@ -16,6 +16,7 @@
 // 9. przesuwa czerwoną linię pod aktywną zakładką
 // 10. łączy PreviewPanel i ConfiguratorPanel
 // 11. automatycznie zmienia język na podstawie adresu
+// 12. tłumaczy nazwy opcji w PDF i mailu
 // ==========================================================
 
 "use client";
@@ -35,18 +36,179 @@ import {
 type LanguageKey = "PL" | "EN" | "DE" | "FR";
 
 // --------------------------------------------------------
+// TŁUMACZENIA OPCJI DO PDF I MAILA
+// --------------------------------------------------------
+const optionTranslations: Record<Exclude<LanguageKey, "PL">, Record<string, string>> = {
+  EN: {
+    "Bialy poliester połysk": "White high-gloss polyester",
+    "Czarny Poliester połysk": "Black high-gloss polyester",
+    "Ferrari poliester połysk": "Ferrari high-gloss polyester",
+    "Heban polerowany": "Polished ebony",
+    "Okleina Jabłoń Indyjska -połysk": "Indian apple veneer – high gloss",
+
+    "Dno rezonansowe Strunz": "Strunz soundboard",
+    "Dno rezonansowe Chiresse": "Chiresse soundboard",
+    "Lakierowanie dna rezonansowego mat": "Matte soundboard finish",
+    "Lakierowanie dna rezonansowego połysk": "High-gloss soundboard finish",
+    "Mostki rezonansowe klon": "Maple bridges",
+    "Mostki rezonansowe buk": "Beech bridges",
+    "Kolor ramy złoty": "Gold frame colour",
+    "Kolor ramy srebrny": "Silver frame colour",
+    "Struny stalowe Roslau": "Roslau steel strings",
+    "Struny stalowe Paulelo": "Paulelo steel strings",
+    "Struny basowe Heller": "Heller bass strings",
+    "Struny basowe SAP Renovation": "SAP Renovation bass strings",
+    "Kołki stroikowe niklowane": "Nickel-plated tuning pins",
+    "Kołki stroikowe Blau": "Blau tuning pins",
+    "Kolor sukna czerwony": "Red felt colour",
+    "Kolor sukna biały": "White felt colour",
+    "Kolor sukna czarny": "Black felt colour",
+
+    "Klawiatura Alaudis SAP Renovation": "Alaudis SAP Renovation keyboard",
+    "Klawiatura Kluge": "Kluge keyboard",
+    "Mechanizm Alaudis SAP Renovation": "Alaudis SAP Renovation action",
+    "Mechanizm Renner": "Renner action",
+    "Mechanizm Abbel": "Abbel action",
+    "Młotki Alaudis": "Alaudis hammers",
+    "Młotki Renner": "Renner hammers",
+    "Młotki Abbel": "Abbel hammers",
+    "Tłumiki Alaudis": "Alaudis dampers",
+    "Tłumiki Renner": "Renner dampers",
+    "Tłumiki Abbel": "Abbel dampers",
+  },
+
+  DE: {
+    "Bialy poliester połysk": "Weißer Polyester Hochglanz",
+    "Czarny Poliester połysk": "Schwarzer Polyester Hochglanz",
+    "Ferrari poliester połysk": "Ferrari-Polyester Hochglanz",
+    "Heban polerowany": "Polierter Ebenholz",
+    "Okleina Jabłoń Indyjska -połysk": "Indisches Apfelbaumfurnier – Hochglanz",
+
+    "Dno rezonansowe Strunz": "Resonanzboden Strunz",
+    "Dno rezonansowe Chiresse": "Resonanzboden Chiresse",
+    "Lakierowanie dna rezonansowego mat": "Matt lackierter Resonanzboden",
+    "Lakierowanie dna rezonansowego połysk": "Glänzend lackierter Resonanzboden",
+    "Mostki rezonansowe klon": "Stege aus Ahorn",
+    "Mostki rezonansowe buk": "Stege aus Buche",
+    "Kolor ramy złoty": "Rahmenfarbe Gold",
+    "Kolor ramy srebrny": "Rahmenfarbe Silber",
+    "Struny stalowe Roslau": "Stahlsaiten Roslau",
+    "Struny stalowe Paulelo": "Stahlsaiten Paulelo",
+    "Struny basowe Heller": "Basssaiten Heller",
+    "Struny basowe SAP Renovation": "Basssaiten SAP Renovation",
+    "Kołki stroikowe niklowane": "Vernickelte Stimmwirbel",
+    "Kołki stroikowe Blau": "Stimmwirbel Blau",
+    "Kolor sukna czerwony": "Filzfarbe Rot",
+    "Kolor sukna biały": "Filzfarbe Weiß",
+    "Kolor sukna czarny": "Filzfarbe Schwarz",
+
+    "Klawiatura Alaudis SAP Renovation": "Klaviatur Alaudis SAP Renovation",
+    "Klawiatura Kluge": "Klaviatur Kluge",
+    "Mechanizm Alaudis SAP Renovation": "Mechanik Alaudis SAP Renovation",
+    "Mechanizm Renner": "Mechanik Renner",
+    "Mechanizm Abbel": "Mechanik Abbel",
+    "Młotki Alaudis": "Hammerköpfe Alaudis",
+    "Młotki Renner": "Hammerköpfe Renner",
+    "Młotki Abbel": "Hammerköpfe Abbel",
+    "Tłumiki Alaudis": "Dämpfer Alaudis",
+    "Tłumiki Renner": "Dämpfer Renner",
+    "Tłumiki Abbel": "Dämpfer Abbel",
+  },
+
+  FR: {
+    "Bialy poliester połysk": "Polyester blanc brillant",
+    "Czarny Poliester połysk": "Polyester noir brillant",
+    "Ferrari poliester połysk": "Polyester Ferrari brillant",
+    "Heban polerowany": "Ébène poli",
+    "Okleina Jabłoń Indyjska -połysk": "Placage pommier indien – brillant",
+
+    "Dno rezonansowe Strunz": "Table d’harmonie Strunz",
+    "Dno rezonansowe Chiresse": "Table d’harmonie Chiresse",
+    "Lakierowanie dna rezonansowego mat": "Finition mate de la table d’harmonie",
+    "Lakierowanie dna rezonansowego połysk": "Finition brillante de la table d’harmonie",
+    "Mostki rezonansowe klon": "Chevalets en érable",
+    "Mostki rezonansowe buk": "Chevalets en hêtre",
+    "Kolor ramy złoty": "Couleur du cadre dorée",
+    "Kolor ramy srebrny": "Couleur du cadre argentée",
+    "Struny stalowe Roslau": "Cordes acier Roslau",
+    "Struny stalowe Paulelo": "Cordes acier Paulelo",
+    "Struny basowe Heller": "Cordes basses Heller",
+    "Struny basowe SAP Renovation": "Cordes basses SAP Renovation",
+    "Kołki stroikowe niklowane": "Chevilles nickelées",
+    "Kołki stroikowe Blau": "Chevilles Blau",
+    "Kolor sukna czerwony": "Couleur du feutre rouge",
+    "Kolor sukna biały": "Couleur du feutre blanche",
+    "Kolor sukna czarny": "Couleur du feutre noire",
+
+    "Klawiatura Alaudis SAP Renovation": "Clavier Alaudis SAP Renovation",
+    "Klawiatura Kluge": "Clavier Kluge",
+    "Mechanizm Alaudis SAP Renovation": "Mécanique Alaudis SAP Renovation",
+    "Mechanizm Renner": "Mécanique Renner",
+    "Mechanizm Abbel": "Mécanique Abbel",
+    "Młotki Alaudis": "Marteaux Alaudis",
+    "Młotki Renner": "Marteaux Renner",
+    "Młotki Abbel": "Marteaux Abbel",
+    "Tłumiki Alaudis": "Étouffoirs Alaudis",
+    "Tłumiki Renner": "Étouffoirs Renner",
+    "Tłumiki Abbel": "Étouffoirs Abbel",
+  },
+};
+
+// --------------------------------------------------------
+// TŁUMACZENIE POJEDYNCZEJ OPCJI
+// --------------------------------------------------------
+function translateOption(value: string, language: LanguageKey) {
+  if (!value) return "";
+
+  if (language === "PL") {
+    return value;
+  }
+
+  return optionTranslations[language]?.[value] || value;
+}
+
+// --------------------------------------------------------
+// TŁUMACZENIE LISTY OPCJI
+// --------------------------------------------------------
+function getTranslatedValues(
+  values: Record<string, string>,
+  language: LanguageKey
+) {
+  return Object.values(values)
+    .map((item) => translateOption(item, language))
+    .filter(Boolean);
+}
+
+// --------------------------------------------------------
+// FORMAT LISTY DO MAILA
+// --------------------------------------------------------
+function formatMailList(values: Record<string, string>, language: LanguageKey) {
+  const translatedValues = getTranslatedValues(values, language);
+
+  if (translatedValues.length === 0) {
+    return "—";
+  }
+
+  return translatedValues.map((item) => `- ${item}`).join("\n");
+}
+
+// --------------------------------------------------------
 // ROZPOZNAWANIE JĘZYKA
 // --------------------------------------------------------
+// Teraz rozpoznaje cały prefiks języka,
+// czyli działa dla /en/..., /de/..., /fr/...
 function getLanguageFromPathname(pathname: string): LanguageKey {
-  if (pathname === "/en/konfigurator" || pathname.startsWith("/en/konfigurator")) {
+  const path = pathname.toLowerCase();
+
+  if (path === "/en" || path.startsWith("/en/")) {
     return "EN";
   }
 
-  if (pathname === "/de/konfigurator" || pathname.startsWith("/de/konfigurator")) {
+  if (path === "/de" || path.startsWith("/de/")) {
     return "DE";
   }
 
-  if (pathname === "/fr/konfigurator" || pathname.startsWith("/fr/konfigurator")) {
+  if (path === "/fr" || path.startsWith("/fr/")) {
     return "FR";
   }
 
@@ -71,13 +233,13 @@ function getLabels(language: LanguageKey) {
       composeText: (offerTitle: string, selected: SelectedState) => `
 Alaudis configuration: ${offerTitle}
 
-Cabinet: ${selected.obudowa}
+Cabinet: ${translateOption(selected.obudowa, language) || "—"}
 
 Acoustics:
-${Object.values(selected.akustyka).join(", ")}
+${formatMailList(selected.akustyka, language)}
 
 Action:
-${Object.values(selected.mechanizm).join(", ")}
+${formatMailList(selected.mechanizm, language)}
 `,
     };
   }
@@ -96,13 +258,13 @@ ${Object.values(selected.mechanizm).join(", ")}
       composeText: (offerTitle: string, selected: SelectedState) => `
 Alaudis Konfiguration: ${offerTitle}
 
-Gehäuse: ${selected.obudowa}
+Gehäuse: ${translateOption(selected.obudowa, language) || "—"}
 
 Akustik:
-${Object.values(selected.akustyka).join(", ")}
+${formatMailList(selected.akustyka, language)}
 
 Mechanik:
-${Object.values(selected.mechanizm).join(", ")}
+${formatMailList(selected.mechanizm, language)}
 `,
     };
   }
@@ -121,13 +283,13 @@ ${Object.values(selected.mechanizm).join(", ")}
       composeText: (offerTitle: string, selected: SelectedState) => `
 Configuration Alaudis : ${offerTitle}
 
-Caisse : ${selected.obudowa}
+Caisse : ${translateOption(selected.obudowa, language) || "—"}
 
 Acoustique :
-${Object.values(selected.akustyka).join(", ")}
+${formatMailList(selected.akustyka, language)}
 
 Mécanique :
-${Object.values(selected.mechanizm).join(", ")}
+${formatMailList(selected.mechanizm, language)}
 `,
     };
   }
@@ -145,13 +307,13 @@ ${Object.values(selected.mechanizm).join(", ")}
     composeText: (offerTitle: string, selected: SelectedState) => `
 Alaudis konfiguracja: ${offerTitle}
 
-Obudowa: ${selected.obudowa}
+Obudowa: ${selected.obudowa || "—"}
 
 Akustyka:
-${Object.values(selected.akustyka).join(", ")}
+${formatMailList(selected.akustyka, language)}
 
 Mechanizm:
-${Object.values(selected.mechanizm).join(", ")}
+${formatMailList(selected.mechanizm, language)}
 `,
   };
 }
@@ -315,16 +477,6 @@ export default function KonfiguratorShell() {
   // --------------------------------------------------------
   // EXPORT PDF
   // --------------------------------------------------------
-  // PDF generujemy jako obraz z canvas.
-  // Dzięki temu polskie znaki działają poprawnie:
-  // ł, ą, ę, ó, ś, ć, ń, ż, ź.
-  //
-  // Dodatkowo PDF wygląda bardziej premium:
-  // - czarny nagłówek
-  // - złoty napis ALAUDIS
-  // - zielony znacznik konfiguracji
-  // - sekcje z liniami i punktami
-  // --------------------------------------------------------
   const handlePDF = async () => {
     const { jsPDF } = await import("jspdf");
 
@@ -335,8 +487,6 @@ export default function KonfiguratorShell() {
     });
 
     const canvas = document.createElement("canvas");
-
-    // Format A4 w wysokiej rozdzielczości
     canvas.width = 1240;
     canvas.height = 1754;
 
@@ -349,15 +499,10 @@ export default function KonfiguratorShell() {
     const safeText = (value: unknown) => String(value ?? "").trim();
 
     const title = safeText(offerTitle || labels.configTitleFallback);
-    const cabinet = safeText(selected.obudowa) || "—";
+    const cabinet = translateOption(safeText(selected.obudowa), language) || "—";
 
-    const acoustics = Object.values(selected.akustyka)
-      .map((item) => safeText(item))
-      .filter(Boolean);
-
-    const mechanism = Object.values(selected.mechanizm)
-      .map((item) => safeText(item))
-      .filter(Boolean);
+    const acoustics = getTranslatedValues(selected.akustyka, language);
+    const mechanism = getTranslatedValues(selected.mechanizm, language);
 
     const localeMap: Record<LanguageKey, string> = {
       PL: "pl-PL",
@@ -369,9 +514,6 @@ export default function KonfiguratorShell() {
     const currentLocale = localeMap[language] || "pl-PL";
     const date = new Intl.DateTimeFormat(currentLocale).format(new Date());
 
-    // ------------------------------------------------------
-    // FUNKCJA: ZAWIJANIE TEKSTU
-    // ------------------------------------------------------
     const drawWrappedText = (
       text: string,
       x: number,
@@ -403,9 +545,6 @@ export default function KonfiguratorShell() {
       return y + lineHeight;
     };
 
-    // ------------------------------------------------------
-    // FUNKCJA: TYTUŁ SEKCJI
-    // ------------------------------------------------------
     const drawSectionTitle = (text: string, y: number) => {
       ctx.fillStyle = "#1e7f43";
       ctx.fillRect(70, y - 34, 10, 44);
@@ -424,9 +563,6 @@ export default function KonfiguratorShell() {
       return y + 70;
     };
 
-    // ------------------------------------------------------
-    // FUNKCJA: POZYCJA Z LISTY
-    // ------------------------------------------------------
     const drawBullet = (text: string, y: number) => {
       ctx.fillStyle = "#1e7f43";
       ctx.beginPath();
@@ -440,15 +576,9 @@ export default function KonfiguratorShell() {
       return nextY + 6;
     };
 
-    // ------------------------------------------------------
-    // TŁO
-    // ------------------------------------------------------
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, pageWidth, pageHeight);
 
-    // ------------------------------------------------------
-    // GÓRNY PASEK PREMIUM
-    // ------------------------------------------------------
     ctx.fillStyle = "#080808";
     ctx.fillRect(0, 0, pageWidth, 190);
 
@@ -467,9 +597,6 @@ export default function KonfiguratorShell() {
     ctx.font = "700 22px Arial, Helvetica, sans-serif";
     ctx.fillText(labels.pdfBadge, pageWidth - 340, 99);
 
-    // ------------------------------------------------------
-    // TYTUŁ DOKUMENTU
-    // ------------------------------------------------------
     let y = 270;
 
     ctx.fillStyle = "#111111";
@@ -482,9 +609,6 @@ export default function KonfiguratorShell() {
 
     y += 90;
 
-    // ------------------------------------------------------
-    // OBUDOWA
-    // ------------------------------------------------------
     y = drawSectionTitle(labels.cabinet, y);
 
     ctx.fillStyle = "#f7f7f7";
@@ -500,9 +624,6 @@ export default function KonfiguratorShell() {
 
     y += 130;
 
-    // ------------------------------------------------------
-    // AKUSTYKA
-    // ------------------------------------------------------
     y = drawSectionTitle(labels.acoustics, y);
 
     if (acoustics.length > 0) {
@@ -515,9 +636,6 @@ export default function KonfiguratorShell() {
 
     y += 45;
 
-    // ------------------------------------------------------
-    // MECHANIZM
-    // ------------------------------------------------------
     y = drawSectionTitle(labels.action, y);
 
     if (mechanism.length > 0) {
@@ -528,9 +646,6 @@ export default function KonfiguratorShell() {
       y = drawBullet("—", y);
     }
 
-    // ------------------------------------------------------
-    // STOPKA
-    // ------------------------------------------------------
     ctx.strokeStyle = "#e3e3e3";
     ctx.lineWidth = 2;
     ctx.beginPath();
@@ -546,9 +661,6 @@ export default function KonfiguratorShell() {
     ctx.font = "700 22px Arial, Helvetica, sans-serif";
     ctx.fillText("Alaudis Atelier", pageWidth - 250, pageHeight - 75);
 
-    // ------------------------------------------------------
-    // ZAPIS PDF
-    // ------------------------------------------------------
     const imageData = canvas.toDataURL("image/jpeg", 0.96);
     doc.addImage(imageData, "JPEG", 0, 0, 210, 297);
 
