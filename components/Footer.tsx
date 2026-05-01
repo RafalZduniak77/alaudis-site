@@ -1,19 +1,63 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 // ==========================================================
 // FOOTER - ALAUDIS
 // ==========================================================
 // Co zawiera ta wersja:
 // 1. kolumna ALAUDIS
-// 2. dodany link: Facebook Alaudis
+// 2. link Facebook Alaudis
 // 3. kolumny MODELS / CONFIGURATOR / COMPANY
-// 4. styl zgodny z obecną stroną
+// 4. automatyczne rozpoznawanie języka z adresu
+// 5. linki w footerze nie wracają już do polskiej wersji
 // ==========================================================
 
 const FACEBOOK_ALAUDIS_URL =
   "https://www.facebook.com/profile.php?id=61579105662197&locale=pl_PL";
 
+// ----------------------------------------------------------
+// ROZPOZNAWANIE PREFIKSU JĘZYKA
+// ----------------------------------------------------------
+// Przykłady:
+// /fr/fortepiany/alaudis-178 -> /fr
+// /en/fortepiany/alaudis-178 -> /en
+// /de/fortepiany/alaudis-178 -> /de
+// /fortepiany/alaudis-178    -> ""
+// ----------------------------------------------------------
+function getLanguagePrefix(pathname: string) {
+  if (pathname === "/en" || pathname.startsWith("/en/")) {
+    return "/en";
+  }
+
+  if (pathname === "/de" || pathname.startsWith("/de/")) {
+    return "/de";
+  }
+
+  if (pathname === "/fr" || pathname.startsWith("/fr/")) {
+    return "/fr";
+  }
+
+  return "";
+}
+
 export default function Footer() {
+  const pathname = usePathname() || "/";
+  const langPrefix = getLanguagePrefix(pathname);
+
+  // --------------------------------------------------------
+  // LINKI WEWNĘTRZNE Z PREFIXEM JĘZYKA
+  // --------------------------------------------------------
+  const model178Url = `${langPrefix}/fortepiany/alaudis-178`;
+  const model214Url = `${langPrefix}/fortepiany/alaudis-214`;
+  const model275Url = `${langPrefix}/fortepiany/alaudis-275`;
+
+  const configuratorUrl = `${langPrefix}/konfigurator`;
+  const aboutUrl = `${langPrefix}/historia`;
+  const factoryUrl = `${langPrefix}/historia`;
+  const contactUrl = `${langPrefix}/kontakt`;
+
   return (
     <footer className="border-t border-white/6 bg-black px-6 py-16 sm:px-10 lg:px-16">
       {/* ====================================================
@@ -49,24 +93,15 @@ export default function Footer() {
           </p>
 
           <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/88">
-            <Link
-              href="/fortepiany/alaudis-178"
-              className="transition hover:text-white/68"
-            >
+            <Link href={model178Url} className="transition hover:text-white/68">
               Alaudis 178
             </Link>
 
-            <Link
-              href="/fortepiany/alaudis-214"
-              className="transition hover:text-white/68"
-            >
+            <Link href={model214Url} className="transition hover:text-white/68">
               Alaudis 214
             </Link>
 
-            <Link
-              href="/fortepiany/alaudis-275"
-              className="transition hover:text-white/68"
-            >
+            <Link href={model275Url} className="transition hover:text-white/68">
               Alaudis 275
             </Link>
           </div>
@@ -82,21 +117,21 @@ export default function Footer() {
 
           <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/88">
             <Link
-              href="/konfigurator"
+              href={configuratorUrl}
               className="transition hover:text-white/68"
             >
               Choose finish
             </Link>
 
             <Link
-              href="/konfigurator"
+              href={configuratorUrl}
               className="transition hover:text-white/68"
             >
               Choose color
             </Link>
 
             <Link
-              href="/konfigurator"
+              href={configuratorUrl}
               className="transition hover:text-white/68"
             >
               Accessories
@@ -113,15 +148,15 @@ export default function Footer() {
           </p>
 
           <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/88">
-            <Link href="/historia" className="transition hover:text-white/68">
+            <Link href={aboutUrl} className="transition hover:text-white/68">
               About
             </Link>
 
-            <Link href="/historia" className="transition hover:text-white/68">
+            <Link href={factoryUrl} className="transition hover:text-white/68">
               Factory
             </Link>
 
-            <Link href="/kontakt" className="transition hover:text-white/68">
+            <Link href={contactUrl} className="transition hover:text-white/68">
               Contact
             </Link>
           </div>
@@ -139,4 +174,3 @@ export default function Footer() {
     </footer>
   );
 }
-
