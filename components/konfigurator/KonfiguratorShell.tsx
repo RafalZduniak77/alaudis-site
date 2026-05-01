@@ -65,6 +65,8 @@ function getLabels(language: LanguageKey) {
       acoustics: "Acoustics",
       action: "Action",
       pdfFileName: "alaudis",
+      pdfBadge: "CONFIGURATION",
+      exportDate: "Export date",
       mailSubjectFallback: "Alaudis configuration",
       composeText: (offerTitle: string, selected: SelectedState) => `
 Alaudis configuration: ${offerTitle}
@@ -88,6 +90,8 @@ ${Object.values(selected.mechanizm).join(", ")}
       acoustics: "Akustik",
       action: "Mechanik",
       pdfFileName: "alaudis",
+      pdfBadge: "KONFIGURATION",
+      exportDate: "Exportdatum",
       mailSubjectFallback: "Alaudis Konfiguration",
       composeText: (offerTitle: string, selected: SelectedState) => `
 Alaudis Konfiguration: ${offerTitle}
@@ -111,6 +115,8 @@ ${Object.values(selected.mechanizm).join(", ")}
       acoustics: "Acoustique",
       action: "Mécanique",
       pdfFileName: "alaudis",
+      pdfBadge: "CONFIGURATION",
+      exportDate: "Date d’export",
       mailSubjectFallback: "Configuration Alaudis",
       composeText: (offerTitle: string, selected: SelectedState) => `
 Configuration Alaudis : ${offerTitle}
@@ -133,6 +139,8 @@ ${Object.values(selected.mechanizm).join(", ")}
     acoustics: "Akustyka",
     action: "Mechanizm",
     pdfFileName: "alaudis",
+    pdfBadge: "KONFIGURACJA",
+    exportDate: "Data eksportu",
     mailSubjectFallback: "Alaudis konfiguracja",
     composeText: (offerTitle: string, selected: SelectedState) => `
 Alaudis konfiguracja: ${offerTitle}
@@ -238,7 +246,7 @@ export default function KonfiguratorShell() {
   }, []);
 
   // --------------------------------------------------------
-  // PRZESUWANIE LINI POD AKTYWNĄ ZAKŁADKĄ
+  // PRZESUWANIE LINII POD AKTYWNĄ ZAKŁADKĄ
   // --------------------------------------------------------
   useEffect(() => {
     const el = tabRefs[activeTab].current;
@@ -307,36 +315,249 @@ export default function KonfiguratorShell() {
   // --------------------------------------------------------
   // EXPORT PDF
   // --------------------------------------------------------
+  // PDF generujemy jako obraz z canvas.
+  // Dzięki temu polskie znaki działają poprawnie:
+  // ł, ą, ę, ó, ś, ć, ń, ż, ź.
+  //
+  // Dodatkowo PDF wygląda bardziej premium:
+  // - czarny nagłówek
+  // - złoty napis ALAUDIS
+  // - zielony znacznik konfiguracji
+  // - sekcje z liniami i punktami
+  // --------------------------------------------------------
   const handlePDF = async () => {
     const { jsPDF } = await import("jspdf");
-    const doc = new jsPDF();
 
-    doc.text(offerTitle || labels.configTitleFallback, 10, 15);
-
-    let y = 30;
-
-    doc.text(`${labels.cabinet}: ${selected.obudowa}`, 10, y);
-    y += 10;
-
-    doc.text(`${labels.acoustics}:`, 10, y);
-    y += 8;
-
-    Object.values(selected.akustyka).forEach((i) => {
-      doc.text(`- ${i}`, 12, y);
-      y += 6;
+    const doc = new jsPDF({
+      orientation: "portrait",
+      unit: "mm",
+      format: "a4",
     });
 
-    y += 6;
+    const canvas = document.createElement("canvas");
 
-    doc.text(`${labels.action}:`, 10, y);
-    y += 8;
+    // Format A4 w wysokiej rozdzielczości
+    canvas.width = 1240;
+    canvas.height = 1754;
 
-    Object.values(selected.mechanizm).forEach((i) => {
-      doc.text(`- ${i}`, 12, y);
-      y += 6;
-    });
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-    doc.save(`${offerTitle || labels.pdfFileName}.pdf`);
+    const pageWidth = canvas.width;
+    const pageHeight = canvas.height;
+
+    const safeText = (value: unknown) => String(value ?? "").trim();
+
+    const title = safeText(offerTitle || labels.configTitleFallback);
+    const cabinet = safeText(selected.obudowa) || "—";
+
+    const acoustics = Object.values(selected.akustyka)
+      .map((item) => safeText(item))
+      .filter(Boolean);
+
+    const mechanism = Object.values(selected.mechanizm)
+      .map((item) => safeText(item))
+      .filter(Boolean);
+
+    const localeMap: Record<LanguageKey, string> = {
+      PL: "pl-PL",
+      EN: "en-GB",
+      DE: "de-DE",
+      FR: "fr-FR",
+    };
+
+    const currentLocale = localeMap[language] || "pl-PL";
+    const date = new Intl.DateTimeFormat(currentLocale).format(new Date());
+
+    // ------------------------------------------------------
+    // FUNKCJA: ZAWIJANIE TEKSTU
+    // ------------------------------------------------------
+    const drawWrappedText = (
+      text: string,
+      x: number,
+      startY: number,
+      maxWidth: number,
+      lineHeight: number
+    ) => {
+      const words = text.split(" ");
+      let line = "";
+      let y = startY;
+
+      words.forEach((word) => {
+        const testLine = line ? `${line} ${word}` : word;
+        const width = ctx.measureText(testLine).width;
+
+        if (width > maxWidth && line) {
+          ctx.fillText(line, x, y);
+          line = word;
+          y += lineHeight;
+        } else {
+          line = testLine;
+        }
+      });
+
+      if (line) {
+        ctx.fillText(line, x, y);
+      }
+
+      return y + lineHeight;
+    };
+
+    // ------------------------------------------------------
+    // FUNKCJA: TYTUŁ SEKCJI
+    // ------------------------------------------------------
+    const drawSectionTitle = (text: string, y: number) => {
+      ctx.fillStyle = "#1e7f43";
+      ctx.fillRect(70, y - 34, 10, 44);
+
+      ctx.fillStyle = "#111111";
+      ctx.font = "700 34px Arial, Helvetica, sans-serif";
+      ctx.fillText(text, 95, y);
+
+      ctx.strokeStyle = "#e3e3e3";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(70, y + 22);
+      ctx.lineTo(pageWidth - 70, y + 22);
+      ctx.stroke();
+
+      return y + 70;
+    };
+
+    // ------------------------------------------------------
+    // FUNKCJA: POZYCJA Z LISTY
+    // ------------------------------------------------------
+    const drawBullet = (text: string, y: number) => {
+      ctx.fillStyle = "#1e7f43";
+      ctx.beginPath();
+      ctx.arc(92, y - 9, 6, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = "#222222";
+      ctx.font = "400 30px Arial, Helvetica, sans-serif";
+
+      const nextY = drawWrappedText(text, 120, y, pageWidth - 190, 40);
+      return nextY + 6;
+    };
+
+    // ------------------------------------------------------
+    // TŁO
+    // ------------------------------------------------------
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, pageWidth, pageHeight);
+
+    // ------------------------------------------------------
+    // GÓRNY PASEK PREMIUM
+    // ------------------------------------------------------
+    ctx.fillStyle = "#080808";
+    ctx.fillRect(0, 0, pageWidth, 190);
+
+    ctx.fillStyle = "#c8a45d";
+    ctx.font = "700 54px Arial, Helvetica, sans-serif";
+    ctx.fillText("ALAUDIS", 70, 92);
+
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "400 24px Arial, Helvetica, sans-serif";
+    ctx.fillText("Polish Grand Piano", 72, 130);
+
+    ctx.fillStyle = "#1e7f43";
+    ctx.fillRect(pageWidth - 390, 62, 320, 58);
+
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "700 22px Arial, Helvetica, sans-serif";
+    ctx.fillText(labels.pdfBadge, pageWidth - 340, 99);
+
+    // ------------------------------------------------------
+    // TYTUŁ DOKUMENTU
+    // ------------------------------------------------------
+    let y = 270;
+
+    ctx.fillStyle = "#111111";
+    ctx.font = "700 44px Arial, Helvetica, sans-serif";
+    y = drawWrappedText(title, 70, y, pageWidth - 140, 56);
+
+    ctx.fillStyle = "#777777";
+    ctx.font = "400 24px Arial, Helvetica, sans-serif";
+    ctx.fillText(`${labels.exportDate}: ${date}`, 70, y + 10);
+
+    y += 90;
+
+    // ------------------------------------------------------
+    // OBUDOWA
+    // ------------------------------------------------------
+    y = drawSectionTitle(labels.cabinet, y);
+
+    ctx.fillStyle = "#f7f7f7";
+    ctx.fillRect(70, y - 25, pageWidth - 140, 90);
+
+    ctx.strokeStyle = "#e5e5e5";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(70, y - 25, pageWidth - 140, 90);
+
+    ctx.fillStyle = "#222222";
+    ctx.font = "700 30px Arial, Helvetica, sans-serif";
+    drawWrappedText(cabinet, 100, y + 28, pageWidth - 200, 38);
+
+    y += 130;
+
+    // ------------------------------------------------------
+    // AKUSTYKA
+    // ------------------------------------------------------
+    y = drawSectionTitle(labels.acoustics, y);
+
+    if (acoustics.length > 0) {
+      acoustics.forEach((item) => {
+        y = drawBullet(item, y);
+      });
+    } else {
+      y = drawBullet("—", y);
+    }
+
+    y += 45;
+
+    // ------------------------------------------------------
+    // MECHANIZM
+    // ------------------------------------------------------
+    y = drawSectionTitle(labels.action, y);
+
+    if (mechanism.length > 0) {
+      mechanism.forEach((item) => {
+        y = drawBullet(item, y);
+      });
+    } else {
+      y = drawBullet("—", y);
+    }
+
+    // ------------------------------------------------------
+    // STOPKA
+    // ------------------------------------------------------
+    ctx.strokeStyle = "#e3e3e3";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(70, pageHeight - 120);
+    ctx.lineTo(pageWidth - 70, pageHeight - 120);
+    ctx.stroke();
+
+    ctx.fillStyle = "#777777";
+    ctx.font = "400 22px Arial, Helvetica, sans-serif";
+    ctx.fillText("alaudis.eu", 70, pageHeight - 75);
+
+    ctx.fillStyle = "#1e7f43";
+    ctx.font = "700 22px Arial, Helvetica, sans-serif";
+    ctx.fillText("Alaudis Atelier", pageWidth - 250, pageHeight - 75);
+
+    // ------------------------------------------------------
+    // ZAPIS PDF
+    // ------------------------------------------------------
+    const imageData = canvas.toDataURL("image/jpeg", 0.96);
+    doc.addImage(imageData, "JPEG", 0, 0, 210, 297);
+
+    const fileName =
+      safeText(offerTitle || labels.pdfFileName)
+        .replace(/[\\/:*?"<>|]+/g, "-")
+        .trim() || "alaudis";
+
+    doc.save(`${fileName}.pdf`);
   };
 
   // --------------------------------------------------------
