@@ -1,28 +1,45 @@
 // ==========================================================
 // ALAUDIS AR PREVIEW
 // ==========================================================
+// To jest główny komponent modułu 3D / AR.
+//
+// Za co odpowiada ten plik:
+// 1. rozpoznaje język z adresu
+// 2. rozpoznaje model z adresu:
+//    - ?model=178
+//    - ?model=214
+//    - ?model=275
+// 3. pokazuje warianty wykończenia dla danego modelu
+// 4. obsługuje wgrywanie zdjęcia / video salonu
+// 5. przekazuje dane do sceny AlaudisARScene
+// 6. pokazuje karty informacyjne dla aktualnego modelu
+// ==========================================================
 
 "use client";
 
-import { useMemo, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import AlaudisARScene from "./AlaudisARScene";
 import {
+  getAlaudisModelName,
   getInfoCards,
   getModelOptions,
+  normalizeAlaudisModel,
   type LanguageKey,
 } from "./alaudisArConfig";
 
 function getLanguageFromPathname(pathname: string): LanguageKey {
-  if (pathname === "/en/odkryj-modele" || pathname.startsWith("/en/odkryj-modele")) {
+  const path = pathname.toLowerCase();
+
+  if (path === "/en" || path.startsWith("/en/")) {
     return "EN";
   }
 
-  if (pathname === "/de/odkryj-modele" || pathname.startsWith("/de/odkryj-modele")) {
+  if (path === "/de" || path.startsWith("/de/")) {
     return "DE";
   }
 
-  if (pathname === "/fr/odkryj-modele" || pathname.startsWith("/fr/odkryj-modele")) {
+  if (path === "/fr" || path.startsWith("/fr/")) {
     return "FR";
   }
 
@@ -32,6 +49,7 @@ function getLanguageFromPathname(pathname: string): LanguageKey {
 function getLabels(language: LanguageKey) {
   if (language === "EN") {
     return {
+      modelLabel: "Model",
       uploadRoomImage: "Upload room image",
       uploadRoomVideo: "Upload room video",
       removeBackground: "Remove background",
@@ -40,6 +58,7 @@ function getLabels(language: LanguageKey) {
 
   if (language === "DE") {
     return {
+      modelLabel: "Modell",
       uploadRoomImage: "Wohnraumbild hochladen",
       uploadRoomVideo: "Wohnraumvideo hochladen",
       removeBackground: "Hintergrund entfernen",
@@ -48,6 +67,7 @@ function getLabels(language: LanguageKey) {
 
   if (language === "FR") {
     return {
+      modelLabel: "Modèle",
       uploadRoomImage: "Télécharger une image de l’intérieur",
       uploadRoomVideo: "Télécharger une vidéo de l’intérieur",
       removeBackground: "Supprimer l’arrière-plan",
@@ -55,6 +75,7 @@ function getLabels(language: LanguageKey) {
   }
 
   return {
+    modelLabel: "Model",
     uploadRoomImage: "Wgraj zdjęcie salonu",
     uploadRoomVideo: "Wgraj video salonu",
     removeBackground: "Usuń tło",
@@ -63,10 +84,22 @@ function getLabels(language: LanguageKey) {
 
 export default function AlaudisARPreview() {
   const pathname = usePathname() || "/";
-  const language = getLanguageFromPathname(pathname);
+  const searchParams = useSearchParams();
 
-  const MODEL_OPTIONS = useMemo(() => getModelOptions(language), [language]);
-  const INFO_CARDS = useMemo(() => getInfoCards(language), [language]);
+  const language = getLanguageFromPathname(pathname);
+  const alaudisModel = normalizeAlaudisModel(searchParams.get("model"));
+  const modelName = getAlaudisModelName(alaudisModel);
+
+  const MODEL_OPTIONS = useMemo(
+    () => getModelOptions(language, alaudisModel),
+    [language, alaudisModel]
+  );
+
+  const INFO_CARDS = useMemo(
+    () => getInfoCards(language, modelName),
+    [language, modelName]
+  );
+
   const labels = useMemo(() => getLabels(language), [language]);
 
   const [roomImage, setRoomImage] = useState<string | null>(null);
@@ -76,6 +109,13 @@ export default function AlaudisARPreview() {
 
   const imageInputRef = useRef<HTMLInputElement | null>(null);
   const videoInputRef = useRef<HTMLInputElement | null>(null);
+
+  // --------------------------------------------------------
+  // RESET WYBRANEGO WARIANTU PO ZMIANIE MODELU
+  // --------------------------------------------------------
+  useEffect(() => {
+    setSelectedModelId(MODEL_OPTIONS[0].id);
+  }, [MODEL_OPTIONS]);
 
   const selectedModel =
     MODEL_OPTIONS.find((option) => option.id === selectedModelId) ??
@@ -117,6 +157,11 @@ export default function AlaudisARPreview() {
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-8 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
           <div className="flex flex-wrap items-center gap-3">
+            <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/70">
+              {labels.modelLabel}:{" "}
+              <span className="text-[#e6c08c]">{modelName}</span>
+            </div>
+
             <div className="relative">
               <select
                 value={selectedModelId}
@@ -187,7 +232,7 @@ export default function AlaudisARPreview() {
 
         <AlaudisARScene
           modelFile={selectedModel.file}
-          modelLabel={selectedModel.label}
+          modelLabel={`${modelName} ${selectedModel.label}`}
           roomImage={roomImage}
           roomVideo={roomVideo}
           modelOptions={MODEL_OPTIONS}

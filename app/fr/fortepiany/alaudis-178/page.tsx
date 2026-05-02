@@ -100,7 +100,7 @@ export default function ModelAlaudis178Page() {
               </Link>
 
               <Link
-                href="/fr/odkryj-modele"
+                href="/fr/odkryj-modele?model=178"
                 className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Voir en 3D
@@ -254,7 +254,7 @@ export default function ModelAlaudis178Page() {
             </Link>
 
             <Link
-              href="/fr/odkryj-modele"
+              href="/fr/odkryj-modele?model=178"
               className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
             >
               Voir en 3D

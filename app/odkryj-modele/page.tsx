@@ -1,30 +1,8 @@
 // ==========================================================
 // ODKRYJ MODELE PAGE - ALAUDIS
 // ==========================================================
-// To jest główny plik strony "Odkryj modele".
-//
-// Za co odpowiada ten plik:
-// 1. buduje całą stronę odkrywania modeli
-// 2. korzysta ze wspólnego górnego paska ModelPageTopBar
-// 3. pokazuje hero z tłem i nagłówkiem strony
-// 4. pokazuje opis sekcji 3D / AR
-// 5. osadza moduł AlaudisARPreview
-// 6. dodaje Footer na końcu strony
-//
-// Co tutaj najłatwiej zmieniasz:
-// - zdjęcie hero w tle
-// - tytuł strony
-// - opis pod tytułem
-// - link przycisku Powrót
-// - aktywny język w górnym pasku
-// - odstępy sekcji
-//
-// Najważniejsze importy:
-// - ModelPageTopBar  -> wspólny górny pasek
-// - AlaudisARPreview -> moduł 3D / AR
-// - Footer           -> stopka strony
-// ==========================================================
 
+import { Suspense } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import AlaudisARPreview from "@/components/AlaudisARPreview";
@@ -33,20 +11,9 @@ import ModelPageTopBar from "@/components/ModelPageTopBar";
 export default function OdkryjModelePage() {
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* ====================================================
-          WSPÓLNY GÓRNY PASEK
-          - zawsze widoczny
-          - powrót po lewej
-          - logo na środku
-          - języki po prawej
-         ==================================================== */}
       <ModelPageTopBar backHref="/" activeLanguage="PL" />
 
-      {/* ====================================================
-          HERO STRONY
-         ==================================================== */}
       <section className="relative overflow-hidden border-b border-white/10 pt-28">
-        {/* TŁO HERO */}
         <div className="absolute inset-0">
           <Image
             src="/hero.jpg"
@@ -58,9 +25,6 @@ export default function OdkryjModelePage() {
           <div className="absolute inset-0 bg-black/70" />
         </div>
 
-        {/* ==================================================
-            TREŚĆ HERO
-           ================================================== */}
         <div className="relative z-20 px-6 pb-16 pt-8 text-center">
           <div className="mx-auto max-w-4xl">
             <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/85">
@@ -80,18 +44,14 @@ export default function OdkryjModelePage() {
         </div>
       </section>
 
-      {/* ====================================================
-          SEKCJA MODUŁU 3D / AR
-         ==================================================== */}
       <section className="bg-black px-4 py-8 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-7xl">
-          <AlaudisARPreview />
+          <Suspense fallback={<div className="min-h-[640px] rounded-[36px] bg-[#070707]" />}>
+            <AlaudisARPreview />
+          </Suspense>
         </div>
       </section>
 
-      {/* ====================================================
-          FOOTER
-         ==================================================== */}
       <Footer />
     </main>
   );

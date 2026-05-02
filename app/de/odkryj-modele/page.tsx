@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import AlaudisARPreview from "@/components/AlaudisARPreview";
@@ -42,7 +43,9 @@ export default function OdkryjModelePage() {
 
       <section className="bg-black px-4 py-8 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-7xl">
-          <AlaudisARPreview />
+          <Suspense fallback={<div className="min-h-[640px] rounded-[36px] bg-[#070707]" />}>
+            <AlaudisARPreview />
+          </Suspense>
         </div>
       </section>
 
