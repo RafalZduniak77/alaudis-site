@@ -17,20 +17,25 @@
 // 10. łączy PreviewPanel i ConfiguratorPanel
 // 11. automatycznie zmienia język na podstawie adresu
 // 12. tłumaczy nazwy opcji w PDF i mailu
+// 13. obsługuje model z adresu:
+//     - ?model=178
+//     - ?model=214
+//     - ?model=275
 // ==========================================================
 
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import ConfiguratorPanel from "./ConfiguratorPanel";
 import PreviewPanel from "./PreviewPanel";
 import { ConfigTab, SelectedState } from "./types";
 import {
   defaultPreviewImage,
+  getPreviewImageForModel,
   groupMap,
+  normalizeConfiguratorModel,
   options,
-  previewImageMap,
 } from "./data";
 
 type LanguageKey = "PL" | "EN" | "DE" | "FR";
@@ -38,7 +43,10 @@ type LanguageKey = "PL" | "EN" | "DE" | "FR";
 // --------------------------------------------------------
 // TŁUMACZENIA OPCJI DO PDF I MAILA
 // --------------------------------------------------------
-const optionTranslations: Record<Exclude<LanguageKey, "PL">, Record<string, string>> = {
+const optionTranslations: Record<
+  Exclude<LanguageKey, "PL">,
+  Record<string, string>
+> = {
   EN: {
     "Bialy poliester połysk": "White high-gloss polyester",
     "Czarny Poliester połysk": "Black high-gloss polyester",
@@ -82,12 +90,14 @@ const optionTranslations: Record<Exclude<LanguageKey, "PL">, Record<string, stri
     "Czarny Poliester połysk": "Schwarzer Polyester Hochglanz",
     "Ferrari poliester połysk": "Ferrari-Polyester Hochglanz",
     "Heban polerowany": "Polierter Ebenholz",
-    "Okleina Jabłoń Indyjska -połysk": "Indisches Apfelbaumfurnier – Hochglanz",
+    "Okleina Jabłoń Indyjska -połysk":
+      "Indisches Apfelbaumfurnier – Hochglanz",
 
     "Dno rezonansowe Strunz": "Resonanzboden Strunz",
     "Dno rezonansowe Chiresse": "Resonanzboden Chiresse",
     "Lakierowanie dna rezonansowego mat": "Matt lackierter Resonanzboden",
-    "Lakierowanie dna rezonansowego połysk": "Glänzend lackierter Resonanzboden",
+    "Lakierowanie dna rezonansowego połysk":
+      "Glänzend lackierter Resonanzboden",
     "Mostki rezonansowe klon": "Stege aus Ahorn",
     "Mostki rezonansowe buk": "Stege aus Buche",
     "Kolor ramy złoty": "Rahmenfarbe Gold",
@@ -124,8 +134,10 @@ const optionTranslations: Record<Exclude<LanguageKey, "PL">, Record<string, stri
 
     "Dno rezonansowe Strunz": "Table d’harmonie Strunz",
     "Dno rezonansowe Chiresse": "Table d’harmonie Chiresse",
-    "Lakierowanie dna rezonansowego mat": "Finition mate de la table d’harmonie",
-    "Lakierowanie dna rezonansowego połysk": "Finition brillante de la table d’harmonie",
+    "Lakierowanie dna rezonansowego mat":
+      "Finition mate de la table d’harmonie",
+    "Lakierowanie dna rezonansowego połysk":
+      "Finition brillante de la table d’harmonie",
     "Mostki rezonansowe klon": "Chevalets en érable",
     "Mostki rezonansowe buk": "Chevalets en hêtre",
     "Kolor ramy złoty": "Couleur du cadre dorée",
@@ -195,8 +207,6 @@ function formatMailList(values: Record<string, string>, language: LanguageKey) {
 // --------------------------------------------------------
 // ROZPOZNAWANIE JĘZYKA
 // --------------------------------------------------------
-// Teraz rozpoznaje cały prefiks języka,
-// czyli działa dla /en/..., /de/..., /fr/...
 function getLanguageFromPathname(pathname: string): LanguageKey {
   const path = pathname.toLowerCase();
 
@@ -226,12 +236,19 @@ function getLabels(language: LanguageKey) {
       cabinet: "Cabinet",
       acoustics: "Acoustics",
       action: "Action",
+      model: "Model",
       pdfFileName: "alaudis",
       pdfBadge: "CONFIGURATION",
       exportDate: "Export date",
       mailSubjectFallback: "Alaudis configuration",
-      composeText: (offerTitle: string, selected: SelectedState) => `
+      composeText: (
+        offerTitle: string,
+        selected: SelectedState,
+        modelName: string
+      ) => `
 Alaudis configuration: ${offerTitle}
+
+Model: ${modelName}
 
 Cabinet: ${translateOption(selected.obudowa, language) || "—"}
 
@@ -251,12 +268,19 @@ ${formatMailList(selected.mechanizm, language)}
       cabinet: "Gehäuse",
       acoustics: "Akustik",
       action: "Mechanik",
+      model: "Modell",
       pdfFileName: "alaudis",
       pdfBadge: "KONFIGURATION",
       exportDate: "Exportdatum",
       mailSubjectFallback: "Alaudis Konfiguration",
-      composeText: (offerTitle: string, selected: SelectedState) => `
+      composeText: (
+        offerTitle: string,
+        selected: SelectedState,
+        modelName: string
+      ) => `
 Alaudis Konfiguration: ${offerTitle}
+
+Modell: ${modelName}
 
 Gehäuse: ${translateOption(selected.obudowa, language) || "—"}
 
@@ -276,12 +300,19 @@ ${formatMailList(selected.mechanizm, language)}
       cabinet: "Caisse",
       acoustics: "Acoustique",
       action: "Mécanique",
+      model: "Modèle",
       pdfFileName: "alaudis",
       pdfBadge: "CONFIGURATION",
       exportDate: "Date d’export",
       mailSubjectFallback: "Configuration Alaudis",
-      composeText: (offerTitle: string, selected: SelectedState) => `
+      composeText: (
+        offerTitle: string,
+        selected: SelectedState,
+        modelName: string
+      ) => `
 Configuration Alaudis : ${offerTitle}
+
+Modèle : ${modelName}
 
 Caisse : ${translateOption(selected.obudowa, language) || "—"}
 
@@ -300,12 +331,19 @@ ${formatMailList(selected.mechanizm, language)}
     cabinet: "Obudowa",
     acoustics: "Akustyka",
     action: "Mechanizm",
+    model: "Model",
     pdfFileName: "alaudis",
     pdfBadge: "KONFIGURACJA",
     exportDate: "Data eksportu",
     mailSubjectFallback: "Alaudis konfiguracja",
-    composeText: (offerTitle: string, selected: SelectedState) => `
+    composeText: (
+      offerTitle: string,
+      selected: SelectedState,
+      modelName: string
+    ) => `
 Alaudis konfiguracja: ${offerTitle}
+
+Model: ${modelName}
 
 Obudowa: ${selected.obudowa || "—"}
 
@@ -320,8 +358,16 @@ ${formatMailList(selected.mechanizm, language)}
 
 export default function KonfiguratorShell() {
   const pathname = usePathname() || "/";
+  const searchParams = useSearchParams();
+
   const language = getLanguageFromPathname(pathname);
   const labels = useMemo(() => getLabels(language), [language]);
+
+  // --------------------------------------------------------
+  // MODEL KONFIGURATORA Z ADRESU
+  // --------------------------------------------------------
+  const configuratorModel = normalizeConfiguratorModel(searchParams.get("model"));
+  const modelName = `Alaudis ${configuratorModel}`;
 
   // --------------------------------------------------------
   // GŁÓWNE STANY
@@ -441,7 +487,7 @@ export default function KonfiguratorShell() {
       }));
     }
 
-    setPreviewImage(previewImageMap[value] || defaultPreviewImage);
+    setPreviewImage(getPreviewImageForModel(value, configuratorModel));
   };
 
   // --------------------------------------------------------
@@ -452,10 +498,12 @@ export default function KonfiguratorShell() {
       "alaudis-config",
       JSON.stringify({
         title: offerTitle,
+        model: modelName,
         config: selected,
         language,
       })
     );
+
     alert(labels.saveAlert);
   };
 
@@ -463,14 +511,14 @@ export default function KonfiguratorShell() {
   // WYSYŁKA KONFIGURACJI
   // --------------------------------------------------------
   const handleSend = () => {
-    const text = labels.composeText(
-      offerTitle || labels.configTitleFallback,
-      selected
-    );
+    const documentTitle =
+      offerTitle.trim() || `${modelName} - ${labels.configTitleFallback}`;
+
+    const text = labels.composeText(documentTitle, selected, modelName);
 
     navigator.clipboard.writeText(text);
     window.location.href = `mailto:?subject=${encodeURIComponent(
-      offerTitle || labels.mailSubjectFallback
+      documentTitle
     )}&body=${encodeURIComponent(text)}`;
   };
 
@@ -498,7 +546,10 @@ export default function KonfiguratorShell() {
 
     const safeText = (value: unknown) => String(value ?? "").trim();
 
-    const title = safeText(offerTitle || labels.configTitleFallback);
+    const title = safeText(
+      offerTitle || `${modelName} - ${labels.configTitleFallback}`
+    );
+
     const cabinet = translateOption(safeText(selected.obudowa), language) || "—";
 
     const acoustics = getTranslatedValues(selected.akustyka, language);
@@ -609,6 +660,27 @@ export default function KonfiguratorShell() {
 
     y += 90;
 
+    // ------------------------------------------------------
+    // MODEL
+    // ------------------------------------------------------
+    y = drawSectionTitle(labels.model, y);
+
+    ctx.fillStyle = "#f7f7f7";
+    ctx.fillRect(70, y - 25, pageWidth - 140, 90);
+
+    ctx.strokeStyle = "#e5e5e5";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(70, y - 25, pageWidth - 140, 90);
+
+    ctx.fillStyle = "#222222";
+    ctx.font = "700 30px Arial, Helvetica, sans-serif";
+    drawWrappedText(modelName, 100, y + 28, pageWidth - 200, 38);
+
+    y += 130;
+
+    // ------------------------------------------------------
+    // OBUDOWA
+    // ------------------------------------------------------
     y = drawSectionTitle(labels.cabinet, y);
 
     ctx.fillStyle = "#f7f7f7";
@@ -624,6 +696,9 @@ export default function KonfiguratorShell() {
 
     y += 130;
 
+    // ------------------------------------------------------
+    // AKUSTYKA
+    // ------------------------------------------------------
     y = drawSectionTitle(labels.acoustics, y);
 
     if (acoustics.length > 0) {
@@ -636,6 +711,9 @@ export default function KonfiguratorShell() {
 
     y += 45;
 
+    // ------------------------------------------------------
+    // MECHANIZM
+    // ------------------------------------------------------
     y = drawSectionTitle(labels.action, y);
 
     if (mechanism.length > 0) {
@@ -665,9 +743,9 @@ export default function KonfiguratorShell() {
     doc.addImage(imageData, "JPEG", 0, 0, 210, 297);
 
     const fileName =
-      safeText(offerTitle || labels.pdfFileName)
+      safeText(title)
         .replace(/[\\/:*?"<>|]+/g, "-")
-        .trim() || "alaudis";
+        .trim() || `${labels.pdfFileName}-${configuratorModel}`;
 
     doc.save(`${fileName}.pdf`);
   };

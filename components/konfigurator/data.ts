@@ -8,6 +8,10 @@
 // 2. grupuje opcje w logiczne kategorie
 // 3. przypisuje zdjęcia podglądu do wybranej opcji
 // 4. ustawia domyślny obraz podglądu
+// 5. obsługuje zdjęcia dla modeli:
+//    - Alaudis 178
+//    - Alaudis 214
+//    - Alaudis 275
 //
 // Co tutaj najłatwiej zmieniasz:
 // - nazwy opcji
@@ -16,14 +20,23 @@
 // - zdjęcia do podglądu
 // - zdjęcie domyślne
 //
-// Najważniejsze obiekty:
-// - options
-// - groupMap
-// - previewImageMap
-// - defaultPreviewImage
+// Ważne:
+// - model 178 korzysta z obecnych zdjęć
+// - model 214 korzysta z kopii zdjęć z dopiskiem -214
+// - model 275 korzysta z kopii zdjęć z dopiskiem -275
+//
+// Przykład:
+// /konfigurator?model=178 -> Bialy poliester połysk.png
+// /konfigurator?model=214 -> Bialy poliester połysk-214.png
+// /konfigurator?model=275 -> Bialy poliester połysk-275.png
 // ==========================================================
 
 import { OptionsMap } from "./types";
+
+// ----------------------------------------------------------
+// MODELE KONFIGURATORA
+// ----------------------------------------------------------
+export type ConfiguratorModel = "178" | "214" | "275";
 
 // ----------------------------------------------------------
 // LISTA OPCJI KONFIGURATORA
@@ -118,7 +131,7 @@ export const groupMap: Record<string, string> = {
 };
 
 // ----------------------------------------------------------
-// MAPA ZDJĘĆ PODGLĄDU
+// BAZOWA MAPA ZDJĘĆ PODGLĄDU DLA MODELU 178
 // ----------------------------------------------------------
 export const previewImageMap: Record<string, string> = {
   // --------------------------------------------------------
@@ -140,11 +153,6 @@ export const previewImageMap: Record<string, string> = {
   "Dno rezonansowe Strunz": "/konfigurator/dno-strunz.jpg",
   "Dno rezonansowe Chiresse": "/konfigurator/dno-chiresse.jpg",
 
-  // --------------------------------------------------------
-  // LAKIEROWANIE DNA REZONANSOWEGO
-  // Te dwa zdjęcia muszą być w folderze:
-  // public/konfigurator/
-  // --------------------------------------------------------
   "Lakierowanie dna rezonansowego mat":
     "/konfigurator/lakierowanie dna rezonansowego mat.jpg",
 
@@ -216,3 +224,71 @@ export const previewImageMap: Record<string, string> = {
 // DOMYŚLNE ZDJĘCIE PODGLĄDU
 // ----------------------------------------------------------
 export const defaultPreviewImage = "/hero.png";
+
+// ----------------------------------------------------------
+// DODAWANIE SUFIKSU MODELU DO ZDJĘCIA
+// ----------------------------------------------------------
+// Przykład:
+// /konfigurator/Bialy poliester połysk.png
+// -> /konfigurator/Bialy poliester połysk-214.png
+//
+// /konfigurator/mostki-klon.JPG
+// -> /konfigurator/mostki-klon-275.JPG
+// ----------------------------------------------------------
+function addModelSuffixToImagePath(
+  imagePath: string,
+  model: ConfiguratorModel
+) {
+  if (model === "178") {
+    return imagePath;
+  }
+
+  const lastDotIndex = imagePath.lastIndexOf(".");
+
+  if (lastDotIndex === -1) {
+    return imagePath;
+  }
+
+  const pathWithoutExtension = imagePath.slice(0, lastDotIndex);
+  const extension = imagePath.slice(lastDotIndex);
+
+  return `${pathWithoutExtension}-${model}${extension}`;
+}
+
+// ----------------------------------------------------------
+// POBIERANIE ZDJĘCIA DLA MODELU
+// ----------------------------------------------------------
+// Ta funkcja jest używana w KonfiguratorShell.tsx.
+// Dzięki niej jeden konfigurator obsługuje 178 / 214 / 275.
+// ----------------------------------------------------------
+export function getPreviewImageForModel(
+  optionName: string,
+  model: ConfiguratorModel
+) {
+  const baseImage = previewImageMap[optionName];
+
+  if (!baseImage) {
+    return defaultPreviewImage;
+  }
+
+  return addModelSuffixToImagePath(baseImage, model);
+}
+
+// ----------------------------------------------------------
+// SPRAWDZANIE MODELU Z ADRESU
+// ----------------------------------------------------------
+// Jeśli ktoś poda błędny model, wracamy do 178.
+// ----------------------------------------------------------
+export function normalizeConfiguratorModel(
+  model: string | null
+): ConfiguratorModel {
+  if (model === "214") {
+    return "214";
+  }
+
+  if (model === "275") {
+    return "275";
+  }
+
+  return "178";
+}

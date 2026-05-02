@@ -93,7 +93,7 @@ export default function ModelAlaudis178Page() {
 
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
-                href="/konfigurator"
+                href="/konfigurator?model=178"
                 className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Otwórz konfigurator
@@ -241,7 +241,7 @@ export default function ModelAlaudis178Page() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              href="/konfigurator"
+              href="/konfigurator?model=178"
               className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
             >
               Otwórz konfigurator
