@@ -205,7 +205,7 @@ export default function Home() {
 
         <section className="relative z-30 grid gap-6 px-6 pb-24 sm:px-10 lg:grid-cols-3 lg:px-16">
           <Link
-            href="/fortepiany/alaudis-178"
+            href="/en/fortepiany/alaudis-178"
             className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
           >
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -226,7 +226,7 @@ export default function Home() {
           </Link>
 
           <Link
-            href="/fortepiany/alaudis-214"
+            href="/en/fortepiany/alaudis-214"
             className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
           >
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
@@ -247,7 +247,7 @@ export default function Home() {
           </Link>
 
           <Link
-            href="/fortepiany/alaudis-275"
+            href="/en/fortepiany/alaudis-275"
             className="relative z-30 block rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:from-white/15 hover:to-white/[0.05]"
           >
             <p className="text-xs uppercase tracking-[0.32em] text-white/45">
