@@ -242,6 +242,7 @@ const productionVideos: ProductionVideo[] = [
 
 export default function HistoriaPage() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeProductionVideo, setActiveProductionVideo] = useState<ProductionVideo | null>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -272,6 +273,25 @@ export default function HistoriaPage() {
       observers.forEach((observer) => observer.disconnect());
     };
   }, []);
+
+  // --------------------------------------------------------
+  // ZAMYKANIE OKNA VIDEO KLAWISZEM ESC
+  // --------------------------------------------------------
+  useEffect(() => {
+    if (!activeProductionVideo) return;
+
+    const handleProductionVideoKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveProductionVideo(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleProductionVideoKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleProductionVideoKeyDown);
+    };
+  }, [activeProductionVideo]);
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -450,16 +470,28 @@ export default function HistoriaPage() {
                 key={video.src}
                 className="overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03]"
               >
-                <div className="relative aspect-video bg-black">
+                <button
+                  type="button"
+                  onClick={() => setActiveProductionVideo(video)}
+                  className="group relative aspect-video w-full overflow-hidden bg-black text-left"
+                  aria-label="Video ansehen"
+                >
                   <video
-                    controls
+                    src={video.src}
                     preload="metadata"
+                    muted
                     playsInline
-                    className="h-full w-full object-cover"
-                  >
-                    <source src={video.src} type="video/mp4" />
-                  </video>
-                </div>
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-80"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 transition duration-300 group-hover:opacity-100">
+                    <span className="rounded-full border border-white/35 bg-black/45 px-6 py-3 text-[11px] uppercase tracking-[0.24em] text-white backdrop-blur-md transition group-hover:border-white group-hover:bg-white group-hover:text-black">
+                      Video ansehen
+                    </span>
+                  </div>
+                </button>
 
                 <div className="p-6">
                   <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
@@ -510,6 +542,47 @@ export default function HistoriaPage() {
           </div>
         </div>
       </section>
+
+
+      {activeProductionVideo && (
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 p-4 backdrop-blur-sm"
+          onClick={() => setActiveProductionVideo(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setActiveProductionVideo(null)}
+            className="absolute right-5 top-5 z-[210] rounded-full border border-white/25 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+          >
+            × Schließen
+          </button>
+
+          <div
+            className="w-full max-w-6xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="mb-5 pr-28">
+              <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                Video
+              </p>
+
+              <h3 className="mt-2 text-2xl font-light text-white sm:text-3xl">
+                {activeProductionVideo.title}
+              </h3>
+            </div>
+
+            <div className="overflow-hidden rounded-[28px] border border-white/10 bg-black shadow-2xl">
+              <video
+                src={activeProductionVideo.src}
+                controls
+                autoPlay
+                playsInline
+                className="max-h-[78vh] w-full bg-black object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </main>
