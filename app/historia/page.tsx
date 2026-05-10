@@ -176,6 +176,86 @@ const storySections: StorySection[] = [
   },
 ];
 
+
+type ProductionVideo = {
+  src: string;
+  title: string;
+  text: string;
+};
+
+const productionVideos: ProductionVideo[] = [
+  {
+    src: "/historia-video-web/historia-01.mp4",
+    title: "Proces produkcji 01",
+    text: "Krótki fragment pracy nad detalami instrumentu Alaudis.",
+  },
+  {
+    src: "/historia-video-web/historia-02.mp4",
+    title: "Proces produkcji 02",
+    text: "Ujęcie z warsztatu pokazujące rzemiosło i precyzję wykonania.",
+  },
+  {
+    src: "/historia-video-web/historia-03.mp4",
+    title: "Proces produkcji 03",
+    text: "Kolejny etap tworzenia instrumentu w przestrzeni SAP Renovation.",
+  },
+  {
+    src: "/historia-video-web/historia-04.mp4",
+    title: "Proces produkcji 04",
+    text: "Detal pracy nad elementami fortepianu i jego finalnym charakterem.",
+  },
+  {
+    src: "/historia-video-web/historia-05.mp4",
+    title: "Proces produkcji 05",
+    text: "Fragment procesu, w którym technologia spotyka się z ręcznym rzemiosłem.",
+  },
+  {
+    src: "/historia-video-web/historia-06.mp4",
+    title: "Proces produkcji 06",
+    text: "Ujęcie pokazujące warsztatową stronę powstawania Alaudis.",
+  },
+  {
+    src: "/historia-video-web/historia-07.mp4",
+    title: "Proces produkcji 07",
+    text: "Krótki materiał z kolejnego etapu przygotowania instrumentu.",
+  },
+  {
+    src: "/historia-video-web/historia-08.mp4",
+    title: "Proces produkcji 08",
+    text: "Detal, precyzja i skupienie obecne w pracy nad fortepianem.",
+  },
+  {
+    src: "/historia-video-web/historia-09.mp4",
+    title: "Proces produkcji 09",
+    text: "Fragment procesu wykończeniowego i kontroli jakości.",
+  },
+  {
+    src: "/historia-video-web/historia-10.mp4",
+    title: "Proces produkcji 10",
+    text: "Warsztatowy obraz powstawania instrumentu klasy premium.",
+  },
+  {
+    src: "/historia-video-web/historia-11.mp4",
+    title: "Proces produkcji 11",
+    text: "Ujęcie pokazujące jeden z etapów pracy nad konstrukcją lub detalem.",
+  },
+  {
+    src: "/historia-video-web/historia-12.mp4",
+    title: "Proces produkcji 12",
+    text: "Krótka scena z procesu tworzenia charakteru instrumentu.",
+  },
+  {
+    src: "/historia-video-web/historia-14.mp4",
+    title: "Proces produkcji 14",
+    text: "Fragment pracy nad finalną jakością i obecnością fortepianu.",
+  },
+  {
+    src: "/historia-video-web/historia-15.mp4",
+    title: "Proces produkcji 15",
+    text: "Ostatni z krótkich materiałów pokazujących świat produkcji Alaudis.",
+  },
+];
+
 export default function HistoriaPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -288,6 +368,64 @@ export default function HistoriaPage() {
             rzemiosło, które nadaje każdemu Alaudis jego indywidualną
             tożsamość.
           </p>
+        </div>
+      </section>
+
+
+      {/* ====================================================
+          SEKCJA - VIDEO Z PRODUKCJI
+         ==================================================== */}
+      <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-4xl">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+              Z produkcji Alaudis
+            </p>
+
+            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
+              Rzemiosło uchwycone w ruchu
+            </h2>
+
+            <p className="mt-6 max-w-3xl leading-8 text-white/68">
+              Krótkie materiały video pokazują proces powstawania instrumentu:
+              pracę rąk, detale, powierzchnie, konstrukcję i atmosferę warsztatu,
+              w którym idea Alaudis zamienia się w realny fortepian.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {productionVideos.map((video) => (
+              <article
+                key={video.src}
+                className="overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03]"
+              >
+                <div className="relative aspect-video bg-black">
+                  <video
+                    controls
+                    preload="metadata"
+                    playsInline
+                    className="h-full w-full object-cover"
+                  >
+                    <source src={video.src} type="video/mp4" />
+                  </video>
+                </div>
+
+                <div className="p-6">
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                    Video
+                  </p>
+
+                  <h3 className="mt-3 text-xl font-light text-white">
+                    {video.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-7 text-white/62">
+                    {video.text}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
