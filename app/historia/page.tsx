@@ -372,63 +372,6 @@ export default function HistoriaPage() {
       </section>
 
 
-      {/* ====================================================
-          SEKCJA - VIDEO Z PRODUKCJI
-         ==================================================== */}
-      <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-4xl">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-              Z produkcji Alaudis
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
-              Rzemiosło uchwycone w ruchu
-            </h2>
-
-            <p className="mt-6 max-w-3xl leading-8 text-white/68">
-              Krótkie materiały video pokazują proces powstawania instrumentu:
-              pracę rąk, detale, powierzchnie, konstrukcję i atmosferę warsztatu,
-              w którym idea Alaudis zamienia się w realny fortepian.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {productionVideos.map((video) => (
-              <article
-                key={video.src}
-                className="overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03]"
-              >
-                <div className="relative aspect-video bg-black">
-                  <video
-                    controls
-                    preload="metadata"
-                    playsInline
-                    className="h-full w-full object-cover"
-                  >
-                    <source src={video.src} type="video/mp4" />
-                  </video>
-                </div>
-
-                <div className="p-6">
-                  <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
-                    Video
-                  </p>
-
-                  <h3 className="mt-3 text-xl font-light text-white">
-                    {video.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-7 text-white/62">
-                    {video.text}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="relative">
         <div className="relative">
           <div className="sticky top-0 h-screen overflow-hidden">
@@ -495,6 +438,63 @@ export default function HistoriaPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================
+          SEKCJA - VIDEO Z PRODUKCJI
+         ==================================================== */}
+      <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-4xl">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+              Z produkcji Alaudis
+            </p>
+
+            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
+              Rzemiosło uchwycone w ruchu
+            </h2>
+
+            <p className="mt-6 max-w-3xl leading-8 text-white/68">
+              Krótkie materiały video pokazują proces powstawania instrumentu:
+              pracę rąk, detale, powierzchnie, konstrukcję i atmosferę warsztatu,
+              w którym idea Alaudis zamienia się w realny fortepian.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {productionVideos.map((video) => (
+              <article
+                key={video.src}
+                className="overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03]"
+              >
+                <div className="relative aspect-video bg-black">
+                  <video
+                    controls
+                    preload="metadata"
+                    playsInline
+                    className="h-full w-full object-cover"
+                  >
+                    <source src={video.src} type="video/mp4" />
+                  </video>
+                </div>
+
+                <div className="p-6">
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                    Video
+                  </p>
+
+                  <h3 className="mt-3 text-xl font-light text-white">
+                    {video.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-7 text-white/62">
+                    {video.text}
+                  </p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
