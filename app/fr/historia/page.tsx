@@ -161,6 +161,85 @@ const storySections: StorySection[] = [
   },
 ];
 
+type ProductionVideo = {
+  src: string;
+  title: string;
+  text: string;
+};
+
+const productionVideos: ProductionVideo[] = [
+  {
+    src: "/historia-video-web/historia-01.mp4",
+    title: "Ponçage et ajustement du cadre en fonte",
+    text: "Préparation précise du cadre en fonte avant la poursuite de l’assemblage acoustique. Cette étape exige l’ajustement exact des surfaces de contact, le contrôle des points d’appui et le respect de la géométrie de la structure du piano.",
+  },
+  {
+    src: "/historia-video-web/historia-02.mp4",
+    title: "Profilage des nervures de la table d’harmonie",
+    text: "Mise en forme des nervures de la table d’harmonie, responsables de la stabilité, de l’élasticité et du bon fonctionnement acoustique de la surface résonante. Leur profil influence directement la courbure et la réponse de la table aux vibrations.",
+  },
+  {
+    src: "/historia-video-web/historia-03.mp4",
+    title: "Nettoyage des nervures après les résidus de colle",
+    text: "Travail minutieux sur les nervures après les étapes précédentes de collage. L’élimination de l’excès de colle et la préparation de surfaces propres permettent de préserver la précision des assemblages et l’esthétique des éléments structurels.",
+  },
+  {
+    src: "/historia-video-web/historia-04.mp4",
+    title: "Ponçage mécanique de la table d’harmonie",
+    text: "Premier ponçage de la table d’harmonie à l’aide d’outils mécaniques. L’objectif est d’uniformiser la surface, de préparer le matériau aux étapes suivantes et d’obtenir la qualité nécessaire aux travaux de finition.",
+  },
+  {
+    src: "/historia-video-web/historia-05.mp4",
+    title: "Ponçage manuel de la table d’harmonie",
+    text: "Finition manuelle délicate de la surface de la table d’harmonie. Cette étape offre un contrôle plus fin du détail, préserve le caractère naturel du bois et prépare la table à devenir le cœur acoustique de l’instrument.",
+  },
+  {
+    src: "/historia-video-web/historia-06.mp4",
+    title: "Fraisage du couvre-chevalet",
+    text: "Usinage précis du couvre-chevalet. Les chevalets font partie des éléments essentiels de transmission des vibrations des cordes vers la table d’harmonie ; leur géométrie, leur hauteur et la qualité de leur surface exigent donc une précision exceptionnelle.",
+  },
+  {
+    src: "/historia-video-web/historia-07.mp4",
+    title: "Coupe et ajustement de la longueur du chevalet aigu",
+    text: "Ajustement du chevalet aigu aux dimensions et à la géométrie de l’instrument. La bonne longueur et le bon positionnement sont essentiels au travail futur des cordes, à la transmission de l’énergie et à l’équilibre sonore du registre aigu.",
+  },
+  {
+    src: "/historia-video-web/historia-08.mp4",
+    title: "Rabotage mécanique du chevalet aigu",
+    text: "Usinage du chevalet aigu en respectant la ligne, la hauteur et le profil requis. Cette étape prépare le chevalet à l’ajustement final et à une coopération correcte avec les cordes et la table d’harmonie.",
+  },
+  {
+    src: "/historia-video-web/historia-09.mp4",
+    title: "Fraisage du corps de la caisse harmonique pour les nervures",
+    text: "Préparation des zones du corps de la caisse harmonique où seront logées les nervures de la table d’harmonie. Le fraisage permet d’obtenir des logements précis et d’assurer un soutien correct à l’ensemble de la structure acoustique.",
+  },
+  {
+    src: "/historia-video-web/historia-10.mp4",
+    title: "Ciselage manuel et ajustement des logements de la table d’harmonie",
+    text: "Finition manuelle des zones où la table d’harmonie sera installée. Le travail au ciseau permet d’atteindre une précision que la machine seule ne garantit pas toujours, notamment dans les points nécessitant un ajustement individuel.",
+  },
+  {
+    src: "/historia-video-web/historia-11.mp4",
+    title: "Collage et serrage de la table d’harmonie",
+    text: "Processus de mise en place de la table d’harmonie dans la structure de l’instrument. Une pression uniforme exercée par les serre-joints assure un assemblage stable, un bon contact et l’intégrité acoustique de tout l’ensemble résonant.",
+  },
+  {
+    src: "/historia-video-web/historia-12.mp4",
+    title: "Collage des couches du corps du piano Alaudis",
+    text: "Étape de collage des couches du corps du piano à queue Alaudis. La bonne conduite du matériau, la maîtrise des tensions et la précision du collage sont essentielles pour la stabilité structurelle et la ligne élégante de la caisse.",
+  },
+  {
+    src: "/historia-video-web/historia-14.mp4",
+    title: "Collage et serrage du corps du piano Alaudis",
+    text: "Formation du corps du piano par collage et pression contrôlée avec des serre-joints. C’est l’une des étapes où le savoir-faire structurel détermine la durabilité, la stabilité et la géométrie finale de l’instrument.",
+  },
+  {
+    src: "/historia-video-web/historia-15.mp4",
+    title: "Intonation finale des marteaux — Peter Salisbury",
+    text: "Intonation finale des marteaux réalisée par le maître Peter Salisbury. C’est la dernière étape artistique du travail sur la couleur sonore, où sont affinés la réponse des marteaux, le caractère de l’attaque, le chant et l’équilibre sonore de tout l’instrument.",
+  },
+];
+
 export default function HistoriaPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -346,7 +425,62 @@ export default function HistoriaPage() {
         </div>
       </section>
 
-      <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
+            {/* ====================================================
+          SECTION - PRODUCTION VIDEOS
+         ==================================================== */}
+      <section className="bg-black px-6 py-24 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="text-[11px] uppercase tracking-[0.42em] text-white/45">
+              De la production Alaudis
+            </p>
+
+            <h2 className="mt-5 text-3xl font-light text-white sm:text-4xl lg:text-[56px] lg:leading-[1.08]">
+              Le savoir-faire capturé en mouvement
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-3xl leading-8 text-white/68 sm:text-[17px]">
+              De courtes vidéos montrent le processus de création de l’instrument : le travail des mains, les détails, les surfaces, la construction et l’atmosphère de l’atelier où l’idée d’Alaudis devient un véritable piano à queue.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {productionVideos.map((video) => (
+              <article
+                key={video.src}
+                className="overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03]"
+              >
+                <div className="relative aspect-video bg-black">
+                  <video
+                    controls
+                    preload="metadata"
+                    playsInline
+                    className="h-full w-full object-cover"
+                  >
+                    <source src={video.src} type="video/mp4" />
+                  </video>
+                </div>
+
+                <div className="p-6">
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                    Vidéo
+                  </p>
+
+                  <h3 className="mt-3 text-xl font-light text-white">
+                    {video.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-7 text-white/62">
+                    {video.text}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+<section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Étape suivante

@@ -447,16 +447,16 @@ export default function HistoriaPage() {
          ==================================================== */}
       <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <div className="max-w-4xl">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="text-[11px] uppercase tracking-[0.42em] text-white/45">
               Z produkcji Alaudis
             </p>
 
-            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
+            <h2 className="mt-5 text-3xl font-light text-white sm:text-4xl lg:text-[56px] lg:leading-[1.08]">
               Rzemiosło uchwycone w ruchu
             </h2>
 
-            <p className="mt-6 max-w-3xl leading-8 text-white/68">
+            <p className="mx-auto mt-6 max-w-3xl leading-8 text-white/68 sm:text-[17px]">
               Krótkie materiały video pokazują proces powstawania instrumentu:
               pracę rąk, detale, powierzchnie, konstrukcję i atmosferę warsztatu,
               w którym idea Alaudis zamienia się w realny fortepian.

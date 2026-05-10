@@ -161,6 +161,85 @@ const storySections: StorySection[] = [
   },
 ];
 
+type ProductionVideo = {
+  src: string;
+  title: string;
+  text: string;
+};
+
+const productionVideos: ProductionVideo[] = [
+  {
+    src: "/historia-video-web/historia-01.mp4",
+    title: "Schleifen und Anpassen des Gussrahmens",
+    text: "Präzise Vorbereitung des Gussrahmens vor der weiteren akustischen Montage. Dieser Schritt erfordert eine genaue Anpassung der Kontaktflächen, Kontrolle der Auflagepunkte und die Einhaltung der richtigen Geometrie der Klavierkonstruktion.",
+  },
+  {
+    src: "/historia-video-web/historia-02.mp4",
+    title: "Profilieren der Rippen des Resonanzbodens",
+    text: "Formgebung der Resonanzbodenrippen, die für Stabilität, Elastizität und die korrekte akustische Arbeit des Resonanzbodens verantwortlich sind. Das Rippenprofil beeinflusst direkt die Wölbung und die Reaktion des Bodens auf Schwingungen.",
+  },
+  {
+    src: "/historia-video-web/historia-03.mp4",
+    title: "Reinigung der Rippen von Kleberesten",
+    text: "Sorgfältige Bearbeitung der Rippen nach den vorherigen Klebearbeiten. Das Entfernen von überschüssigem Leim und die Vorbereitung sauberer Flächen sichern präzise Verbindungen und die Ästhetik der Konstruktionselemente.",
+  },
+  {
+    src: "/historia-video-web/historia-04.mp4",
+    title: "Maschinelles Schleifen des Resonanzbodens",
+    text: "Erstes Schleifen des Resonanzbodens mit mechanischen Werkzeugen. Ziel ist es, die Oberfläche zu ebnen, das Material für die weitere Bearbeitung vorzubereiten und die richtige Qualität für die folgenden Arbeitsschritte zu erreichen.",
+  },
+  {
+    src: "/historia-video-web/historia-05.mp4",
+    title: "Handschliff des Resonanzbodens",
+    text: "Feine manuelle Ausarbeitung der Resonanzbodenoberfläche. Dieser Schritt ermöglicht eine größere Kontrolle über das Detail, bewahrt den natürlichen Charakter des Holzes und bereitet den Boden auf seine Funktion als akustisches Herz des Instruments vor.",
+  },
+  {
+    src: "/historia-video-web/historia-06.mp4",
+    title: "Fräsen der Stegauflage",
+    text: "Präzise Bearbeitung der Stegauflage. Die Stege gehören zu den wichtigsten Elementen der Übertragung von Saitenschwingungen auf den Resonanzboden, weshalb Geometrie, Höhe und Oberflächenqualität außergewöhnliche Genauigkeit verlangen.",
+  },
+  {
+    src: "/historia-video-web/historia-07.mp4",
+    title: "Schneiden und Anpassen der Länge des Diskantstegs",
+    text: "Anpassung des Diskantstegs an die Maße und Geometrie des konkreten Instruments. Die richtige Länge und Lagerung sind entscheidend für die spätere Arbeit der Saiten, Energieübertragung und klangliche Balance im Diskantregister.",
+  },
+  {
+    src: "/historia-video-web/historia-08.mp4",
+    title: "Maschinelles Hobeln des Diskantstegs",
+    text: "Bearbeitung des Diskantstegs unter Einhaltung der erforderlichen Linie, Höhe und Profilierung. Dieser Schritt bereitet den Steg für die weitere Anpassung und die korrekte Zusammenarbeit mit Saiten und Resonanzboden vor.",
+  },
+  {
+    src: "/historia-video-web/historia-09.mp4",
+    title: "Fräsen des Klangkörpers für die Resonanzbodenrippen",
+    text: "Vorbereitung der Bereiche im Klangkörper, in denen die Rippen des Resonanzbodens eingesetzt werden. Das Fräsen ermöglicht präzise Aufnahmen und sichert die richtige Unterstützung der gesamten akustischen Konstruktion.",
+  },
+  {
+    src: "/historia-video-web/historia-10.mp4",
+    title: "Handarbeit mit dem Stechbeitel und Anpassung der Resonanzbodenauflagen",
+    text: "Manuelle Nacharbeitung der Stellen, an denen der Resonanzboden eingesetzt wird. Die Arbeit mit dem Stechbeitel ermöglicht eine Genauigkeit, die rein maschinell nicht immer erreichbar ist, besonders an individuell anzupassenden Punkten.",
+  },
+  {
+    src: "/historia-video-web/historia-11.mp4",
+    title: "Einleimen und Verpressen des Resonanzbodens",
+    text: "Der Prozess des Einsetzens des Resonanzbodens in die Instrumentenkonstruktion. Gleichmäßiger Druck durch Zwingen sorgt für eine stabile Verbindung, korrekten Kontakt und die akustische Integrität der gesamten Resonanzeinheit.",
+  },
+  {
+    src: "/historia-video-web/historia-12.mp4",
+    title: "Einleimen der Rim-Lagen des Alaudis-Flügels",
+    text: "Das Verleimen der Lagen des Flügelkorpus von Alaudis. Die richtige Führung des Materials, Kontrolle der Spannungen und Präzision beim Leimen sind entscheidend für die Stabilität der Konstruktion und die elegante Linie des Gehäuses.",
+  },
+  {
+    src: "/historia-video-web/historia-14.mp4",
+    title: "Verleimen und Verpressen des Alaudis-Flügelkorpus",
+    text: "Formgebung des Flügelkorpus durch Verleimen und kontrollierten Druck mit Zwingen. In diesem Arbeitsschritt entscheidet konstruktives Handwerk über Dauerhaftigkeit, Stabilität und finale Geometrie des Instruments.",
+  },
+  {
+    src: "/historia-video-web/historia-15.mp4",
+    title: "Finale Intonation der Hammerköpfe — Peter Salisbury",
+    text: "Die finale Intonation der Hammerköpfe, ausgeführt von Meister Peter Salisbury. Dies ist der letzte künstlerische Schritt der Arbeit am Klang, bei dem Hammerreaktion, Anschlagscharakter, Sanglichkeit und klangliche Balance des gesamten Instruments verfeinert werden.",
+  },
+];
+
 export default function HistoriaPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -346,7 +425,62 @@ export default function HistoriaPage() {
         </div>
       </section>
 
-      <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
+            {/* ====================================================
+          SECTION - PRODUCTION VIDEOS
+         ==================================================== */}
+      <section className="bg-black px-6 py-24 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="text-[11px] uppercase tracking-[0.42em] text-white/45">
+              Aus der Alaudis-Produktion
+            </p>
+
+            <h2 className="mt-5 text-3xl font-light text-white sm:text-4xl lg:text-[56px] lg:leading-[1.08]">
+              Handwerk in Bewegung festgehalten
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-3xl leading-8 text-white/68 sm:text-[17px]">
+              Kurze Videomaterialien zeigen den Entstehungsprozess des Instruments: die Arbeit der Hände, Details, Oberflächen, Konstruktion und die Atmosphäre der Werkstatt, in der die Idee von Alaudis zu einem realen Flügel wird.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {productionVideos.map((video) => (
+              <article
+                key={video.src}
+                className="overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03]"
+              >
+                <div className="relative aspect-video bg-black">
+                  <video
+                    controls
+                    preload="metadata"
+                    playsInline
+                    className="h-full w-full object-cover"
+                  >
+                    <source src={video.src} type="video/mp4" />
+                  </video>
+                </div>
+
+                <div className="p-6">
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                    Video
+                  </p>
+
+                  <h3 className="mt-3 text-xl font-light text-white">
+                    {video.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-7 text-white/62">
+                    {video.text}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+<section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <p className="text-xs uppercase tracking-[0.32em] text-white/45">
             Nächster Schritt
