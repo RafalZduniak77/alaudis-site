@@ -366,11 +366,11 @@ export default function HistoriaPage() {
           loop
           playsInline
           poster="/historia/1 Dusza .jpg"
-          className="absolute inset-0 h-full w-full object-cover opacity-55"
+          className="absolute inset-0 h-full w-full object-cover opacity-85"
         />
 
-        <div className="absolute inset-0 bg-black/64" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/70" />
+        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-black/45" />
 
         <div className="relative z-20 mx-auto max-w-5xl">
           <p className="text-[11px] uppercase tracking-[0.48em] text-white/62">
