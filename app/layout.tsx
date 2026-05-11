@@ -3,8 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   icons: {
-    icon: [{ url: "/favicon-32.png", sizes: "32x32", type: "image/png" }],
-    apple: "/apple-touch-icon.png",
+    icon: [{ url: "/favicon-alaudis-black-v2.png", sizes: "1024x1024", type: "image/png" }],
+    apple: "/apple-touch-icon-alaudis-black-v2.png",
   },
 };
 
