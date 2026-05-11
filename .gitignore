@@ -43,3 +43,7 @@ next-env.d.ts
 # Duże oryginalne filmy historii - nie wysyłać do Git/Vercel
 public/historia-video/*.MP4
 public/historia-video/*.MOV
+
+# Duże oryginalne filmy - nie wysyłać do Git/Vercel
+public/video/*.MP4
+public/video/*.MOV

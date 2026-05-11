@@ -355,22 +355,48 @@ export default function HistoriaPage() {
         </div>
       </header>
 
-      <section className="bg-black px-6 pb-14 pt-28 text-center sm:px-10 sm:pb-16 lg:px-16 lg:pb-20">
-        <div className="mx-auto max-w-4xl">
-          <p className="text-[11px] uppercase tracking-[0.42em] text-white/45">
+      {/* ====================================================
+          HERO VIDEO - ŚWIAT ALAUDIS
+         ==================================================== */}
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden border-b border-white/10 px-6 pt-28 text-center sm:px-10 lg:px-16">
+        <video
+          src="/historia-video-web/historia-hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/historia/1 Dusza .jpg"
+          className="absolute inset-0 h-full w-full object-cover opacity-55"
+        />
+
+        <div className="absolute inset-0 bg-black/64" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/70" />
+
+        <div className="relative z-20 mx-auto max-w-5xl">
+          <p className="text-[11px] uppercase tracking-[0.48em] text-white/62">
             Dziedzictwo i rzemiosło
           </p>
-          <h1 className="mt-5 text-3xl font-light text-white sm:text-4xl lg:text-[56px] lg:leading-[1.08]">
+
+          <h1 className="mt-6 text-4xl font-light text-white sm:text-6xl lg:text-[86px] lg:leading-[1.02]">
             Świat Alaudis
           </h1>
-          <p className="mx-auto mt-6 max-w-3xl leading-8 text-white/68 sm:text-[17px]">
+
+          <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/78 sm:text-[17px] sm:leading-9">
             Poznaj filozofię marki, proces tworzenia instrumentów oraz
             rzemiosło, które nadaje każdemu Alaudis jego indywidualną
             tożsamość.
           </p>
         </div>
-      </section>
 
+        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
+          <div className="mx-auto h-14 w-8 rounded-full border border-white/35 bg-black/10">
+            <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/80" />
+          </div>
+          <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/70">
+            Przewiń w dół
+          </p>
+        </div>
+      </section>
 
       <section className="relative">
         <div className="relative">
