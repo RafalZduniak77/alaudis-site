@@ -29,8 +29,8 @@ import ModelPageTopBar from "@/components/ModelPageTopBar";
 // DANE KONTAKTOWE
 // ==========================================================
 
-const PAULINA_PHONE_RAW = "48668216422";
-const PAULINA_PHONE_DISPLAY = "+48 668 216 422";
+const PAULINA_PHONE_RAW = "48668216442";
+const PAULINA_PHONE_DISPLAY = "+48 668 216 442";
 const PAULINA_EMAIL = "Paulina@saprenovation.eu";
 
 const KRZYSZTOF_PHONE_RAW = "48606384105";
