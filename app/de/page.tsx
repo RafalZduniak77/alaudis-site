@@ -195,7 +195,7 @@ export default function Home() {
 
           <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-white/68 sm:text-[17px]">
             Jedes Alaudis-Modell entsteht als eigene Interpretation von
-            Proportion, Charakter und Klang — von kultivierter Wohnraumpräsenz
+            Proportion, Charakter und Klang, von kultivierter Wohnraumpräsenz
             bis zur vollen Größe eines Konzertflügels.
           </p>
         </section>
@@ -212,7 +212,7 @@ export default function Home() {
             <h2 className="mt-4 text-3xl font-light">Alaudis 178</h2>
 
             <p className="mt-5 leading-7 text-white/68">
-              Eine lyrische Interpretation des Premium-Flügels — elegant,
+              Eine lyrische Interpretation des Premium-Flügels, elegant,
               ausgewogen und geschaffen für Interieurs, in denen Detail und
               Klang die gleiche Bedeutung haben.
             </p>
@@ -233,7 +233,7 @@ export default function Home() {
             <h2 className="mt-4 text-3xl font-light">Alaudis 214</h2>
 
             <p className="mt-5 leading-7 text-white/68">
-              Ein Flügel mit stärkerer Präsenz und breiterer Projektion — für
+              Ein Flügel mit stärkerer Präsenz und breiterer Projektion, für
               Räume, die mehr Größe, Klarheit und einen konzertanteren Charakter
               verlangen.
             </p>
@@ -254,7 +254,7 @@ export default function Home() {
             <h2 className="mt-4 text-3xl font-light">Alaudis 275</h2>
 
             <p className="mt-5 leading-7 text-white/68">
-              Die größte Konzertform von Alaudis — volle Klangskala, Projektion
+              Die größte Konzertform von Alaudis, volle Klangskala, Projektion
               und Bühnenpräsenz, entworfen für die anspruchsvollsten Räume.
             </p>
 

@@ -72,7 +72,7 @@ export default function OdwiedzAtelierPage() {
             </p>
 
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/62 sm:text-[15px] sm:leading-8">
-              Wizyta w atelier to spokojny, osobisty moment spotkania z marką —
+              Wizyta w atelier to spokojny, osobisty moment spotkania z marką,
               nie tylko prezentacja modelu, ale doświadczenie jego skali,
               obecności i tożsamości.
             </p>
@@ -115,7 +115,7 @@ export default function OdwiedzAtelierPage() {
 
             <p className="mt-6 max-w-3xl leading-8 text-white/68">
               W atelier możesz zobaczyć modele Alaudis w spokojnym, prywatnym
-              kontekście — z bliska, bez pośpiechu, z możliwością rozmowy o
+              kontekście, z bliska, bez pośpiechu, z możliwością rozmowy o
               proporcjach, wykończeniach, przeznaczeniu instrumentu i jego
               miejscu w konkretnej przestrzeni.
             </p>
@@ -167,7 +167,7 @@ export default function OdwiedzAtelierPage() {
               </h3>
 
               <p className="mt-5 leading-8 text-white/68">
-                Wizyta może stać się początkiem prywatnej konsultacji —
+                Wizyta może stać się początkiem prywatnej konsultacji,
                 rozmowy o modelu, charakterze instrumentu, zastosowaniu,
                 preferowanej skali i całościowym języku Alaudis.
               </p>
@@ -285,7 +285,7 @@ export default function OdwiedzAtelierPage() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
-            Najlepszym początkiem wizyty w atelier jest krótki kontakt — dzięki
+            Najlepszym początkiem wizyty w atelier jest krótki kontakt, dzięki
             niemu przygotujemy spotkanie wokół odpowiedniego modelu, charakteru
             i kierunku indywidualnej kompozycji Alaudis.
           </p>

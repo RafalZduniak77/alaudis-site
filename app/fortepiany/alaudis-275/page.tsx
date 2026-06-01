@@ -77,7 +77,7 @@ export default function ModelAlaudis275Page() {
             </h1>
 
             <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/88 sm:text-base">
-              Największa forma koncertowa Alaudis — stworzona dla pełnej skali
+              Największa forma koncertowa Alaudis, stworzona dla pełnej skali
               brzmienia, szerokiej projekcji i scenicznej obecności. To model
               dla przestrzeni, w których instrument nie tylko dopełnia wnętrze,
               ale staje się jego głównym głosem i centralnym punktem całej
@@ -191,7 +191,7 @@ export default function ModelAlaudis275Page() {
             </h3>
 
             <p className="mt-5 leading-8 text-white/68">
-              Alaudis 275 reprezentuje szczytową skalę marki — instrument o
+              Alaudis 275 reprezentuje szczytową skalę marki, instrument o
               najbardziej rozbudowanej osobowości, największym oddechu i
               najbardziej koncertowej naturze. To Alaudis w swojej najbardziej
               pełnej, monumentalnej i scenicznej postaci.

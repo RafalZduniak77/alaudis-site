@@ -70,7 +70,7 @@ export default function VisitAtelierPage() {
 
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/62 sm:text-[15px] sm:leading-8">
               A visit to the atelier is a calm, personal encounter with the
-              brand — not only a presentation of the model, but an experience of
+              brand, not only a presentation of the model, but an experience of
               its scale, presence and identity.
             </p>
           </div>
@@ -112,7 +112,7 @@ export default function VisitAtelierPage() {
 
             <p className="mt-6 max-w-3xl leading-8 text-white/68">
               In the atelier, you can see Alaudis models in a calm, private
-              context — up close, without haste, with the opportunity to discuss
+              context, up close, without haste, with the opportunity to discuss
               proportions, finishes, the purpose of the instrument and its place
               in a specific space.
             </p>
@@ -165,7 +165,7 @@ export default function VisitAtelierPage() {
               </h3>
 
               <p className="mt-5 leading-8 text-white/68">
-                The visit can become the beginning of a private consultation —
+                The visit can become the beginning of a private consultation,
                 a conversation about the model, the character of the instrument,
                 its purpose, preferred scale and the complete Alaudis language.
               </p>
@@ -283,7 +283,7 @@ export default function VisitAtelierPage() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
-            The best beginning for a visit to the atelier is a short contact —
+            The best beginning for a visit to the atelier is a short contact,
             it allows us to prepare the meeting around the right model,
             character and direction of your individual Alaudis composition.
           </p>

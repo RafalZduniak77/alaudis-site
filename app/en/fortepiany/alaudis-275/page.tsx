@@ -78,7 +78,7 @@ export default function ModelAlaudis275Page() {
             </h1>
 
             <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/88 sm:text-base">
-              The largest concert form of Alaudis — created for full tonal
+              The largest concert form of Alaudis, created for full tonal
               scale, wide projection and stage presence. This is a model for
               spaces where the instrument not only completes the interior, but
               becomes its main voice and the central point of the entire
@@ -191,7 +191,7 @@ export default function ModelAlaudis275Page() {
             </h3>
 
             <p className="mt-5 leading-8 text-white/68">
-              Alaudis 275 represents the peak scale of the brand — an
+              Alaudis 275 represents the peak scale of the brand, an
               instrument with the most developed personality, the greatest
               breath and the most concert-like nature. This is Alaudis in its
               fullest, most monumental and most stage-oriented form.

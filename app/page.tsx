@@ -224,7 +224,7 @@ export default function Home() {
 
           <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-white/68 sm:text-[17px]">
             Każdy model Alaudis powstaje jako osobna interpretacja proporcji,
-            charakteru i brzmienia — od wyrafinowanej obecności salonowej po
+            charakteru i brzmienia, od wyrafinowanej obecności salonowej po
             pełną skalę fortepianu koncertowego.
           </p>
         </section>
@@ -241,7 +241,7 @@ export default function Home() {
             <h2 className="mt-4 text-3xl font-light">Alaudis 178</h2>
 
             <p className="mt-5 leading-7 text-white/68">
-              Liryczna interpretacja fortepianu klasy premium — elegancka,
+              Liryczna interpretacja fortepianu klasy premium, elegancka,
               wyważona i stworzona do wnętrz, w których detal ma taką samą wagę
               jak dźwięk.
             </p>
@@ -262,7 +262,7 @@ export default function Home() {
             <h2 className="mt-4 text-3xl font-light">Alaudis 214</h2>
 
             <p className="mt-5 leading-7 text-white/68">
-              Fortepian o głębszej obecności i szerszej projekcji — dla
+              Fortepian o głębszej obecności i szerszej projekcji, dla
               przestrzeni, które wymagają większej skali, wyrazistości i
               koncertowego charakteru.
             </p>
@@ -283,7 +283,7 @@ export default function Home() {
             <h2 className="mt-4 text-3xl font-light">Alaudis 275</h2>
 
             <p className="mt-5 leading-7 text-white/68">
-              Największa forma koncertowa Alaudis — pełna skala brzmienia,
+              Największa forma koncertowa Alaudis, pełna skala brzmienia,
               projekcja i sceniczna obecność zaprojektowana dla najbardziej
               wymagających przestrzeni.
             </p>

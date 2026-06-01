@@ -51,7 +51,7 @@ export default function DlaArchitektowPage() {
 
             <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/88 sm:text-base sm:leading-9">
               Alaudis może stać się integralną częścią rezydencji, apartamentu,
-              hotelu lub przestrzeni reprezentacyjnej — nie jako zwykły obiekt,
+              hotelu lub przestrzeni reprezentacyjnej, nie jako zwykły obiekt,
               lecz jako świadomie dobrany element kompozycji wnętrza.
             </p>
 
@@ -131,7 +131,7 @@ export default function DlaArchitektowPage() {
 
               <p className="mt-5 leading-8 text-white/68">
                 Pomagamy dobrać wielkość i charakter modelu do proporcji
-                przestrzeni — od salonów i apartamentów po większe rezydencje,
+                przestrzeni, od salonów i apartamentów po większe rezydencje,
                 lobby i reprezentacyjne strefy hotelowe.
               </p>
             </div>

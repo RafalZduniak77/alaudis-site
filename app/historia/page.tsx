@@ -34,9 +34,9 @@ const storySections: StorySection[] = [
     eyebrow: "Świat Alaudis",
     title: "Fortepian o własnej duszy",
     text: [
-      "SAP Alaudis to niezwykły fortepian, którego celem jest uchwycenie czarującego piękna i dźwięku śpiewu skowronka. Powstał z pragnienia stworzenia instrumentu mistrzowskiego – takiego, który zachwyca brzmieniem, porusza emocje i staje się naturalnym przedłużeniem duszy pianisty.",
-      "Fortepian Alaudis jest dziełem ludzkich rąk, cierpliwości i miłości do dźwięku. Nie stosujemy produkcji seryjnej – każdy instrument powstaje indywidualnie, w procesie pełnym precyzji i mistrzowskiego rzemiosła.",
-      "Naszym celem nie jest tylko zbudowanie fortepianu, lecz stworzenie dzieła sztuki – instrumentu o duszy, który zachwyci zarówno pianistę, jak i słuchacza.",
+      "SAP Alaudis to niezwykły fortepian, którego celem jest uchwycenie czarującego piękna i dźwięku śpiewu skowronka. Powstał z pragnienia stworzenia instrumentu mistrzowskiego, takiego, który zachwyca brzmieniem, porusza emocje i staje się naturalnym przedłużeniem duszy pianisty.",
+      "Fortepian Alaudis jest dziełem ludzkich rąk, cierpliwości i miłości do dźwięku. Nie stosujemy produkcji seryjnej, każdy instrument powstaje indywidualnie, w procesie pełnym precyzji i mistrzowskiego rzemiosła.",
+      "Naszym celem nie jest tylko zbudowanie fortepianu, lecz stworzenie dzieła sztuki, instrumentu o duszy, który zachwyci zarówno pianistę, jak i słuchacza.",
     ],
     image: "/historia/1 Dusza .jpg",
     imageAlt: "Dusza fortepianu Alaudis",
@@ -46,9 +46,9 @@ const storySections: StorySection[] = [
     eyebrow: "Materiał i filozofia",
     title: "Fortepian to drewno, które gra",
     text: [
-      "Wszystko zaczyna się od drewna. Z pozoru zwykłe deski, ułożone w sztaple, czekają na swój czas – na moment, w którym zamienią się w dźwięk. To właśnie w nich ukryta jest przyszła dusza fortepianu.",
-      "W SAP Alaudis drewno wybieramy tak, jak artysta wybiera barwy do obrazu. Szukamy w nim harmonii, elastyczności i duszy. Każdy gatunek ma swój głos – świerk rezonansowy daje ciepło i głębię, brzoza wnosi precyzję, a klon i buk – siłę i trwałość.",
-      "Przez lata dojrzewa w naturalnych warunkach, zanim trafi w ręce naszych mistrzów. Dopiero wtedy zaczyna się prawdziwa przemiana – z surowego materiału w nośnik emocji.",
+      "Wszystko zaczyna się od drewna. Z pozoru zwykłe deski, ułożone w sztaple, czekają na swój czas, na moment, w którym zamienią się w dźwięk. To właśnie w nich ukryta jest przyszła dusza fortepianu.",
+      "W SAP Alaudis drewno wybieramy tak, jak artysta wybiera barwy do obrazu. Szukamy w nim harmonii, elastyczności i duszy. Każdy gatunek ma swój głos, świerk rezonansowy daje ciepło i głębię, brzoza wnosi precyzję, a klon i buk, siłę i trwałość.",
+      "Przez lata dojrzewa w naturalnych warunkach, zanim trafi w ręce naszych mistrzów. Dopiero wtedy zaczyna się prawdziwa przemiana, z surowego materiału w nośnik emocji.",
     ],
     image: "/historia/2 Drewno gra.jpg",
     imageAlt: "Drewno do budowy fortepianu Alaudis",
@@ -70,7 +70,7 @@ const storySections: StorySection[] = [
     eyebrow: "Lakierowanie",
     title: "Głębia powierzchni i ochrona",
     text: [
-      "Lakierowanie fortepianu SAP Alaudis zostało przeprowadzone z najwyższą starannością przy użyciu systemu lakierniczego firmy ICA – renomowanego włoskiego producenta powłok dedykowanych instrumentom.",
+      "Lakierowanie fortepianu SAP Alaudis zostało przeprowadzone z najwyższą starannością przy użyciu systemu lakierniczego firmy ICA, renomowanego włoskiego producenta powłok dedykowanych instrumentom.",
       "Na korpus i elementy obudowy naniesiono 6 warstw podkładu oraz 9 warstw lakieru poliestrowego nawierzchniowego, co gwarantuje wyjątkowy połysk, odporność na zarysowania i trwałość.",
       "Ten wielowarstwowy cykl wykończeniowy umożliwia uzyskanie gładkiej, głębokiej i lustrzanej powierzchni, która nie tylko podkreśla estetykę, lecz także chroni konstrukcję instrumentu przez wiele lat.",
     ],
@@ -96,7 +96,7 @@ const storySections: StorySection[] = [
     text: [
       "Dno rezonansowe fortepianu Alaudis wykonane jest ze świerku klasy tonowej, dostarczonego przez renomowanego producenta Strunz, i stanowi kluczowy element akustycznej konstrukcji instrumentu.",
       "Starannie sezonowane i selekcjonowane drewno, precyzyjnie dopasowane do ramy korpusu, tworzy aktywną powierzchnię rezonansową, która przenosi i wzmacnia drgania strun.",
-      "Zaprojektowane w duchu najlepszych tradycji fortepianowych dno rezonansowe zapewnia instrumentowi pełną projekcję brzmienia i tonalną równowagę – od głębokich basów po przejrzyste wysokie tony.",
+      "Zaprojektowane w duchu najlepszych tradycji fortepianowych dno rezonansowe zapewnia instrumentowi pełną projekcję brzmienia i tonalną równowagę, od głębokich basów po przejrzyste wysokie tony.",
     ],
     image: "/historia/6 Dno rezonansowe.jpg",
     imageAlt: "Płyta rezonansowa fortepianu Alaudis",
@@ -142,7 +142,7 @@ const storySections: StorySection[] = [
     eyebrow: "Mechanizm",
     title: "Responsywność i kontrola",
     text: [
-      "Mechanizm młoteczkowy fortepianu SAP Alaudis został zbudowany w oparciu o wysokiej klasy komponenty firmy Louis Renner GmbH – światowego lidera w produkcji mechanizmów fortepianowych.",
+      "Mechanizm młoteczkowy fortepianu SAP Alaudis został zbudowany w oparciu o wysokiej klasy komponenty firmy Louis Renner GmbH, światowego lidera w produkcji mechanizmów fortepianowych.",
       "Precyzyjnie formowane młotki, stabilne trzonki i dokładnie zestrojona geometria mechanizmu zapewniają czysty atak, szybkie odbicie oraz pełną kontrolę nad dynamiką dźwięku.",
       "Dzięki takiej konstrukcji SAP Alaudis charakteryzuje się wyjątkową responsywnością klawiatury, oferując precyzyjny dotyk od pianissimo po pełne fortissimo.",
     ],
@@ -166,7 +166,7 @@ const storySections: StorySection[] = [
     eyebrow: "Intonacja",
     title: "Ostateczna regulacja brzmienia",
     text: [
-      "Intonacja fortepianu SAP Alaudis to jeden z najbardziej wymagających etapów procesu wykończeniowego – moment, w którym technika spotyka się ze sztuką.",
+      "Intonacja fortepianu SAP Alaudis to jeden z najbardziej wymagających etapów procesu wykończeniowego, moment, w którym technika spotyka się ze sztuką.",
       "Każdy młotek jest indywidualnie kształtowany i intonowany, aby uzyskać idealną równowagę między atakiem, nośnością i barwą dźwięku.",
       "Rezultatem jest dźwięk o pełnym spektrum harmonicznym, idealnej równowadze rejestrów i wyjątkowej śpiewności charakterystycznej dla skowronka.",
     ],
@@ -251,7 +251,7 @@ const productionVideos: ProductionVideo[] = [
   },
   {
     src: "/historia-video-web/historia-15.mp4",
-    title: "Ostateczna intonacja młotków — Peter Salisbury",
+    title: "Ostateczna intonacja młotków, Peter Salisbury",
     text: "Finalna intonacja młotków wykonana przez mistrza Petera Salisbury. To ostatni, artystyczny etap pracy nad barwą dźwięku, w którym regulowana jest reakcja młotków, charakter ataku, śpiewność oraz równowaga brzmieniowa całego instrumentu.",
   },
 ];

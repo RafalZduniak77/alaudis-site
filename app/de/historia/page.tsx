@@ -19,9 +19,9 @@ const storySections: StorySection[] = [
     eyebrow: "Die Welt von Alaudis",
     title: "Ein Flügel mit eigener Seele",
     text: [
-      "SAP Alaudis ist ein außergewöhnlicher Flügel, dessen Ziel es ist, die bezaubernde Schönheit und den Klang des Gesangs der Lerche einzufangen. Er entstand aus dem Wunsch, ein meisterhaftes Instrument zu schaffen – eines, das mit seinem Klang begeistert, Emotionen bewegt und zu einer natürlichen Verlängerung der Seele des Pianisten wird.",
-      "Der Flügel Alaudis ist das Werk menschlicher Hände, von Geduld und Liebe zum Klang. Wir verwenden keine Serienproduktion – jedes Instrument entsteht individuell, in einem Prozess voller Präzision und meisterhaften Handwerks.",
-      "Unser Ziel ist es nicht nur, einen Flügel zu bauen, sondern ein Kunstwerk zu erschaffen – ein Instrument mit Seele, das sowohl den Pianisten als auch den Zuhörer begeistern wird.",
+      "SAP Alaudis ist ein außergewöhnlicher Flügel, dessen Ziel es ist, die bezaubernde Schönheit und den Klang des Gesangs der Lerche einzufangen. Er entstand aus dem Wunsch, ein meisterhaftes Instrument zu schaffen, eines, das mit seinem Klang begeistert, Emotionen bewegt und zu einer natürlichen Verlängerung der Seele des Pianisten wird.",
+      "Der Flügel Alaudis ist das Werk menschlicher Hände, von Geduld und Liebe zum Klang. Wir verwenden keine Serienproduktion, jedes Instrument entsteht individuell, in einem Prozess voller Präzision und meisterhaften Handwerks.",
+      "Unser Ziel ist es nicht nur, einen Flügel zu bauen, sondern ein Kunstwerk zu erschaffen, ein Instrument mit Seele, das sowohl den Pianisten als auch den Zuhörer begeistern wird.",
     ],
     image: "/historia/1 Dusza .jpg",
     imageAlt: "Die Seele des Alaudis Flügels",
@@ -31,9 +31,9 @@ const storySections: StorySection[] = [
     eyebrow: "Material und Philosophie",
     title: "Ein Flügel ist Holz, das klingt",
     text: [
-      "Alles beginnt mit dem Holz. Auf den ersten Blick gewöhnliche Bretter, in Stapeln gelagert, warten auf ihre Zeit – auf den Moment, in dem sie sich in Klang verwandeln. Genau in ihnen verbirgt sich die zukünftige Seele des Flügels.",
-      "Bei SAP Alaudis wählen wir Holz so aus, wie ein Künstler Farben für ein Gemälde auswählt. Wir suchen in ihm Harmonie, Elastizität und Seele. Jede Holzart hat ihre eigene Stimme – Resonanzfichte schenkt Wärme und Tiefe, Birke bringt Präzision, und Ahorn sowie Buche verleihen Kraft und Beständigkeit.",
-      "Über Jahre reift das Holz unter natürlichen Bedingungen, bevor es in die Hände unserer Meister gelangt. Erst dann beginnt die wahre Verwandlung – vom Rohmaterial zum Träger von Emotionen.",
+      "Alles beginnt mit dem Holz. Auf den ersten Blick gewöhnliche Bretter, in Stapeln gelagert, warten auf ihre Zeit, auf den Moment, in dem sie sich in Klang verwandeln. Genau in ihnen verbirgt sich die zukünftige Seele des Flügels.",
+      "Bei SAP Alaudis wählen wir Holz so aus, wie ein Künstler Farben für ein Gemälde auswählt. Wir suchen in ihm Harmonie, Elastizität und Seele. Jede Holzart hat ihre eigene Stimme, Resonanzfichte schenkt Wärme und Tiefe, Birke bringt Präzision, und Ahorn sowie Buche verleihen Kraft und Beständigkeit.",
+      "Über Jahre reift das Holz unter natürlichen Bedingungen, bevor es in die Hände unserer Meister gelangt. Erst dann beginnt die wahre Verwandlung, vom Rohmaterial zum Träger von Emotionen.",
     ],
     image: "/historia/2 Drewno gra.jpg",
     imageAlt: "Holz für den Bau des Alaudis Flügels",
@@ -55,7 +55,7 @@ const storySections: StorySection[] = [
     eyebrow: "Lackierung",
     title: "Tiefe der Oberfläche und Schutz",
     text: [
-      "Die Lackierung des SAP Alaudis Flügels wurde mit größter Sorgfalt unter Verwendung des Lacksystems der Firma ICA durchgeführt – eines renommierten italienischen Herstellers von Beschichtungen für Musikinstrumente.",
+      "Die Lackierung des SAP Alaudis Flügels wurde mit größter Sorgfalt unter Verwendung des Lacksystems der Firma ICA durchgeführt, eines renommierten italienischen Herstellers von Beschichtungen für Musikinstrumente.",
       "Auf den Korpus und die Gehäuseteile wurden 6 Schichten Grundierung sowie 9 Schichten Polyester-Decklack aufgetragen, was außergewöhnlichen Glanz, Kratzfestigkeit und Langlebigkeit garantiert.",
       "Dieser mehrschichtige Veredelungsprozess ermöglicht eine glatte, tiefe und spiegelnde Oberfläche, die nicht nur die Ästhetik unterstreicht, sondern zugleich die Konstruktion des Instruments über viele Jahre schützt.",
     ],
@@ -81,7 +81,7 @@ const storySections: StorySection[] = [
     text: [
       "Der Resonanzboden des Alaudis Flügels besteht aus Klangfichte, geliefert vom renommierten Hersteller Strunz, und bildet ein zentrales Element der akustischen Konstruktion des Instruments.",
       "Sorgfältig gelagertes und ausgewähltes Holz, präzise an den Korpusrahmen angepasst, schafft eine aktive Resonanzfläche, die die Schwingungen der Saiten überträgt und verstärkt.",
-      "Im Geist der besten Klavierbautraditionen entworfen, verleiht der Resonanzboden dem Instrument volle Klangprojektion und tonale Ausgewogenheit – von tiefen Bässen bis zu klaren Höhen.",
+      "Im Geist der besten Klavierbautraditionen entworfen, verleiht der Resonanzboden dem Instrument volle Klangprojektion und tonale Ausgewogenheit, von tiefen Bässen bis zu klaren Höhen.",
     ],
     image: "/historia/6 Dno rezonansowe.jpg",
     imageAlt: "Resonanzboden des Alaudis Flügels",
@@ -127,7 +127,7 @@ const storySections: StorySection[] = [
     eyebrow: "Mechanik",
     title: "Reaktionsfreude und Kontrolle",
     text: [
-      "Die Hammermechanik des SAP Alaudis Flügels wurde auf der Grundlage hochwertiger Komponenten der Firma Louis Renner GmbH aufgebaut – eines weltweit führenden Herstellers von Klaviermechaniken.",
+      "Die Hammermechanik des SAP Alaudis Flügels wurde auf der Grundlage hochwertiger Komponenten der Firma Louis Renner GmbH aufgebaut, eines weltweit führenden Herstellers von Klaviermechaniken.",
       "Präzise geformte Hammerköpfe, stabile Hammerstiele und eine exakt abgestimmte Geometrie der Mechanik gewährleisten einen klaren Anschlag, schnelle Repetition und vollständige Kontrolle über die Dynamik des Klangs.",
       "Dank einer solchen Konstruktion zeichnet sich SAP Alaudis durch eine außergewöhnliche Reaktionsfreude der Klaviatur aus und bietet präzisen Anschlag von Pianissimo bis zum vollen Fortissimo.",
     ],
@@ -151,7 +151,7 @@ const storySections: StorySection[] = [
     eyebrow: "Intonation",
     title: "Die endgültige Regulierung des Klangs",
     text: [
-      "Die Intonation des SAP Alaudis Flügels gehört zu den anspruchsvollsten Etappen des Veredelungsprozesses – dem Moment, in dem Technik auf Kunst trifft.",
+      "Die Intonation des SAP Alaudis Flügels gehört zu den anspruchsvollsten Etappen des Veredelungsprozesses, dem Moment, in dem Technik auf Kunst trifft.",
       "Jeder Hammer wird individuell geformt und intoniert, um das ideale Gleichgewicht zwischen Anschlag, Tragfähigkeit und Klangfarbe zu erreichen.",
       "Das Ergebnis ist ein Klang mit vollem harmonischen Spektrum, perfekter Ausgewogenheit der Register und einer außergewöhnlichen Gesanglichkeit, die für die Lerche charakteristisch ist.",
     ],
@@ -235,7 +235,7 @@ const productionVideos: ProductionVideo[] = [
   },
   {
     src: "/historia-video-web/historia-15.mp4",
-    title: "Finale Intonation der Hammerköpfe — Peter Salisbury",
+    title: "Finale Intonation der Hammerköpfe, Peter Salisbury",
     text: "Die finale Intonation der Hammerköpfe, ausgeführt von Meister Peter Salisbury. Dies ist der letzte künstlerische Schritt der Arbeit am Klang, bei dem Hammerreaktion, Anschlagscharakter, Sanglichkeit und klangliche Balance des gesamten Instruments verfeinert werden.",
   },
 ];

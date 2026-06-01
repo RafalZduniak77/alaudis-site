@@ -78,7 +78,7 @@ export default function ModelAlaudis275Page() {
             </h1>
 
             <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/88 sm:text-base">
-              La plus grande forme de concert Alaudis — créée pour une pleine
+              La plus grande forme de concert Alaudis, créée pour une pleine
               échelle sonore, une large projection et une présence scénique.
               C’est un modèle destiné aux espaces dans lesquels l’instrument ne
               complète pas seulement l’intérieur, mais devient sa voix principale
@@ -194,7 +194,7 @@ export default function ModelAlaudis275Page() {
             </h3>
 
             <p className="mt-5 leading-8 text-white/68">
-              Alaudis 275 représente l’échelle la plus élevée de la marque — un
+              Alaudis 275 représente l’échelle la plus élevée de la marque, un
               instrument à la personnalité la plus développée, à la respiration
               la plus large et à la nature la plus concertante. C’est Alaudis
               dans sa forme la plus complète, monumentale et scénique.

@@ -19,9 +19,9 @@ const storySections: StorySection[] = [
     eyebrow: "L’univers Alaudis",
     title: "Un piano à queue doté de sa propre âme",
     text: [
-      "SAP Alaudis est un piano à queue exceptionnel dont l’ambition est de capturer la beauté envoûtante et la sonorité du chant de l’alouette. Il est né du désir de créer un instrument magistral – capable d’émerveiller par son timbre, de susciter l’émotion et de devenir le prolongement naturel de l’âme du pianiste.",
-      "Le piano Alaudis est l’œuvre de mains humaines, de patience et d’amour du son. Nous n’avons pas recours à la production en série – chaque instrument naît individuellement, dans un processus empreint de précision et d’un artisanat d’excellence.",
-      "Notre objectif n’est pas seulement de construire un piano à queue, mais de créer une œuvre d’art – un instrument avec une âme, capable de séduire aussi bien le pianiste que l’auditeur.",
+      "SAP Alaudis est un piano à queue exceptionnel dont l’ambition est de capturer la beauté envoûtante et la sonorité du chant de l’alouette. Il est né du désir de créer un instrument magistral, capable d’émerveiller par son timbre, de susciter l’émotion et de devenir le prolongement naturel de l’âme du pianiste.",
+      "Le piano Alaudis est l’œuvre de mains humaines, de patience et d’amour du son. Nous n’avons pas recours à la production en série, chaque instrument naît individuellement, dans un processus empreint de précision et d’un artisanat d’excellence.",
+      "Notre objectif n’est pas seulement de construire un piano à queue, mais de créer une œuvre d’art, un instrument avec une âme, capable de séduire aussi bien le pianiste que l’auditeur.",
     ],
     image: "/historia/1 Dusza .jpg",
     imageAlt: "L’âme du piano Alaudis",
@@ -31,9 +31,9 @@ const storySections: StorySection[] = [
     eyebrow: "Matériau et philosophie",
     title: "Le piano est un bois qui chante",
     text: [
-      "Tout commence par le bois. À première vue, de simples planches empilées attendent leur heure – le moment où elles se transformeront en son. C’est en elles que se cache l’âme future du piano.",
-      "Chez SAP Alaudis, nous choisissons le bois comme un artiste choisit les couleurs de son tableau. Nous y recherchons l’harmonie, l’élasticité et l’âme. Chaque essence possède sa propre voix – l’épicéa de résonance apporte chaleur et profondeur, le bouleau apporte la précision, tandis que l’érable et le hêtre offrent force et durabilité.",
-      "Pendant des années, le bois mûrit dans des conditions naturelles avant d’arriver entre les mains de nos maîtres. Ce n’est qu’alors que commence la véritable transformation – de matière brute en vecteur d’émotion.",
+      "Tout commence par le bois. À première vue, de simples planches empilées attendent leur heure, le moment où elles se transformeront en son. C’est en elles que se cache l’âme future du piano.",
+      "Chez SAP Alaudis, nous choisissons le bois comme un artiste choisit les couleurs de son tableau. Nous y recherchons l’harmonie, l’élasticité et l’âme. Chaque essence possède sa propre voix, l’épicéa de résonance apporte chaleur et profondeur, le bouleau apporte la précision, tandis que l’érable et le hêtre offrent force et durabilité.",
+      "Pendant des années, le bois mûrit dans des conditions naturelles avant d’arriver entre les mains de nos maîtres. Ce n’est qu’alors que commence la véritable transformation, de matière brute en vecteur d’émotion.",
     ],
     image: "/historia/2 Drewno gra.jpg",
     imageAlt: "Bois destiné à la construction du piano Alaudis",
@@ -55,7 +55,7 @@ const storySections: StorySection[] = [
     eyebrow: "Laquage",
     title: "Profondeur de surface et protection",
     text: [
-      "Le laquage du piano SAP Alaudis a été réalisé avec le plus grand soin à l’aide du système de finition ICA – un fabricant italien renommé de revêtements dédiés aux instruments.",
+      "Le laquage du piano SAP Alaudis a été réalisé avec le plus grand soin à l’aide du système de finition ICA, un fabricant italien renommé de revêtements dédiés aux instruments.",
       "Six couches d’apprêt et neuf couches de laque polyester de finition ont été appliquées sur le corps et les éléments de l’ébénisterie, garantissant une brillance exceptionnelle, une résistance aux rayures et une grande durabilité.",
       "Ce cycle de finition multicouche permet d’obtenir une surface lisse, profonde et miroir, qui non seulement souligne l’esthétique de l’instrument, mais protège également sa structure pendant de nombreuses années.",
     ],
@@ -81,7 +81,7 @@ const storySections: StorySection[] = [
     text: [
       "La table d’harmonie du piano Alaudis est réalisée en épicéa de qualité acoustique, fourni par le célèbre fabricant Strunz, et constitue un élément essentiel de la construction acoustique de l’instrument.",
       "Un bois soigneusement séché et sélectionné, ajusté avec précision à la structure de la ceinture, crée une surface résonante active qui transmet et amplifie les vibrations des cordes.",
-      "Conçue dans l’esprit des plus belles traditions de facture pianistique, la table d’harmonie confère à l’instrument une pleine projection sonore et un équilibre tonal – des basses profondes aux aigus limpides.",
+      "Conçue dans l’esprit des plus belles traditions de facture pianistique, la table d’harmonie confère à l’instrument une pleine projection sonore et un équilibre tonal, des basses profondes aux aigus limpides.",
     ],
     image: "/historia/6 Dno rezonansowe.jpg",
     imageAlt: "Table d’harmonie du piano Alaudis",
@@ -127,7 +127,7 @@ const storySections: StorySection[] = [
     eyebrow: "Mécanique",
     title: "Réactivité et contrôle",
     text: [
-      "La mécanique à marteaux du piano SAP Alaudis a été construite à partir de composants haut de gamme de la société Louis Renner GmbH – référence mondiale dans la fabrication de mécaniques de piano.",
+      "La mécanique à marteaux du piano SAP Alaudis a été construite à partir de composants haut de gamme de la société Louis Renner GmbH, référence mondiale dans la fabrication de mécaniques de piano.",
       "Des marteaux façonnés avec précision, des manches stables et une géométrie de mécanique parfaitement réglée assurent une attaque claire, une répétition rapide et un contrôle total de la dynamique sonore.",
       "Grâce à une telle construction, SAP Alaudis se distingue par une réactivité exceptionnelle du clavier, offrant une précision de toucher allant du pianissimo le plus délicat jusqu’au fortissimo le plus ample.",
     ],
@@ -151,7 +151,7 @@ const storySections: StorySection[] = [
     eyebrow: "Intonation",
     title: "Le réglage final du son",
     text: [
-      "L’intonation du piano SAP Alaudis constitue l’une des étapes les plus exigeantes du processus de finition – le moment où la technique rencontre l’art.",
+      "L’intonation du piano SAP Alaudis constitue l’une des étapes les plus exigeantes du processus de finition, le moment où la technique rencontre l’art.",
       "Chaque marteau est façonné et intoné individuellement afin d’obtenir l’équilibre idéal entre l’attaque, la portée sonore et la couleur du timbre.",
       "Le résultat est un son au spectre harmonique complet, parfaitement équilibré entre les registres, avec cette qualité chantante exceptionnelle caractéristique de l’alouette.",
     ],
@@ -235,7 +235,7 @@ const productionVideos: ProductionVideo[] = [
   },
   {
     src: "/historia-video-web/historia-15.mp4",
-    title: "Intonation finale des marteaux — Peter Salisbury",
+    title: "Intonation finale des marteaux, Peter Salisbury",
     text: "Intonation finale des marteaux réalisée par le maître Peter Salisbury. C’est la dernière étape artistique du travail sur la couleur sonore, où sont affinés la réponse des marteaux, le caractère de l’attaque, le chant et l’équilibre sonore de tout l’instrument.",
   },
 ];

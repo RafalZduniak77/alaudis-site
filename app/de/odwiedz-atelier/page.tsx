@@ -51,7 +51,7 @@ export default function BesuchenSieDasAtelierPage() {
 
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/62 sm:text-[15px] sm:leading-8">
               Ein Besuch im Atelier ist ein ruhiger, persönlicher Moment der
-              Begegnung mit der Marke — nicht nur eine Präsentation des Modells,
+              Begegnung mit der Marke, nicht nur eine Präsentation des Modells,
               sondern ein Erlebnis seiner Größe, Präsenz und Identität.
             </p>
           </div>
@@ -87,7 +87,7 @@ export default function BesuchenSieDasAtelierPage() {
 
             <p className="mt-6 max-w-3xl leading-8 text-white/68">
               Im Atelier können Sie die Alaudis Modelle in einem ruhigen,
-              privaten Kontext erleben — aus der Nähe, ohne Eile, mit der
+              privaten Kontext erleben, aus der Nähe, ohne Eile, mit der
               Möglichkeit, über Proportionen, Ausführungen, die Bestimmung des
               Instruments und seinen Platz in einem konkreten Raum zu sprechen.
             </p>
@@ -138,7 +138,7 @@ export default function BesuchenSieDasAtelierPage() {
               </h3>
 
               <p className="mt-5 leading-8 text-white/68">
-                Der Besuch kann zum Beginn einer privaten Beratung werden —
+                Der Besuch kann zum Beginn einer privaten Beratung werden,
                 eines Gesprächs über das Modell, den Charakter des Instruments,
                 seinen Einsatz, die bevorzugte Größe und die gesamte Sprache von
                 Alaudis.
@@ -248,7 +248,7 @@ export default function BesuchenSieDasAtelierPage() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
-            Der beste Beginn eines Atelierbesuchs ist ein kurzer Kontakt —
+            Der beste Beginn eines Atelierbesuchs ist ein kurzer Kontakt,
             dadurch bereiten wir das Treffen rund um das passende Modell, den
             Charakter und die Richtung der individuellen Alaudis-Komposition
             vor.

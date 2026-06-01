@@ -44,7 +44,7 @@ export default function ForArchitectsPage() {
 
             <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/88 sm:text-base sm:leading-9">
               Alaudis can become an integral part of a residence, apartment,
-              hotel or representative interior — not as an ordinary object,
+              hotel or representative interior, not as an ordinary object,
               but as a consciously selected element of the interior composition.
             </p>
 
@@ -124,7 +124,7 @@ export default function ForArchitectsPage() {
 
               <p className="mt-5 leading-8 text-white/68">
                 We help select the size and character of the model according to
-                the proportions of the space — from living rooms and apartments
+                the proportions of the space, from living rooms and apartments
                 to larger residences, lobbies and representative hotel areas.
               </p>
             </div>

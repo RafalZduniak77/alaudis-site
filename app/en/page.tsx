@@ -198,7 +198,7 @@ export default function Home() {
 
           <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-white/68 sm:text-[17px]">
             Each Alaudis model is created as a distinct interpretation of
-            proportion, character and sound — from refined living-space
+            proportion, character and sound, from refined living-space
             presence to the full scale of a concert grand piano.
           </p>
         </section>
@@ -215,7 +215,7 @@ export default function Home() {
             <h2 className="mt-4 text-3xl font-light">Alaudis 178</h2>
 
             <p className="mt-5 leading-7 text-white/68">
-              A lyrical interpretation of the premium grand piano — elegant,
+              A lyrical interpretation of the premium grand piano, elegant,
               balanced, and created for interiors where detail matters as much
               as sound.
             </p>
@@ -236,7 +236,7 @@ export default function Home() {
             <h2 className="mt-4 text-3xl font-light">Alaudis 214</h2>
 
             <p className="mt-5 leading-7 text-white/68">
-              A grand piano with deeper presence and broader projection — for
+              A grand piano with deeper presence and broader projection, for
               spaces that call for greater scale, clarity and a more concert
               character.
             </p>
@@ -257,7 +257,7 @@ export default function Home() {
             <h2 className="mt-4 text-3xl font-light">Alaudis 275</h2>
 
             <p className="mt-5 leading-7 text-white/68">
-              The largest Alaudis concert form — full scale of sound,
+              The largest Alaudis concert form, full scale of sound,
               projection, and stage presence designed for the most demanding
               spaces.
             </p>

@@ -124,7 +124,7 @@ export default function ModelAlaudis178Page() {
 
           <div className="space-y-6 text-white/72">
             <p className="leading-8">
-              Alaudis 178 offers a sound with a clear culture of tone —
+              Alaudis 178 offers a sound with a clear culture of tone,
               transparent, singing and naturally ordered. It is an instrument
               that does not dominate a space through aggression, but instead
               builds an atmosphere of class, calm and musical depth.
@@ -165,7 +165,7 @@ export default function ModelAlaudis178Page() {
 
             <p className="mt-5 leading-8 text-white/68">
               It feels most at home in modern, classical, art déco and soft
-              luxury interiors — wherever detail, light, materials and the
+              luxury interiors, wherever detail, light, materials and the
               presence of the instrument form one shared composition.
             </p>
           </div>

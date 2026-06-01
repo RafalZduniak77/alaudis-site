@@ -50,7 +50,7 @@ export default function VisitezLatelierPage() {
 
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/62 sm:text-[15px] sm:leading-8">
               Une visite à l’atelier est un moment calme et personnel avec la
-              marque — non seulement une présentation du modèle, mais une
+              marque, non seulement une présentation du modèle, mais une
               expérience de son échelle, de sa présence et de son identité.
             </p>
           </div>
@@ -86,7 +86,7 @@ export default function VisitezLatelierPage() {
 
             <p className="mt-6 max-w-3xl leading-8 text-white/68">
               Dans l’atelier, vous pouvez découvrir les modèles Alaudis dans un
-              cadre calme et privé — de près, sans précipitation, avec la
+              cadre calme et privé, de près, sans précipitation, avec la
               possibilité d’échanger sur les proportions, les finitions, la
               destination de l’instrument et sa place dans un espace concret.
             </p>
@@ -137,7 +137,7 @@ export default function VisitezLatelierPage() {
               </h3>
 
               <p className="mt-5 leading-8 text-white/68">
-                La visite peut devenir le début d’une consultation privée —
+                La visite peut devenir le début d’une consultation privée,
                 une conversation autour du modèle, du caractère de
                 l’instrument, de son usage, de l’échelle souhaitée et du langage
                 global d’Alaudis.
@@ -249,7 +249,7 @@ export default function VisitezLatelierPage() {
 
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
             Le meilleur début pour une visite à l’atelier est un premier contact
-            rapide — grâce à lui, nous préparerons la rencontre autour du bon
+            rapide, grâce à lui, nous préparerons la rencontre autour du bon
             modèle, du caractère recherché et de la direction de la composition
             individuelle Alaudis.
           </p>

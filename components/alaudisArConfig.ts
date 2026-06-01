@@ -267,9 +267,9 @@ export function getInfoCards(
       featured: false,
     },
     {
-      eyebrow: "Następny etap",
-      title: "Finalne pliki modeli",
-      text: "Kiedy będą gotowe finalne wersje 3D dla każdego modelu, podepniemy je tutaj bez przebudowy całego modułu.",
+      eyebrow: "Dostępne teraz",
+      title: "Podgląd w rozwoju",
+      text: "Moduł 3D i 360 rozwijamy etapami. Obecnie możesz oglądać dostępne warianty Alaudis i przełączać wykończenia.",
       featured: false,
     },
   ];

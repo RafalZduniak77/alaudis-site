@@ -124,7 +124,7 @@ export default function ModelAlaudis178Page() {
 
           <div className="space-y-6 text-white/72">
             <p className="leading-8">
-              Alaudis 178 bietet einen Klang mit ausgeprägter Klangkultur —
+              Alaudis 178 bietet einen Klang mit ausgeprägter Klangkultur,
               klar, singend und natürlich geordnet. Es ist ein Instrument, das
               einen Raum nicht durch Aggressivität dominiert, sondern eine
               Atmosphäre von Klasse, Ruhe und musikalischer Tiefe aufbaut.
@@ -165,7 +165,7 @@ export default function ModelAlaudis178Page() {
 
             <p className="mt-5 leading-8 text-white/68">
               Am besten entfaltet es sich in modernen, klassischen, Art-déco-
-              und Soft-Luxury-Interieurs — dort, wo Detail, Licht, Materialien
+              und Soft-Luxury-Interieurs, dort, wo Detail, Licht, Materialien
               und die Präsenz des Instruments eine gemeinsame Komposition
               bilden.
             </p>

@@ -217,7 +217,7 @@ export default function Home() {
 
           <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-white/68 sm:text-[17px]">
             Chaque modèle Alaudis est conçu comme une interprétation singulière
-            de la proportion, du caractère et du son — d’une présence raffinée
+            de la proportion, du caractère et du son, d’une présence raffinée
             dans un intérieur à l’échelle complète d’un piano de concert.
           </p>
         </section>
@@ -234,7 +234,7 @@ export default function Home() {
             <h2 className="mt-4 text-3xl font-light">Alaudis 178</h2>
 
             <p className="mt-5 leading-7 text-white/68">
-              Une interprétation lyrique du piano premium — élégante, équilibrée
+              Une interprétation lyrique du piano premium, élégante, équilibrée
               et pensée pour les intérieurs où le détail compte autant que le
               son.
             </p>
@@ -256,7 +256,7 @@ export default function Home() {
 
             <p className="mt-5 leading-7 text-white/68">
               Un piano à queue à la présence plus profonde et à la projection
-              plus large — pour les espaces qui demandent plus d’ampleur, de
+              plus large, pour les espaces qui demandent plus d’ampleur, de
               clarté et un caractère plus concertant.
             </p>
 
@@ -276,7 +276,7 @@ export default function Home() {
             <h2 className="mt-4 text-3xl font-light">Alaudis 275</h2>
 
             <p className="mt-5 leading-7 text-white/68">
-              La plus grande forme de concert Alaudis — pleine échelle sonore,
+              La plus grande forme de concert Alaudis, pleine échelle sonore,
               projection et présence scénique conçues pour les espaces les plus
               exigeants.
             </p>

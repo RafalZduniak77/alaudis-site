@@ -124,7 +124,7 @@ export default function ModelAlaudis178Page() {
 
           <div className="space-y-6 text-white/72">
             <p className="leading-8">
-              Alaudis 178 oferuje dźwięk o wyraźnej kulturze brzmienia —
+              Alaudis 178 oferuje dźwięk o wyraźnej kulturze brzmienia,
               klarowny, śpiewny i naturalnie uporządkowany. To instrument,
               który nie dominuje przestrzeni agresją, lecz buduje atmosferę
               klasy, spokoju i muzycznej głębi.
@@ -165,7 +165,7 @@ export default function ModelAlaudis178Page() {
 
             <p className="mt-5 leading-8 text-white/68">
               Najlepiej odnajduje się we wnętrzach nowoczesnych, klasycznych,
-              art déco i soft luxury — tam, gdzie detal, światło, materiały
+              art déco i soft luxury, tam, gdzie detal, światło, materiały
               i obecność instrumentu tworzą wspólną kompozycję.
             </p>
           </div>

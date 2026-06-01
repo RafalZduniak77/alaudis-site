@@ -19,9 +19,9 @@ const storySections: StorySection[] = [
     eyebrow: "Alaudis World",
     title: "A piano with its own soul",
     text: [
-      "SAP Alaudis is an extraordinary grand piano whose purpose is to capture the enchanting beauty and sound of the skylark’s song. It was born from the desire to create a master instrument — one that delights with its tone, moves emotions, and becomes a natural extension of the pianist’s soul.",
-      "The Alaudis piano is the work of human hands, patience, and love for sound. We do not use mass production — each instrument is created individually, through a process full of precision and master craftsmanship.",
-      "Our goal is not only to build a grand piano, but to create a work of art — an instrument with a soul that will captivate both the pianist and the listener.",
+      "SAP Alaudis is an extraordinary grand piano whose purpose is to capture the enchanting beauty and sound of the skylark’s song. It was born from the desire to create a master instrument, one that delights with its tone, moves emotions, and becomes a natural extension of the pianist’s soul.",
+      "The Alaudis piano is the work of human hands, patience, and love for sound. We do not use mass production, each instrument is created individually, through a process full of precision and master craftsmanship.",
+      "Our goal is not only to build a grand piano, but to create a work of art, an instrument with a soul that will captivate both the pianist and the listener.",
     ],
     image: "/historia/1 Dusza .jpg",
     imageAlt: "Soul of the Alaudis piano",
@@ -31,9 +31,9 @@ const storySections: StorySection[] = [
     eyebrow: "Material and philosophy",
     title: "A piano is wood that sings",
     text: [
-      "Everything begins with wood. At first glance, they are only ordinary boards, stacked and waiting for their moment — the moment they turn into sound. It is within them that the future soul of the piano is hidden.",
-      "At SAP Alaudis, we choose wood the way an artist chooses colours for a painting. We look for harmony, flexibility, and soul. Each species has its own voice — resonant spruce gives warmth and depth, birch brings precision, while maple and beech bring strength and durability.",
-      "For years, the wood matures under natural conditions before it reaches the hands of our masters. Only then does the true transformation begin — from raw material into a carrier of emotion.",
+      "Everything begins with wood. At first glance, they are only ordinary boards, stacked and waiting for their moment, the moment they turn into sound. It is within them that the future soul of the piano is hidden.",
+      "At SAP Alaudis, we choose wood the way an artist chooses colours for a painting. We look for harmony, flexibility, and soul. Each species has its own voice, resonant spruce gives warmth and depth, birch brings precision, while maple and beech bring strength and durability.",
+      "For years, the wood matures under natural conditions before it reaches the hands of our masters. Only then does the true transformation begin, from raw material into a carrier of emotion.",
     ],
     image: "/historia/2 Drewno gra.jpg",
     imageAlt: "Wood for the construction of the Alaudis piano",
@@ -55,7 +55,7 @@ const storySections: StorySection[] = [
     eyebrow: "Lacquering",
     title: "Depth of surface and protection",
     text: [
-      "The lacquering of the SAP Alaudis piano was carried out with the utmost care, using the finishing system of ICA — a renowned Italian manufacturer of coatings dedicated to musical instruments.",
+      "The lacquering of the SAP Alaudis piano was carried out with the utmost care, using the finishing system of ICA, a renowned Italian manufacturer of coatings dedicated to musical instruments.",
       "Six coats of primer and nine coats of polyester top lacquer were applied to the body and cabinet elements, ensuring exceptional gloss, scratch resistance, and durability.",
       "This multi-layer finishing cycle makes it possible to achieve a smooth, deep, mirror-like surface that not only enhances the visual beauty of the instrument, but also protects its structure for many years.",
     ],
@@ -81,7 +81,7 @@ const storySections: StorySection[] = [
     text: [
       "The Alaudis piano soundboard is made from tone-grade spruce supplied by the renowned maker Strunz, and it is a key element of the instrument’s acoustic construction.",
       "Carefully seasoned and selected wood, precisely fitted to the rim structure, creates an active resonant surface that transfers and amplifies the vibrations of the strings.",
-      "Designed in the spirit of the finest piano-building traditions, the soundboard gives the instrument full tonal projection and balance — from deep bass to clear upper registers.",
+      "Designed in the spirit of the finest piano-building traditions, the soundboard gives the instrument full tonal projection and balance, from deep bass to clear upper registers.",
     ],
     image: "/historia/6 Dno rezonansowe.jpg",
     imageAlt: "Soundboard of the Alaudis piano",
@@ -127,7 +127,7 @@ const storySections: StorySection[] = [
     eyebrow: "Action",
     title: "Responsiveness and control",
     text: [
-      "The hammer action of the SAP Alaudis piano is built on high-grade components from Louis Renner GmbH — a world leader in piano action manufacturing.",
+      "The hammer action of the SAP Alaudis piano is built on high-grade components from Louis Renner GmbH, a world leader in piano action manufacturing.",
       "Precisely formed hammers, stable shanks, and carefully balanced action geometry provide a clean attack, fast repetition, and full control over dynamics.",
       "Thanks to such a construction, SAP Alaudis offers exceptional keyboard responsiveness, from delicate pianissimo to full fortissimo.",
     ],
@@ -151,7 +151,7 @@ const storySections: StorySection[] = [
     eyebrow: "Voicing",
     title: "Final regulation of sound",
     text: [
-      "The voicing of the SAP Alaudis piano is one of the most demanding stages of the finishing process — the moment when technique meets art.",
+      "The voicing of the SAP Alaudis piano is one of the most demanding stages of the finishing process, the moment when technique meets art.",
       "Each hammer is individually shaped and voiced in order to achieve the ideal balance between attack, carrying power, and tonal colour.",
       "The result is a sound of full harmonic spectrum, perfect register balance, and the exceptional singing quality characteristic of the skylark.",
     ],
@@ -235,7 +235,7 @@ const productionVideos: ProductionVideo[] = [
   },
   {
     src: "/historia-video-web/historia-15.mp4",
-    title: "Final hammer voicing — Peter Salisbury",
+    title: "Final hammer voicing, Peter Salisbury",
     text: "Final hammer voicing performed by master Peter Salisbury. This is the final artistic stage of work on tone colour, where hammer response, attack character, singing quality and tonal balance of the entire instrument are refined.",
   },
 ];

@@ -52,7 +52,7 @@ const optionTranslations: Record<
     "Czarny Poliester połysk": "Black high-gloss polyester",
     "Ferrari poliester połysk": "Ferrari high-gloss polyester",
     "Heban polerowany": "Polished ebony",
-    "Okleina Jabłoń Indyjska -połysk": "Indian apple veneer – high gloss",
+    "Okleina Jabłoń Indyjska -połysk": "Indian apple veneer, high gloss",
 
     "Dno rezonansowe Strunz": "Strunz soundboard",
     "Dno rezonansowe Chiresse": "Chiresse soundboard",
@@ -91,7 +91,7 @@ const optionTranslations: Record<
     "Ferrari poliester połysk": "Ferrari-Polyester Hochglanz",
     "Heban polerowany": "Polierter Ebenholz",
     "Okleina Jabłoń Indyjska -połysk":
-      "Indisches Apfelbaumfurnier – Hochglanz",
+      "Indisches Apfelbaumfurnier, Hochglanz",
 
     "Dno rezonansowe Strunz": "Resonanzboden Strunz",
     "Dno rezonansowe Chiresse": "Resonanzboden Chiresse",
@@ -130,7 +130,7 @@ const optionTranslations: Record<
     "Czarny Poliester połysk": "Polyester noir brillant",
     "Ferrari poliester połysk": "Polyester Ferrari brillant",
     "Heban polerowany": "Ébène poli",
-    "Okleina Jabłoń Indyjska -połysk": "Placage pommier indien – brillant",
+    "Okleina Jabłoń Indyjska -połysk": "Placage pommier indien, brillant",
 
     "Dno rezonansowe Strunz": "Table d’harmonie Strunz",
     "Dno rezonansowe Chiresse": "Table d’harmonie Chiresse",
@@ -198,7 +198,7 @@ function formatMailList(values: Record<string, string>, language: LanguageKey) {
   const translatedValues = getTranslatedValues(values, language);
 
   if (translatedValues.length === 0) {
-    return "—";
+    return "";
   }
 
   return translatedValues.map((item) => `- ${item}`).join("\n");
@@ -250,7 +250,7 @@ Alaudis configuration: ${offerTitle}
 
 Model: ${modelName}
 
-Cabinet: ${translateOption(selected.obudowa, language) || "—"}
+Cabinet: ${translateOption(selected.obudowa, language) || ""}
 
 Acoustics:
 ${formatMailList(selected.akustyka, language)}
@@ -282,7 +282,7 @@ Alaudis Konfiguration: ${offerTitle}
 
 Modell: ${modelName}
 
-Gehäuse: ${translateOption(selected.obudowa, language) || "—"}
+Gehäuse: ${translateOption(selected.obudowa, language) || ""}
 
 Akustik:
 ${formatMailList(selected.akustyka, language)}
@@ -314,7 +314,7 @@ Configuration Alaudis : ${offerTitle}
 
 Modèle : ${modelName}
 
-Caisse : ${translateOption(selected.obudowa, language) || "—"}
+Caisse : ${translateOption(selected.obudowa, language) || ""}
 
 Acoustique :
 ${formatMailList(selected.akustyka, language)}
@@ -345,7 +345,7 @@ Alaudis konfiguracja: ${offerTitle}
 
 Model: ${modelName}
 
-Obudowa: ${selected.obudowa || "—"}
+Obudowa: ${selected.obudowa || ""}
 
 Akustyka:
 ${formatMailList(selected.akustyka, language)}
@@ -550,7 +550,7 @@ export default function KonfiguratorShell() {
       offerTitle || `${modelName} - ${labels.configTitleFallback}`
     );
 
-    const cabinet = translateOption(safeText(selected.obudowa), language) || "—";
+    const cabinet = translateOption(safeText(selected.obudowa), language) || "";
 
     const acoustics = getTranslatedValues(selected.akustyka, language);
     const mechanism = getTranslatedValues(selected.mechanizm, language);
@@ -706,7 +706,7 @@ export default function KonfiguratorShell() {
         y = drawBullet(item, y);
       });
     } else {
-      y = drawBullet("—", y);
+      y = drawBullet("", y);
     }
 
     y += 45;
@@ -721,7 +721,7 @@ export default function KonfiguratorShell() {
         y = drawBullet(item, y);
       });
     } else {
-      y = drawBullet("—", y);
+      y = drawBullet("", y);
     }
 
     ctx.strokeStyle = "#e3e3e3";
