@@ -424,7 +424,7 @@ export default function HistoriaPage() {
                     }`}
                   >
                     <div
-                      className={`max-w-[500px] rounded-[20px] border border-white/10 bg-black/[0.04] px-5 py-5 backdrop-blur-[3px] transition-all duration-500 sm:px-6 sm:py-6 ${
+                      className={`max-w-[540px] rounded-[22px] border border-white/10 bg-black/[0.05] px-5 py-5 backdrop-blur-[4px] transition-all duration-500 sm:px-7 sm:py-6 ${
                         isActive
                           ? "translate-y-0 opacity-100"
                           : "translate-y-8 opacity-35"
@@ -434,9 +434,9 @@ export default function HistoriaPage() {
                         {section.eyebrow}
                       </p>
 
-                      <h2 className="text-2xl mt-2">{section.title}</h2>
+                      <h2 className="mt-3 text-[25px] font-light leading-tight text-white sm:text-[28px]">{section.title}</h2>
 
-                      <div className="mt-4 space-y-1 text-sm text-white/80">
+                      <div className="mt-4 space-y-2 text-[15px] leading-[1.55] text-white/84 sm:text-[16px] sm:leading-[1.58]">
                         {section.text.map((paragraph, i) => (
                           <p key={`${section.title}-${i}`}>{paragraph}</p>
                         ))}
