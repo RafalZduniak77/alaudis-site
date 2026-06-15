@@ -208,6 +208,22 @@ const productionVideos: ProductionVideo[] = [
     title: "Mechanical planing of the treble bridge",
     text: "Machining the treble bridge while maintaining the required line, height and profile. This stage prepares the bridge for further fitting and for proper cooperation with the strings and the soundboard.",
   },
+  // New footage showing the manual and mechanical shaping of the grand piano rim.
+  {
+    src: "/historia-video-web/historia-16.mp4",
+    title: "Hand-calibrating the grand piano rim",
+    text: "Every section of the rim is carefully inspected and levelled by hand by an experienced craftsman. Precise guidance of the tool removes even the slightest irregularities and prepares the surface for the next stages of machining. This demanding work calls for experience, a refined feel for the material and complete control of every movement.",
+  },
+  {
+    src: "/historia-video-web/historia-17.mp4",
+    title: "Precision levelling of the grand piano rim",
+    text: "The rim surface is gradually levelled with a precisely guided angle grinder. Throughout the process, the craftsman continually checks the shape, contour and thickness of the material to achieve an even, stable surface. Combining a specialist tool with the skill of an experienced hand ensures complete control at every stage of the work.",
+  },
+  {
+    src: "/historia-video-web/historia-18.mp4",
+    title: "Traditional shaping of the rim with a hand plane",
+    text: "A hand plane allows the craftsman to level the rim surface with exceptional accuracy and gradually bring it to the required shape. Each pass removes a fine shaving of wood, so the process demands patience, experience and an instinctive feel for the material. This traditional woodworking technique provides complete control over every detail and makes the highest precision possible.",
+  },
   {
     src: "/historia-video-web/historia-09.mp4",
     title: "Routing the soundbox body for the soundboard ribs",
@@ -232,6 +248,17 @@ const productionVideos: ProductionVideo[] = [
     src: "/historia-video-web/historia-14.mp4",
     title: "Gluing and clamping the Alaudis piano body",
     text: "Forming the piano body through gluing and controlled pressure from clamps. This is one of the stages where structural craftsmanship determines durability, stability and final geometry of the instrument.",
+  },
+  // Footage showing the precision fitting of the grand piano's supporting elements.
+  {
+    src: "/historia-video-web/video-19-web.mp4",
+    title: "Precision fitting of the grand piano legs and pedal lyre",
+    text: "Every structural element of an ALAUDis grand piano is individually fitted by an experienced craftsman. The precise fitting of the legs and pedal lyre ensures correct geometry, stability and a seamless connection between all parts of the instrument. This stage demands exceptional accuracy, as even slight deviations could affect proper assembly and the grand piano’s final appearance.",
+  },
+  {
+    src: "/historia-video-web/video-20-web.mp4",
+    title: "Exact fitting of the caster in the grand piano leg",
+    text: "The caster is carefully fitted into the leg of the ALAUDis grand piano to ensure correct seating, smooth movement and complete stability of the instrument. The craftsman checks the position, depth and accuracy of every element. Precision at this stage contributes both to safe use and to the refined appearance of the entire structure.",
   },
   {
     src: "/historia-video-web/historia-15.mp4",

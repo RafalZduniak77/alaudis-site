@@ -208,6 +208,22 @@ const productionVideos: ProductionVideo[] = [
     title: "Rabotage mécanique du chevalet aigu",
     text: "Usinage du chevalet aigu en respectant la ligne, la hauteur et le profil requis. Cette étape prépare le chevalet à l’ajustement final et à une coopération correcte avec les cordes et la table d’harmonie.",
   },
+  // Nouvelles séquences consacrées au façonnage manuel et mécanique du corps du piano.
+  {
+    src: "/historia-video-web/historia-16.mp4",
+    title: "Calibrage manuel de la surface du corps",
+    text: "Chaque partie du corps est minutieusement contrôlée et nivelée à la main par un artisan expérimenté. Le guidage précis de l’outil permet d’éliminer les moindres irrégularités et de préparer la surface aux étapes d’usinage suivantes. Ce travail exigeant requiert de l’expérience, une parfaite sensibilité au matériau et une maîtrise absolue de chaque geste.",
+  },
+  {
+    src: "/historia-video-web/historia-17.mp4",
+    title: "Mise à niveau précise du corps du piano",
+    text: "La surface du corps est progressivement mise à niveau à l’aide d’une meuleuse d’angle guidée avec précision. Tout au long de l’opération, l’artisan contrôle la forme, la ligne et l’épaisseur du matériau afin d’obtenir une surface régulière et stable. L’alliance d’un outil spécialisé et du savoir-faire d’une main expérimentée garantit une maîtrise totale de chaque étape de l’usinage.",
+  },
+  {
+    src: "/historia-video-web/historia-18.mp4",
+    title: "Façonnage traditionnel du corps au rabot à main",
+    text: "Le rabot à main permet à l’artisan de niveler la surface du corps avec une extrême précision et de lui donner progressivement sa forme définitive. Chaque passage retire une fine couche de bois ; le processus exige donc patience, expérience et une parfaite sensibilité au matériau. Cette technique traditionnelle d’ébénisterie offre une maîtrise totale du détail et permet d’atteindre la plus haute précision d’exécution.",
+  },
   {
     src: "/historia-video-web/historia-09.mp4",
     title: "Fraisage du corps de la caisse harmonique pour les nervures",
@@ -232,6 +248,17 @@ const productionVideos: ProductionVideo[] = [
     src: "/historia-video-web/historia-14.mp4",
     title: "Collage et serrage du corps du piano Alaudis",
     text: "Formation du corps du piano par collage et pression contrôlée avec des serre-joints. C’est l’une des étapes où le savoir-faire structurel détermine la durabilité, la stabilité et la géométrie finale de l’instrument.",
+  },
+  // Séquences consacrées à l'ajustage précis des éléments porteurs du piano à queue.
+  {
+    src: "/historia-video-web/video-19-web.mp4",
+    title: "Ajustage précis des pieds et de la lyre du piano à queue",
+    text: "Chaque élément de la structure d’un piano à queue ALAUDis est ajusté individuellement par un artisan expérimenté. L’ajustage précis des pieds et de la lyre de pédalier garantit une géométrie correcte, une parfaite stabilité et un assemblage irréprochable de toutes les parties de l’instrument. Cette étape exige une grande exactitude, car le moindre écart pourrait compromettre la qualité du montage et l’aspect final du piano.",
+  },
+  {
+    src: "/historia-video-web/video-20-web.mp4",
+    title: "Ajustage exact de la roulette dans le pied du piano",
+    text: "La roulette est soigneusement ajustée dans le pied du piano à queue ALAUDis afin de garantir son positionnement correct, un roulement fluide et la parfaite stabilité de l’instrument. L’artisan contrôle la position, la profondeur d’insertion et la précision d’ajustage de chaque élément. À ce stade, la précision contribue autant à la sécurité d’utilisation qu’à l’esthétique de l’ensemble de la structure.",
   },
   {
     src: "/historia-video-web/historia-15.mp4",

@@ -208,6 +208,22 @@ const productionVideos: ProductionVideo[] = [
     title: "Maschinelles Hobeln des Diskantstegs",
     text: "Bearbeitung des Diskantstegs unter Einhaltung der erforderlichen Linie, Höhe und Profilierung. Dieser Schritt bereitet den Steg für die weitere Anpassung und die korrekte Zusammenarbeit mit Saiten und Resonanzboden vor.",
   },
+  // Neue Aufnahmen der manuellen und maschinellen Bearbeitung des Flügelkorpus.
+  {
+    src: "/historia-video-web/historia-16.mp4",
+    title: "Manuelles Kalibrieren der Korpusoberfläche",
+    text: "Jeder Bereich des Korpus wird von einem erfahrenen Handwerker sorgfältig geprüft und von Hand plan ausgerichtet. Durch die präzise Führung des Werkzeugs lassen sich selbst kleinste Unebenheiten beseitigen und die Oberfläche für die nächsten Bearbeitungsschritte vorbereiten. Diese anspruchsvolle Arbeit erfordert Erfahrung, ein ausgeprägtes Gespür für das Material und die vollständige Kontrolle über jede Bewegung.",
+  },
+  {
+    src: "/historia-video-web/historia-17.mp4",
+    title: "Präzises Ausrichten des Flügelkorpus",
+    text: "Die Korpusoberfläche wird schrittweise mit einem präzise geführten Winkelschleifer plan ausgerichtet. Dabei kontrolliert der Handwerker fortlaufend Form, Kontur und Materialstärke, um eine gleichmäßige und stabile Oberfläche zu erzielen. Die Verbindung eines spezialisierten Werkzeugs mit der Erfahrung geübter Hände gewährleistet die volle Kontrolle über jeden Bearbeitungsschritt.",
+  },
+  {
+    src: "/historia-video-web/historia-18.mp4",
+    title: "Traditionelle Bearbeitung des Korpus mit dem Handhobel",
+    text: "Mit dem Handhobel kann der Handwerker die Korpusoberfläche mit außergewöhnlicher Genauigkeit ausrichten und ihr schrittweise die gewünschte Form geben. Bei jedem Zug wird eine feine Holzschicht abgenommen, weshalb dieser Prozess Geduld, Erfahrung und ein hervorragendes Gespür für das Material verlangt. Diese traditionelle Tischlertechnik bietet vollständige Kontrolle über jedes Detail und ermöglicht höchste Präzision in der Ausführung.",
+  },
   {
     src: "/historia-video-web/historia-09.mp4",
     title: "Fräsen des Klangkörpers für die Resonanzbodenrippen",
@@ -232,6 +248,17 @@ const productionVideos: ProductionVideo[] = [
     src: "/historia-video-web/historia-14.mp4",
     title: "Verleimen und Verpressen des Alaudis-Flügelkorpus",
     text: "Formgebung des Flügelkorpus durch Verleimen und kontrollierten Druck mit Zwingen. In diesem Arbeitsschritt entscheidet konstruktives Handwerk über Dauerhaftigkeit, Stabilität und finale Geometrie des Instruments.",
+  },
+  // Aufnahmen vom präzisen Einpassen der tragenden Elemente des Flügels.
+  {
+    src: "/historia-video-web/video-19-web.mp4",
+    title: "Präzises Einpassen der Flügelbeine und der Pedallyra",
+    text: "Jedes Konstruktionselement eines ALAUDis-Flügels wird von einem erfahrenen Handwerker individuell eingepasst. Das präzise Anpassen der Beine und der Pedallyra gewährleistet die korrekte Geometrie, Stabilität und eine perfekte Verbindung aller Teile des Instruments. Dieser Arbeitsschritt verlangt höchste Genauigkeit, da bereits geringe Abweichungen die fachgerechte Montage und das endgültige Erscheinungsbild des Flügels beeinträchtigen könnten.",
+  },
+  {
+    src: "/historia-video-web/video-20-web.mp4",
+    title: "Exaktes Einpassen der Laufrolle in das Flügelbein",
+    text: "Die Laufrolle wird sorgfältig in das Bein des ALAUDis-Flügels eingepasst, um ihren korrekten Sitz, leichtgängige Bewegung und die vollständige Stabilität des Instruments zu gewährleisten. Der Handwerker kontrolliert Position, Einsetztiefe und Passgenauigkeit jedes Elements. Die Präzision in diesem Arbeitsschritt trägt sowohl zur sicheren Nutzung als auch zur Ästhetik der gesamten Konstruktion bei.",
   },
   {
     src: "/historia-video-web/historia-15.mp4",
