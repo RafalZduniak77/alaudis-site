@@ -224,6 +224,22 @@ const productionVideos: ProductionVideo[] = [
     title: "Mechaniczne struganie mostka wiolinowego",
     text: "Obróbka mostka wiolinowego z zachowaniem wymaganej linii, wysokości i profilu. Ten etap przygotowuje mostek do dalszego dopasowania oraz do prawidłowego współdziałania ze strunami i płytą rezonansową.",
   },
+  // Nowe materiały przedstawiające ręczną i mechaniczną obróbkę korpusu.
+  {
+    src: "/historia-video-web/historia-16.mp4",
+    title: "Ręczne kalibrowanie powierzchni korpusu",
+    text: "Każdy fragment korpusu jest starannie sprawdzany i ręcznie wyrównywany przez doświadczonego rzemieślnika. Precyzyjne prowadzenie narzędzia pozwala usunąć nawet najmniejsze nierówności oraz przygotować powierzchnię do kolejnych etapów obróbki. To wymagająca praca, w której liczą się doświadczenie, wyczucie materiału i pełna kontrola nad każdym ruchem.",
+  },
+  {
+    src: "/historia-video-web/historia-17.mp4",
+    title: "Precyzyjne wyrównywanie korpusu",
+    text: "Powierzchnia korpusu jest stopniowo wyrównywana za pomocą precyzyjnie prowadzonej szlifierki kątowej. Rzemieślnik na bieżąco kontroluje kształt, linię oraz grubość obrabianego materiału, aby uzyskać równą i stabilną powierzchnię. Połączenie specjalistycznego narzędzia z pracą doświadczonej ręki pozwala zachować pełną kontrolę nad każdym etapem obróbki.",
+  },
+  {
+    src: "/historia-video-web/historia-18.mp4",
+    title: "Tradycyjna obróbka korpusu strugiem ręcznym",
+    text: "Ręczny strug pozwala rzemieślnikowi niezwykle dokładnie wyrównać powierzchnię korpusu i stopniowo nadać jej właściwy kształt. Każde przejście narzędzia usuwa cienką warstwę drewna, dlatego proces wymaga cierpliwości, doświadczenia i doskonałego wyczucia materiału. To tradycyjna technika stolarska, która daje pełną kontrolę nad detalem i pozwala osiągnąć najwyższą precyzję wykonania.",
+  },
   {
     src: "/historia-video-web/historia-09.mp4",
     title: "Frezowanie korpusu dźwięcznicy pod żebra rezonansowe",
@@ -248,6 +264,17 @@ const productionVideos: ProductionVideo[] = [
     src: "/historia-video-web/historia-14.mp4",
     title: "Klejenie i dociskanie korpusu fortepianu Alaudis",
     text: "Formowanie korpusu fortepianu poprzez klejenie i kontrolowany docisk ściskami. To jeden z etapów, w których rzemiosło konstrukcyjne decyduje o trwałości, stabilności i finalnej geometrii instrumentu.",
+  },
+  // Materiały przedstawiające precyzyjne pasowanie elementów podstawy fortepianu.
+  {
+    src: "/historia-video-web/video-19-web.mp4",
+    title: "Precyzyjne pasowanie nóg i liry fortepianu",
+    text: "Każdy element konstrukcji fortepianu ALAUDis jest indywidualnie dopasowywany przez doświadczonego rzemieślnika. Precyzyjne pasowanie nóg oraz liry pedałowej zapewnia właściwą geometrię, stabilność i idealne połączenie wszystkich części instrumentu. To etap wymagający dużej dokładności, ponieważ nawet niewielkie odchylenia mogłyby wpłynąć na prawidłowy montaż i końcowy wygląd fortepianu.",
+  },
+  {
+    src: "/historia-video-web/video-20-web.mp4",
+    title: "Dokładne pasowanie rolki w nodze fortepianu",
+    text: "Rolka jest starannie dopasowywana do nogi fortepianu ALAUDis, aby zapewnić jej prawidłowe osadzenie, płynną pracę i pełną stabilność instrumentu. Rzemieślnik kontroluje położenie, głębokość oraz dokładność dopasowania każdego elementu. Precyzja na tym etapie wpływa zarówno na bezpieczeństwo użytkowania, jak i na estetykę całej konstrukcji.",
   },
   {
     src: "/historia-video-web/historia-15.mp4",
