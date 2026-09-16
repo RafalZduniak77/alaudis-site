@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
 import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
 import Footer from "@/components/Footer";
@@ -10,16 +11,7 @@ export default function Home() {
           HERO
          ==================================================== */}
       <section className="home-hero hero-copy relative min-h-screen overflow-hidden">
-        <div className="home-hero-visual absolute inset-0">
-          <Image
-            src="/hero.png"
-            alt="Alaudis Flügel"
-            fill
-            priority
-            sizes="(max-width: 639px) 150vw, 100vw"
-            className="object-contain object-center brightness-[1.28] scale-[0.78] translate-y-[6%] sm:scale-[0.82] sm:translate-y-[8%] lg:scale-[0.86] lg:translate-y-[10%]"
-          />
-        </div>
+        <PianoHeroImage alt="Alaudis Flügel" />
 
         <div className="absolute inset-0 z-10 bg-black/4" />
 
@@ -32,12 +24,12 @@ export default function Home() {
 
             {/* LINKE SEITE */}
             <div className="flex items-start sm:ml-4 sm:flex sm:items-center sm:gap-4">
-              {/* MOBILE: nur Kontakt */}
+              {/* MOBILE: nur Geschichte */}
               <Link
-                href="/de/kontakt"
+                href="/de/historia"
                 className="inline-flex rounded-full border border-white/35 bg-black/10 px-3 py-2 text-[10px] uppercase tracking-[0.2em] text-white transition hover:border-white hover:bg-white hover:text-black sm:hidden"
               >
-                Kontakt
+                Geschichte
               </Link>
 
               {/* TABLET / DESKTOP */}
@@ -50,17 +42,17 @@ export default function Home() {
                 </a>
 
                 <Link
-                  href="/de/kontakt"
-                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-                >
-                  Kontakt
-                </Link>
-
-                <Link
                   href="/de/historia"
                   className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
                 >
                   Geschichte
+                </Link>
+
+                <Link
+                  href="/de/kontakt"
+                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                >
+                  Kontakt
                 </Link>
               </div>
             </div>
@@ -311,26 +303,26 @@ export default function Home() {
 
       {/* MOBILE: klickbarer Block */}
       <Link
-        href="/de/historia"
+        href="/de/kontakt"
         className="block bg-neutral-950 px-6 py-20 text-center sm:hidden"
       >
         <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-          Erbe und Handwerk
+          Alaudis Kontakt
         </p>
 
         <h2 className="mt-4 text-3xl font-light text-white">
-          Die Welt von Alaudis
+          Finden Sie Ihren Flügel
         </h2>
 
         <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
-          Entdecken Sie die Philosophie der Marke, den Entstehungsprozess der
-          Instrumente und das Handwerk, das jedem Alaudis seine eigene Identität
-          verleiht.
+          Sprechen Sie mit uns über Modelle, Ausführungen und
+          Konfigurationsmöglichkeiten. Vereinbaren Sie eine persönliche Beratung
+          oder einen Besuch in unserem Atelier.
         </p>
 
         <div className="mt-10">
           <span className="inline-flex rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white">
-            Geschichte öffnen
+            Kontakt
           </span>
         </div>
       </Link>

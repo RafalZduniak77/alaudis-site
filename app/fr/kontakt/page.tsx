@@ -8,6 +8,7 @@
 // ==========================================================
 
 import Image from "next/image";
+import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
@@ -107,42 +108,35 @@ export default function KontaktPage() {
     <main className="min-h-screen bg-black text-white">
       <ModelPageTopBar backHref="/fr" activeLanguage="FR" />
 
-      <section className="hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0">
-          <Image
-            src="/hero.png"
-            alt="Contact Alaudis"
-            fill
-            priority
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
-        </div>
+      <section className="page-hero hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
+        <PianoHeroImage alt="Contact Alaudis" />
+        <div className="absolute inset-0 z-10 bg-black/4" />
 
-        <div className="relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
+        <div className="page-hero-content relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
           <div className="mx-auto max-w-5xl">
-            <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
+            <p className="page-hero-eyebrow mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
               Contact Alaudis
             </p>
 
-            <h1 className="text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
+            <h1 className="page-hero-title text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
               Parlons-en
             </h1>
 
-            <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
-              Contactez-nous pour parler des modèles Alaudis, des finitions
-              premium, de la configuration du piano et des possibilités de
-              collaboration.
-            </p>
+            <div className="page-hero-description">
+              <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
+                Contactez-nous pour parler des modèles Alaudis, des finitions
+                premium, de la configuration du piano et des possibilités de
+                collaboration.
+              </p>
 
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
-              Une conversation privée autour du modèle, de la finition et du
-              caractère de l’instrument est le plus beau début d’une composition
-              Alaudis individuelle.
-            </p>
+              <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
+                Une conversation privée autour du modèle, de la finition et du
+                caractère de l’instrument est le plus beau début d’une composition
+                Alaudis individuelle.
+              </p>
+            </div>
 
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="page-hero-actions mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/fr/odwiedz-atelier"
                 className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
@@ -160,7 +154,7 @@ export default function KontaktPage() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
+        <div className="page-hero-scroll absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
           <a href="#team" className="block">
             <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
               <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />

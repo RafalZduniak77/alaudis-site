@@ -32,6 +32,7 @@
 // ==========================================================
 
 import { OptionsMap } from "./types";
+import heroImage from "@/public/hero.png";
 
 // ----------------------------------------------------------
 // MODELE KONFIGURATORA
@@ -223,7 +224,7 @@ export const previewImageMap: Record<string, string> = {
 // ----------------------------------------------------------
 // DOMYŚLNE ZDJĘCIE PODGLĄDU
 // ----------------------------------------------------------
-export const defaultPreviewImage = "/hero.png";
+export const defaultPreviewImage = heroImage.src;
 
 // ----------------------------------------------------------
 // DODAWANIE SUFIKSU MODELU DO ZDJĘCIA

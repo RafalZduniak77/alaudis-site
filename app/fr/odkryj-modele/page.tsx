@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import Image from "next/image";
+import PianoHeroImage from "@/components/PianoHeroImage";
 import Footer from "@/components/Footer";
 import AlaudisARPreview from "@/components/AlaudisARPreview";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
@@ -9,33 +9,27 @@ export default function OdkryjModelePage() {
     <main className="min-h-screen bg-black text-white">
       <ModelPageTopBar backHref="/fr" activeLanguage="FR" />
 
-      <section className="hero-copy relative overflow-hidden border-b border-white/10 pt-28">
-        <div className="absolute inset-0">
-          <Image
-            src="/hero 1.png"
-            alt="Fond Alaudis"
-            fill
-            priority
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
+      <section className="page-hero page-hero-compact hero-copy relative overflow-hidden border-b border-white/10 pt-28">
+        <PianoHeroImage alt="Fond Alaudis" />
+        <div className="absolute inset-0 z-10 bg-black/4" />
 
-        <div className="relative z-20 px-6 pb-16 pt-8 text-center">
+        <div className="page-hero-content relative z-20 px-6 pb-16 pt-8 text-center">
           <div className="mx-auto max-w-4xl">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/90">
+            <p className="page-hero-eyebrow mb-5 text-[11px] uppercase tracking-[0.48em] text-white/90">
               Alaudis AR Experience
             </p>
 
-            <h1 className="text-3xl font-light uppercase tracking-[0.06em] text-white sm:text-5xl lg:text-[60px] lg:leading-[1.05]">
+            <h1 className="page-hero-title text-3xl font-light uppercase tracking-[0.06em] text-white sm:text-5xl lg:text-[60px] lg:leading-[1.05]">
               Découvrir les modèles
             </h1>
 
-            <p className="mx-auto mt-7 max-w-2xl text-sm leading-8 text-white/90 sm:text-base">
-              Regardez le piano en 3D, faites-le pivoter, zoomez et découvrez
-              son apparence dans un intérieur réel. C’est la première étape vers
-              l’expérience complète Alaudis : configurateur + aperçu AR.
-            </p>
+            <div className="page-hero-description">
+              <p className="mx-auto mt-7 max-w-2xl text-sm leading-8 text-white/90 sm:text-base">
+                Regardez le piano en 3D, faites-le pivoter, zoomez et découvrez
+                son apparence dans un intérieur réel. C’est la première étape vers
+                l’expérience complète Alaudis : configurateur + aperçu AR.
+              </p>
+            </div>
           </div>
         </div>
       </section>

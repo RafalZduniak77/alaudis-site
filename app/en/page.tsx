@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
 import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
 import Footer from "@/components/Footer";
@@ -10,16 +11,7 @@ export default function Home() {
           HERO
          ==================================================== */}
       <section className="home-hero hero-copy relative min-h-screen overflow-hidden">
-        <div className="home-hero-visual absolute inset-0">
-          <Image
-            src="/hero.png"
-            alt="Alaudis grand piano"
-            fill
-            priority
-            sizes="(max-width: 639px) 150vw, 100vw"
-            className="object-contain object-center brightness-[1.28] scale-[0.78] translate-y-[6%] sm:scale-[0.82] sm:translate-y-[8%] lg:scale-[0.86] lg:translate-y-[10%]"
-          />
-        </div>
+        <PianoHeroImage alt="Alaudis grand piano" />
 
         {/* ==================================================
             DELICATE OVERLAY
@@ -35,12 +27,12 @@ export default function Home() {
 
             {/* LEFT */}
             <div className="flex items-start sm:ml-4 sm:flex sm:items-center sm:gap-4">
-              {/* MOBILE: only Contact */}
+              {/* MOBILE: only History */}
               <Link
-                href="/en/kontakt"
+                href="/en/historia"
                 className="inline-flex rounded-full border border-white/35 bg-black/10 px-3 py-2 text-[10px] uppercase tracking-[0.2em] text-white transition hover:border-white hover:bg-white hover:text-black sm:hidden"
               >
-                Contact
+                History
               </Link>
 
               {/* TABLET / DESKTOP */}
@@ -53,17 +45,17 @@ export default function Home() {
                 </a>
 
                 <Link
-                  href="/en/kontakt"
-                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-                >
-                  Contact
-                </Link>
-
-                <Link
                   href="/en/historia"
                   className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
                 >
                   History
+                </Link>
+
+                <Link
+                  href="/en/kontakt"
+                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                >
+                  Contact
                 </Link>
               </div>
             </div>
@@ -315,26 +307,25 @@ export default function Home() {
 
       {/* MOBILE: clickable block */}
       <Link
-        href="/en/historia"
+        href="/en/kontakt"
         className="block bg-neutral-950 px-6 py-20 text-center sm:hidden"
       >
         <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-          Heritage and craftsmanship
+          Alaudis Contact
         </p>
 
         <h2 className="mt-4 text-3xl font-light text-white">
-          The world of Alaudis
+          Find your piano
         </h2>
 
         <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
-          Discover the philosophy of the brand, the process of creating the
-          instruments, and the craftsmanship that gives every Alaudis its own
-          identity.
+          Talk to us about models, finishes and configuration options. Arrange a
+          private consultation or a visit to our atelier.
         </p>
 
         <div className="mt-10">
           <span className="inline-flex rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white">
-            Open history
+            Contact
           </span>
         </div>
       </Link>

@@ -21,6 +21,7 @@
 // ==========================================================
 
 import Image from "next/image";
+import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
 import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
 import Footer from "@/components/Footer";
@@ -32,16 +33,7 @@ export default function Home() {
           HERO
          ==================================================== */}
       <section className="home-hero hero-copy relative min-h-screen overflow-hidden">
-        <div className="home-hero-visual absolute inset-0">
-          <Image
-            src="/hero.png"
-            alt="Piano à queue Alaudis"
-            fill
-            priority
-            sizes="(max-width: 639px) 150vw, 100vw"
-            className="object-contain object-center brightness-[1.28] scale-[0.78] translate-y-[6%] sm:scale-[0.82] sm:translate-y-[8%] lg:scale-[0.86] lg:translate-y-[10%]"
-          />
-        </div>
+        <PianoHeroImage alt="Piano à queue Alaudis" />
 
         <div className="absolute inset-0 z-10 bg-black/4" />
 
@@ -54,12 +46,12 @@ export default function Home() {
 
             {/* GAUCHE */}
             <div className="flex items-start sm:ml-4 sm:flex sm:items-center sm:gap-4">
-              {/* MOBILE: seulement Contact */}
+              {/* MOBILE: Histoire */}
               <Link
-                href="/fr/kontakt"
+                href="/fr/historia"
                 className="inline-flex rounded-full border border-white/35 bg-black/10 px-3 py-2 text-[10px] uppercase tracking-[0.2em] text-white transition hover:border-white hover:bg-white hover:text-black sm:hidden"
               >
-                Contact
+                Histoire
               </Link>
 
               {/* TABLETTE / DESKTOP */}
@@ -72,17 +64,17 @@ export default function Home() {
                 </a>
 
                 <Link
-                  href="/fr/kontakt"
-                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-                >
-                  Contact
-                </Link>
-
-                <Link
                   href="/fr/historia"
                   className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
                 >
                   Histoire
+                </Link>
+
+                <Link
+                  href="/fr/kontakt"
+                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                >
+                  Contact
                 </Link>
               </div>
             </div>
@@ -334,26 +326,26 @@ export default function Home() {
 
       {/* MOBILE: bloc cliquable */}
       <Link
-        href="/fr/historia"
+        href="/fr/kontakt"
         className="block bg-neutral-950 px-6 py-20 text-center sm:hidden"
       >
         <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-          Héritage et artisanat
+          Contact Alaudis
         </p>
 
         <h2 className="mt-4 text-3xl font-light text-white">
-          L’univers Alaudis
+          Trouvez votre piano
         </h2>
 
         <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
-          Découvrez la philosophie de la marque, le processus de création des
-          instruments et l’artisanat qui donne à chaque Alaudis sa propre
-          identité.
+          Échangeons sur les modèles, les finitions et les possibilités de
+          configuration. Prenez rendez-vous pour une consultation privée ou une
+          visite de notre atelier.
         </p>
 
         <div className="mt-10">
           <span className="inline-flex rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white">
-            Ouvrir l’histoire
+            Contact
           </span>
         </div>
       </Link>

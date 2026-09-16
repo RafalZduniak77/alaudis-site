@@ -17,9 +17,10 @@ body {
   text-shadow: 0 2px 10px rgb(0 0 0 / 90%), 0 1px 2px rgb(0 0 0 / 95%);
 }
 
-/* Give the instrument its own row on phones without changing the desktop hero. */
+/* Use the same photo proportions and a separate image row on phones. */
 @media (width < 640px) {
-  .home-hero {
+  .home-hero,
+  .page-hero {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     align-content: start;
@@ -29,29 +30,37 @@ body {
   }
 
   .home-hero-content,
-  .home-hero-content > div {
+  .home-hero-content > div,
+  .page-hero-content,
+  .page-hero-content > div {
     display: contents;
   }
 
   .home-hero-eyebrow,
   .home-hero-title,
   .home-hero-description,
-  .home-hero-actions {
+  .home-hero-actions,
+  .page-hero-eyebrow,
+  .page-hero-title,
+  .page-hero-description,
+  .page-hero-actions {
     position: relative;
     z-index: 20;
   }
 
-  .home-hero-eyebrow {
+  .home-hero-eyebrow,
+  .page-hero-eyebrow {
     grid-row: 1;
     margin: 0 24px 12px;
   }
 
-  .home-hero-title {
+  .home-hero-title,
+  .page-hero-title {
     grid-row: 2;
     margin: 0 24px;
   }
 
-  .home-hero-visual {
+  .piano-hero-visual {
     position: relative;
     inset: auto;
     grid-row: 3;
@@ -60,13 +69,15 @@ body {
     overflow: hidden;
   }
 
-  .home-hero-visual img {
+  .piano-hero-visual img {
     object-fit: cover;
     scale: 1.05;
     translate: none;
   }
 
-  .home-hero-description {
+  .home-hero-description,
+  .page-hero-content .page-hero-description {
+    display: block;
     grid-row: 4;
     margin: 12px auto 0;
     padding: 0 24px;
@@ -74,7 +85,16 @@ body {
     line-height: 1.65;
   }
 
-  .home-hero-actions {
+  .page-hero-description p {
+    line-height: inherit;
+  }
+
+  .page-hero-description p:first-child {
+    margin-top: 0;
+  }
+
+  .home-hero-actions,
+  .page-hero-actions {
     grid-row: 5;
     width: 100%;
     max-width: 390px;
@@ -84,14 +104,16 @@ body {
     gap: 12px;
   }
 
-  .home-hero-actions a {
+  .home-hero-actions a,
+  .page-hero-actions a {
     padding: 14px 18px;
     font-size: 12px;
     line-height: 1.5;
     letter-spacing: .16em;
   }
 
-  .home-hero-scroll {
+  .home-hero-scroll,
+  .page-hero-scroll {
     position: relative;
     grid-row: 6;
     left: auto;
@@ -100,11 +122,18 @@ body {
     margin: 24px auto;
   }
 
-  .home-hero-scroll > div {
+  .home-hero-scroll > div,
+  .page-hero-scroll > a > div {
     display: none;
   }
 
-  .home-hero-scroll p {
+  .home-hero-scroll p,
+  .page-hero-scroll p {
     margin-top: 0;
+  }
+
+  .page-hero-compact {
+    min-height: auto;
+    padding-bottom: 40px;
   }
 }
