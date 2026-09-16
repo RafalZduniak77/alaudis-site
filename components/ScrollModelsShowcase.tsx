@@ -37,6 +37,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import polishedEbonyImage from "@/public/galeria-home/Heban polerowany.png";
+import indianAppleImage from "@/public/galeria-home/okleina-jablon-indyjska-polysk.png";
 
 // ----------------------------------------------------------
 // TYPY
@@ -128,7 +130,7 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
         title: "Polished ebony",
         subtitle:
           "Timeless elegance and classical refinement in a noble gloss.",
-        image: "/konfigurator/Heban polerowany.png",
+        image: polishedEbonyImage.src,
         interiorLabel: "Interior",
         interior: "Polished ebony",
         exteriorLabel: "Finish",
@@ -142,7 +144,7 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
         title: "Indian apple veneer",
         subtitle:
           "Noble grain and a decorative premium character in gloss.",
-        image: "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
+        image: indianAppleImage.src,
         interiorLabel: "Interior",
         interior: "Indian apple",
         exteriorLabel: "Finish",
@@ -203,7 +205,7 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
         title: "Polierter Ebenholz",
         subtitle:
           "Zeitlose Eleganz und klassische Raffinesse in edlem Glanz.",
-        image: "/konfigurator/Heban polerowany.png",
+        image: polishedEbonyImage.src,
         interiorLabel: "Innenraum",
         interior: "Polierter Ebenholz",
         exteriorLabel: "Ausführung",
@@ -217,7 +219,7 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
         title: "Indischer Apfelbaumfurnier",
         subtitle:
           "Edle Maserung und dekorativer Premium-Charakter in Glanz.",
-        image: "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
+        image: indianAppleImage.src,
         interiorLabel: "Innenraum",
         interior: "Indischer Apfelbaum",
         exteriorLabel: "Ausführung",
@@ -278,7 +280,7 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
         title: "Ébène poli",
         subtitle:
           "Une élégance intemporelle et un raffinement classique dans un brillant noble.",
-        image: "/konfigurator/Heban polerowany.png",
+        image: polishedEbonyImage.src,
         interiorLabel: "Intérieur",
         interior: "Ébène poli",
         exteriorLabel: "Finition",
@@ -292,7 +294,7 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
         title: "Placage pommier indien",
         subtitle:
           "Un veinage noble et un caractère décoratif premium en brillant.",
-        image: "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
+        image: indianAppleImage.src,
         interiorLabel: "Intérieur",
         interior: "Pommier indien",
         exteriorLabel: "Finition",
@@ -349,7 +351,7 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
       title: "Heban polerowany",
       subtitle:
         "Ponadczasowa elegancja i klasyczne wyrafinowanie w szlachetnym połysku.",
-      image: "/konfigurator/Heban polerowany.png",
+      image: polishedEbonyImage.src,
       interiorLabel: "Wnętrze",
       interior: "Heban polerowany",
       exteriorLabel: "Wykończenie",
@@ -362,7 +364,7 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
       eyebrow: "Alaudis",
       title: "Okleina Jabłoń Indyjska",
       subtitle: "Szlachetne usłojenie i dekoracyjny charakter premium w połysku.",
-      image: "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
+      image: indianAppleImage.src,
       interiorLabel: "Wnętrze",
       interior: "Jabłoń Indyjska",
       exteriorLabel: "Wykończenie",

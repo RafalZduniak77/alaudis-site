@@ -9,14 +9,17 @@ export default function Home() {
       {/* ====================================================
           HERO
          ==================================================== */}
-      <section className="hero-copy relative min-h-screen overflow-hidden">
-        <Image
-          src="/hero.png"
-          alt="Alaudis grand piano"
-          fill
-          priority
-          className="object-contain object-center brightness-[1.28] scale-[0.78] translate-y-[6%] sm:scale-[0.82] sm:translate-y-[8%] lg:scale-[0.86] lg:translate-y-[10%]"
-        />
+      <section className="home-hero hero-copy relative min-h-screen overflow-hidden">
+        <div className="home-hero-visual absolute inset-0">
+          <Image
+            src="/hero.png"
+            alt="Alaudis grand piano"
+            fill
+            priority
+            sizes="(max-width: 639px) 150vw, 100vw"
+            className="object-contain object-center brightness-[1.28] scale-[0.78] translate-y-[6%] sm:scale-[0.82] sm:translate-y-[8%] lg:scale-[0.86] lg:translate-y-[10%]"
+          />
+        </div>
 
         {/* ==================================================
             DELICATE OVERLAY
@@ -126,24 +129,24 @@ export default function Home() {
         {/* ==================================================
             HERO CENTER
            ================================================== */}
-        <div className="relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
+        <div className="home-hero-content relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
           <div className="mx-auto max-w-5xl pt-16 sm:pt-20">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/90">
+            <p className="home-hero-eyebrow mb-5 text-[11px] uppercase tracking-[0.48em] text-white/90">
               Alaudis Atelier
             </p>
 
-            <h1 className="text-2xl font-light uppercase tracking-[0.06em] text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
+            <h1 className="home-hero-title text-2xl font-light uppercase tracking-[0.06em] text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
               Craft,
               <br />
               detail, identity.
             </h1>
 
-            <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/90 sm:text-base sm:leading-8">
+            <p className="home-hero-description mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/90 sm:text-base sm:leading-8">
               Every Alaudis is created through the union of craftsmanship,
               proportion, noble material, and an individual sound character.
             </p>
 
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="home-hero-actions mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/en/konfigurator"
                 className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
@@ -164,7 +167,7 @@ export default function Home() {
         {/* ==================================================
             HERO BOTTOM
            ================================================== */}
-        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
+        <div className="home-hero-scroll absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
           <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
             <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
           </div>

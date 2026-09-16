@@ -29,7 +29,7 @@ export default function DlaArchitektowPage() {
       <section className="hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
         <div className="absolute inset-0">
           <Image
-            src="/hero.jpg"
+            src="/hero 1.png"
             alt="Alaudis dla architektów"
             fill
             priority

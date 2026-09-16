@@ -77,14 +77,16 @@ export default function PreviewPanel({ imageSrc }: Props) {
       {/* ====================================================
           TŁO CAŁEJ LEWEJ STRONY
          ==================================================== */}
-      <Image src="/hero.png" alt="" fill className="object-cover" />
-      <div className="absolute inset-0 bg-black/18" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_28%_45%,#272219_0%,#111111_60%,#0a0a0a_100%)]"
+      />
 
       {/* ====================================================
           GŁÓWNY OBSZAR PODGLĄDU
          ==================================================== */}
-      <div className="absolute left-0 top-0 flex h-full w-[60%] items-center justify-center px-10">
-        <div className="relative aspect-[4/3] w-full max-w-[650px] overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+      <div className="absolute left-0 top-0 flex h-full w-[60%] items-center justify-center px-8 lg:w-[calc(100%-520px)] lg:px-10">
+        <div className="relative aspect-[4/3] w-full max-w-[760px] overflow-hidden rounded-2xl border border-white/15 bg-black shadow-2xl">
           {/* AKTUALNE ZDJĘCIE */}
           <Image
             src={current}
@@ -123,7 +125,7 @@ export default function PreviewPanel({ imageSrc }: Props) {
       {/* ====================================================
           LOGO U GÓRY
          ==================================================== */}
-      <div className="absolute left-[30%] top-10 z-30 -translate-x-1/2">
+      <div className="absolute left-[30%] top-10 z-30 -translate-x-1/2 lg:left-[calc((100%-520px)/2)]">
         <Image src="/logo-alaudis.png" alt="" width={120} height={50} />
       </div>
     </>

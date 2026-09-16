@@ -12,7 +12,7 @@ export default function OdkryjModelePage() {
       <section className="hero-copy relative overflow-hidden border-b border-white/10 pt-28">
         <div className="absolute inset-0">
           <Image
-            src="/hero.jpg"
+            src="/hero 1.png"
             alt="Alaudis Hintergrund"
             fill
             priority

@@ -39,7 +39,7 @@ export default function VisitAtelierPage() {
            ================================================== */}
         <div className="absolute inset-0">
           <Image
-            src="/hero.jpg"
+            src="/hero 1.png"
             alt="Visit the Alaudis atelier"
             fill
             priority
