@@ -129,7 +129,7 @@ export default function KontaktPage() {
       <section className="hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
         <div className="absolute inset-0">
           <Image
-            src="/hero 1.png"
+            src="/hero.png"
             alt="Kontakt Alaudis"
             fill
             priority
