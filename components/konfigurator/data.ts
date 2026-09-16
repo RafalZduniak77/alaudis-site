@@ -140,9 +140,9 @@ export const previewImageMap: Record<string, string> = {
   "Bialy poliester połysk": "/konfigurator/Bialy poliester połysk.png",
   "Czarny Poliester połysk": "/konfigurator/Czarny Poliester połysk-v2.png",
   "Ferrari poliester połysk": "/konfigurator/Ferrari poliester połysk.png",
-  "Heban polerowany": "/konfigurator/Heban polerowany.png",
+  "Heban polerowany": "/konfigurator/Heban polerowany.png?v=537d1e1a",
   "Okleina Jabłoń Indyjska -połysk":
-    "/konfigurator/Okleina Jabłoń Indyjska -połysk.png",
+    "/konfigurator/okleina-jablon-indyjska-polysk.png",
 
   // --------------------------------------------------------
   // AKUSTYKA
