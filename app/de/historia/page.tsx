@@ -43,7 +43,7 @@ const storySections: StorySection[] = [
     eyebrow: "Korpus",
     title: "Stabilität und Resonanz der Konstruktion",
     text: [
-      "Der Korpus von Alaudis entsteht aus millimeterdünnen Furnieren aus ausgewählter Birke und Ahorn. Diese Verbindung der Holzarten schafft die ideale Balance: die Elastizität und Spannkraft des Ahorns sowie die Stabilität und Widerstandsfähigkeit der Birke.",
+      "Der Korpus von Alaudis entsteht aus wenige Millimeter starken Furnieren aus sorgfältig ausgewähltem Ahorn. Ahorn verleiht der Konstruktion Elastizität und Spannkraft.",
       "Jede Lage wird entsprechend der Faserrichtung angeordnet, anschließend verleimt und auf einer speziellen Form gebogen. Unter kontrolliertem Druck und bei kontrollierter Temperatur formen die Furniere einen einheitlichen Korpusring, der seine Form mit absoluter Präzision bewahrt.",
       "Ein solcher laminierter Korpus gewährleistet eine außergewöhnliche strukturelle Steifigkeit, minimiert Spannungen und erhöht die Stimmstabilität, während er gleichzeitig dem Korpus erlaubt, aktiv mit dem Resonanzboden zusammenzuarbeiten.",
     ],

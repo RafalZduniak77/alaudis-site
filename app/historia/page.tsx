@@ -58,7 +58,7 @@ const storySections: StorySection[] = [
     eyebrow: "Korpus",
     title: "Stabilność i rezonans konstrukcji",
     text: [
-      "Korpus Alaudis powstaje z kilkumilimetrowych obłóg wyselekcjonowanej brzozy i klonu. To połączenie gatunków daje idealny balans: elastyczność i sprężystość klonu oraz stabilność i odporność brzozy.",
+      "Korpus Alaudis powstaje z kilkumilimetrowych obłóg wyselekcjonowanego klonu. Klon nadaje konstrukcji elastyczność i sprężystość.",
       "Każdą warstwę układamy zgodnie z kierunkiem włókien, a następnie kleimy i gięmy na specjalnej formie. Pod kontrolowanym naciskiem i temperaturą obłogi tworzą jednolitą obręcz korpusu, która zachowuje kształt z absolutną precyzją.",
       "Taka laminowana obręcz zapewnia wyjątkową sztywność strukturalną, minimalizuje naprężenia i zwiększa stabilność stroju, a jednocześnie pozwala korpusowi aktywnie współpracować z płytą rezonansową.",
     ],

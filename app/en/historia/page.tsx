@@ -43,7 +43,7 @@ const storySections: StorySection[] = [
     eyebrow: "Rim",
     title: "Stability and structural resonance",
     text: [
-      "The Alaudis rim is made from millimetre-thin veneers of carefully selected birch and maple. This combination of species provides the ideal balance: the flexibility and resilience of maple, and the stability and resistance of birch.",
+      "The Alaudis rim is made from carefully selected maple veneers, each a few millimetres thick. Maple gives the structure flexibility and resilience.",
       "Each layer is arranged according to the grain direction, then glued and bent on a special mould. Under controlled pressure and temperature, the veneers form a single rim structure that retains its shape with absolute precision.",
       "Such a laminated rim ensures exceptional structural rigidity, minimises internal stresses, and increases tuning stability, while also allowing the rim to cooperate actively with the soundboard.",
     ],

@@ -43,7 +43,7 @@ const storySections: StorySection[] = [
     eyebrow: "Ceinture",
     title: "Stabilité et résonance de la structure",
     text: [
-      "La ceinture d’Alaudis est réalisée à partir de fines feuilles de bouleau et d’érable soigneusement sélectionnés. Cette combinaison d’essences offre un équilibre idéal : l’élasticité et la souplesse de l’érable, ainsi que la stabilité et la résistance du bouleau.",
+      "La ceinture d’Alaudis est réalisée à partir de feuilles d’érable soigneusement sélectionné, de quelques millimètres d’épaisseur. L’érable apporte à la structure élasticité et souplesse.",
       "Chaque couche est disposée selon le sens du fil du bois, puis collée et cintrée sur une forme spéciale. Sous pression et température contrôlées, les feuilles donnent naissance à une ceinture monobloc qui conserve sa forme avec une précision absolue.",
       "Une telle structure laminée garantit une rigidité exceptionnelle, minimise les tensions internes et augmente la stabilité de l’accord, tout en permettant à la ceinture de collaborer activement avec la table d’harmonie.",
     ],
