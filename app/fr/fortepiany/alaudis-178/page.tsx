@@ -62,21 +62,21 @@ export default function ModelAlaudis178Page() {
     <main className="min-h-screen bg-black text-white">
       <ModelPageTopBar backHref="/fr" activeLanguage="FR" />
 
-      <section className="relative overflow-hidden border-b border-white/10 pt-28">
+      <section className="hero-copy relative overflow-hidden border-b border-white/10 pt-28">
         <div className="absolute inset-0">
           <Image
             src="/galeria-home/10.jpg"
             alt="Alaudis 178"
             fill
             priority
-            className="object-cover object-center opacity-35"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/65" />
+          <div className="absolute inset-0 bg-black/35" />
         </div>
 
         <div className="relative z-20 px-6 pb-20 pt-8 text-center">
           <div className="mx-auto max-w-5xl">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/80">
+            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/88">
               Modèle premium
             </p>
 
@@ -84,7 +84,7 @@ export default function ModelAlaudis178Page() {
               Alaudis 178
             </h1>
 
-            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/88 sm:text-base">
+            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/92 sm:text-base">
               Subtil, noble et raffiné. Alaudis 178 a été pensé comme un piano
               à queue pour des intérieurs premium, où comptent l’élégance de la
               forme, la culture musicale du son et le plaisir quotidien de vivre
@@ -94,14 +94,14 @@ export default function ModelAlaudis178Page() {
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/fr/konfigurator?model=178"
-                className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                className="rounded-full border border-white/35 bg-black/55 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Ouvrir le configurateur
               </Link>
 
               <Link
                 href="/fr/odkryj-modele?model=178"
-                className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                className="rounded-full border border-white/35 bg-black/40 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Voir en 3D
               </Link>
@@ -113,7 +113,7 @@ export default function ModelAlaudis178Page() {
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Caractère sonore
             </p>
 
@@ -122,7 +122,7 @@ export default function ModelAlaudis178Page() {
             </h2>
           </div>
 
-          <div className="space-y-6 text-white/72">
+          <div className="space-y-6 text-white/90">
             <p className="leading-8">
               Alaudis 178 offre un son d’une grande culture sonore, clair,
               chantant et naturellement ordonné. C’est un instrument qui ne
@@ -143,7 +143,7 @@ export default function ModelAlaudis178Page() {
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Destination
             </p>
 
@@ -151,7 +151,7 @@ export default function ModelAlaudis178Page() {
               L’art quotidien du jeu
             </h3>
 
-            <p className="mt-5 leading-8 text-white/68">
+            <p className="mt-5 leading-8 text-white/90">
               Idéal pour les salons musicaux privés, les appartements premium,
               les espaces boutique et pour les pianistes qui recherchent un
               instrument alliant classe visuelle et musicalité mûre.
@@ -159,7 +159,7 @@ export default function ModelAlaudis178Page() {
           </div>
 
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Intérieurs de destination
             </p>
 
@@ -167,7 +167,7 @@ export default function ModelAlaudis178Page() {
               Élégance et proportion
             </h3>
 
-            <p className="mt-5 leading-8 text-white/68">
+            <p className="mt-5 leading-8 text-white/90">
               Il trouve naturellement sa place dans les intérieurs modernes,
               classiques, art déco et soft luxury, là où le détail, la lumière,
               les matériaux et la présence de l’instrument forment une seule
@@ -176,13 +176,13 @@ export default function ModelAlaudis178Page() {
           </div>
 
           <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Identité du modèle
             </p>
 
             <h3 className="mt-4 text-2xl font-light">Forme premium</h3>
 
-            <p className="mt-5 leading-8 text-white/68">
+            <p className="mt-5 leading-8 text-white/90">
               Alaudis 178 a été pensé pour les personnes qui attendent non
               seulement une haute qualité de fabrication, mais aussi la beauté
               du contact quotidien avec le piano à queue comme objet de classe
@@ -194,7 +194,7 @@ export default function ModelAlaudis178Page() {
 
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             Galerie
           </p>
 
@@ -218,7 +218,7 @@ export default function ModelAlaudis178Page() {
                   className="object-cover transition duration-500 hover:scale-105"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/4 to-transparent" />
 
                 <div className="absolute bottom-4 right-4 rounded-full border border-white/20 bg-black/45 px-4 py-2 text-[10px] uppercase tracking-[0.24em] text-white/90 backdrop-blur-sm">
                   Agrandir
@@ -231,7 +231,7 @@ export default function ModelAlaudis178Page() {
 
       <section className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             Étape suivante
           </p>
 
@@ -239,7 +239,7 @@ export default function ModelAlaudis178Page() {
             Configurez Alaudis 178 ou voyez-le en 3D
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
             Accédez au configurateur pour choisir la finition et les détails, ou
             voyez le modèle dans un environnement 3D afin de découvrir comment
             il se présente dans un intérieur.

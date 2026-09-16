@@ -307,7 +307,7 @@ export default function HistoriaPage() {
           <div>
             <Link
               href="/en"
-              className="inline-flex rounded-full border border-white/35 bg-transparent px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+              className="inline-flex rounded-full border border-white/35 bg-black/50 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
             >
               Back
             </Link>
@@ -320,13 +320,13 @@ export default function HistoriaPage() {
               width={77}
               height={25}
               priority
-              className="h-auto w-[60px] object-contain opacity-95 md:w-[77px]"
+              className="h-auto w-[60px] object-contain opacity-95 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] md:w-[77px]"
             />
           </div>
 
           <div className="justify-self-end">
             <details className="group relative">
-              <summary className="list-none cursor-pointer rounded-full border border-white/35 bg-transparent px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black">
+              <summary className="list-none cursor-pointer rounded-full border border-white/35 bg-black/50 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black">
                 <span className="inline-flex items-center gap-2">
                   EN
                   <span className="text-[10px] transition group-open:rotate-180">
@@ -338,7 +338,7 @@ export default function HistoriaPage() {
               <div className="absolute right-0 mt-3 min-w-[150px] overflow-hidden rounded-2xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl">
                 <Link
                   href="/historia"
-                  className="block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                  className="block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/88 transition hover:bg-white/10 hover:text-white"
                 >
                   PL
                 </Link>
@@ -350,13 +350,13 @@ export default function HistoriaPage() {
                 </Link>
                 <Link
                   href="/de/historia"
-                  className="block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                  className="block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/88 transition hover:bg-white/10 hover:text-white"
                 >
                   DE
                 </Link>
                 <Link
                   href="/fr/historia"
-                  className="block w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                  className="block w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/88 transition hover:bg-white/10 hover:text-white"
                 >
                   FR
                 </Link>
@@ -369,7 +369,7 @@ export default function HistoriaPage() {
       {/* ====================================================
           HERO VIDEO - HISTORIA / WORLD OF ALAUDIS
          ==================================================== */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden border-b border-white/10 px-6 pt-28 text-center sm:px-10 lg:px-16">
+      <section className="hero-copy relative flex min-h-screen items-center justify-center overflow-hidden border-b border-white/10 px-6 pt-28 text-center sm:px-10 lg:px-16">
         <video
           src="/historia-video-web/historia-hero.mp4"
           autoPlay
@@ -380,11 +380,11 @@ export default function HistoriaPage() {
           className="absolute inset-0 h-full w-full object-cover opacity-100"
         />
 
-        <div className="absolute inset-0 bg-black/18" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/18 via-black/5 to-black/30" />
+        <div className="absolute inset-0 bg-black/4" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/18" />
 
         <div className="relative z-20 mx-auto max-w-5xl">
-          <p className="text-[11px] uppercase tracking-[0.48em] text-white/62">
+          <p className="text-[11px] uppercase tracking-[0.48em] text-white/86">
             Heritage and craftsmanship
           </p>
 
@@ -392,7 +392,7 @@ export default function HistoriaPage() {
             The world of Alaudis
           </h1>
 
-          <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/78 sm:text-[17px] sm:leading-9">
+          <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/86 sm:text-[17px] sm:leading-9">
             Discover the philosophy of the brand, the process of creating the instruments, and the craftsmanship that gives every Alaudis its own individual identity.
           </p>
         </div>
@@ -401,7 +401,7 @@ export default function HistoriaPage() {
           <div className="mx-auto h-14 w-8 rounded-full border border-white/35 bg-black/10">
             <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/80" />
           </div>
-          <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/70">
+          <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/90">
             Scroll down
           </p>
         </div>
@@ -425,8 +425,8 @@ export default function HistoriaPage() {
                   sizes="100vw"
                   className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-black/34" />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/8 via-transparent to-black/30" />
+                <div className="absolute inset-0 bg-black/8" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/4 via-transparent to-black/12" />
               </div>
             ))}
           </div>
@@ -451,19 +451,19 @@ export default function HistoriaPage() {
                     }`}
                   >
                     <div
-                      className={`max-w-[540px] rounded-[22px] border border-white/10 bg-black/[0.05] px-5 py-5 backdrop-blur-[4px] transition-all duration-500 sm:px-7 sm:py-6 ${
+                      className={`max-w-[540px] rounded-[22px] border border-white/10 bg-black/50 px-5 py-5 backdrop-blur-[4px] transition-all duration-500 sm:px-7 sm:py-6 ${
                         isActive
                           ? "translate-y-0 opacity-100"
                           : "translate-y-8 opacity-35"
                       }`}
                     >
-                      <p className="text-xs text-white/60 uppercase">
+                      <p className="text-xs text-white/90 uppercase">
                         {section.eyebrow}
                       </p>
 
                       <h2 className="mt-3 text-[25px] font-light leading-tight text-white sm:text-[28px]">{section.title}</h2>
 
-                      <div className="mt-4 space-y-2 text-[15px] leading-[1.55] text-white/84 sm:text-[16px] sm:leading-[1.58]">
+                      <div className="mt-4 space-y-2 text-[15px] leading-[1.55] text-white/90 sm:text-[16px] sm:leading-[1.58]">
                         {section.text.map((paragraph, i) => (
                           <p key={`${section.title}-${i}`}>{paragraph}</p>
                         ))}
@@ -483,7 +483,7 @@ export default function HistoriaPage() {
       <section className="bg-black px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="text-[11px] uppercase tracking-[0.42em] text-white/45">
+            <p className="text-[11px] uppercase tracking-[0.42em] text-white/75">
               From Alaudis production
             </p>
 
@@ -491,7 +491,7 @@ export default function HistoriaPage() {
               Craftsmanship captured in motion
             </h2>
 
-            <p className="mx-auto mt-6 max-w-3xl leading-8 text-white/68 sm:text-[17px]">
+            <p className="mx-auto mt-6 max-w-3xl leading-8 text-white/90 sm:text-[17px]">
               Short video materials show the process of creating the instrument: the work of hands, details, surfaces, construction and the atmosphere of the workshop where the idea of Alaudis becomes a real grand piano.
             </p>
           </div>
@@ -514,7 +514,7 @@ export default function HistoriaPage() {
                 </div>
 
                 <div className="p-6">
-                  <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">
                     Video
                   </p>
 
@@ -522,7 +522,7 @@ export default function HistoriaPage() {
                     {video.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-7 text-white/62">
+                  <p className="mt-3 text-sm leading-7 text-white/86">
                     {video.text}
                   </p>
                 </div>
@@ -534,13 +534,13 @@ export default function HistoriaPage() {
 
 <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             Next step
           </p>
           <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
             Discover Alaudis more closely
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
             Discover the models, open the configurator, or arrange a private
             conversation to talk about instruments created in the Alaudis
             philosophy.

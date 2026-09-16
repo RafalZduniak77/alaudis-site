@@ -51,7 +51,7 @@ export default function ModelAlaudis275Page() {
       {/* ====================================================
           HERO MODELU
          ==================================================== */}
-      <section className="relative overflow-hidden border-b border-white/10 pt-28">
+      <section className="hero-copy relative overflow-hidden border-b border-white/10 pt-28">
         {/* TŁO HERO */}
         <div className="absolute inset-0">
           <Image
@@ -59,9 +59,9 @@ export default function ModelAlaudis275Page() {
             alt="Alaudis 275"
             fill
             priority
-            className="object-cover object-center opacity-35"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/65" />
+          <div className="absolute inset-0 bg-black/35" />
         </div>
 
         {/* ==================================================
@@ -69,7 +69,7 @@ export default function ModelAlaudis275Page() {
            ================================================== */}
         <div className="relative z-20 px-6 pb-20 pt-8 text-center">
           <div className="mx-auto max-w-5xl">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/80">
+            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/88">
               Concert model
             </p>
 
@@ -77,7 +77,7 @@ export default function ModelAlaudis275Page() {
               Alaudis 275
             </h1>
 
-            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/88 sm:text-base">
+            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/92 sm:text-base">
               The largest concert form of Alaudis, created for full tonal
               scale, wide projection and stage presence. This is a model for
               spaces where the instrument not only completes the interior, but
@@ -91,14 +91,14 @@ export default function ModelAlaudis275Page() {
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/en/konfigurator?model=275"
-                className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                className="rounded-full border border-white/35 bg-black/55 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Open configurator
               </Link>
 
               <Link
                 href="/en/odkryj-modele?model=275"
-                className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                className="rounded-full border border-white/35 bg-black/40 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 View in 3D
               </Link>
@@ -113,7 +113,7 @@ export default function ModelAlaudis275Page() {
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Sound character
             </p>
 
@@ -122,7 +122,7 @@ export default function ModelAlaudis275Page() {
             </h2>
           </div>
 
-          <div className="space-y-6 text-white/72">
+          <div className="space-y-6 text-white/90">
             <p className="leading-8">
               Alaudis 275 opens the full scale of the brand’s tonal language.
               It offers extensive projection, a deep bass foundation, a broad
@@ -147,7 +147,7 @@ export default function ModelAlaudis275Page() {
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
           {/* PRZEZNACZENIE */}
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Purpose
             </p>
 
@@ -155,7 +155,7 @@ export default function ModelAlaudis275Page() {
               Stage, concert hall, premium residence
             </h3>
 
-            <p className="mt-5 leading-8 text-white/68">
+            <p className="mt-5 leading-8 text-white/90">
               Created for concert halls, large representative spaces, artistic
               institutions and the most demanding private interiors, where the
               piano must offer full projection and a grand stage presence.
@@ -164,7 +164,7 @@ export default function ModelAlaudis275Page() {
 
           {/* WNĘTRZA */}
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Target interiors and stages
             </p>
 
@@ -172,7 +172,7 @@ export default function ModelAlaudis275Page() {
               Scale, architecture, prestige
             </h3>
 
-            <p className="mt-5 leading-8 text-white/68">
+            <p className="mt-5 leading-8 text-white/90">
               It is best suited to spaces with great breath: representative
               salons, concert halls, luxury hotels and interiors where the
               instrument is meant to have a dominant, unmistakably central and
@@ -182,7 +182,7 @@ export default function ModelAlaudis275Page() {
 
           {/* TOŻSAMOŚĆ */}
           <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Model identity
             </p>
 
@@ -190,7 +190,7 @@ export default function ModelAlaudis275Page() {
               The largest Alaudis form
             </h3>
 
-            <p className="mt-5 leading-8 text-white/68">
+            <p className="mt-5 leading-8 text-white/90">
               Alaudis 275 represents the peak scale of the brand, an
               instrument with the most developed personality, the greatest
               breath and the most concert-like nature. This is Alaudis in its
@@ -205,7 +205,7 @@ export default function ModelAlaudis275Page() {
          ==================================================== */}
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             Gallery
           </p>
 
@@ -252,7 +252,7 @@ export default function ModelAlaudis275Page() {
          ==================================================== */}
       <section className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             Next step
           </p>
 
@@ -260,7 +260,7 @@ export default function ModelAlaudis275Page() {
             Configure Alaudis 275 or view it in 3D
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
             Go to the configurator to adapt the finish and details, or view the
             model in 3D preview and check its scale, proportions and stage
             presence in space.

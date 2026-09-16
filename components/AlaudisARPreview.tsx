@@ -157,7 +157,7 @@ export default function AlaudisARPreview() {
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-8 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
           <div className="flex flex-wrap items-center gap-3">
-            <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/70">
+            <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/90">
               {labels.modelLabel}:{" "}
               <span className="text-[#e6c08c]">{modelName}</span>
             </div>
@@ -189,7 +189,7 @@ export default function AlaudisARPreview() {
             <button
               type="button"
               onClick={() => imageInputRef.current?.click()}
-              className="rounded-full border border-white/15 bg-black/30 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/75 transition hover:border-white hover:bg-white hover:text-black"
+              className="rounded-full border border-white/15 bg-black/30 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/84 transition hover:border-white hover:bg-white hover:text-black"
             >
               {labels.uploadRoomImage}
             </button>
@@ -197,7 +197,7 @@ export default function AlaudisARPreview() {
             <button
               type="button"
               onClick={() => videoInputRef.current?.click()}
-              className="rounded-full border border-white/15 bg-black/30 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/75 transition hover:border-white hover:bg-white hover:text-black"
+              className="rounded-full border border-white/15 bg-black/30 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/84 transition hover:border-white hover:bg-white hover:text-black"
             >
               {labels.uploadRoomVideo}
             </button>
@@ -206,7 +206,7 @@ export default function AlaudisARPreview() {
               <button
                 type="button"
                 onClick={clearBackground}
-                className="rounded-full border border-white/15 bg-black/30 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/75 transition hover:border-white hover:bg-white hover:text-black"
+                className="rounded-full border border-white/15 bg-black/30 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/84 transition hover:border-white hover:bg-white hover:text-black"
               >
                 {labels.removeBackground}
               </button>
@@ -256,7 +256,7 @@ export default function AlaudisARPreview() {
                 className={
                   card.featured
                     ? "text-[11px] uppercase tracking-[0.28em] text-[#e6c08c]"
-                    : "text-[11px] uppercase tracking-[0.28em] text-white/45"
+                    : "text-[11px] uppercase tracking-[0.28em] text-white/75"
                 }
               >
                 {card.eyebrow}
@@ -275,8 +275,8 @@ export default function AlaudisARPreview() {
               <p
                 className={
                   card.featured
-                    ? "mt-3 text-sm leading-7 text-white/70"
-                    : "mt-2 text-sm leading-7 text-white/60"
+                    ? "mt-3 text-sm leading-7 text-white/90"
+                    : "mt-2 text-sm leading-7 text-white/84"
                 }
               >
                 {card.text}

@@ -9,19 +9,19 @@ export default function Home() {
       {/* ====================================================
           HERO
          ==================================================== */}
-      <section className="relative min-h-screen overflow-hidden">
+      <section className="hero-copy relative min-h-screen overflow-hidden">
         <Image
           src="/hero.png"
           alt="Alaudis grand piano"
           fill
           priority
-          className="object-contain object-center scale-[0.78] translate-y-[6%] sm:scale-[0.82] sm:translate-y-[8%] lg:scale-[0.86] lg:translate-y-[10%]"
+          className="object-contain object-center brightness-[1.28] scale-[0.78] translate-y-[6%] sm:scale-[0.82] sm:translate-y-[8%] lg:scale-[0.86] lg:translate-y-[10%]"
         />
 
         {/* ==================================================
             DELICATE OVERLAY
            ================================================== */}
-        <div className="absolute inset-0 z-10 bg-black/30" />
+        <div className="absolute inset-0 z-10 bg-black/4" />
 
         {/* ==================================================
             HEADER
@@ -92,7 +92,7 @@ export default function Home() {
                 <div className="absolute right-0 mt-3 min-w-[130px] overflow-hidden rounded-2xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl sm:min-w-[150px]">
                   <Link
                     href="/"
-                    className="block w-full border-b border-white/10 px-4 py-3 text-left text-[10px] uppercase tracking-[0.2em] text-white/65 transition hover:bg-white/10 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
+                    className="block w-full border-b border-white/10 px-4 py-3 text-left text-[10px] uppercase tracking-[0.2em] text-white/88 transition hover:bg-white/10 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
                   >
                     PL
                   </Link>
@@ -106,14 +106,14 @@ export default function Home() {
 
                   <Link
                     href="/de"
-                    className="block w-full border-b border-white/10 px-4 py-3 text-left text-[10px] uppercase tracking-[0.2em] text-white/65 transition hover:bg-white/10 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
+                    className="block w-full border-b border-white/10 px-4 py-3 text-left text-[10px] uppercase tracking-[0.2em] text-white/88 transition hover:bg-white/10 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
                   >
                     DE
                   </Link>
 
                   <Link
                     href="/fr"
-                    className="block w-full px-4 py-3 text-left text-[10px] uppercase tracking-[0.2em] text-white/65 transition hover:bg-white/10 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
+                    className="block w-full px-4 py-3 text-left text-[10px] uppercase tracking-[0.2em] text-white/88 transition hover:bg-white/10 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
                   >
                     FR
                   </Link>
@@ -128,7 +128,7 @@ export default function Home() {
            ================================================== */}
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
           <div className="mx-auto max-w-5xl pt-16 sm:pt-20">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/85">
+            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/90">
               Alaudis Atelier
             </p>
 
@@ -138,7 +138,7 @@ export default function Home() {
               detail, identity.
             </h1>
 
-            <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/72 sm:text-base sm:leading-8">
+            <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/90 sm:text-base sm:leading-8">
               Every Alaudis is created through the union of craftsmanship,
               proportion, noble material, and an individual sound character.
             </p>
@@ -168,7 +168,7 @@ export default function Home() {
           <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
             <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
           </div>
-          <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/80">
+          <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/88">
             Scroll down
           </p>
         </div>
@@ -186,7 +186,7 @@ export default function Home() {
           id="models"
           className="scroll-mt-0 px-6 pb-10 pt-10 text-center sm:scroll-mt-2 sm:px-10 sm:pt-14 lg:scroll-mt-4 lg:px-16 lg:pt-16"
         >
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             Alaudis Collection
           </p>
 
@@ -196,7 +196,7 @@ export default function Home() {
             One philosophy of craftsmanship.
           </h2>
 
-          <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-white/68 sm:text-[17px]">
+          <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-white/90 sm:text-[17px]">
             Each Alaudis model is created as a distinct interpretation of
             proportion, character and sound, from refined living-space
             presence to the full scale of a concert grand piano.
@@ -208,19 +208,19 @@ export default function Home() {
             href="/en/fortepiany/alaudis-178"
             className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
           >
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Model
             </p>
 
             <h2 className="mt-4 text-3xl font-light">Alaudis 178</h2>
 
-            <p className="mt-5 leading-7 text-white/68">
+            <p className="mt-5 leading-7 text-white/90">
               A lyrical interpretation of the premium grand piano, elegant,
               balanced, and created for interiors where detail matters as much
               as sound.
             </p>
 
-            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
+            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/84">
               Discover model
             </p>
           </Link>
@@ -229,19 +229,19 @@ export default function Home() {
             href="/en/fortepiany/alaudis-214"
             className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
           >
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Model
             </p>
 
             <h2 className="mt-4 text-3xl font-light">Alaudis 214</h2>
 
-            <p className="mt-5 leading-7 text-white/68">
+            <p className="mt-5 leading-7 text-white/90">
               A grand piano with deeper presence and broader projection, for
               spaces that call for greater scale, clarity and a more concert
               character.
             </p>
 
-            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
+            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/84">
               Discover model
             </p>
           </Link>
@@ -250,19 +250,19 @@ export default function Home() {
             href="/en/fortepiany/alaudis-275"
             className="relative z-30 block rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:from-white/15 hover:to-white/[0.05]"
           >
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Model
             </p>
 
             <h2 className="mt-4 text-3xl font-light">Alaudis 275</h2>
 
-            <p className="mt-5 leading-7 text-white/68">
+            <p className="mt-5 leading-7 text-white/90">
               The largest Alaudis concert form, full scale of sound,
               projection, and stage presence designed for the most demanding
               spaces.
             </p>
 
-            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">
+            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/84">
               Discover model
             </p>
           </Link>
@@ -276,7 +276,7 @@ export default function Home() {
         id="contact"
         className="bg-black px-6 py-20 text-center sm:px-10 lg:px-16"
       >
-        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+        <p className="text-xs uppercase tracking-[0.32em] text-white/75">
           Private consultation
         </p>
 
@@ -284,7 +284,7 @@ export default function Home() {
           Let&apos;s talk about your Alaudis
         </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
           Contact us to discuss the model, finish, sound character, and the
           individual composition of your Alaudis grand piano.
         </p>
@@ -315,7 +315,7 @@ export default function Home() {
         href="/en/historia"
         className="block bg-neutral-950 px-6 py-20 text-center sm:hidden"
       >
-        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+        <p className="text-xs uppercase tracking-[0.32em] text-white/75">
           Heritage and craftsmanship
         </p>
 
@@ -323,7 +323,7 @@ export default function Home() {
           The world of Alaudis
         </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
           Discover the philosophy of the brand, the process of creating the
           instruments, and the craftsmanship that gives every Alaudis its own
           identity.
@@ -341,7 +341,7 @@ export default function Home() {
         id="history"
         className="hidden bg-neutral-950 px-6 py-20 text-center sm:block sm:px-10 lg:px-16"
       >
-        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+        <p className="text-xs uppercase tracking-[0.32em] text-white/75">
           Heritage and craftsmanship
         </p>
 
@@ -349,7 +349,7 @@ export default function Home() {
           The world of Alaudis
         </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
           Discover the philosophy of the brand, the process of creating the
           instruments, and the craftsmanship that gives every Alaudis its own
           identity.

@@ -26,22 +26,22 @@ export default function DlaArchitektowPage() {
     <main className="min-h-screen bg-black text-white">
       <ModelPageTopBar backHref="/" activeLanguage="PL" />
 
-      <section className="relative min-h-screen overflow-hidden border-b border-white/10">
+      <section className="hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
         <div className="absolute inset-0">
           <Image
             src="/hero.jpg"
             alt="Alaudis dla architektów"
             fill
             priority
-            className="object-cover object-center opacity-35"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/74" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
         </div>
 
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
           <div className="mx-auto max-w-5xl">
-            <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/80">
+            <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
               Współpraca projektowa
             </p>
 
@@ -49,13 +49,13 @@ export default function DlaArchitektowPage() {
               Dla architektów
             </h1>
 
-            <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/88 sm:text-base sm:leading-9">
+            <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
               Alaudis może stać się integralną częścią rezydencji, apartamentu,
               hotelu lub przestrzeni reprezentacyjnej, nie jako zwykły obiekt,
               lecz jako świadomie dobrany element kompozycji wnętrza.
             </p>
 
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/62 sm:text-[15px] sm:leading-8">
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
               Współpracujemy przy projektach, w których liczą się proporcja,
               materiał, światło, charakter i obecność instrumentu w przestrzeni
               klasy premium.
@@ -68,7 +68,7 @@ export default function DlaArchitektowPage() {
             <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
               <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
             </div>
-            <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/80">
+            <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/88">
               Przewiń w dół
             </p>
           </a>
@@ -81,7 +81,7 @@ export default function DlaArchitektowPage() {
       >
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Współpraca
             </p>
 
@@ -92,7 +92,7 @@ export default function DlaArchitektowPage() {
             </h2>
           </div>
 
-          <div className="space-y-6 text-white/72">
+          <div className="space-y-6 text-white/90">
             <p className="leading-8">
               W projektach premium fortepian nie jest jedynie instrumentem. Może
               stać się punktem ciężkości salonu, dominantą przestrzeni
@@ -111,7 +111,7 @@ export default function DlaArchitektowPage() {
 
       <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             Obszary współpracy
           </p>
 
@@ -121,7 +121,7 @@ export default function DlaArchitektowPage() {
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 01
               </p>
 
@@ -129,7 +129,7 @@ export default function DlaArchitektowPage() {
                 Dobór modelu do skali wnętrza
               </h3>
 
-              <p className="mt-5 leading-8 text-white/68">
+              <p className="mt-5 leading-8 text-white/90">
                 Pomagamy dobrać wielkość i charakter modelu do proporcji
                 przestrzeni, od salonów i apartamentów po większe rezydencje,
                 lobby i reprezentacyjne strefy hotelowe.
@@ -137,7 +137,7 @@ export default function DlaArchitektowPage() {
             </div>
 
             <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 02
               </p>
 
@@ -145,7 +145,7 @@ export default function DlaArchitektowPage() {
                 Wykończenie spójne z projektem
               </h3>
 
-              <p className="mt-5 leading-8 text-white/68">
+              <p className="mt-5 leading-8 text-white/90">
                 Rozmawiamy o tonie materiału, połysku, charakterze powierzchni,
                 kolorystyce i detalach tak, aby instrument współtworzył
                 narrację wnętrza zamiast być przypadkowym dodatkiem.
@@ -153,7 +153,7 @@ export default function DlaArchitektowPage() {
             </div>
 
             <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 03
               </p>
 
@@ -161,7 +161,7 @@ export default function DlaArchitektowPage() {
                 Konsultacja projektowa premium
               </h3>
 
-              <p className="mt-5 leading-8 text-white/68">
+              <p className="mt-5 leading-8 text-white/90">
                 Współpraca może rozpocząć się od prywatnej rozmowy projektowej,
                 w której wspólnie ustalamy kierunek: model, obecność w
                 przestrzeni, wykończenie i finalny efekt wizualny.
@@ -173,7 +173,7 @@ export default function DlaArchitektowPage() {
 
       <section className="bg-black px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             Typy realizacji
           </p>
 
@@ -184,7 +184,7 @@ export default function DlaArchitektowPage() {
           <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
               <h3 className="text-xl font-light text-white">Rezydencje</h3>
-              <p className="mt-4 leading-7 text-white/68">
+              <p className="mt-4 leading-7 text-white/90">
                 Fortepian jako centralny element salonu, biblioteki lub strefy
                 reprezentacyjnej.
               </p>
@@ -194,7 +194,7 @@ export default function DlaArchitektowPage() {
               <h3 className="text-xl font-light text-white">
                 Apartamenty premium
               </h3>
-              <p className="mt-4 leading-7 text-white/68">
+              <p className="mt-4 leading-7 text-white/90">
                 Dobór modelu do mniejszej, ale bardzo świadomie zaprojektowanej
                 przestrzeni.
               </p>
@@ -202,7 +202,7 @@ export default function DlaArchitektowPage() {
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
               <h3 className="text-xl font-light text-white">Hotele premium</h3>
-              <p className="mt-4 leading-7 text-white/68">
+              <p className="mt-4 leading-7 text-white/90">
                 Obecność instrumentu w lobby, apartamentach i przestrzeniach
                 o wysokim znaczeniu wizerunkowym.
               </p>
@@ -212,7 +212,7 @@ export default function DlaArchitektowPage() {
               <h3 className="text-xl font-light text-white">
                 Przestrzenie reprezentacyjne
               </h3>
-              <p className="mt-4 leading-7 text-white/68">
+              <p className="mt-4 leading-7 text-white/90">
                 Projekty, w których liczy się prestiż, skala, detal i mocna
                 tożsamość wnętrza.
               </p>
@@ -223,7 +223,7 @@ export default function DlaArchitektowPage() {
 
       <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             Inspiracja projektowa
           </p>
 
@@ -264,7 +264,7 @@ export default function DlaArchitektowPage() {
 
       <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             Rozmowa projektowa
           </p>
 
@@ -272,7 +272,7 @@ export default function DlaArchitektowPage() {
             Zacznijmy od kierunku projektu
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
             Jeśli pracujesz nad rezydencją, apartamentem, hotelem lub wnętrzem
             reprezentacyjnym, możemy rozpocząć od spokojnej rozmowy o modelu,
             wykończeniu i roli instrumentu w całej kompozycji przestrzeni.

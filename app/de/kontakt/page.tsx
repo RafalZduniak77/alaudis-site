@@ -77,7 +77,7 @@ function MessageMenu({
       <div className="absolute left-0 top-full z-40 mt-3 min-w-[220px] overflow-hidden rounded-2xl border border-[#426f57]/80 bg-[#193629]/96 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
         <a
           href={getSmsHref(phoneRaw, personName)}
-          className="block px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/85 transition hover:bg-[#28513d] hover:text-white"
+          className="block px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/90 transition hover:bg-[#28513d] hover:text-white"
         >
           SMS
         </a>
@@ -86,14 +86,14 @@ function MessageMenu({
           href={getWhatsAppHref(phoneRaw, personName)}
           target="_blank"
           rel="noreferrer"
-          className="block border-t border-[#426f57]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/85 transition hover:bg-[#28513d] hover:text-white"
+          className="block border-t border-[#426f57]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/90 transition hover:bg-[#28513d] hover:text-white"
         >
           WHATSAPP
         </a>
 
         <a
           href={getMailHref(emailAddress, personName)}
-          className="block border-t border-[#426f57]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/85 transition hover:bg-[#28513d] hover:text-white"
+          className="block border-t border-[#426f57]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/90 transition hover:bg-[#28513d] hover:text-white"
         >
           MAIL
         </a>
@@ -107,22 +107,22 @@ export default function KontaktPage() {
     <main className="min-h-screen bg-black text-white">
       <ModelPageTopBar backHref="/de" activeLanguage="DE" />
 
-      <section className="relative min-h-screen overflow-hidden border-b border-white/10">
+      <section className="hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
         <div className="absolute inset-0">
           <Image
             src="/hero.jpg"
             alt="Alaudis Kontakt"
             fill
             priority
-            className="object-cover object-center opacity-30"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/72" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/35" />
+          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
         </div>
 
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
           <div className="mx-auto max-w-5xl">
-            <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/80">
+            <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
               Alaudis Kontakt
             </p>
 
@@ -130,13 +130,13 @@ export default function KontaktPage() {
               Lassen Sie uns sprechen
             </h1>
 
-            <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/88 sm:text-base sm:leading-9">
+            <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
               Kontaktieren Sie uns, um über Alaudis-Modelle, Premium-
               Ausführungen, die Konfiguration des Flügels und eine mögliche
               Zusammenarbeit zu sprechen.
             </p>
 
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/62 sm:text-[15px] sm:leading-8">
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
               Ein persönliches Gespräch über Modell, Ausführung und Charakter
               des Instruments ist der schönste Beginn einer individuellen
               Alaudis-Komposition.
@@ -152,7 +152,7 @@ export default function KontaktPage() {
 
               <Link
                 href="/de/dla-architektow"
-                className="rounded-full border border-white/20 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black"
+                className="rounded-full border border-white/20 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white/90 transition hover:border-white hover:bg-white hover:text-black"
               >
                 Für Architekten
               </Link>
@@ -165,7 +165,7 @@ export default function KontaktPage() {
             <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
               <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
             </div>
-            <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/80">
+            <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/88">
               Nach unten scrollen
             </p>
           </a>
@@ -178,7 +178,7 @@ export default function KontaktPage() {
       >
         <div className="mx-auto max-w-7xl">
           <div className="mb-12">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Kontaktteam
             </p>
           </div>
@@ -196,11 +196,11 @@ export default function KontaktPage() {
                     />
                   </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/18 via-transparent to-transparent" />
               </div>
 
               <div className="p-8">
-                <p className="text-[11px] uppercase tracking-[0.32em] text-white/45">
+                <p className="text-[11px] uppercase tracking-[0.32em] text-white/75">
                   Vertriebskontakt
                 </p>
 
@@ -208,7 +208,7 @@ export default function KontaktPage() {
                   Szymon Żubertowski
                 </h3>
 
-                <p className="mt-5 text-lg text-white/78">
+                <p className="mt-5 text-lg text-white/86">
                   <a
                     href={`tel:+${SZYMON_PHONE_RAW}`}
                     className="transition hover:text-white"
@@ -217,7 +217,7 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <p className="mt-3 break-all text-lg text-white/78">
+                <p className="mt-3 break-all text-lg text-white/86">
                   <a
                     href={`mailto:${SZYMON_EMAIL}`}
                     className="transition hover:text-white"
@@ -257,11 +257,11 @@ export default function KontaktPage() {
                     />
                   </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/18 via-transparent to-transparent" />
               </div>
 
               <div className="p-8">
-                <p className="text-[11px] uppercase tracking-[0.32em] text-white/45">
+                <p className="text-[11px] uppercase tracking-[0.32em] text-white/75">
                   Vertriebskontakt
                 </p>
 
@@ -269,7 +269,7 @@ export default function KontaktPage() {
                   Martyna Kowalska
                 </h3>
 
-                <p className="mt-5 text-lg text-white/78">
+                <p className="mt-5 text-lg text-white/86">
                   <a
                     href={`tel:+${MARTYNA_PHONE_RAW}`}
                     className="transition hover:text-white"
@@ -278,7 +278,7 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <p className="mt-3 break-all text-lg text-white/78">
+                <p className="mt-3 break-all text-lg text-white/86">
                   <a
                     href={`mailto:${MARTYNA_EMAIL}`}
                     className="transition hover:text-white"
@@ -311,21 +311,21 @@ export default function KontaktPage() {
 
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-5xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             SAP Renovation
           </p>
 
           <div className="mt-10 rounded-[32px] border border-white/10 bg-white/[0.03] p-8 sm:p-10">
             <div className="grid gap-8 md:grid-cols-2">
               <div>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">
                   Firma
                 </p>
                 <p className="mt-3 text-xl text-white">SAP Renovation</p>
               </div>
 
               <div>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">
                   Adresse
                 </p>
                 <p className="mt-3 text-xl leading-8 text-white">
@@ -336,21 +336,21 @@ export default function KontaktPage() {
               </div>
 
               <div>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">
                   Steuernummer
                 </p>
                 <p className="mt-3 text-xl text-white">6181893417</p>
               </div>
 
               <div>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">
                   Kontakt
                 </p>
                 <div className="mt-3 space-y-3 text-xl text-white">
                   <p>
                     <a
                       href={`tel:+${SZYMON_PHONE_RAW}`}
-                      className="transition hover:text-white/80"
+                      className="transition hover:text-white/88"
                     >
                       {SZYMON_PHONE_DISPLAY}
                     </a>
@@ -358,7 +358,7 @@ export default function KontaktPage() {
                   <p>
                     <a
                       href={`mailto:${SZYMON_EMAIL}`}
-                      className="break-all transition hover:text-white/80"
+                      className="break-all transition hover:text-white/88"
                     >
                       {SZYMON_EMAIL}
                     </a>
@@ -366,7 +366,7 @@ export default function KontaktPage() {
                   <p>
                     <a
                       href={`tel:+${MARTYNA_PHONE_RAW}`}
-                      className="transition hover:text-white/80"
+                      className="transition hover:text-white/88"
                     >
                       {MARTYNA_PHONE_DISPLAY}
                     </a>
@@ -374,7 +374,7 @@ export default function KontaktPage() {
                   <p>
                     <a
                       href={`mailto:${MARTYNA_EMAIL}`}
-                      className="break-all transition hover:text-white/80"
+                      className="break-all transition hover:text-white/88"
                     >
                       {MARTYNA_EMAIL}
                     </a>
@@ -386,7 +386,7 @@ export default function KontaktPage() {
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
                 href="/de/odwiedz-atelier"
-                className="rounded-full border border-white/20 bg-black/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/85 transition hover:border-white hover:bg-white hover:text-black"
+                className="rounded-full border border-white/20 bg-black/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/90 transition hover:border-white hover:bg-white hover:text-black"
               >
                 Atelier besuchen
               </Link>

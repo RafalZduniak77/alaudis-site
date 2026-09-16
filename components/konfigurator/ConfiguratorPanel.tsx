@@ -324,7 +324,7 @@ export default function ConfiguratorPanel({
             ref={tabRefs[tab]}
             onClick={() => onScrollToSection(tab)}
             className={`flex-1 py-5 ${
-              activeTab === tab ? "text-white" : "text-white/70"
+              activeTab === tab ? "text-white" : "text-white/90"
             }`}
           >
             {labels.tabs[tab]}

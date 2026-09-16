@@ -9,21 +9,21 @@ export default function OdkryjModelePage() {
     <main className="min-h-screen bg-black text-white">
       <ModelPageTopBar backHref="/fr" activeLanguage="FR" />
 
-      <section className="relative overflow-hidden border-b border-white/10 pt-28">
+      <section className="hero-copy relative overflow-hidden border-b border-white/10 pt-28">
         <div className="absolute inset-0">
           <Image
             src="/hero.jpg"
             alt="Fond Alaudis"
             fill
             priority
-            className="object-cover object-center opacity-30"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/70" />
+          <div className="absolute inset-0 bg-black/30" />
         </div>
 
         <div className="relative z-20 px-6 pb-16 pt-8 text-center">
           <div className="mx-auto max-w-4xl">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/85">
+            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/90">
               Alaudis AR Experience
             </p>
 

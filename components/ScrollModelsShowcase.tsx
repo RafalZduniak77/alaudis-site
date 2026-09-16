@@ -443,7 +443,7 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
               className="object-contain object-center [transform:translateZ(0)]"
             />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
           </div>
 
           {/* DOLNA CZĘŚĆ KARTY */}
@@ -507,7 +507,7 @@ export default function ScrollModelsShowcase() {
   return (
     <section className="bg-[#111] px-0 text-white">
       <div className="mx-auto max-w-[1600px] px-4 pb-10 pt-24">
-        <p className="text-[11px] uppercase tracking-[0.36em] text-white/45">
+        <p className="text-[11px] uppercase tracking-[0.36em] text-white/75">
           {sectionTitle}
         </p>
       </div>

@@ -345,13 +345,13 @@ export default function AlaudisARScene({
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-white/8 to-transparent" />
 
       <div className="pointer-events-none absolute left-5 top-5 z-20 rounded-full border border-white/10 bg-black/35 px-4 py-2 backdrop-blur-sm">
-        <span className="text-[11px] uppercase tracking-[0.24em] text-white/75">
+        <span className="text-[11px] uppercase tracking-[0.24em] text-white/84">
           {labels.experience}
         </span>
       </div>
 
       <div className="pointer-events-none absolute right-5 top-5 z-20 rounded-full border border-white/10 bg-black/35 px-4 py-2 backdrop-blur-sm">
-        <span className="text-[11px] uppercase tracking-[0.24em] text-white/75">
+        <span className="text-[11px] uppercase tracking-[0.24em] text-white/84">
           {labels.controlsBadge}
         </span>
       </div>
@@ -392,7 +392,7 @@ export default function AlaudisARScene({
             className="alaudis-sirv-host relative z-[1] h-full w-full"
           />
         ) : (
-          <div className="relative z-[1] flex h-full w-full items-center justify-center text-white/50">
+          <div className="relative z-[1] flex h-full w-full items-center justify-center text-white/80">
             {labels.loading}
           </div>
         )}
@@ -401,12 +401,12 @@ export default function AlaudisARScene({
       <div className="absolute inset-x-0 bottom-0 z-20">
         <div className="border-t border-white/10 bg-gradient-to-t from-black/70 via-black/35 to-transparent px-5 py-5">
           <div className="flex items-center justify-between gap-4">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-white/75">
               {labels.controls}
             </p>
 
             <div className="flex flex-nowrap items-center gap-2 overflow-x-auto sm:overflow-visible">
-              <span className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/65">
+              <span className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/88">
                 {labels.activeSpin}
               </span>
 
@@ -416,13 +416,13 @@ export default function AlaudisARScene({
                 className={
                   autoRotateEnabled
                     ? "whitespace-nowrap rounded-full border border-[#c79a5c]/40 bg-[#c79a5c]/15 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-[#f0cd98] transition hover:border-[#c79a5c]/60 hover:bg-[#c79a5c]/20"
-                    : "whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/70 transition hover:border-white/25"
+                    : "whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/90 transition hover:border-white/25"
                 }
               >
                 {autoRotateEnabled ? labels.autoRotateOn : labels.autoRotateOff}
               </button>
 
-              <span className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/70">
+              <span className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/90">
                 {labels.zoomActive}
               </span>
 
@@ -430,7 +430,7 @@ export default function AlaudisARScene({
                 <select
                   value={selectedModelId}
                   onChange={(e) => onChangeModel(e.target.value)}
-                  className="appearance-none whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 pr-11 text-[11px] uppercase tracking-[0.22em] text-white/75 outline-none transition hover:border-white/25"
+                  className="appearance-none whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 pr-11 text-[11px] uppercase tracking-[0.22em] text-white/84 outline-none transition hover:border-white/25"
                 >
                   {modelOptions.map((option) => (
                     <option
@@ -443,7 +443,7 @@ export default function AlaudisARScene({
                   ))}
                 </select>
 
-                <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[11px] text-white/60">
+                <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[11px] text-white/84">
                   ▼
                 </span>
               </div>

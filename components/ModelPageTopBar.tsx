@@ -107,7 +107,7 @@ export default function ModelPageTopBar({
           <div className="flex items-center">
             <Link
               href={backHref}
-              className="inline-flex rounded-full border border-white/35 bg-black/20 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
+              className="inline-flex rounded-full border border-white/35 bg-black/45 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
             >
               Powrót
             </Link>
@@ -132,7 +132,7 @@ export default function ModelPageTopBar({
              ================================================== */}
           <div className="justify-self-end">
             <details className="group relative">
-              <summary className="list-none cursor-pointer rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black">
+              <summary className="list-none cursor-pointer rounded-full border border-white/35 bg-black/45 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black">
                 <span className="inline-flex items-center gap-2">
                   {activeLanguage}
                   <span className="text-[10px] transition group-open:rotate-180">
@@ -147,7 +147,7 @@ export default function ModelPageTopBar({
                   className={
                     activeLanguage === "PL"
                       ? "block w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
-                      : "block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                      : "block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/88 transition hover:bg-white/10 hover:text-white"
                   }
                 >
                   PL
@@ -158,7 +158,7 @@ export default function ModelPageTopBar({
                   className={
                     activeLanguage === "EN"
                       ? "block w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
-                      : "block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                      : "block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/88 transition hover:bg-white/10 hover:text-white"
                   }
                 >
                   EN
@@ -169,7 +169,7 @@ export default function ModelPageTopBar({
                   className={
                     activeLanguage === "DE"
                       ? "block w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
-                      : "block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                      : "block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/88 transition hover:bg-white/10 hover:text-white"
                   }
                 >
                   DE
@@ -180,7 +180,7 @@ export default function ModelPageTopBar({
                   className={
                     activeLanguage === "FR"
                       ? "block w-full bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
-                      : "block w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/65 transition hover:bg-white/10 hover:text-white"
+                      : "block w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/88 transition hover:bg-white/10 hover:text-white"
                   }
                 >
                   FR

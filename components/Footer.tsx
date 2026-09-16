@@ -68,17 +68,17 @@ export default function Footer() {
             KOLUMNA 1 - ALAUDIS
            ================================================== */}
         <div>
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             ALAUDIS
           </p>
 
-          <p className="mt-8 text-[15px] text-white/88">Polish Grand Piano</p>
+          <p className="mt-8 text-[15px] text-white/92">Polish Grand Piano</p>
 
           <Link
             href={FACEBOOK_ALAUDIS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 block text-[15px] text-white/68 transition hover:text-white"
+            className="mt-4 block text-[15px] text-white/90 transition hover:text-white"
           >
             Facebook Alaudis
           </Link>
@@ -88,20 +88,20 @@ export default function Footer() {
             KOLUMNA 2 - MODELS
            ================================================== */}
         <div>
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             MODELS
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/88">
-            <Link href={model178Url} className="transition hover:text-white/68">
+          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
+            <Link href={model178Url} className="transition hover:text-white/90">
               Alaudis 178
             </Link>
 
-            <Link href={model214Url} className="transition hover:text-white/68">
+            <Link href={model214Url} className="transition hover:text-white/90">
               Alaudis 214
             </Link>
 
-            <Link href={model275Url} className="transition hover:text-white/68">
+            <Link href={model275Url} className="transition hover:text-white/90">
               Alaudis 275
             </Link>
           </div>
@@ -111,28 +111,28 @@ export default function Footer() {
             KOLUMNA 3 - CONFIGURATOR
            ================================================== */}
         <div>
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             CONFIGURATOR
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/88">
+          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
             <Link
               href={configuratorUrl}
-              className="transition hover:text-white/68"
+              className="transition hover:text-white/90"
             >
               Choose finish
             </Link>
 
             <Link
               href={configuratorUrl}
-              className="transition hover:text-white/68"
+              className="transition hover:text-white/90"
             >
               Choose color
             </Link>
 
             <Link
               href={configuratorUrl}
-              className="transition hover:text-white/68"
+              className="transition hover:text-white/90"
             >
               Accessories
             </Link>
@@ -143,20 +143,20 @@ export default function Footer() {
             KOLUMNA 4 - COMPANY
            ================================================== */}
         <div>
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             COMPANY
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/88">
-            <Link href={aboutUrl} className="transition hover:text-white/68">
+          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
+            <Link href={aboutUrl} className="transition hover:text-white/90">
               About
             </Link>
 
-            <Link href={factoryUrl} className="transition hover:text-white/68">
+            <Link href={factoryUrl} className="transition hover:text-white/90">
               Factory
             </Link>
 
-            <Link href={contactUrl} className="transition hover:text-white/68">
+            <Link href={contactUrl} className="transition hover:text-white/90">
               Contact
             </Link>
           </div>
@@ -167,7 +167,7 @@ export default function Footer() {
           DÓŁ FOOTERA
          ==================================================== */}
       <div className="mx-auto mt-16 max-w-7xl text-center">
-        <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+        <p className="text-xs uppercase tracking-[0.32em] text-white/75">
           © 2026 ALAUDIS
         </p>
       </div>

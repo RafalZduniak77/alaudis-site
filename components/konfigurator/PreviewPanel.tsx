@@ -78,7 +78,7 @@ export default function PreviewPanel({ imageSrc }: Props) {
           TŁO CAŁEJ LEWEJ STRONY
          ==================================================== */}
       <Image src="/hero.png" alt="" fill className="object-cover" />
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/18" />
 
       {/* ====================================================
           GŁÓWNY OBSZAR PODGLĄDU
@@ -106,7 +106,7 @@ export default function PreviewPanel({ imageSrc }: Props) {
           )}
 
           {/* DELIKATNA POŚWIATA NA DOLE */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/4 to-transparent" />
         </div>
       </div>
 

@@ -19,22 +19,22 @@ export default function BesuchenSieDasAtelierPage() {
     <main className="min-h-screen bg-black text-white">
       <ModelPageTopBar backHref="/de" activeLanguage="DE" />
 
-      <section className="relative min-h-screen overflow-hidden border-b border-white/10">
+      <section className="hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
         <div className="absolute inset-0">
           <Image
             src="/hero.jpg"
             alt="Besuchen Sie das Alaudis Atelier"
             fill
             priority
-            className="object-cover object-center opacity-35"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/72" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
         </div>
 
         <div className="relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
           <div className="mx-auto max-w-5xl">
-            <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/80">
+            <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
               Alaudis Atelier
             </p>
 
@@ -42,14 +42,14 @@ export default function BesuchenSieDasAtelierPage() {
               Besuchen Sie das Atelier
             </h1>
 
-            <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/88 sm:text-base sm:leading-9">
+            <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
               Entdecken Sie Alaudis in einem Raum, in dem Handwerk, Detail und
               der Charakter des Instruments auf ein privates Gespräch über
               Modell, Ausführung und die individuelle Komposition des Flügels
               treffen.
             </p>
 
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/62 sm:text-[15px] sm:leading-8">
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
               Ein Besuch im Atelier ist ein ruhiger, persönlicher Moment der
               Begegnung mit der Marke, nicht nur eine Präsentation des Modells,
               sondern ein Erlebnis seiner Größe, Präsenz und Identität.
@@ -62,7 +62,7 @@ export default function BesuchenSieDasAtelierPage() {
             <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
               <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
             </div>
-            <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/80">
+            <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/88">
               Nach unten scrollen
             </p>
           </a>
@@ -75,7 +75,7 @@ export default function BesuchenSieDasAtelierPage() {
       >
         <div className="mx-auto max-w-7xl">
           <div className="max-w-4xl">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Erlebnis des Besuchs
             </p>
 
@@ -85,7 +85,7 @@ export default function BesuchenSieDasAtelierPage() {
               in ihrer natürlichen Umgebung
             </h2>
 
-            <p className="mt-6 max-w-3xl leading-8 text-white/68">
+            <p className="mt-6 max-w-3xl leading-8 text-white/90">
               Im Atelier können Sie die Alaudis Modelle in einem ruhigen,
               privaten Kontext erleben, aus der Nähe, ohne Eile, mit der
               Möglichkeit, über Proportionen, Ausführungen, die Bestimmung des
@@ -95,7 +95,7 @@ export default function BesuchenSieDasAtelierPage() {
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 01
               </p>
 
@@ -103,7 +103,7 @@ export default function BesuchenSieDasAtelierPage() {
                 Sehen Sie die Modelle aus der Nähe
               </h3>
 
-              <p className="mt-5 leading-8 text-white/68">
+              <p className="mt-5 leading-8 text-white/90">
                 Erleben Sie die Größe, die Linie und die Präsenz des Flügels in
                 einem realen Raum. Sehen Sie, wie das Modell nicht auf einem
                 Bildschirm, sondern im physischen Kontakt mit Material und
@@ -112,7 +112,7 @@ export default function BesuchenSieDasAtelierPage() {
             </div>
 
             <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 02
               </p>
 
@@ -120,7 +120,7 @@ export default function BesuchenSieDasAtelierPage() {
                 Sprechen Sie über Ausführungen
               </h3>
 
-              <p className="mt-5 leading-8 text-white/68">
+              <p className="mt-5 leading-8 text-white/90">
                 Besprechen Sie die Wahl der Ausführung, den Charakter der
                 Oberfläche, den Ton des Materials und die Gesamtkomposition des
                 Instruments so, dass sie harmonisch auf Architektur und
@@ -129,7 +129,7 @@ export default function BesuchenSieDasAtelierPage() {
             </div>
 
             <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 03
               </p>
 
@@ -137,7 +137,7 @@ export default function BesuchenSieDasAtelierPage() {
                 Bestimmen Sie die Richtung einer individuellen Komposition
               </h3>
 
-              <p className="mt-5 leading-8 text-white/68">
+              <p className="mt-5 leading-8 text-white/90">
                 Der Besuch kann zum Beginn einer privaten Beratung werden,
                 eines Gesprächs über das Modell, den Charakter des Instruments,
                 seinen Einsatz, die bevorzugte Größe und die gesamte Sprache von
@@ -150,7 +150,7 @@ export default function BesuchenSieDasAtelierPage() {
 
       <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             Raum des Ateliers
           </p>
 
@@ -192,7 +192,7 @@ export default function BesuchenSieDasAtelierPage() {
       <section className="bg-black px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1fr]">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
               Standort
             </p>
 
@@ -200,7 +200,7 @@ export default function BesuchenSieDasAtelierPage() {
               Vereinbaren Sie einen Besuch im Atelier
             </h2>
 
-            <p className="mt-6 max-w-2xl leading-8 text-white/68">
+            <p className="mt-6 max-w-2xl leading-8 text-white/90">
               Das Treffen findet als privates Gespräch statt. Dadurch können wir
               in Ruhe die Modelle, die gewünschte Größe des Instruments,
               Premium-Ausführungen und den Platz des Flügels in einem konkreten
@@ -209,7 +209,7 @@ export default function BesuchenSieDasAtelierPage() {
           </div>
 
           <div className="rounded-[32px] border border-white/10 bg-white/[0.03] p-8 sm:p-10">
-            <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+            <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">
               Atelier / SAP Renovation
             </p>
 
@@ -219,7 +219,7 @@ export default function BesuchenSieDasAtelierPage() {
               62-800 Kalisz
             </p>
 
-            <p className="mt-6 leading-8 text-white/68">
+            <p className="mt-6 leading-8 text-white/90">
               Besuche vereinbart man am besten im Voraus, damit wir ein ruhiges,
               privates Treffen rund um die Alaudis Modelle vorbereiten und den
               Verlauf des Gesprächs passend auf Ihr Projekt abstimmen können.
@@ -239,7 +239,7 @@ export default function BesuchenSieDasAtelierPage() {
 
       <section className="bg-neutral-950 px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             Nächster Schritt
           </p>
 
@@ -247,7 +247,7 @@ export default function BesuchenSieDasAtelierPage() {
             Beginnen Sie mit einem privaten Gespräch
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/68">
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
             Der beste Beginn eines Atelierbesuchs ist ein kurzer Kontakt,
             dadurch bereiten wir das Treffen rund um das passende Modell, den
             Charakter und die Richtung der individuellen Alaudis-Komposition
