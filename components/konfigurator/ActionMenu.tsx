@@ -101,12 +101,13 @@ export default function ActionMenu({
   const labels = getLabels(language);
 
   return (
-    <div className="border-t border-white/10 p-6">
+    <div className="shrink-0 border-t border-white/10 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-6 lg:p-6">
       <div className="relative">
         {/* GŁÓWNY PRZYCISK */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="w-full rounded-full bg-red-600 py-4"
+          aria-expanded={menuOpen}
+          className="w-full rounded-full bg-red-600 py-3 text-sm lg:py-4 lg:text-base"
         >
           {labels.manage}
         </button>

@@ -137,3 +137,23 @@ body {
     padding-bottom: 40px;
   }
 }
+
+/* Keep both the photo and options usable when a phone is held sideways. */
+@media (640px <= width < 1024px) and (height < 600px) {
+  .configurator-layout {
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: minmax(0, 1fr);
+    padding-top: 80px;
+  }
+
+  .configurator-preview {
+    min-height: 0;
+    padding: 16px;
+    border-bottom: 0;
+    border-right: 1px solid rgb(255 255 255 / 10%);
+  }
+
+  .configurator-preview > div {
+    max-height: 100%;
+  }
+}

@@ -298,16 +298,17 @@ export default function ConfiguratorPanel({
   const labels = useMemo(() => getLabels(language), [language]);
 
   return (
-    <div className="absolute right-0 top-0 flex h-full w-full max-w-[520px] flex-col border-l border-white/10 bg-white/5 backdrop-blur-2xl">
+    <div className="configurator-options relative z-20 flex min-h-0 w-full flex-col bg-white/5 backdrop-blur-2xl lg:absolute lg:right-0 lg:top-0 lg:h-full lg:max-w-[520px] lg:border-l lg:border-white/10">
       {/* ====================================================
           GÓRA PANELU - TYTUŁ OFERTY
          ==================================================== */}
-      <div className="p-6 pt-24">
+      <div className="shrink-0 p-4 sm:px-6 lg:p-6 lg:pt-24">
         <input
           value={offerTitle}
           onChange={(e) => setOfferTitle(e.target.value)}
           placeholder={labels.offerTitlePlaceholder}
-          className="w-full rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-md"
+          aria-label={labels.offerTitlePlaceholder}
+          className="w-full rounded-xl border border-white/10 bg-white/5 p-3 backdrop-blur-md lg:p-4"
         />
       </div>
 
@@ -316,14 +317,14 @@ export default function ConfiguratorPanel({
          ==================================================== */}
       <div
         ref={tabsContainerRef}
-        className="relative flex border-b border-white/10"
+        className="relative flex shrink-0 border-b border-white/10"
       >
         {(["obudowa", "akustyka", "mechanizm"] as ConfigTab[]).map((tab) => (
           <button
             key={tab}
             ref={tabRefs[tab]}
             onClick={() => onScrollToSection(tab)}
-            className={`flex-1 py-5 ${
+            className={`min-h-11 min-w-0 flex-1 px-1 py-3 text-[11px] sm:text-xs lg:py-5 lg:text-base ${
               activeTab === tab ? "text-white" : "text-white/90"
             }`}
           >
@@ -342,7 +343,7 @@ export default function ConfiguratorPanel({
          ==================================================== */}
       <div
         ref={scrollRef}
-        className="flex-1 space-y-24 overflow-y-auto px-6 py-8"
+        className="min-h-0 flex-1 space-y-10 overflow-y-auto overscroll-contain px-4 py-4 sm:px-6 lg:space-y-24 lg:py-8"
       >
         {(["obudowa", "akustyka", "mechanizm"] as ConfigTab[]).map((section) => (
           <div
@@ -354,7 +355,7 @@ export default function ConfiguratorPanel({
                   ? akustykaRef
                   : mechanizmRef
             }
-            className="min-h-[80vh]"
+            className="lg:min-h-[80vh]"
           >
             <h3 className="mb-6 uppercase tracking-wider opacity-80">
               {labels.sections[section]}
@@ -370,7 +371,8 @@ export default function ConfiguratorPanel({
                 <button
                   key={item}
                   onClick={() => onSelect(section, item)}
-                  className={`mb-3 w-full rounded-xl p-4 text-left transition ${
+                  aria-pressed={isActive}
+                  className={`mb-3 w-full rounded-xl p-3 text-left text-sm transition lg:p-4 lg:text-base ${
                     isActive
                       ? "border border-white/30 bg-white/10 backdrop-blur-md"
                       : "bg-white/5 hover:bg-white/10"

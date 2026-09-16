@@ -393,11 +393,17 @@ export default function KonfiguratorShell() {
   const underlineRef = useRef<HTMLDivElement>(null);
   const tabsContainerRef = useRef<HTMLDivElement>(null);
 
-  const tabRefs = {
-    obudowa: useRef<HTMLButtonElement>(null),
-    akustyka: useRef<HTMLButtonElement>(null),
-    mechanizm: useRef<HTMLButtonElement>(null),
-  };
+  const obudowaTabRef = useRef<HTMLButtonElement>(null);
+  const akustykaTabRef = useRef<HTMLButtonElement>(null);
+  const mechanizmTabRef = useRef<HTMLButtonElement>(null);
+  const tabRefs = useMemo(
+    () => ({
+      obudowa: obudowaTabRef,
+      akustyka: akustykaTabRef,
+      mechanizm: mechanizmTabRef,
+    }),
+    []
+  );
 
   // --------------------------------------------------------
   // USTALANIE AKTYWNEJ ZAKŁADKI PODCZAS SCROLLA
@@ -407,8 +413,8 @@ export default function KonfiguratorShell() {
     if (!container) return;
 
     const handleScroll = () => {
-      const centerY =
-        container.getBoundingClientRect().top + container.clientHeight / 2;
+      const activationY =
+        container.getBoundingClientRect().top + Math.min(96, container.clientHeight / 3);
 
       const sections = [
         { ref: obudowaRef, name: "obudowa" },
@@ -417,17 +423,11 @@ export default function KonfiguratorShell() {
       ];
 
       let closest: ConfigTab = "obudowa";
-      let min = Infinity;
 
       sections.forEach((s) => {
         if (!s.ref.current) return;
 
-        const rect = s.ref.current.getBoundingClientRect();
-        const mid = rect.top + rect.height / 2;
-        const dist = Math.abs(centerY - mid);
-
-        if (dist < min) {
-          min = dist;
+        if (s.ref.current.getBoundingClientRect().top <= activationY) {
           closest = s.name as ConfigTab;
         }
       });
@@ -461,14 +461,21 @@ export default function KonfiguratorShell() {
     const underline = underlineRef.current;
     const container = tabsContainerRef.current;
 
-    if (el && underline && container) {
+    if (!el || !underline || !container) return;
+
+    const updateUnderline = () => {
       const elRect = el.getBoundingClientRect();
       const parentRect = container.getBoundingClientRect();
 
       underline.style.width = `${elRect.width}px`;
       underline.style.transform = `translateX(${elRect.left - parentRect.left}px)`;
-    }
-  }, [activeTab]);
+    };
+
+    updateUnderline();
+    const observer = new ResizeObserver(updateUnderline);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [activeTab, tabRefs]);
 
   // --------------------------------------------------------
   // WYBÓR OPCJI
@@ -761,18 +768,24 @@ export default function KonfiguratorShell() {
     };
 
     setActiveTab(tab);
-    map[tab].current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    const container = scrollRef.current;
+    const section = map[tab].current;
+    if (container && section) {
+      const top =
+        container.scrollTop +
+        section.getBoundingClientRect().top -
+        container.getBoundingClientRect().top -
+        parseFloat(getComputedStyle(container).paddingTop);
+      container.scrollTo({ top, behavior: "smooth" });
+    }
   };
 
   // --------------------------------------------------------
   // RENDER
   // --------------------------------------------------------
   return (
-    <main className="min-h-screen bg-black text-white">
-      <section className="relative min-h-screen overflow-hidden">
+    <main className="h-dvh overflow-hidden bg-black text-white">
+      <section className="configurator-layout relative grid h-full grid-rows-[auto_minmax(0,1fr)] overflow-hidden lg:block">
         <PreviewPanel imageSrc={previewImage} />
 
         <ConfiguratorPanel
