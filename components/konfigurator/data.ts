@@ -53,7 +53,7 @@ export const options: OptionsMap = {
 
   akustyka: [
     "Dno rezonansowe Strunz",
-    "Dno rezonansowe Chiresse",
+    "Dno rezonansowe Chiressa",
     "Lakierowanie dna rezonansowego mat",
     "Lakierowanie dna rezonansowego połysk",
     "Mostki rezonansowe klon",
@@ -75,14 +75,14 @@ export const options: OptionsMap = {
     "Klawiatura Alaudis SAP Renovation",
     "Klawiatura Kluge",
     "Mechanizm Alaudis SAP Renovation",
-    "Mechanizm Renner",
-    "Mechanizm Abbel",
+    "Mechanizm Louis Renner",
+    "Mechanizm Abel",
     "Młotki Alaudis",
-    "Młotki Renner",
-    "Młotki Abbel",
+    "Młotki Louis Renner",
+    "Młotki Abel",
     "Tłumiki Alaudis",
-    "Tłumiki Renner",
-    "Tłumiki Abbel",
+    "Tłumiki Louis Renner",
+    "Tłumiki Abel",
   ],
 };
 
@@ -91,7 +91,7 @@ export const options: OptionsMap = {
 // ----------------------------------------------------------
 export const groupMap: Record<string, string> = {
   "Dno rezonansowe Strunz": "dno",
-  "Dno rezonansowe Chiresse": "dno",
+  "Dno rezonansowe Chiressa": "dno",
 
   "Lakierowanie dna rezonansowego mat": "lakierDno",
   "Lakierowanie dna rezonansowego połysk": "lakierDno",
@@ -119,16 +119,16 @@ export const groupMap: Record<string, string> = {
   "Klawiatura Kluge": "klawiatura",
 
   "Mechanizm Alaudis SAP Renovation": "mechanizm",
-  "Mechanizm Renner": "mechanizm",
-  "Mechanizm Abbel": "mechanizm",
+  "Mechanizm Louis Renner": "mechanizm",
+  "Mechanizm Abel": "mechanizm",
 
   "Młotki Alaudis": "mlotki",
-  "Młotki Renner": "mlotki",
-  "Młotki Abbel": "mlotki",
+  "Młotki Louis Renner": "mlotki",
+  "Młotki Abel": "mlotki",
 
   "Tłumiki Alaudis": "tlumiki",
-  "Tłumiki Renner": "tlumiki",
-  "Tłumiki Abbel": "tlumiki",
+  "Tłumiki Louis Renner": "tlumiki",
+  "Tłumiki Abel": "tlumiki",
 };
 
 // ----------------------------------------------------------
@@ -152,7 +152,7 @@ export const previewImageMap: Record<string, string> = {
   "Mostki rezonansowe buk": "/konfigurator/mostki-buk.JPG",
 
   "Dno rezonansowe Strunz": "/konfigurator/dno-strunz.jpg",
-  "Dno rezonansowe Chiresse": "/konfigurator/dno-chiresse.jpg",
+  "Dno rezonansowe Chiressa": "/konfigurator/dno-chiresse.jpg",
 
   "Lakierowanie dna rezonansowego mat":
     "/konfigurator/lakierowanie dna rezonansowego mat.jpg",
@@ -199,25 +199,25 @@ export const previewImageMap: Record<string, string> = {
   "Młotki Alaudis":
     "/konfigurator/mlotki-alaudis.jpg",
 
-  "Młotki Renner":
+  "Młotki Louis Renner":
     "/konfigurator/młotki Renner.JPG",
 
-  "Młotki Abbel":
+  "Młotki Abel":
     "/konfigurator/młotki Abbel.JPG",
 
   "Mechanizm Alaudis SAP Renovation":
     "/konfigurator/mechanizm Alaudis SAP Renovation.jpg",
 
-  "Mechanizm Renner":
+  "Mechanizm Louis Renner":
     "/konfigurator/mechanizm Renner.jpg",
 
-  "Mechanizm Abbel":
+  "Mechanizm Abel":
     "/konfigurator/mechanizm-abbel.jpg",
 
   "Tłumiki Alaudis":
     "/konfigurator/tłumiki alaudis.jpg",
 
-  "Tłumiki Renner":
+  "Tłumiki Louis Renner":
     "/konfigurator/tłumiki renner.jpg",
 };
 

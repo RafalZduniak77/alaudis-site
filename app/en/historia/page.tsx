@@ -132,7 +132,7 @@ const storySections: StorySection[] = [
       "Thanks to such a construction, SAP Alaudis offers exceptional keyboard responsiveness, from delicate pianissimo to full fortissimo.",
     ],
     image: "/historia/10 Mechanizm Renner.jpg",
-    imageAlt: "Renner action in the Alaudis piano",
+    imageAlt: "Louis Renner action in the Alaudis piano",
     align: "right",
   },
   {

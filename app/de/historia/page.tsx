@@ -132,7 +132,7 @@ const storySections: StorySection[] = [
       "Dank einer solchen Konstruktion zeichnet sich SAP Alaudis durch eine außergewöhnliche Reaktionsfreude der Klaviatur aus und bietet präzisen Anschlag von Pianissimo bis zum vollen Fortissimo.",
     ],
     image: "/historia/10 Mechanizm Renner.jpg",
-    imageAlt: "Renner-Mechanik des Alaudis Flügels",
+    imageAlt: "Louis Renner-Mechanik des Alaudis Flügels",
     align: "right",
   },
   {

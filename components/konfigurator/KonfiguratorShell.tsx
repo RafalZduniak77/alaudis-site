@@ -55,7 +55,7 @@ const optionTranslations: Record<
     "Okleina Jabłoń Indyjska -połysk": "Indian apple veneer, high gloss",
 
     "Dno rezonansowe Strunz": "Strunz soundboard",
-    "Dno rezonansowe Chiresse": "Chiresse soundboard",
+    "Dno rezonansowe Chiressa": "Chiressa soundboard",
     "Lakierowanie dna rezonansowego mat": "Matte soundboard finish",
     "Lakierowanie dna rezonansowego połysk": "High-gloss soundboard finish",
     "Mostki rezonansowe klon": "Maple bridges",
@@ -75,14 +75,14 @@ const optionTranslations: Record<
     "Klawiatura Alaudis SAP Renovation": "Alaudis SAP Renovation keyboard",
     "Klawiatura Kluge": "Kluge keyboard",
     "Mechanizm Alaudis SAP Renovation": "Alaudis SAP Renovation action",
-    "Mechanizm Renner": "Renner action",
-    "Mechanizm Abbel": "Abbel action",
+    "Mechanizm Louis Renner": "Louis Renner action",
+    "Mechanizm Abel": "Abel action",
     "Młotki Alaudis": "Alaudis hammers",
-    "Młotki Renner": "Renner hammers",
-    "Młotki Abbel": "Abbel hammers",
+    "Młotki Louis Renner": "Louis Renner hammers",
+    "Młotki Abel": "Abel hammers",
     "Tłumiki Alaudis": "Alaudis dampers",
-    "Tłumiki Renner": "Renner dampers",
-    "Tłumiki Abbel": "Abbel dampers",
+    "Tłumiki Louis Renner": "Louis Renner dampers",
+    "Tłumiki Abel": "Abel dampers",
   },
 
   DE: {
@@ -94,7 +94,7 @@ const optionTranslations: Record<
       "Indisches Apfelbaumfurnier, Hochglanz",
 
     "Dno rezonansowe Strunz": "Resonanzboden Strunz",
-    "Dno rezonansowe Chiresse": "Resonanzboden Chiresse",
+    "Dno rezonansowe Chiressa": "Resonanzboden Chiressa",
     "Lakierowanie dna rezonansowego mat": "Matt lackierter Resonanzboden",
     "Lakierowanie dna rezonansowego połysk":
       "Glänzend lackierter Resonanzboden",
@@ -115,14 +115,14 @@ const optionTranslations: Record<
     "Klawiatura Alaudis SAP Renovation": "Klaviatur Alaudis SAP Renovation",
     "Klawiatura Kluge": "Klaviatur Kluge",
     "Mechanizm Alaudis SAP Renovation": "Mechanik Alaudis SAP Renovation",
-    "Mechanizm Renner": "Mechanik Renner",
-    "Mechanizm Abbel": "Mechanik Abbel",
+    "Mechanizm Louis Renner": "Mechanik Louis Renner",
+    "Mechanizm Abel": "Mechanik Abel",
     "Młotki Alaudis": "Hammerköpfe Alaudis",
-    "Młotki Renner": "Hammerköpfe Renner",
-    "Młotki Abbel": "Hammerköpfe Abbel",
+    "Młotki Louis Renner": "Hammerköpfe Louis Renner",
+    "Młotki Abel": "Hammerköpfe Abel",
     "Tłumiki Alaudis": "Dämpfer Alaudis",
-    "Tłumiki Renner": "Dämpfer Renner",
-    "Tłumiki Abbel": "Dämpfer Abbel",
+    "Tłumiki Louis Renner": "Dämpfer Louis Renner",
+    "Tłumiki Abel": "Dämpfer Abel",
   },
 
   FR: {
@@ -133,7 +133,7 @@ const optionTranslations: Record<
     "Okleina Jabłoń Indyjska -połysk": "Placage pommier indien, brillant",
 
     "Dno rezonansowe Strunz": "Table d’harmonie Strunz",
-    "Dno rezonansowe Chiresse": "Table d’harmonie Chiresse",
+    "Dno rezonansowe Chiressa": "Table d’harmonie Chiressa",
     "Lakierowanie dna rezonansowego mat":
       "Finition mate de la table d’harmonie",
     "Lakierowanie dna rezonansowego połysk":
@@ -155,14 +155,14 @@ const optionTranslations: Record<
     "Klawiatura Alaudis SAP Renovation": "Clavier Alaudis SAP Renovation",
     "Klawiatura Kluge": "Clavier Kluge",
     "Mechanizm Alaudis SAP Renovation": "Mécanique Alaudis SAP Renovation",
-    "Mechanizm Renner": "Mécanique Renner",
-    "Mechanizm Abbel": "Mécanique Abbel",
+    "Mechanizm Louis Renner": "Mécanique Louis Renner",
+    "Mechanizm Abel": "Mécanique Abel",
     "Młotki Alaudis": "Marteaux Alaudis",
-    "Młotki Renner": "Marteaux Renner",
-    "Młotki Abbel": "Marteaux Abbel",
+    "Młotki Louis Renner": "Marteaux Louis Renner",
+    "Młotki Abel": "Marteaux Abel",
     "Tłumiki Alaudis": "Étouffoirs Alaudis",
-    "Tłumiki Renner": "Étouffoirs Renner",
-    "Tłumiki Abbel": "Étouffoirs Abbel",
+    "Tłumiki Louis Renner": "Étouffoirs Louis Renner",
+    "Tłumiki Abel": "Étouffoirs Abel",
   },
 };
 

@@ -147,7 +147,7 @@ const storySections: StorySection[] = [
       "Dzięki takiej konstrukcji SAP Alaudis charakteryzuje się wyjątkową responsywnością klawiatury, oferując precyzyjny dotyk od pianissimo po pełne fortissimo.",
     ],
     image: "/historia/10 Mechanizm Renner.jpg",
-    imageAlt: "Mechanizm Renner fortepianu Alaudis",
+    imageAlt: "Mechanizm Louis Renner fortepianu Alaudis",
     align: "right",
   },
   {

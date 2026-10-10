@@ -158,7 +158,7 @@ function translateOption(value: string, language: LanguageKey) {
     "Okleina Jabłoń Indyjska -połysk": "Indian apple veneer gloss",
 
     "Dno rezonansowe Strunz": "Strunz soundboard",
-    "Dno rezonansowe Chiresse": "Chiresse soundboard",
+    "Dno rezonansowe Chiressa": "Chiressa soundboard",
     "Lakierowanie dna rezonansowego mat": "Soundboard lacquer matte",
     "Lakierowanie dna rezonansowego połysk": "Soundboard lacquer gloss",
     "Mostki rezonansowe klon": "Maple bridges",
@@ -178,14 +178,14 @@ function translateOption(value: string, language: LanguageKey) {
     "Klawiatura Alaudis SAP Renovation": "Alaudis SAP Renovation keyboard",
     "Klawiatura Kluge": "Kluge keyboard",
     "Mechanizm Alaudis SAP Renovation": "Alaudis SAP Renovation action",
-    "Mechanizm Renner": "Renner action",
-    "Mechanizm Abbel": "Abbel action",
+    "Mechanizm Louis Renner": "Louis Renner action",
+    "Mechanizm Abel": "Abel action",
     "Młotki Alaudis": "Alaudis hammers",
-    "Młotki Renner": "Renner hammers",
-    "Młotki Abbel": "Abbel hammers",
+    "Młotki Louis Renner": "Louis Renner hammers",
+    "Młotki Abel": "Abel hammers",
     "Tłumiki Alaudis": "Alaudis dampers",
-    "Tłumiki Renner": "Renner dampers",
-    "Tłumiki Abbel": "Abbel dampers",
+    "Tłumiki Louis Renner": "Louis Renner dampers",
+    "Tłumiki Abel": "Abel dampers",
   };
 
   const mapDE: Record<string, string> = {
@@ -196,7 +196,7 @@ function translateOption(value: string, language: LanguageKey) {
     "Okleina Jabłoń Indyjska -połysk": "Indischer Apfelbaumfurnier Hochglanz",
 
     "Dno rezonansowe Strunz": "Strunz Resonanzboden",
-    "Dno rezonansowe Chiresse": "Chiresse Resonanzboden",
+    "Dno rezonansowe Chiressa": "Chiressa Resonanzboden",
     "Lakierowanie dna rezonansowego mat": "Resonanzboden Lack matt",
     "Lakierowanie dna rezonansowego połysk": "Resonanzboden Lack hochglanz",
     "Mostki rezonansowe klon": "Ahornstege",
@@ -216,14 +216,14 @@ function translateOption(value: string, language: LanguageKey) {
     "Klawiatura Alaudis SAP Renovation": "Alaudis SAP Renovation Klaviatur",
     "Klawiatura Kluge": "Kluge Klaviatur",
     "Mechanizm Alaudis SAP Renovation": "Alaudis SAP Renovation Mechanik",
-    "Mechanizm Renner": "Renner Mechanik",
-    "Mechanizm Abbel": "Abbel Mechanik",
+    "Mechanizm Louis Renner": "Louis Renner Mechanik",
+    "Mechanizm Abel": "Abel Mechanik",
     "Młotki Alaudis": "Alaudis Hämmer",
-    "Młotki Renner": "Renner Hämmer",
-    "Młotki Abbel": "Abbel Hämmer",
+    "Młotki Louis Renner": "Louis Renner Hämmer",
+    "Młotki Abel": "Abel Hämmer",
     "Tłumiki Alaudis": "Alaudis Dämpfer",
-    "Tłumiki Renner": "Renner Dämpfer",
-    "Tłumiki Abbel": "Abbel Dämpfer",
+    "Tłumiki Louis Renner": "Louis Renner Dämpfer",
+    "Tłumiki Abel": "Abel Dämpfer",
   };
 
   const mapFR: Record<string, string> = {
@@ -234,7 +234,7 @@ function translateOption(value: string, language: LanguageKey) {
     "Okleina Jabłoń Indyjska -połysk": "Placage pommier indien brillant",
 
     "Dno rezonansowe Strunz": "Table d’harmonie Strunz",
-    "Dno rezonansowe Chiresse": "Table d’harmonie Chiresse",
+    "Dno rezonansowe Chiressa": "Table d’harmonie Chiressa",
     "Lakierowanie dna rezonansowego mat": "Vernis table d’harmonie mat",
     "Lakierowanie dna rezonansowego połysk": "Vernis table d’harmonie brillant",
     "Mostki rezonansowe klon": "Chevalets en érable",
@@ -254,14 +254,14 @@ function translateOption(value: string, language: LanguageKey) {
     "Klawiatura Alaudis SAP Renovation": "Clavier Alaudis SAP Renovation",
     "Klawiatura Kluge": "Clavier Kluge",
     "Mechanizm Alaudis SAP Renovation": "Mécanique Alaudis SAP Renovation",
-    "Mechanizm Renner": "Mécanique Renner",
-    "Mechanizm Abbel": "Mécanique Abbel",
+    "Mechanizm Louis Renner": "Mécanique Louis Renner",
+    "Mechanizm Abel": "Mécanique Abel",
     "Młotki Alaudis": "Marteaux Alaudis",
-    "Młotki Renner": "Marteaux Renner",
-    "Młotki Abbel": "Marteaux Abbel",
+    "Młotki Louis Renner": "Marteaux Louis Renner",
+    "Młotki Abel": "Marteaux Abel",
     "Tłumiki Alaudis": "Étouffoirs Alaudis",
-    "Tłumiki Renner": "Étouffoirs Renner",
-    "Tłumiki Abbel": "Étouffoirs Abbel",
+    "Tłumiki Louis Renner": "Étouffoirs Louis Renner",
+    "Tłumiki Abel": "Étouffoirs Abel",
   };
 
   if (language === "EN") return mapEN[value] || value;

@@ -132,7 +132,7 @@ const storySections: StorySection[] = [
       "Grâce à une telle construction, SAP Alaudis se distingue par une réactivité exceptionnelle du clavier, offrant une précision de toucher allant du pianissimo le plus délicat jusqu’au fortissimo le plus ample.",
     ],
     image: "/historia/10 Mechanizm Renner.jpg",
-    imageAlt: "Mécanique Renner du piano Alaudis",
+    imageAlt: "Mécanique Louis Renner du piano Alaudis",
     align: "right",
   },
   {
