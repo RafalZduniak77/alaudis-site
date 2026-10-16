@@ -189,11 +189,11 @@ export default function Home() {
         </div>
       </section>
 
-      <AlaudisStory language="FR" />
-
       <div className="relative z-0">
         <ScrollModelsShowcase />
       </div>
+
+      <AlaudisStory language="FR" />
 
       {/* ====================================================
           SECTION CONTACT

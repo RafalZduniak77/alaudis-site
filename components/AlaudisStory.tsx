@@ -1,10 +1,13 @@
 import Link from "next/link";
-import { ALAUDIS_MODEL_IDS, ALAUDIS_MODELS } from "./alaudisModels";
+import { ALAUDIS_MODEL_IDS, getAlaudisModelName } from "./alaudisModels";
 import {
   alaudisStoryContent,
   getStoryLanguagePrefix,
   type StoryLanguage,
 } from "./alaudisStoryContent";
+
+const storyLinkClassName =
+  "inline-flex min-h-11 items-center justify-center rounded-full border border-white/35 px-6 py-3 text-center text-[11px] uppercase tracking-[0.2em] text-white transition hover:border-white hover:bg-white hover:text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white";
 
 export default function AlaudisStory({
   language,
@@ -15,116 +18,119 @@ export default function AlaudisStory({
 }) {
   const copy = alaudisStoryContent[language];
   const prefix = getStoryLanguagePrefix(language);
-  const sectionId = full ? "alaudis-story" : copy.collectionId;
 
-  return (
-    <section
-      id={sectionId}
-      lang={language.toLowerCase()}
-      aria-labelledby={`${sectionId}-title`}
-      className="alaudis-story relative z-20 scroll-mt-24 border-y border-white/10 px-6 py-20 sm:px-10 sm:py-28 lg:px-16 lg:py-32"
-    >
-      <div className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <p className="story-eyebrow">
-              {full ? copy.storyLabel : copy.collectionLabel}
+  if (!full) {
+    return (
+      <section
+        id={copy.collectionId}
+        lang={language.toLowerCase()}
+        aria-labelledby={`${copy.collectionId}-title`}
+        className="relative z-20 scroll-mt-24 bg-neutral-950 px-6 py-16 sm:px-10 sm:py-20 lg:px-16"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+              {copy.collectionLabel}
             </p>
-            <h2 id={`${sectionId}-title`} className="story-title mt-7">
-              {copy.title.map((line, index) => (
-                <span
-                  key={line}
-                  className={`block${index === 2 ? " text-[#dec38c]" : ""}`}
-                >
-                  {line}
-                </span>
-              ))}
+            <h2
+              id={`${copy.collectionId}-title`}
+              className="mt-4 text-3xl font-light leading-tight text-white sm:text-4xl lg:text-5xl"
+            >
+              {copy.collectionTitle[0]}
+              <br />
+              {copy.collectionTitle[1]}
             </h2>
-          </div>
-
-          <div className="space-y-5 text-[15px] leading-8 text-[#d4d0c8] sm:text-base">
-            <p>{copy.origin}</p>
-            <p>
-              {copy.nameMeaning}
-              {full && <> {copy.symbolism}</>}
-            </p>
-            <p className="border-l border-[#dec38c]/45 pl-5 text-[#f1ece3]">
-              {copy.family}
+            <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-white/90">
+              {copy.collectionIntro}
             </p>
           </div>
-        </div>
 
-        <div className="mt-14 grid gap-5 lg:mt-20 lg:grid-cols-3">
-          {ALAUDIS_MODEL_IDS.map((id) => {
-            const model = ALAUDIS_MODELS[id];
-            const modelCopy = copy.models[id];
-
-            return (
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            {ALAUDIS_MODEL_IDS.map((id) => (
               <Link
                 key={id}
                 href={`${prefix}/fortepiany/alaudis-${id}`}
-                className="story-model group flex min-w-0 flex-col rounded-[24px] border border-[#dec38c]/20 p-7 sm:p-9"
+                className="flex min-w-0 flex-col rounded-[30px] border border-white/10 bg-white/[0.03] p-7 transition hover:border-white/25 hover:bg-white/[0.05] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:p-8"
               >
-                <div className="flex items-center justify-between gap-4">
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-[#dec38c]">
-                    {modelCopy.label}
-                  </p>
-                  <span aria-hidden="true" className="font-serif text-3xl text-[#dec38c]/60">
-                    {model.number}
-                  </span>
-                </div>
-                <h3 className="mt-8 font-light">
-                  <span className="block text-[11px] tracking-[0.3em] text-[#d4d0c8]">
-                    ALAUDIS{" "}
-                  </span>
-                  <span className="mt-2 block text-[clamp(1.8rem,3vw,2.7rem)] leading-tight tracking-[0.02em] text-[#f1ece3]">
-                    {model.voice} {id}
+                <h3 className="text-2xl font-light leading-snug text-white">
+                  ALAUDIS{" "}
+                  <span className="whitespace-nowrap">
+                    {getAlaudisModelName(id).replace("ALAUDIS ", "")}
                   </span>
                 </h3>
-                <p className="mb-9 mt-5 text-[15px] leading-7 text-[#d4d0c8]">
-                  {modelCopy.story}
+                <p className="mb-7 mt-5 text-[15px] leading-7 text-white/90">
+                  {copy.models[id].description}
                 </p>
-                <div className="mt-auto flex items-center justify-between gap-3 border-t border-[#dec38c]/15 pt-5 text-[11px] uppercase tracking-[0.14em] text-[#f1ece3]">
-                  <span>{copy.discover}</span>
-                  <span aria-hidden="true" className="text-xl text-[#dec38c]">↗</span>
-                </div>
+                <p className="mt-auto text-[11px] uppercase tracking-[0.24em] text-white/85">
+                  {copy.discover} <span aria-hidden="true">→</span>
+                </p>
               </Link>
-            );
-          })}
-        </div>
-
-        <p className="mt-9 text-center font-serif text-xl leading-relaxed text-[#d4d0c8] sm:text-2xl">
-          {copy.familyLine}
-        </p>
-
-        {full ? (
-          <div className="mt-16 border-t border-[#dec38c]/20 pt-14 sm:mt-20 sm:pt-20">
-            <div className="grid gap-10 lg:grid-cols-2 lg:gap-20">
-              <p className="font-serif text-[clamp(1.8rem,3.5vw,3rem)] leading-[1.25] text-[#f1ece3]">
-                {copy.ownVoice[0]}{" "}
-                <span className="text-[#dec38c]">{copy.ownVoice[1]}</span>
-              </p>
-              <div className="space-y-6 text-[15px] leading-8 text-[#d4d0c8] sm:text-base">
-                <p>{copy.philosophy}</p>
-                <p>{copy.value}</p>
-              </div>
-            </div>
-            <div className="mx-auto mt-16 max-w-2xl text-center sm:mt-20">
-              <div aria-hidden="true" className="mx-auto mb-8 h-10 w-px bg-[#dec38c]/50" />
-              <p className="text-sm tracking-[0.38em] text-[#dec38c]">ALAUDIS</p>
-              <p className="mt-4 font-serif text-2xl leading-relaxed text-[#f1ece3] sm:text-3xl">
-                {copy.closing}
-              </p>
-            </div>
+            ))}
           </div>
-        ) : (
-          <div className="mt-9 text-center">
-            <Link href={`${prefix}/historia#alaudis-story`} className="story-link">
+
+          <div className="mt-10 flex flex-col items-center justify-between gap-5 border-t border-white/10 pt-8 text-center lg:flex-row lg:text-left">
+            <p className="text-base font-light leading-7 text-white/80 sm:text-lg">
+              {copy.title.join(" ")}
+            </p>
+            <Link href={`${prefix}/historia#alaudis-story`} className={storyLinkClassName}>
               {copy.readStory}
-              <span aria-hidden="true"> →</span>
             </Link>
           </div>
-        )}
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section
+      id="alaudis-story"
+      lang={language.toLowerCase()}
+      aria-labelledby="alaudis-story-title"
+      className="scroll-mt-24 bg-neutral-950 px-6 py-16 sm:px-10 sm:py-20 lg:px-16"
+    >
+      <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            {copy.storyLabel}
+          </p>
+          <h2 id="alaudis-story-title" className="mt-4 text-3xl font-light leading-tight text-white sm:text-4xl">
+            {copy.title[0]} {copy.title[1]}
+            <br />
+            {copy.title[2]}
+          </h2>
+          <div className="mt-7 space-y-4 text-[15px] leading-8 text-white/85 sm:text-base">
+            <p>{copy.origin}</p>
+            <p>{copy.nameMeaning} {copy.symbolism}</p>
+            <p>{copy.family}</p>
+          </div>
+        </div>
+
+        <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
+          {ALAUDIS_MODEL_IDS.map((id) => (
+            <div key={id} className="grid gap-3 py-6 md:grid-cols-[0.85fr_1.15fr] md:items-start md:gap-10">
+              <h3 className="text-xl font-light leading-7 text-white">
+                <Link
+                  href={`${prefix}/fortepiany/alaudis-${id}`}
+                  className="transition hover:text-white/70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                >
+                  {getAlaudisModelName(id)}
+                </Link>
+              </h3>
+              <p className="text-[15px] leading-7 text-white/85">{copy.models[id].story}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mx-auto mt-10 max-w-3xl space-y-5 text-[15px] leading-8 text-white/85 sm:text-base">
+          <p className="text-center text-lg font-light text-white">{copy.familyLine}</p>
+          <p>{copy.ownVoice.join(" ")}</p>
+          <p>{copy.philosophy}</p>
+          <p>{copy.value}</p>
+        </div>
+        <div className="mx-auto mt-10 max-w-3xl border-t border-white/10 pt-7 text-center">
+          <p className="text-[11px] uppercase tracking-[0.32em] text-white/75">ALAUDIS</p>
+          <p className="mt-3 text-base font-light leading-7 text-white/90">{copy.closing}</p>
+        </div>
       </div>
     </section>
   );

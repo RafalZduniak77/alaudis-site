@@ -74,7 +74,10 @@ export default function Footer() {
 
           <p className="mt-8 text-[15px] text-white/92">Polish Grand Piano</p>
 
-          <Link href={`${aboutUrl}#alaudis-story`} className="story-link mt-3 max-w-[260px]">
+          <Link
+            href={`${aboutUrl}#alaudis-story`}
+            className="mt-3 block max-w-[260px] text-sm leading-6 text-white/70 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          >
             {story.closing}
           </Link>
 

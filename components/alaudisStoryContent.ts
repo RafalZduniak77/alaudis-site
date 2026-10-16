@@ -5,13 +5,15 @@ export type StoryLanguage = "PL" | "EN" | "DE" | "FR";
 type BrandStory = {
   collectionId: string;
   collectionLabel: string;
+  collectionTitle: [string, string];
+  collectionIntro: string;
   storyLabel: string;
   title: [string, string, string];
   origin: string;
   nameMeaning: string;
   symbolism: string;
   family: string;
-  models: Record<AlaudisModelId, { label: string; story: string }>;
+  models: Record<AlaudisModelId, { description: string; story: string }>;
   familyLine: string;
   ownVoice: [string, string];
   philosophy: string;
@@ -24,7 +26,10 @@ type BrandStory = {
 export const alaudisStoryContent: Record<StoryLanguage, BrandStory> = {
   PL: {
     collectionId: "modele",
-    collectionLabel: "Rodzina fortepianów ALAUDIS",
+    collectionLabel: "Kolekcja Alaudis",
+    collectionTitle: ["Trzy skale obecności.", "Jedna filozofia rzemiosła."],
+    collectionIntro:
+      "Każdy model Alaudis powstaje jako osobna interpretacja proporcji, charakteru i brzmienia, od wyrafinowanej obecności salonowej po pełną skalę fortepianu koncertowego.",
     storyLabel: "Dusza naszej marki",
     title: ["Trzy skowronki.", "Trzy głosy.", "Jedna dusza."],
     origin:
@@ -36,17 +41,20 @@ export const alaudisStoryContent: Record<StoryLanguage, BrandStory> = {
       "Nasza rodzina fortepianów to trzy skowronki. Każdy inny, każdy z własnym charakterem, lecz wszystkie zrodzone z tej samej pasji do muzyki i doskonałości rzemiosła.",
     models: {
       "178": {
-        label: "Pierwszy skowronek",
+        description:
+          "Liryczna interpretacja fortepianu klasy premium, elegancka, wyważona i stworzona do wnętrz, w których detal ma taką samą wagę jak dźwięk.",
         story:
           "Początek naszej muzycznej opowieści. Pierwszy własny głos, któremu nadaliśmy życie.",
       },
       "214": {
-        label: "Drugi skowronek",
+        description:
+          "Fortepian o głębszej obecności i szerszej projekcji, dla przestrzeni, które wymagają większej skali, wyrazistości i koncertowego charakteru.",
         story:
           "Kolejny krok w rozwoju naszej myśli konstruktorskiej, wyraz odwagi w poszukiwaniu własnej drogi.",
       },
       "275": {
-        label: "Trzeci skowronek",
+        description:
+          "Największa forma koncertowa Alaudis, pełna skala brzmienia, projekcja i sceniczna obecność zaprojektowana dla najbardziej wymagających przestrzeni.",
         story:
           "Nasze największe marzenie, fortepian koncertowy tworzony z myślą o wielkich estradach świata.",
       },
@@ -62,11 +70,14 @@ export const alaudisStoryContent: Record<StoryLanguage, BrandStory> = {
       "Bo największą wartością instrumentu jest nie tylko doskonałość jego wykonania, lecz również to, co potrafi przekazać człowiekowi poprzez muzykę.",
     closing: "Trzy skowronki. Jeden wspólny głos rzemiosła i pasji.",
     discover: "Odkryj model",
-    readStory: "Poznaj historię trzech skowronków",
+    readStory: "Poznaj historię marki",
   },
   EN: {
     collectionId: "models",
-    collectionLabel: "The ALAUDIS grand piano family",
+    collectionLabel: "Alaudis Collection",
+    collectionTitle: ["Three scales of presence.", "One philosophy of craftsmanship."],
+    collectionIntro:
+      "Each Alaudis model is created as a distinct interpretation of proportion, character and sound, from refined living-space presence to the full scale of a concert grand piano.",
     storyLabel: "The soul of our brand",
     title: ["Three larks.", "Three voices.", "One soul."],
     origin:
@@ -78,17 +89,20 @@ export const alaudisStoryContent: Record<StoryLanguage, BrandStory> = {
       "Our family of grand pianos is a trio of larks. Each is different, each has its own character, yet all are born of the same passion for music and excellence in craftsmanship.",
     models: {
       "178": {
-        label: "The first lark",
+        description:
+          "A lyrical interpretation of the premium grand piano, elegant, balanced, and created for interiors where detail matters as much as sound.",
         story:
           "The beginning of our musical story. The first voice of our own that we brought to life.",
       },
       "214": {
-        label: "The second lark",
+        description:
+          "A grand piano with deeper presence and broader projection, for spaces that call for greater scale, clarity and a more concert character.",
         story:
           "The next step in the evolution of our piano design, an expression of the courage to find our own way.",
       },
       "275": {
-        label: "The third lark",
+        description:
+          "The largest Alaudis concert form, full scale of sound, projection, and stage presence designed for the most demanding spaces.",
         story:
           "Our greatest dream: a concert grand piano created for the world’s great stages.",
       },
@@ -104,11 +118,14 @@ export const alaudisStoryContent: Record<StoryLanguage, BrandStory> = {
       "For an instrument’s greatest value lies not only in the excellence of its craftsmanship, but also in what it can convey to people through music.",
     closing: "Three larks. One shared voice of craftsmanship and passion.",
     discover: "Discover the model",
-    readStory: "Discover the story of the three larks",
+    readStory: "Discover our story",
   },
   DE: {
     collectionId: "modelle",
-    collectionLabel: "Die ALAUDIS Flügelfamilie",
+    collectionLabel: "Alaudis Kollektion",
+    collectionTitle: ["Drei Größen der Präsenz.", "Eine Philosophie des Handwerks."],
+    collectionIntro:
+      "Jedes Alaudis-Modell entsteht als eigene Interpretation von Proportion, Charakter und Klang, von kultivierter Wohnraumpräsenz bis zur vollen Größe eines Konzertflügels.",
     storyLabel: "Die Seele unserer Marke",
     title: ["Drei Lerchen.", "Drei Stimmen.", "Eine Seele."],
     origin:
@@ -120,17 +137,20 @@ export const alaudisStoryContent: Record<StoryLanguage, BrandStory> = {
       "Unsere Flügelfamilie besteht aus drei Lerchen. Jede ist anders, jede hat ihren eigenen Charakter. Doch alle entspringen derselben Leidenschaft für Musik und handwerkliche Vollendung.",
     models: {
       "178": {
-        label: "Die erste Lerche",
+        description:
+          "Eine lyrische Interpretation des Premium-Flügels, elegant, ausgewogen und geschaffen für Interieurs, in denen Detail und Klang die gleiche Bedeutung haben.",
         story:
           "Der Beginn unserer musikalischen Geschichte. Die erste eigene Stimme, die wir zum Leben erweckt haben.",
       },
       "214": {
-        label: "Die zweite Lerche",
+        description:
+          "Ein Flügel mit stärkerer Präsenz und breiterer Projektion, für Räume, die mehr Größe, Klarheit und einen konzertanteren Charakter verlangen.",
         story:
           "Der nächste Schritt in der Entwicklung unserer Konstruktionskunst, Ausdruck des Mutes, einen eigenen Weg zu gehen.",
       },
       "275": {
-        label: "Die dritte Lerche",
+        description:
+          "Die größte Konzertform von Alaudis, volle Klangskala, Projektion und Bühnenpräsenz, entworfen für die anspruchsvollsten Räume.",
         story:
           "Unser größter Traum: ein Konzertflügel, geschaffen für die großen Bühnen der Welt.",
       },
@@ -146,11 +166,14 @@ export const alaudisStoryContent: Record<StoryLanguage, BrandStory> = {
       "Denn der größte Wert eines Instruments liegt nicht allein in seiner handwerklichen Vollendung, sondern auch in dem, was es dem Menschen durch Musik vermitteln kann.",
     closing: "Drei Lerchen. Eine gemeinsame Stimme für Handwerk und Leidenschaft.",
     discover: "Modell entdecken",
-    readStory: "Die Geschichte der drei Lerchen entdecken",
+    readStory: "Die Geschichte unserer Marke",
   },
   FR: {
     collectionId: "modeles",
-    collectionLabel: "La famille de pianos à queue ALAUDIS",
+    collectionLabel: "Collection Alaudis",
+    collectionTitle: ["Trois échelles de présence.", "Une seule philosophie de l’artisanat."],
+    collectionIntro:
+      "Chaque modèle Alaudis est conçu comme une interprétation singulière de la proportion, du caractère et du son, d’une présence raffinée dans un intérieur à l’échelle complète d’un piano de concert.",
     storyLabel: "L’âme de notre marque",
     title: ["Trois alouettes.", "Trois voix.", "Une seule âme."],
     origin:
@@ -162,17 +185,20 @@ export const alaudisStoryContent: Record<StoryLanguage, BrandStory> = {
       "Notre famille de pianos à queue réunit trois alouettes. Chacune est différente, chacune possède son propre caractère, mais toutes sont nées de la même passion pour la musique et de la quête d’excellence artisanale.",
     models: {
       "178": {
-        label: "La première alouette",
+        description:
+          "Une interprétation lyrique du piano premium, élégante, équilibrée et pensée pour les intérieurs où le détail compte autant que le son.",
         story:
           "Le début de notre histoire musicale. La première voix qui nous est propre et à laquelle nous avons donné vie.",
       },
       "214": {
-        label: "La deuxième alouette",
+        description:
+          "Un piano à queue à la présence plus profonde et à la projection plus large, pour les espaces qui demandent plus d’ampleur, de clarté et un caractère plus concertant.",
         story:
           "Une nouvelle étape dans l’évolution de notre conception du piano, l’expression de l’audace de tracer notre propre voie.",
       },
       "275": {
-        label: "La troisième alouette",
+        description:
+          "La plus grande forme de concert Alaudis, pleine échelle sonore, projection et présence scénique conçues pour les espaces les plus exigeants.",
         story:
           "Notre plus grand rêve : un piano à queue de concert créé pour les grandes scènes du monde.",
       },
@@ -188,7 +214,7 @@ export const alaudisStoryContent: Record<StoryLanguage, BrandStory> = {
       "Car la plus grande valeur d’un instrument réside non seulement dans l’excellence de sa fabrication, mais aussi dans ce qu’il peut transmettre à chacun à travers la musique.",
     closing: "Trois alouettes. Une même voix, celle de l’artisanat et de la passion.",
     discover: "Découvrir le modèle",
-    readStory: "Découvrir l’histoire des trois alouettes",
+    readStory: "Découvrir notre histoire",
   },
 };
 

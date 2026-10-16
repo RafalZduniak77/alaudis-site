@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ALAUDIS_MODELS, type AlaudisModelId } from "./alaudisModels";
+import type { AlaudisModelId } from "./alaudisModels";
 import {
   alaudisStoryContent,
   getStoryLanguagePrefix,
@@ -14,34 +14,24 @@ export default function ModelStorySignature({
   language: StoryLanguage;
 }) {
   const copy = alaudisStoryContent[language];
-  const identity = copy.models[model];
 
   return (
-    <section
+    <aside
       lang={language.toLowerCase()}
-      aria-labelledby="model-story-title"
-      className="alaudis-story border-b border-[#dec38c]/15 px-6 py-12 sm:px-10 lg:px-16"
+      aria-label={copy.storyLabel}
+      className="border-b border-white/10 bg-neutral-950 px-6 py-7 sm:px-10 lg:px-16"
     >
-      <div className="mx-auto grid max-w-7xl items-center gap-7 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
-        <div className="flex items-center gap-6">
-          <span aria-hidden="true" className="font-serif text-5xl text-[#dec38c]/60">
-            {ALAUDIS_MODELS[model].number}
-          </span>
-          <h2 id="model-story-title" className="font-serif text-3xl text-[#f1ece3]">
-            {identity.label}
-          </h2>
-        </div>
-        <div>
-          <p className="max-w-2xl text-base leading-8 text-[#d4d0c8]">{identity.story}</p>
-          <Link
-            href={`${getStoryLanguagePrefix(language)}/historia#alaudis-story`}
-            className="story-link mt-4"
-          >
-            {copy.readStory}
-            <span aria-hidden="true"> →</span>
-          </Link>
-        </div>
+      <div className="mx-auto flex max-w-7xl flex-col items-start gap-4 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
+        <p className="max-w-3xl text-[15px] leading-7 text-white/85">
+          {copy.models[model].story}
+        </p>
+        <Link
+          href={`${getStoryLanguagePrefix(language)}/historia#alaudis-story`}
+          className="inline-flex min-h-11 shrink-0 items-center py-2 text-[11px] uppercase tracking-[0.18em] text-white/80 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        >
+          {copy.readStory} <span aria-hidden="true" className="ml-3">→</span>
+        </Link>
       </div>
-    </section>
+    </aside>
   );
 }

@@ -194,13 +194,13 @@ export default function Home() {
       </section>
 
       {/* ====================================================
-          RODZINA ALAUDIS I GALERIA WYKOŃCZEŃ
+          GALERIA WYKOŃCZEŃ I KOLEKCJA ALAUDIS
          ==================================================== */}
-      <AlaudisStory language="PL" />
-
       <div className="relative z-0">
         <ScrollModelsShowcase />
       </div>
+
+      <AlaudisStory language="PL" />
 
       {/* ====================================================
           SEKCJA KONTAKT

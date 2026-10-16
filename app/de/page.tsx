@@ -167,11 +167,11 @@ export default function Home() {
         </div>
       </section>
 
-      <AlaudisStory language="DE" />
-
       <div className="relative z-0">
         <ScrollModelsShowcase />
       </div>
+
+      <AlaudisStory language="DE" />
 
       {/* ====================================================
           KONTAKTBEREICH
