@@ -303,7 +303,7 @@ export default function HistoriaPage() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      <header className="fixed inset-x-0 top-0 z-50">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-black/75 backdrop-blur-xl">
         <div className="mx-auto grid max-w-7xl grid-cols-3 items-center px-4 pb-4 pt-6 sm:px-6 sm:pb-6 sm:pt-8 lg:px-10">
           <div>
             <Link
@@ -434,7 +434,7 @@ export default function HistoriaPage() {
             ))}
           </div>
 
-          <div className="relative z-10">
+          <div id="alaudis-craft" className="relative z-10 scroll-mt-24">
             {storySections.map((section, index) => {
               const isActive = activeIndex === index;
 

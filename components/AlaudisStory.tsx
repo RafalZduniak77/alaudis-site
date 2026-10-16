@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AlaudisBrandStory from "./AlaudisBrandStory";
 import { ALAUDIS_MODEL_IDS, getAlaudisModelName } from "./alaudisModels";
 import {
   alaudisStoryContent,
@@ -81,57 +82,5 @@ export default function AlaudisStory({
     );
   }
 
-  return (
-    <section
-      id="alaudis-story"
-      lang={language.toLowerCase()}
-      aria-labelledby="alaudis-story-title"
-      className="scroll-mt-24 bg-neutral-950 px-6 py-16 sm:px-10 sm:py-20 lg:px-16"
-    >
-      <div className="mx-auto max-w-5xl">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            {copy.storyLabel}
-          </p>
-          <h2 id="alaudis-story-title" className="mt-4 text-3xl font-light leading-tight text-white sm:text-4xl">
-            {copy.title[0]} {copy.title[1]}
-            <br />
-            {copy.title[2]}
-          </h2>
-          <div className="mt-7 space-y-4 text-[15px] leading-8 text-white/85 sm:text-base">
-            <p>{copy.origin}</p>
-            <p>{copy.nameMeaning} {copy.symbolism}</p>
-            <p>{copy.family}</p>
-          </div>
-        </div>
-
-        <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
-          {ALAUDIS_MODEL_IDS.map((id) => (
-            <div key={id} className="grid gap-3 py-6 md:grid-cols-[0.85fr_1.15fr] md:items-start md:gap-10">
-              <h3 className="text-xl font-light leading-7 text-white">
-                <Link
-                  href={`${prefix}/fortepiany/alaudis-${id}`}
-                  className="transition hover:text-white/70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-                >
-                  {getAlaudisModelName(id)}
-                </Link>
-              </h3>
-              <p className="text-[15px] leading-7 text-white/85">{copy.models[id].story}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mx-auto mt-10 max-w-3xl space-y-5 text-[15px] leading-8 text-white/85 sm:text-base">
-          <p className="text-center text-lg font-light text-white">{copy.familyLine}</p>
-          <p>{copy.ownVoice.join(" ")}</p>
-          <p>{copy.philosophy}</p>
-          <p>{copy.value}</p>
-        </div>
-        <div className="mx-auto mt-10 max-w-3xl border-t border-white/10 pt-7 text-center">
-          <p className="text-[11px] uppercase tracking-[0.32em] text-white/75">ALAUDIS</p>
-          <p className="mt-3 text-base font-light leading-7 text-white/90">{copy.closing}</p>
-        </div>
-      </div>
-    </section>
-  );
+  return <AlaudisBrandStory language={language} />;
 }
