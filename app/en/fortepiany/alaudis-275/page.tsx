@@ -1,7 +1,7 @@
 // ==========================================================
-// MODEL PAGE - ALAUDIS 275
+// MODEL PAGE - ALAUDIS DREAM 275
 // ==========================================================
-// To jest osobna podstrona premium dla modelu Alaudis 275.
+// To jest osobna podstrona premium dla modelu ALAUDIS DREAM 275.
 // Wersja językowa: EN
 //
 // Za co odpowiada ten plik:
@@ -34,6 +34,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import ModelStorySignature from "@/components/ModelStorySignature";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 
 export default function ModelAlaudis275Page() {
@@ -56,7 +57,7 @@ export default function ModelAlaudis275Page() {
         <div className="absolute inset-0">
           <Image
             src="/galeria-home/3.jpg"
-            alt="Alaudis 275"
+            alt="ALAUDIS DREAM 275"
             fill
             priority
             className="object-cover object-center"
@@ -74,7 +75,8 @@ export default function ModelAlaudis275Page() {
             </p>
 
             <h1 className="text-3xl font-light uppercase tracking-[0.06em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.05]">
-              Alaudis 275
+              <span className="block text-[13px] tracking-[0.35em] sm:text-base">ALAUDIS </span>
+              <span className="mt-3 block">DREAM 275</span>
             </h1>
 
             <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/92 sm:text-base">
@@ -107,6 +109,8 @@ export default function ModelAlaudis275Page() {
         </div>
       </section>
 
+      <ModelStorySignature model="275" language="EN" />
+
       {/* ====================================================
           CHARAKTER BRZMIENIA
          ==================================================== */}
@@ -124,7 +128,7 @@ export default function ModelAlaudis275Page() {
 
           <div className="space-y-6 text-white/90">
             <p className="leading-8">
-              Alaudis 275 opens the full scale of the brand’s tonal language.
+              ALAUDIS DREAM 275 opens the full scale of the brand’s tonal language.
               It offers extensive projection, a deep bass foundation, a broad
               harmonic breath and stage carrying power that allows the
               instrument to fill larger spaces freely.
@@ -191,7 +195,7 @@ export default function ModelAlaudis275Page() {
             </h3>
 
             <p className="mt-5 leading-8 text-white/90">
-              Alaudis 275 represents the peak scale of the brand, an
+              ALAUDIS DREAM 275 represents the peak scale of the brand, an
               instrument with the most developed personality, the greatest
               breath and the most concert-like nature. This is Alaudis in its
               fullest, most monumental and most stage-oriented form.
@@ -210,7 +214,7 @@ export default function ModelAlaudis275Page() {
           </p>
 
           <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Alaudis 275 in concert scale
+            ALAUDIS DREAM 275 in concert scale
           </h2>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -218,7 +222,7 @@ export default function ModelAlaudis275Page() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
                 src="/galeria-home/3.jpg"
-                alt="Alaudis 275 - view 1"
+                alt="ALAUDIS DREAM 275 - view 1"
                 fill
                 className="object-cover"
               />
@@ -228,7 +232,7 @@ export default function ModelAlaudis275Page() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
                 src="/galeria-home/5.JPG"
-                alt="Alaudis 275 - view 2"
+                alt="ALAUDIS DREAM 275 - view 2"
                 fill
                 className="object-cover"
               />
@@ -238,7 +242,7 @@ export default function ModelAlaudis275Page() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
                 src="/galeria-home/2.jpg"
-                alt="Alaudis 275 - view 3"
+                alt="ALAUDIS DREAM 275 - view 3"
                 fill
                 className="object-cover"
               />
@@ -257,7 +261,7 @@ export default function ModelAlaudis275Page() {
           </p>
 
           <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Configure Alaudis 275 or view it in 3D
+            Configure ALAUDIS DREAM 275 or view it in 3D
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">

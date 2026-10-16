@@ -22,9 +22,12 @@
 // /odkryj-modele?model=275
 // ==========================================================
 
-export type LanguageKey = "PL" | "EN" | "DE" | "FR";
+import type { AlaudisModelId } from "./alaudisModels";
 
-export type AlaudisModelId = "178" | "214" | "275";
+export type { AlaudisModelId } from "./alaudisModels";
+export { getAlaudisModelName } from "./alaudisModels";
+
+export type LanguageKey = "PL" | "EN" | "DE" | "FR";
 
 export type ModelOption = {
   id: string;
@@ -94,7 +97,7 @@ export const MODEL_VIEWER_SETTINGS = {
 // NORMALIZACJA MODELU Z ADRESU
 // ----------------------------------------------------------
 // Jeżeli w adresie jest błędny model albo go nie ma,
-// domyślnie pokazujemy Alaudis 178.
+// domyślnie pokazujemy ALAUDIS ONE 178.
 // ----------------------------------------------------------
 export function normalizeAlaudisModel(
   model: string | null
@@ -108,13 +111,6 @@ export function normalizeAlaudisModel(
   }
 
   return "178";
-}
-
-// ----------------------------------------------------------
-// NAZWA MODELU
-// ----------------------------------------------------------
-export function getAlaudisModelName(model: AlaudisModelId) {
-  return `Alaudis ${model}`;
 }
 
 // ----------------------------------------------------------

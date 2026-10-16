@@ -9,9 +9,9 @@
 // 3. przypisuje zdjęcia podglądu do wybranej opcji
 // 4. ustawia domyślny obraz podglądu
 // 5. obsługuje zdjęcia dla modeli:
-//    - Alaudis 178
-//    - Alaudis 214
-//    - Alaudis 275
+//    - ALAUDIS ONE 178
+//    - ALAUDIS LEO 214
+//    - ALAUDIS DREAM 275
 //
 // Co tutaj najłatwiej zmieniasz:
 // - nazwy opcji

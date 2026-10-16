@@ -27,6 +27,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { getAlaudisModelName } from "@/components/alaudisModels";
 import ConfiguratorPanel from "./ConfiguratorPanel";
 import PreviewPanel from "./PreviewPanel";
 import { ConfigTab, SelectedState } from "./types";
@@ -367,7 +368,7 @@ export default function KonfiguratorShell() {
   // MODEL KONFIGURATORA Z ADRESU
   // --------------------------------------------------------
   const configuratorModel = normalizeConfiguratorModel(searchParams.get("model"));
-  const modelName = `Alaudis ${configuratorModel}`;
+  const modelName = getAlaudisModelName(configuratorModel);
 
   // --------------------------------------------------------
   // GŁÓWNE STANY
@@ -789,6 +790,7 @@ export default function KonfiguratorShell() {
         <PreviewPanel imageSrc={previewImage} />
 
         <ConfiguratorPanel
+          modelName={modelName}
           offerTitle={offerTitle}
           setOfferTitle={setOfferTitle}
           activeTab={activeTab}

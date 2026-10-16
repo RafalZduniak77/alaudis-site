@@ -11,6 +11,68 @@ body {
   box-sizing: border-box;
 }
 
+/* The three voices of Alaudis: warm paper tones and the brand's brass accent. */
+.alaudis-story {
+  background: radial-gradient(ellipse at 10% 0%, #dec38c08, transparent 55%), #10100f;
+}
+
+.story-eyebrow {
+  color: #dec38c;
+  font-size: 11px;
+  line-height: 1.8;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.story-title {
+  color: #f1ece3;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.3rem, 5.1vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.story-model {
+  background: linear-gradient(145deg, #dec38c08, transparent);
+  transition: border-color 200ms ease, background-color 200ms ease;
+}
+
+.story-model:hover {
+  border-color: #dec38c80;
+  background-color: #dec38c08;
+}
+
+.story-link {
+  display: inline-block;
+  padding-block: 10px;
+  color: #dec38c;
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.06em;
+  text-decoration: underline;
+  text-decoration-color: #dec38c55;
+  text-underline-offset: 6px;
+  transition: color 200ms ease;
+}
+
+.story-link:hover {
+  color: #f1ece3;
+}
+
+.story-model:focus-visible,
+.story-link:focus-visible {
+  outline: 2px solid #dec38c;
+  outline-offset: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-model,
+  .story-link {
+    transition: none;
+  }
+}
+
 /* Keep hero text legible while allowing the photography to stay bright. */
 .hero-copy h1,
 .hero-copy p {

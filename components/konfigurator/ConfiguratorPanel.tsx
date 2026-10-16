@@ -30,6 +30,7 @@ import ActionMenu from "./ActionMenu";
 // TYPY PROPSÓW
 // ----------------------------------------------------------
 type ConfiguratorPanelProps = {
+  modelName: string;
   offerTitle: string;
   setOfferTitle: (value: string) => void;
   activeTab: ConfigTab;
@@ -272,6 +273,7 @@ function translateOption(value: string, language: LanguageKey) {
 }
 
 export default function ConfiguratorPanel({
+  modelName,
   offerTitle,
   setOfferTitle,
   activeTab,
@@ -303,6 +305,9 @@ export default function ConfiguratorPanel({
           GÓRA PANELU - TYTUŁ OFERTY
          ==================================================== */}
       <div className="shrink-0 p-4 sm:px-6 lg:p-6 lg:pt-24">
+        <h1 className="mb-3 text-xs font-light tracking-[0.16em] text-[#dec38c] sm:text-sm">
+          {modelName}
+        </h1>
         <input
           value={offerTitle}
           onChange={(e) => setOfferTitle(e.target.value)}

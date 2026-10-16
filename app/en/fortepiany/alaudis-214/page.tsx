@@ -1,5 +1,5 @@
 // ==========================================================
-// MODEL PAGE - ALAUDIS 214
+// MODEL PAGE - ALAUDIS LEO 214
 // ==========================================================
 // Wersja językowa: EN
 // ==========================================================
@@ -7,6 +7,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import ModelStorySignature from "@/components/ModelStorySignature";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 
 export default function ModelAlaudis214Page() {
@@ -18,7 +19,7 @@ export default function ModelAlaudis214Page() {
         <div className="absolute inset-0">
           <Image
             src="/galeria-home/3.jpg"
-            alt="Alaudis 214"
+            alt="ALAUDIS LEO 214"
             fill
             priority
             className="object-cover object-center"
@@ -33,11 +34,12 @@ export default function ModelAlaudis214Page() {
             </p>
 
             <h1 className="text-3xl font-light uppercase tracking-[0.06em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.05]">
-              Alaudis 214
+              <span className="block text-[13px] tracking-[0.35em] sm:text-base">ALAUDIS </span>
+              <span className="mt-3 block">LEO 214</span>
             </h1>
 
             <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/92 sm:text-base">
-              Deeper, more present and more concert-like in character. Alaudis 214 was designed for those who expect greater tonal breath, wider projection and a stronger presence of the instrument in a premium interior.
+              Deeper, more present and more concert-like in character. ALAUDIS LEO 214 was designed for those who expect greater tonal breath, wider projection and a stronger presence of the instrument in a premium interior.
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -59,6 +61,8 @@ export default function ModelAlaudis214Page() {
         </div>
       </section>
 
+      <ModelStorySignature model="214" language="EN" />
+
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
@@ -72,7 +76,7 @@ export default function ModelAlaudis214Page() {
           </div>
 
           <div className="space-y-6 text-white/90">
-            <p className="leading-8">Alaudis 214 develops the brand’s tonal language towards a larger scale and stronger presence. It offers a more open sound, deeper bass and a more projecting middle register, while preserving culture, elegance and musical nobility.</p>
+            <p className="leading-8">ALAUDIS LEO 214 develops the brand’s tonal language towards a larger scale and stronger presence. It offers a more open sound, deeper bass and a more projecting middle register, while preserving culture, elegance and musical nobility.</p>
             <p className="leading-8">This model is for those who want to feel a greater breath of the instrument: wider projection, a more tangible volume and a richer dynamic palette.</p>
           </div>
         </div>
@@ -101,7 +105,7 @@ export default function ModelAlaudis214Page() {
               Model identity
             </p>
             <h3 className="mt-4 text-2xl font-light">Between elegance and scale</h3>
-            <p className="mt-5 leading-8 text-white/90">Alaudis 214 preserves the visual class of a premium model while offering a larger tonal scale and a stronger stage personality.</p>
+            <p className="mt-5 leading-8 text-white/90">ALAUDIS LEO 214 preserves the visual class of a premium model while offering a larger tonal scale and a stronger stage personality.</p>
           </div>
         </div>
       </section>
@@ -113,20 +117,20 @@ export default function ModelAlaudis214Page() {
           </p>
 
           <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Alaudis 214 in premium finishes
+            ALAUDIS LEO 214 in premium finishes
           </h2>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image src="/galeria-home/3.jpg" alt="Alaudis 214 - 1" fill className="object-cover" />
+              <Image src="/galeria-home/3.jpg" alt="ALAUDIS LEO 214 - 1" fill className="object-cover" />
             </div>
 
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image src="/galeria-home/5.JPG" alt="Alaudis 214 - 2" fill className="object-cover" />
+              <Image src="/galeria-home/5.JPG" alt="ALAUDIS LEO 214 - 2" fill className="object-cover" />
             </div>
 
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image src="/galeria-home/2.jpg" alt="Alaudis 214 - 3" fill className="object-cover" />
+              <Image src="/galeria-home/2.jpg" alt="ALAUDIS LEO 214 - 3" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -139,7 +143,7 @@ export default function ModelAlaudis214Page() {
           </p>
 
           <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Configure Alaudis 214 or view it in 3D
+            Configure ALAUDIS LEO 214 or view it in 3D
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import AlaudisStory from "@/components/AlaudisStory";
 
 type StorySection = {
   eyebrow: string;
@@ -406,6 +407,8 @@ export default function HistoriaPage() {
           </p>
         </div>
       </section>
+
+      <AlaudisStory language="DE" full />
 
       <section className="relative">
         <div className="relative">

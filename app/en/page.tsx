@@ -3,6 +3,7 @@ import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
 import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
 import Footer from "@/components/Footer";
+import AlaudisStory from "@/components/AlaudisStory";
 
 export default function Home() {
   return (
@@ -169,100 +170,11 @@ export default function Home() {
         </div>
       </section>
 
+      <AlaudisStory language="EN" />
+
       <div className="relative z-0">
         <ScrollModelsShowcase />
       </div>
-
-      {/* ====================================================
-          COLLECTION BLOCK
-         ==================================================== */}
-      <section className="relative z-20 bg-neutral-950">
-        <section
-          id="models"
-          className="scroll-mt-0 px-6 pb-10 pt-10 text-center sm:scroll-mt-2 sm:px-10 sm:pt-14 lg:scroll-mt-4 lg:px-16 lg:pt-16"
-        >
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            Alaudis Collection
-          </p>
-
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[58px] lg:leading-[1.08]">
-            Three scales of presence.
-            <br />
-            One philosophy of craftsmanship.
-          </h2>
-
-          <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-white/90 sm:text-[17px]">
-            Each Alaudis model is created as a distinct interpretation of
-            proportion, character and sound, from refined living-space
-            presence to the full scale of a concert grand piano.
-          </p>
-        </section>
-
-        <section className="relative z-30 grid gap-6 px-6 pb-24 sm:px-10 lg:grid-cols-3 lg:px-16">
-          <Link
-            href="/en/fortepiany/alaudis-178"
-            className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
-          >
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-              Model
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light">Alaudis 178</h2>
-
-            <p className="mt-5 leading-7 text-white/90">
-              A lyrical interpretation of the premium grand piano, elegant,
-              balanced, and created for interiors where detail matters as much
-              as sound.
-            </p>
-
-            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/84">
-              Discover model
-            </p>
-          </Link>
-
-          <Link
-            href="/en/fortepiany/alaudis-214"
-            className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
-          >
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-              Model
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light">Alaudis 214</h2>
-
-            <p className="mt-5 leading-7 text-white/90">
-              A grand piano with deeper presence and broader projection, for
-              spaces that call for greater scale, clarity and a more concert
-              character.
-            </p>
-
-            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/84">
-              Discover model
-            </p>
-          </Link>
-
-          <Link
-            href="/en/fortepiany/alaudis-275"
-            className="relative z-30 block rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:from-white/15 hover:to-white/[0.05]"
-          >
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-              Model
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light">Alaudis 275</h2>
-
-            <p className="mt-5 leading-7 text-white/90">
-              The largest Alaudis concert form, full scale of sound,
-              projection, and stage presence designed for the most demanding
-              spaces.
-            </p>
-
-            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/84">
-              Discover model
-            </p>
-          </Link>
-        </section>
-      </section>
 
       {/* ====================================================
           CONTACT SECTION

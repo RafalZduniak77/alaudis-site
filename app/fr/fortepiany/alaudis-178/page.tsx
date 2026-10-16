@@ -1,13 +1,14 @@
 "use client";
 
 // ==========================================================
-// MODEL PAGE - ALAUDIS 178
+// MODEL PAGE - ALAUDIS ONE 178
 // ==========================================================
 
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import ModelStorySignature from "@/components/ModelStorySignature";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 
 type GalleryImage = {
@@ -18,15 +19,15 @@ type GalleryImage = {
 const galleryImages: GalleryImage[] = [
   {
     src: "/galeria-home/10.jpg",
-    alt: "Alaudis 178 - vue 1",
+    alt: "ALAUDIS ONE 178 - vue 1",
   },
   {
     src: "/galeria-home/11.jpg",
-    alt: "Alaudis 178 - vue 2",
+    alt: "ALAUDIS ONE 178 - vue 2",
   },
   {
     src: "/galeria-home/12.jpg",
-    alt: "Alaudis 178 - vue 3",
+    alt: "ALAUDIS ONE 178 - vue 3",
   },
 ];
 
@@ -66,7 +67,7 @@ export default function ModelAlaudis178Page() {
         <div className="absolute inset-0">
           <Image
             src="/galeria-home/10.jpg"
-            alt="Alaudis 178"
+            alt="ALAUDIS ONE 178"
             fill
             priority
             className="object-cover object-center"
@@ -81,11 +82,12 @@ export default function ModelAlaudis178Page() {
             </p>
 
             <h1 className="text-3xl font-light uppercase tracking-[0.06em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.05]">
-              Alaudis 178
+              <span className="block text-[13px] tracking-[0.35em] sm:text-base">ALAUDIS </span>
+              <span className="mt-3 block">ONE 178</span>
             </h1>
 
             <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/92 sm:text-base">
-              Subtil, noble et raffiné. Alaudis 178 a été pensé comme un piano
+              Subtil, noble et raffiné. ALAUDIS ONE 178 a été pensé comme un piano
               à queue pour des intérieurs premium, où comptent l’élégance de la
               forme, la culture musicale du son et le plaisir quotidien de vivre
               avec l’instrument.
@@ -110,6 +112,8 @@ export default function ModelAlaudis178Page() {
         </div>
       </section>
 
+      <ModelStorySignature model="178" language="FR" />
+
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
@@ -124,7 +128,7 @@ export default function ModelAlaudis178Page() {
 
           <div className="space-y-6 text-white/90">
             <p className="leading-8">
-              Alaudis 178 offre un son d’une grande culture sonore, clair,
+              ALAUDIS ONE 178 offre un son d’une grande culture sonore, clair,
               chantant et naturellement ordonné. C’est un instrument qui ne
               domine pas l’espace par l’agressivité, mais construit une
               atmosphère de classe, de calme et de profondeur musicale.
@@ -183,7 +187,7 @@ export default function ModelAlaudis178Page() {
             <h3 className="mt-4 text-2xl font-light">Forme premium</h3>
 
             <p className="mt-5 leading-8 text-white/90">
-              Alaudis 178 a été pensé pour les personnes qui attendent non
+              ALAUDIS ONE 178 a été pensé pour les personnes qui attendent non
               seulement une haute qualité de fabrication, mais aussi la beauté
               du contact quotidien avec le piano à queue comme objet de classe
               premium.
@@ -199,7 +203,7 @@ export default function ModelAlaudis178Page() {
           </p>
 
           <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Alaudis 178 dans des finitions premium
+            ALAUDIS ONE 178 dans des finitions premium
           </h2>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -236,7 +240,7 @@ export default function ModelAlaudis178Page() {
           </p>
 
           <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Configurez Alaudis 178 ou voyez-le en 3D
+            Configurez ALAUDIS ONE 178 ou voyez-le en 3D
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">

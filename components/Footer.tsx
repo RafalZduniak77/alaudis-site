@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ALAUDIS_MODEL_IDS, getAlaudisModelName } from "./alaudisModels";
+import { alaudisStoryContent, type StoryLanguage } from "./alaudisStoryContent";
 
 // ==========================================================
 // FOOTER - ALAUDIS
@@ -45,14 +47,12 @@ function getLanguagePrefix(pathname: string) {
 export default function Footer() {
   const pathname = usePathname() || "/";
   const langPrefix = getLanguagePrefix(pathname);
+  const language = (langPrefix.slice(1).toUpperCase() || "PL") as StoryLanguage;
+  const story = alaudisStoryContent[language];
 
   // --------------------------------------------------------
   // LINKI WEWNĘTRZNE Z PREFIXEM JĘZYKA
   // --------------------------------------------------------
-  const model178Url = `${langPrefix}/fortepiany/alaudis-178`;
-  const model214Url = `${langPrefix}/fortepiany/alaudis-214`;
-  const model275Url = `${langPrefix}/fortepiany/alaudis-275`;
-
   const configuratorUrl = `${langPrefix}/konfigurator`;
   const aboutUrl = `${langPrefix}/historia`;
   const factoryUrl = `${langPrefix}/historia`;
@@ -74,6 +74,10 @@ export default function Footer() {
 
           <p className="mt-8 text-[15px] text-white/92">Polish Grand Piano</p>
 
+          <Link href={`${aboutUrl}#alaudis-story`} className="story-link mt-3 max-w-[260px]">
+            {story.closing}
+          </Link>
+
           <Link
             href={FACEBOOK_ALAUDIS_URL}
             target="_blank"
@@ -93,17 +97,15 @@ export default function Footer() {
           </p>
 
           <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
-            <Link href={model178Url} className="transition hover:text-white/90">
-              Alaudis 178
-            </Link>
-
-            <Link href={model214Url} className="transition hover:text-white/90">
-              Alaudis 214
-            </Link>
-
-            <Link href={model275Url} className="transition hover:text-white/90">
-              Alaudis 275
-            </Link>
+            {ALAUDIS_MODEL_IDS.map((model) => (
+              <Link
+                key={model}
+                href={`${langPrefix}/fortepiany/alaudis-${model}`}
+                className="transition hover:text-white/90"
+              >
+                {getAlaudisModelName(model)}
+              </Link>
+            ))}
           </div>
         </div>
 

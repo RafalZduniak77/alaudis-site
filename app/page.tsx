@@ -26,6 +26,7 @@ import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
 import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
 import Footer from "@/components/Footer";
+import AlaudisStory from "@/components/AlaudisStory";
 
 export default function Home() {
   return (
@@ -193,102 +194,13 @@ export default function Home() {
       </section>
 
       {/* ====================================================
-          SEKCJA PRZEWIJANYCH MODELI
+          RODZINA ALAUDIS I GALERIA WYKOŃCZEŃ
          ==================================================== */}
+      <AlaudisStory language="PL" />
+
       <div className="relative z-0">
         <ScrollModelsShowcase />
       </div>
-
-      {/* ====================================================
-          BLOK KOLEKCJI
-         ==================================================== */}
-      <section className="relative z-20 bg-neutral-950">
-        <section
-          id="modele"
-          className="scroll-mt-0 px-6 pb-10 pt-10 text-center sm:scroll-mt-2 sm:px-10 sm:pt-14 lg:scroll-mt-4 lg:px-16 lg:pt-16"
-        >
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            Kolekcja Alaudis
-          </p>
-
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[58px] lg:leading-[1.08]">
-            Trzy skale obecności.
-            <br />
-            Jedna filozofia rzemiosła.
-          </h2>
-
-          <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-white/90 sm:text-[17px]">
-            Każdy model Alaudis powstaje jako osobna interpretacja proporcji,
-            charakteru i brzmienia, od wyrafinowanej obecności salonowej po
-            pełną skalę fortepianu koncertowego.
-          </p>
-        </section>
-
-        <section className="relative z-30 grid gap-6 px-6 pb-24 sm:px-10 lg:grid-cols-3 lg:px-16">
-          <Link
-            href="/fortepiany/alaudis-178"
-            className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
-          >
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-              Model
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light">Alaudis 178</h2>
-
-            <p className="mt-5 leading-7 text-white/90">
-              Liryczna interpretacja fortepianu klasy premium, elegancka,
-              wyważona i stworzona do wnętrz, w których detal ma taką samą wagę
-              jak dźwięk.
-            </p>
-
-            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/84">
-              Odkryj model
-            </p>
-          </Link>
-
-          <Link
-            href="/fortepiany/alaudis-214"
-            className="relative z-30 block rounded-[30px] border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
-          >
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-              Model
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light">Alaudis 214</h2>
-
-            <p className="mt-5 leading-7 text-white/90">
-              Fortepian o głębszej obecności i szerszej projekcji, dla
-              przestrzeni, które wymagają większej skali, wyrazistości i
-              koncertowego charakteru.
-            </p>
-
-            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/84">
-              Odkryj model
-            </p>
-          </Link>
-
-          <Link
-            href="/fortepiany/alaudis-275"
-            className="relative z-30 block rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:from-white/15 hover:to-white/[0.05]"
-          >
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-              Model
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light">Alaudis 275</h2>
-
-            <p className="mt-5 leading-7 text-white/90">
-              Największa forma koncertowa Alaudis, pełna skala brzmienia,
-              projekcja i sceniczna obecność zaprojektowana dla najbardziej
-              wymagających przestrzeni.
-            </p>
-
-            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/84">
-              Odkryj model
-            </p>
-          </Link>
-        </section>
-      </section>
 
       {/* ====================================================
           SEKCJA KONTAKT
