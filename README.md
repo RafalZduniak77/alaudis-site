@@ -4,7 +4,11 @@ Next.js, React i TypeScript. `npm ci`, następnie `npm run dev`.
 
 ## Galeria — osobna wersja próbna
 
-Praca odbywa się na gałęzi `preview/gallery-cms`. Nie łączyć jej z `main` i nie promować wdrożenia na produkcję bez wyraźnej zgody właściciela. `alaudis.eu` pozostaje na dotychczasowej wersji. Wszystkie trasy galerii mają `noindex, nofollow`.
+Praca odbywa się na gałęzi `preview/gallery-cms`. 17.10.2026 właściciel zatwierdził publikację galerii i menu „W KADRZE” na `alaudis.eu` po wyrównaniu dolnych linii kart albumów. Podglądy nadal mają `noindex, nofollow`; produkcja dopuszcza indeksowanie galerii i wskazuje adresy kanoniczne w domenie `alaudis.eu`.
+
+Produkcja wyświetla zaakceptowane dwa albumy z istniejącymi zdjęciami ALAUDIS. Samo wdrożenie nie uruchamia CMS: panel samodzielnego przesyłania zdjęć nadal oczekuje na połączenie Sanity. `next.config.ts` przekazuje typ wdrożenia do wspólnej konfiguracji serwera i Studio. Produkcyjny dataset to `gallery`, a próbny to `gallery_preview`; treści próbnego CMS nie są odczytywane na produkcji. Skrypt importu przykładowego nadal zezwala wyłącznie na `gallery_preview`.
+
+Do późniejszego uruchomienia panelu produkcyjnego potrzebne są: publiczny dataset `gallery`, `NEXT_PUBLIC_SANITY_PROJECT_ID` w środowisku Vercel Production, CORS z poświadczeniami dla dokładnego adresu `https://alaudis.eu` oraz dostęp właściciela do projektu Sanity. Opublikowanie albumów w tym zbiorze zastąpi statyczną kolekcję; przed przełączeniem trzeba przygotować jej treść. Nie utworzono konta, datasetu ani płatnego planu w ramach samej publikacji strony.
 
 Pierwszy podgląd został zbudowany przez Vercel: [galeria](https://alaudis-site-5iwt3h5az-alaudis-dream-s-projects.vercel.app/galeria), [album](https://alaudis-site-5iwt3h5az-alaudis-dream-s-projects.vercel.app/galeria/forma-i-brzmienie), [adres panelu](https://alaudis-site-5iwt3h5az-alaudis-dream-s-projects.vercel.app/panel-galerii). Vercel wymaga zalogowania na konto mające dostęp do projektu. Aby udostępnić podgląd bez logowania do hostingu, właściciel może utworzyć link „Share” dla tego wdrożenia w Vercel. Nie trzeba wyłączać ochrony całego projektu.
 
@@ -25,7 +29,7 @@ Trasy podglądu:
 6. Przydzielić właścicielowi projektu rolę Administrator. Panel używa logowania i uprawnień Sanity. Publiczne API strony obsługuje wyłącznie odczyt; w repozytorium i kodzie przeglądarki nie ma wspólnego tokenu zapisu.
 7. Opcjonalnie uruchomić `npm run cms:seed`, aby przesłać fotografie ALAUDIS z repozytorium i utworzyć dwa przykładowe albumy w CMS. Skrypt wymaga zalogowanego użytkownika, działa tylko na `gallery_preview` i pomija już istniejące albumy.
 
-Bez identyfikatora projektu wyświetlane są **jawnie oznaczone, statyczne albumy demonstracyjne**. Nie jest to działający CMS i nie udajemy możliwości zapisu. Po połączeniu źródłem treści staje się Sanity; błąd jego API pokazuje komunikat błędu, nie zastępuje treści demonstracją.
+Bez identyfikatora projektu wyświetlane są **statyczne, zatwierdzone albumy z archiwum ALAUDIS**. Nie jest to działający CMS; panel wyjaśnia brak możliwości zapisu. Po połączeniu źródłem treści staje się Sanity; błąd jego API pokazuje komunikat błędu, nie zastępuje treści kolekcją statyczną.
 
 ## Obsługa panelu
 
@@ -35,7 +39,7 @@ Bez identyfikatora projektu wyświetlane są **jawnie oznaczone, statyczne album
 4. W „Okładka” kliknąć miniaturkę. Zmiana kolejności nie zmienia wybranej okładki. Po usunięciu zdjęcia okładkowego trzeba wybrać nowe.
 5. Studio automatycznie zapisuje szkic. „Opublikuj” udostępnia album w galerii. Późniejsze zdjęcia i poprawki również wymagają publikacji zmian. Menu obok publikacji pozwala wycofać album bez kasowania jego danych.
 
-Zakładka „SEO albumu” pozwala ustawić osobny tytuł i opis strony dla wyszukiwarek; puste pola korzystają z tytułu i opisu albumu. Strona generuje metadane albumu, obraz udostępniania oraz dane `ImageGallery`/`ImageObject` dla widocznej partii zdjęć. ALT trafia do standardowego elementu `img`, a dodatkowy opis jest dostępny dla czytników ekranu. Nie dodajemy pól z listami słów kluczowych. Podgląd nadal ma `noindex, nofollow`; uruchomienie indeksowania i zgłoszenie mapy obrazów pozostaje częścią późniejszej, osobno zatwierdzonej publikacji. [Wytyczne Google dla zdjęć](https://developers.google.com/search/docs/appearance/google-images).
+Zakładka „SEO albumu” pozwala ustawić osobny tytuł i opis strony dla wyszukiwarek; puste pola korzystają z tytułu i opisu albumu. Strona generuje metadane albumu, obraz udostępniania oraz dane `ImageGallery`/`ImageObject` dla widocznej partii zdjęć. ALT trafia do standardowego elementu `img`, a dodatkowy opis jest dostępny dla czytników ekranu. Nie dodajemy pól z listami słów kluczowych. Podgląd nadal ma `noindex, nofollow`; produkcja pozwala na indeksowanie, podaje adresy kanoniczne i odpowiedniki językowe PL/EN/DE/FR. Nie zgłaszano osobnej mapy obrazów w Google Search Console. [Wytyczne Google dla zdjęć](https://developers.google.com/search/docs/appearance/google-images).
 
 ## Dane, obrazy i odświeżanie
 
@@ -61,7 +65,7 @@ Dodatkowo sprawdzono natywny pełny ekran, wypełnienie dostępnego obszaru bez 
 
 Sanity nie jest jeszcze połączone. Nie zweryfikowano rzeczywistego przesłania 30 zdjęć, przeciągania w Studio, publikacji, aktualizacji i wycofania ani czasu odświeżenia danych z działającego CMS. Pełne kryterium ukończenia pozostaje otwarte.
 
-Audyt zależności po aktualizacji Next.js/React: 0 krytycznych, 11 wysokich i 9 umiarkowanych zgłoszeń w łańcuchach narzędzi Sanity CLI i ESLint (m.in. glob, YAML/TOML, UUID). Automatyczne poprawki zgodne z wersjami zastosowano. Pozostałe propozycje `npm audit fix --force` cofają główne wersje Sanity/Next ESLint; nie zostały zastosowane. Przed ewentualną produkcją trzeba ponownie sprawdzić dostępne poprawki.
+Ponowny audyt przed publikacją 17.10.2026 (`npm audit --omit=dev`): 0 krytycznych, 9 wysokich i 9 umiarkowanych zgłoszeń w zależnościach Sanity (m.in. narzędzia CLI, glob, YAML/TOML, UUID). Automatyczne poprawki zgodne z wersjami zastosowano wcześniej. Pozostałe propozycje wymagają cofnięcia głównych wersji Sanity i next-sanity; nie zastosowano automatycznego downgrade. Nie jest to audyt potwierdzający brak podatności.
 
 Przed uznaniem panelu za gotowy trzeba na połączonym projekcie sprawdzić w przeglądarce: nowy szkic, przesłanie 30 zdjęć jednocześnie, zmianę kolejności i okładki, publikację, dodanie kolejnych zdjęć bez zmiany kodu, ponowną publikację, wycofanie oraz widoczność każdej zmiany po odświeżeniu w ciągu 60 sekund. Oddzielnie sprawdzić logowanie i obsługę na rzeczywistym iPadzie/iPhonie; emulacja dotyku nie jest testem Safari na urządzeniu.
 

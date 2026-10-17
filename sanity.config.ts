@@ -3,12 +3,12 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { plPLLocale } from "@sanity/locale-pl-pl";
-import { galleryProjectId, galleryDataset } from "./lib/gallery/config";
+import { galleryProjectId, galleryDataset, galleryIsProduction } from "./lib/gallery/config";
 import { gallerySchema } from "./sanity/schema";
 
 export default defineConfig({
-  name: "alaudis-gallery-preview",
-  title: "ALAUDIS — galeria próbna",
+  name: galleryIsProduction ? "alaudis-gallery" : "alaudis-gallery-preview",
+  title: galleryIsProduction ? "ALAUDIS — galeria" : "ALAUDIS — galeria próbna",
   projectId: galleryProjectId || "unconfigured",
   dataset: galleryDataset,
   basePath: "/panel-galerii",

@@ -3,8 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import { getAlbum, getAlbums } from "@/lib/gallery/server";
+import { galleryIsProduction } from "@/lib/gallery/config";
 import { galleryCopy } from "@/lib/gallery/i18n";
-import { galleryPath, localize, type GalleryCategory, type GalleryLocale } from "@/lib/gallery/types";
+import { galleryLocales, galleryPath, localize, type GalleryCategory, type GalleryLocale } from "@/lib/gallery/types";
 import { photoUrl } from "@/lib/gallery/images";
 import GalleryHeader from "./GalleryHeader";
 import AlbumCards from "./AlbumCards";
@@ -17,11 +18,22 @@ function Unavailable({ locale }: { locale: GalleryLocale }) {
 }
 
 export function galleryMetadata(locale: GalleryLocale): Metadata {
-  return { title: `${galleryCopy[locale].eyebrow} | ALAUDIS`, description: galleryCopy[locale].intro, robots: { index: false, follow: false } };
+  return {
+    title: `${galleryCopy[locale].eyebrow} | ALAUDIS`, description: galleryCopy[locale].intro,
+    metadataBase: galleryOrigin(), alternates: galleryAlternates(locale),
+    robots: { index: galleryIsProduction, follow: galleryIsProduction },
+  };
 }
 
 function galleryOrigin() {
+  if (galleryIsProduction) return new URL("https://alaudis.eu");
   return new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+}
+
+function galleryAlternates(locale: GalleryLocale, slug?: string) {
+  const suffix = slug ? `/${slug}` : "";
+  const url = (language: GalleryLocale) => new URL(`${galleryPath(language)}${suffix}`, galleryOrigin()).href;
+  return { canonical: url(locale), languages: Object.fromEntries(galleryLocales.map(language => [language, url(language)])) };
 }
 
 export async function galleryAlbumMetadata(locale: GalleryLocale, params: Promise<{ slug: string }>): Promise<Metadata> {
@@ -32,8 +44,8 @@ export async function galleryAlbumMetadata(locale: GalleryLocale, params: Promis
   const title = `${localize(album.seoTitle, locale) || localize(album.title, locale)} | ALAUDIS`;
   const description = localize(album.seoDescription, locale) || localize(album.description, locale);
   return {
-    ...galleryMetadata(locale), metadataBase: galleryOrigin(), title, description,
-    openGraph: { title, description, images: [{ url: photoUrl(album.cover, 1920, 85), alt: localize(album.cover.alt, locale) || localize(album.title, locale) }] },
+    ...galleryMetadata(locale), alternates: galleryAlternates(locale, album.slug), title, description,
+    openGraph: { title, description, url: new URL(`${galleryPath(locale)}/${album.slug}`, galleryOrigin()).href, images: [{ url: photoUrl(album.cover, 1920, 85), alt: localize(album.cover.alt, locale) || localize(album.title, locale) }] },
     twitter: { card: "summary_large_image", title, description, images: [photoUrl(album.cover, 1920, 85)] },
   };
 }
