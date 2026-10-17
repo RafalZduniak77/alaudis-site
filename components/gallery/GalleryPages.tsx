@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
-import { getAlbum, getAlbums, galleryIsDemo } from "@/lib/gallery/server";
+import { getAlbum, getAlbums } from "@/lib/gallery/server";
 import { galleryCopy } from "@/lib/gallery/i18n";
 import { galleryPath, localize, type GalleryCategory, type GalleryLocale } from "@/lib/gallery/types";
 import { demoAlbums } from "@/lib/gallery/demo";
@@ -92,8 +92,6 @@ export async function GalleryAlbumPage({ locale, params }: { locale: GalleryLoca
     <GalleryHeader locale={locale} slug={slug} />
     <section className={`${styles.hero} ${styles.albumHero}`}><div className={styles.heroImage}><GalleryImage photo={album.cover} alt={localize(album.cover.alt, locale)} sizes="100vw" eager /></div><div className={styles.heroContent}><p className={styles.eyebrow}>{copy[album.category]}</p><h1>{localize(album.title, locale)}</h1><div className={styles.albumMeta}><span>{copy.photos}: {album.photoCount}</span>{date && <time dateTime={album.date}>{date}</time>}{album.location && <span>{album.location}</span>}</div></div></section>
     <div className={styles.content}>
-      {galleryIsDemo && <DemoNote locale={locale} />}
-      <div className={styles.albumDescription}><div>{album.author && <><span>{copy.author}</span><strong>{album.author}</strong></>}</div><p>{localize(album.description, locale)}</p></div>
       <AlbumPhotos key={`${album._id}-${album._updatedAt}`} album={album} locale={locale} />
     </div><Footer />
   </main>;

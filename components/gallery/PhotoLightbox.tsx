@@ -14,6 +14,25 @@ import styles from "./Gallery.module.css";
 
 type Props = { photos: GalleryPhoto[]; labels: string[]; author?: string; locale: GalleryLocale; index: number; total: number; reducedMotion: boolean; close: () => void; onClosed: () => void; onView: (index: number) => void; loadMore: () => void; loading: boolean; error: "load" | "changed" | null; refresh: () => void };
 
+const iconPaths = {
+  previous: "M20 12H4m6-6-6 6 6 6",
+  next: "M4 12h16m-6-6 6 6-6 6",
+  close: "m6 6 12 12M18 6 6 18",
+  zoomIn: "M17 17l4 4M7 10.5h7m-3.5-3.5v7",
+  zoomOut: "M17 17l4 4M7 10.5h7",
+  fullscreen: "M9 4H4v5m11-5h5v5M4 15v5h5m6 0h5v-5",
+  exitFullscreen: "M4 9h5V4m6 0v5h5M9 20v-5H4m16 0h-5v5",
+  info: "M12 11v6m0-10h.01",
+};
+
+function ControlIcon({ name }: { name: keyof typeof iconPaths }) {
+  return <svg className={name === "previous" || name === "next" ? styles.navigationIcon : styles.controlIcon} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+    {name === "info" && <circle cx="12" cy="12" r="9" />}
+    {(name === "zoomIn" || name === "zoomOut") && <circle cx="10.5" cy="10.5" r="6.5" />}
+    <path d={iconPaths[name]} />
+  </svg>;
+}
+
 export default function PhotoLightbox({ photos, labels, author, locale, index, total, reducedMotion, close, onClosed, onView, loadMore, loading, error, refresh }: Props) {
   const copy = galleryCopy[locale];
   const slides = useMemo(() => photos.map((photo, i) => ({
@@ -51,6 +70,17 @@ export default function PhotoLightbox({ photos, labels, author, locale, index, t
     animation={{ fade: reducedMotion ? 0 : 180, swipe: reducedMotion ? 0 : 250, navigation: reducedMotion ? 0 : 200, zoom: reducedMotion ? 0 : 200 }}
     captions={{ descriptionTextAlign: "center", descriptionMaxLines: 5, showToggle: true }}
     zoom={{ maxZoomPixelRatio: 2, scrollToZoom: false }}
+    render={{
+      iconPrev: () => <ControlIcon name="previous" />,
+      iconNext: () => <ControlIcon name="next" />,
+      iconClose: () => <ControlIcon name="close" />,
+      iconZoomIn: () => <ControlIcon name="zoomIn" />,
+      iconZoomOut: () => <ControlIcon name="zoomOut" />,
+      iconEnterFullscreen: () => <ControlIcon name="fullscreen" />,
+      iconExitFullscreen: () => <ControlIcon name="exitFullscreen" />,
+      iconCaptionsVisible: () => <ControlIcon name="info" />,
+      iconCaptionsHidden: () => <ControlIcon name="info" />,
+    }}
     on={{ view: ({ index: current }) => onView(current) }}
     toolbar={{ buttons: [
       ...(error ? [<button key="error" className={styles.lightboxMore} onClick={error === "changed" ? refresh : loadMore}>{error === "changed" ? copy.refresh : copy.tryAgain}</button>] : photos.length < total && index >= photos.length - 2 ? [<button key="more" className={styles.lightboxMore} disabled={loading} onClick={loadMore}>{loading ? copy.loading : copy.more}</button>] : []),

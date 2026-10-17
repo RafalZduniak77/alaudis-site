@@ -44,7 +44,7 @@ export default function AlbumPhotos({ album, locale }: { album: AlbumPageData; l
   function openPhoto(photoIndex: number, button: HTMLButtonElement) { trigger.current = button; setIndex(photoIndex); }
   const restoreFocus = useCallback(() => { trigger.current?.focus({ preventScroll: true }); }, []);
   return <>
-    <div className={styles.photoHeading}><p>{copy.help}</p><span aria-live="polite">{photos.length} / {total}</span></div>
+    <span className="sr-only" role="status">{copy.photos}: {photos.length} / {total}</span>
     <div className={styles.photoGrid} aria-busy={loading}>
       {photos.map((photo, photoIndex) => <figure key={photo._key}>
         <button className={styles.photoButton} aria-label={`${copy.openPhoto}: ${photoLabels[photoIndex]}`} aria-describedby={localize(photo.seoDescription, locale) ? `photo-description-${photo._key}` : undefined} onClick={event => openPhoto(photoIndex, event.currentTarget)}>
