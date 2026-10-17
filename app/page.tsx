@@ -21,7 +21,7 @@
 // 13. link Historia prowadzi do osobnej podstrony /historia
 // ==========================================================
 
-import Image from "next/image";
+import HomeHeader from "@/components/HomeHeader";
 import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
 import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
@@ -45,102 +45,7 @@ export default function Home() {
         {/* ==================================================
             HEADER
            ================================================== */}
-        <header className="fixed inset-x-0 top-0 z-50">
-          <div className="relative mx-auto flex max-w-7xl items-start justify-between px-4 pb-4 pt-6 sm:grid sm:grid-cols-3 sm:px-6 sm:pb-6 sm:pt-12 lg:px-10">
-            <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/75 via-black/45 to-transparent backdrop-blur-md" />
-
-            {/* LEWA STRONA */}
-            <div className="flex items-start sm:ml-4 sm:flex sm:items-center sm:gap-4">
-              {/* MOBILE: tylko Historia */}
-              <Link
-                href="/historia"
-                className="inline-flex rounded-full border border-white/35 bg-black/10 px-3 py-2 text-[10px] uppercase tracking-[0.2em] text-white transition hover:border-white hover:bg-white hover:text-black sm:hidden"
-              >
-                Historia
-              </Link>
-
-              {/* TABLET / DESKTOP */}
-              <div className="hidden items-center gap-4 sm:flex">
-                <a
-                  href="#modele"
-                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-                >
-                  Modele
-                </a>
-
-                <Link
-                  href="/historia"
-                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-                >
-                  Historia
-                </Link>
-
-                <Link
-                  href="/kontakt"
-                  className="inline-flex rounded-full border border-white/35 bg-black/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-                >
-                  Kontakt
-                </Link>
-              </div>
-            </div>
-
-            {/* ŚRODEK - MOBILE ABSOLUTE / DESKTOP NORMAL */}
-            <div className="absolute left-1/2 top-6 z-10 -translate-x-1/2 sm:static sm:left-auto sm:top-auto sm:z-auto sm:translate-x-0 sm:justify-self-center sm:pt-2">
-              <Image
-                src="/logo-alaudis.png"
-                alt="Logo Alaudis"
-                width={77}
-                height={25}
-                priority
-                className="h-auto w-[58px] object-contain opacity-95 sm:w-[60px] md:w-[77px]"
-              />
-            </div>
-
-            {/* PRAWA STRONA */}
-            <div className="flex items-start justify-end sm:justify-self-end">
-              <details className="group relative">
-                <summary className="list-none cursor-pointer rounded-full border border-white/35 bg-black/10 px-3 py-2 text-[10px] uppercase tracking-[0.2em] text-white transition hover:border-white hover:bg-white hover:text-black sm:px-5 sm:text-[11px] sm:tracking-[0.24em]">
-                  <span className="inline-flex items-center gap-2">
-                    PL
-                    <span className="text-[10px] transition group-open:rotate-180">
-                      ▼
-                    </span>
-                  </span>
-                </summary>
-
-                <div className="absolute right-0 mt-3 min-w-[130px] overflow-hidden rounded-2xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl sm:min-w-[150px]">
-                  <Link
-                    href="/"
-                    className="block w-full border-b border-white/10 bg-white/10 px-4 py-3 text-left text-[10px] uppercase tracking-[0.2em] text-white sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
-                  >
-                    PL
-                  </Link>
-
-                  <Link
-                    href="/en"
-                    className="block w-full border-b border-white/10 px-4 py-3 text-left text-[10px] uppercase tracking-[0.2em] text-white/88 transition hover:bg-white/10 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
-                  >
-                    EN
-                  </Link>
-
-                  <Link
-                    href="/de"
-                    className="block w-full border-b border-white/10 px-4 py-3 text-left text-[10px] uppercase tracking-[0.2em] text-white/88 transition hover:bg-white/10 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
-                  >
-                    DE
-                  </Link>
-
-                  <Link
-                    href="/fr"
-                    className="block w-full px-4 py-3 text-left text-[10px] uppercase tracking-[0.2em] text-white/88 transition hover:bg-white/10 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
-                  >
-                    FR
-                  </Link>
-                </div>
-              </details>
-            </div>
-          </div>
-        </header>
+        <HomeHeader locale="pl" />
 
         {/* ==================================================
             ŚRODEK HERO

@@ -36,6 +36,10 @@ body {
     display: contents;
   }
 
+  .home-hero {
+    padding-top: 156px;
+  }
+
   .home-hero-eyebrow,
   .home-hero-title,
   .home-hero-description,
