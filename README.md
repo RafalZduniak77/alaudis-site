@@ -6,6 +6,8 @@ Next.js, React i TypeScript. `npm ci`, następnie `npm run dev`.
 
 Praca odbywa się na gałęzi `preview/gallery-cms`. Nie łączyć jej z `main` i nie promować wdrożenia na produkcję bez wyraźnej zgody właściciela. `alaudis.eu` pozostaje na dotychczasowej wersji. Wszystkie trasy galerii mają `noindex, nofollow`.
 
+Pierwszy podgląd został zbudowany przez Vercel: [galeria](https://alaudis-site-5iwt3h5az-alaudis-dream-s-projects.vercel.app/galeria), [album](https://alaudis-site-5iwt3h5az-alaudis-dream-s-projects.vercel.app/galeria/forma-i-brzmienie), [adres panelu](https://alaudis-site-5iwt3h5az-alaudis-dream-s-projects.vercel.app/panel-galerii). Vercel wymaga zalogowania na konto mające dostęp do projektu. Aby udostępnić podgląd bez logowania do hostingu, właściciel może utworzyć link „Share” dla tego wdrożenia w Vercel. Nie trzeba wyłączać ochrony całego projektu.
+
 Trasy podglądu:
 
 - `/galeria` — albumy i filtry działów.
@@ -51,6 +53,12 @@ npm run build
 
 Testy zapytań GROQ działają na lokalnych danych: rozdzielenie szkiców/publikacji, wybór okładki po zmianie kolejności, 31 zdjęć w partiach 24 + 7 oraz ograniczone rozmiary wariantów. Nie zastępują testu działającego CMS.
 
+Sprawdzone na lokalnym buildzie 17.10.2026: wszystkie cztery języki, szerokości 320/390/768/1024/1440 px, filtrowanie, klawiatura, utrzymanie fokusu w lightboxie, powrót do zdjęcia i pozycji przewijania, pomniejszone pliki zdjęć, ograniczenie animacji oraz swipe/pinch w emulacji telefonu i iPada w Chromium. Testy, TypeScript, ESLint zmienionych plików i `npm run build` przeszły. Vercel potwierdził udane wdrożenie Preview; dostęp bez sesji Vercel zwraca przekierowanie do logowania, więc zdalnych testów przeglądarkowych jeszcze nie wykonano.
+
+Sanity nie jest jeszcze połączone. Nie zweryfikowano rzeczywistego przesłania 30 zdjęć, przeciągania w Studio, publikacji, aktualizacji i wycofania ani czasu odświeżenia danych z działającego CMS. Pełne kryterium ukończenia pozostaje otwarte.
+
+Audyt zależności po aktualizacji Next.js/React: 0 krytycznych, 11 wysokich i 9 umiarkowanych zgłoszeń w łańcuchach narzędzi Sanity CLI i ESLint (m.in. glob, YAML/TOML, UUID). Automatyczne poprawki zgodne z wersjami zastosowano. Pozostałe propozycje `npm audit fix --force` cofają główne wersje Sanity/Next ESLint; nie zostały zastosowane. Przed ewentualną produkcją trzeba ponownie sprawdzić dostępne poprawki.
+
 Przed uznaniem panelu za gotowy trzeba na połączonym projekcie sprawdzić w przeglądarce: nowy szkic, przesłanie 30 zdjęć jednocześnie, zmianę kolejności i okładki, publikację, dodanie kolejnych zdjęć bez zmiany kodu, ponowną publikację, wycofanie oraz widoczność każdej zmiany po odświeżeniu w ciągu 60 sekund. Oddzielnie sprawdzić logowanie i obsługę na rzeczywistym iPadzie/iPhonie; emulacja dotyku nie jest testem Safari na urządzeniu.
 
 ## Koszty wariantu
@@ -63,38 +71,3 @@ Stan cenników sprawdzony 17.10.2026:
 - Lightbox: biblioteka na licencji MIT, bez opłaty licencyjnej.
 
 Nie uruchomiono nowego płatnego planu. Bez dostępu do rozliczeń nie można obiecać zerowego całkowitego kosztu hostingu.
-
-## Next.js
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

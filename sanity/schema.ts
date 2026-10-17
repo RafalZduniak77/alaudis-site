@@ -20,7 +20,7 @@ const album = defineType({
     defineField({
       name: "photos", title: "Zdjęcia w albumie", type: "array", group: "photos", description: "Przeciągnij tutaj wiele plików jednocześnie (JPG, PNG, WebP lub AVIF). Przesuwaj miniaturki, aby zmienić kolejność. Kliknij zdjęcie, aby uzupełnić opisy i autora.", options: { layout: "grid", sortable: true },
       of: [defineArrayMember({
-        type: "image", title: "Zdjęcie", options: { hotspot: true, accept: "image/jpeg,image/png,image/webp,image/avif" },
+        type: "image", title: "Zdjęcie", options: { accept: "image/jpeg,image/png,image/webp,image/avif" },
         fields: [
           defineField({ name: "caption", title: "Podpis zdjęcia", type: "galleryLocalizedString" }),
           defineField({ name: "alt", title: "Tekst alternatywny", type: "galleryLocalizedString", description: "Krótko opisz zawartość zdjęcia dla osoby korzystającej z czytnika ekranu. Gdy pole jest puste, strona wykorzysta podpis lub tytuł albumu.", validation: rule => rule.custom(value => (value as { pl?: string } | undefined)?.pl?.trim() ? true : "Warto dodać polski opis zawartości zdjęcia.").warning() }),
