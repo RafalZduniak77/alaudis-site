@@ -31,9 +31,11 @@ Bez identyfikatora projektu wyświetlane są **jawnie oznaczone, statyczne album
 
 1. Otworzyć `/panel-galerii`, zalogować się i wybrać „Wszystkie albumy” → nowy album.
 2. W „Dane albumu” wpisać tytuł, wygenerować adres, wybrać dział, dodać opis i wspólnego autora. Data i miejsce są opcjonalne. Rozwinąć pola językowe, aby wpisać tłumaczenia PL/EN/DE/FR. Brak tłumaczenia korzysta z wersji polskiej.
-3. W „Zdjęcia” przeciągnąć jednocześnie wiele plików JPG/PNG/WebP/AVIF. Zmienić kolejność przez przeciąganie miniaturek. Kliknięcie zdjęcia otwiera podpis, tekst alternatywny i opcjonalnego autora nadpisującego autora albumu.
+3. W „Zdjęcia” przeciągnąć jednocześnie wiele plików JPG/PNG/WebP/AVIF. Zmienić kolejność przez przeciąganie miniaturek. Kliknięcie zdjęcia otwiera **Tytuł zdjęcia (SEO)**, **Opis zdjęcia (SEO)**, **Tekst alternatywny (ALT)** w czterech językach oraz opcjonalnego autora nadpisującego autora albumu. Tytuł zdjęcia nie jest widocznym napisem w galerii.
 4. W „Okładka” kliknąć miniaturkę. Zmiana kolejności nie zmienia wybranej okładki. Po usunięciu zdjęcia okładkowego trzeba wybrać nowe.
 5. Studio automatycznie zapisuje szkic. „Opublikuj” udostępnia album w galerii. Późniejsze zdjęcia i poprawki również wymagają publikacji zmian. Menu obok publikacji pozwala wycofać album bez kasowania jego danych.
+
+Zakładka „SEO albumu” pozwala ustawić osobny tytuł i opis strony dla wyszukiwarek; puste pola korzystają z tytułu i opisu albumu. Strona generuje metadane albumu, obraz udostępniania oraz dane `ImageGallery`/`ImageObject` dla widocznej partii zdjęć. ALT trafia do standardowego elementu `img`, a dodatkowy opis jest dostępny dla czytników ekranu. Nie dodajemy pól z listami słów kluczowych. Podgląd nadal ma `noindex, nofollow`; uruchomienie indeksowania i zgłoszenie mapy obrazów pozostaje częścią późniejszej, osobno zatwierdzonej publikacji. [Wytyczne Google dla zdjęć](https://developers.google.com/search/docs/appearance/google-images).
 
 ## Dane, obrazy i odświeżanie
 
@@ -41,8 +43,8 @@ Bez identyfikatora projektu wyświetlane są **jawnie oznaczone, statyczne album
 - Strona i API odczytują tylko dokumenty opublikowane, pomijając szkice i wersje robocze wydań. Brak publicznych endpointów do zapisu.
 - Każde odświeżenie pobiera dane bezpośrednio z Content Lake (`useCdn: false` / domena `api.sanity.io`, `cache: no-store`, trasy dynamiczne). Nie ma cache stron ani zależności od webhooków/deploymentu. Docelowe maksimum 60 sekund należy potwierdzić testem prawdziwej publikacji po połączeniu konta.
 - Lista albumów pobiera 12 pozycji, album 24 zdjęcia na partię. Lightbox doładowuje kolejną partię przy końcu. Kontrola wersji albumu zapobiega mieszaniu starej i nowej kolejności przy doładowywaniu.
-- Miniaturki mają `srcset`, `sizes`, wymiary i lazy loading. Sanity CDN generuje skompresowane warianty 320–3840 px; lightbox także nie pobiera pełnych oryginałów fotografa. Demonstracja używa optymalizatora Next.js dla istniejących lokalnych zdjęć.
-- Yet Another React Lightbox: gesty, powiększenie, strzałki, klawiatura, podpis, autor, przywracanie fokusu i pozycji, ograniczenie animacji zgodnie z `prefers-reduced-motion`.
+- Miniaturki mają `srcset`, `sizes`, wymiary i lazy loading. Sanity CDN generuje skompresowane warianty; dłuższa krawędź jest ograniczona do 3840 px także dla pionowych zdjęć i panoram. Lightbox dobiera rozdzielczość do ekranu, jego gęstości pikseli i zoomu; zachowuje dotychczasowy obraz podczas doładowywania większej wersji. Pobiera bieżące zdjęcie i najwyżej dwóch sąsiadów, nie cały album w wysokiej rozdzielczości. Oryginały fotografa pozostają w CMS. Demonstracja używa optymalizatora Next.js dla istniejących lokalnych zdjęć.
+- Yet Another React Lightbox: pełny ekran automatycznie, jeśli pozwala na to przeglądarka, a w pozostałych przypadkach całe dostępne okno. Zdjęcie wykorzystuje maksymalną powierzchnię z zachowaniem proporcji i całego kadru; nie ma dodatkowych odstępów ani widocznych nazw zdjęć. Pozostają gesty, powiększenie, strzałki, klawiatura, autor i licznik (można je ukryć), przywracanie fokusu i pozycji oraz ograniczenie animacji zgodnie z `prefers-reduced-motion`.
 
 ## Weryfikacja
 
@@ -54,6 +56,8 @@ npm run build
 Testy zapytań GROQ działają na lokalnych danych: rozdzielenie szkiców/publikacji, wybór okładki po zmianie kolejności, 31 zdjęć w partiach 24 + 7 oraz ograniczone rozmiary wariantów. Nie zastępują testu działającego CMS.
 
 Sprawdzone na lokalnym buildzie 17.10.2026: wszystkie cztery języki, szerokości 320/390/768/1024/1440 px, filtrowanie, klawiatura, utrzymanie fokusu w lightboxie, powrót do zdjęcia i pozycji przewijania, pomniejszone pliki zdjęć, ograniczenie animacji oraz swipe/pinch w emulacji telefonu i iPada w Chromium. Testy, TypeScript, ESLint zmienionych plików i `npm run build` przeszły. Vercel potwierdził udane wdrożenie Preview; dostęp bez sesji Vercel zwraca przekierowanie do logowania, więc zdalnych testów przeglądarkowych jeszcze nie wykonano.
+
+Dodatkowo sprawdzono natywny pełny ekran, wypełnienie dostępnego obszaru bez kadrowania, ukrywanie autora/licznika, brak widocznych nazw zdjęć i powrót do albumu. W pomiarze przeglądarki podgląd pobrał 3 warianty zdjęć (bieżące + sąsiedzi), a miniaturki na komputerze miały do 640 px; miniatura okładki mogła ponownie użyć już pobranego większego pliku z pamięci. Osobny test obejmuje brak obsługi Fullscreen API. Metadane albumów i obrazów sprawdzono dla czterech języków, a ograniczenie dłuższej krawędzi do 3840 px dla oryginałów 12000×8000, 8000×12000 i 24000×4000 px — testem funkcji generującej warianty, bez przesyłania tych oryginałów do CMS.
 
 Sanity nie jest jeszcze połączone. Nie zweryfikowano rzeczywistego przesłania 30 zdjęć, przeciągania w Studio, publikacji, aktualizacji i wycofania ani czasu odświeżenia danych z działającego CMS. Pełne kryterium ukończenia pozostaje otwarte.
 

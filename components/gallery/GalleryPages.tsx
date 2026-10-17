@@ -6,6 +6,7 @@ import { getAlbum, getAlbums, galleryIsDemo } from "@/lib/gallery/server";
 import { galleryCopy } from "@/lib/gallery/i18n";
 import { galleryPath, localize, type GalleryCategory, type GalleryLocale } from "@/lib/gallery/types";
 import { demoAlbums } from "@/lib/gallery/demo";
+import { photoUrl } from "@/lib/gallery/images";
 import GalleryHeader from "./GalleryHeader";
 import GalleryImage from "./GalleryImage";
 import AlbumCards from "./AlbumCards";
@@ -24,6 +25,24 @@ function Unavailable({ locale }: { locale: GalleryLocale }) {
 
 export function galleryMetadata(locale: GalleryLocale): Metadata {
   return { title: `${galleryCopy[locale].eyebrow} | ALAUDIS`, description: galleryCopy[locale].intro, robots: { index: false, follow: false } };
+}
+
+function galleryOrigin() {
+  return new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+}
+
+export async function galleryAlbumMetadata(locale: GalleryLocale, params: Promise<{ slug: string }>): Promise<Metadata> {
+  const { slug } = await params;
+  if (!/^[a-z0-9-]{1,96}$/.test(slug)) return galleryMetadata(locale);
+  const album = await getAlbum(slug).catch(() => null);
+  if (!album) return galleryMetadata(locale);
+  const title = `${localize(album.seoTitle, locale) || localize(album.title, locale)} | ALAUDIS`;
+  const description = localize(album.seoDescription, locale) || localize(album.description, locale);
+  return {
+    ...galleryMetadata(locale), metadataBase: galleryOrigin(), title, description,
+    openGraph: { title, description, images: [{ url: photoUrl(album.cover, 1920, 85), alt: localize(album.cover.alt, locale) || localize(album.title, locale) }] },
+    twitter: { card: "summary_large_image", title, description, images: [photoUrl(album.cover, 1920, 85)] },
+  };
 }
 
 export async function GalleryIndexPage({ locale, searchParams }: { locale: GalleryLocale; searchParams: Promise<{ dzial?: string }> }) {
@@ -53,7 +72,23 @@ export async function GalleryAlbumPage({ locale, params }: { locale: GalleryLoca
   const album = result.album;
   const copy = galleryCopy[locale];
   const date = album.date ? new Intl.DateTimeFormat(locale, { dateStyle: "long", timeZone: "UTC" }).format(new Date(`${album.date}T12:00:00Z`)) : "";
+  const origin = galleryOrigin();
+  const albumUrl = new URL(`${galleryPath(locale)}/${album.slug}`, origin).href;
+  const imageData = {
+    "@context": "https://schema.org", "@type": "ImageGallery", url: albumUrl, inLanguage: locale,
+    name: localize(album.title, locale), description: localize(album.description, locale),
+    primaryImageOfPage: new URL(photoUrl(album.cover, 1920, 85), origin).href,
+    image: album.photos.map(photo => ({
+      "@type": "ImageObject",
+      contentUrl: new URL(photoUrl(photo, 1920, 85), origin).href,
+      thumbnailUrl: new URL(photoUrl(photo, 640), origin).href,
+      name: localize(photo.caption, locale) || localize(photo.alt, locale) || localize(album.title, locale),
+      description: localize(photo.seoDescription, locale) || localize(photo.alt, locale),
+      creditText: photo.author || album.author || undefined, inLanguage: locale,
+    })),
+  };
   return <main className={styles.page} lang={locale}>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(imageData).replace(/</g, "\\u003c") }} />
     <GalleryHeader locale={locale} slug={slug} />
     <section className={`${styles.hero} ${styles.albumHero}`}><div className={styles.heroImage}><GalleryImage photo={album.cover} alt={localize(album.cover.alt, locale)} sizes="100vw" eager /></div><div className={styles.heroContent}><p className={styles.eyebrow}>{copy[album.category]}</p><h1>{localize(album.title, locale)}</h1><div className={styles.albumMeta}><span>{copy.photos}: {album.photoCount}</span>{date && <time dateTime={album.date}>{date}</time>}{album.location && <span>{album.location}</span>}</div></div></section>
     <div className={styles.content}>

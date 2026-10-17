@@ -1,4 +1,5 @@
 import "server-only";
+import { cache } from "react";
 import { galleryApiVersion, galleryDataset, galleryProjectId } from "./config";
 import { demoAlbums } from "./demo";
 import { ALBUM_BATCH_SIZE, PHOTO_BATCH_SIZE, type AlbumList, type AlbumPageData, type GalleryAlbum, type GalleryCategory, type GalleryPhoto } from "./types";
@@ -38,7 +39,8 @@ export async function getAlbums(category?: GalleryCategory, offset = 0): Promise
   return { ...data, demo: false };
 }
 
-export async function getAlbum(slug: string): Promise<AlbumPageData | null> {
+// Deduplicate metadata and page reads within a single server render, never across requests.
+export const getAlbum = cache(async (slug: string): Promise<AlbumPageData | null> => {
   if (galleryIsDemo) {
     const album = demoAlbums.find(a => a.slug === slug);
     return album ? { ...album, photos: album.photos.slice(0, PHOTO_BATCH_SIZE) } : null;
@@ -46,7 +48,7 @@ export async function getAlbum(slug: string): Promise<AlbumPageData | null> {
   return query<AlbumPageData | null>(`*[${published} && slug.current == $slug][0]{
     ${albumProjection}, "photos": photos[defined(asset->url)][0...${PHOTO_BATCH_SIZE}]${photoProjection}
   }`, { slug });
-}
+});
 
 export async function getAlbumPhotos(slug: string, offset: number) {
   if (galleryIsDemo) {

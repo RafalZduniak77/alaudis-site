@@ -10,6 +10,7 @@ export type GalleryPhoto = {
   height: number;
   lqip?: string;
   caption: LocalizedText;
+  seoDescription?: LocalizedText;
   alt: LocalizedText;
   author?: string;
 };
@@ -20,6 +21,8 @@ export type GalleryAlbum = {
   slug: string;
   title: LocalizedText;
   description: LocalizedText;
+  seoTitle?: LocalizedText;
+  seoDescription?: LocalizedText;
   category: GalleryCategory;
   date?: string;
   location?: string;

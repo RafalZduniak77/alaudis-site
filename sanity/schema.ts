@@ -7,7 +7,7 @@ const localizedText = defineType({ name: "galleryLocalizedText", title: "Wersje 
 
 const album = defineType({
   name: "galleryAlbum", title: "Album", type: "document",
-  groups: [{ name: "details", title: "Dane albumu", default: true }, { name: "photos", title: "Zdjęcia" }, { name: "cover", title: "Okładka" }],
+  groups: [{ name: "details", title: "Dane albumu", default: true }, { name: "photos", title: "Zdjęcia" }, { name: "cover", title: "Okładka" }, { name: "seo", title: "SEO albumu" }],
   initialValue: { category: "instruments" },
   fields: [
     defineField({ name: "title", title: "Tytuł albumu", type: "galleryLocalizedString", group: "details", description: "Uzupełnij polski tytuł. Pozostałe wersje językowe możesz dodać później; do tego czasu wyświetli się wersja polska.", validation: rule => rule.custom(value => (value as { pl?: string } | undefined)?.pl?.trim() ? true : "Wpisz polski tytuł albumu.") }),
@@ -16,14 +16,17 @@ const album = defineType({
     defineField({ name: "date", title: "Data (opcjonalnie)", type: "date", group: "details", options: { dateFormat: "DD.MM.YYYY" } }),
     defineField({ name: "location", title: "Miejsce (opcjonalnie)", type: "string", group: "details", validation: rule => rule.max(150) }),
     defineField({ name: "description", title: "Krótki opis", type: "galleryLocalizedText", group: "details" }),
+    defineField({ name: "seoTitle", title: "Tytuł SEO albumu", type: "galleryLocalizedString", group: "seo", description: "Opcjonalny tytuł strony dla wyszukiwarek i karty przeglądarki. Jeśli pozostawisz puste, użyjemy tytułu albumu. Podgląd próbny nie jest indeksowany." }),
+    defineField({ name: "seoDescription", title: "Opis SEO albumu", type: "galleryLocalizedText", group: "seo", description: "Krótko opisz temat albumu naturalnym językiem. To opis strony w metadanych; nie zmienia tekstu widocznego pod okładką. Jeśli pole jest puste, użyjemy krótkiego opisu albumu." }),
     defineField({ name: "author", title: "Wspólny autor zdjęć", type: "string", group: "details", description: "Ten podpis pojawi się przy każdym zdjęciu, które nie ma wpisanego własnego autora.", validation: rule => rule.max(160) }),
     defineField({
-      name: "photos", title: "Zdjęcia w albumie", type: "array", group: "photos", description: "Przeciągnij tutaj wiele plików jednocześnie (JPG, PNG, WebP lub AVIF). Przesuwaj miniaturki, aby zmienić kolejność. Kliknij zdjęcie, aby uzupełnić opisy i autora.", options: { layout: "grid", sortable: true },
+      name: "photos", title: "Zdjęcia w albumie", type: "array", group: "photos", description: "Przeciągnij tutaj wiele plików jednocześnie (JPG, PNG, WebP lub AVIF). Przesuwaj miniaturki, aby zmienić kolejność. Kliknij zdjęcie, aby uzupełnić SEO i autora. Przed przesłaniem warto nadać plikowi opisową nazwę, np. alaudis-leo-214-mechanizm.jpg.", options: { layout: "grid", sortable: true },
       of: [defineArrayMember({
         type: "image", title: "Zdjęcie", options: { accept: "image/jpeg,image/png,image/webp,image/avif" },
         fields: [
-          defineField({ name: "caption", title: "Podpis zdjęcia", type: "galleryLocalizedString" }),
-          defineField({ name: "alt", title: "Tekst alternatywny", type: "galleryLocalizedString", description: "Krótko opisz zawartość zdjęcia dla osoby korzystającej z czytnika ekranu. Gdy pole jest puste, strona wykorzysta podpis lub tytuł albumu.", validation: rule => rule.custom(value => (value as { pl?: string } | undefined)?.pl?.trim() ? true : "Warto dodać polski opis zawartości zdjęcia.").warning() }),
+          defineField({ name: "caption", title: "Tytuł zdjęcia (SEO)", type: "galleryLocalizedString", description: "Np. ALAUDIS LEO 214 — mechanizm fortepianowy. Używany w danych opisujących fotografię i w panelu. Nie wyświetla się jako nazwa nad zdjęciem." }),
+          defineField({ name: "seoDescription", title: "Opis zdjęcia (SEO)", type: "galleryLocalizedText", description: "Opisz to, co widać na fotografii: instrument, detal, miejsce lub wydarzenie. Opis trafia do danych zdjęcia i jest dostępny dla czytników ekranu. Pisz naturalnie, bez list powtarzanych słów kluczowych." }),
+          defineField({ name: "alt", title: "Tekst alternatywny (ALT)", type: "galleryLocalizedString", description: "Krótki opis zawartości zdjęcia dla osób korzystających z czytnika ekranu i wyszukiwarek. Gdy pole jest puste, strona wykorzysta tytuł SEO zdjęcia lub tytuł albumu.", validation: rule => rule.custom(value => (value as { pl?: string } | undefined)?.pl?.trim() ? true : "Warto dodać polski opis zawartości zdjęcia.").warning() }),
           defineField({ name: "author", title: "Autor tego zdjęcia", type: "string", description: "Pozostaw puste, aby użyć wspólnego autora albumu.", validation: rule => rule.max(160) }),
         ],
         preview: { select: { title: "caption.pl", subtitle: "author", media: "asset" }, prepare: ({ title, subtitle, media }) => ({ title: title || "Zdjęcie — kliknij, aby opisać", subtitle: subtitle || "Autor z albumu", media }) },

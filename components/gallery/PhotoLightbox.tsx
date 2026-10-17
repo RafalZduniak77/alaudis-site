@@ -4,9 +4,10 @@ import { useEffect, useMemo } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Captions from "yet-another-react-lightbox/plugins/captions";
-import { photoUrl, photoWidths } from "@/lib/gallery/images";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import { photoUrl, photoWidths, photoDisplaySize } from "@/lib/gallery/images";
 import { galleryCopy } from "@/lib/gallery/i18n";
-import { localize, type GalleryLocale, type GalleryPhoto } from "@/lib/gallery/types";
+import { type GalleryLocale, type GalleryPhoto } from "@/lib/gallery/types";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 import styles from "./Gallery.module.css";
@@ -16,10 +17,10 @@ type Props = { photos: GalleryPhoto[]; labels: string[]; author?: string; locale
 export default function PhotoLightbox({ photos, labels, author, locale, index, total, reducedMotion, close, onClosed, onView, loadMore, loading, error, refresh }: Props) {
   const copy = galleryCopy[locale];
   const slides = useMemo(() => photos.map((photo, i) => ({
-    src: photoUrl(photo, 2560, 85), width: photo.width, height: photo.height, alt: labels[i],
+    src: photoUrl(photo, 1920, 85), ...photoDisplaySize(photo), alt: labels[i],
     srcSet: photoWidths(photo).map(width => ({ src: photoUrl(photo, width, 85), width, height: Math.round(width * photo.height / photo.width) })),
-    title: localize(photo.caption, locale), description: [photo.author || author ? `${copy.author}: ${photo.author || author}` : "", `${i + 1} ${copy.counter} ${total}`].filter(Boolean).join(" · "),
-  })), [photos, labels, author, locale, copy.author, copy.counter, total]);
+    description: [photo.author || author ? `${copy.author}: ${photo.author || author}` : "", `${i + 1} ${copy.counter} ${total}`].filter(Boolean).join(" · "),
+  })), [photos, labels, author, copy.author, copy.counter, total]);
   useEffect(() => {
     // Keep Tab inside the dialog, including when a navigation button becomes disabled.
     const trapFocus = (event: KeyboardEvent) => {
@@ -42,12 +43,13 @@ export default function PhotoLightbox({ photos, labels, author, locale, index, t
       requestAnimationFrame(onClosed);
     };
   }, [onClosed]);
-  return <Lightbox open close={close} index={index} slides={slides} plugins={[Zoom, Captions]} className={styles.lightbox}
-    labels={{ Close: copy.close, Next: copy.next, Previous: copy.previous, "Zoom in": copy.zoomIn, "Zoom out": copy.zoomOut, Lightbox: copy.photos, "Photo gallery": copy.photos, Slide: copy.photos, Carousel: copy.photos, "{index} of {total}": `{index} ${copy.counter} {total}` }}
-    carousel={{ finite: true, preload: 1, padding: "48px" }}
+  return <Lightbox open close={close} index={index} slides={slides} plugins={[Zoom, Captions, Fullscreen]} className={styles.lightbox}
+    labels={{ Close: copy.close, Next: copy.next, Previous: copy.previous, "Zoom in": copy.zoomIn, "Zoom out": copy.zoomOut, "Enter Fullscreen": copy.fullscreen, "Exit Fullscreen": copy.exitFullscreen, "Hide captions": copy.hideCredit, "Show captions": copy.showCredit, Caption: copy.author, Lightbox: copy.photos, "Photo gallery": copy.photos, Slide: copy.photos, Carousel: copy.photos, "{index} of {total}": `{index} ${copy.counter} {total}` }}
+    carousel={{ finite: true, preload: 1, padding: 0, imageFit: "contain", imageProps: { decoding: "async" } }}
+    fullscreen={{ auto: true }}
     controller={{ closeOnBackdropClick: true, closeOnPullDown: true, closeOnPullUp: true, aria: true }}
     animation={{ fade: reducedMotion ? 0 : 180, swipe: reducedMotion ? 0 : 250, navigation: reducedMotion ? 0 : 200, zoom: reducedMotion ? 0 : 200 }}
-    captions={{ descriptionTextAlign: "center", descriptionMaxLines: 5 }}
+    captions={{ descriptionTextAlign: "center", descriptionMaxLines: 5, showToggle: true }}
     zoom={{ maxZoomPixelRatio: 2, scrollToZoom: false }}
     on={{ view: ({ index: current }) => onView(current) }}
     toolbar={{ buttons: [

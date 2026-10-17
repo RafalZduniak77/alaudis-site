@@ -1,7 +1,9 @@
-import { GalleryAlbumPage, galleryMetadata } from "@/components/gallery/GalleryPages";
+import { GalleryAlbumPage, galleryAlbumMetadata } from "@/components/gallery/GalleryPages";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
-export const metadata = galleryMetadata("de");
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  return galleryAlbumMetadata("de", params);
+}
 export default function Page({ params }: { params: Promise<{ slug: string }> }) {
   return <GalleryAlbumPage locale="de" params={params} />;
 }
