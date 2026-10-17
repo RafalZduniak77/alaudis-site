@@ -12,10 +12,14 @@ export default defineConfig({
   projectId: galleryProjectId || "unconfigured",
   dataset: galleryDataset,
   basePath: "/panel-galerii",
+  releases: { enabled: false },
+  scheduledDrafts: { enabled: false },
+  tasks: { enabled: false },
+  document: { comments: { enabled: false } },
   schema: { types: gallerySchema },
   plugins: [
     plPLLocale(),
-    structureTool({ structure: S => S.list().title("Galeria").items([
+    structureTool({ title: "Albumy", structure: S => S.list().title("Galeria").items([
       S.listItem().title("Wszystkie albumy").child(S.documentTypeList("galleryAlbum").title("Albumy")),
       S.divider(),
       ...[{ title: "Instrumenty", value: "instruments" }, { title: "Rzemiosło", value: "craft" }, { title: "Wydarzenia", value: "events" }].map(category => S.listItem().title(category.title).child(S.documentList().title(category.title).filter('_type == "galleryAlbum" && category == $category').params({ category: category.value }))),
