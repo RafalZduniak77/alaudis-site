@@ -6,16 +6,24 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:gallery": "node --experimental-strip-types --test tests/gallery.test.mjs",
+    "cms:seed": "sanity exec scripts/seed-gallery.ts --with-user-token"
   },
   "dependencies": {
     "@google/model-viewer": "^4.2.0",
+    "@sanity/client": "^8.9.0",
+    "@sanity/locale-pl-pl": "^1.2.36",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "jspdf": "^4.2.1",
-    "next": "16.1.7",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "next": "16.4.2",
+    "next-sanity": "^13.3.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "sanity": "^6.19.0",
+    "styled-components": "^6.6.0",
+    "yet-another-react-lightbox": "^3.32.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -23,7 +31,8 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.1.7",
+    "eslint-config-next": "16.4.2",
+    "groq-js": "^2.0.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
