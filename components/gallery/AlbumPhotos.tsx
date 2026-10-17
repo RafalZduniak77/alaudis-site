@@ -48,7 +48,7 @@ export default function AlbumPhotos({ album, locale }: { album: AlbumPageData; l
     <div className={styles.photoGrid} aria-busy={loading}>
       {photos.map((photo, photoIndex) => <figure key={photo._key}>
         <button className={styles.photoButton} aria-label={`${copy.openPhoto}: ${photoLabels[photoIndex]}`} aria-describedby={localize(photo.seoDescription, locale) ? `photo-description-${photo._key}` : undefined} onClick={event => openPhoto(photoIndex, event.currentTarget)}>
-          <GalleryImage photo={photo} alt={photoLabels[photoIndex]} sizes="(min-width: 1500px) 450px, (min-width: 1000px) 30vw, (min-width: 600px) 44vw, 92vw" />
+          <GalleryImage photo={photo} alt={photoLabels[photoIndex]} sizes="(min-width: 1500px) 450px, (min-width: 1000px) 30vw, (min-width: 600px) 44vw, 92vw" eager={photoIndex === 0} />
           <span className={styles.zoomHint} aria-hidden="true">＋</span>
         </button>
         <figcaption>{localize(photo.seoDescription, locale) && <span id={`photo-description-${photo._key}`} className="sr-only">{localize(photo.seoDescription, locale)}</span>}{(photo.author || album.author) && <small>{copy.author}: {photo.author || album.author}</small>}</figcaption>
