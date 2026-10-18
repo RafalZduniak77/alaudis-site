@@ -525,7 +525,7 @@ export default function KonfiguratorShell() {
     const text = labels.composeText(documentTitle, selected, modelName);
 
     navigator.clipboard.writeText(text);
-    window.location.href = `mailto:?subject=${encodeURIComponent(
+    window.location.href = `mailto:Krzysztof@saprenovation.eu?cc=Rafal.zduniak@alaudis.eu&subject=${encodeURIComponent(
       documentTitle
     )}&body=${encodeURIComponent(text)}`;
   };
