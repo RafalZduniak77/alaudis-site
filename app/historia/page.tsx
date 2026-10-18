@@ -20,6 +20,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import AlaudisStory from "@/components/AlaudisStory";
+import StoryVideo from "@/components/StoryVideo";
 
 type StorySection = {
   eyebrow: string;
@@ -525,16 +526,7 @@ export default function HistoriaPage() {
                 key={video.src}
                 className="overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03]"
               >
-                <div className="relative aspect-video bg-black">
-                  <video
-                    controls
-                    preload="metadata"
-                    playsInline
-                    className="h-full w-full object-cover"
-                  >
-                    <source src={video.src} type="video/mp4" />
-                  </video>
-                </div>
+                <StoryVideo src={video.src} title={video.title} locale="pl" />
 
                 <div className="p-6">
                   <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">

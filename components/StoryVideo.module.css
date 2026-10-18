@@ -1,0 +1,106 @@
+.frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.player {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.expanded {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+}
+
+.video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.expanded .video {
+  object-fit: contain;
+}
+
+/* The native video-only fullscreen would hide the shared back control. */
+.video::-webkit-media-controls-fullscreen-button {
+  display: none;
+}
+
+.back,
+.expand {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 160ms, color 160ms, border-color 160ms;
+}
+
+/* Same white circular back arrow as the configurator. */
+.back {
+  top: calc(24px + env(safe-area-inset-top));
+  left: calc(24px + env(safe-area-inset-left));
+  border: 0;
+  background: #fff;
+  color: #000;
+  box-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.expand {
+  top: 12px;
+  right: 12px;
+  border: 1px solid #ffffff59;
+  background: #00000080;
+  color: #fff;
+  backdrop-filter: blur(12px);
+}
+
+.back:focus-visible,
+.expand:focus-visible {
+  outline: 2px solid #dac18a;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .back:hover {
+    background: #e5e5e5;
+  }
+
+  .expand:hover {
+    border-color: #fff;
+    background: #fff;
+    color: #000;
+  }
+}
+
+@media (min-width: 1024px) {
+  .back {
+    top: calc(40px + env(safe-area-inset-top));
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back,
+  .expand {
+    transition: none;
+  }
+}
