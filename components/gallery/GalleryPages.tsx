@@ -60,7 +60,7 @@ export async function GalleryIndexPage({ locale, searchParams }: { locale: Galle
     <GalleryHeader locale={locale} category={category} />
     <div className={styles.content}>
       <h1 className="sr-only">{copy.eyebrow}</h1>
-      <nav aria-label={copy.albums} className={styles.filters}>{[undefined, ...galleryFilters].map(value => <Link key={value || "all"} href={`${galleryPath(locale)}${value ? `?dzial=${value}` : ""}`} prefetch={false} scroll={false} aria-current={category === value ? "page" : undefined}>{value ? copy[value] : copy.all}</Link>)}</nav>
+      <nav aria-label={copy.albums} className={styles.filters}>{[undefined, ...galleryFilters].map(value => <Link key={value || "all"} className={value === "instruments" || value === "craft" ? styles.desktopFilter : undefined} href={`${galleryPath(locale)}${value ? `?dzial=${value}` : ""}`} prefetch={false} scroll={false} aria-current={category === value ? "page" : undefined}>{value ? copy[value] : copy.all}</Link>)}</nav>
       <AlbumCards key={`${category || "all"}-${data.items.map(album => album._updatedAt).join("-")}`} initial={data} locale={locale} category={category} />
     </div><Footer />
   </main>;
