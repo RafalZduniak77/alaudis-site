@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { parse, evaluate } from "groq-js";
-import { published, photoProjection, albumProjection } from "../lib/gallery/queries.ts";
+import { published, photoProjection, albumProjection, galleryItemsFilter, galleryItemProjection, galleryItemsOrder } from "../lib/gallery/queries.ts";
 import { photoUrl, photoWidths, photoDisplaySize } from "../lib/gallery/images.ts";
 
 const asset = { _id: "image-test-2400x1600-jpg", _type: "sanity.imageAsset", url: "https://cdn.sanity.io/images/example/gallery_preview/test-2400x1600.jpg", metadata: { dimensions: { width: 2400, height: 1600 }, lqip: "data:image/jpeg;base64,test" } };
@@ -66,4 +66,44 @@ test("Thumbnails use bounded CDN variants and do not request originals", () => {
   assert.equal(new URL(photoUrl(photo, 3840)).searchParams.get("w"), "2400");
   assert.equal(Math.max(...photoWidths(photo)), 2400);
   assert.throws(() => photoUrl({ ...photo, url: "https://untrusted.example/image.jpg" }, 320));
+});
+
+const videoAsset = { _id: "file-concert-mp4", _type: "sanity.fileAsset", url: "https://cdn.sanity.io/files/example/gallery_preview/concert.mp4", mimeType: "video/mp4" };
+const video = { _id: "video-concert", _type: "galleryVideo", _createdAt: "2026-10-25T10:00:00Z", title: { pl: "Koncert w Pile", en: "Concert in Piła" }, location: "Piła", duration: 96, video: { asset: { _ref: videoAsset._id } }, poster: { _key: "poster", asset: { _ref: asset._id }, alt: { pl: "Koncert" } } };
+
+test("Video filter exposes published playable films while preserving photo categories", async () => {
+  const dataset = [asset, videoAsset, album, video,
+    { ...video, _id: "drafts.video-concert" }, { ...video, _id: "versions.release.video-concert" },
+    { ...video, _id: "missing-file", video: {} }, { ...video, _id: "missing-poster", poster: {} },
+    { _id: "file-unsupported", _type: "sanity.fileAsset", url: "https://cdn.sanity.io/files/example/gallery_preview/concert.mov", mimeType: "video/quicktime" },
+    { ...video, _id: "unsupported-format", video: { asset: { _ref: "file-unsupported" } } },
+  ];
+  const query = `*[${galleryItemsFilter}] | order(${galleryItemsOrder}) {${galleryItemProjection}}`;
+  const all = await run(query, dataset, { category: null });
+  assert.deepEqual(all.map(item => item._id), [album._id, video._id]);
+  assert.equal(all[0].cover._key, "photo-29");
+  const films = await run(query, dataset, { category: "video" });
+  assert.equal(films.length, 1);
+  assert.equal(films[0].category, "video");
+  assert.equal(films[0].title.en, "Concert in Piła");
+  assert.equal(films[0].video.url, videoAsset.url);
+  assert.equal(films[0].video.mimeType, "video/mp4");
+  assert.equal(films[0].cover.width, 2400);
+  assert.equal(films[0].cover.alt.pl, "Koncert");
+  assert.equal(films[0].duration, 96);
+  assert.deepEqual((await run(query, dataset, { category: "craft" })).map(item => item._id), [album._id]);
+  assert.deepEqual(await run(query, dataset, { category: "events" }), []);
+  assert.equal((await run(query, dataset.filter(doc => doc._id !== video._id), { category: "video" })).length, 0);
+});
+
+test("Mixed gallery pagination counts videos and keeps a deterministic order", async () => {
+  const videos = Array.from({ length: 14 }, (_, index) => ({ ...video, _id: `video-${String(index).padStart(2, "0")}` }));
+  const dataset = [asset, videoAsset, album, ...videos];
+  const page = (offset, category = null) => run(`{"total": count(*[${galleryItemsFilter}]), "items": *[${galleryItemsFilter}] | order(${galleryItemsOrder}) [${offset}...${offset + 12}]{${galleryItemProjection}}}`, dataset, { category });
+  const first = await page(0), second = await page(12);
+  assert.equal(first.total, 15); assert.equal(second.total, 15);
+  assert.equal(first.items.length, 12); assert.equal(second.items.length, 3);
+  assert.equal(first.items[0]._id, album._id);
+  assert.equal(new Set([...first.items, ...second.items].map(item => item._id)).size, 15);
+  assert.equal((await page(0, "video")).total, 14);
 });

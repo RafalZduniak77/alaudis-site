@@ -19,10 +19,12 @@ export default defineConfig({
   schema: { types: gallerySchema },
   plugins: [
     plPLLocale(),
-    structureTool({ title: "Albumy", structure: S => S.list().title("Galeria").items([
+    structureTool({ title: "Galeria", structure: S => S.list().title("Galeria").items([
       S.listItem().title("Wszystkie albumy").child(S.documentTypeList("galleryAlbum").title("Albumy")),
       S.divider(),
       ...[{ title: "Instrumenty", value: "instruments" }, { title: "Rzemiosło", value: "craft" }, { title: "Wydarzenia", value: "events" }].map(category => S.listItem().title(category.title).child(S.documentList().title(category.title).filter('_type == "galleryAlbum" && category == $category').params({ category: category.value }))),
+      S.divider(),
+      S.listItem().title("Wideo").child(S.documentTypeList("galleryVideo").title("Wideo")),
     ]) }),
   ],
 });

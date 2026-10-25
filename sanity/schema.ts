@@ -39,4 +39,22 @@ const album = defineType({
   preview: { select: { title: "title.pl", category: "category", media: "photos.0.asset" }, prepare: ({ title, category, media }) => ({ title: title || "Nowy album", subtitle: ({ instruments: "Instrumenty", craft: "Rzemiosło", events: "Wydarzenia" } as Record<string, string>)[category] || "Album", media }) },
 });
 
-export const gallerySchema = [localizedString, localizedText, album];
+const video = defineType({
+  name: "galleryVideo", title: "Wideo", type: "document",
+  groups: [{ name: "details", title: "Dane filmu", default: true }, { name: "media", title: "Film i miniatura" }],
+  fields: [
+    defineField({ name: "title", title: "Tytuł filmu", type: "galleryLocalizedString", group: "details", description: "Wpisz polski tytuł, np. Koncert w Pile. Tłumaczenia możesz dodać później.", validation: rule => rule.custom(value => (value as { pl?: string } | undefined)?.pl?.trim() ? true : "Wpisz polski tytuł filmu.") }),
+    defineField({ name: "description", title: "Krótki opis", type: "galleryLocalizedText", group: "details" }),
+    defineField({ name: "location", title: "Miejsce (opcjonalnie)", type: "string", group: "details", validation: rule => rule.max(150) }),
+    defineField({ name: "date", title: "Data (opcjonalnie)", type: "date", group: "details", options: { dateFormat: "DD.MM.YYYY" } }),
+    defineField({ name: "author", title: "Autor nagrania (opcjonalnie)", type: "string", group: "details", validation: rule => rule.max(160) }),
+    defineField({ name: "video", title: "Plik wideo", type: "file", group: "media", options: { accept: "video/mp4,video/webm" }, description: "Przeciągnij film MP4 (H.264 z dźwiękiem AAC) lub WebM. Dla plików MOV wybierz najpierw eksport do MP4. Film zachowuje oryginalne proporcje i jest wczytywany dopiero po otwarciu przez widza.", validation: rule => rule.required().assetRequired() }),
+    defineField({ name: "poster", title: "Miniatura filmu", type: "image", group: "media", options: { accept: "image/jpeg,image/png,image/webp,image/avif" }, description: "Dodaj kadr z filmu lub zdjęcie z koncertu. Miniatura pojawi się w galerii przed rozpoczęciem odtwarzania.", fields: [
+      defineField({ name: "alt", title: "Opis miniatury (ALT)", type: "galleryLocalizedString", description: "Krótki opis tego, co widać na miniaturze. Puste pole korzysta z tytułu filmu." }),
+    ], validation: rule => rule.required().assetRequired() }),
+    defineField({ name: "duration", title: "Czas trwania w sekundach (opcjonalnie)", type: "number", group: "media", description: "Np. 96 dla filmu trwającego 1 minutę i 36 sekund. Puste pole ukrywa czas na miniaturze.", validation: rule => rule.positive() }),
+  ],
+  preview: { select: { title: "title.pl", location: "location", media: "poster" }, prepare: ({ title, location, media }) => ({ title: title || "Nowy film", subtitle: location ? `Wideo · ${location}` : "Wideo", media }) },
+});
+
+export const gallerySchema = [localizedString, localizedText, album, video];

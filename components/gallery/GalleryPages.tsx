@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { getAlbum, getAlbums } from "@/lib/gallery/server";
 import { galleryIsProduction } from "@/lib/gallery/config";
 import { galleryCopy } from "@/lib/gallery/i18n";
-import { galleryLocales, galleryPath, localize, type GalleryCategory, type GalleryLocale } from "@/lib/gallery/types";
+import { galleryLocales, galleryPath, galleryFilters, isGalleryFilter, localize, type GalleryLocale } from "@/lib/gallery/types";
 import { photoUrl } from "@/lib/gallery/images";
 import GalleryHeader from "./GalleryHeader";
 import AlbumCards from "./AlbumCards";
@@ -52,15 +52,15 @@ export async function galleryAlbumMetadata(locale: GalleryLocale, params: Promis
 
 export async function GalleryIndexPage({ locale, searchParams }: { locale: GalleryLocale; searchParams: Promise<{ dzial?: string }> }) {
   const { dzial } = await searchParams;
-  const category = ["instruments", "craft", "events"].includes(dzial || "") ? dzial as GalleryCategory : undefined;
+  const category = dzial && isGalleryFilter(dzial) ? dzial : undefined;
   const copy = galleryCopy[locale];
   const data = await getAlbums(category).catch(() => null);
   if (!data) return <Unavailable locale={locale} />;
   return <main className={styles.page} lang={locale}>
-    <GalleryHeader locale={locale} />
+    <GalleryHeader locale={locale} category={category} />
     <div className={styles.content}>
       <h1 className="sr-only">{copy.eyebrow}</h1>
-      <nav aria-label={copy.albums} className={styles.filters}>{([undefined, "instruments", "craft", "events"] as const).map(value => <Link key={value || "all"} href={`${galleryPath(locale)}${value ? `?dzial=${value}` : ""}`} prefetch={false} scroll={false} aria-current={category === value ? "page" : undefined}>{value ? copy[value] : copy.all}</Link>)}</nav>
+      <nav aria-label={copy.albums} className={styles.filters}>{[undefined, ...galleryFilters].map(value => <Link key={value || "all"} href={`${galleryPath(locale)}${value ? `?dzial=${value}` : ""}`} prefetch={false} scroll={false} aria-current={category === value ? "page" : undefined}>{value ? copy[value] : copy.all}</Link>)}</nav>
       <AlbumCards key={`${category || "all"}-${data.items.map(album => album._updatedAt).join("-")}`} initial={data} locale={locale} category={category} />
     </div><Footer />
   </main>;

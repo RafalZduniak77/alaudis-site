@@ -2,11 +2,11 @@ import "server-only";
 import { cache } from "react";
 import { galleryApiVersion, galleryDataset, galleryProjectId } from "./config";
 import { demoAlbums } from "./demo";
-import { ALBUM_BATCH_SIZE, PHOTO_BATCH_SIZE, type AlbumList, type AlbumPageData, type GalleryAlbum, type GalleryCategory, type GalleryPhoto } from "./types";
+import { ALBUM_BATCH_SIZE, PHOTO_BATCH_SIZE, type AlbumList, type AlbumPageData, type GalleryItem, type GalleryFilter, type GalleryPhoto } from "./types";
 
 export const galleryIsDemo = !galleryProjectId;
 
-import { photoProjection, albumProjection, published } from "./queries";
+import { photoProjection, albumProjection, published, galleryItemsFilter, galleryItemProjection, galleryItemsOrder } from "./queries";
 
 async function query<T>(groq: string, params: Record<string, unknown> = {}): Promise<T> {
   if (!/^[a-z0-9]+$/.test(galleryProjectId)) throw new Error("Gallery project is not configured");
@@ -22,7 +22,7 @@ async function query<T>(groq: string, params: Record<string, unknown> = {}): Pro
   return body.result as T;
 }
 
-export async function getAlbums(category?: GalleryCategory, offset = 0): Promise<AlbumList> {
+export async function getAlbums(category?: GalleryFilter, offset = 0): Promise<AlbumList> {
   if (galleryIsDemo) {
     const albums = demoAlbums.filter(a => !category || a.category === category);
     return { items: albums.slice(offset, offset + ALBUM_BATCH_SIZE).map(album => ({
@@ -31,10 +31,9 @@ export async function getAlbums(category?: GalleryCategory, offset = 0): Promise
       location: album.location, author: album.author, cover: album.cover, photoCount: album.photoCount,
     })), total: albums.length, demo: true };
   }
-  const filter = `${published} && (!defined($category) || category == $category)`;
-  const data = await query<{ items: GalleryAlbum[]; total: number }>(`{
-    "total": count(*[${filter}]),
-    "items": *[${filter}] | order(coalesce(date, _createdAt) desc, _id asc) [${offset}...${offset + ALBUM_BATCH_SIZE}]{${albumProjection}}
+  const data = await query<{ items: GalleryItem[]; total: number }>(`{
+    "total": count(*[${galleryItemsFilter}]),
+    "items": *[${galleryItemsFilter}] | order(${galleryItemsOrder}) [${offset}...${offset + ALBUM_BATCH_SIZE}]{${galleryItemProjection}}
   }`, { category: category || null });
   return { ...data, demo: false };
 }

@@ -39,6 +39,23 @@ Trasy podglądu:
 
 Zakładka „SEO albumu” pozwala ustawić osobny tytuł i opis strony dla wyszukiwarek; puste pola korzystają z tytułu i opisu albumu. Strona generuje metadane albumu, obraz udostępniania oraz dane `ImageGallery`/`ImageObject` dla widocznej partii zdjęć. ALT trafia do standardowego elementu `img`, a dodatkowy opis jest dostępny dla czytników ekranu. Nie dodajemy pól z listami słów kluczowych. Podgląd nadal ma `noindex, nofollow`; produkcja pozwala na indeksowanie, podaje adresy kanoniczne i odpowiedniki językowe PL/EN/DE/FR. Nie zgłaszano osobnej mapy obrazów w Google Search Console. [Wytyczne Google dla zdjęć](https://developers.google.com/search/docs/appearance/google-images).
 
+### Filmy z koncertów
+
+1. W `/panel-galerii` wybrać **„Wideo” → nowy dokument**. W „Dane filmu” wpisać polski tytuł i opcjonalny opis, miejsce, datę oraz autora nagrania. Tłumaczenia PL/EN/DE/FR działają tak samo jak w albumach.
+2. W **„Film i miniatura”** przeciągnąć plik MP4 (H.264/AAC) lub WebM oraz zdjęcie lub kadr z filmu jako miniaturę. Miniatura jest wymagana; opcjonalny ALT korzysta z tytułu, gdy pozostaje pusty. Opcjonalny czas trwania podaje się w sekundach, np. 96 oznacza 1:36.
+3. Poczekać na zakończenie przesyłania i wybrać **„Publikuj”**. Film pojawi się w zakładkach **„Wideo”** i **„Wszystkie”**, po istniejących albumach zdjęć. Cofnięcie publikacji ukrywa film, zachowując szkic i przesłane pliki.
+
+Pliki są przechowywane w tym samym projekcie Sanity co zdjęcia. Przeglądanie galerii pobiera wyłącznie miniatury; sam film jest ładowany dopiero po kliknięciu. Odtwarzacz zachowuje cały kadr, obsługuje dźwięk, przewijanie i pełny ekran, a strzałka powrotu zamyka podgląd. Pionowe nagrania są wyświetlane w pełnych proporcjach. Sanity nie konwertuje automatycznie kodeków w tych plikach; dla MOV/HEVC należy przygotować zgodny plik MP4 przed przesłaniem.
+
+Jednorazowy import zatwierdzonego filmu „Koncert w Pile”:
+
+```bash
+npx sanity exec scripts/import-gallery-video.ts --with-user-token -- --file /ścieżka/koncert-pila.mp4 --poster /ścieżka/koncert-pila.jpg
+# Produkcja: dopisać --production na końcu polecenia.
+```
+
+Import domyślnie korzysta z `gallery_preview` i pomija istniejący film, także szkic. Nagranie z Piły przygotowano bez ponownej kompresji obrazu ani dźwięku, z nagłówkiem MP4 przeniesionym na początek pliku dla szybszego rozpoczęcia odtwarzania. Kolejne filmy można dodawać bez zmian kodu i wdrażania strony.
+
 ## Dane, obrazy i odświeżanie
 
 - Albumy i oryginały są trwale przechowywane w Sanity Content Lake/Assets. Każde zdjęcie istnieje raz; języki są polami tego samego dokumentu.

@@ -2,6 +2,9 @@ export const galleryLocales = ["pl", "en", "de", "fr"] as const;
 export type GalleryLocale = (typeof galleryLocales)[number];
 export type LocalizedText = Partial<Record<GalleryLocale, string>>;
 export type GalleryCategory = "instruments" | "craft" | "events";
+export const galleryFilters = ["instruments", "craft", "events", "video"] as const;
+export type GalleryFilter = (typeof galleryFilters)[number];
+export function isGalleryFilter(value: string): value is GalleryFilter { return galleryFilters.includes(value as GalleryFilter); }
 
 export type GalleryPhoto = {
   _key: string;
@@ -32,7 +35,13 @@ export type GalleryAlbum = {
 };
 
 export type AlbumPageData = GalleryAlbum & { photos: GalleryPhoto[] };
-export type AlbumList = { items: GalleryAlbum[]; total: number; demo: boolean };
+export type GalleryVideo = Omit<GalleryAlbum, "category" | "photoCount" | "slug"> & {
+  category: "video";
+  video: { url: string; mimeType: string };
+  duration?: number;
+};
+export type GalleryItem = GalleryAlbum | GalleryVideo;
+export type AlbumList = { items: GalleryItem[]; total: number; demo: boolean };
 export const PHOTO_BATCH_SIZE = 24;
 export const ALBUM_BATCH_SIZE = 12;
 export const galleryPath = (locale: GalleryLocale) => `${locale === "pl" ? "" : `/${locale}`}/galeria`;
