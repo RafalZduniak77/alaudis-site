@@ -19,6 +19,32 @@ import { alaudisStoryContent, type StoryLanguage } from "./alaudisStoryContent";
 const FACEBOOK_ALAUDIS_URL =
   "https://www.facebook.com/profile.php?id=61579105662197&locale=pl_PL";
 
+const SAP_RENOVATION: Record<
+  StoryLanguage,
+  { href: string; since: string; newTab: string }
+> = {
+  PL: {
+    href: "https://sap-haendler.vercel.app/haendler/pl/",
+    since: "od 1990 roku",
+    newTab: "otwiera się w nowej karcie",
+  },
+  EN: {
+    href: "https://sap-haendler.vercel.app/haendler/en/",
+    since: "since 1990",
+    newTab: "opens in a new tab",
+  },
+  DE: {
+    href: "https://sap-haendler.vercel.app/haendler/",
+    since: "seit 1990",
+    newTab: "öffnet in einem neuen Tab",
+  },
+  FR: {
+    href: "https://sap-haendler.vercel.app/haendler/fr/",
+    since: "depuis 1990",
+    newTab: "s’ouvre dans un nouvel onglet",
+  },
+};
+
 // ----------------------------------------------------------
 // ROZPOZNAWANIE PREFIKSU JĘZYKA
 // ----------------------------------------------------------
@@ -49,6 +75,7 @@ export default function Footer() {
   const langPrefix = getLanguagePrefix(pathname);
   const language = (langPrefix.slice(1).toUpperCase() || "PL") as StoryLanguage;
   const story = alaudisStoryContent[language];
+  const sapRenovation = SAP_RENOVATION[language];
 
   // --------------------------------------------------------
   // LINKI WEWNĘTRZNE Z PREFIXEM JĘZYKA
@@ -171,7 +198,36 @@ export default function Footer() {
       {/* ====================================================
           DÓŁ FOOTERA
          ==================================================== */}
-      <div className="mx-auto mt-16 max-w-7xl text-center">
+      <div className="mx-auto mt-16 flex max-w-7xl flex-col items-center gap-6 border-t border-white/10 pt-8 text-center">
+        <a
+          href={sapRenovation.href}
+          hrefLang={language.toLowerCase()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex min-h-11 flex-col items-center justify-center gap-2 rounded-full border border-[#d3bd8b]/60 bg-black/10 px-6 py-3 text-sm text-[#cfb675] transition-colors hover:border-[#dac18a] hover:bg-[#dac18a] hover:text-[#080808] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#cfb675] sm:flex-row sm:gap-3"
+        >
+          <span className="uppercase tracking-[0.16em]">SAP Renovation</span>
+          <span aria-hidden="true" className="hidden text-white/30 transition-colors group-hover:text-[#080808]/40 sm:inline">
+            ·
+          </span>
+          <span className="inline-flex items-center gap-2 text-white/70 transition-colors group-hover:text-[#080808]">
+            {sapRenovation.since}
+            <svg
+              aria-hidden="true"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </span>
+          <span className="sr-only"> ({sapRenovation.newTab})</span>
+        </a>
         <p className="text-xs uppercase tracking-[0.32em] text-white/75">
           © 2026 ALAUDIS
         </p>
