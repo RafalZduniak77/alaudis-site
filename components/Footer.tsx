@@ -229,7 +229,7 @@ export default function Footer() {
           <span className="sr-only"> ({sapRenovation.newTab})</span>
         </a>
         <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-          © 2026 ALAUDIS
+          © 2025 ALAUDIS
         </p>
       </div>
     </footer>
