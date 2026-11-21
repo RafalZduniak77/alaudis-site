@@ -21,9 +21,9 @@ const SZYMON_PHONE_RAW = "48694424139";
 const SZYMON_PHONE_DISPLAY = "+48 694 424 139";
 const SZYMON_EMAIL = "Szymon@saprenovation.eu";
 
-const MARTYNA_PHONE_RAW = "48531283984";
-const MARTYNA_PHONE_DISPLAY = "+48 531 283 984";
-const MARTYNA_EMAIL = "Martyna@saprenovation.eu";
+const ANDRZEJ_PHONE_RAW = "48533030818";
+const ANDRZEJ_PHONE_DISPLAY = "+48 533 030 818";
+const ANDRZEJ_EMAIL = "Andrzej@saprenovation.eu";
 
 // ==========================================================
 // HILFSLINKS FÜR NACHRICHTEN
@@ -244,8 +244,8 @@ export default function KontaktPage() {
                 <div className="absolute inset-0 p-5">
                   <div className="relative h-full w-full">
                     <Image
-                      src="/kontakt/Martyna.jpg"
-                      alt="Martyna Kowalska"
+                      src="/kontakt/Andrzej.jpg"
+                      alt="Andrzej Bzowy"
                       fill
                       className="object-contain object-center"
                     />
@@ -260,40 +260,40 @@ export default function KontaktPage() {
                 </p>
 
                 <h3 className="mt-4 text-3xl font-light text-white">
-                  Martyna Kowalska
+                  Andrzej Bzowy
                 </h3>
 
                 <p className="mt-5 text-lg text-white/86">
                   <a
-                    href={`tel:+${MARTYNA_PHONE_RAW}`}
+                    href={`tel:+${ANDRZEJ_PHONE_RAW}`}
                     className="transition hover:text-white"
                   >
-                    {MARTYNA_PHONE_DISPLAY}
+                    {ANDRZEJ_PHONE_DISPLAY}
                   </a>
                 </p>
 
                 <p className="mt-3 break-all text-lg text-white/86">
                   <a
-                    href={`mailto:${MARTYNA_EMAIL}`}
+                    href={`mailto:${ANDRZEJ_EMAIL}`}
                     className="transition hover:text-white"
                   >
-                    {MARTYNA_EMAIL}
+                    {ANDRZEJ_EMAIL}
                   </a>
                 </p>
 
                 <div className="mt-8 min-h-[190px]">
                   <div className="flex flex-wrap gap-3">
                     <a
-                      href={`tel:+${MARTYNA_PHONE_RAW}`}
+                      href={`tel:+${ANDRZEJ_PHONE_RAW}`}
                       className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
                     >
                       Anrufen
                     </a>
 
                     <MessageMenu
-                      phoneRaw={MARTYNA_PHONE_RAW}
-                      personName="Martyna"
-                      emailAddress={MARTYNA_EMAIL}
+                      phoneRaw={ANDRZEJ_PHONE_RAW}
+                      personName="Andrzej"
+                      emailAddress={ANDRZEJ_EMAIL}
                     />
                   </div>
                 </div>
@@ -359,18 +359,18 @@ export default function KontaktPage() {
                   </p>
                   <p>
                     <a
-                      href={`tel:+${MARTYNA_PHONE_RAW}`}
+                      href={`tel:+${ANDRZEJ_PHONE_RAW}`}
                       className="transition hover:text-white/88"
                     >
-                      {MARTYNA_PHONE_DISPLAY}
+                      {ANDRZEJ_PHONE_DISPLAY}
                     </a>
                   </p>
                   <p>
                     <a
-                      href={`mailto:${MARTYNA_EMAIL}`}
+                      href={`mailto:${ANDRZEJ_EMAIL}`}
                       className="break-all transition hover:text-white/88"
                     >
-                      {MARTYNA_EMAIL}
+                      {ANDRZEJ_EMAIL}
                     </a>
                   </p>
                 </div>
