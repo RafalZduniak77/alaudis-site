@@ -1,9 +1,10 @@
 import { Suspense } from "react";
-import KonfiguratorShell from "../../../components/konfigurator/KonfiguratorShell";
+import KonfiguratorFallback from "@/components/konfigurator/KonfiguratorFallback";
+import KonfiguratorShell from "@/components/konfigurator/KonfiguratorShell";
 
 export default function KonfiguratorPage() {
   return (
-    <Suspense fallback={<main className="min-h-screen bg-black" />}>
+    <Suspense fallback={<KonfiguratorFallback locale="de" />}>
       <KonfiguratorShell />
     </Suspense>
   );

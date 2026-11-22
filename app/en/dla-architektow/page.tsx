@@ -9,15 +9,20 @@
 // PREMIUM SIMPLIFIED VERSION
 // ==========================================================
 
+import SeoJsonLd from "@/components/SeoJsonLd";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 
+export const metadata = pageMetadata("en", "dlaArchitektow");
+
 export default function ForArchitectsPage() {
   return (
     <main className="min-h-screen bg-black text-white">
+      <SeoJsonLd locale="en" page="dlaArchitektow" />
       <ModelPageTopBar backHref="/en" activeLanguage="EN" />
 
       <section className="page-hero hero-copy relative min-h-screen overflow-hidden border-b border-white/10">

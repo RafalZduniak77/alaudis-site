@@ -1,0 +1,699 @@
+// ==========================================================
+// TREŚCI REDAKCYJNE - ALAUDIS
+// ==========================================================
+// Aktualności i prasa, Artyści, Kaliska tradycja (PL / EN / DE / FR).
+// Nowe wydarzenie lub publikację dodaje się jako kolejny element
+// listy `items` w odpowiedniej sekcji, w każdym z czterech języków.
+// Adresy zaczynające się od "/" są wewnętrzne i automatycznie
+// dostają prefiks języka.
+// ==========================================================
+
+import type { SeoLocale } from "./seo";
+
+export type EditorialLink = { href: string; label: string };
+
+export type EditorialItem = {
+  meta?: string;
+  title: string;
+  text?: string;
+  link?: EditorialLink;
+};
+
+export type EditorialSection = {
+  heading: string;
+  body?: string[];
+  items?: EditorialItem[];
+  link?: EditorialLink;
+};
+
+export type Editorial = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  sections: EditorialSection[];
+};
+
+export type EditorialPageKey = "aktualnosci" | "artysci" | "tradycja";
+
+const PRESS = {
+  kaliszOnline:
+    "https://www.kaliszonline.pl/2026/11/kalisz-znow-ma-wlasny-fortepian-alaudis-one-zachwycil-leszka-mozdzera/",
+  naszeMiasto:
+    "https://kalisz.naszemiasto.pl/uroczysta-inauguracja-fortepianu-alaudis-skonstruowala-go-kaliska-firma-zdjecia/ar/c1p2-29482883",
+  chopin:
+    "https://tifc.chopin.pl/2026/10/02/koncert-inaugurujacy-nowy-model-fortepianu-alaudis-kaliskiej-firmy-sap-renovation/",
+  wKaliszu:
+    "https://wkaliszu.pl/2026/11/19/kultura-fortepianowy-spacer-po-kaliszu-i-wizyta-w-pracowni/",
+};
+
+export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> = {
+  // ========================================================
+  // AKTUALNOŚCI I PRASA
+  // ========================================================
+  aktualnosci: {
+    pl: {
+      eyebrow: "Aktualności i prasa",
+      title: "Aktualności ALAUDIS",
+      lead: "Premiery, koncerty i wydarzenia związane z nowym polskim fortepianem z Kalisza oraz to, co piszą o nas media.",
+      sections: [
+        {
+          heading: "Wydarzenia",
+          items: [
+            {
+              meta: "4 grudnia 2026 · Kalisz",
+              title: "Zwiedzanie pracowni, w której powstał Alaudis",
+              text: "W piątek o godz. 12:00 Informacja Turystyczna w Kaliszu zaprasza do pracowni SAP Renovation przy ul. Obozowej 18. Uczestnicy zobaczą, jak odnawia się dawne fortepiany i jak instrument wygląda od środka. Udział jest bezpłatny.",
+              link: { href: PRESS.wKaliszu, label: "Szczegóły w serwisie wKaliszu" },
+            },
+            {
+              meta: "29 listopada 2026 · Kalisz",
+              title: "Spacer „Szlakiem kaliskich fortepianów”",
+              text: "Bezpłatny spacer po miejscach związanych z fortepianową historią miasta. Zbiórka w niedzielę o godz. 12:00 przy ratuszowym fortepianie, Główny Rynek 20. Organizatorem jest Informacja Turystyczna w Kaliszu.",
+              link: { href: "/tradycja", label: "Poznaj kaliską tradycję" },
+            },
+            {
+              meta: "29 października 2026 · Kalisz",
+              title: "Premiera fortepianu ALAUDIS ONE",
+              text: "Pierwszy model marki został oficjalnie zaprezentowany w Auli im. prof. Jerzego Rubińskiego Wydziału Pedagogiczno-Artystycznego UAM w Kaliszu. Wystąpili Łukasz Byrdy, duet Per Quattro i Leszek Możdżer. Współorganizatorem wieczoru był Wydział Pedagogiczno-Artystyczny UAM, a partnerem Towarzystwo im. Fryderyka Chopina. Koncertowi towarzyszyła wystawa fotografii Wojciecha Neubauera dokumentujących powstawanie instrumentu.",
+              link: { href: "/artysci", label: "Artyści koncertu premierowego" },
+            },
+            {
+              meta: "Wrzesień 2026 · Kalisz",
+              title: "Adam Makowicz gra na Alaudis",
+              text: "W kaliskim Akceleratorze Kultury na fortepianie Alaudis zagrał Adam Makowicz.",
+            },
+          ],
+        },
+        {
+          heading: "Napisali o nas",
+          items: [
+            {
+              meta: "KaliszOnline",
+              title: "„Kalisz znów ma własny fortepian. Alaudis One zachwycił Leszka Możdżera”",
+              link: { href: PRESS.kaliszOnline, label: "Czytaj artykuł" },
+            },
+            {
+              meta: "Nasze Miasto Kalisz",
+              title: "„Uroczysta inauguracja fortepianu Alaudis. Skonstruowała go kaliska firma”",
+              link: { href: PRESS.naszeMiasto, label: "Czytaj artykuł" },
+            },
+            {
+              meta: "Towarzystwo im. Fryderyka Chopina",
+              title: "„Koncert inaugurujący nowy model fortepianu Alaudis kaliskiej firmy SAP Renovation”",
+              link: { href: PRESS.chopin, label: "Czytaj artykuł" },
+            },
+            {
+              meta: "wKaliszu",
+              title: "„Fortepianowy spacer po Kaliszu i wizyta w pracowni”",
+              link: { href: PRESS.wKaliszu, label: "Czytaj artykuł" },
+            },
+          ],
+        },
+        {
+          heading: "Dla mediów",
+          body: [
+            "Przygotowujesz materiał o fortepianie Alaudis? Chętnie udostępnimy zdjęcia, informacje o instrumencie i umówimy rozmowę z jego twórcami. Fotografie i nagrania z wydarzeń znajdziesz także w galerii „W kadrze”.",
+          ],
+          link: { href: "/galeria", label: "Otwórz galerię" },
+        },
+      ],
+    },
+    en: {
+      eyebrow: "News and press",
+      title: "ALAUDIS News",
+      lead: "Premieres, concerts and events around the new Polish grand piano from Kalisz, and what the media are writing about us.",
+      sections: [
+        {
+          heading: "Events",
+          items: [
+            {
+              meta: "4 December 2026 · Kalisz",
+              title: "A visit to the workshop where Alaudis was built",
+              text: "On Friday at 12:00 the Kalisz Tourist Information Centre invites visitors to the SAP Renovation workshop at Obozowa 18. Guests will see how historic pianos are restored and what an instrument looks like from the inside. Admission is free.",
+              link: { href: PRESS.wKaliszu, label: "Details at wKaliszu (in Polish)" },
+            },
+            {
+              meta: "29 November 2026 · Kalisz",
+              title: "“On the trail of Kalisz pianos” city walk",
+              text: "A free walk through the places connected with the city’s piano-making history. Meeting point: Sunday at 12:00 by the town hall piano, Główny Rynek 20. Organised by the Kalisz Tourist Information Centre.",
+              link: { href: "/tradycja", label: "Discover the Kalisz tradition" },
+            },
+            {
+              meta: "29 October 2026 · Kalisz",
+              title: "Premiere of the ALAUDIS ONE grand piano",
+              text: "The first model of the brand was officially presented in the Prof. Jerzy Rubiński Hall of the Faculty of Pedagogy and Fine Arts of Adam Mickiewicz University in Kalisz. The performers were Łukasz Byrdy, the Per Quattro duo and Leszek Możdżer. The evening was co-organised by the Faculty, in partnership with the Fryderyk Chopin Society. The concert was accompanied by an exhibition of photographs by Wojciech Neubauer documenting the making of the instrument.",
+              link: { href: "/artysci", label: "Artists of the premiere concert" },
+            },
+            {
+              meta: "September 2026 · Kalisz",
+              title: "Adam Makowicz plays Alaudis",
+              text: "Adam Makowicz performed on an Alaudis grand piano at the Akcelerator Kultury in Kalisz.",
+            },
+          ],
+        },
+        {
+          heading: "In the press",
+          items: [
+            {
+              meta: "KaliszOnline · in Polish",
+              title: "“Kalisz has its own grand piano again. Alaudis One delighted Leszek Możdżer”",
+              link: { href: PRESS.kaliszOnline, label: "Read the article" },
+            },
+            {
+              meta: "Nasze Miasto Kalisz · in Polish",
+              title: "“Ceremonial inauguration of the Alaudis grand piano, built by a Kalisz company”",
+              link: { href: PRESS.naszeMiasto, label: "Read the article" },
+            },
+            {
+              meta: "Fryderyk Chopin Society · in Polish",
+              title: "“Concert inaugurating the new Alaudis grand piano by SAP Renovation of Kalisz”",
+              link: { href: PRESS.chopin, label: "Read the article" },
+            },
+            {
+              meta: "wKaliszu · in Polish",
+              title: "“A piano walk through Kalisz and a visit to the workshop”",
+              link: { href: PRESS.wKaliszu, label: "Read the article" },
+            },
+          ],
+        },
+        {
+          heading: "For the media",
+          body: [
+            "Preparing a story about the Alaudis grand piano? We will gladly provide photographs and information about the instrument and arrange a conversation with its makers. Photographs and recordings from our events are also available in the “In focus” gallery.",
+          ],
+          link: { href: "/galeria", label: "Open the gallery" },
+        },
+      ],
+    },
+    de: {
+      eyebrow: "Aktuelles und Presse",
+      title: "ALAUDIS Aktuelles",
+      lead: "Premieren, Konzerte und Veranstaltungen rund um den neuen polnischen Flügel aus Kalisz und was die Medien über uns schreiben.",
+      sections: [
+        {
+          heading: "Veranstaltungen",
+          items: [
+            {
+              meta: "4. Dezember 2026 · Kalisz",
+              title: "Besuch der Werkstatt, in der Alaudis entstand",
+              text: "Am Freitag um 12:00 Uhr lädt die Touristeninformation Kalisz in die Werkstatt von SAP Renovation in der Obozowa 18 ein. Die Gäste sehen, wie historische Flügel restauriert werden und wie ein Instrument von innen aussieht. Die Teilnahme ist kostenlos.",
+              link: { href: PRESS.wKaliszu, label: "Details bei wKaliszu (auf Polnisch)" },
+            },
+            {
+              meta: "29. November 2026 · Kalisz",
+              title: "Stadtspaziergang „Auf den Spuren der Kalischer Flügel“",
+              text: "Ein kostenloser Spaziergang zu den Orten der Klavierbaugeschichte der Stadt. Treffpunkt: Sonntag um 12:00 Uhr am Rathausflügel, Główny Rynek 20. Veranstalter ist die Touristeninformation Kalisz.",
+              link: { href: "/tradycja", label: "Die Kalischer Tradition entdecken" },
+            },
+            {
+              meta: "29. Oktober 2026 · Kalisz",
+              title: "Premiere des Flügels ALAUDIS ONE",
+              text: "Das erste Modell der Marke wurde offiziell in der Prof.-Jerzy-Rubiński-Aula der Pädagogisch-Künstlerischen Fakultät der Adam-Mickiewicz-Universität in Kalisz vorgestellt. Es spielten Łukasz Byrdy, das Duo Per Quattro und Leszek Możdżer. Mitveranstalter des Abends war die Fakultät, Partner die Fryderyk-Chopin-Gesellschaft. Begleitet wurde das Konzert von einer Ausstellung mit Fotografien von Wojciech Neubauer, die die Entstehung des Instruments dokumentieren.",
+              link: { href: "/artysci", label: "Die Künstler des Premierenkonzerts" },
+            },
+            {
+              meta: "September 2026 · Kalisz",
+              title: "Adam Makowicz spielt Alaudis",
+              text: "Im Akcelerator Kultury in Kalisz spielte Adam Makowicz auf einem Alaudis Flügel.",
+            },
+          ],
+        },
+        {
+          heading: "Pressestimmen",
+          items: [
+            {
+              meta: "KaliszOnline · auf Polnisch",
+              title: "„Kalisz hat wieder einen eigenen Flügel. Alaudis One begeisterte Leszek Możdżer“",
+              link: { href: PRESS.kaliszOnline, label: "Artikel lesen" },
+            },
+            {
+              meta: "Nasze Miasto Kalisz · auf Polnisch",
+              title: "„Feierliche Einweihung des Flügels Alaudis, gebaut von einem Kalischer Unternehmen“",
+              link: { href: PRESS.naszeMiasto, label: "Artikel lesen" },
+            },
+            {
+              meta: "Fryderyk-Chopin-Gesellschaft · auf Polnisch",
+              title: "„Konzert zur Einweihung des neuen Flügels Alaudis von SAP Renovation aus Kalisz“",
+              link: { href: PRESS.chopin, label: "Artikel lesen" },
+            },
+            {
+              meta: "wKaliszu · auf Polnisch",
+              title: "„Flügel-Spaziergang durch Kalisz und Besuch in der Werkstatt“",
+              link: { href: PRESS.wKaliszu, label: "Artikel lesen" },
+            },
+          ],
+        },
+        {
+          heading: "Für Medien",
+          body: [
+            "Sie bereiten einen Beitrag über den Alaudis Flügel vor? Gern stellen wir Fotos und Informationen zum Instrument bereit und vermitteln ein Gespräch mit seinen Erbauern. Fotos und Aufnahmen unserer Veranstaltungen finden Sie auch in der Galerie „Einblicke“.",
+          ],
+          link: { href: "/galeria", label: "Galerie öffnen" },
+        },
+      ],
+    },
+    fr: {
+      eyebrow: "Actualités et presse",
+      title: "Actualités ALAUDIS",
+      lead: "Premières, concerts et événements autour du nouveau piano à queue polonais de Kalisz, et ce que les médias écrivent sur nous.",
+      sections: [
+        {
+          heading: "Événements",
+          items: [
+            {
+              meta: "4 décembre 2026 · Kalisz",
+              title: "Visite de l’atelier où est né Alaudis",
+              text: "Vendredi à 12 h, l’Office de tourisme de Kalisz invite le public dans l’atelier SAP Renovation, rue Obozowa 18. Les visiteurs verront comment on restaure les pianos anciens et à quoi ressemble un instrument de l’intérieur. L’entrée est gratuite.",
+              link: { href: PRESS.wKaliszu, label: "Détails sur wKaliszu (en polonais)" },
+            },
+            {
+              meta: "29 novembre 2026 · Kalisz",
+              title: "Promenade « Sur la route des pianos de Kalisz »",
+              text: "Une promenade gratuite à travers les lieux liés à l’histoire de la facture de pianos dans la ville. Rendez-vous dimanche à 12 h près du piano de l’hôtel de ville, Główny Rynek 20. Organisée par l’Office de tourisme de Kalisz.",
+              link: { href: "/tradycja", label: "Découvrir la tradition de Kalisz" },
+            },
+            {
+              meta: "29 octobre 2026 · Kalisz",
+              title: "Première du piano à queue ALAUDIS ONE",
+              text: "Le premier modèle de la marque a été présenté officiellement dans l’aula Prof. Jerzy Rubiński de la Faculté de pédagogie et des beaux-arts de l’Université Adam Mickiewicz à Kalisz. Se sont produits Łukasz Byrdy, le duo Per Quattro et Leszek Możdżer. La soirée était coorganisée par la Faculté, en partenariat avec la Société Frédéric Chopin. Le concert était accompagné d’une exposition de photographies de Wojciech Neubauer documentant la naissance de l’instrument.",
+              link: { href: "/artysci", label: "Les artistes du concert de première" },
+            },
+            {
+              meta: "Septembre 2026 · Kalisz",
+              title: "Adam Makowicz joue sur Alaudis",
+              text: "Adam Makowicz a joué sur un piano à queue Alaudis à l’Akcelerator Kultury de Kalisz.",
+            },
+          ],
+        },
+        {
+          heading: "Dans la presse",
+          items: [
+            {
+              meta: "KaliszOnline · en polonais",
+              title: "« Kalisz a de nouveau son propre piano. Alaudis One a enchanté Leszek Możdżer »",
+              link: { href: PRESS.kaliszOnline, label: "Lire l’article" },
+            },
+            {
+              meta: "Nasze Miasto Kalisz · en polonais",
+              title: "« Inauguration solennelle du piano Alaudis, construit par une entreprise de Kalisz »",
+              link: { href: PRESS.naszeMiasto, label: "Lire l’article" },
+            },
+            {
+              meta: "Société Frédéric Chopin · en polonais",
+              title: "« Concert inaugurant le nouveau piano Alaudis de SAP Renovation, Kalisz »",
+              link: { href: PRESS.chopin, label: "Lire l’article" },
+            },
+            {
+              meta: "wKaliszu · en polonais",
+              title: "« Promenade des pianos à Kalisz et visite de l’atelier »",
+              link: { href: PRESS.wKaliszu, label: "Lire l’article" },
+            },
+          ],
+        },
+        {
+          heading: "Pour les médias",
+          body: [
+            "Vous préparez un sujet sur le piano à queue Alaudis ? Nous fournissons volontiers des photographies et des informations sur l’instrument et organisons un entretien avec ses créateurs. Les photographies et enregistrements de nos événements sont également disponibles dans la galerie « En images ».",
+          ],
+          link: { href: "/galeria", label: "Ouvrir la galerie" },
+        },
+      ],
+    },
+  },
+
+  // ========================================================
+  // ARTYŚCI
+  // ========================================================
+  artysci: {
+    pl: {
+      eyebrow: "Artyści",
+      title: "Artyści przy fortepianie ALAUDIS",
+      lead: "Fortepian sprawdza się dopiero pod palcami pianisty. Oto muzycy, którzy zagrali na Alaudis, i mistrz, który nadał mu ostateczne brzmienie.",
+      sections: [
+        {
+          heading: "Koncert premierowy, 29 października 2026",
+          body: [
+            "Premierowy wieczór w Auli im. prof. Jerzego Rubińskiego w Kaliszu pokazał instrument w trzech odsłonach: w recitalu chopinowskim, w grze na cztery ręce i w jazzowej improwizacji.",
+          ],
+          items: [
+            {
+              meta: "Fortepian, improwizacja",
+              title: "Leszek Możdżer",
+              text: "Pianista jazzowy i kompozytor zamknął koncert premierowy własnymi utworami i improwizacjami. Sięgnął też po „Liberetto” Larsa Danielssona, „Przygodę z Marią” Jana Ptaszyna Wróblewskiego i Etiudę „Rewolucyjną” Chopina. Jak relacjonował portal KaliszOnline, artysta wysoko ocenił brzmienie fortepianu i uznał go za konstrukcję światowej klasy.",
+              link: { href: PRESS.kaliszOnline, label: "Relacja KaliszOnline" },
+            },
+            {
+              meta: "Fortepian",
+              title: "Łukasz Byrdy",
+              text: "Otworzył wieczór interpretacjami utworów Fryderyka Chopina.",
+            },
+            {
+              meta: "Duet fortepianowy na cztery ręce",
+              title: "Per Quattro",
+              text: "Joanna Kaczmarska-Bieżyńska i Robert Adamczak wykonali muzykę Chopina, trzy tańce węgierskie Johannesa Brahmsa oraz „Libertango” Astora Piazzolli.",
+            },
+          ],
+        },
+        {
+          heading: "Pierwsze spotkania z instrumentem",
+          body: [
+            "Zanim Alaudis ONE trafił na scenę, poznawali go pianiści podczas kameralnych spotkań. Jak podaje KaliszOnline, zagrali na nim między innymi Rafał Blechacz, Adam Makowicz, Piotr Pawlak i Michał Tokaj.",
+            "We wrześniu 2026 roku Adam Makowicz wystąpił na fortepianie Alaudis w kaliskim Akceleratorze Kultury.",
+          ],
+        },
+        {
+          heading: "Mistrz intonacji",
+          items: [
+            {
+              meta: "Regulacja i intonacja",
+              title: "Peter Salisbury",
+              text: "Regulację i końcową intonację Alaudis ONE powierzono Peterowi Salisbury’emu, głównemu technikowi koncertowemu londyńskiej Royal Festival Hall.",
+              link: { href: "/historia", label: "Zobacz, jak powstaje Alaudis" },
+            },
+          ],
+        },
+        {
+          heading: "Młode talenty",
+          body: [
+            "W naszej pracowni gościmy także młodych pianistów. Fotografie z wizyty Antoniny Waliszewskiej oraz z koncertów i spotkań z artystami znajdziesz w galerii „W kadrze”.",
+          ],
+          link: { href: "/galeria", label: "Otwórz galerię" },
+        },
+      ],
+    },
+    en: {
+      eyebrow: "Artists",
+      title: "Artists at the ALAUDIS grand piano",
+      lead: "A grand piano proves itself only under a pianist’s hands. These are the musicians who have played Alaudis, and the master who gave it its final voice.",
+      sections: [
+        {
+          heading: "Premiere concert, 29 October 2026",
+          body: [
+            "The premiere evening in the Prof. Jerzy Rubiński Hall in Kalisz showed the instrument in three settings: a Chopin recital, four-hand playing and jazz improvisation.",
+          ],
+          items: [
+            {
+              meta: "Piano, improvisation",
+              title: "Leszek Możdżer",
+              text: "The jazz pianist and composer closed the premiere concert with his own pieces and improvisations. He also played Lars Danielsson’s “Liberetto”, Jan Ptaszyn Wróblewski’s “Przygoda z Marią” and Chopin’s “Revolutionary” Étude. According to KaliszOnline, he spoke highly of the piano’s sound and called it a world-class design.",
+              link: { href: PRESS.kaliszOnline, label: "KaliszOnline report (in Polish)" },
+            },
+            {
+              meta: "Piano",
+              title: "Łukasz Byrdy",
+              text: "He opened the evening with interpretations of works by Fryderyk Chopin.",
+            },
+            {
+              meta: "Piano duo, four hands",
+              title: "Per Quattro",
+              text: "Joanna Kaczmarska-Bieżyńska and Robert Adamczak performed music by Chopin, three Hungarian Dances by Johannes Brahms and Astor Piazzolla’s “Libertango”.",
+            },
+          ],
+        },
+        {
+          heading: "First encounters with the instrument",
+          body: [
+            "Before Alaudis ONE reached the stage, pianists got to know it at smaller, private meetings. According to KaliszOnline, those who played it include Rafał Blechacz, Adam Makowicz, Piotr Pawlak and Michał Tokaj.",
+            "In September 2026 Adam Makowicz performed on an Alaudis grand piano at the Akcelerator Kultury in Kalisz.",
+          ],
+        },
+        {
+          heading: "The master of voicing",
+          items: [
+            {
+              meta: "Regulation and voicing",
+              title: "Peter Salisbury",
+              text: "The regulation and final voicing of Alaudis ONE were entrusted to Peter Salisbury, chief concert technician of London’s Royal Festival Hall.",
+              link: { href: "/historia", label: "See how an Alaudis is made" },
+            },
+          ],
+        },
+        {
+          heading: "Young talents",
+          body: [
+            "Our workshop also welcomes young pianists. Photographs from the visit of Antonina Waliszewska, and from concerts and meetings with artists, can be found in the “In focus” gallery.",
+          ],
+          link: { href: "/galeria", label: "Open the gallery" },
+        },
+      ],
+    },
+    de: {
+      eyebrow: "Künstler",
+      title: "Künstler am ALAUDIS Flügel",
+      lead: "Ein Flügel beweist sich erst unter den Händen eines Pianisten. Dies sind die Musiker, die auf Alaudis gespielt haben, und der Meister, der ihm seinen endgültigen Klang gab.",
+      sections: [
+        {
+          heading: "Premierenkonzert, 29. Oktober 2026",
+          body: [
+            "Der Premierenabend in der Prof.-Jerzy-Rubiński-Aula in Kalisz zeigte das Instrument in drei Rollen: im Chopin-Recital, im vierhändigen Spiel und in der Jazzimprovisation.",
+          ],
+          items: [
+            {
+              meta: "Klavier, Improvisation",
+              title: "Leszek Możdżer",
+              text: "Der Jazzpianist und Komponist beschloss das Premierenkonzert mit eigenen Stücken und Improvisationen. Er spielte außerdem „Liberetto“ von Lars Danielsson, „Przygoda z Marią“ von Jan Ptaszyn Wróblewski und Chopins „Revolutionsetüde“. Wie das Portal KaliszOnline berichtete, lobte er den Klang des Flügels und nannte ihn eine Konstruktion von Weltklasse.",
+              link: { href: PRESS.kaliszOnline, label: "Bericht von KaliszOnline (auf Polnisch)" },
+            },
+            {
+              meta: "Klavier",
+              title: "Łukasz Byrdy",
+              text: "Er eröffnete den Abend mit Interpretationen von Werken Fryderyk Chopins.",
+            },
+            {
+              meta: "Klavierduo zu vier Händen",
+              title: "Per Quattro",
+              text: "Joanna Kaczmarska-Bieżyńska und Robert Adamczak spielten Musik von Chopin, drei Ungarische Tänze von Johannes Brahms und „Libertango“ von Astor Piazzolla.",
+            },
+          ],
+        },
+        {
+          heading: "Erste Begegnungen mit dem Instrument",
+          body: [
+            "Bevor Alaudis ONE auf die Bühne kam, lernten Pianisten ihn bei kleineren, privaten Treffen kennen. Laut KaliszOnline spielten darauf unter anderem Rafał Blechacz, Adam Makowicz, Piotr Pawlak und Michał Tokaj.",
+            "Im September 2026 spielte Adam Makowicz im Akcelerator Kultury in Kalisz auf einem Alaudis Flügel.",
+          ],
+        },
+        {
+          heading: "Der Meister der Intonation",
+          items: [
+            {
+              meta: "Regulierung und Intonation",
+              title: "Peter Salisbury",
+              text: "Regulierung und abschließende Intonation des Alaudis ONE lagen in den Händen von Peter Salisbury, dem leitenden Konzerttechniker der Londoner Royal Festival Hall.",
+              link: { href: "/historia", label: "So entsteht ein Alaudis" },
+            },
+          ],
+        },
+        {
+          heading: "Junge Talente",
+          body: [
+            "In unserer Werkstatt sind auch junge Pianistinnen und Pianisten zu Gast. Fotos vom Besuch von Antonina Waliszewska sowie von Konzerten und Begegnungen mit Künstlern finden Sie in der Galerie „Einblicke“.",
+          ],
+          link: { href: "/galeria", label: "Galerie öffnen" },
+        },
+      ],
+    },
+    fr: {
+      eyebrow: "Artistes",
+      title: "Les artistes au piano ALAUDIS",
+      lead: "Un piano à queue ne se révèle que sous les doigts d’un pianiste. Voici les musiciens qui ont joué sur Alaudis, et le maître qui lui a donné sa voix définitive.",
+      sections: [
+        {
+          heading: "Concert de première, 29 octobre 2026",
+          body: [
+            "La soirée de première, dans l’aula Prof. Jerzy Rubiński à Kalisz, a montré l’instrument sous trois visages : le récital Chopin, le jeu à quatre mains et l’improvisation jazz.",
+          ],
+          items: [
+            {
+              meta: "Piano, improvisation",
+              title: "Leszek Możdżer",
+              text: "Le pianiste de jazz et compositeur a clos le concert de première avec ses propres pièces et improvisations. Il a également joué « Liberetto » de Lars Danielsson, « Przygoda z Marią » de Jan Ptaszyn Wróblewski et l’Étude « Révolutionnaire » de Chopin. Selon le portail KaliszOnline, il a salué la sonorité du piano et l’a qualifié de construction de classe mondiale.",
+              link: { href: PRESS.kaliszOnline, label: "Compte rendu de KaliszOnline (en polonais)" },
+            },
+            {
+              meta: "Piano",
+              title: "Łukasz Byrdy",
+              text: "Il a ouvert la soirée avec des interprétations d’œuvres de Frédéric Chopin.",
+            },
+            {
+              meta: "Duo de piano à quatre mains",
+              title: "Per Quattro",
+              text: "Joanna Kaczmarska-Bieżyńska et Robert Adamczak ont interprété de la musique de Chopin, trois Danses hongroises de Johannes Brahms et « Libertango » d’Astor Piazzolla.",
+            },
+          ],
+        },
+        {
+          heading: "Premières rencontres avec l’instrument",
+          body: [
+            "Avant qu’Alaudis ONE ne monte sur scène, des pianistes l’ont découvert lors de rencontres plus intimes. Selon KaliszOnline, Rafał Blechacz, Adam Makowicz, Piotr Pawlak et Michał Tokaj comptent parmi ceux qui l’ont joué.",
+            "En septembre 2026, Adam Makowicz a joué sur un piano à queue Alaudis à l’Akcelerator Kultury de Kalisz.",
+          ],
+        },
+        {
+          heading: "Le maître de l’harmonisation",
+          items: [
+            {
+              meta: "Réglage et harmonisation",
+              title: "Peter Salisbury",
+              text: "Le réglage et l’harmonisation finale d’Alaudis ONE ont été confiés à Peter Salisbury, technicien de concert en chef du Royal Festival Hall de Londres.",
+              link: { href: "/historia", label: "Découvrir comment naît un Alaudis" },
+            },
+          ],
+        },
+        {
+          heading: "Jeunes talents",
+          body: [
+            "Notre atelier accueille aussi de jeunes pianistes. Les photographies de la visite d’Antonina Waliszewska, ainsi que des concerts et rencontres avec les artistes, se trouvent dans la galerie « En images ».",
+          ],
+          link: { href: "/galeria", label: "Ouvrir la galerie" },
+        },
+      ],
+    },
+  },
+
+  // ========================================================
+  // KALISKA TRADYCJA
+  // ========================================================
+  tradycja: {
+    pl: {
+      eyebrow: "Dziedzictwo",
+      title: "Kalisz, miasto fortepianów",
+      lead: "Alaudis nie powstał w przypadkowym miejscu. Kalisz buduje fortepiany od pokoleń, a nasz instrument jest kolejnym rozdziałem tej historii.",
+      sections: [
+        {
+          heading: "Od warsztatu do fabryki",
+          body: [
+            "Kaliskie tradycje budowy fortepianów sięgają XVIII wieku. Ich najsłynniejszy rozdział otworzył Gustaw Arnold Fibiger, który w 1873 roku założył w mieście pracownię naprawczą, a w 1878 roku ukończył swój pierwszy fortepian. Tę datę przyjmuje się za początek Fabryki Fortepianów i Pianin Arnold Fibiger.",
+            "Rozgłos przyniósł firmie wielki fortepian koncertowy o długości 240 cm, pokazany w 1885 roku na wystawie w Warszawie. Przed I wojną światową fabryka mogła wytwarzać ponad tysiąc instrumentów rocznie i należała do czołówki polskiego przemysłu fortepianowego.",
+          ],
+        },
+        {
+          heading: "Calisia",
+          body: [
+            "Po II wojnie światowej zakład upaństwowiono i nadano mu nazwę „Calisia”. Pianina i fortepiany z Kalisza trafiały między innymi do Skandynawii, a w 1954 roku w mieście powstało Technikum Budowy Fortepianów, które kształciło kolejne pokolenia fachowców. Fabryka działała do 2007 roku.",
+          ],
+        },
+        {
+          heading: "Miasto, które wciąż zna się na fortepianach",
+          body: [
+            "Wraz z zamknięciem fabryki rzemiosło nie zniknęło. Jak podaje KaliszOnline, w Kaliszu i okolicy działa dziś ponad 40 firm naprawiających i odnawiających fortepiany oraz pianina.",
+            "Jedną z nich jest SAP Renovation. Od 1990 roku nasz zespół odrestaurował 14 000 instrumentów, poznając od środka konstrukcje największych światowych producentów.",
+          ],
+        },
+        {
+          heading: "Alaudis: nowy rozdział",
+          body: [
+            "Z tego doświadczenia wyrósł Alaudis, pierwszy od kilkunastu lat fortepian skonstruowany i wykonany w Kaliszu. Nad modelem ONE 178 pracował 77-osobowy zespół.",
+            "Nazwa pochodzi od łacińskiego słowa alauda, czyli skowronek: niewielki ptak, którego śpiew niesie się daleko.",
+          ],
+          link: { href: "/historia", label: "Zobacz, jak powstaje Alaudis" },
+        },
+      ],
+    },
+    en: {
+      eyebrow: "Heritage",
+      title: "Kalisz, a city of pianos",
+      lead: "Alaudis was not born in a random place. Kalisz has been building pianos for generations, and our instrument is the next chapter of that story.",
+      sections: [
+        {
+          heading: "From workshop to factory",
+          body: [
+            "The piano-making tradition of Kalisz goes back to the 18th century. Its most famous chapter was opened by Gustaw Arnold Fibiger, who set up a repair workshop in the city in 1873 and completed his first grand piano in 1878. That date is regarded as the beginning of the Arnold Fibiger Grand and Upright Piano Factory.",
+            "The company made its name with a 240 cm concert grand shown at the Warsaw exhibition in 1885. Before the First World War the factory was capable of producing more than a thousand instruments a year and was among the leaders of the Polish piano industry.",
+          ],
+        },
+        {
+          heading: "Calisia",
+          body: [
+            "After the Second World War the factory was nationalised and renamed “Calisia”. Upright and grand pianos from Kalisz were exported to Scandinavia and beyond, and in 1954 a technical school of piano building was founded in the city to train new generations of craftsmen. The factory operated until 2007.",
+          ],
+        },
+        {
+          heading: "A city that still knows pianos",
+          body: [
+            "The craft did not disappear when the factory closed. According to KaliszOnline, more than 40 companies repairing and restoring grand and upright pianos operate in and around Kalisz today.",
+            "SAP Renovation is one of them. Since 1990 our team has restored 14,000 instruments, learning from the inside the designs of the world’s greatest makers.",
+          ],
+        },
+        {
+          heading: "Alaudis: a new chapter",
+          body: [
+            "Out of that experience grew Alaudis, the first grand piano in more than a decade to be designed and built in Kalisz. A team of 77 people worked on the ONE 178 model.",
+            "The name comes from the Latin word alauda, the lark: a small bird whose song carries far.",
+          ],
+          link: { href: "/historia", label: "See how an Alaudis is made" },
+        },
+      ],
+    },
+    de: {
+      eyebrow: "Tradition",
+      title: "Kalisz, Stadt der Flügel",
+      lead: "Alaudis ist nicht an einem zufälligen Ort entstanden. In Kalisz werden seit Generationen Flügel und Klaviere gebaut, und unser Instrument ist das nächste Kapitel dieser Geschichte.",
+      sections: [
+        {
+          heading: "Von der Werkstatt zur Fabrik",
+          body: [
+            "Die Kalischer Klavierbautradition reicht bis ins 18. Jahrhundert zurück. Ihr berühmtestes Kapitel schlug Gustaw Arnold Fibiger auf, der 1873 in der Stadt eine Reparaturwerkstatt gründete und 1878 seinen ersten Flügel vollendete. Dieses Datum gilt als Beginn der Flügel- und Pianofabrik Arnold Fibiger.",
+            "Bekannt wurde das Unternehmen durch einen 240 cm langen Konzertflügel, der 1885 auf der Warschauer Ausstellung gezeigt wurde. Vor dem Ersten Weltkrieg konnte die Fabrik mehr als tausend Instrumente im Jahr herstellen und gehörte zur Spitze der polnischen Klavierindustrie.",
+          ],
+        },
+        {
+          heading: "Calisia",
+          body: [
+            "Nach dem Zweiten Weltkrieg wurde das Werk verstaatlicht und in „Calisia“ umbenannt. Klaviere und Flügel aus Kalisz gingen unter anderem nach Skandinavien, und 1954 entstand in der Stadt ein Technikum für Klavierbau, das neue Generationen von Fachleuten ausbildete. Die Fabrik bestand bis 2007.",
+          ],
+        },
+        {
+          heading: "Eine Stadt, die Flügel noch immer versteht",
+          body: [
+            "Mit der Schließung der Fabrik verschwand das Handwerk nicht. Laut KaliszOnline sind in Kalisz und Umgebung heute mehr als 40 Betriebe tätig, die Flügel und Klaviere reparieren und restaurieren.",
+            "Einer davon ist SAP Renovation. Seit 1990 hat unser Team 14.000 Instrumente restauriert und dabei die Konstruktionen der größten Hersteller der Welt von innen kennengelernt.",
+          ],
+        },
+        {
+          heading: "Alaudis: ein neues Kapitel",
+          body: [
+            "Aus dieser Erfahrung ist Alaudis hervorgegangen, der erste Flügel seit mehr als einem Jahrzehnt, der in Kalisz konstruiert und gebaut wurde. Am Modell ONE 178 arbeitete ein Team von 77 Personen.",
+            "Der Name stammt vom lateinischen Wort alauda, die Lerche: ein kleiner Vogel, dessen Gesang weit trägt.",
+          ],
+          link: { href: "/historia", label: "So entsteht ein Alaudis" },
+        },
+      ],
+    },
+    fr: {
+      eyebrow: "Héritage",
+      title: "Kalisz, ville des pianos",
+      lead: "Alaudis n’est pas né dans un lieu choisi au hasard. Kalisz construit des pianos depuis des générations, et notre instrument est le nouveau chapitre de cette histoire.",
+      sections: [
+        {
+          heading: "De l’atelier à la fabrique",
+          body: [
+            "La tradition de la facture de pianos à Kalisz remonte au XVIIIe siècle. Son chapitre le plus célèbre a été ouvert par Gustaw Arnold Fibiger, qui fonda en 1873 un atelier de réparation dans la ville et acheva en 1878 son premier piano à queue. Cette date est considérée comme le début de la Fabrique de pianos Arnold Fibiger.",
+            "L’entreprise s’est fait connaître grâce à un piano de concert de 240 cm présenté en 1885 à l’exposition de Varsovie. Avant la Première Guerre mondiale, la fabrique pouvait produire plus de mille instruments par an et comptait parmi les premières de l’industrie polonaise du piano.",
+          ],
+        },
+        {
+          heading: "Calisia",
+          body: [
+            "Après la Seconde Guerre mondiale, l’usine fut nationalisée et rebaptisée « Calisia ». Les pianos droits et à queue de Kalisz partaient notamment vers la Scandinavie, et en 1954 une école technique de facture de pianos fut créée dans la ville pour former de nouvelles générations d’artisans. La fabrique a fonctionné jusqu’en 2007.",
+          ],
+        },
+        {
+          heading: "Une ville qui connaît toujours les pianos",
+          body: [
+            "Le savoir-faire n’a pas disparu avec la fermeture de la fabrique. Selon KaliszOnline, plus de 40 entreprises réparant et restaurant des pianos sont aujourd’hui actives à Kalisz et dans ses environs.",
+            "SAP Renovation est l’une d’elles. Depuis 1990, notre équipe a restauré 14 000 instruments, découvrant de l’intérieur les constructions des plus grands facteurs du monde.",
+          ],
+        },
+        {
+          heading: "Alaudis : un nouveau chapitre",
+          body: [
+            "De cette expérience est né Alaudis, le premier piano à queue conçu et construit à Kalisz depuis plus d’une décennie. Une équipe de 77 personnes a travaillé sur le modèle ONE 178.",
+            "Le nom vient du mot latin alauda, l’alouette : un petit oiseau dont le chant porte loin.",
+          ],
+          link: { href: "/historia", label: "Découvrir comment naît un Alaudis" },
+        },
+      ],
+    },
+  },
+};

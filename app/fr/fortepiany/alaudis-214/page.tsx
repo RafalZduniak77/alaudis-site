@@ -4,15 +4,20 @@
 // Wersja językowa: FR
 // ==========================================================
 
+import SeoJsonLd from "@/components/SeoJsonLd";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import ModelStorySignature from "@/components/ModelStorySignature";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 
+export const metadata = pageMetadata("fr", "model214");
+
 export default function ModelAlaudis214Page() {
   return (
     <main className="min-h-screen bg-black text-white">
+      <SeoJsonLd locale="fr" page="model214" />
       <ModelPageTopBar backHref="/fr" activeLanguage="FR" />
 
       <section className="hero-copy relative overflow-hidden border-b border-white/10 pt-28">

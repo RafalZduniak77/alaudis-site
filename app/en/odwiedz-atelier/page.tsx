@@ -17,15 +17,20 @@
 // 6. ends with the shared Footer component
 // ==========================================================
 
+import SeoJsonLd from "@/components/SeoJsonLd";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 
+export const metadata = pageMetadata("en", "odwiedzAtelier");
+
 export default function VisitAtelierPage() {
   return (
     <main className="min-h-screen bg-black text-white">
+      <SeoJsonLd locale="en" page="odwiedzAtelier" />
       {/* ====================================================
           SHARED TOP BAR
          ==================================================== */}

@@ -20,6 +20,8 @@
 // 7. all emails, phone numbers and message menu were preserved
 // ==========================================================
 
+import SeoJsonLd from "@/components/SeoJsonLd";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
@@ -116,9 +118,12 @@ function MessageMenu({
   );
 }
 
+export const metadata = pageMetadata("en", "kontakt");
+
 export default function KontaktPage() {
   return (
     <main className="min-h-screen bg-black text-white">
+      <SeoJsonLd locale="en" page="kontakt" />
       {/* ====================================================
           SHARED TOP BAR
          ==================================================== */}

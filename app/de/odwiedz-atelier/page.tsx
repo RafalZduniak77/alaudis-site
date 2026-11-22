@@ -9,15 +9,20 @@
 // PREMIUM VEREINFACHTE VERSION
 // ==========================================================
 
+import SeoJsonLd from "@/components/SeoJsonLd";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 
+export const metadata = pageMetadata("de", "odwiedzAtelier");
+
 export default function BesuchenSieDasAtelierPage() {
   return (
     <main className="min-h-screen bg-black text-white">
+      <SeoJsonLd locale="de" page="odwiedzAtelier" />
       <ModelPageTopBar backHref="/de" activeLanguage="DE" />
 
       <section className="page-hero hero-copy relative min-h-screen overflow-hidden border-b border-white/10">

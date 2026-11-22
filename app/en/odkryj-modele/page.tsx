@@ -1,12 +1,17 @@
+import SeoJsonLd from "@/components/SeoJsonLd";
+import { pageMetadata } from "@/lib/seo";
 import { Suspense } from "react";
 import PianoHeroImage from "@/components/PianoHeroImage";
 import Footer from "@/components/Footer";
 import AlaudisARPreview from "@/components/AlaudisARPreview";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 
+export const metadata = pageMetadata("en", "odkryjModele");
+
 export default function OdkryjModelePage() {
   return (
     <main className="min-h-screen bg-black text-white">
+      <SeoJsonLd locale="en" page="odkryjModele" />
       <ModelPageTopBar backHref="/en" activeLanguage="EN" />
 
       <section className="page-hero page-hero-compact hero-copy relative overflow-hidden border-b border-white/10 pt-28">

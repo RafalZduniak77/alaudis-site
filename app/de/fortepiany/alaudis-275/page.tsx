@@ -31,15 +31,20 @@
 //   robisz to w: components/ModelPageTopBar.tsx
 // ==========================================================
 
+import SeoJsonLd from "@/components/SeoJsonLd";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import ModelStorySignature from "@/components/ModelStorySignature";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 
+export const metadata = pageMetadata("de", "model275");
+
 export default function ModelAlaudis275Page() {
   return (
     <main className="min-h-screen bg-black text-white">
+      <SeoJsonLd locale="de" page="model275" />
       {/* ====================================================
           WSPÓLNY GÓRNY PASEK
           - zawsze widoczny

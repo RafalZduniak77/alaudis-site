@@ -1,3 +1,5 @@
+import SeoJsonLd from "@/components/SeoJsonLd";
+import { pageMetadata } from "@/lib/seo";
 import HomeHeader from "@/components/HomeHeader";
 import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
@@ -5,14 +7,17 @@ import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
 import Footer from "@/components/Footer";
 import AlaudisStory from "@/components/AlaudisStory";
 
+export const metadata = pageMetadata("de", "home");
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
+      <SeoJsonLd locale="de" page="home" />
       {/* ====================================================
           HERO
          ==================================================== */}
       <section className="home-hero hero-copy relative min-h-screen overflow-hidden">
-        <PianoHeroImage alt="Alaudis Flügel" />
+        <PianoHeroImage alt="Alaudis – der neue polnische Flügel" />
 
         <div className="absolute inset-0 z-10 bg-black/4" />
 
@@ -26,15 +31,15 @@ export default function Home() {
            ================================================== */}
         <div className="home-hero-content relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
           <div className="mx-auto max-w-5xl pt-16 sm:pt-20">
-            <p className="home-hero-eyebrow mb-5 text-[11px] uppercase tracking-[0.48em] text-white/90">
-              Alaudis Atelier
-            </p>
+            <h1 className="home-hero-eyebrow mb-5 text-[11px] uppercase tracking-[0.48em] text-white/90">
+              Der neue polnische Flügel
+            </h1>
 
-            <h1 className="home-hero-title text-2xl font-light uppercase tracking-[0.06em] text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
+            <p className="home-hero-title text-2xl font-light uppercase tracking-[0.06em] text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
               Handwerk,
               <br />
               Detail, Identität.
-            </h1>
+            </p>
 
             <p className="home-hero-description mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/90 sm:text-base sm:leading-8">
               Jeder Alaudis entsteht aus der Verbindung von Handwerk,

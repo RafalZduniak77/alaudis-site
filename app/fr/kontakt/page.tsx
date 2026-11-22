@@ -7,6 +7,8 @@
 // CONTACT PAGE - ALAUDIS
 // ==========================================================
 
+import SeoJsonLd from "@/components/SeoJsonLd";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
@@ -103,9 +105,12 @@ function MessageMenu({
   );
 }
 
+export const metadata = pageMetadata("fr", "kontakt");
+
 export default function KontaktPage() {
   return (
     <main className="min-h-screen bg-black text-white">
+      <SeoJsonLd locale="fr" page="kontakt" />
       <ModelPageTopBar backHref="/fr" activeLanguage="FR" />
 
       <section className="page-hero hero-copy relative min-h-screen overflow-hidden border-b border-white/10">

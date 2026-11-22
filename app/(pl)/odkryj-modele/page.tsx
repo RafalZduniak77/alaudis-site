@@ -1,0 +1,57 @@
+// ==========================================================
+// ODKRYJ MODELE PAGE - ALAUDIS
+// ==========================================================
+
+import SeoJsonLd from "@/components/SeoJsonLd";
+import { pageMetadata } from "@/lib/seo";
+import { Suspense } from "react";
+import PianoHeroImage from "@/components/PianoHeroImage";
+import Footer from "@/components/Footer";
+import AlaudisARPreview from "@/components/AlaudisARPreview";
+import ModelPageTopBar from "@/components/ModelPageTopBar";
+
+export const metadata = pageMetadata("pl", "odkryjModele");
+
+export default function OdkryjModelePage() {
+  return (
+    <main className="min-h-screen bg-black text-white">
+      <SeoJsonLd locale="pl" page="odkryjModele" />
+      <ModelPageTopBar backHref="/" activeLanguage="PL" />
+
+      <section className="page-hero page-hero-compact hero-copy relative overflow-hidden border-b border-white/10 pt-28">
+        <PianoHeroImage alt="Alaudis background" />
+        <div className="absolute inset-0 z-10 bg-black/4" />
+
+        <div className="page-hero-content relative z-20 px-6 pb-16 pt-8 text-center">
+          <div className="mx-auto max-w-4xl">
+            <p className="page-hero-eyebrow mb-5 text-[11px] uppercase tracking-[0.48em] text-white/90">
+              Alaudis AR Experience
+            </p>
+
+            <h1 className="page-hero-title text-3xl font-light uppercase tracking-[0.06em] text-white sm:text-5xl lg:text-[60px] lg:leading-[1.05]">
+              Odkryj modele
+            </h1>
+
+            <div className="page-hero-description">
+              <p className="mx-auto mt-7 max-w-2xl text-sm leading-8 text-white/90 sm:text-base">
+                Obejrzyj fortepian w 3D, obróć go, przybliż i sprawdź, jak wygląda
+                w realnym wnętrzu. To pierwszy krok do pełnego doświadczenia
+                Alaudis: konfigurator + AR preview.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-black px-4 py-8 sm:px-6 lg:px-10">
+        <div className="mx-auto max-w-7xl">
+          <Suspense fallback={<div className="min-h-[640px] rounded-[36px] bg-[#070707]" />}>
+            <AlaudisARPreview />
+          </Suspense>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}

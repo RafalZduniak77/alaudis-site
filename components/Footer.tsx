@@ -24,22 +24,22 @@ const SAP_RENOVATION: Record<
   { href: string; since: string; newTab: string }
 > = {
   PL: {
-    href: "https://sap-haendler.vercel.app/haendler/pl/",
+    href: "https://saprenovation.com/pl/",
     since: "od 1990 roku",
     newTab: "otwiera się w nowej karcie",
   },
   EN: {
-    href: "https://sap-haendler.vercel.app/haendler/en/",
+    href: "https://saprenovation.com/en/",
     since: "since 1990",
     newTab: "opens in a new tab",
   },
   DE: {
-    href: "https://sap-haendler.vercel.app/haendler/",
+    href: "https://saprenovation.com/de/",
     since: "seit 1990",
     newTab: "öffnet in einem neuen Tab",
   },
   FR: {
-    href: "https://sap-haendler.vercel.app/haendler/fr/",
+    href: "https://saprenovation.com/fr/",
     since: "depuis 1990",
     newTab: "s’ouvre dans un nouvel onglet",
   },
@@ -186,6 +186,18 @@ export default function Footer() {
 
             <Link href={factoryUrl} className="transition hover:text-white/90">
               Factory
+            </Link>
+
+            <Link href={`${langPrefix}/tradycja`} className="transition hover:text-white/90">
+              Heritage
+            </Link>
+
+            <Link href={`${langPrefix}/artysci`} className="transition hover:text-white/90">
+              Artists
+            </Link>
+
+            <Link href={`${langPrefix}/aktualnosci`} className="transition hover:text-white/90">
+              News &amp; Press
             </Link>
 
             <Link href={contactUrl} className="transition hover:text-white/90">

@@ -33,7 +33,7 @@ function galleryOrigin() {
 function galleryAlternates(locale: GalleryLocale, slug?: string) {
   const suffix = slug ? `/${slug}` : "";
   const url = (language: GalleryLocale) => new URL(`${galleryPath(language)}${suffix}`, galleryOrigin()).href;
-  return { canonical: url(locale), languages: Object.fromEntries(galleryLocales.map(language => [language, url(language)])) };
+  return { canonical: url(locale), languages: { ...Object.fromEntries(galleryLocales.map(language => [language, url(language)])), "x-default": url("en") } };
 }
 
 export async function galleryAlbumMetadata(locale: GalleryLocale, params: Promise<{ slug: string }>): Promise<Metadata> {
