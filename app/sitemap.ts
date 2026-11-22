@@ -32,7 +32,10 @@ async function albumSlugs() {
     for (let offset = 0; ; offset += ALBUM_BATCH_SIZE) {
       const { items, total } = await getAlbums(undefined, offset);
       for (const item of items) {
-        if ("slug" in item) albums.push({ slug: item.slug, updatedAt: item._updatedAt });
+        // Filmy i albumy bez adresu nie mają własnej strony.
+        if ("slug" in item && typeof item.slug === "string" && item.slug) {
+          albums.push({ slug: item.slug, updatedAt: item._updatedAt });
+        }
       }
       if (!items.length || offset + ALBUM_BATCH_SIZE >= total) break;
     }
