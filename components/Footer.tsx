@@ -4,6 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ALAUDIS_MODEL_IDS, getAlaudisModelName } from "./alaudisModels";
 import { alaudisStoryContent, type StoryLanguage } from "./alaudisStoryContent";
+import { OPEN_CONSENT_EVENT } from "./CookieConsent";
+
+const COOKIE_SETTINGS: Record<StoryLanguage, string> = {
+  PL: "Ustawienia cookies",
+  EN: "Cookie settings",
+  DE: "Cookie-Einstellungen",
+  FR: "Paramètres des cookies",
+};
 
 // ==========================================================
 // FOOTER - ALAUDIS
@@ -240,9 +248,18 @@ export default function Footer() {
           </span>
           <span className="sr-only"> ({sapRenovation.newTab})</span>
         </a>
-        <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-          © 2025 ALAUDIS
-        </p>
+        <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            © 2025 ALAUDIS
+          </p>
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event(OPEN_CONSENT_EVENT))}
+            className="text-xs uppercase tracking-[0.24em] text-white/55 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          >
+            {COOKIE_SETTINGS[language]}
+          </button>
+        </div>
       </div>
     </footer>
   );

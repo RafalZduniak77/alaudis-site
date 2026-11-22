@@ -1,10 +1,10 @@
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import CookieConsent from "@/components/CookieConsent";
 import type { SeoLocale } from "@/lib/seo";
 import "@/app/globals.css";
 
 // Wspólny szkielet dokumentu. Każda wersja językowa ma własny
 // layout główny, dzięki czemu <html lang> odpowiada językowi strony.
+// Statystyki Vercel ładuje CookieConsent, dopiero po zgodzie.
 export default function RootShell({
   lang,
   children,
@@ -16,8 +16,7 @@ export default function RootShell({
     <html lang={lang}>
       <body>
         {children}
-        <Analytics />
-        <SpeedInsights />
+        <CookieConsent />
       </body>
     </html>
   );
