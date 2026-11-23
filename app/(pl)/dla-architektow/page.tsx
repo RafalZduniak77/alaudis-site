@@ -32,22 +32,10 @@ export default function DlaArchitektowPage() {
       <SeoJsonLd locale="pl" page="dlaArchitektow" />
       <ModelPageTopBar backHref="/" activeLanguage="PL" />
 
-      <section className="page-hero hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
+      <section className="page-hero page-hero-photo hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
         <PianoHeroImage alt="Alaudis dla architektów" />
         <div className="absolute inset-0 z-10 bg-black/4" />
 
-        <div className="page-hero-content relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
-          <div className="mx-auto max-w-5xl">
-            <p className="page-hero-eyebrow mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
-              Współpraca projektowa
-            </p>
-
-            <h1 className="page-hero-title text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
-              Dla architektów
-            </h1>
-
-          </div>
-        </div>
 
         <div className="page-hero-scroll absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
           <a href="#wspolpraca" className="block">
@@ -62,8 +50,14 @@ export default function DlaArchitektowPage() {
       </section>
 
       {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
-      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
+      <section className="hero-intro border-b border-white/10 bg-black px-6 pb-16 pt-12 text-center sm:pb-20 sm:pt-16">
         <div className="mx-auto max-w-4xl">
+          <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
+            Współpraca projektowa
+          </p>
+          <h1 className="mb-10 text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
+            Dla architektów
+          </h1>
           <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
           <div>
             <p className="mx-auto mt-0 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">

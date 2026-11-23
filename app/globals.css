@@ -136,6 +136,12 @@ body {
     margin-top: 0;
   }
 
+  /* Hero with only the piano photo: the copy sits in the band below. */
+  .page-hero-photo {
+    min-height: auto;
+    padding-bottom: 8px;
+  }
+
   .page-hero-compact {
     min-height: auto;
     padding-bottom: 40px;

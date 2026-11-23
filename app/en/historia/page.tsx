@@ -394,9 +394,6 @@ export default function HistoriaPage() {
             The world of Alaudis
           </h1>
 
-          <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/86 sm:text-[17px] sm:leading-9">
-            Discover the philosophy of the brand, the process of creating the instruments, and the craftsmanship that gives every Alaudis its own individual identity.
-          </p>
         </div>
 
         <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
@@ -405,6 +402,16 @@ export default function HistoriaPage() {
           </div>
           <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/90">
             Scroll down
+          </p>
+        </div>
+      </section>
+
+      {/* Opis pod filmem — tekst nie zasłania kadru */}
+      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
+        <div className="mx-auto max-w-4xl">
+          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
+          <p className="mx-auto max-w-3xl text-sm leading-8 text-white/86 sm:text-[17px] sm:leading-9">
+            Discover the philosophy of the brand, the process of creating the instruments, and the craftsmanship that gives every Alaudis its own individual identity.
           </p>
         </div>
       </section>

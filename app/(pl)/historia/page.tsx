@@ -410,11 +410,6 @@ export default function HistoriaPage() {
             Świat Alaudis
           </h1>
 
-          <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/86 sm:text-[17px] sm:leading-9">
-            Poznaj filozofię marki, proces tworzenia instrumentów oraz
-            rzemiosło, które nadaje każdemu Alaudis jego indywidualną
-            tożsamość.
-          </p>
         </div>
 
         <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
@@ -423,6 +418,18 @@ export default function HistoriaPage() {
           </div>
           <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/90">
             Przewiń w dół
+          </p>
+        </div>
+      </section>
+
+      {/* Opis pod filmem — tekst nie zasłania kadru */}
+      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
+        <div className="mx-auto max-w-4xl">
+          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
+          <p className="mx-auto max-w-3xl text-sm leading-8 text-white/86 sm:text-[17px] sm:leading-9">
+            Poznaj filozofię marki, proces tworzenia instrumentów oraz
+            rzemiosło, które nadaje każdemu Alaudis jego indywidualną
+            tożsamość.
           </p>
         </div>
       </section>

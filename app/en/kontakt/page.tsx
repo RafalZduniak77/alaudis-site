@@ -132,37 +132,10 @@ export default function KontaktPage() {
       {/* ====================================================
           CONTACT PAGE HERO - FULLSCREEN
          ==================================================== */}
-      <section className="page-hero hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
+      <section className="page-hero page-hero-photo hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
         <PianoHeroImage alt="Alaudis Contact" />
         <div className="absolute inset-0 z-10 bg-black/4" />
 
-        <div className="page-hero-content relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
-          <div className="mx-auto max-w-5xl">
-            <p className="page-hero-eyebrow mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
-              Alaudis Contact
-            </p>
-
-            <h1 className="page-hero-title text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
-              Let&apos;s Talk
-            </h1>
-
-            <div className="page-hero-actions mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href="/en/odwiedz-atelier"
-                className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Visit the atelier
-              </Link>
-
-              <Link
-                href="/en/dla-architektow"
-                className="rounded-full border border-white/20 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white/90 transition hover:border-white hover:bg-white hover:text-black"
-              >
-                For architects
-              </Link>
-            </div>
-          </div>
-        </div>
 
         <div className="page-hero-scroll absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
           <a href="#team" className="block">
@@ -177,8 +150,14 @@ export default function KontaktPage() {
       </section>
 
       {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
-      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
+      <section className="hero-intro border-b border-white/10 bg-black px-6 pb-16 pt-12 text-center sm:pb-20 sm:pt-16">
         <div className="mx-auto max-w-4xl">
+          <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
+            Alaudis Contact
+          </p>
+          <h1 className="mb-10 text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
+            Let&apos;s Talk
+          </h1>
           <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
           <div>
             <p className="mx-auto mt-0 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
@@ -191,6 +170,21 @@ export default function KontaktPage() {
               the instrument is the most beautiful beginning of an individual
               Alaudis composition.
             </p>
+          </div>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/en/odwiedz-atelier"
+              className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+            >
+              Visit the atelier
+            </Link>
+
+            <Link
+              href="/en/dla-architektow"
+              className="rounded-full border border-white/20 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white/90 transition hover:border-white hover:bg-white hover:text-black"
+            >
+              For architects
+            </Link>
           </div>
         </div>
       </section>

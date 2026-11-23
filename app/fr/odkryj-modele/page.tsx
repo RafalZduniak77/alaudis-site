@@ -37,7 +37,7 @@ export default function OdkryjModelePage() {
         <div className="mx-auto max-w-4xl">
           <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
           <div>
-            <p className="mx-auto mt-7 max-w-2xl text-sm leading-8 text-white/90 sm:text-base">
+            <p className="mx-auto mt-0 max-w-2xl text-sm leading-8 text-white/90 sm:text-base">
               Regardez le piano en 3D, faites-le pivoter, zoomez et découvrez
               son apparence dans un intérieur réel. C’est la première étape vers
               l’expérience complète Alaudis : configurateur + aperçu AR.
