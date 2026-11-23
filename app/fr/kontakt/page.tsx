@@ -113,7 +113,7 @@ export default function KontaktPage() {
       <ModelPageTopBar backHref="/fr" activeLanguage="FR" />
 
       {/* Czołówka: tytuł, opis i przyciski — bez zdjęcia */}
-      <section className="hero-intro bg-black px-6 pb-12 pt-36 text-center sm:pb-16 sm:pt-44">
+      <section className="hero-intro bg-black px-6 pb-20 pt-36 text-center sm:pb-24 sm:pt-44">
         <div className="mx-auto max-w-4xl">
           <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
             Contact Alaudis
@@ -155,17 +155,17 @@ export default function KontaktPage() {
 
       <section
         id="team"
-        className="scroll-mt-20 bg-black px-6 pb-24 pt-8 sm:px-10 lg:px-16"
+        className="scroll-mt-20 bg-[#f4f1ea] px-6 py-24 sm:px-10 lg:px-16"
       >
         <div className="mx-auto max-w-7xl">
           <div className="mb-12">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-[#8a6d35]">
               Équipe contact
             </p>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
-            <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03]">
+            <div className="overflow-hidden rounded-[32px] border border-black/10 bg-[#0b0b0b] text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
               <div className="relative aspect-[5/4] w-full overflow-hidden rounded-t-[32px] bg-[#080808]">
                 <div className="absolute inset-0 p-5">
                   <div className="relative h-full w-full">
@@ -226,7 +226,7 @@ export default function KontaktPage() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03]">
+            <div className="overflow-hidden rounded-[32px] border border-black/10 bg-[#0b0b0b] text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
               <div className="relative aspect-[5/4] w-full overflow-hidden rounded-t-[32px] bg-[#080808]">
                 <div className="absolute inset-0 p-5">
                   <div className="relative h-full w-full">

@@ -26,7 +26,7 @@ export default function AlaudisStory({
         id={copy.collectionId}
         lang={language.toLowerCase()}
         aria-labelledby={`${copy.collectionId}-title`}
-        className="relative z-20 scroll-mt-24 bg-[#f4f1ea] px-6 py-16 sm:px-10 sm:py-20 lg:px-16"
+        className="relative z-20 scroll-mt-24 bg-[#f4f1ea] px-6 pb-6 pt-16 sm:px-10 sm:pb-8 sm:pt-20 lg:px-16"
       >
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-4xl text-center">
@@ -69,8 +69,9 @@ export default function AlaudisStory({
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col items-center justify-between gap-5 border-t border-black/10 pt-8 text-center lg:flex-row lg:text-left">
-            <p className="text-base font-light leading-7 text-black/75 sm:text-lg">
+          {/* Zamknięcie kolekcji przechodzi płynnie w sekcję kontaktu pod spodem */}
+          <div className="mx-auto mt-14 flex max-w-3xl flex-col items-center gap-6 border-t border-black/10 pt-12 text-center">
+            <p className="text-xl font-light leading-8 text-[#111] sm:text-2xl">
               {copy.title.join(" ")}
             </p>
             <Link href={`${prefix}/historia#alaudis-story`} className={storyLinkClassName}>

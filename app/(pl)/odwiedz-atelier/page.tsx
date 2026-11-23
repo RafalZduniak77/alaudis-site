@@ -123,18 +123,18 @@ export default function OdwiedzAtelierPage() {
       {/* ====================================================
           SEKCJA - GALERIA
          ==================================================== */}
-      <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
+      <section className="bg-[#f4f1ea] px-6 py-24 text-[#111] sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-[#8a6d35]">
             Przestrzeń atelier
           </p>
 
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-light text-[#111] sm:text-4xl">
             Miejsce spotkania z Alaudis
           </h2>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-black/10 shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
               <Image
                 src="/galeria-home/Salonik 1.jpg"
                 alt="Atelier Alaudis - widok 1"
@@ -143,7 +143,7 @@ export default function OdwiedzAtelierPage() {
               />
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-black/10 shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
               <Image
                 src="/galeria-home/Salonik 2.jpg"
                 alt="Atelier Alaudis - widok 2"
@@ -152,7 +152,7 @@ export default function OdwiedzAtelierPage() {
               />
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-black/10 shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
               <Image
                 src="/galeria-home/Konferencyjna 1.jpg"
                 alt="Atelier Alaudis - widok 3"
