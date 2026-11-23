@@ -86,51 +86,10 @@ export default function ForArchitectsPage() {
         </div>
       </section>
 
-      <section
-        id="collaboration"
-        className="scroll-mt-20 bg-black px-6 py-24 sm:px-10 lg:px-16"
-      >
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-              Collaboration
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-              The piano as part of
-              <br />
-              interior architecture
-            </h2>
-          </div>
-
-          <div className="space-y-6 text-white/90">
-            <p className="leading-8">
-              In premium projects, a piano is not merely an instrument. It can
-              become the center of gravity of a living room, the dominant
-              feature of a representative space, or a subtle yet clear sign of
-              the character of a place.
-            </p>
-
-            <p className="leading-8">
-              That is why we propose Alaudis as a design element: consciously
-              matched to materials, light, the scale of the interior, the style
-              of furniture and the intended language of the entire project.
-            </p>
-          </div>
-        </div>
-      </section>
 
       <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            Areas of collaboration
-          </p>
-
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            How we work with architects and designers
-          </h2>
-
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
               <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 01
@@ -184,15 +143,7 @@ export default function ForArchitectsPage() {
 
       <section className="bg-black px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            Project types
-          </p>
-
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Projects in which Alaudis finds its place naturally
-          </h2>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
               <h3 className="text-xl font-light text-white">Residences</h3>
               <p className="mt-4 leading-7 text-white/90">

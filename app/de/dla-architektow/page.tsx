@@ -87,52 +87,10 @@ export default function FuerArchitektenPage() {
         </div>
       </section>
 
-      <section
-        id="zusammenarbeit"
-        className="scroll-mt-20 bg-black px-6 py-24 sm:px-10 lg:px-16"
-      >
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-              Zusammenarbeit
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-              Der Flügel als Teil
-              <br />
-              der Innenarchitektur
-            </h2>
-          </div>
-
-          <div className="space-y-6 text-white/90">
-            <p className="leading-8">
-              In Premium-Projekten ist ein Flügel nicht nur ein Instrument. Er
-              kann zum Schwerpunkt eines Wohnraums, zur dominierenden Präsenz
-              eines repräsentativen Bereichs oder zu einem subtilen, aber
-              klaren Ausdruck des Charakters eines Ortes werden.
-            </p>
-
-            <p className="leading-8">
-              Deshalb verstehen wir Alaudis als gestalterisches Element:
-              bewusst abgestimmt auf Materialien, Licht, die Größe des
-              Innenraums, den Stil des Mobiliars und die beabsichtigte Sprache
-              des gesamten Projekts.
-            </p>
-          </div>
-        </div>
-      </section>
 
       <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            Bereiche der Zusammenarbeit
-          </p>
-
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Wie wir mit Architekten und Designern arbeiten
-          </h2>
-
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
               <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 01
@@ -187,15 +145,7 @@ export default function FuerArchitektenPage() {
 
       <section className="bg-black px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            Projekttypen
-          </p>
-
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Projekte, in denen Alaudis seinen natürlichen Platz findet
-          </h2>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
               <h3 className="text-xl font-light text-white">Residenzen</h3>
               <p className="mt-4 leading-7 text-white/90">

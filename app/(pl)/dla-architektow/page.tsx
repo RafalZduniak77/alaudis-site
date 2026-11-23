@@ -93,51 +93,10 @@ export default function DlaArchitektowPage() {
         </div>
       </section>
 
-      <section
-        id="wspolpraca"
-        className="scroll-mt-20 bg-black px-6 py-24 sm:px-10 lg:px-16"
-      >
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-              Współpraca
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-              Fortepian jako część
-              <br />
-              architektury wnętrza
-            </h2>
-          </div>
-
-          <div className="space-y-6 text-white/90">
-            <p className="leading-8">
-              W projektach premium fortepian nie jest jedynie instrumentem. Może
-              stać się punktem ciężkości salonu, dominantą przestrzeni
-              reprezentacyjnej albo subtelnym, lecz wyraźnym znakiem charakteru
-              miejsca.
-            </p>
-
-            <p className="leading-8">
-              Dlatego Alaudis proponujemy jako element projektowy: świadomie
-              dobierany do materiałów, światła, skali wnętrza, stylistyki mebli
-              i zamierzonego języka całej realizacji.
-            </p>
-          </div>
-        </div>
-      </section>
 
       <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            Obszary współpracy
-          </p>
-
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Jak pracujemy z architektami i projektantami
-          </h2>
-
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
               <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 01
@@ -191,15 +150,7 @@ export default function DlaArchitektowPage() {
 
       <section className="bg-black px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            Typy realizacji
-          </p>
-
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Projekty, w których Alaudis odnajduje się naturalnie
-          </h2>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
               <h3 className="text-xl font-light text-white">Rezydencje</h3>
               <p className="mt-4 leading-7 text-white/90">
