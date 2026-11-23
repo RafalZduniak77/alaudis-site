@@ -77,14 +77,17 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
 
   const links = [
     // „Modele” wraca na początek strony głównej.
-    { href: prefix || "/", label: text.models, top: true },
-    { href: `${prefix}/historia`, label: text.history },
-    { href: `${prefix}/rzemioslo`, label: text.craft },
+    { href: prefix || "/", label: text.models, top: true, active: basePath === "/" || basePath.startsWith("/fortepiany") },
+    { href: `${prefix}/historia`, label: text.history, active: basePath.startsWith("/historia") },
+    { href: `${prefix}/rzemioslo`, label: text.craft, active: basePath.startsWith("/rzemioslo") },
   ];
+  const galleryActive = basePath.startsWith("/galeria");
   const navigationLinks = links.map(link => <Link
     key={link.href}
     href={link.href}
-    className={styles.button}
+    // Gold marks the section the visitor is in.
+    className={`${styles.button} ${link.active ? styles.galleryLink : ""}`}
+    aria-current={link.active ? "page" : undefined}
     // Already on the home page: just glide back to the top.
     onClick={"top" in link && onHome ? event => { event.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); window.history.replaceState(null, "", link.href); } : undefined}
   >{link.label}</Link>);
@@ -103,7 +106,7 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
       </Link>
 
       <div className={styles.right}>
-        <Link href={galleryPath(locale)} prefetch={false} className={`${styles.button} ${styles.galleryLink} ${styles.desktopGallery}`} aria-label={text.galleryLabel}>
+        <Link href={galleryPath(locale)} prefetch={false} className={`${styles.button} ${galleryActive ? styles.galleryLink : ""} ${styles.desktopGallery}`} aria-current={galleryActive ? "page" : undefined} aria-label={text.galleryLabel}>
           <svg className={styles.galleryIcon} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
             <path d="M9 3H3v6m12-6h6v6M3 15v6h6m6 0h6v-6" />
             <path d="m6 16 4-4 3 3 3-4 3 5" />
@@ -134,7 +137,7 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
 
       <nav className={styles.mobileNav} aria-label={text.navigation}>
         {navigationLinks}
-        <Link href={galleryPath(locale)} prefetch={false} className={`${styles.button} ${styles.galleryLink}`} aria-label={text.galleryLabel}>{text.gallery}</Link>
+        <Link href={galleryPath(locale)} prefetch={false} className={`${styles.button} ${galleryActive ? styles.galleryLink : ""}`} aria-label={text.galleryLabel}>{text.gallery}</Link>
       </nav>
     </div>
 
