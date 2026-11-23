@@ -75,7 +75,7 @@ export default function HomeHero({ alt, eyebrow, title, actions, scroll }: Props
           </p>
           <div className={styles.actions}>
             {actions.map((action, index) => (
-              <Link key={action.href} href={action.href} className={index === 0 ? styles.primary : styles.secondary}>
+              <Link key={action.href} href={action.href} className={styles.secondary}>
                 {action.label}
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" /></svg>
               </Link>
