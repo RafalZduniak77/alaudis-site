@@ -140,15 +140,15 @@ export default function Footer() {
           </p>
 
           <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
-            <Link href={`${langPrefix}/zwiedzanie-manufaktury`} className="transition hover:text-white/90">
+            <Link href={`${langPrefix}/zwiedzanie-manufaktury`} className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none">
               {copy.tour}
             </Link>
 
-            <Link href={`${langPrefix}/artysci`} className="transition hover:text-white/90">
+            <Link href={`${langPrefix}/artysci`} className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none">
               {copy.artists}
             </Link>
 
-            <Link href={`${langPrefix}/aktualnosci`} className="transition hover:text-white/90">
+            <Link href={`${langPrefix}/aktualnosci`} className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none">
               {copy.news}
             </Link>
           </div>
@@ -167,7 +167,7 @@ export default function Footer() {
               <Link
                 key={model}
                 href={`${langPrefix}/fortepiany/alaudis-${model}`}
-                className="transition hover:text-white/90"
+                className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none"
               >
                 {getAlaudisModelName(model)}
               </Link>
@@ -186,21 +186,21 @@ export default function Footer() {
           <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
             <Link
               href={configuratorUrl}
-              className="transition hover:text-white/90"
+              className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none"
             >
               {copy.finish}
             </Link>
 
             <Link
               href={configuratorUrl}
-              className="transition hover:text-white/90"
+              className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none"
             >
               {copy.color}
             </Link>
 
             <Link
               href={configuratorUrl}
-              className="transition hover:text-white/90"
+              className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none"
             >
               {copy.accessories}
             </Link>
@@ -216,11 +216,11 @@ export default function Footer() {
           </p>
 
           <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
-            <Link href={aboutUrl} className="transition hover:text-white/90">
+            <Link href={aboutUrl} className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none">
               {copy.about}
             </Link>
 
-            <Link href={`${langPrefix}/tradycja`} className="transition hover:text-white/90">
+            <Link href={`${langPrefix}/tradycja`} className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none">
               {copy.heritage}
             </Link>
 
@@ -228,7 +228,7 @@ export default function Footer() {
               href={FACEBOOK_ALAUDIS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition hover:text-white/90"
+              className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none"
             >
               Facebook Alaudis
             </Link>
