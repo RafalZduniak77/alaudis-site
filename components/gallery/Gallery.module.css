@@ -29,7 +29,9 @@
 .videoCard { width: 100%; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
 .videoCard > span { width: 100%; }
 .videoImage { display: block; background: #11110f; }
-.videoImage img { object-fit: contain; }
+.videoImage img { position: relative; object-fit: contain; }
+.videoWide img { object-fit: cover; }
+.videoImage .videoBackdrop { position: absolute; inset: -10%; width: 120%; height: 120%; object-fit: cover; filter: blur(32px) brightness(.42) saturate(1.1); }
 .videoCard:hover img { transform: none; }
 .videoCard:hover .albumArrow { color: #e4cb96; border-color: #d3bd8b; }
 .videoLightbox :global(.yarl__slide) { padding: calc(80px + env(safe-area-inset-top)) 16px calc(20px + env(safe-area-inset-bottom)); }

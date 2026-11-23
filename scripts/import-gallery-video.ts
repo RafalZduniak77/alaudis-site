@@ -8,12 +8,14 @@ type VideoSpec = { id: string; filename: string; title: Localized; description?:
 
 // Usage: npm run cms:video -- --spec scripts/videos/<name>.json --file film.mp4 --poster kadr.jpg [--production]
 // Text-only update of an imported film: npm run cms:video -- --spec scripts/videos/<name>.json --update [--production]
+// Swap the video file (and optionally the poster) of an imported film: add --replace --file film.mp4 [--poster kadr.jpg]
 async function main() {
   const args = process.argv.slice(2);
   const arg = (name: string) => { const index = args.indexOf(name); return index >= 0 ? args[index + 1] : undefined; };
   const [specPath, file, poster] = [arg("--spec"), arg("--file"), arg("--poster")];
   const update = args.includes("--update");
-  if (!specPath || (!update && (!file || !poster))) throw new Error("Podaj --spec scripts/videos/<film>.json, --file /ścieżka/film.mp4 oraz --poster /ścieżka/kadr.jpg.");
+  const replace = args.includes("--replace");
+  if (!specPath || (replace && !file) || (!update && !replace && (!file || !poster))) throw new Error("Podaj --spec scripts/videos/<film>.json, --file /ścieżka/film.mp4 oraz --poster /ścieżka/kadr.jpg.");
   const spec = JSON.parse(readFileSync(resolve(specPath), "utf8")) as VideoSpec;
   if (!/^gallery-video-[a-z0-9-]+$/.test(spec.id) || !spec.title?.pl || !spec.alt?.pl) throw new Error("Plik opisu wymaga pól id (gallery-video-…), title.pl i alt.pl.");
   const dataset = args.includes("--production") ? "gallery" : "gallery_preview";
@@ -29,6 +31,18 @@ async function main() {
     ...(spec.duration && { duration: spec.duration }),
     ...(spec.order && { order: spec.order }),
   };
+  if (replace) {
+    if (!existing) throw new Error(`Brak filmu ${spec.id} w ${dataset}; najpierw go zaimportuj.`);
+    const videoAsset = await client.assets.upload("file", createReadStream(resolve(file!)), { filename: `${spec.filename}.mp4`, contentType: "video/mp4" });
+    const patch: Record<string, unknown> = { "video.asset": { _type: "reference", _ref: videoAsset._id } };
+    if (poster) {
+      const posterAsset = await client.assets.upload("image", createReadStream(resolve(poster)), { filename: `${spec.filename}.jpg`, contentType: "image/jpeg" });
+      patch["poster.asset"] = { _type: "reference", _ref: posterAsset._id };
+    }
+    await client.patch(spec.id).set(patch).commit();
+    console.log(`Podmieniono plik${poster ? " i miniaturę" : ""} filmu „${spec.title.pl}” w ${dataset}.`);
+    return;
+  }
   if (update) {
     if (!existing) throw new Error(`Brak filmu ${spec.id} w ${dataset}; najpierw go zaimportuj.`);
     const unset = (["description", "location", "date", "author", "order"] as const).filter(key => !(key in text));
