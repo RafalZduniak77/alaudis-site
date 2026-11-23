@@ -17,8 +17,7 @@ body {
   text-shadow: 0 2px 10px rgb(0 0 0 / 90%), 0 1px 2px rgb(0 0 0 / 95%);
 }
 
-/* Desktop: title at the top of the photo, buttons at the bottom,
-   so the body of the piano stays visible in the middle. */
+/* Desktop: title in the middle of the photo, buttons at the bottom. */
 @media (width >= 640px) {
   .page-hero-spread .page-hero-content {
     align-items: stretch;
@@ -36,8 +35,13 @@ body {
     width: 100%;
   }
 
-  .page-hero-spread .page-hero-actions {
+  /* Title centred on the photo, buttons on the floor below the piano. */
+  .page-hero-spread .page-hero-eyebrow {
     margin-top: auto;
+  }
+
+  .page-hero-spread .page-hero-title {
+    margin-bottom: auto;
   }
 }
 

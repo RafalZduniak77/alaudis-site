@@ -368,54 +368,6 @@ export default function HistoriaPage() {
         </div>
       </header>
 
-      {/* ====================================================
-          HERO VIDEO - HISTORIA / WORLD OF ALAUDIS
-         ==================================================== */}
-      <section className="hero-copy relative flex min-h-screen items-center justify-center overflow-hidden border-b border-white/10 px-6 pt-28 text-center sm:px-10 lg:px-16">
-        <video
-          src="/historia-video-web/historia-hero.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/historia/1 Dusza .jpg"
-          className="absolute inset-0 h-full w-full object-cover opacity-100"
-        />
-
-        <div className="absolute inset-0 bg-black/4" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/18" />
-
-        <div className="relative z-20 mx-auto max-w-5xl">
-          <p className="text-[11px] uppercase tracking-[0.48em] text-white/86">
-            Erbe und Handwerk
-          </p>
-
-          <h1 className="mt-6 text-4xl font-light text-white sm:text-6xl lg:text-[86px] lg:leading-[1.02]">
-            Die Welt von Alaudis
-          </h1>
-
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
-          <div className="mx-auto h-14 w-8 rounded-full border border-white/35 bg-black/10">
-            <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/80" />
-          </div>
-          <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/90">
-            Nach unten scrollen
-          </p>
-        </div>
-      </section>
-
-      {/* Opis pod filmem — tekst nie zasłania kadru */}
-      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
-        <div className="mx-auto max-w-4xl">
-          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
-          <p className="mx-auto max-w-3xl text-sm leading-8 text-white/86 sm:text-[17px] sm:leading-9">
-            Entdecken Sie die Philosophie der Marke, den Prozess der Instrumentenentstehung und das Handwerk, das jedem Alaudis seine individuelle Identität verleiht.
-          </p>
-        </div>
-      </section>
-
       <AlaudisStory language="DE" full />
 
       <section className="relative">

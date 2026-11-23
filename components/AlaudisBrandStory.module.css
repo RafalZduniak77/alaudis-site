@@ -145,6 +145,9 @@
   scroll-margin-top: 104px;
 }
 
+/* On the history page the family opens the page, right below the fixed header. */
+.familyLead { padding-top: 168px; }
+
 .familyInner { max-width: 1400px; margin: auto; }
 
 .familyIntro {
@@ -281,6 +284,7 @@
   .prose { font-size: 14px; line-height: 1.75; gap: 14px; }
   .textLink { font-size: 9px; letter-spacing: .13em; gap: 16px; }
   .family { padding: 52px 24px 48px; }
+  .familyLead { padding-top: 120px; }
   .familyIntro { grid-template-columns: 1fr; gap: 22px; }
   .familyTitle { font-size: 29px; }
   .familyText { font-size: 14px; line-height: 1.75; }

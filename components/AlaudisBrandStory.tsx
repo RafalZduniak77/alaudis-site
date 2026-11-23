@@ -9,7 +9,6 @@ import styles from "./AlaudisBrandStory.module.css";
 
 const presentation = {
   PL: {
-    explore: "Poznaj trzy głosy",
     detail: "Piękno zapisane w detalu",
     identity: "Tożsamość Alaudis",
     voice: ["Własny charakter.", "Własny głos."],
@@ -19,7 +18,6 @@ const presentation = {
     craftAlt: "Ręczna praca nad strunami we wnętrzu fortepianu Alaudis",
   },
   EN: {
-    explore: "Explore three voices",
     detail: "Beauty in every detail",
     identity: "The Alaudis identity",
     voice: ["Our own character.", "Our own voice."],
@@ -29,7 +27,6 @@ const presentation = {
     craftAlt: "Working by hand on the strings inside an Alaudis grand piano",
   },
   DE: {
-    explore: "Drei Stimmen entdecken",
     detail: "Schönheit in jedem Detail",
     identity: "Die Identität von Alaudis",
     voice: ["Unser eigener Charakter.", "Unsere eigene Stimme."],
@@ -39,7 +36,6 @@ const presentation = {
     craftAlt: "Handarbeit an den Saiten im Inneren eines Alaudis-Flügels",
   },
   FR: {
-    explore: "Découvrir trois voix",
     detail: "La beauté dans chaque détail",
     identity: "L’identité Alaudis",
     voice: ["Notre propre caractère.", "Notre propre voix."],
@@ -81,34 +77,12 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
 
   return (
     <section id="alaudis-story" lang={language.toLowerCase()} aria-labelledby="alaudis-story-title" className={styles.story}>
-      <div className={`${styles.scene} ${styles.origin}`}>
-        <div className={styles.scenePhoto}>
-          <Image src="/galeria-home/11.jpg" alt={ui.interiorAlt} fill sizes="100vw" className={styles.photo} />
-        </div>
-        <div className={styles.sceneInner}>
-          <div className={styles.glass}>
-            <p className={styles.eyebrow}>{copy.storyLabel}</p>
-            <h2 id="alaudis-story-title" className={styles.title}>
-              {copy.title.map((line) => <span key={line}>{line}</span>)}
-            </h2>
-            <div className={styles.prose}>
-              <p>{copy.origin}</p>
-              <p>{copy.nameMeaning} {copy.symbolism}</p>
-            </div>
-            <a href="#alaudis-voices" className={styles.textLink}>
-              <span>{ui.explore}</span><span className={styles.arrowCircle}><Arrow down /></span>
-            </a>
-          </div>
-          <p className={styles.photoNote}><span aria-hidden="true" />{ui.detail}</p>
-        </div>
-      </div>
-
-      <section id="alaudis-voices" aria-labelledby="alaudis-family-title" className={styles.family}>
+      <section id="alaudis-voices" aria-labelledby="alaudis-family-title" className={`${styles.family} ${styles.familyLead}`}>
         <div className={styles.familyInner}>
           <div className={styles.familyIntro}>
             <div>
               <p className={styles.eyebrow}>{copy.collectionLabel}</p>
-              <h3 id="alaudis-family-title" className={styles.familyTitle}>{copy.familyLine}</h3>
+              <h1 id="alaudis-family-title" className={styles.familyTitle}>{copy.familyLine}</h1>
             </div>
             <p className={styles.familyText}>{copy.family}</p>
           </div>
@@ -166,6 +140,26 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
           </div>
         </div>
       </section>
+
+      <div className={`${styles.scene} ${styles.origin}`}>
+        <div className={styles.scenePhoto}>
+          <Image src="/galeria-home/11.jpg" alt={ui.interiorAlt} fill sizes="100vw" className={styles.photo} />
+        </div>
+        <div className={styles.sceneInner}>
+          <div className={styles.glass}>
+            <p className={styles.eyebrow}>{copy.storyLabel}</p>
+            <h2 id="alaudis-story-title" className={styles.title}>
+              {copy.title.map((line) => <span key={line}>{line}</span>)}
+            </h2>
+            <div className={styles.prose}>
+              <p>{copy.origin}</p>
+              <p>{copy.nameMeaning} {copy.symbolism}</p>
+            </div>
+          </div>
+          <p className={styles.photoNote}><span aria-hidden="true" />{ui.detail}</p>
+        </div>
+      </div>
+
 
       <div className={`${styles.scene} ${styles.identity}`}>
         <div className={styles.scenePhoto}>
