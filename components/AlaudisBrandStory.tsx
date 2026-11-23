@@ -64,7 +64,7 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
   }
 
   return (
-    <section id="alaudis-story" lang={language.toLowerCase()} aria-labelledby="alaudis-story-title" className={styles.story}>
+    <section id="alaudis-story" lang={language.toLowerCase()} aria-label={copy.storyLabel} className={styles.story}>
       <section id="alaudis-voices" aria-label={copy.collectionLabel} className={`${styles.family} ${styles.familyLead}`}>
         <div className={styles.familyInner}>
           <div className={styles.showroom}>
@@ -128,10 +128,7 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
         <div className={styles.sceneInner}>
           <div className={styles.glass}>
             <p className={styles.eyebrow}>{copy.storyLabel}</p>
-            <h2 id="alaudis-story-title" className={styles.title}>
-              {copy.title.map((line) => <span key={line}>{line}</span>)}
-            </h2>
-            <div className={styles.prose}>
+            <div className={`${styles.prose} ${styles.proseLead}`}>
               <p>{copy.origin}</p>
               <p>{copy.nameMeaning} {copy.symbolism}</p>
             </div>

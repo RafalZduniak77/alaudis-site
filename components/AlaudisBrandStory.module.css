@@ -149,6 +149,9 @@
 .familyLead { padding-top: 104px; }
 /* The piano and its tabs fill the first screen, centred; the intro follows below. */
 .familyLead .showroom { min-height: calc(100svh - 104px); margin-top: 0; }
+/* Card text follows the eyebrow directly (no big title). */
+.proseLead { margin-top: 26px; }
+
 /* "Own character, own voice" continues inside the "three larks" card. */
 .cardRule { display: block; width: 48px; height: 1px; margin: 34px 0 30px; background: var(--story-accent); opacity: .75; }
 
