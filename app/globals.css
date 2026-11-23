@@ -189,3 +189,21 @@ body {
     max-height: 100%;
   }
 }
+
+/* Craft page: film cards sway into place as they scroll into view. */
+.craft-card[data-sway="waiting"] { opacity: 0; }
+.craft-card[data-sway="in"] { animation: craft-sway 1150ms cubic-bezier(.22, 1, .36, 1) both; }
+.craft-card[data-side="left"] { --craft-tilt: -2.2deg; }
+.craft-card[data-side="right"] { --craft-tilt: 2.2deg; }
+
+@keyframes craft-sway {
+  0% { opacity: 0; transform: translateY(64px) rotate(var(--craft-tilt)) scale(.95); }
+  45% { opacity: 1; transform: translateY(-10px) rotate(calc(var(--craft-tilt) * -.45)) scale(1.01); }
+  70% { transform: translateY(4px) rotate(calc(var(--craft-tilt) * .2)) scale(1); }
+  88% { transform: translateY(-1px) rotate(calc(var(--craft-tilt) * -.08)); }
+  100% { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .craft-card[data-sway] { opacity: 1; animation: none; }
+}

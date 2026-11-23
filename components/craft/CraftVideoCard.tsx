@@ -20,6 +20,9 @@ export default function CraftVideoCard({ video, index, total, fullscreenLabel, l
   const ref = useRef<HTMLVideoElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);
+  // "ssr": plain card (works without JS) → "waiting": below the fold → "in": sways into place.
+  const [phase, setPhase] = useState<"ssr" | "waiting" | "in">("ssr");
+  const card = useRef<HTMLElement>(null);
   const restoreFocus = useCallback(() => { trigger.current?.focus({ preventScroll: true }); }, []);
 
   // Play only while the card is on screen and the viewer is closed.
@@ -36,6 +39,18 @@ export default function CraftVideoCard({ video, index, total, fullscreenLabel, l
     return () => observer.disconnect();
   }, [open]);
 
+  // Sway in every time the card scrolls into view.
+  useEffect(() => {
+    const element = card.current;
+    if (!element || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.intersectionRatio >= 0.15) setPhase("in");
+      else if (!entry.isIntersecting) setPhase("waiting");
+    }, { threshold: [0, 0.15] });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
   const poster = video.poster ?? craftPoster(video.src);
   const number = String(index + 1).padStart(2, "0");
   // The gallery viewer expects a gallery film; describe this one in the same shape.
@@ -49,7 +64,7 @@ export default function CraftVideoCard({ video, index, total, fullscreenLabel, l
   return (
     <>
     {/* Kliknięcie w dowolne miejsce karty otwiera film — tak samo jak przycisk w rogu. */}
-    <article onClick={() => setOpen(true)} className={`group relative isolate flex cursor-pointer aspect-[4/5] min-h-[420px] flex-col justify-between overflow-hidden rounded-[32px] bg-[#0b0b0b] lg:rounded-[40px] ${wide ? "sm:aspect-[5/6] md:col-span-2 md:aspect-[21/9]" : "sm:aspect-[5/6]"}`}>
+    <article ref={card} onClick={() => setOpen(true)} data-sway={phase} data-side={index % 2 === 0 ? "left" : "right"} className={`craft-card group relative isolate flex cursor-pointer aspect-[4/5] min-h-[420px] flex-col justify-between overflow-hidden rounded-[32px] bg-[#0b0b0b] lg:rounded-[40px] ${wide ? "sm:aspect-[5/6] md:col-span-2 md:aspect-[21/9]" : "sm:aspect-[5/6]"}`}>
       <video
         ref={ref}
         src={video.src}
