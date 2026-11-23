@@ -148,26 +148,33 @@ function getLabels(language: LanguageKey) {
 // ----------------------------------------------------------
 // TŁUMACZENIA OPCJI
 // ----------------------------------------------------------
+const BESPOKE_NOTE: Record<LanguageKey, string> = {
+  PL: "ALAUDIS Bespoke — wybierasz wygląd, brzmienie i mechanikę swojego fortepianu. Cena na zapytanie.",
+  EN: "ALAUDIS Bespoke — you choose the look, the sound and the action of your piano. Price on request.",
+  DE: "ALAUDIS Bespoke — Sie wählen Erscheinung, Klang und Mechanik Ihres Flügels. Preis auf Anfrage.",
+  FR: "ALAUDIS Bespoke — vous choisissez l’apparence, le son et la mécanique de votre piano. Prix sur demande.",
+};
+
 function translateOption(value: string, language: LanguageKey) {
-  if (language === "PL") return value;
+  if (language === "PL") return value === "Ferrari poliester połysk" ? "Czerwony poliester połysk (czerwień Ferrari)" : value;
 
   const mapEN: Record<string, string> = {
     "Bialy poliester połysk": "White polyester gloss",
     "Czarny Poliester połysk": "Black polyester gloss",
-    "Ferrari poliester połysk": "Ferrari polyester gloss",
+    "Ferrari poliester połysk": "Red polyester gloss (Ferrari red)",
     "Heban polerowany": "Polished ebony",
     "Okleina Jabłoń Indyjska -połysk": "Indian apple veneer gloss",
 
     "Dno rezonansowe Strunz": "Strunz soundboard",
-    "Dno rezonansowe Chiressa": "Chiressa soundboard",
+    "Dno rezonansowe Ciresa": "Ciresa soundboard",
     "Lakierowanie dna rezonansowego mat": "Soundboard lacquer matte",
     "Lakierowanie dna rezonansowego połysk": "Soundboard lacquer gloss",
     "Mostki rezonansowe klon": "Maple bridges",
     "Mostki rezonansowe buk": "Beech bridges",
     "Kolor ramy złoty": "Gold plate color",
     "Kolor ramy srebrny": "Silver plate color",
-    "Struny stalowe Roslau": "Roslau steel strings",
-    "Struny stalowe Paulelo": "Paulelo steel strings",
+    "Struny stalowe Röslau": "Röslau steel strings",
+    "Struny stalowe Paulello": "Paulello steel strings",
     "Struny basowe Heller": "Heller bass strings",
     "Struny basowe SAP Renovation": "SAP Renovation bass strings",
     "Kołki stroikowe niklowane": "Nickel tuning pins",
@@ -192,20 +199,20 @@ function translateOption(value: string, language: LanguageKey) {
   const mapDE: Record<string, string> = {
     "Bialy poliester połysk": "Weißer Polyester Hochglanz",
     "Czarny Poliester połysk": "Schwarzer Polyester Hochglanz",
-    "Ferrari poliester połysk": "Ferrari-Polyester Hochglanz",
+    "Ferrari poliester połysk": "Roter Polyester Hochglanz (Ferrari-Rot)",
     "Heban polerowany": "Polierter Ebenholz",
     "Okleina Jabłoń Indyjska -połysk": "Indischer Apfelbaumfurnier Hochglanz",
 
     "Dno rezonansowe Strunz": "Strunz Resonanzboden",
-    "Dno rezonansowe Chiressa": "Chiressa Resonanzboden",
+    "Dno rezonansowe Ciresa": "Ciresa Resonanzboden",
     "Lakierowanie dna rezonansowego mat": "Resonanzboden Lack matt",
     "Lakierowanie dna rezonansowego połysk": "Resonanzboden Lack hochglanz",
     "Mostki rezonansowe klon": "Ahornstege",
     "Mostki rezonansowe buk": "Buchenstege",
     "Kolor ramy złoty": "Rahmenfarbe Gold",
     "Kolor ramy srebrny": "Rahmenfarbe Silber",
-    "Struny stalowe Roslau": "Roslau Stahlsaiten",
-    "Struny stalowe Paulelo": "Paulelo Stahlsaiten",
+    "Struny stalowe Röslau": "Röslau Stahlsaiten",
+    "Struny stalowe Paulello": "Paulello Stahlsaiten",
     "Struny basowe Heller": "Heller Basssaiten",
     "Struny basowe SAP Renovation": "SAP Renovation Basssaiten",
     "Kołki stroikowe niklowane": "Vernickelte Stimmwirbel",
@@ -230,20 +237,20 @@ function translateOption(value: string, language: LanguageKey) {
   const mapFR: Record<string, string> = {
     "Bialy poliester połysk": "Polyester blanc brillant",
     "Czarny Poliester połysk": "Polyester noir brillant",
-    "Ferrari poliester połysk": "Polyester Ferrari brillant",
+    "Ferrari poliester połysk": "Polyester rouge brillant (rouge Ferrari)",
     "Heban polerowany": "Ébène poli",
     "Okleina Jabłoń Indyjska -połysk": "Placage pommier indien brillant",
 
     "Dno rezonansowe Strunz": "Table d’harmonie Strunz",
-    "Dno rezonansowe Chiressa": "Table d’harmonie Chiressa",
+    "Dno rezonansowe Ciresa": "Table d’harmonie Ciresa",
     "Lakierowanie dna rezonansowego mat": "Vernis table d’harmonie mat",
     "Lakierowanie dna rezonansowego połysk": "Vernis table d’harmonie brillant",
     "Mostki rezonansowe klon": "Chevalets en érable",
     "Mostki rezonansowe buk": "Chevalets en hêtre",
     "Kolor ramy złoty": "Couleur du cadre or",
     "Kolor ramy srebrny": "Couleur du cadre argent",
-    "Struny stalowe Roslau": "Cordes acier Roslau",
-    "Struny stalowe Paulelo": "Cordes acier Paulelo",
+    "Struny stalowe Röslau": "Cordes acier Röslau",
+    "Struny stalowe Paulello": "Cordes acier Paulello",
     "Struny basowe Heller": "Cordes basses Heller",
     "Struny basowe SAP Renovation": "Cordes basses SAP Renovation",
     "Kołki stroikowe niklowane": "Chevilles nickelées",
@@ -308,6 +315,7 @@ export default function ConfiguratorPanel({
         <h1 className="mb-3 text-xs font-light tracking-[0.16em] text-[#dec38c] sm:text-sm">
           {modelName}
         </h1>
+        <p className="mb-3 text-[11px] leading-5 text-white/65 sm:text-xs">{BESPOKE_NOTE[language]}</p>
         <input
           value={offerTitle}
           onChange={(e) => setOfferTitle(e.target.value)}

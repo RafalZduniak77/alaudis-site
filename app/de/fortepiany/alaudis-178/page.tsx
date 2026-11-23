@@ -8,6 +8,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import ModelBespokeOffer from "@/components/ModelBespokeOffer";
 import ModelStorySignature from "@/components/ModelStorySignature";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 
@@ -227,6 +228,8 @@ export default function ModelAlaudis178Page() {
           </div>
         </div>
       </section>
+
+      <ModelBespokeOffer language="DE" model="178" />
 
       <section className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">

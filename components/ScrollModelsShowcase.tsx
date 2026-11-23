@@ -113,12 +113,12 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
       {
         id: "03",
         eyebrow: "Alaudis",
-        title: "Ferrari polyester",
+        title: "Ferrari red",
         subtitle:
           "A bold interpretation of luxury and exceptional presence in gloss.",
         image: "/konfigurator/Ferrari poliester połysk.png",
         interiorLabel: "Interior",
-        interior: "Ferrari polyester",
+        interior: "Red high-gloss polyester",
         exteriorLabel: "Finish",
         exterior: "High gloss",
         ctaHref: configuratorHref,
@@ -188,12 +188,12 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
       {
         id: "03",
         eyebrow: "Alaudis",
-        title: "Ferrari-Polyester",
+        title: "Ferrari-Rot",
         subtitle:
           "Eine mutige Interpretation von Luxus und außergewöhnlicher Präsenz in Glanz.",
         image: "/konfigurator/Ferrari poliester połysk.png",
         interiorLabel: "Innenraum",
-        interior: "Ferrari-Polyester",
+        interior: "Roter Polyester, Hochglanz",
         exteriorLabel: "Ausführung",
         exterior: "Hochglanz",
         ctaHref: configuratorHref,
@@ -263,12 +263,12 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
       {
         id: "03",
         eyebrow: "Alaudis",
-        title: "Polyester Ferrari",
+        title: "Rouge Ferrari",
         subtitle:
           "Une interprétation audacieuse du luxe et d’une présence exceptionnelle en brillant.",
         image: "/konfigurator/Ferrari poliester połysk.png",
         interiorLabel: "Intérieur",
-        interior: "Polyester Ferrari",
+        interior: "Polyester rouge brillant",
         exteriorLabel: "Finition",
         exterior: "Haut brillant",
         ctaHref: configuratorHref,
@@ -335,11 +335,11 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
     {
       id: "03",
       eyebrow: "Alaudis",
-      title: "Ferrari poliester",
+      title: "Czerwień Ferrari",
       subtitle: "Odważna interpretacja luksusu i wyjątkowej obecności w połysku.",
       image: "/konfigurator/Ferrari poliester połysk.png",
       interiorLabel: "Wnętrze",
-      interior: "Ferrari poliester",
+      interior: "Czerwony poliester, wysoki połysk",
       exteriorLabel: "Wykończenie",
       exterior: "Wysoki połysk",
       ctaHref: configuratorHref,

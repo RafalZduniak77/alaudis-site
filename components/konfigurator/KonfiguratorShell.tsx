@@ -51,20 +51,20 @@ const optionTranslations: Record<
   EN: {
     "Bialy poliester połysk": "White high-gloss polyester",
     "Czarny Poliester połysk": "Black high-gloss polyester",
-    "Ferrari poliester połysk": "Ferrari high-gloss polyester",
+    "Ferrari poliester połysk": "Red high-gloss polyester (Ferrari red)",
     "Heban polerowany": "Polished ebony",
     "Okleina Jabłoń Indyjska -połysk": "Indian apple veneer, high gloss",
 
     "Dno rezonansowe Strunz": "Strunz soundboard",
-    "Dno rezonansowe Chiressa": "Chiressa soundboard",
+    "Dno rezonansowe Ciresa": "Ciresa soundboard",
     "Lakierowanie dna rezonansowego mat": "Matte soundboard finish",
     "Lakierowanie dna rezonansowego połysk": "High-gloss soundboard finish",
     "Mostki rezonansowe klon": "Maple bridges",
     "Mostki rezonansowe buk": "Beech bridges",
     "Kolor ramy złoty": "Gold frame colour",
     "Kolor ramy srebrny": "Silver frame colour",
-    "Struny stalowe Roslau": "Roslau steel strings",
-    "Struny stalowe Paulelo": "Paulelo steel strings",
+    "Struny stalowe Röslau": "Röslau steel strings",
+    "Struny stalowe Paulello": "Paulello steel strings",
     "Struny basowe Heller": "Heller bass strings",
     "Struny basowe SAP Renovation": "SAP Renovation bass strings",
     "Kołki stroikowe niklowane": "Nickel-plated tuning pins",
@@ -89,13 +89,13 @@ const optionTranslations: Record<
   DE: {
     "Bialy poliester połysk": "Weißer Polyester Hochglanz",
     "Czarny Poliester połysk": "Schwarzer Polyester Hochglanz",
-    "Ferrari poliester połysk": "Ferrari-Polyester Hochglanz",
+    "Ferrari poliester połysk": "Roter Polyester Hochglanz (Ferrari-Rot)",
     "Heban polerowany": "Polierter Ebenholz",
     "Okleina Jabłoń Indyjska -połysk":
       "Indisches Apfelbaumfurnier, Hochglanz",
 
     "Dno rezonansowe Strunz": "Resonanzboden Strunz",
-    "Dno rezonansowe Chiressa": "Resonanzboden Chiressa",
+    "Dno rezonansowe Ciresa": "Resonanzboden Ciresa",
     "Lakierowanie dna rezonansowego mat": "Matt lackierter Resonanzboden",
     "Lakierowanie dna rezonansowego połysk":
       "Glänzend lackierter Resonanzboden",
@@ -103,8 +103,8 @@ const optionTranslations: Record<
     "Mostki rezonansowe buk": "Stege aus Buche",
     "Kolor ramy złoty": "Rahmenfarbe Gold",
     "Kolor ramy srebrny": "Rahmenfarbe Silber",
-    "Struny stalowe Roslau": "Stahlsaiten Roslau",
-    "Struny stalowe Paulelo": "Stahlsaiten Paulelo",
+    "Struny stalowe Röslau": "Stahlsaiten Röslau",
+    "Struny stalowe Paulello": "Stahlsaiten Paulello",
     "Struny basowe Heller": "Basssaiten Heller",
     "Struny basowe SAP Renovation": "Basssaiten SAP Renovation",
     "Kołki stroikowe niklowane": "Vernickelte Stimmwirbel",
@@ -129,12 +129,12 @@ const optionTranslations: Record<
   FR: {
     "Bialy poliester połysk": "Polyester blanc brillant",
     "Czarny Poliester połysk": "Polyester noir brillant",
-    "Ferrari poliester połysk": "Polyester Ferrari brillant",
+    "Ferrari poliester połysk": "Polyester rouge brillant (rouge Ferrari)",
     "Heban polerowany": "Ébène poli",
     "Okleina Jabłoń Indyjska -połysk": "Placage pommier indien, brillant",
 
     "Dno rezonansowe Strunz": "Table d’harmonie Strunz",
-    "Dno rezonansowe Chiressa": "Table d’harmonie Chiressa",
+    "Dno rezonansowe Ciresa": "Table d’harmonie Ciresa",
     "Lakierowanie dna rezonansowego mat":
       "Finition mate de la table d’harmonie",
     "Lakierowanie dna rezonansowego połysk":
@@ -143,8 +143,8 @@ const optionTranslations: Record<
     "Mostki rezonansowe buk": "Chevalets en hêtre",
     "Kolor ramy złoty": "Couleur du cadre dorée",
     "Kolor ramy srebrny": "Couleur du cadre argentée",
-    "Struny stalowe Roslau": "Cordes acier Roslau",
-    "Struny stalowe Paulelo": "Cordes acier Paulelo",
+    "Struny stalowe Röslau": "Cordes acier Röslau",
+    "Struny stalowe Paulello": "Cordes acier Paulello",
     "Struny basowe Heller": "Cordes basses Heller",
     "Struny basowe SAP Renovation": "Cordes basses SAP Renovation",
     "Kołki stroikowe niklowane": "Chevilles nickelées",
@@ -174,7 +174,7 @@ function translateOption(value: string, language: LanguageKey) {
   if (!value) return "";
 
   if (language === "PL") {
-    return value;
+    return value === "Ferrari poliester połysk" ? "Czerwony poliester połysk (czerwień Ferrari)" : value;
   }
 
   return optionTranslations[language]?.[value] || value;

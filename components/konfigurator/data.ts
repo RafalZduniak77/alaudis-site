@@ -53,15 +53,15 @@ export const options: OptionsMap = {
 
   akustyka: [
     "Dno rezonansowe Strunz",
-    "Dno rezonansowe Chiressa",
+    "Dno rezonansowe Ciresa",
     "Lakierowanie dna rezonansowego mat",
     "Lakierowanie dna rezonansowego połysk",
     "Mostki rezonansowe klon",
     "Mostki rezonansowe buk",
     "Kolor ramy złoty",
     "Kolor ramy srebrny",
-    "Struny stalowe Roslau",
-    "Struny stalowe Paulelo",
+    "Struny stalowe Röslau",
+    "Struny stalowe Paulello",
     "Struny basowe Heller",
     "Struny basowe SAP Renovation",
     "Kołki stroikowe niklowane",
@@ -91,7 +91,7 @@ export const options: OptionsMap = {
 // ----------------------------------------------------------
 export const groupMap: Record<string, string> = {
   "Dno rezonansowe Strunz": "dno",
-  "Dno rezonansowe Chiressa": "dno",
+  "Dno rezonansowe Ciresa": "dno",
 
   "Lakierowanie dna rezonansowego mat": "lakierDno",
   "Lakierowanie dna rezonansowego połysk": "lakierDno",
@@ -102,8 +102,8 @@ export const groupMap: Record<string, string> = {
   "Kolor ramy złoty": "kolorRamy",
   "Kolor ramy srebrny": "kolorRamy",
 
-  "Struny stalowe Roslau": "struny",
-  "Struny stalowe Paulelo": "struny",
+  "Struny stalowe Röslau": "struny",
+  "Struny stalowe Paulello": "struny",
 
   "Struny basowe Heller": "basowe",
   "Struny basowe SAP Renovation": "basowe",
@@ -152,7 +152,7 @@ export const previewImageMap: Record<string, string> = {
   "Mostki rezonansowe buk": "/konfigurator/mostki-buk.JPG",
 
   "Dno rezonansowe Strunz": "/konfigurator/dno-strunz.jpg",
-  "Dno rezonansowe Chiressa": "/konfigurator/dno-chiresse.jpg",
+  "Dno rezonansowe Ciresa": "/konfigurator/dno-chiresse.jpg",
 
   "Lakierowanie dna rezonansowego mat":
     "/konfigurator/lakierowanie dna rezonansowego mat.jpg",
@@ -163,7 +163,7 @@ export const previewImageMap: Record<string, string> = {
   "Kolor ramy złoty": "/konfigurator/kolor ramy złoty.JPG",
   "Kolor ramy srebrny": "/konfigurator/kolor ramy srebny.png",
 
-  "Struny stalowe Roslau":
+  "Struny stalowe Röslau":
     "/konfigurator/struny stalowe resalu.jpg",
 
   "Struny basowe Heller":

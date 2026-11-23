@@ -24,31 +24,65 @@ const COOKIE_SETTINGS: Record<StoryLanguage, string> = {
 // 5. linki w footerze nie wracają już do polskiej wersji
 // ==========================================================
 
+const FOOTER_COPY: Record<
+  StoryLanguage,
+  {
+    tagline: string; models: string; configurator: string; company: string;
+    finish: string; color: string; accessories: string;
+    about: string; factory: string; tour: string; heritage: string; artists: string; news: string; contact: string;
+  }
+> = {
+  PL: {
+    tagline: "Polski fortepian koncertowy", models: "Modele", configurator: "Konfigurator", company: "Firma",
+    finish: "Wybierz wykończenie", color: "Wybierz kolor", accessories: "Akcesoria",
+    about: "O nas", factory: "Manufaktura", tour: "Zwiedzanie manufaktury", heritage: "Tradycja", artists: "Artyści", news: "Aktualności i prasa", contact: "Kontakt",
+  },
+  EN: {
+    tagline: "Polish Grand Piano", models: "Models", configurator: "Configurator", company: "Company",
+    finish: "Choose finish", color: "Choose color", accessories: "Accessories",
+    about: "About", factory: "Factory", tour: "Manufactory tour", heritage: "Heritage", artists: "Artists", news: "News & Press", contact: "Contact",
+  },
+  DE: {
+    tagline: "Polnischer Flügel", models: "Modelle", configurator: "Konfigurator", company: "Unternehmen",
+    finish: "Oberfläche wählen", color: "Farbe wählen", accessories: "Zubehör",
+    about: "Über uns", factory: "Manufaktur", tour: "Manufakturführung", heritage: "Tradition", artists: "Künstler", news: "Aktuelles & Presse", contact: "Kontakt",
+  },
+  FR: {
+    tagline: "Piano à queue polonais", models: "Modèles", configurator: "Configurateur", company: "Entreprise",
+    finish: "Choisir la finition", color: "Choisir la couleur", accessories: "Accessoires",
+    about: "À propos", factory: "Manufacture", tour: "Visite de la manufacture", heritage: "Tradition", artists: "Artistes", news: "Actualités & presse", contact: "Contact",
+  },
+};
+
 const FACEBOOK_ALAUDIS_URL =
   "https://www.facebook.com/profile.php?id=61579105662197&locale=pl_PL";
 
 const SAP_RENOVATION: Record<
   StoryLanguage,
-  { href: string; since: string; newTab: string }
+  { href: string; since: string; newTab: string; intro: string }
 > = {
   PL: {
     href: "https://saprenovation.com/pl/",
     since: "od 1990 roku",
+    intro: "ALAUDIS to marka SAP Renovation — jednego z europejskich liderów w renowacji i wykończeniu fortepianów.",
     newTab: "otwiera się w nowej karcie",
   },
   EN: {
     href: "https://saprenovation.com/en/",
     since: "since 1990",
+    intro: "ALAUDIS is a brand of SAP Renovation — one of Europe’s leading specialists in piano restoration and finishing.",
     newTab: "opens in a new tab",
   },
   DE: {
     href: "https://saprenovation.com/de/",
     since: "seit 1990",
+    intro: "ALAUDIS ist eine Marke von SAP Renovation — einem der führenden europäischen Spezialisten für die Restaurierung und Oberflächenveredelung von Flügeln.",
     newTab: "öffnet in einem neuen Tab",
   },
   FR: {
     href: "https://saprenovation.com/fr/",
     since: "depuis 1990",
+    intro: "ALAUDIS est une marque de SAP Renovation — l’un des spécialistes européens de référence de la restauration et de la finition des pianos.",
     newTab: "s’ouvre dans un nouvel onglet",
   },
 };
@@ -84,6 +118,7 @@ export default function Footer() {
   const language = (langPrefix.slice(1).toUpperCase() || "PL") as StoryLanguage;
   const story = alaudisStoryContent[language];
   const sapRenovation = SAP_RENOVATION[language];
+  const copy = FOOTER_COPY[language];
 
   // --------------------------------------------------------
   // LINKI WEWNĘTRZNE Z PREFIXEM JĘZYKA
@@ -107,7 +142,7 @@ export default function Footer() {
             ALAUDIS
           </p>
 
-          <p className="mt-8 text-[15px] text-white/92">Polish Grand Piano</p>
+          <p className="mt-8 text-[15px] text-white/92">{copy.tagline}</p>
 
           <Link
             href={`${aboutUrl}#alaudis-story`}
@@ -131,7 +166,7 @@ export default function Footer() {
            ================================================== */}
         <div>
           <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            MODELS
+            {copy.models}
           </p>
 
           <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
@@ -152,7 +187,7 @@ export default function Footer() {
            ================================================== */}
         <div>
           <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            CONFIGURATOR
+            {copy.configurator}
           </p>
 
           <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
@@ -160,21 +195,21 @@ export default function Footer() {
               href={configuratorUrl}
               className="transition hover:text-white/90"
             >
-              Choose finish
+              {copy.finish}
             </Link>
 
             <Link
               href={configuratorUrl}
               className="transition hover:text-white/90"
             >
-              Choose color
+              {copy.color}
             </Link>
 
             <Link
               href={configuratorUrl}
               className="transition hover:text-white/90"
             >
-              Accessories
+              {copy.accessories}
             </Link>
           </div>
         </div>
@@ -184,32 +219,36 @@ export default function Footer() {
            ================================================== */}
         <div>
           <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            COMPANY
+            {copy.company}
           </p>
 
           <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
             <Link href={aboutUrl} className="transition hover:text-white/90">
-              About
+              {copy.about}
             </Link>
 
             <Link href={factoryUrl} className="transition hover:text-white/90">
-              Factory
+              {copy.factory}
+            </Link>
+
+            <Link href={`${langPrefix}/zwiedzanie-manufaktury`} className="transition hover:text-white/90">
+              {copy.tour}
             </Link>
 
             <Link href={`${langPrefix}/tradycja`} className="transition hover:text-white/90">
-              Heritage
+              {copy.heritage}
             </Link>
 
             <Link href={`${langPrefix}/artysci`} className="transition hover:text-white/90">
-              Artists
+              {copy.artists}
             </Link>
 
             <Link href={`${langPrefix}/aktualnosci`} className="transition hover:text-white/90">
-              News &amp; Press
+              {copy.news}
             </Link>
 
             <Link href={contactUrl} className="transition hover:text-white/90">
-              Contact
+              {copy.contact}
             </Link>
           </div>
         </div>
@@ -219,6 +258,7 @@ export default function Footer() {
           DÓŁ FOOTERA
          ==================================================== */}
       <div className="mx-auto mt-16 flex max-w-7xl flex-col items-center gap-6 border-t border-white/10 pt-8 text-center">
+        <p className="max-w-xl text-sm leading-6 text-white/60">{sapRenovation.intro}</p>
         <a
           href={sapRenovation.href}
           hrefLang={language.toLowerCase()}
