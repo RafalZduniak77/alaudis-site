@@ -255,7 +255,7 @@
 .signatureTitle > span { display: block; }
 .signatureRule { display: block; width: 48px; height: 1px; margin: 40px auto; background: var(--story-accent); opacity: .75; }
 .signatureText { max-width: 620px; margin: 0 auto; color: rgb(255 255 255 / 72%); font-size: 16px; line-height: 1.9; }
-.signatureClosing { max-width: 600px; margin: 36px auto 0; color: rgb(255 255 255 / 92%); font-size: 18px; font-style: italic; font-weight: 300; line-height: 1.7; }
+.signatureClosing { max-width: 600px; margin: 0 auto; color: rgb(255 255 255 / 92%); font-size: 18px; font-style: italic; font-weight: 300; line-height: 1.7; }
 .signatureLine { display: block; height: 72px; width: 1px; margin: 56px auto 0; background: linear-gradient(var(--story-accent), transparent); }
 
 @keyframes model-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -311,7 +311,7 @@
   .signatureTitle { font-size: 29px; }
   .signatureRule { margin: 28px auto; }
   .signatureText { font-size: 14px; line-height: 1.8; }
-  .signatureClosing { margin-top: 26px; font-size: 16px; }
+  .signatureClosing { font-size: 16px; }
   .signatureLine { height: 48px; margin-top: 40px; }
   .sceneDivider { height: 8px; }
 }

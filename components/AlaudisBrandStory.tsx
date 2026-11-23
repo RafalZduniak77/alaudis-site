@@ -181,7 +181,6 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
           {(() => { const parts = copy.familyLine.split(/(?<=\.)\s+/); return <><span>{parts.slice(0, -1).join(" ")}</span> <span>{parts.at(-1)}</span></>; })()}
         </h1>
         <span className={styles.signatureRule} aria-hidden="true" />
-        <p className={styles.signatureText}>{copy.family}</p>
         <p className={styles.signatureClosing}>{copy.closing}</p>
         <span className={styles.signatureLine} aria-hidden="true" />
       </div>
