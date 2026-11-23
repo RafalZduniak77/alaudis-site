@@ -28,13 +28,20 @@ export default function OdkryjModelePage() {
               Discover models
             </h1>
 
-            <div className="page-hero-description">
-              <p className="mx-auto mt-7 max-w-2xl text-sm leading-8 text-white/90 sm:text-base">
-                View the piano in 3D, rotate it, zoom in and see how it looks in
-                a real interior. This is the first step into the full Alaudis
-                experience: configurator + AR preview.
-              </p>
-            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
+      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
+        <div className="mx-auto max-w-4xl">
+          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
+          <div>
+            <p className="mx-auto mt-7 max-w-2xl text-sm leading-8 text-white/90 sm:text-base">
+              View the piano in 3D, rotate it, zoom in and see how it looks in
+              a real interior. This is the first step into the full Alaudis
+              experience: configurator + AR preview.
+            </p>
           </div>
         </div>
       </section>

@@ -39,19 +39,6 @@ export default function VisitezLatelierPage() {
               Visitez l’atelier
             </h1>
 
-            <div className="page-hero-description">
-              <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
-                Découvrez Alaudis dans un espace où l’artisanat, le détail et le
-                caractère de l’instrument rencontrent un échange privé autour du
-                modèle, de la finition et de la composition individuelle du piano.
-              </p>
-
-              <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
-                Une visite à l’atelier est un moment calme et personnel avec la
-                marque, non seulement une présentation du modèle, mais une
-                expérience de son échelle, de sa présence et de son identité.
-              </p>
-            </div>
           </div>
         </div>
 
@@ -64,6 +51,26 @@ export default function VisitezLatelierPage() {
               Faire défiler vers le bas
             </p>
           </a>
+        </div>
+      </section>
+
+      {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
+      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
+        <div className="mx-auto max-w-4xl">
+          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
+          <div>
+            <p className="mx-auto mt-0 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
+              Découvrez Alaudis dans un espace où l’artisanat, le détail et le
+              caractère de l’instrument rencontrent un échange privé autour du
+              modèle, de la finition et de la composition individuelle du piano.
+            </p>
+
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
+              Une visite à l’atelier est un moment calme et personnel avec la
+              marque, non seulement une présentation du modèle, mais une
+              expérience de son échelle, de sa présence et de son identité.
+            </p>
+          </div>
         </div>
       </section>
 

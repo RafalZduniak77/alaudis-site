@@ -127,20 +127,6 @@ export default function KontaktPage() {
               Parlons-en
             </h1>
 
-            <div className="page-hero-description">
-              <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
-                Contactez-nous pour parler des modèles Alaudis, des finitions
-                premium, de la configuration du piano et des possibilités de
-                collaboration.
-              </p>
-
-              <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
-                Une conversation privée autour du modèle, de la finition et du
-                caractère de l’instrument est le plus beau début d’une composition
-                Alaudis individuelle.
-              </p>
-            </div>
-
             <div className="page-hero-actions mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/fr/odwiedz-atelier"
@@ -168,6 +154,26 @@ export default function KontaktPage() {
               Faire défiler vers le bas
             </p>
           </a>
+        </div>
+      </section>
+
+      {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
+      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
+        <div className="mx-auto max-w-4xl">
+          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
+          <div>
+            <p className="mx-auto mt-0 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
+              Contactez-nous pour parler des modèles Alaudis, des finitions
+              premium, de la configuration du piano et des possibilités de
+              collaboration.
+            </p>
+
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
+              Une conversation privée autour du modèle, de la finition et du
+              caractère de l’instrument est le plus beau début d’une composition
+              Alaudis individuelle.
+            </p>
+          </div>
         </div>
       </section>
 

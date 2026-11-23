@@ -28,14 +28,21 @@ export default function OdkryjModelePage() {
               Modelle entdecken
             </h1>
 
-            <div className="page-hero-description">
-              <p className="mx-auto mt-7 max-w-2xl text-sm leading-8 text-white/90 sm:text-base">
-                Sehen Sie den Flügel in 3D, drehen Sie ihn, zoomen Sie hinein und
-                prüfen Sie, wie er in einem realen Interieur wirkt. Das ist der
-                erste Schritt zum vollständigen Alaudis-Erlebnis: Konfigurator +
-                AR-Vorschau.
-              </p>
-            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
+      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
+        <div className="mx-auto max-w-4xl">
+          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
+          <div>
+            <p className="mx-auto mt-7 max-w-2xl text-sm leading-8 text-white/90 sm:text-base">
+              Sehen Sie den Flügel in 3D, drehen Sie ihn, zoomen Sie hinein und
+              prüfen Sie, wie er in einem realen Interieur wirkt. Das ist der
+              erste Schritt zum vollständigen Alaudis-Erlebnis: Konfigurator +
+              AR-Vorschau.
+            </p>
           </div>
         </div>
       </section>

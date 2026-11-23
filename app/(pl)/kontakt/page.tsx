@@ -151,17 +151,6 @@ export default function KontaktPage() {
               Porozmawiajmy
             </h1>
 
-            <div className="page-hero-description">
-              <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
-                Skontaktuj się z nami, aby porozmawiać o modelach Alaudis,
-                wykończeniach premium, konfiguracji fortepianu oraz współpracy.
-              </p>
-
-              <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
-                Prywatna rozmowa o modelu, wykończeniu i charakterze instrumentu
-                to najpiękniejszy początek indywidualnej kompozycji Alaudis.
-              </p>
-            </div>
 
             {/* ==================================================
                 PREMIUM CTA W HERO
@@ -196,6 +185,24 @@ export default function KontaktPage() {
               Przewiń w dół
             </p>
           </a>
+        </div>
+      </section>
+
+      {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
+      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
+        <div className="mx-auto max-w-4xl">
+          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
+          <div>
+            <p className="mx-auto mt-0 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
+              Skontaktuj się z nami, aby porozmawiać o modelach Alaudis,
+              wykończeniach premium, konfiguracji fortepianu oraz współpracy.
+            </p>
+
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
+              Prywatna rozmowa o modelu, wykończeniu i charakterze instrumentu
+              to najpiękniejszy początek indywidualnej kompozycji Alaudis.
+            </p>
+          </div>
         </div>
       </section>
 

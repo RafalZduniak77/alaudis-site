@@ -67,11 +67,6 @@ export default function Home() {
               detal, tożsamość.
             </p>
 
-            <p className="home-hero-description mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/90 sm:text-base sm:leading-8">
-              Każdy Alaudis powstaje z połączenia rzemiosła, proporcji,
-              szlachetnego materiału i indywidualnego charakteru brzmienia.
-            </p>
-
             <div className="home-hero-actions mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/konfigurator"
@@ -99,6 +94,17 @@ export default function Home() {
           </div>
           <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/88">
             Przewiń w dół
+          </p>
+        </div>
+      </section>
+
+      {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
+      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
+        <div className="mx-auto max-w-4xl">
+          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
+          <p className="mx-auto mt-0 max-w-2xl text-sm leading-7 text-white/90 sm:text-base sm:leading-8">
+            Każdy Alaudis powstaje z połączenia rzemiosła, proporcji,
+            szlachetnego materiału i indywidualnego charakteru brzmienia.
           </p>
         </div>
       </section>

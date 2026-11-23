@@ -27,11 +27,18 @@ export default function FactoryTourPage({ language }: { language: TourLanguage }
           <div className="mx-auto max-w-5xl">
             <p className="page-hero-eyebrow mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">{copy.hero.eyebrow}</p>
             <h1 className="page-hero-title text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">{copy.hero.title}</h1>
-            <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">{copy.hero.text}</p>
             <a href="#zgloszenie" className="mt-10 inline-flex rounded-full border border-[#d3bd8b] bg-[#d3bd8b] px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:bg-transparent hover:text-[#d3bd8b]">
               {copy.hero.cta}
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
+      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
+        <div className="mx-auto max-w-4xl">
+          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
+          <p className="mx-auto max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">{copy.hero.text}</p>
         </div>
       </section>
 

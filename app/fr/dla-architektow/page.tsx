@@ -39,20 +39,6 @@ export default function PourLesArchitectesPage() {
               Pour les architectes
             </h1>
 
-            <div className="page-hero-description">
-              <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
-                Alaudis peut devenir une partie intégrante d’une résidence, d’un
-                appartement, d’un hôtel ou d’un intérieur représentatif, non pas
-                comme un objet ordinaire, mais comme un élément consciemment choisi
-                de la composition intérieure.
-              </p>
-
-              <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
-                Nous collaborons sur des projets où la proportion, le matériau, la
-                lumière, le caractère et la présence de l’instrument dans un
-                espace premium comptent véritablement.
-              </p>
-            </div>
           </div>
         </div>
 
@@ -65,6 +51,27 @@ export default function PourLesArchitectesPage() {
               Faire défiler vers le bas
             </p>
           </a>
+        </div>
+      </section>
+
+      {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
+      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
+        <div className="mx-auto max-w-4xl">
+          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
+          <div>
+            <p className="mx-auto mt-0 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
+              Alaudis peut devenir une partie intégrante d’une résidence, d’un
+              appartement, d’un hôtel ou d’un intérieur représentatif, non pas
+              comme un objet ordinaire, mais comme un élément consciemment choisi
+              de la composition intérieure.
+            </p>
+
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
+              Nous collaborons sur des projets où la proportion, le matériau, la
+              lumière, le caractère et la présence de l’instrument dans un
+              espace premium comptent véritablement.
+            </p>
+          </div>
         </div>
       </section>
 
