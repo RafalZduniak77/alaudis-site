@@ -8,10 +8,10 @@
     "fr": "Maciej Tubis — « Toute la Pologne joue Chopin »"
   },
   "description": {
-    "pl": "Maciej Tubis przy fortepianie ALAUDIS podczas koncertu z cyklu „Cała Polska gra Chopina”. Ponad sześć minut muzyki na żywo.",
-    "en": "Maciej Tubis at an ALAUDIS grand piano during a concert in the “All Poland Plays Chopin” series. More than six minutes of live music.",
-    "de": "Maciej Tubis am ALAUDIS-Flügel bei einem Konzert der Reihe „Ganz Polen spielt Chopin“. Über sechs Minuten Live-Musik.",
-    "fr": "Maciej Tubis au piano ALAUDIS lors d’un concert du cycle « Toute la Pologne joue Chopin ». Plus de six minutes de musique en direct."
+    "pl": "Maciej Tubis przy fortepianie ALAUDIS podczas koncertu z cyklu „Cała Polska gra Chopina” w Miejskim Ośrodku Kultury w Konstantynowie Łódzkim. Ponad sześć minut muzyki na żywo.",
+    "en": "Maciej Tubis at an ALAUDIS grand piano during a concert in the “All Poland Plays Chopin” series at the Municipal Cultural Centre in Konstantynów Łódzki. More than six minutes of live music.",
+    "de": "Maciej Tubis am ALAUDIS-Flügel bei einem Konzert der Reihe „Ganz Polen spielt Chopin“ im Städtischen Kulturzentrum in Konstantynów Łódzki. Über sechs Minuten Live-Musik.",
+    "fr": "Maciej Tubis au piano ALAUDIS lors d’un concert du cycle « Toute la Pologne joue Chopin » au Centre culturel municipal de Konstantynów Łódzki. Plus de six minutes de musique en direct."
   },
   "alt": {
     "pl": "Maciej Tubis gra na scenie na czarnym fortepianie ALAUDIS w świetle reflektora",
@@ -19,6 +19,7 @@
     "de": "Maciej Tubis spielt auf einer beleuchteten Bühne einen schwarzen ALAUDIS-Flügel",
     "fr": "Maciej Tubis joue sur un piano à queue noir ALAUDIS, sur une scène éclairée"
   },
+  "location": "Konstantynów Łódzki",
   "date": "2026-11-13",
   "duration": 394.848133
 }
