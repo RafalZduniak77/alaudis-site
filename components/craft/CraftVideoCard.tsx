@@ -51,7 +51,7 @@ export default function CraftVideoCard({ video, index, total, fullscreenLabel, w
       <video
         ref={ref}
         src={video.src}
-        poster={craftPoster(video.src)}
+        poster={video.poster ?? craftPoster(video.src)}
         muted
         loop
         playsInline

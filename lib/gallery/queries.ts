@@ -14,7 +14,7 @@ export const published = `_type == "galleryAlbum" && !(_id in path("drafts.**"))
 
 export const publishedVideo = `_type == "galleryVideo" && !(_id in path("drafts.**")) && !(_id in path("versions.**")) && defined(title.pl) && defined(video.asset->url) && video.asset->mimeType in ["video/mp4", "video/webm"] && defined(poster.asset->url)`;
 // Keep existing photo albums first in “All”; videos have their own filter as well.
-export const galleryItemsFilter = `(((${published}) && (!defined($category) || category == $category)) || ((${publishedVideo}) && (!defined($category) || $category == "video")))`;
+export const galleryItemsFilter = `(((${published}) && (!defined($category) || category == $category)) || ((${publishedVideo}) && coalesce(section, "sound") != "craft" && (!defined($category) || $category == "video")))`;
 export const galleryItemProjection = `
   ${albumProjection},
   _type == "galleryVideo" => {
@@ -23,6 +23,12 @@ export const galleryItemProjection = `
     "video": video.asset->{url, mimeType}
   }
 `;
+// Production films shown on the Craft page (/rzemioslo); kept out of the gallery lists above.
+export const craftVideosQuery = `*[${publishedVideo} && section == "craft"] | order(coalesce(order, 1000000) asc, _createdAt asc) {
+  _id, title, description, duration,
+  "src": video.asset->url,
+  "poster": poster.asset->url
+}`;
 // Videos with an editor-set order come first; the rest stay newest first.
 export const galleryItemsOrder = `_type asc, coalesce(order, 1000000) asc, coalesce(date, _createdAt) desc, _id asc`;
 

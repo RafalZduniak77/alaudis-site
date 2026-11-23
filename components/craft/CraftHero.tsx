@@ -23,7 +23,7 @@ export default function CraftHero({ video, eyebrow, title, cta, pauseLabel, play
       <video
         ref={ref}
         src={video.src}
-        poster={craftPoster(video.src)}
+        poster={video.poster ?? craftPoster(video.src)}
         autoPlay
         muted
         loop

@@ -2,11 +2,11 @@ import "server-only";
 import { cache } from "react";
 import { galleryApiVersion, galleryDataset, galleryProjectId } from "./config";
 import { demoAlbums } from "./demo";
-import { ALBUM_BATCH_SIZE, PHOTO_BATCH_SIZE, type AlbumList, type AlbumPageData, type GalleryItem, type GalleryFilter, type GalleryPhoto } from "./types";
+import { ALBUM_BATCH_SIZE, PHOTO_BATCH_SIZE, type AlbumList, type AlbumPageData, type GalleryItem, type GalleryFilter, type GalleryPhoto, type LocalizedText } from "./types";
 
 export const galleryIsDemo = !galleryProjectId;
 
-import { photoProjection, albumProjection, published, galleryItemsFilter, galleryItemProjection, galleryItemsOrder } from "./queries";
+import { photoProjection, albumProjection, published, galleryItemsFilter, galleryItemProjection, galleryItemsOrder, craftVideosQuery } from "./queries";
 
 async function query<T>(groq: string, params: Record<string, unknown> = {}): Promise<T> {
   if (!/^[a-z0-9]+$/.test(galleryProjectId)) throw new Error("Gallery project is not configured");
@@ -60,3 +60,11 @@ export async function getAlbumPhotos(slug: string, offset: number) {
   }`, { slug });
 }
 
+
+export type CmsCraftVideo = { _id: string; title: LocalizedText; description?: LocalizedText; duration?: number; src: string; poster: string };
+
+// Production films for the Craft page. Returns [] when the CMS is not configured.
+export async function getCraftVideos(): Promise<CmsCraftVideo[]> {
+  if (galleryIsDemo) return [];
+  return query<CmsCraftVideo[]>(craftVideosQuery);
+}

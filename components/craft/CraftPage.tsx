@@ -12,7 +12,8 @@ import ModelPageTopBar from "@/components/ModelPageTopBar";
 import SeoJsonLd from "@/components/SeoJsonLd";
 import CraftHero from "./CraftHero";
 import CraftVideoCard from "./CraftVideoCard";
-import { craftContent, type CraftLanguage } from "./videos";
+import { getCraftVideos } from "@/lib/gallery/server";
+import { craftContent, type CraftLanguage, type CraftVideo } from "./videos";
 
 const UI: Record<CraftLanguage, {
   heroCta: string; pause: string; play: string;
@@ -75,14 +76,29 @@ function Arrow() {
   );
 }
 
-export default function CraftPage({ language }: { language: CraftLanguage }) {
+// Films come from the gallery panel (section „Rzemiosło”); the bundled list is the fallback.
+async function loadVideos(language: CraftLanguage): Promise<CraftVideo[]> {
+  const locale = language.toLowerCase() as "pl" | "en" | "de" | "fr";
+  const cms = await getCraftVideos().catch(() => []);
+  if (!cms.length) return craftContent[language].videos;
+  return cms.map((video) => ({
+    src: video.src,
+    // Sanity image CDN: sharp but light first frame.
+    poster: `${video.poster}?w=1600&fit=max&auto=format&q=80`,
+    title: video.title[locale]?.trim() || video.title.pl || "",
+    text: video.description?.[locale]?.trim() || video.description?.pl || "",
+  }));
+}
+
+export default async function CraftPage({ language }: { language: CraftLanguage }) {
   const copy = craftContent[language];
   const ui = UI[language];
   const prefix = language === "PL" ? "" : `/${language.toLowerCase()}`;
   const locale = language.toLowerCase() as "pl" | "en" | "de" | "fr";
   // The final-voicing film opens the page as a banner; the rest fill the grid.
-  const hero = copy.videos[copy.videos.length - 1];
-  const videos = copy.videos.slice(0, -1);
+  const allVideos = await loadVideos(language);
+  const hero = allVideos[allVideos.length - 1];
+  const videos = allVideos.slice(0, -1);
 
   return (
     <main className="min-h-screen bg-black text-white">

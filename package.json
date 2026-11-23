@@ -10,7 +10,8 @@
     "test:gallery": "node --experimental-strip-types --test tests/gallery.test.mjs",
     "cms:seed": "sanity exec scripts/seed-gallery.ts --with-user-token",
     "cms:seed:production": "sanity exec scripts/seed-gallery.ts --with-user-token -- --production",
-    "cms:video": "sanity exec scripts/import-gallery-video.ts --with-user-token --"
+    "cms:video": "sanity exec scripts/import-gallery-video.ts --with-user-token --",
+    "cms:craft": "sanity exec scripts/import-craft-videos.ts --with-user-token --"
   },
   "dependencies": {
     "@google/model-viewer": "^4.2.0",

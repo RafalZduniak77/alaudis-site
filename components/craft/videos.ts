@@ -3,7 +3,7 @@
 // ==========================================================
 
 export type CraftLanguage = "PL" | "EN" | "DE" | "FR";
-export type CraftVideo = { src: string; title: string; text: string };
+export type CraftVideo = { src: string; title: string; text: string; poster?: string };
 
 export const craftContent: Record<CraftLanguage, { eyebrow: string; title: string; intro: string; videos: CraftVideo[] }> = {
   "PL": {

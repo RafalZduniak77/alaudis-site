@@ -77,6 +77,8 @@ test("Video filter exposes published playable films while preserving photo categ
     { ...video, _id: "missing-file", video: {} }, { ...video, _id: "missing-poster", poster: {} },
     { _id: "file-unsupported", _type: "sanity.fileAsset", url: "https://cdn.sanity.io/files/example/gallery_preview/concert.mov", mimeType: "video/quicktime" },
     { ...video, _id: "unsupported-format", video: { asset: { _ref: "file-unsupported" } } },
+    // Production films belong to the Craft page, never to the gallery lists.
+    { ...video, _id: "craft-film", section: "craft" },
   ];
   const query = `*[${galleryItemsFilter}] | order(${galleryItemsOrder}) {${galleryItemProjection}}`;
   const all = await run(query, dataset, { category: null });

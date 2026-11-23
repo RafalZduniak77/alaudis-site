@@ -44,6 +44,7 @@ const video = defineType({
   groups: [{ name: "details", title: "Dane filmu", default: true }, { name: "media", title: "Film i miniatura" }],
   fields: [
     defineField({ name: "title", title: "Tytuł filmu", type: "galleryLocalizedString", group: "details", description: "Wpisz polski tytuł, np. Koncert w Pile. Tłumaczenia możesz dodać później.", validation: rule => rule.custom(value => (value as { pl?: string } | undefined)?.pl?.trim() ? true : "Wpisz polski tytuł filmu.") }),
+    defineField({ name: "section", title: "Dział", type: "string", group: "details", description: "Brzmienie — film trafia do galerii (koncerty, nagrania). Rzemiosło — film z produkcji, pokazywany na podstronie „Rzemiosło”.", options: { list: [{ title: "Brzmienie (koncerty i nagrania)", value: "sound" }, { title: "Rzemiosło (filmy z produkcji)", value: "craft" }], layout: "radio" }, initialValue: "sound" }),
     defineField({ name: "description", title: "Krótki opis", type: "galleryLocalizedText", group: "details" }),
     defineField({ name: "location", title: "Miejsce (opcjonalnie)", type: "string", group: "details", validation: rule => rule.max(150) }),
     defineField({ name: "date", title: "Data (opcjonalnie)", type: "date", group: "details", options: { dateFormat: "DD.MM.YYYY" } }),
@@ -55,7 +56,7 @@ const video = defineType({
     defineField({ name: "order", title: "Kolejność (opcjonalnie)", type: "number", group: "details", description: "Mniejsza liczba = wyżej w dziale „Brzmienie”, np. 1 dla filmu, który ma być pierwszy. Filmy bez numeru pojawiają się dalej, od najnowszego.", validation: rule => rule.integer().min(1) }),
     defineField({ name: "duration", title: "Czas trwania w sekundach (opcjonalnie)", type: "number", group: "media", description: "Np. 96 dla filmu trwającego 1 minutę i 36 sekund. Puste pole ukrywa czas na miniaturze.", validation: rule => rule.positive() }),
   ],
-  preview: { select: { title: "title.pl", location: "location", media: "poster" }, prepare: ({ title, location, media }) => ({ title: title || "Nowy film", subtitle: location ? `Wideo · ${location}` : "Wideo", media }) },
+  preview: { select: { title: "title.pl", location: "location", section: "section", media: "poster" }, prepare: ({ title, location, section, media }) => ({ title: title || "Nowy film", subtitle: section === "craft" ? "Film z produkcji" : location ? `Wideo · ${location}` : "Wideo", media }) },
 });
 
 export const gallerySchema = [localizedString, localizedText, album, video];
