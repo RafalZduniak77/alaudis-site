@@ -21,7 +21,7 @@ export default function OdkryjModelePage() {
         <h1 className="sr-only">Odkryj modele</h1>
         <div className="mx-auto max-w-7xl">
           <Suspense fallback={<div className="min-h-[640px] rounded-[36px] bg-[#070707]" />}>
-            <AlaudisARPreview intro={"Obejrzyj fortepian w 3D, obróć go, przybliż i sprawdź, jak wygląda w realnym wnętrzu. To pierwszy krok do pełnego doświadczenia Alaudis: konfigurator + AR preview."} />
+            <AlaudisARPreview />
           </Suspense>
         </div>
       </section>

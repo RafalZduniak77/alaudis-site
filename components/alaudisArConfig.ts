@@ -178,9 +178,9 @@ export function getInfoCards(
         featured: false,
       },
       {
-        eyebrow: "Next step",
-        title: "Final model files",
-        text: "When the final 3D versions for each model are ready, they can be connected here without rebuilding the whole module.",
+        eyebrow: "The ALAUDIS experience",
+        title: "View the piano in 3D",
+        text: "Rotate it, zoom in and see how it looks in a real interior. This is the first step into the full Alaudis experience.",
         featured: false,
       },
     ];
@@ -207,9 +207,9 @@ export function getInfoCards(
         featured: false,
       },
       {
-        eyebrow: "Nächster Schritt",
-        title: "Finale Modelldateien",
-        text: "Sobald die finalen 3D-Versionen für jedes Modell fertig sind, können sie hier verbunden werden, ohne das gesamte Modul neu aufzubauen.",
+        eyebrow: "Das ALAUDIS-Erlebnis",
+        title: "Den Flügel in 3D erleben",
+        text: "Drehen Sie ihn, zoomen Sie hinein und sehen Sie, wie er in einem realen Interieur wirkt. Der erste Schritt zum vollständigen Alaudis-Erlebnis.",
         featured: false,
       },
     ];
@@ -236,9 +236,9 @@ export function getInfoCards(
         featured: false,
       },
       {
-        eyebrow: "Étape suivante",
-        title: "Fichiers 3D finaux",
-        text: "Lorsque les versions 3D finales de chaque modèle seront prêtes, elles pourront être connectées ici sans reconstruire tout le module.",
+        eyebrow: "L’expérience ALAUDIS",
+        title: "Le piano en 3D",
+        text: "Faites-le pivoter, zoomez et découvrez son apparence dans un intérieur réel. C’est la première étape vers l’expérience complète Alaudis.",
         featured: false,
       },
     ];
@@ -264,9 +264,9 @@ export function getInfoCards(
       featured: false,
     },
     {
-      eyebrow: "Dostępne teraz",
-      title: "Podgląd w rozwoju",
-      text: "Moduł 3D i 360 rozwijamy etapami. Obecnie możesz oglądać dostępne warianty Alaudis i przełączać wykończenia.",
+      eyebrow: "Doświadczenie ALAUDIS",
+      title: "Obejrzyj fortepian w 3D",
+      text: "Obróć go, przybliż i sprawdź, jak wygląda w realnym wnętrzu. To pierwszy krok do pełnego doświadczenia Alaudis.",
       featured: false,
     },
   ];
