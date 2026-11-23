@@ -218,12 +218,20 @@ body {
 :is([class*="border-white/10"][class*="white/[0.03]"], [class*="border-black/10"][class*="bg-[#0b0b0b]"]):not(form, section, main, :has(input, select, textarea, [class*="border-white/10"][class*="white/[0.03]"])) {
   transition: transform 300ms ease-out, border-color 300ms ease-out, background-color 300ms ease-out;
 }
+[class*="border-[#d3bd8b]/40"][class*="white/[0.03]"] { transition: transform 300ms ease-out, border-color 300ms ease-out, background-color 300ms ease-out; }
 @media (hover: hover) {
   [class*="border-white/10"][class*="white/[0.03]"]:not(form, section, main, :has(input, select, textarea, [class*="border-white/10"][class*="white/[0.03]"])):hover {
     transform: translateY(-4px);
     border-color: rgb(199 154 92 / 0.32);
     background: linear-gradient(135deg, rgb(199 154 92 / 0.16), rgb(255 255 255 / 0.03));
   }
+  /* Ramki ze złotą obwódką (np. „Cena: Na zapytanie”) */
+  [class*="border-[#d3bd8b]/40"][class*="white/[0.03]"]:hover {
+    transform: translateY(-4px);
+    border-color: rgb(211 189 139 / 0.75);
+    background: linear-gradient(135deg, rgb(199 154 92 / 0.2), rgb(255 255 255 / 0.03));
+  }
+  [class*="border-[#d3bd8b]/40"][class*="white/[0.03]"]:hover > p:first-child[class*="uppercase"] { color: #e6c08c; }
   /* Czarne ramki na jasnych panelach */
   [class*="border-black/10"][class*="bg-[#0b0b0b]"]:not(form, section, main, :has(input, select, textarea)):hover {
     transform: translateY(-4px);
