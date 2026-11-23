@@ -111,17 +111,17 @@ export default function Home() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
-            href="/de/konfigurator"
-            className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-          >
-            Konfigurator öffnen
-          </Link>
-
-          <Link
             href="/de/kontakt"
             className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
           >
             Kontaktieren Sie uns
+          </Link>
+
+          <Link
+            href="/de/odwiedz-atelier"
+            className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+          >
+            Atelier besuchen
           </Link>
         </div>
       </section>

@@ -140,17 +140,17 @@ export default function Home() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
-            href="/konfigurator"
-            className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-          >
-            Otwórz konfigurator
-          </Link>
-
-          <Link
             href="/kontakt"
             className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
           >
             Skontaktuj się z nami
+          </Link>
+
+          <Link
+            href="/odwiedz-atelier"
+            className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+          >
+            Odwiedź atelier
           </Link>
         </div>
       </section>

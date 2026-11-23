@@ -487,6 +487,15 @@ export function pageUrl(locale: SeoLocale, page: SeoPage) {
   return `${SITE_URL}${localePrefix(locale)}${PAGES[page].path}`;
 }
 
+// Every page with its address and texts — used by the site menu and the search box.
+export function sitePages(locale: SeoLocale) {
+  return seoPages.map((page) => ({
+    page,
+    href: `${localePrefix(locale)}${PAGES[page].path}` || "/",
+    ...PAGES[page].copy[locale],
+  }));
+}
+
 export function pageLabel(locale: SeoLocale, page: SeoPage) {
   return PAGES[page].copy[locale].label;
 }
