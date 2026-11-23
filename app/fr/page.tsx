@@ -50,16 +50,6 @@ export default function Home() {
         scroll="Faire défiler vers le bas"
       />
 
-      {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
-      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
-        <div className="mx-auto max-w-4xl">
-          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
-          <p className="mx-auto mt-0 max-w-2xl text-sm leading-7 text-white/90 sm:text-base sm:leading-8">
-            Chaque Alaudis naît de l’union entre artisanat, proportion,
-            matière noble et caractère sonore individuel.
-          </p>
-        </div>
-      </section>
 
       <div className="relative z-0">
         <ScrollModelsShowcase />
