@@ -4,9 +4,8 @@
 
 export type TourLanguage = "PL" | "EN" | "DE" | "FR";
 
-// Zgłoszenia trafiają tam, gdzie zapytania z konfiguratora.
-export const TOUR_EMAIL = "Krzysztof@saprenovation.eu";
-export const TOUR_EMAIL_CC = "Rafal.zduniak@alaudis.eu";
+// Zgłoszenia na zwiedzanie trafiają do Rafała Zduniaka.
+export const TOUR_EMAIL = "rafal.zduniak@alaudis.eu";
 
 export const TOUR_STAGES = [
   { image: "/historia/2 Drewno gra.jpg", key: "wood" },

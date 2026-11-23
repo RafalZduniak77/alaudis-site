@@ -8,7 +8,7 @@
 // ==========================================================
 
 import { useId, useState, type FormEvent } from "react";
-import { TOUR_EMAIL, TOUR_EMAIL_CC, type TourLanguage, tourCopy } from "./copy";
+import { TOUR_EMAIL, type TourLanguage, tourCopy } from "./copy";
 
 const field =
   "mt-2 w-full rounded-2xl border border-white/15 bg-white/[0.04] px-4 py-3 text-white placeholder:text-white/35 focus:border-[#d3bd8b] focus:outline-none";
@@ -35,7 +35,7 @@ export default function FactoryTourForm({ language }: { language: TourLanguage }
       value("message") && `\n${copy.message}:\n${value("message")}`,
     ].filter(Boolean);
     const subject = `${copy.subject} — ${value("name")}`;
-    window.location.href = `mailto:${TOUR_EMAIL}?cc=${TOUR_EMAIL_CC}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+    window.location.href = `mailto:${TOUR_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
     setSent(true);
   }
 
