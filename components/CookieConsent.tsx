@@ -118,43 +118,41 @@ export default function CookieConsent() {
       )}
 
       {open && !hidden && (
-        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[100] flex justify-center px-4 pb-4 sm:px-6 sm:pb-6">
+        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[100] flex justify-center px-3 pb-3 sm:px-6 sm:pb-5">
+          {/* Podłużny pasek na dole ekranu: tekst po lewej, przyciski obok siebie po prawej. */}
           <section
             role="dialog"
             aria-modal="false"
             aria-label={text.label}
-            className="cookie-consent pointer-events-auto w-full max-w-3xl rounded-[28px] border border-white/12 bg-black/85 p-6 text-white shadow-[0_24px_80px_rgba(0,0,0,0.6)] backdrop-blur-xl sm:p-8"
+            className="cookie-consent pointer-events-auto flex w-full max-w-[1120px] flex-col gap-4 rounded-[22px] border border-white/13 bg-[rgb(8_8_8/0.72)] px-5 py-4 text-white shadow-[0_18px_60px_rgba(0,0,0,0.55)] backdrop-blur-xl backdrop-saturate-150 lg:flex-row lg:items-center lg:gap-8 lg:px-6"
           >
-            <div className="sm:flex sm:items-end sm:gap-8">
-              <div className="flex-1">
-                <p className="text-[11px] uppercase tracking-[0.42em] text-[#cfb675]">
-                  {text.eyebrow}
-                </p>
-                <h2 className="mt-3 text-xl font-light tracking-[0.02em] text-white sm:text-2xl">
-                  {text.title}
-                </h2>
-                <p className="mt-3 text-sm leading-6 text-white/75">{text.text}</p>
-                <a href={`${locale === "pl" ? "" : `/${locale}`}/polityka-prywatnosci`} className="mt-3 inline-block text-xs uppercase tracking-[0.22em] text-[#d3bd8b] underline-offset-4 hover:underline">
+            <div className="min-w-0 flex-1">
+              <h2 className="text-[15px] font-medium tracking-[0.01em] text-white">
+                {text.title}
+              </h2>
+              <p className="mt-1 text-[13px] leading-[1.55] text-white/72">
+                {text.text}{" "}
+                <a href={`${locale === "pl" ? "" : `/${locale}`}/polityka-prywatnosci`} className="whitespace-nowrap text-[#d3bd8b] underline-offset-4 hover:underline">
                   {POLICY_LABEL[locale]}
                 </a>
-              </div>
+              </p>
+            </div>
 
-              <div className="mt-6 flex flex-col gap-3 sm:mt-0 sm:w-56 sm:shrink-0">
-                <button
-                  type="button"
-                  onClick={() => decide("accepted")}
-                  className="min-h-11 rounded-full border border-[#cfb675] bg-[#cfb675] px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-[#080808] transition-colors hover:border-[#dac18a] hover:bg-[#dac18a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#cfb675]"
-                >
-                  {text.accept}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => decide("necessary")}
-                  className="min-h-11 rounded-full border border-white/35 bg-transparent px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition-colors hover:border-white hover:bg-white hover:text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-                >
-                  {text.necessary}
-                </button>
-              </div>
+            <div className="flex shrink-0 flex-col-reverse gap-2 sm:flex-row sm:gap-3">
+              <button
+                type="button"
+                onClick={() => decide("necessary")}
+                className="min-h-11 whitespace-nowrap rounded-full border border-white/35 bg-transparent px-6 py-2.5 text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:border-white hover:bg-white hover:text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              >
+                {text.necessary}
+              </button>
+              <button
+                type="button"
+                onClick={() => decide("accepted")}
+                className="min-h-11 whitespace-nowrap rounded-full border border-[#cfb675] bg-[#cfb675] px-7 py-2.5 text-[11px] uppercase tracking-[0.2em] text-[#080808] transition-colors hover:border-[#dac18a] hover:bg-[#dac18a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#cfb675]"
+              >
+                {text.accept}
+              </button>
             </div>
           </section>
         </div>
