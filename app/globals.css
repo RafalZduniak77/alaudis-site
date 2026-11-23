@@ -17,6 +17,30 @@ body {
   text-shadow: 0 2px 10px rgb(0 0 0 / 90%), 0 1px 2px rgb(0 0 0 / 95%);
 }
 
+/* Desktop: title at the top of the photo, buttons at the bottom,
+   so the body of the piano stays visible in the middle. */
+@media (width >= 640px) {
+  .page-hero-spread .page-hero-content {
+    align-items: stretch;
+    padding-top: 9rem;
+    padding-bottom: 3rem;
+  }
+
+  .page-hero-spread .page-hero-scroll {
+    display: none;
+  }
+
+  .page-hero-spread .page-hero-content > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .page-hero-spread .page-hero-actions {
+    margin-top: auto;
+  }
+}
+
 /* Use the same photo proportions and a separate image row on phones. */
 @media (width < 640px) {
   .home-hero,
@@ -134,12 +158,6 @@ body {
   .home-hero-scroll p,
   .page-hero-scroll p {
     margin-top: 0;
-  }
-
-  /* Hero with only the piano photo: the copy sits in the band below. */
-  .page-hero-photo {
-    min-height: auto;
-    padding-bottom: 8px;
   }
 
   .page-hero-compact {

@@ -19,21 +19,26 @@ export default function FactoryTourPage({ language }: { language: TourLanguage }
       <SeoJsonLd locale={locale} page="zwiedzanieManufaktury" />
       <ModelPageTopBar backHref={copy.home} activeLanguage={language} />
 
-      {/* HERO — samo zdjęcie fortepianu */}
-      <section className="page-hero page-hero-photo hero-copy relative min-h-[88svh] overflow-hidden border-b border-white/10">
+      {/* HERO */}
+      <section className="page-hero page-hero-spread hero-copy relative min-h-[88svh] overflow-hidden border-b border-white/10">
         <PianoHeroImage alt={copy.hero.title} />
+        <div className="absolute inset-0 z-10 bg-black/35" />
+        <div className="page-hero-content relative z-20 flex min-h-[88svh] items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
+          <div className="mx-auto max-w-5xl">
+            <p className="page-hero-eyebrow mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">{copy.hero.eyebrow}</p>
+            <h1 className="page-hero-title text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">{copy.hero.title}</h1>
+            <a href="#zgloszenie" className="mt-10 inline-flex rounded-full border border-[#d3bd8b] bg-[#d3bd8b] px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:bg-transparent hover:text-[#d3bd8b]">
+              {copy.hero.cta}
+            </a>
+          </div>
+        </div>
       </section>
 
-      {/* Tytuł, opis i przycisk pod zdjęciem — tekst nie zasłania fortepianu */}
-      <section className="hero-intro border-b border-white/10 bg-black px-6 pb-16 pt-12 text-center sm:pb-20 sm:pt-16">
+      {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
+      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
         <div className="mx-auto max-w-4xl">
-          <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">{copy.hero.eyebrow}</p>
-          <h1 className="mb-10 text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">{copy.hero.title}</h1>
           <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
           <p className="mx-auto max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">{copy.hero.text}</p>
-          <a href="#zgloszenie" className="mt-10 inline-flex rounded-full border border-[#d3bd8b] bg-[#d3bd8b] px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:bg-transparent hover:text-[#d3bd8b]">
-            {copy.hero.cta}
-          </a>
         </div>
       </section>
 
