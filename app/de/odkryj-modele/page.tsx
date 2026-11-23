@@ -1,7 +1,6 @@
 import SeoJsonLd from "@/components/SeoJsonLd";
 import { pageMetadata } from "@/lib/seo";
 import { Suspense } from "react";
-import PianoHeroImage from "@/components/PianoHeroImage";
 import Footer from "@/components/Footer";
 import AlaudisARPreview from "@/components/AlaudisARPreview";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
@@ -14,40 +13,8 @@ export default function OdkryjModelePage() {
       <SeoJsonLd locale="de" page="odkryjModele" />
       <ModelPageTopBar backHref="/de" activeLanguage="DE" />
 
-      <section className="page-hero page-hero-compact hero-copy relative overflow-hidden border-b border-white/10 pt-28">
-        <PianoHeroImage alt="Alaudis Hintergrund" />
-        <div className="absolute inset-0 z-10 bg-black/4" />
-
-        <div className="page-hero-content relative z-20 px-6 pb-16 pt-8 text-center">
-          <div className="mx-auto max-w-4xl">
-            <p className="page-hero-eyebrow mb-5 text-[11px] uppercase tracking-[0.48em] text-white/90">
-              Alaudis AR Experience
-            </p>
-
-            <h1 className="page-hero-title text-3xl font-light uppercase tracking-[0.06em] text-white sm:text-5xl lg:text-[60px] lg:leading-[1.05]">
-              Modelle entdecken
-            </h1>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
-      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
-        <div className="mx-auto max-w-4xl">
-          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
-          <div>
-            <p className="mx-auto mt-0 max-w-2xl text-sm leading-8 text-white/90 sm:text-base">
-              Sehen Sie den Flügel in 3D, drehen Sie ihn, zoomen Sie hinein und
-              prüfen Sie, wie er in einem realen Interieur wirkt. Das ist der
-              erste Schritt zum vollständigen Alaudis-Erlebnis: Konfigurator +
-              AR-Vorschau.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="podglad-3d" className="scroll-mt-24 bg-black px-4 py-8 sm:px-6 lg:px-10">
+      <section id="podglad-3d" className="scroll-mt-24 bg-black px-4 pb-8 pt-28 sm:px-6 sm:pt-32 lg:px-10">
+        <h1 className="sr-only">Modelle entdecken</h1>
         <div className="mx-auto max-w-7xl">
           <Suspense fallback={<div className="min-h-[640px] rounded-[36px] bg-[#070707]" />}>
             <AlaudisARPreview />
