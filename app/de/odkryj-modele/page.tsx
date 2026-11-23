@@ -47,7 +47,7 @@ export default function OdkryjModelePage() {
         </div>
       </section>
 
-      <section className="bg-black px-4 py-8 sm:px-6 lg:px-10">
+      <section id="podglad-3d" className="scroll-mt-24 bg-black px-4 py-8 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <Suspense fallback={<div className="min-h-[640px] rounded-[36px] bg-[#070707]" />}>
             <AlaudisARPreview />

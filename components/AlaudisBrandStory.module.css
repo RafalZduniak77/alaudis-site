@@ -151,8 +151,6 @@
 .familyLead .showroom { min-height: calc(100svh - 104px); margin-top: 0; }
 /* "Own character, own voice" continues inside the "three larks" card. */
 .cardRule { display: block; width: 48px; height: 1px; margin: 34px 0 30px; background: var(--story-accent); opacity: .75; }
-.cardSubtitle { margin: 0 0 20px; font-size: clamp(24px, 2.1vw, 32px); font-weight: 300; letter-spacing: -.02em; line-height: 1.2; }
-.cardSubtitle > span { display: block; }
 
 .familyInner { max-width: 1400px; margin: auto; }
 
@@ -315,7 +313,6 @@
   .signatureText { font-size: 14px; line-height: 1.8; }
   .signatureClosing { font-size: 16px; }
   .signatureLine { height: 48px; margin-top: 40px; }
-  .cardSubtitle { font-size: 24px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

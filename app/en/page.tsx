@@ -53,10 +53,10 @@ export default function Home() {
               </Link>
 
               <Link
-                href="/en/kontakt"
+                href="/en/odkryj-modele?model=178#podglad-3d"
                 className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
-                Book a private consultation
+                Discover the models in 3D
               </Link>
             </div>
           </div>

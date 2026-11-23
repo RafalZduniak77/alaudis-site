@@ -10,28 +10,24 @@ import styles from "./AlaudisBrandStory.module.css";
 const presentation = {
   PL: {
     detail: "Piękno zapisane w detalu",
-    voice: ["Własny charakter.", "Własny głos."],
     craft: "Zobacz, jak powstaje Alaudis",
     interiorAlt: "Złota rama, miedziane struny i klawiatura fortepianu Alaudis",
     pianoAlt: "Fortepian Alaudis w czarnym, lustrzanym wykończeniu",
   },
   EN: {
     detail: "Beauty in every detail",
-    voice: ["Our own character.", "Our own voice."],
     craft: "See how Alaudis is made",
     interiorAlt: "The golden frame, copper strings and keyboard of an Alaudis grand piano",
     pianoAlt: "An Alaudis grand piano in a polished black finish",
   },
   DE: {
     detail: "Schönheit in jedem Detail",
-    voice: ["Unser eigener Charakter.", "Unsere eigene Stimme."],
     craft: "So entsteht ein Alaudis",
     interiorAlt: "Goldener Rahmen, Kupfersaiten und Klaviatur eines Alaudis-Flügels",
     pianoAlt: "Ein Alaudis-Flügel in poliertem Schwarz",
   },
   FR: {
     detail: "La beauté dans chaque détail",
-    voice: ["Notre propre caractère.", "Notre propre voix."],
     craft: "Découvrez la naissance d’un Alaudis",
     interiorAlt: "Le cadre doré, les cordes en cuivre et le clavier d’un piano à queue Alaudis",
     pianoAlt: "Un piano à queue Alaudis en finition noire polie",
@@ -140,7 +136,6 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
               <p>{copy.nameMeaning} {copy.symbolism}</p>
             </div>
             <span className={styles.cardRule} aria-hidden="true" />
-            <h3 className={styles.cardSubtitle}>{ui.voice.map((line) => <span key={line}>{line}</span>)}</h3>
             <div className={styles.prose}>
               <p className={styles.voiceLead}>{copy.ownVoice.join(" ")}</p>
               <p>{copy.philosophy}</p>
