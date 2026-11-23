@@ -8,7 +8,6 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
-  DEFAULT_ROOM_IMAGE,
   type LanguageKey,
   MODEL_VIEWER_SETTINGS,
   type ModelOption,
@@ -157,7 +156,6 @@ export default function AlaudisARScene({
   const [sirvReady, setSirvReady] = useState(false);
   const sirvHostRef = useRef<HTMLDivElement | null>(null);
 
-  const activeBackgroundImage = roomImage ?? DEFAULT_ROOM_IMAGE;
 
   const selectedSpinUrl = useMemo(() => {
     return getSpinUrlByModelId(selectedModelId);
@@ -355,12 +353,14 @@ export default function AlaudisARScene({
       </div>
 
       <div
-        className="relative w-full"
+        className="alaudis-stage relative w-full"
         style={{
           height: MODEL_VIEWER_SETTINGS.stageHeight,
           minHeight: MODEL_VIEWER_SETTINGS.stageMinHeight,
         }}
       >
+        {/* TŁO: film lub zdjęcie klienta, a domyślnie — studio ALAUDIS
+            (ściana, błyszcząca podłoga, światło z góry). */}
         {roomVideo ? (
           <video
             src={roomVideo}
@@ -370,19 +370,32 @@ export default function AlaudisARScene({
             playsInline
             className="absolute inset-0 z-0 h-full w-full object-cover"
           />
-        ) : (
+        ) : roomImage ? (
           <div
             className="absolute inset-0 z-0"
             style={{
-              backgroundImage: `url(${activeBackgroundImage})`,
+              backgroundImage: `url(${roomImage})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
             }}
           />
+        ) : (
+          <div className="alaudis-studio" aria-hidden="true">
+            <div className="alaudis-studio-wall" />
+            <div className="alaudis-studio-floor" />
+            <div className="alaudis-studio-light" />
+            <div className="alaudis-studio-vignette" />
+          </div>
         )}
 
-        <div className="pointer-events-none absolute inset-0 z-0 bg-black/10" />
+        {/* CIEŃ POD FORTEPIANEM — dzięki niemu instrument stoi na podłodze.
+            Ramka ma proporcje zdjęć 360 (3:2), więc cień trafia pod nogi
+            na każdym ekranie. */}
+        <div className="alaudis-stage-frame" aria-hidden="true">
+          <div className="alaudis-stage-shadow-soft" />
+          <div className="alaudis-stage-shadow" />
+        </div>
 
         {sirvReady ? (
           <div
@@ -430,6 +443,48 @@ export default function AlaudisARScene({
       </div>
 
       <style jsx global>{`
+        .alaudis-stage { container-type: size; }
+        /* --split: where the wall meets the floor — just behind the piano legs. */
+        .alaudis-studio { --split: calc(50cqh + min(100cqw, 150cqh) * 0.045); position: absolute; inset: 0; z-index: 0; overflow: hidden; background: #150f09; }
+        .alaudis-studio > div { position: absolute; }
+        .alaudis-studio-wall {
+          inset: 0 0 auto 0; height: var(--split);
+          background:
+            repeating-linear-gradient(90deg, transparent 0 54px, rgba(0, 0, 0, 0.07) 54px 56px, rgba(255, 255, 255, 0.06) 56px 58px),
+            radial-gradient(ellipse 58% 105% at 50% 100%, #f7ebd0 0%, #e2c998 26%, #a98857 56%, #4a3622 82%, #1d140c 100%);
+        }
+        .alaudis-studio-floor {
+          inset: var(--split) 0 0 0;
+          background:
+            linear-gradient(rgba(255, 246, 226, 0.5), rgba(255, 246, 226, 0) 3%),
+            linear-gradient(rgba(60, 42, 24, 0.28), rgba(60, 42, 24, 0) 30%),
+            radial-gradient(ellipse 62% 135% at 50% 0%, #ecdab4 0%, #c3a472 24%, #7b5d3c 54%, #2a1e13 84%, #140e08 100%);
+        }
+        .alaudis-studio-light {
+          inset: 0;
+          background: radial-gradient(ellipse 34% 78% at 50% 0%, rgba(255, 246, 224, 0.42), rgba(255, 246, 224, 0) 70%);
+          mix-blend-mode: screen;
+        }
+        .alaudis-studio-vignette {
+          inset: 0;
+          background: radial-gradient(ellipse 78% 82% at 50% 52%, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, 0.62) 100%);
+        }
+        .alaudis-stage-frame {
+          position: absolute; z-index: 0; left: 50%; top: 50%;
+          width: min(100cqw, 150cqh); aspect-ratio: 3 / 2;
+          transform: translate(-50%, -50%); pointer-events: none;
+        }
+        .alaudis-stage-shadow-soft, .alaudis-stage-shadow { position: absolute; border-radius: 50%; transform: translate(-50%, -50%); }
+        .alaudis-stage-shadow-soft {
+          left: 47%; top: 78.5%; width: 54%; height: 26%;
+          background: radial-gradient(ellipse, rgba(20, 12, 4, 0.55) 0%, rgba(20, 12, 4, 0.28) 42%, rgba(20, 12, 4, 0) 70%);
+          filter: blur(10px);
+        }
+        .alaudis-stage-shadow {
+          left: 46.5%; top: 79.5%; width: 38%; height: 15%;
+          background: radial-gradient(ellipse, rgba(8, 5, 2, 0.7) 0%, rgba(8, 5, 2, 0.4) 45%, rgba(8, 5, 2, 0) 72%);
+          filter: blur(5px);
+        }
         .alaudis-sirv-host [class*="hint"],
         .alaudis-sirv-host [class*="Hint"],
         .alaudis-sirv-host [aria-label*="Drag to spin"],
