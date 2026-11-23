@@ -4,10 +4,10 @@ import { galleryLocales, galleryPath, type GalleryLocale } from "@/lib/gallery/t
 import styles from "./HomeHeader.module.css";
 
 const copy = {
-  pl: { models: "Modele", modelAnchor: "modele", history: "Historia", contact: "Kontakt", craft: "Rzemiosło", gallery: "W kadrze", galleryLabel: "W kadrze — galeria fotografii ALAUDIS", navigation: "Menu główne", language: "Wybierz język" },
-  en: { models: "Models", modelAnchor: "models", history: "History", contact: "Contact", craft: "Craft", gallery: "In focus", galleryLabel: "In focus — ALAUDIS photo gallery", navigation: "Main navigation", language: "Choose language" },
-  de: { models: "Modelle", modelAnchor: "modelle", history: "Geschichte", contact: "Kontakt", craft: "Handwerk", gallery: "Einblicke", galleryLabel: "Einblicke — ALAUDIS Fotogalerie", navigation: "Hauptnavigation", language: "Sprache wählen" },
-  fr: { models: "Modèles", modelAnchor: "modeles", history: "Histoire", contact: "Contact", craft: "Savoir-faire", gallery: "En images", galleryLabel: "En images — galerie de photographies ALAUDIS", navigation: "Navigation principale", language: "Choisir la langue" },
+  pl: { models: "Modele", modelAnchor: "modele", history: "Historia", craft: "Rzemiosło", gallery: "W kadrze", galleryLabel: "W kadrze — galeria fotografii ALAUDIS", navigation: "Menu główne", language: "Wybierz język" },
+  en: { models: "Models", modelAnchor: "models", history: "History", craft: "Craft", gallery: "In focus", galleryLabel: "In focus — ALAUDIS photo gallery", navigation: "Main navigation", language: "Choose language" },
+  de: { models: "Modelle", modelAnchor: "modelle", history: "Geschichte", craft: "Handwerk", gallery: "Einblicke", galleryLabel: "Einblicke — ALAUDIS Fotogalerie", navigation: "Hauptnavigation", language: "Sprache wählen" },
+  fr: { models: "Modèles", modelAnchor: "modeles", history: "Histoire", craft: "Savoir-faire", gallery: "En images", galleryLabel: "En images — galerie de photographies ALAUDIS", navigation: "Navigation principale", language: "Choisir la langue" },
 } satisfies Record<GalleryLocale, Record<string, string>>;
 
 export default function HomeHeader({ locale }: { locale: GalleryLocale }) {
@@ -16,7 +16,7 @@ export default function HomeHeader({ locale }: { locale: GalleryLocale }) {
   const links = [
     { href: `#${text.modelAnchor}`, label: text.models },
     { href: `${prefix}/historia`, label: text.history },
-    { href: `${prefix}/kontakt`, label: text.contact },
+    { href: `${prefix}/rzemioslo`, label: text.craft },
   ];
   const navigationLinks = links.map(link => link.href.startsWith("#")
     ? <a key={link.href} href={link.href} className={styles.button}>{link.label}</a>
@@ -33,7 +33,6 @@ export default function HomeHeader({ locale }: { locale: GalleryLocale }) {
       </Link>
 
       <div className={styles.right}>
-        <Link href={`${prefix}/rzemioslo`} className={`${styles.button} ${styles.desktopGallery}`}>{text.craft}</Link>
         <Link href={galleryPath(locale)} prefetch={false} className={`${styles.button} ${styles.galleryLink} ${styles.desktopGallery}`} aria-label={text.galleryLabel}>
           <svg className={styles.galleryIcon} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
             <path d="M9 3H3v6m12-6h6v6M3 15v6h6m6 0h6v-6" />
@@ -54,7 +53,6 @@ export default function HomeHeader({ locale }: { locale: GalleryLocale }) {
 
       <nav className={styles.mobileNav} aria-label={text.navigation}>
         {navigationLinks}
-        <Link href={`${prefix}/rzemioslo`} className={styles.button}>{text.craft}</Link>
         <Link href={galleryPath(locale)} prefetch={false} className={`${styles.button} ${styles.galleryLink}`} aria-label={text.galleryLabel}>{text.gallery}</Link>
       </nav>
     </div>

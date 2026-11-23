@@ -40,10 +40,10 @@
   .brand img { width: 58px; }
   .right { grid-column: 3; grid-row: 1; }
   .button { min-height: 44px; padding: 8px 12px; font-size: 10px; letter-spacing: .1em; }
-  .mobileNav { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
-  .mobileNav .button { min-width: 0; padding: 8px 2px; font-size: 9px; letter-spacing: .05em; }
+  .mobileNav { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+  .mobileNav .button { min-width: 0; padding: 8px 4px; }
   .languageMenu { min-width: 130px; top: calc(100% + 8px); }
 }
-@media (width < 375px) { .mobileNav .button { font-size: 8px; letter-spacing: .02em; } }
+@media (width < 375px) { .mobileNav .button { font-size: 9px; letter-spacing: .08em; } }
 @media (pointer: coarse) { .button { min-height: 44px; } }
 @media (prefers-reduced-motion: reduce) { .header *, .header *::before { transition: none !important; } }
