@@ -10,16 +10,19 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 import SeoJsonLd from "@/components/SeoJsonLd";
+import CraftHero from "./CraftHero";
 import CraftVideoCard from "./CraftVideoCard";
 import { craftContent, type CraftLanguage } from "./videos";
 
 const UI: Record<CraftLanguage, {
+  heroCta: string; pause: string; play: string;
   fullscreen: string;
   tour: { eyebrow: string; title: string; text: string; cta: string; alt: string };
   discover: string;
   cards: { title: string; href: string; image: string }[];
 }> = {
   PL: {
+    heroCta: "Zobacz filmy", pause: "Zatrzymaj film", play: "Odtwórz film",
     fullscreen: "Pełny ekran",
     tour: { eyebrow: "Manufaktura · Kalisz", title: "Zobacz to na własne oczy", text: "Bezpłatne, około czterogodzinne oprowadzanie po manufakturze ALAUDIS — od drewna po ostatnią intonację.", cta: "Zwiedzanie manufaktury", alt: "Fortepiany w atelier ALAUDIS w Kaliszu" },
     discover: "Odkryj",
@@ -30,6 +33,7 @@ const UI: Record<CraftLanguage, {
     ],
   },
   EN: {
+    heroCta: "Watch the films", pause: "Pause the film", play: "Play the film",
     fullscreen: "Full screen",
     tour: { eyebrow: "Manufactory · Kalisz", title: "See it with your own eyes", text: "A free guided tour of the ALAUDIS manufactory, about four hours long — from the wood to the final voicing.", cta: "Manufactory tour", alt: "Grand pianos in the ALAUDIS atelier in Kalisz" },
     discover: "Discover",
@@ -40,6 +44,7 @@ const UI: Record<CraftLanguage, {
     ],
   },
   DE: {
+    heroCta: "Filme ansehen", pause: "Film anhalten", play: "Film abspielen",
     fullscreen: "Vollbild",
     tour: { eyebrow: "Manufaktur · Kalisz", title: "Erleben Sie es mit eigenen Augen", text: "Eine kostenlose, etwa vierstündige Führung durch die ALAUDIS Manufaktur — vom Holz bis zur letzten Intonation.", cta: "Manufakturführung", alt: "Flügel im ALAUDIS Atelier in Kalisz" },
     discover: "Entdecken",
@@ -50,6 +55,7 @@ const UI: Record<CraftLanguage, {
     ],
   },
   FR: {
+    heroCta: "Voir les films", pause: "Mettre le film en pause", play: "Lire le film",
     fullscreen: "Plein écran",
     tour: { eyebrow: "Manufacture · Kalisz", title: "Voyez-le de vos propres yeux", text: "Une visite guidée gratuite de la manufacture ALAUDIS, d’environ quatre heures — du bois jusqu’à l’harmonisation finale.", cta: "Visite de la manufacture", alt: "Pianos à queue dans l’atelier ALAUDIS à Kalisz" },
     discover: "Découvrir",
@@ -74,22 +80,26 @@ export default function CraftPage({ language }: { language: CraftLanguage }) {
   const ui = UI[language];
   const prefix = language === "PL" ? "" : `/${language.toLowerCase()}`;
   const locale = language.toLowerCase() as "pl" | "en" | "de" | "fr";
+  // The final-voicing film opens the page as a banner; the rest fill the grid.
+  const hero = copy.videos[copy.videos.length - 1];
+  const videos = copy.videos.slice(0, -1);
 
   return (
     <main className="min-h-screen bg-black text-white">
       <SeoJsonLd locale={locale} page="rzemioslo" />
       <ModelPageTopBar backHref={prefix || "/"} activeLanguage={language} />
 
-      {/* NAGŁÓWEK + FILMY */}
-      <section className="px-4 pb-20 pt-36 sm:px-8 sm:pt-44 lg:px-12">
-        <div className="mx-auto max-w-[1520px]">
-          <p className="text-[11px] uppercase tracking-[0.42em] text-[#d3bd8b]">{copy.eyebrow}</p>
-          <h1 className="mt-5 max-w-5xl text-4xl font-light leading-[1.05] tracking-[-0.02em] text-white sm:text-6xl lg:text-[84px]">{copy.title}</h1>
-          <p className="mt-8 max-w-3xl leading-8 text-white/80 sm:text-[17px]">{copy.intro}</p>
+      {/* BANER: ostatni film (intonacja) na cały ekran */}
+      <CraftHero video={hero} eyebrow={copy.eyebrow} title={copy.title} cta={ui.heroCta} pauseLabel={ui.pause} playLabel={ui.play} />
 
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:gap-7">
-            {copy.videos.map((video, index) => (
-              <CraftVideoCard key={video.src} video={video} index={index} total={copy.videos.length} fullscreenLabel={ui.fullscreen} wide={copy.videos.length % 2 === 1 && index === copy.videos.length - 1} />
+      {/* FILMY */}
+      <section id="filmy" className="scroll-mt-24 px-4 pb-20 pt-16 sm:px-8 sm:pt-20 lg:px-12">
+        <div className="mx-auto max-w-[1520px]">
+          <p className="max-w-3xl leading-8 text-white/80 sm:text-[17px]">{copy.intro}</p>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:gap-7">
+            {videos.map((video, index) => (
+              <CraftVideoCard key={video.src} video={video} index={index} total={videos.length} fullscreenLabel={ui.fullscreen} wide={videos.length % 2 === 1 && index === videos.length - 1} />
             ))}
           </div>
         </div>
