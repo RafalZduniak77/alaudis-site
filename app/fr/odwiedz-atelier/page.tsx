@@ -134,15 +134,7 @@ export default function VisitezLatelierPage() {
         className="scroll-mt-20 bg-black px-6 py-24 sm:px-10 lg:px-16"
       >
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">
-            Localisation
-          </p>
-
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Organisez une visite à l’atelier
-          </h2>
-
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
               <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 01 · Expérience de la visite

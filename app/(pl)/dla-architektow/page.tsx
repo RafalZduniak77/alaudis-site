@@ -19,7 +19,6 @@
 import SeoJsonLd from "@/components/SeoJsonLd";
 import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
-import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
@@ -38,9 +37,9 @@ export default function DlaArchitektowPage() {
             Inspiracja projektowa
           </p>
 
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+          <h1 className="mt-4 text-3xl font-light text-white sm:text-4xl">
             Skala, materiał, obecność
-          </h2>
+          </h1>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
@@ -73,34 +72,6 @@ export default function DlaArchitektowPage() {
         </div>
       </section>
 
-      <section className="page-hero page-hero-spread hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
-        <PianoHeroImage alt="Alaudis dla architektów" />
-        <div className="absolute inset-0 z-10 bg-black/4" />
-
-        <div className="page-hero-content relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
-          <div className="mx-auto max-w-5xl">
-            <p className="page-hero-eyebrow mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
-              Współpraca projektowa
-            </p>
-
-            <h1 className="page-hero-title text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
-              Dla architektów
-            </h1>
-
-          </div>
-        </div>
-
-        <div className="page-hero-scroll absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
-          <a href="#wspolpraca" className="block">
-            <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
-              <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
-            </div>
-            <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/88">
-              Przewiń w dół
-            </p>
-          </a>
-        </div>
-      </section>
 
       {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
       <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
