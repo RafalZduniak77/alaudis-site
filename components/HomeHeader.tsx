@@ -1,3 +1,8 @@
+"use client";
+
+// Wspólne menu całej strony. variant="home" — strona główna; variant="page" — podstrony.
+
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { galleryLocales, galleryPath, type GalleryLocale } from "@/lib/gallery/types";
@@ -10,11 +15,16 @@ const copy = {
   fr: { models: "Modèles", modelAnchor: "modeles", history: "Histoire", craft: "Savoir-faire", gallery: "En images", galleryLabel: "En images — galerie de photographies ALAUDIS", navigation: "Navigation principale", language: "Choisir la langue" },
 } satisfies Record<GalleryLocale, Record<string, string>>;
 
-export default function HomeHeader({ locale }: { locale: GalleryLocale }) {
+export default function HomeHeader({ locale, variant = "home" }: { locale: GalleryLocale; variant?: "home" | "page" }) {
   const text = copy[locale];
   const prefix = locale === "pl" ? "" : `/${locale}`;
+  const onHome = variant === "home";
+  // Language switch keeps the visitor on the same page.
+  const pathname = usePathname() || "/";
+  const basePath = pathname.replace(/^\/(en|de|fr)(?=\/|$)/, "") || "/";
+  const languageHref = (language: GalleryLocale) => (language === "pl" ? basePath : `/${language}${basePath === "/" ? "" : basePath}`);
   const links = [
-    { href: `#${text.modelAnchor}`, label: text.models },
+    { href: onHome ? `#${text.modelAnchor}` : `${prefix}/#${text.modelAnchor}`, label: text.models },
     { href: `${prefix}/historia`, label: text.history },
     { href: `${prefix}/rzemioslo`, label: text.craft },
   ];
@@ -22,7 +32,8 @@ export default function HomeHeader({ locale }: { locale: GalleryLocale }) {
     ? <a key={link.href} href={link.href} className={styles.button}>{link.label}</a>
     : <Link key={link.href} href={link.href} className={styles.button}>{link.label}</Link>);
 
-  return <header className={styles.header}>
+  return <>
+  <header className={`${styles.header} ${onHome ? "" : styles.page}`}>
     <div className={styles.inner}>
       <nav className={styles.desktopNav} aria-label={text.navigation}>
         {navigationLinks}
@@ -46,7 +57,7 @@ export default function HomeHeader({ locale }: { locale: GalleryLocale }) {
             {locale.toUpperCase()}<span aria-hidden="true" className={styles.chevron}>▾</span>
           </summary>
           <nav className={styles.languageMenu} aria-label={text.language}>
-            {galleryLocales.map(language => <Link key={language} href={language === "pl" ? "/" : `/${language}`} lang={language} aria-current={locale === language ? "page" : undefined}>{language.toUpperCase()}</Link>)}
+            {galleryLocales.map(language => <Link key={language} href={languageHref(language)} lang={language} aria-current={locale === language ? "page" : undefined}>{language.toUpperCase()}</Link>)}
           </nav>
         </details>
       </div>
@@ -56,5 +67,8 @@ export default function HomeHeader({ locale }: { locale: GalleryLocale }) {
         <Link href={galleryPath(locale)} prefetch={false} className={`${styles.button} ${styles.galleryLink}`} aria-label={text.galleryLabel}>{text.gallery}</Link>
       </nav>
     </div>
-  </header>;
+  </header>
+  {/* On phones the menu has two rows; push the page content below it. */}
+  {!onHome && <div className={styles.spacer} aria-hidden="true" />}
+  </>;
 }

@@ -85,6 +85,7 @@ async function loadVideos(language: CraftLanguage): Promise<CraftVideo[]> {
     src: video.src,
     // Sanity image CDN: sharp but light first frame.
     poster: `${video.poster}?w=1600&fit=max&auto=format&q=80`,
+    posterSource: video.poster,
     title: video.title[locale]?.trim() || video.title.pl || "",
     text: video.description?.[locale]?.trim() || video.description?.pl || "",
   }));
@@ -115,7 +116,7 @@ export default async function CraftPage({ language }: { language: CraftLanguage 
 
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:gap-7">
             {videos.map((video, index) => (
-              <CraftVideoCard key={video.src} video={video} index={index} total={videos.length} fullscreenLabel={ui.fullscreen} wide={videos.length % 2 === 1 && index === videos.length - 1} />
+              <CraftVideoCard key={video.src} video={video} index={index} total={videos.length} fullscreenLabel={ui.fullscreen} locale={locale} wide={videos.length % 2 === 1 && index === videos.length - 1} />
             ))}
           </div>
         </div>

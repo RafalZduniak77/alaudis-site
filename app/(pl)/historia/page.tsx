@@ -16,6 +16,7 @@
 // ==========================================================
 
 import { useEffect, useRef, useState } from "react";
+import HomeHeader from "@/components/HomeHeader";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
@@ -213,69 +214,7 @@ export default function HistoriaPage() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-black/75 backdrop-blur-xl">
-        <div className="mx-auto grid max-w-7xl grid-cols-3 items-center px-4 pb-4 pt-6 sm:px-6 sm:pb-6 sm:pt-8 lg:px-10">
-          <div>
-            <Link
-              href="/"
-              className="inline-flex rounded-full border border-white/35 bg-black/50 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black"
-            >
-              Powrót
-            </Link>
-          </div>
-
-          <div className="justify-self-center">
-            <Image
-              src="/logo-alaudis.png"
-              alt="Logo Alaudis"
-              width={77}
-              height={25}
-              priority
-              className="h-auto w-[60px] object-contain opacity-95 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] md:w-[77px]"
-            />
-          </div>
-
-          <div className="justify-self-end">
-            <details className="group relative">
-              <summary className="list-none cursor-pointer rounded-full border border-white/35 bg-black/50 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-black">
-                <span className="inline-flex items-center gap-2">
-                  PL
-                  <span className="text-[10px] transition group-open:rotate-180">
-                    ▼
-                  </span>
-                </span>
-              </summary>
-
-              <div className="absolute right-0 mt-3 min-w-[150px] overflow-hidden rounded-2xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl">
-                <Link
-                  href="/historia"
-                  className="block w-full border-b border-white/10 bg-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white"
-                >
-                  PL
-                </Link>
-                <Link
-                  href="/en/historia"
-                  className="block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/88 transition hover:bg-white/10 hover:text-white"
-                >
-                  EN
-                </Link>
-                <Link
-                  href="/de/historia"
-                  className="block w-full border-b border-white/10 px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/88 transition hover:bg-white/10 hover:text-white"
-                >
-                  DE
-                </Link>
-                <Link
-                  href="/fr/historia"
-                  className="block w-full px-5 py-3 text-left text-[11px] uppercase tracking-[0.24em] text-white/88 transition hover:bg-white/10 hover:text-white"
-                >
-                  FR
-                </Link>
-              </div>
-            </details>
-          </div>
-        </div>
-      </header>
+      <HomeHeader locale="pl" variant="page" />
 
       <AlaudisStory language="PL" full />
 

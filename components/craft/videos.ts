@@ -3,7 +3,8 @@
 // ==========================================================
 
 export type CraftLanguage = "PL" | "EN" | "DE" | "FR";
-export type CraftVideo = { src: string; title: string; text: string; poster?: string };
+// poster: ready-to-use still for the card; posterSource: the original image (used by the viewer).
+export type CraftVideo = { src: string; title: string; text: string; poster?: string; posterSource?: string };
 
 export const craftContent: Record<CraftLanguage, { eyebrow: string; title: string; intro: string; videos: CraftVideo[] }> = {
   "PL": {
