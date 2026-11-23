@@ -90,6 +90,11 @@
 
 /* ---------- Full-screen menu ---------- */
 .header { --bar: 104px; }
+/* Scrolled: one full-width strip of dark glass, the same as the text panels on the History page. */
+.header::before { content: ""; position: absolute; inset: 0; z-index: -1; border-bottom: 1px solid transparent; transition: background 260ms, border-color 260ms; pointer-events: none; }
+.scrolled::before { border-bottom-color: rgb(255 255 255 / 13%); background: rgb(8 8 8 / 65%); backdrop-filter: blur(10px); }
+.scrolled .inner::before { background: none; backdrop-filter: none; }
+.open::before { display: none; }
 .open .inner::before { background: #050505; backdrop-filter: none; }
 .panel { position: fixed; inset: 0; z-index: -1; overflow-y: auto; overscroll-behavior: contain; background: #050505; color: #fff; padding-top: var(--bar); animation: menu-fade 320ms ease both; }
 .panel, .panel * { text-shadow: none !important; }

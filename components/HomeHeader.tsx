@@ -42,6 +42,14 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
   const [panel, setPanel] = useState<null | "menu" | "search">(null);
   const [query, setQuery] = useState("");
   const searchInput = useRef<HTMLInputElement>(null);
+  // Once the page is scrolled, the bar turns into dark glass (as under the texts on the History page).
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Language switch keeps the visitor on the same page.
   const pathname = usePathname() || "/";
@@ -103,7 +111,7 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
   const toggle = (name: "menu" | "search") => setPanel(current => (current === name ? null : name));
 
   return <>
-  <header className={`${styles.header} ${onHome ? "" : styles.page} ${panel ? styles.open : ""}`}>
+  <header className={`${styles.header} ${onHome ? "" : styles.page} ${scrolled ? styles.scrolled : ""} ${panel ? styles.open : ""}`}>
     <div className={styles.inner}>
       <nav className={styles.desktopNav} aria-label={text.navigation}>
         {!onHome && backButton("")}
