@@ -16,11 +16,13 @@ import { sitePages, type SeoPage } from "@/lib/seo";
 import styles from "./HomeHeader.module.css";
 
 const copy = {
-  pl: { searchTitle: "Szukaj w serwisie", home: "Strona główna", resultWords: ["wynik", "wyniki", "wyników"], models: "Modele", history: "Historia", craft: "Rzemiosło", gallery: "W kadrze", sound: "Brzmienie", galleryLabel: "W kadrze — galeria fotografii ALAUDIS", navigation: "Menu główne", language: "Wybierz język", menu: "Menu", close: "Zamknij", search: "Szukaj", searchPlaceholder: "Model, podstrona lub temat", noResults: "Nic nie znaleziono. Spróbuj innego słowa.", groups: ["Instrumenty", "Marka", "Spotkajmy się", "Galeria"] },
-  en: { searchTitle: "Search the site", home: "Home", resultWords: ["result", "results", "results"], models: "Models", history: "History", craft: "Craft", gallery: "In focus", sound: "Sound", galleryLabel: "In focus — ALAUDIS photo gallery", navigation: "Main navigation", language: "Choose language", menu: "Menu", close: "Close", search: "Search", searchPlaceholder: "Model, page or topic", noResults: "Nothing found. Try another word.", groups: ["Instruments", "Brand", "Meet us", "Gallery"] },
-  de: { searchTitle: "Website durchsuchen", home: "Startseite", resultWords: ["Ergebnis", "Ergebnisse", "Ergebnisse"], models: "Modelle", history: "Geschichte", craft: "Handwerk", gallery: "Einblicke", sound: "Klang", galleryLabel: "Einblicke — ALAUDIS Fotogalerie", navigation: "Hauptnavigation", language: "Sprache wählen", menu: "Menü", close: "Schließen", search: "Suche", searchPlaceholder: "Modell, Seite oder Thema", noResults: "Nichts gefunden. Versuchen Sie ein anderes Wort.", groups: ["Instrumente", "Marke", "Besuch & Kontakt", "Galerie"] },
-  fr: { searchTitle: "Rechercher sur le site", home: "Accueil", resultWords: ["résultat", "résultats", "résultats"], models: "Modèles", history: "Histoire", craft: "Savoir-faire", gallery: "En images", sound: "Le son", galleryLabel: "En images — galerie de photographies ALAUDIS", navigation: "Navigation principale", language: "Choisir la langue", menu: "Menu", close: "Fermer", search: "Rechercher", searchPlaceholder: "Modèle, page ou sujet", noResults: "Aucun résultat. Essayez un autre mot.", groups: ["Instruments", "Marque", "Nous rencontrer", "Galerie"] },
+  pl: { company: "Firma", searchTitle: "Szukaj w serwisie", home: "Strona główna", resultWords: ["wynik", "wyniki", "wyników"], models: "Modele", history: "Historia", craft: "Rzemiosło", gallery: "W kadrze", sound: "Brzmienie", galleryLabel: "W kadrze — galeria fotografii ALAUDIS", navigation: "Menu główne", language: "Wybierz język", menu: "Menu", close: "Zamknij", search: "Szukaj", searchPlaceholder: "Model, podstrona lub temat", noResults: "Nic nie znaleziono. Spróbuj innego słowa.", groups: ["Instrumenty", "Marka", "Spotkajmy się", "Galeria"] },
+  en: { company: "Company", searchTitle: "Search the site", home: "Home", resultWords: ["result", "results", "results"], models: "Models", history: "History", craft: "Craft", gallery: "In focus", sound: "Sound", galleryLabel: "In focus — ALAUDIS photo gallery", navigation: "Main navigation", language: "Choose language", menu: "Menu", close: "Close", search: "Search", searchPlaceholder: "Model, page or topic", noResults: "Nothing found. Try another word.", groups: ["Instruments", "Brand", "Meet us", "Gallery"] },
+  de: { company: "Unternehmen", searchTitle: "Website durchsuchen", home: "Startseite", resultWords: ["Ergebnis", "Ergebnisse", "Ergebnisse"], models: "Modelle", history: "Geschichte", craft: "Handwerk", gallery: "Einblicke", sound: "Klang", galleryLabel: "Einblicke — ALAUDIS Fotogalerie", navigation: "Hauptnavigation", language: "Sprache wählen", menu: "Menü", close: "Schließen", search: "Suche", searchPlaceholder: "Modell, Seite oder Thema", noResults: "Nichts gefunden. Versuchen Sie ein anderes Wort.", groups: ["Instrumente", "Marke", "Besuch & Kontakt", "Galerie"] },
+  fr: { company: "Entreprise", searchTitle: "Rechercher sur le site", home: "Accueil", resultWords: ["résultat", "résultats", "résultats"], models: "Modèles", history: "Histoire", craft: "Savoir-faire", gallery: "En images", sound: "Le son", galleryLabel: "En images — galerie de photographies ALAUDIS", navigation: "Navigation principale", language: "Choisir la langue", menu: "Menu", close: "Fermer", search: "Rechercher", searchPlaceholder: "Modèle, page ou sujet", noResults: "Aucun résultat. Essayez un autre mot.", groups: ["Instruments", "Marque", "Nous rencontrer", "Galerie"] },
 } satisfies Record<GalleryLocale, Record<string, string | string[]>>;
+
+const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61579105662197&locale=pl_PL";
 
 // Which pages go into which column of the pull-down menu.
 const MENU_GROUPS: SeoPage[][] = [
@@ -148,12 +150,18 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
           {/* Instrumenty: trzy modele dużą czcionką, pod nimi konfigurator i podgląd 3D */}
           <div className={styles.models}>
             <p className={styles.groupTitle}>{text.groups[0]}</p>
-            <ul className={styles.modelList}>{menuLinks(MENU_GROUPS[0].slice(0, 3))}</ul>
+            <ul>{menuLinks(MENU_GROUPS[0].slice(0, 3))}</ul>
             <ul className={styles.subList}>{menuLinks(MENU_GROUPS[0].slice(3))}</ul>
           </div>
           <div>
             <p className={styles.groupTitle}>{text.groups[1]}</p>
             <ul>{menuLinks(MENU_GROUPS[1])}</ul>
+            {/* To samo co w stopce: Facebook i strona SAP Renovation */}
+            <p className={`${styles.groupTitle} ${styles.groupNext}`}>{text.company}</p>
+            <ul>
+              <li><a href={FACEBOOK_URL} target="_blank" rel="noreferrer">Facebook Alaudis <span aria-hidden="true">↗</span></a></li>
+              <li><a href={`https://saprenovation.com/${locale}/`} target="_blank" rel="noreferrer">SAP Renovation <span aria-hidden="true">↗</span></a></li>
+            </ul>
           </div>
           <div>
             <p className={styles.groupTitle}>{text.groups[2]}</p>

@@ -88,42 +88,41 @@
 /* ---------- Full-screen menu ---------- */
 .header { --bar: 104px; }
 .open .inner::before { background: #050505; backdrop-filter: none; }
-.panel { position: fixed; inset: 0; z-index: -1; overflow-y: auto; overscroll-behavior: contain; background: linear-gradient(#050505 var(--bar), #f4f1ea var(--bar)); background-attachment: local; color: #111; padding-top: var(--bar); animation: menu-fade 320ms ease both; }
+.panel { position: fixed; inset: 0; z-index: -1; overflow-y: auto; overscroll-behavior: contain; background: #050505; color: #fff; padding-top: var(--bar); animation: menu-fade 320ms ease both; }
 .panel, .panel * { text-shadow: none !important; }
 .panel { text-align: left; }
-.panelInner { position: relative; display: flex; flex-direction: column; max-width: 1280px; min-height: 100%; margin: 0 auto; padding: clamp(36px, 7vh, 72px) 56px 34px; background: #f4f1ea; box-shadow: 0 0 0 100vmax #f4f1ea; clip-path: inset(0 -100vmax); }
-.menuGrid { position: relative; z-index: 1; display: grid; grid-template-columns: max-content minmax(0, 1fr) minmax(0, 1fr); gap: 56px; width: 66%; }
+.panelInner { position: relative; display: flex; flex-direction: column; max-width: 1280px; min-height: 100%; margin: 0 auto; padding: 28px 56px 34px; }
+.panelInner::before { content: ""; height: 1px; margin-bottom: clamp(32px, 6vh, 64px); background: linear-gradient(90deg, #d3bd8b66, #ffffff14 55%, transparent); }
+.menuGrid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px; width: 62%; }
 .menuGrid ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 15px; }
 .menuGrid li { animation: menu-rise 520ms cubic-bezier(.22, 1, .36, 1) both; }
 .menuGrid li:nth-child(1) { animation-delay: 60ms; } .menuGrid li:nth-child(2) { animation-delay: 110ms; } .menuGrid li:nth-child(3) { animation-delay: 160ms; } .menuGrid li:nth-child(4) { animation-delay: 210ms; } .menuGrid li:nth-child(5) { animation-delay: 260ms; }
-.menuGrid a { display: inline-block; color: #1a1a1acc; font-size: 16px; font-weight: 400; line-height: 1.4; letter-spacing: .01em; transition: color 220ms, transform 320ms cubic-bezier(.22, 1, .36, 1); }
-.menuGrid a:hover, .menuGrid a:focus-visible { color: #8a6d35; transform: translateX(6px); }
-.menuGrid a:focus-visible { outline: 1px solid #8a6d35; outline-offset: 6px; }
-.groupTitle { margin: 0 0 24px; color: #8a6d35; font-size: 10.5px; font-weight: 400; letter-spacing: .34em; text-transform: uppercase; }
+.menuGrid a { display: inline-block; color: #ffffffc7; font-size: 16px; font-weight: 300; line-height: 1.4; letter-spacing: .01em; transition: color 220ms, transform 320ms cubic-bezier(.22, 1, .36, 1); }
+.menuGrid a:hover, .menuGrid a:focus-visible { color: #d3bd8b; transform: translateX(6px); }
+.menuGrid a:focus-visible { outline: 1px solid #d3bd8b; outline-offset: 6px; }
+.groupTitle { margin: 0 0 24px; color: #d3bd8b; font-size: 10.5px; font-weight: 400; letter-spacing: .34em; text-transform: uppercase; }
 .groupNext { margin-top: 44px; }
-.menuGrid .modelList { gap: 12px; }
-.modelList a { white-space: nowrap; color: #111; font-size: clamp(19px, 1.6vw, 23px); font-weight: 300; line-height: 1.2; letter-spacing: .02em; }
-.menuGrid .subList { margin-top: 34px; padding-top: 28px; border-top: 1px solid #0000001f; max-width: 300px; }
-.menuArt { position: absolute; right: 56px; top: clamp(36px, 7vh, 72px); width: 31%; overflow: hidden; border-radius: 32px; background: #000; box-shadow: 0 24px 60px #0000002e; pointer-events: none; animation: menu-art 800ms cubic-bezier(.22, 1, .36, 1) both; }
-.menuArt img { display: block; width: 100%; aspect-ratio: 4 / 4.4; object-fit: cover; transform: scale(1.25); }
-.menuFoot { position: relative; z-index: 1; margin: auto 0 0; padding-top: 48px; color: #00000080; font-size: 10.5px; letter-spacing: .3em; text-transform: uppercase; }
-.menuFoot span { margin: 0 .6em; color: #8a6d35; }
+.menuGrid .subList { margin-top: 24px; padding-top: 24px; border-top: 1px solid #ffffff1f; max-width: 220px; }
+.menuArt { position: absolute; right: -4%; top: 50%; width: 44%; transform: translateY(-52%); pointer-events: none; animation: menu-art 900ms cubic-bezier(.22, 1, .36, 1) both; mask-image: radial-gradient(closest-side, #000 62%, transparent); -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent); }
+.menuArt img { display: block; width: 100%; height: auto; }
+.menuFoot { position: relative; z-index: 1; margin: auto 0 0; padding-top: 48px; color: #ffffff73; font-size: 10.5px; letter-spacing: .3em; text-transform: uppercase; }
+.menuFoot span { margin: 0 .6em; color: #d3bd8b; }
 @keyframes menu-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes menu-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-@keyframes menu-art { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes menu-art { from { opacity: 0; transform: translateY(-52%) scale(1.04); } to { opacity: 1; transform: translateY(-52%); } }
 @keyframes panel-in { from { opacity: 0; transform: translateX(-50%) translateY(-10px); } to { opacity: 1; transform: translateX(-50%); } }
 @media (max-width: 1000px) {
   .menuGrid { width: 100%; }
   .menuArt { display: none; }
-  .panelInner { padding: 36px 28px 30px; }
+  .panelInner { padding: 20px 28px 30px; }
 }
 @media (max-width: 640px) {
   .header { --bar: 132px; }
-  .panelInner { padding: 30px 22px 28px; }
+  .panelInner { padding: 8px 22px 28px; }
+  .panelInner::before { margin-bottom: 30px; }
   .menuGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 20px; }
   .models { grid-column: 1 / -1; }
   .menuGrid .subList { max-width: none; margin-top: 26px; padding-top: 22px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px 20px; }
-  .modelList a { font-size: 20px; }
   .menuGrid a { font-size: 15px; }
   .groupTitle { margin-bottom: 18px; }
   .groupNext { margin-top: 36px; }
