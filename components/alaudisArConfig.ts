@@ -84,7 +84,7 @@ export const DEFAULT_ROOM_IMAGE = "/wnetrze-default.jpg";
 // ----------------------------------------------------------
 export const MODEL_VIEWER_SETTINGS = {
   // Fits the whole viewer on screen below the top bar and toolbar.
-  stageHeight: "calc(100svh - 270px)",
+  stageHeight: "calc(100svh - 330px)",
   stageMinHeight: 420,
   exposure: "0.72",
   cameraOrbit: "42deg 78deg 92%",

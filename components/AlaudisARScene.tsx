@@ -146,9 +146,7 @@ export default function AlaudisARScene({
   modelLabel,
   roomImage,
   roomVideo,
-  modelOptions,
   selectedModelId,
-  onChangeModel,
   autoRotateEnabled,
   onToggleAutoRotate,
 }: Props) {
@@ -350,7 +348,7 @@ export default function AlaudisARScene({
         </span>
       </div>
 
-      <div className="pointer-events-none absolute right-5 top-5 z-20 rounded-full border border-white/10 bg-black/35 px-4 py-2 backdrop-blur-sm">
+      <div className="pointer-events-none absolute right-16 top-5 z-20 hidden rounded-full sm:block border border-white/10 bg-black/35 px-4 py-2 backdrop-blur-sm">
         <span className="text-[11px] uppercase tracking-[0.24em] text-white/84">
           {labels.controlsBadge}
         </span>
@@ -398,8 +396,8 @@ export default function AlaudisARScene({
         )}
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 z-20">
-        <div className="border-t border-white/10 bg-gradient-to-t from-black/70 via-black/35 to-transparent px-5 py-5">
+      <div className="relative z-20">
+        <div className="border-t border-white/10 bg-black/60 px-5 py-4">
           <div className="flex items-center justify-between gap-4">
             <p className="text-[11px] uppercase tracking-[0.24em] text-white/75">
               {labels.controls}
@@ -426,27 +424,6 @@ export default function AlaudisARScene({
                 {labels.zoomActive}
               </span>
 
-              <div className="relative shrink-0">
-                <select
-                  value={selectedModelId}
-                  onChange={(e) => onChangeModel(e.target.value)}
-                  className="appearance-none whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 pr-11 text-[11px] uppercase tracking-[0.22em] text-white/84 outline-none transition hover:border-white/25"
-                >
-                  {modelOptions.map((option) => (
-                    <option
-                      key={option.id}
-                      value={option.id}
-                      className="bg-[#111] text-white"
-                    >
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-
-                <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[11px] text-white/84">
-                  ▼
-                </span>
-              </div>
             </div>
           </div>
         </div>
