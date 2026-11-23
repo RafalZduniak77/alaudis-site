@@ -4,8 +4,8 @@
 .desktopNav { display: flex; align-items: center; gap: 16px; margin-left: 16px; }
 .brand { grid-column: 2; justify-self: center; padding-top: 8px; }
 .brand img { display: block; width: 77px; height: auto; opacity: .95; }
-/* "W kadrze" sits next to the logo; search, language and menu stay at the edge. */
-.right { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-right: 16px; }
+/* "W kadrze", search, language and menu sit together at the edge. */
+.right { display: flex; align-items: flex-start; justify-content: flex-end; gap: 10px; margin-right: 16px; }
 .tools { display: flex; align-items: flex-start; gap: 10px; }
 .button.iconButton { width: 34px; height: 34px; padding: 0; gap: 0; }
 .iconButton svg { flex-shrink: 0; }
