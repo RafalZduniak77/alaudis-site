@@ -77,16 +77,8 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
 
   return (
     <section id="alaudis-story" lang={language.toLowerCase()} aria-labelledby="alaudis-story-title" className={styles.story}>
-      <section id="alaudis-voices" aria-labelledby="alaudis-family-title" className={`${styles.family} ${styles.familyLead}`}>
+      <section id="alaudis-voices" aria-label={copy.collectionLabel} className={`${styles.family} ${styles.familyLead}`}>
         <div className={styles.familyInner}>
-          <div className={styles.familyIntro}>
-            <div>
-              <p className={styles.eyebrow}>{copy.collectionLabel}</p>
-              <h1 id="alaudis-family-title" className={styles.familyTitle}>{copy.familyLine}</h1>
-            </div>
-            <p className={styles.familyText}>{copy.family}</p>
-          </div>
-
           <div className={styles.showroom}>
             <figure className={styles.instrument}>
               <Image src="/galeria-home/10.jpg" alt={ui.pianoAlt} fill sizes="(min-width: 900px) 65vw, 100vw" className={styles.instrumentPhoto} />
@@ -160,6 +152,17 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
         </div>
       </div>
 
+      <div className={styles.familyBand}>
+        <div className={styles.familyInner}>
+          <div className={styles.familyIntro}>
+            <div>
+              <p className={styles.eyebrow}>{copy.collectionLabel}</p>
+              <h1 id="alaudis-family-title" className={styles.familyTitle}>{copy.familyLine}</h1>
+            </div>
+            <p className={styles.familyText}>{copy.family}</p>
+          </div>
+        </div>
+      </div>
 
       <div className={`${styles.scene} ${styles.identity}`}>
         <div className={styles.scenePhoto}>

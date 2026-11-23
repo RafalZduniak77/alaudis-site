@@ -146,7 +146,11 @@
 }
 
 /* On the history page the family opens the page, right below the fixed header. */
-.familyLead { padding-top: 168px; }
+.familyLead { padding-top: 104px; }
+/* The piano and its tabs fill the first screen, centred; the intro follows below. */
+.familyLead .showroom { min-height: calc(100svh - 104px); margin-top: 0; }
+/* Collection intro between the "three larks" and "own voice" scenes. */
+.familyBand { padding: 104px 5%; background: #000; }
 
 .familyInner { max-width: 1400px; margin: auto; }
 
@@ -265,6 +269,7 @@
   .scene { min-height: 760px; }
   .familyIntro { gap: 6%; }
   .showroom { grid-template-columns: 1fr; gap: 0; }
+  .familyLead .showroom { min-height: 0; }
   .instrument { height: clamp(340px, 63vw, 540px); }
   .instrumentPhoto { transform: scale(1.2); }
   .modelDetails { width: 100%; max-width: 600px; margin: auto; padding: 0; }
@@ -284,7 +289,8 @@
   .prose { font-size: 14px; line-height: 1.75; gap: 14px; }
   .textLink { font-size: 9px; letter-spacing: .13em; gap: 16px; }
   .family { padding: 52px 24px 48px; }
-  .familyLead { padding-top: 120px; }
+  .familyLead { padding-top: 96px; }
+  .familyBand { padding: 56px 24px; }
   .familyIntro { grid-template-columns: 1fr; gap: 22px; }
   .familyTitle { font-size: 29px; }
   .familyText { font-size: 14px; line-height: 1.75; }
