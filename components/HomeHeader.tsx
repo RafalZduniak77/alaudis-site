@@ -69,8 +69,10 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
     if (!panel) return;
     const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") setPanel(null); };
     document.addEventListener("keydown", onKey);
+    // The page behind stays still while the menu or the search is open.
+    const root = document.documentElement; const previous = root.style.overflow; root.style.overflow = "hidden";
     if (panel === "search") searchInput.current?.focus();
-    return () => document.removeEventListener("keydown", onKey);
+    return () => { document.removeEventListener("keydown", onKey); root.style.overflow = previous; };
   }, [panel]);
 
   const links = [
@@ -86,6 +88,7 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
     // Already on the home page: just glide back to the top.
     onClick={"top" in link && onHome ? event => { event.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); window.history.replaceState(null, "", link.href); } : undefined}
   >{link.label}</Link>);
+  const menuLinks = (keys: SeoPage[]) => keys.map(key => { const page = pages.find(item => item.page === key); return page ? <li key={key}><Link href={page.href}>{page.label}</Link></li> : null; });
   const toggle = (name: "menu" | "search") => setPanel(current => (current === name ? null : name));
 
   return <>
@@ -135,23 +138,35 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
       </nav>
     </div>
 
-    {/* ROZWIJANY PANEL MENU */}
+    {/* MENU NA CAŁY EKRAN */}
     {panel === "menu" && <div id="site-panel" className={styles.panel} onClick={event => { if ((event.target as HTMLElement).closest("a")) setPanel(null); }}>
       <div className={styles.panelInner}>
         <nav className={styles.menuGrid} aria-label={text.menu}>
-          {MENU_GROUPS.map((group, index) => <div key={text.groups[index]}>
-            <p className={styles.groupTitle}>{text.groups[index]}</p>
-            <ul>{group.map(key => { const page = pages.find(item => item.page === key); return page ? <li key={key}><Link href={page.href}>{page.label}</Link></li> : null; })}</ul>
-          </div>)}
+          {/* Instrumenty: trzy modele dużą czcionką, pod nimi konfigurator i podgląd 3D */}
+          <div className={styles.models}>
+            <p className={styles.groupTitle}>{text.groups[0]}</p>
+            <ul className={styles.modelList}>{menuLinks(MENU_GROUPS[0].slice(0, 3))}</ul>
+            <ul className={styles.subList}>{menuLinks(MENU_GROUPS[0].slice(3))}</ul>
+          </div>
           <div>
-            <p className={styles.groupTitle}>{text.groups[3]}</p>
+            <p className={styles.groupTitle}>{text.groups[1]}</p>
+            <ul>{menuLinks(MENU_GROUPS[1])}</ul>
+          </div>
+          <div>
+            <p className={styles.groupTitle}>{text.groups[2]}</p>
+            <ul>{menuLinks(MENU_GROUPS[2])}</ul>
+            <p className={`${styles.groupTitle} ${styles.groupNext}`}>{text.groups[3]}</p>
             <ul>{galleryEntries.map(entry => <li key={entry.href}><Link href={entry.href} prefetch={false}>{entry.label}</Link></li>)}</ul>
           </div>
         </nav>
+        <div className={styles.menuArt} aria-hidden="true">
+          <Image src="/galeria-home/Czarny Poliester połysk-v2.png" alt="" width={3000} height={2000} sizes="(min-width: 1000px) 46vw, 1px" />
+        </div>
+        <p className={styles.menuFoot}>ALAUDIS <span aria-hidden="true">·</span> Obozowa 18, 62-800 Kalisz</p>
       </div>
     </div>}
   </header>
-  {panel && <button type="button" className={`${styles.backdrop} ${panel === "search" ? styles.backdropFront : ""}`} aria-label={text.close} onClick={() => setPanel(null)} />}
+  {panel === "search" && <button type="button" className={`${styles.backdrop} ${styles.backdropFront}`} aria-label={text.close} onClick={() => setPanel(null)} />}
   {/* OKNO WYSZUKIWARKI */}
   {panel === "search" && <div id="site-panel" role="dialog" aria-modal="true" aria-labelledby="site-search-title" className={styles.searchDialog} onClick={event => { if ((event.target as HTMLElement).closest("a")) { setPanel(null); setQuery(""); } }}>
     <div className={styles.searchHead}>
