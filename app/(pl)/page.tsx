@@ -24,7 +24,7 @@
 import SeoJsonLd from "@/components/SeoJsonLd";
 import { pageMetadata } from "@/lib/seo";
 import HomeHeader from "@/components/HomeHeader";
-import PianoHeroImage from "@/components/PianoHeroImage";
+import HomeHero from "@/components/HomeHero";
 import Link from "next/link";
 import ScrollModelsShowcase from "@/components/ScrollModelsShowcase";
 import Footer from "@/components/Footer";
@@ -37,66 +37,19 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white">
       <SeoJsonLd locale="pl" page="home" />
       {/* ====================================================
-          HERO
+          BANER (components/HomeHero.tsx) + MENU
          ==================================================== */}
-      <section className="home-hero hero-copy relative min-h-screen overflow-hidden">
-        <PianoHeroImage alt="Fortepian Alaudis – nowy polski fortepian" />
-
-        {/* ==================================================
-            DELIKATNA NAKŁADKA
-           ================================================== */}
-        <div className="absolute inset-0 z-10 bg-black/4" />
-
-        {/* ==================================================
-            HEADER
-           ================================================== */}
-        <HomeHeader locale="pl" />
-
-        {/* ==================================================
-            ŚRODEK HERO
-           ================================================== */}
-        <div className="home-hero-content relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
-          <div className="mx-auto max-w-5xl pt-16 sm:pt-20">
-            <h1 className="home-hero-eyebrow mb-5 text-[11px] uppercase tracking-[0.48em] text-white/90">
-              Nowy polski fortepian
-            </h1>
-
-            <p className="home-hero-title text-2xl font-light uppercase tracking-[0.06em] text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
-              Rzemiosło,
-              <br />
-              detal, tożsamość.
-            </p>
-
-            <div className="home-hero-actions mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href="/konfigurator"
-                className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Otwórz konfigurator
-              </Link>
-
-              <Link
-                href="/odkryj-modele?model=178"
-                className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Odkryj modele 3D
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* ==================================================
-            DÓŁ HERO
-           ================================================== */}
-        <div className="home-hero-scroll absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
-          <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
-            <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
-          </div>
-          <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/88">
-            Przewiń w dół
-          </p>
-        </div>
-      </section>
+      <HomeHeader locale="pl" />
+      <HomeHero
+        alt="Fortepian Alaudis – nowy polski fortepian"
+        eyebrow="Nowy polski fortepian"
+        title={["Rzemiosło,", "detal, tożsamość."]}
+        actions={[
+          { href: "/konfigurator", label: "Otwórz konfigurator" },
+          { href: "/odkryj-modele?model=178", label: "Odkryj modele 3D" },
+        ]}
+        scroll="Przewiń w dół"
+      />
 
       {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
       <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
