@@ -6,6 +6,13 @@ import { ALAUDIS_MODEL_IDS, getAlaudisModelName } from "./alaudisModels";
 import type { StoryLanguage } from "./alaudisStoryContent";
 import { OPEN_CONSENT_EVENT } from "./CookieConsent";
 
+const PRIVACY_POLICY: Record<StoryLanguage, string> = {
+  PL: "Polityka prywatności",
+  EN: "Privacy policy",
+  DE: "Datenschutz",
+  FR: "Politique de confidentialité",
+};
+
 const COOKIE_SETTINGS: Record<StoryLanguage, string> = {
   PL: "Ustawienia cookies",
   EN: "Cookie settings",
@@ -274,6 +281,12 @@ export default function Footer() {
           <p className="text-xs uppercase tracking-[0.32em] text-white/75">
             © 2025 ALAUDIS
           </p>
+          <Link
+            href={`${langPrefix}/polityka-prywatnosci`}
+            className="text-xs uppercase tracking-[0.24em] text-white/55 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          >
+            {PRIVACY_POLICY[language]}
+          </Link>
           <button
             type="button"
             onClick={() => window.dispatchEvent(new Event(OPEN_CONSENT_EVENT))}

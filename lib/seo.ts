@@ -471,6 +471,35 @@ const PAGES = {
       },
     },
   },
+  politykaPrywatnosci: {
+    path: "/polityka-prywatnosci",
+    copy: {
+      pl: {
+        label: "Polityka prywatności",
+        title: "Polityka prywatności – ALAUDIS",
+        description:
+          "Jak ALAUDIS (SAP Renovation Sp. z o.o.) przetwarza dane osobowe: kontakt, zgłoszenia na zwiedzanie manufaktury, pliki cookies, statystyki i Twoje prawa.",
+      },
+      en: {
+        label: "Privacy policy",
+        title: "Privacy Policy – ALAUDIS",
+        description:
+          "How ALAUDIS (SAP Renovation Sp. z o.o.) processes personal data: contact, manufactory tour applications, cookies, statistics and your rights.",
+      },
+      de: {
+        label: "Datenschutz",
+        title: "Datenschutzerklärung – ALAUDIS",
+        description:
+          "Wie ALAUDIS (SAP Renovation Sp. z o.o.) personenbezogene Daten verarbeitet: Kontakt, Anmeldungen zur Manufakturführung, Cookies, Statistik und Ihre Rechte.",
+      },
+      fr: {
+        label: "Politique de confidentialité",
+        title: "Politique de confidentialité – ALAUDIS",
+        description:
+          "Comment ALAUDIS (SAP Renovation Sp. z o.o.) traite les données personnelles : contact, inscriptions à la visite de la manufacture, cookies, statistiques et vos droits.",
+      },
+    },
+  },
 } satisfies Record<string, PageDefinition>;
 
 export type SeoPage = keyof typeof PAGES;

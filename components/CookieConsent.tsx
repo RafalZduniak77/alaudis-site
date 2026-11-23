@@ -59,6 +59,8 @@ const copy: Record<
   },
 };
 
+const POLICY_LABEL: Record<Locale, string> = { pl: "Polityka prywatności", en: "Privacy policy", de: "Datenschutz", fr: "Politique de confidentialité" };
+
 function localeFromPath(pathname: string): Locale {
   const first = pathname.split("/")[1];
   return first === "en" || first === "de" || first === "fr" ? first : "pl";
@@ -75,7 +77,8 @@ function readChoice(): Choice | null {
 
 export default function CookieConsent() {
   const pathname = usePathname() || "/";
-  const text = copy[localeFromPath(pathname)];
+  const locale = localeFromPath(pathname);
+  const text = copy[locale];
   // null = jeszcze nie wiemy (pierwszy render), dzięki temu serwer
   // i przeglądarka renderują to samo i baner nie miga.
   const [choice, setChoice] = useState<Choice | null>(null);
@@ -131,6 +134,9 @@ export default function CookieConsent() {
                   {text.title}
                 </h2>
                 <p className="mt-3 text-sm leading-6 text-white/75">{text.text}</p>
+                <a href={`${locale === "pl" ? "" : `/${locale}`}/polityka-prywatnosci`} className="mt-3 inline-block text-xs uppercase tracking-[0.22em] text-[#d3bd8b] underline-offset-4 hover:underline">
+                  {POLICY_LABEL[locale]}
+                </a>
               </div>
 
               <div className="mt-6 flex flex-col gap-3 sm:mt-0 sm:w-56 sm:shrink-0">

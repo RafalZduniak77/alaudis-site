@@ -175,6 +175,7 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
             {/* To samo co w stopce: Facebook i strona SAP Renovation */}
             <p className={`${styles.groupTitle} ${styles.groupNext}`}>{text.company}</p>
             <ul>
+              {menuLinks(["politykaPrywatnosci"])}
               <li><a href={FACEBOOK_URL} target="_blank" rel="noreferrer">Facebook Alaudis <span aria-hidden="true">↗</span></a></li>
               <li><a href={`https://saprenovation.com/${locale}/`} target="_blank" rel="noreferrer">SAP Renovation <span aria-hidden="true">↗</span></a></li>
             </ul>
