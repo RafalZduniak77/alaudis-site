@@ -39,11 +39,55 @@ export default function OdwiedzAtelierPage() {
       <ModelPageTopBar backHref="/" activeLanguage="PL" />
 
       {/* ====================================================
+          SEKCJA - GALERIA
+         ==================================================== */}
+      <section className="bg-black px-6 pb-24 pt-32 sm:pt-36 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            Przestrzeń atelier
+          </p>
+
+          <h1 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+            Miejsce spotkania z Alaudis
+          </h1>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+              <Image
+                src="/galeria-home/Salonik 1.jpg"
+                alt="Atelier Alaudis - widok 1"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+              <Image
+                src="/galeria-home/Salonik 2.jpg"
+                alt="Atelier Alaudis - widok 2"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+              <Image
+                src="/galeria-home/Konferencyjna 1.jpg"
+                alt="Atelier Alaudis - widok 3"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================
           SEKCJA - CZEGO DOŚWIADCZYSZ
          ==================================================== */}
       <section
         id="doswiadczenie"
-        className="scroll-mt-20 bg-black px-6 pb-24 pt-36 sm:pt-40 sm:px-10 lg:px-16"
+        className="scroll-mt-20 bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16"
       >
         <div className="mx-auto max-w-7xl">
           <div className="max-w-4xl">
@@ -51,11 +95,11 @@ export default function OdwiedzAtelierPage() {
               Doświadczenie wizyty
             </p>
 
-            <h1 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
+            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
               Spotkanie z marką
               <br />
               w jej naturalnym środowisku
-            </h1>
+            </h2>
 
             <p className="mt-6 max-w-3xl leading-8 text-white/90">
               W atelier możesz zobaczyć modele Alaudis w spokojnym, prywatnym
@@ -115,50 +159,6 @@ export default function OdwiedzAtelierPage() {
                 rozmowy o modelu, charakterze instrumentu, zastosowaniu,
                 preferowanej skali i całościowym języku Alaudis.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================
-          SEKCJA - GALERIA
-         ==================================================== */}
-      <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            Przestrzeń atelier
-          </p>
-
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Miejsce spotkania z Alaudis
-          </h2>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/Salonik 1.jpg"
-                alt="Atelier Alaudis - widok 1"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/Salonik 2.jpg"
-                alt="Atelier Alaudis - widok 2"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/Konferencyjna 1.jpg"
-                alt="Atelier Alaudis - widok 3"
-                fill
-                className="object-cover"
-              />
             </div>
           </div>
         </div>

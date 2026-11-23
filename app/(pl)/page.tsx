@@ -184,24 +184,6 @@ export default function Home() {
             </div>
           </Link>
 
-          {/* DESKTOP / TABLET: zwykła sekcja */}
-          <section
-            id="historia"
-            className="hidden bg-neutral-950 px-6 py-20 text-center sm:block sm:px-10 lg:px-16"
-          >
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-              Dziedzictwo i rzemiosło
-            </p>
-
-            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-              Świat Alaudis
-            </h2>
-
-            <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
-              Poznaj filozofię marki, proces tworzenia instrumentów oraz rzemiosło,
-              które nadaje każdemu Alaudis jego indywidualną tożsamość.
-            </p>
-          </section>
 
       <Footer />
     </main>

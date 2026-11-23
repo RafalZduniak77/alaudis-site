@@ -24,9 +24,50 @@ export default function VisitezLatelierPage() {
       <SeoJsonLd locale="fr" page="odwiedzAtelier" />
       <ModelPageTopBar backHref="/fr" activeLanguage="FR" />
 
+      <section className="bg-black px-6 pb-24 pt-32 sm:pt-36 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            Espace de l’atelier
+          </p>
+
+          <h1 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+            Un lieu de rencontre avec Alaudis
+          </h1>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+              <Image
+                src="/galeria-home/3.jpg"
+                alt="Atelier Alaudis - vue 1"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+              <Image
+                src="/galeria-home/5.jpg"
+                alt="Atelier Alaudis - vue 2"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+              <Image
+                src="/galeria-home/2.jpg"
+                alt="Atelier Alaudis - vue 3"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section
         id="experience"
-        className="scroll-mt-20 bg-black px-6 pb-24 pt-36 sm:pt-40 sm:px-10 lg:px-16"
+        className="scroll-mt-20 bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16"
       >
         <div className="mx-auto max-w-7xl">
           <div className="max-w-4xl">
@@ -34,11 +75,11 @@ export default function VisitezLatelierPage() {
               Expérience de la visite
             </p>
 
-            <h1 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
+            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
               Une rencontre avec la marque
               <br />
               dans son environnement naturel
-            </h1>
+            </h2>
 
             <p className="mt-6 max-w-3xl leading-8 text-white/90">
               Dans l’atelier, vous pouvez découvrir les modèles Alaudis dans un
@@ -98,47 +139,6 @@ export default function VisitezLatelierPage() {
                 l’instrument, de son usage, de l’échelle souhaitée et du langage
                 global d’Alaudis.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            Espace de l’atelier
-          </p>
-
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Un lieu de rencontre avec Alaudis
-          </h2>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/3.jpg"
-                alt="Atelier Alaudis - vue 1"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/5.jpg"
-                alt="Atelier Alaudis - vue 2"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/2.jpg"
-                alt="Atelier Alaudis - vue 3"
-                fill
-                className="object-cover"
-              />
             </div>
           </div>
         </div>

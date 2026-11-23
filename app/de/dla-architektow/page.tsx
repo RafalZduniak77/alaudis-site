@@ -25,6 +25,47 @@ export default function FuerArchitektenPage() {
       <SeoJsonLd locale="de" page="dlaArchitektow" />
       <ModelPageTopBar backHref="/de" activeLanguage="DE" />
 
+      <section className="bg-neutral-950 px-6 pb-24 pt-32 sm:pt-36 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            Projektinspiration
+          </p>
+
+          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+            Maßstab, Material, Präsenz
+          </h2>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+              <Image
+                src="/galeria-home/3.jpg"
+                alt="Alaudis - Projektinspiration 1"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+              <Image
+                src="/galeria-home/5.jpg"
+                alt="Alaudis - Projektinspiration 2"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
+              <Image
+                src="/galeria-home/2.jpg"
+                alt="Alaudis - Projektinspiration 3"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="page-hero page-hero-spread hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
         <PianoHeroImage alt="Alaudis für Architekten" />
         <div className="absolute inset-0 z-10 bg-black/4" />
@@ -223,46 +264,6 @@ export default function FuerArchitektenPage() {
         </div>
       </section>
 
-      <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
-            Projektinspiration
-          </p>
-
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Maßstab, Material, Präsenz
-          </h2>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/3.jpg"
-                alt="Alaudis - Projektinspiration 1"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/5.jpg"
-                alt="Alaudis - Projektinspiration 2"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image
-                src="/galeria-home/2.jpg"
-                alt="Alaudis - Projektinspiration 3"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
