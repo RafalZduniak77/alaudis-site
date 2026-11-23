@@ -149,8 +149,8 @@
 .familyLead { padding-top: 104px; }
 /* The piano and its tabs fill the first screen, centred; the intro follows below. */
 .familyLead .showroom { min-height: calc(100svh - 104px); margin-top: 0; }
-/* Collection intro between the "three larks" and "own voice" scenes. */
-.familyBand { padding: 104px 5%; background: #000; }
+/* Thin black strip between the "three larks" and "own voice" scenes. */
+.sceneDivider { height: 10px; background: #000; }
 
 .familyInner { max-width: 1400px; margin: auto; }
 
@@ -248,9 +248,15 @@
 .identity .title { font-size: clamp(30px, 2.8vw, 42px); }
 .prose .voiceLead { color: #fff; font-size: 17px; line-height: 1.6; }
 
-.signature { padding: 58px 24px 0; text-align: center; background: #080808; }
-.signature > p:last-of-type { margin: 16px auto 0; max-width: 600px; color: rgb(255 255 255 / 85%); font-size: 16px; line-height: 1.7; font-weight: 300; }
-.signatureLine { display: block; height: 64px; width: 1px; margin: 30px auto 0; background: linear-gradient(var(--story-accent), transparent); }
+/* Closing composition: collection line, family text and the brand motto, centred. */
+.signature { padding: 120px 24px 0; text-align: center; background: #080808; }
+.signatureEyebrow { margin: 0; color: var(--story-accent); font-size: 10px; letter-spacing: .34em; text-transform: uppercase; }
+.signatureTitle { max-width: 880px; margin: 26px auto 0; font-size: clamp(32px, 3.6vw, 54px); font-weight: 300; letter-spacing: -.025em; line-height: 1.15; }
+.signatureTitle > span { display: block; }
+.signatureRule { display: block; width: 48px; height: 1px; margin: 40px auto; background: var(--story-accent); opacity: .75; }
+.signatureText { max-width: 620px; margin: 0 auto; color: rgb(255 255 255 / 72%); font-size: 16px; line-height: 1.9; }
+.signatureClosing { max-width: 600px; margin: 36px auto 0; color: rgb(255 255 255 / 92%); font-size: 18px; font-style: italic; font-weight: 300; line-height: 1.7; }
+.signatureLine { display: block; height: 72px; width: 1px; margin: 56px auto 0; background: linear-gradient(var(--story-accent), transparent); }
 
 @keyframes model-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -290,7 +296,6 @@
   .textLink { font-size: 9px; letter-spacing: .13em; gap: 16px; }
   .family { padding: 52px 24px 48px; }
   .familyLead { padding-top: 96px; }
-  .familyBand { padding: 56px 24px; }
   .familyIntro { grid-template-columns: 1fr; gap: 22px; }
   .familyTitle { font-size: 29px; }
   .familyText { font-size: 14px; line-height: 1.75; }
@@ -302,9 +307,13 @@
   .identity .scenePhoto .photo { object-position: 20% center; }
   .identity .title { font-size: 30px; }
   .prose .voiceLead { font-size: 16px; }
-  .signature { padding-top: 24px; }
-  .signature > p:last-of-type { font-size: 15px; }
-  .signatureLine { height: 48px; }
+  .signature { padding-top: 64px; }
+  .signatureTitle { font-size: 29px; }
+  .signatureRule { margin: 28px auto; }
+  .signatureText { font-size: 14px; line-height: 1.8; }
+  .signatureClosing { margin-top: 26px; font-size: 16px; }
+  .signatureLine { height: 48px; margin-top: 40px; }
+  .sceneDivider { height: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

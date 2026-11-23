@@ -152,17 +152,7 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
         </div>
       </div>
 
-      <div className={styles.familyBand}>
-        <div className={styles.familyInner}>
-          <div className={styles.familyIntro}>
-            <div>
-              <p className={styles.eyebrow}>{copy.collectionLabel}</p>
-              <h1 id="alaudis-family-title" className={styles.familyTitle}>{copy.familyLine}</h1>
-            </div>
-            <p className={styles.familyText}>{copy.family}</p>
-          </div>
-        </div>
-      </div>
+      <div className={styles.sceneDivider} aria-hidden="true" />
 
       <div className={`${styles.scene} ${styles.identity}`}>
         <div className={styles.scenePhoto}>
@@ -185,8 +175,14 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
       </div>
 
       <div className={styles.signature}>
-        <p className={styles.eyebrow}>ALAUDIS</p>
-        <p>{copy.closing}</p>
+        <p className={styles.signatureEyebrow}>{copy.collectionLabel}</p>
+        <h1 id="alaudis-family-title" className={styles.signatureTitle}>
+          {/* "Three instruments. Three personalities." / "One family." — last sentence on its own line */}
+          {(() => { const parts = copy.familyLine.split(/(?<=\.)\s+/); return <><span>{parts.slice(0, -1).join(" ")}</span> <span>{parts.at(-1)}</span></>; })()}
+        </h1>
+        <span className={styles.signatureRule} aria-hidden="true" />
+        <p className={styles.signatureText}>{copy.family}</p>
+        <p className={styles.signatureClosing}>{copy.closing}</p>
         <span className={styles.signatureLine} aria-hidden="true" />
       </div>
     </section>
