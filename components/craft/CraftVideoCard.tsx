@@ -47,7 +47,9 @@ export default function CraftVideoCard({ video, index, total, fullscreenLabel, l
   };
 
   return (
-    <article className={`group relative isolate flex aspect-[4/5] min-h-[420px] flex-col justify-between overflow-hidden rounded-[32px] bg-[#0b0b0b] lg:rounded-[40px] ${wide ? "sm:aspect-[5/6] md:col-span-2 md:aspect-[21/9]" : "sm:aspect-[5/6]"}`}>
+    <>
+    {/* Kliknięcie w dowolne miejsce karty otwiera film — tak samo jak przycisk w rogu. */}
+    <article onClick={() => setOpen(true)} className={`group relative isolate flex cursor-pointer aspect-[4/5] min-h-[420px] flex-col justify-between overflow-hidden rounded-[32px] bg-[#0b0b0b] lg:rounded-[40px] ${wide ? "sm:aspect-[5/6] md:col-span-2 md:aspect-[21/9]" : "sm:aspect-[5/6]"}`}>
       <video
         ref={ref}
         src={video.src}
@@ -73,7 +75,7 @@ export default function CraftVideoCard({ video, index, total, fullscreenLabel, l
         <button
           ref={trigger}
           type="button"
-          onClick={() => setOpen(true)}
+          onClick={(event) => { event.stopPropagation(); setOpen(true); }}
           aria-haspopup="dialog"
           aria-label={`${fullscreenLabel}: ${video.title}`}
           className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/15 text-white backdrop-blur-md transition hover:bg-white hover:text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
@@ -83,8 +85,9 @@ export default function CraftVideoCard({ video, index, total, fullscreenLabel, l
           </svg>
         </button>
       </div>
-
-      {open && <VideoLightbox video={viewerVideo} locale={locale} close={() => setOpen(false)} onClosed={restoreFocus} muted />}
     </article>
+    {/* Outside the card, so clicks inside the viewer never reopen it. */}
+    {open && <VideoLightbox video={viewerVideo} locale={locale} close={() => setOpen(false)} onClosed={restoreFocus} muted />}
+    </>
   );
 }
