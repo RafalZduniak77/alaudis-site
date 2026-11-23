@@ -41,7 +41,7 @@ export default function OdwiedzAtelierPage() {
       {/* ====================================================
           SEKCJA - GALERIA
          ==================================================== */}
-      <section className="bg-black px-6 pb-20 pt-32 sm:px-10 sm:pb-24 sm:pt-36 lg:px-16">
+      <section className="bg-black px-6 pb-10 pt-32 sm:px-10 sm:pb-12 sm:pt-36 lg:px-16">
         <div className="mx-auto max-w-7xl">
           {/* Zdjęcia atelier: jedno duże i dwa mniejsze */}
           <div className="grid gap-4 sm:gap-5 lg:grid-cols-3 lg:grid-rows-2">
@@ -81,18 +81,26 @@ export default function OdwiedzAtelierPage() {
       {/* ====================================================
           SEKCJA - CZEGO DOŚWIADCZYSZ
          ==================================================== */}
-      <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">
-            Przestrzeń atelier
-          </p>
+      <section
+        id="doswiadczenie"
+        className="scroll-mt-20 bg-black px-3 pb-16 sm:px-6 sm:pb-20"
+      >
+        {/* Jasny panel z ciemnymi kartami — jak „Kolekcja ALAUDIS” na stronie głównej */}
+        <div className="mx-auto max-w-[1520px] rounded-[32px] bg-[#f4f1ea] px-5 py-14 shadow-[0_40px_120px_rgba(0,0,0,0.55)] sm:rounded-[44px] sm:px-10 sm:py-20 lg:px-16">
+          <div className="mx-auto max-w-7xl">
+            <div className="mx-auto max-w-4xl text-center">
+              <p className="text-xs uppercase tracking-[0.32em] text-[#8a6d35]">
+                Przestrzeń atelier
+              </p>
 
-          <h1 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-            Miejsce spotkania z Alaudis
-          </h1>
+              <h1 className="mt-4 text-3xl font-light leading-tight text-[#111] sm:text-4xl lg:text-5xl">
+                Miejsce spotkania z Alaudis
+              </h1>
+            </div>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
+            <div className="mt-10 sm:mt-12">
+          <div className="grid gap-6 lg:grid-cols-3">
+            <div className="rounded-[30px] border border-black/10 bg-[#0b0b0b] p-7 text-left shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
               <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 01
               </p>
@@ -108,7 +116,7 @@ export default function OdwiedzAtelierPage() {
               </p>
             </div>
 
-            <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
+            <div className="rounded-[30px] border border-black/10 bg-[#0b0b0b] p-7 text-left shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
               <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 02
               </p>
@@ -124,7 +132,7 @@ export default function OdwiedzAtelierPage() {
               </p>
             </div>
 
-            <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
+            <div className="rounded-[30px] border border-black/10 bg-[#0b0b0b] p-7 text-left shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
               <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 03
               </p>
@@ -140,19 +148,11 @@ export default function OdwiedzAtelierPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+            </div>
 
-      {/* ====================================================
-          SEKCJA - LOKALIZACJA / WIZYTA
-         ==================================================== */}
-      <section
-        id="doswiadczenie"
-        className="scroll-mt-20 bg-black px-6 py-24 sm:px-10 lg:px-16"
-      >
-        <div className="mx-auto max-w-7xl">
+            <div className="mt-6 border-t border-black/10 pt-6 sm:mt-8 sm:pt-8">
           <div className="grid gap-6 lg:grid-cols-3">
-            <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
+            <div className="rounded-[30px] border border-black/10 bg-[#0b0b0b] p-7 text-left shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
               <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 01 · Doświadczenie wizyty
               </p>
@@ -166,7 +166,7 @@ export default function OdwiedzAtelierPage() {
               </p>
             </div>
 
-            <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
+            <div className="rounded-[30px] border border-black/10 bg-[#0b0b0b] p-7 text-left shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
               <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 02
               </p>
@@ -180,7 +180,7 @@ export default function OdwiedzAtelierPage() {
               </p>
             </div>
 
-            <div className="flex flex-col rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
+            <div className="flex flex-col rounded-[30px] border border-black/10 bg-[#0b0b0b] p-7 text-left shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
               <p className="text-xs uppercase tracking-[0.32em] text-white/75">
                 03 · Atelier / SAP Renovation
               </p>
@@ -209,6 +209,8 @@ export default function OdwiedzAtelierPage() {
                 Zwiedzanie manufaktury
               </Link>
             </div>
+            </div>
+          </div>
             </div>
           </div>
         </div>
