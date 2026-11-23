@@ -30,7 +30,7 @@ const UI: Record<CraftLanguage, {
     cards: [
       { title: "Obejrzyj modele w 3D", href: "/odkryj-modele?model=178", image: "/galeria-home/10.jpg" },
       { title: "Skonfiguruj swój fortepian", href: "/konfigurator", image: "/galeria-home/11.jpg" },
-      { title: "Posłuchaj brzmienia", href: "/galeria?dzial=video", image: "/galeria-home/12.jpg" },
+      { title: "Posłuchaj brzmienia", href: "/galeria?dzial=video", image: "/rzemioslo/brzmienie-leszek-mozdzer.jpg" },
     ],
   },
   EN: {
@@ -41,7 +41,7 @@ const UI: Record<CraftLanguage, {
     cards: [
       { title: "View the models in 3D", href: "/en/odkryj-modele?model=178", image: "/galeria-home/10.jpg" },
       { title: "Configure your piano", href: "/en/konfigurator", image: "/galeria-home/11.jpg" },
-      { title: "Hear the sound", href: "/en/galeria?dzial=video", image: "/galeria-home/12.jpg" },
+      { title: "Hear the sound", href: "/en/galeria?dzial=video", image: "/rzemioslo/brzmienie-leszek-mozdzer.jpg" },
     ],
   },
   DE: {
@@ -52,7 +52,7 @@ const UI: Record<CraftLanguage, {
     cards: [
       { title: "Modelle in 3D ansehen", href: "/de/odkryj-modele?model=178", image: "/galeria-home/10.jpg" },
       { title: "Ihren Flügel konfigurieren", href: "/de/konfigurator", image: "/galeria-home/11.jpg" },
-      { title: "Den Klang hören", href: "/de/galeria?dzial=video", image: "/galeria-home/12.jpg" },
+      { title: "Den Klang hören", href: "/de/galeria?dzial=video", image: "/rzemioslo/brzmienie-leszek-mozdzer.jpg" },
     ],
   },
   FR: {
@@ -63,7 +63,7 @@ const UI: Record<CraftLanguage, {
     cards: [
       { title: "Voir les modèles en 3D", href: "/fr/odkryj-modele?model=178", image: "/galeria-home/10.jpg" },
       { title: "Configurer votre piano", href: "/fr/konfigurator", image: "/galeria-home/11.jpg" },
-      { title: "Écouter le son", href: "/fr/galeria?dzial=video", image: "/galeria-home/12.jpg" },
+      { title: "Écouter le son", href: "/fr/galeria?dzial=video", image: "/rzemioslo/brzmienie-leszek-mozdzer.jpg" },
     ],
   },
 };
