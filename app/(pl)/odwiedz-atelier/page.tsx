@@ -23,7 +23,6 @@
 import SeoJsonLd from "@/components/SeoJsonLd";
 import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
-import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
@@ -40,72 +39,11 @@ export default function OdwiedzAtelierPage() {
       <ModelPageTopBar backHref="/" activeLanguage="PL" />
 
       {/* ====================================================
-          HERO - PEŁNY EKRAN
-         ==================================================== */}
-      <section className="page-hero page-hero-spread hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
-        {/* ==================================================
-            TŁO HERO
-           ================================================== */}
-        <PianoHeroImage alt="Odwiedź atelier Alaudis" />
-        <div className="absolute inset-0 z-10 bg-black/4" />
-
-        {/* ==================================================
-            TREŚĆ HERO
-           ================================================== */}
-        <div className="page-hero-content relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
-          <div className="mx-auto max-w-5xl">
-            <p className="page-hero-eyebrow mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
-              Alaudis Atelier
-            </p>
-
-            <h1 className="page-hero-title text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
-              Odwiedź atelier
-            </h1>
-
-          </div>
-        </div>
-
-        {/* ==================================================
-            WSKAŹNIK PRZEWIJANIA
-           ================================================== */}
-        <div className="page-hero-scroll absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
-          <a href="#doswiadczenie" className="block">
-            <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
-              <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
-            </div>
-            <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/88">
-              Przewiń w dół
-            </p>
-          </a>
-        </div>
-      </section>
-
-      {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
-      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
-        <div className="mx-auto max-w-4xl">
-          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
-          <div>
-            <p className="mx-auto mt-0 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
-              Poznaj Alaudis w przestrzeni, w której rzemiosło, detal i
-              charakter instrumentu spotykają się z prywatną rozmową o modelu,
-              wykończeniu i indywidualnej kompozycji fortepianu.
-            </p>
-
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
-              Wizyta w atelier to spokojny, osobisty moment spotkania z marką,
-              nie tylko prezentacja modelu, ale doświadczenie jego skali,
-              obecności i tożsamości.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================
           SEKCJA - CZEGO DOŚWIADCZYSZ
          ==================================================== */}
       <section
         id="doswiadczenie"
-        className="scroll-mt-20 bg-black px-6 py-24 sm:px-10 lg:px-16"
+        className="scroll-mt-20 bg-black px-6 pb-24 pt-36 sm:pt-40 sm:px-10 lg:px-16"
       >
         <div className="mx-auto max-w-7xl">
           <div className="max-w-4xl">
@@ -113,11 +51,11 @@ export default function OdwiedzAtelierPage() {
               Doświadczenie wizyty
             </p>
 
-            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
+            <h1 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
               Spotkanie z marką
               <br />
               w jej naturalnym środowisku
-            </h2>
+            </h1>
 
             <p className="mt-6 max-w-3xl leading-8 text-white/90">
               W atelier możesz zobaczyć modele Alaudis w spokojnym, prywatnym

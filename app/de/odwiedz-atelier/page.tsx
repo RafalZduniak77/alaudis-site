@@ -12,7 +12,6 @@
 import SeoJsonLd from "@/components/SeoJsonLd";
 import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
-import PianoHeroImage from "@/components/PianoHeroImage";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
@@ -25,59 +24,9 @@ export default function BesuchenSieDasAtelierPage() {
       <SeoJsonLd locale="de" page="odwiedzAtelier" />
       <ModelPageTopBar backHref="/de" activeLanguage="DE" />
 
-      <section className="page-hero page-hero-spread hero-copy relative min-h-screen overflow-hidden border-b border-white/10">
-        <PianoHeroImage alt="Besuchen Sie das Alaudis Atelier" />
-        <div className="absolute inset-0 z-10 bg-black/4" />
-
-        <div className="page-hero-content relative z-20 flex min-h-screen items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
-          <div className="mx-auto max-w-5xl">
-            <p className="page-hero-eyebrow mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
-              Alaudis Atelier
-            </p>
-
-            <h1 className="page-hero-title text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
-              Besuchen Sie das Atelier
-            </h1>
-
-          </div>
-        </div>
-
-        <div className="page-hero-scroll absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
-          <a href="#erlebnis" className="block">
-            <div className="mx-auto h-14 w-8 rounded-full border border-white/40 bg-black/10">
-              <div className="mx-auto mt-2 h-3 w-1 rounded-full bg-white/90" />
-            </div>
-            <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/88">
-              Nach unten scrollen
-            </p>
-          </a>
-        </div>
-      </section>
-
-      {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
-      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
-        <div className="mx-auto max-w-4xl">
-          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
-          <div>
-            <p className="mx-auto mt-0 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
-              Entdecken Sie Alaudis in einem Raum, in dem Handwerk, Detail und
-              der Charakter des Instruments auf ein privates Gespräch über
-              Modell, Ausführung und die individuelle Komposition des Flügels
-              treffen.
-            </p>
-
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
-              Ein Besuch im Atelier ist ein ruhiger, persönlicher Moment der
-              Begegnung mit der Marke, nicht nur eine Präsentation des Modells,
-              sondern ein Erlebnis seiner Größe, Präsenz und Identität.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section
         id="erlebnis"
-        className="scroll-mt-20 bg-black px-6 py-24 sm:px-10 lg:px-16"
+        className="scroll-mt-20 bg-black px-6 pb-24 pt-36 sm:pt-40 sm:px-10 lg:px-16"
       >
         <div className="mx-auto max-w-7xl">
           <div className="max-w-4xl">
@@ -85,11 +34,11 @@ export default function BesuchenSieDasAtelierPage() {
               Erlebnis des Besuchs
             </p>
 
-            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
+            <h1 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">
               Eine Begegnung mit der Marke
               <br />
               in ihrer natürlichen Umgebung
-            </h2>
+            </h1>
 
             <p className="mt-6 max-w-3xl leading-8 text-white/90">
               Im Atelier können Sie die Alaudis Modelle in einem ruhigen,
