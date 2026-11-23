@@ -13,7 +13,7 @@
 
 export type PrivacyLocale = "pl" | "en" | "de" | "fr";
 
-export const PRIVACY_EMAIL = "info@saprenovation.com";
+export const PRIVACY_EMAIL = "rafal.zduniak@alaudis.eu";
 export const PRIVACY_PHONE = "+48 62 501 30 30";
 
 type Section = { title: string; paragraphs: string[] };
