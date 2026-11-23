@@ -8,6 +8,7 @@ type VideoSpec = { id: string; filename: string; title: Localized; description?:
 
 // Usage: npm run cms:video -- --spec scripts/videos/<name>.json --file film.mp4 --poster kadr.jpg [--production]
 // Text-only update of an imported film: npm run cms:video -- --spec scripts/videos/<name>.json --update [--production]
+// Hide a film from the site but keep it in the panel as a draft: --unpublish
 // Swap the video file (and optionally the poster) of an imported film: add --replace --file film.mp4 [--poster kadr.jpg]
 async function main() {
   const args = process.argv.slice(2);
@@ -15,7 +16,8 @@ async function main() {
   const [specPath, file, poster] = [arg("--spec"), arg("--file"), arg("--poster")];
   const update = args.includes("--update");
   const replace = args.includes("--replace");
-  if (!specPath || (replace && !file) || (!update && !replace && (!file || !poster))) throw new Error("Podaj --spec scripts/videos/<film>.json, --file /ścieżka/film.mp4 oraz --poster /ścieżka/kadr.jpg.");
+  const unpublish = args.includes("--unpublish");
+  if (!specPath || (replace && !file) || (!update && !replace && !unpublish && (!file || !poster))) throw new Error("Podaj --spec scripts/videos/<film>.json, --file /ścieżka/film.mp4 oraz --poster /ścieżka/kadr.jpg.");
   const spec = JSON.parse(readFileSync(resolve(specPath), "utf8")) as VideoSpec;
   if (!/^gallery-video-[a-z0-9-]+$/.test(spec.id) || !spec.title?.pl || !spec.alt?.pl) throw new Error("Plik opisu wymaga pól id (gallery-video-…), title.pl i alt.pl.");
   const dataset = args.includes("--production") ? "gallery" : "gallery_preview";
@@ -31,6 +33,15 @@ async function main() {
     ...(spec.duration && { duration: spec.duration }),
     ...(spec.order && { order: spec.order }),
   };
+  if (unpublish) {
+    const doc = await client.getDocument(spec.id);
+    if (!doc) { console.log(`„${spec.title.pl}” nie jest opublikowany w ${dataset}.`); return; }
+    const { _rev, _updatedAt, _createdAt, ...rest } = doc;
+    void _rev; void _updatedAt; void _createdAt;
+    await client.transaction().createOrReplace({ ...rest, _id: `drafts.${spec.id}` }).delete(spec.id).commit();
+    console.log(`Zdjęto z publikacji „${spec.title.pl}” w ${dataset}; film czeka w panelu jako szkic.`);
+    return;
+  }
   if (replace) {
     if (!existing) throw new Error(`Brak filmu ${spec.id} w ${dataset}; najpierw go zaimportuj.`);
     const videoAsset = await client.assets.upload("file", createReadStream(resolve(file!)), { filename: `${spec.filename}.mp4`, contentType: "video/mp4" });
