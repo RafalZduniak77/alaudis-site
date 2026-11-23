@@ -82,7 +82,7 @@ function getLabels(language: LanguageKey) {
   };
 }
 
-export default function AlaudisARPreview() {
+export default function AlaudisARPreview({ intro }: { intro?: string }) {
   const pathname = usePathname() || "/";
   const searchParams = useSearchParams();
 
@@ -242,7 +242,13 @@ export default function AlaudisARPreview() {
           onToggleAutoRotate={() => setAutoRotateEnabled((prev) => !prev)}
         />
 
-        <div className="mt-6 grid gap-4 xl:grid-cols-[1.15fr_1fr_1fr_1fr]">
+        {intro && (
+          <p className="mx-auto mt-10 max-w-3xl text-center text-sm leading-8 text-white/90 sm:text-base sm:leading-9">
+            {intro}
+          </p>
+        )}
+
+        <div className={`${intro ? "mt-10" : "mt-6"} grid gap-4 xl:grid-cols-[1.15fr_1fr_1fr_1fr]`}>
           {INFO_CARDS.map((card) => (
             <div
               key={card.title}

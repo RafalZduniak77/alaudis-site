@@ -17,7 +17,7 @@ export default function OdkryjModelePage() {
         <h1 className="sr-only">Discover models</h1>
         <div className="mx-auto max-w-7xl">
           <Suspense fallback={<div className="min-h-[640px] rounded-[36px] bg-[#070707]" />}>
-            <AlaudisARPreview />
+            <AlaudisARPreview intro={"View the piano in 3D, rotate it, zoom in and see how it looks in a real interior. This is the first step into the full Alaudis experience: configurator + AR preview."} />
           </Suspense>
         </div>
       </section>
