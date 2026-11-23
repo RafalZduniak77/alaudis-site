@@ -23,5 +23,6 @@ export const galleryItemProjection = `
     "video": video.asset->{url, mimeType}
   }
 `;
-export const galleryItemsOrder = `_type asc, coalesce(date, _createdAt) desc, _id asc`;
+// Videos with an editor-set order come first; the rest stay newest first.
+export const galleryItemsOrder = `_type asc, coalesce(order, 1000000) asc, coalesce(date, _createdAt) desc, _id asc`;
 

@@ -52,6 +52,7 @@ const video = defineType({
     defineField({ name: "poster", title: "Miniatura filmu", type: "image", group: "media", options: { accept: "image/jpeg,image/png,image/webp,image/avif" }, description: "Dodaj kadr z filmu lub zdjęcie z koncertu. Miniatura pojawi się w galerii przed rozpoczęciem odtwarzania.", fields: [
       defineField({ name: "alt", title: "Opis miniatury (ALT)", type: "galleryLocalizedString", description: "Krótki opis tego, co widać na miniaturze. Puste pole korzysta z tytułu filmu." }),
     ], validation: rule => rule.required().assetRequired() }),
+    defineField({ name: "order", title: "Kolejność (opcjonalnie)", type: "number", group: "details", description: "Mniejsza liczba = wyżej w dziale „Brzmienie”, np. 1 dla filmu, który ma być pierwszy. Filmy bez numeru pojawiają się dalej, od najnowszego.", validation: rule => rule.integer().min(1) }),
     defineField({ name: "duration", title: "Czas trwania w sekundach (opcjonalnie)", type: "number", group: "media", description: "Np. 96 dla filmu trwającego 1 minutę i 36 sekund. Puste pole ukrywa czas na miniaturze.", validation: rule => rule.positive() }),
   ],
   preview: { select: { title: "title.pl", location: "location", media: "poster" }, prepare: ({ title, location, media }) => ({ title: title || "Nowy film", subtitle: location ? `Wideo · ${location}` : "Wideo", media }) },

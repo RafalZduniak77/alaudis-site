@@ -1,0 +1,19 @@
+{
+  "id": "gallery-video-koncert-pila",
+  "filename": "alaudis-koncert-pila",
+  "title": { "pl": "Duet Per Quattro — koncert w Pile", "en": "Per Quattro duo — concert in Piła", "de": "Duo Per Quattro — Konzert in Piła", "fr": "Duo Per Quattro — concert à Piła" },
+  "description": {
+    "pl": "Cztery ręce, jeden fortepian. Kaliski duet Per Quattro podczas koncertu w Pile, z brzmieniem ALAUDIS.",
+    "en": "Four hands, one grand piano. The Per Quattro duo from Kalisz in concert in Piła, with the sound of ALAUDIS.",
+    "de": "Vier Hände, ein Flügel. Das Duo Per Quattro aus Kalisz bei einem Konzert in Piła mit dem Klang von ALAUDIS.",
+    "fr": "Quatre mains, un piano. Le duo Per Quattro de Kalisz en concert à Piła, au son d’ALAUDIS."
+  },
+  "alt": {
+    "pl": "Duet Per Quattro grający na fortepianie ALAUDIS podczas koncertu w Pile",
+    "en": "The Per Quattro duo playing an ALAUDIS grand piano at a concert in Piła",
+    "de": "Das Duo Per Quattro an einem ALAUDIS-Flügel bei einem Konzert in Piła",
+    "fr": "Le duo Per Quattro au piano à queue ALAUDIS lors d’un concert à Piła"
+  },
+  "location": "Piła",
+  "duration": 95.953944
+}
