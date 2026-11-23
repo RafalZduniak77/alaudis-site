@@ -297,6 +297,35 @@ const PAGES = {
       },
     },
   },
+  zwiedzanieManufaktury: {
+    path: "/zwiedzanie-manufaktury",
+    copy: {
+      pl: {
+        label: "Zwiedzanie manufaktury",
+        title: "Zwiedzanie manufaktury ALAUDIS w Kaliszu – zgłoś udział",
+        description:
+          "Zobacz, jak powstają fortepiany ALAUDIS. Bezpłatne, ok. 4-godzinne oprowadzanie po manufakturze w Kaliszu – zgłoś chęć udziału indywidualnie lub w małej grupie.",
+      },
+      en: {
+        label: "Manufactory tour",
+        title: "ALAUDIS Manufactory Tour in Kalisz – Register Your Interest",
+        description:
+          "See how ALAUDIS grand pianos are made. Register for a free, approx. 4-hour guided tour of the manufactory in Kalisz, Poland – individually or in a small group.",
+      },
+      de: {
+        label: "Manufakturführung",
+        title: "Führung durch die ALAUDIS Manufaktur in Kalisz – jetzt anmelden",
+        description:
+          "Erleben Sie, wie ALAUDIS-Flügel entstehen. Melden Sie sich für eine kostenlose, ca. 4-stündige Führung durch die Manufaktur in Kalisz an – einzeln oder in einer kleinen Gruppe.",
+      },
+      fr: {
+        label: "Visite de la manufacture",
+        title: "Visite de la manufacture ALAUDIS à Kalisz – inscrivez-vous",
+        description:
+          "Découvrez comment naissent les pianos ALAUDIS. Inscrivez-vous à une visite guidée gratuite d’environ 4 heures de la manufacture à Kalisz – seul ou en petit groupe.",
+      },
+    },
+  },
   dlaArchitektow: {
     path: "/dla-architektow",
     copy: {
@@ -553,7 +582,7 @@ export function pageSchema(locale: SeoLocale, page: SeoPage) {
   const home = PAGES.home.copy[locale];
   const graph: Record<string, unknown>[] = [];
 
-  if (page === "home" || page === "kontakt" || page === "odwiedzAtelier") {
+  if (page === "home" || page === "kontakt" || page === "odwiedzAtelier" || page === "zwiedzanieManufaktury") {
     graph.push(organizationSchema(locale));
   }
 

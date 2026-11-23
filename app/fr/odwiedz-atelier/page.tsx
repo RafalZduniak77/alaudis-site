@@ -224,12 +224,18 @@ export default function VisitezLatelierPage() {
               projet.
             </p>
 
-            <div className="mt-8">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/fr/kontakt"
                 className="inline-flex rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Organiser un échange privé
+              </Link>
+              <Link
+                href="/fr/zwiedzanie-manufaktury"
+                className="inline-flex rounded-full border border-[#d3bd8b]/70 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-[#d3bd8b] transition hover:bg-[#d3bd8b] hover:text-black"
+              >
+                Visite de la manufacture
               </Link>
             </div>
           </div>

@@ -1,0 +1,102 @@
+// ==========================================================
+// PAGE - ZWIEDZANIE MANUFAKTURY (wspólna dla PL / EN / DE / FR)
+// ==========================================================
+
+import Image from "next/image";
+import Footer from "@/components/Footer";
+import ModelPageTopBar from "@/components/ModelPageTopBar";
+import PianoHeroImage from "@/components/PianoHeroImage";
+import SeoJsonLd from "@/components/SeoJsonLd";
+import FactoryTourForm from "./FactoryTourForm";
+import { TOUR_STAGES, tourCopy, type TourLanguage } from "./copy";
+
+export default function FactoryTourPage({ language }: { language: TourLanguage }) {
+  const copy = tourCopy[language];
+  const locale = language.toLowerCase() as "pl" | "en" | "de" | "fr";
+
+  return (
+    <main className="min-h-screen bg-black text-white">
+      <SeoJsonLd locale={locale} page="zwiedzanieManufaktury" />
+      <ModelPageTopBar backHref={copy.home} activeLanguage={language} />
+
+      {/* HERO */}
+      <section className="page-hero hero-copy relative min-h-[88svh] overflow-hidden border-b border-white/10">
+        <PianoHeroImage alt={copy.hero.title} />
+        <div className="absolute inset-0 z-10 bg-black/35" />
+        <div className="page-hero-content relative z-20 flex min-h-[88svh] items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
+          <div className="mx-auto max-w-5xl">
+            <p className="page-hero-eyebrow mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">{copy.hero.eyebrow}</p>
+            <h1 className="page-hero-title text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">{copy.hero.title}</h1>
+            <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">{copy.hero.text}</p>
+            <a href="#zgloszenie" className="mt-10 inline-flex rounded-full border border-[#d3bd8b] bg-[#d3bd8b] px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:bg-transparent hover:text-[#d3bd8b]">
+              {copy.hero.cta}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* TRASA ZWIEDZANIA */}
+      <section className="bg-black px-6 py-24 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">{copy.stagesEyebrow}</p>
+          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">{copy.stagesTitle}</h2>
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {TOUR_STAGES.map((stage, index) => (
+              <article key={stage.key} className="overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03]">
+                <div className="relative aspect-[4/3]">
+                  <Image src={stage.image} alt={copy.stages[stage.key].title} fill sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw" className="object-cover" />
+                </div>
+                <div className="p-7">
+                  <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">0{index + 1}</p>
+                  <h3 className="mt-3 text-2xl font-light">{copy.stages[stage.key].title}</h3>
+                  <p className="mt-4 leading-7 text-white/85">{copy.stages[stage.key].text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* JAK TO DZIAŁA */}
+      <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">{copy.infoEyebrow}</p>
+          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">{copy.infoTitle}</h2>
+          <ol className="mt-12 grid gap-6 lg:grid-cols-3">
+            {copy.info.map((step, index) => (
+              <li key={step.title} className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
+                <p className="text-xs uppercase tracking-[0.32em] text-white/75">0{index + 1}</p>
+                <h3 className="mt-4 text-2xl font-light">{step.title}</h3>
+                <p className="mt-5 leading-8 text-white/90">{step.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* FORMULARZ */}
+      <section id="zgloszenie" className="scroll-mt-20 bg-black px-6 py-24 sm:px-10 lg:px-16">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">{copy.formEyebrow}</p>
+            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">{copy.formTitle}</h2>
+            <p className="mt-6 leading-8 text-white/90">{copy.formText}</p>
+            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">ALAUDIS / SAP Renovation</p>
+            <p className="mt-3 text-xl font-light text-white">{copy.address}</p>
+            <dl className="mt-8 grid grid-cols-2 gap-4">
+              {copy.facts.map((fact) => (
+                <div key={fact.label} className="rounded-[22px] border border-white/10 bg-white/[0.03] p-5">
+                  <dt className="text-[11px] uppercase tracking-[0.24em] text-white/60">{fact.label}</dt>
+                  <dd className="mt-2 text-lg font-light text-white">{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <FactoryTourForm language={language} />
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
