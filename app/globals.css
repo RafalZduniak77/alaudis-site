@@ -207,3 +207,35 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .craft-card[data-sway] { opacity: 1; animation: none; }
 }
+
+/* ==========================================================
+   RAMKI (KARTY) — EFEKT PO NAJECHANIU MYSZKĄ
+   ==========================================================
+   Każda ramka na stronie lekko się unosi i przyjmuje złoty
+   odcień. Reguła łapie ramki po ich klasach, więc nowe ramki
+   w tym samym stylu dostają efekt automatycznie.
+   Pomijamy formularze i duże pojemniki z innymi ramkami. */
+:is([class*="border-white/10"][class*="white/[0.03]"], [class*="border-black/10"][class*="bg-[#0b0b0b]"]):not(form, section, main, :has(input, select, textarea, [class*="border-white/10"][class*="white/[0.03]"])) {
+  transition: transform 300ms ease-out, border-color 300ms ease-out, background-color 300ms ease-out;
+}
+@media (hover: hover) {
+  [class*="border-white/10"][class*="white/[0.03]"]:not(form, section, main, :has(input, select, textarea, [class*="border-white/10"][class*="white/[0.03]"])):hover {
+    transform: translateY(-4px);
+    border-color: rgb(199 154 92 / 0.32);
+    background: linear-gradient(135deg, rgb(199 154 92 / 0.16), rgb(255 255 255 / 0.03));
+  }
+  /* Czarne ramki na jasnych panelach */
+  [class*="border-black/10"][class*="bg-[#0b0b0b]"]:not(form, section, main, :has(input, select, textarea)):hover {
+    transform: translateY(-4px);
+    border-color: rgb(199 154 92 / 0.45);
+    background: linear-gradient(135deg, rgb(199 154 92 / 0.24), rgb(255 255 255 / 0.03)), #0b0b0b;
+  }
+  /* Mały napis nad tytułem ramki robi się złoty */
+  :is([class*="border-white/10"][class*="white/[0.03]"], [class*="border-black/10"][class*="bg-[#0b0b0b]"]):hover > p:first-child[class*="uppercase"] {
+    color: #e6c08c;
+    transition: color 300ms ease-out;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is([class*="border-white/10"][class*="white/[0.03]"], [class*="border-black/10"][class*="bg-[#0b0b0b]"]):hover { transform: none; }
+}

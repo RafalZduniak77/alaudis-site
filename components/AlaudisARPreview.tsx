@@ -248,44 +248,22 @@ export default function AlaudisARPreview({ intro }: { intro?: string }) {
           </p>
         )}
 
-        <div className={`${intro ? "mt-10" : "mt-6"} grid gap-4 xl:grid-cols-[1.15fr_1fr_1fr_1fr]`}>
+        <div className={`${intro ? "mt-10" : "mt-6"} grid gap-4 xl:grid-cols-4`}>
+          {/* Wszystkie ramki wyglądają tak samo; złoty kolor pojawia się po najechaniu myszką. */}
           {INFO_CARDS.map((card) => (
             <div
               key={card.title}
-              className={
-                card.featured
-                  ? "group rounded-[24px] border border-[#c79a5c]/20 bg-[linear-gradient(135deg,rgba(199,154,92,0.16),rgba(255,255,255,0.03))] p-6 transition duration-300 ease-out hover:-translate-y-1 motion-reduce:transform-none"
-                  // Hover: the card lifts a little and takes the gold tint of the first card.
-                  : "group rounded-[22px] border border-white/10 bg-black/20 p-5 backdrop-blur-sm transition duration-300 ease-out hover:-translate-y-1 hover:border-[#c79a5c]/20 hover:bg-[linear-gradient(135deg,rgba(199,154,92,0.16),rgba(255,255,255,0.03))] motion-reduce:transform-none"
-              }
+              className="group rounded-[22px] border border-white/10 bg-black/20 p-5 backdrop-blur-sm transition duration-300 ease-out hover:-translate-y-1 hover:border-[#c79a5c]/20 hover:bg-[linear-gradient(135deg,rgba(199,154,92,0.16),rgba(255,255,255,0.03))] motion-reduce:transform-none"
             >
-              <p
-                className={
-                  card.featured
-                    ? "text-[11px] uppercase tracking-[0.28em] text-[#e6c08c]"
-                    : "text-[11px] uppercase tracking-[0.28em] text-white/75 transition-colors duration-300 group-hover:text-[#e6c08c]"
-                }
-              >
+              <p className="text-[11px] uppercase tracking-[0.28em] text-white/75 transition-colors duration-300 group-hover:text-[#e6c08c]">
                 {card.eyebrow}
               </p>
 
-              <p
-                className={
-                  card.featured
-                    ? "mt-3 text-2xl font-light text-white"
-                    : "mt-3 text-lg font-light text-white"
-                }
-              >
+              <p className="mt-3 text-lg font-light text-white">
                 {card.title}
               </p>
 
-              <p
-                className={
-                  card.featured
-                    ? "mt-3 text-sm leading-7 text-white/90"
-                    : "mt-2 text-sm leading-7 text-white/84"
-                }
-              >
+              <p className="mt-2 text-sm leading-7 text-white/84">
                 {card.text}
               </p>
             </div>
