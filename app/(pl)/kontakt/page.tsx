@@ -128,44 +128,6 @@ export default function KontaktPage() {
          ==================================================== */}
       <ModelPageTopBar backHref="/" activeLanguage="PL" />
 
-      {/* Czołówka: tytuł, opis i przyciski — bez zdjęcia */}
-      <section className="hero-intro bg-black px-6 pb-12 pt-36 text-center sm:pb-16 sm:pt-44">
-        <div className="mx-auto max-w-4xl">
-          <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
-            Kontakt Alaudis
-          </p>
-          <h1 className="mt-0 text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
-            Porozmawiajmy
-          </h1>
-          <div aria-hidden="true" className="mx-auto my-10 h-px w-12 bg-[#d3bd8b]/70" />
-          <div>
-            <p className="mx-auto mt-0 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
-              Skontaktuj się z nami, aby porozmawiać o modelach Alaudis,
-              wykończeniach premium, konfiguracji fortepianu oraz współpracy.
-            </p>
-
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
-              Prywatna rozmowa o modelu, wykończeniu i charakterze instrumentu
-              to najpiękniejszy początek indywidualnej kompozycji Alaudis.
-            </p>
-          </div>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/odwiedz-atelier"
-              className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-            >
-              Odwiedź atelier
-            </Link>
-
-            <Link
-              href="/dla-architektow"
-              className="rounded-full border border-white/20 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white/90 transition hover:border-white hover:bg-white hover:text-black"
-            >
-              Dla architektów
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* ====================================================
           HANDLOWCY
@@ -173,15 +135,15 @@ export default function KontaktPage() {
          ==================================================== */}
       <section
         id="zespol"
-        className="scroll-mt-20 bg-black px-3 pb-16 pt-4 sm:px-6 sm:pb-20"
+        className="scroll-mt-20 bg-black px-3 pb-3 pt-32 sm:px-6 sm:pb-4 sm:pt-28"
       >
         {/* Jasny panel na ciemnej stronie */}
         <div className="mx-auto max-w-[1520px] rounded-[32px] bg-[#f4f1ea] px-5 py-14 shadow-[0_40px_120px_rgba(0,0,0,0.55)] sm:rounded-[44px] sm:px-10 sm:py-20 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12">
-            <p className="text-xs uppercase tracking-[0.32em] text-[#8a6d35]">
+            <h1 className="text-xs font-normal uppercase tracking-[0.32em] text-[#8a6d35]">
               Zespół kontaktowy
-            </p>
+            </h1>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
@@ -320,13 +282,14 @@ export default function KontaktPage() {
       {/* ====================================================
           DANE FIRMY
          ==================================================== */}
-      <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-5xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+      <section className="bg-black px-3 pb-16 sm:px-6 sm:pb-20">
+        <div className="mx-auto max-w-[1520px] rounded-[32px] bg-[#f4f1ea] px-5 py-14 shadow-[0_40px_120px_rgba(0,0,0,0.55)] sm:rounded-[44px] sm:px-10 sm:py-20 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs uppercase tracking-[0.32em] text-[#8a6d35]">
             SAP Renovation
           </p>
 
-          <div className="mt-10 rounded-[32px] border border-white/10 bg-white/[0.03] p-8 sm:p-10">
+          <div className="mt-12 rounded-[32px] border border-black/10 bg-[#0b0b0b] p-8 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-12">
             <div className="grid gap-8 md:grid-cols-2">
               <div>
                 <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">
@@ -410,6 +373,7 @@ export default function KontaktPage() {
               </Link>
             </div>
           </div>
+        </div>
         </div>
       </section>
 
