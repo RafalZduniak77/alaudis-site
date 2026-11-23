@@ -9,10 +9,10 @@ import { galleryLocales, galleryPath, type GalleryLocale } from "@/lib/gallery/t
 import styles from "./HomeHeader.module.css";
 
 const copy = {
-  pl: { models: "Modele", modelAnchor: "modele", history: "Historia", craft: "Rzemiosło", gallery: "W kadrze", galleryLabel: "W kadrze — galeria fotografii ALAUDIS", navigation: "Menu główne", language: "Wybierz język" },
-  en: { models: "Models", modelAnchor: "models", history: "History", craft: "Craft", gallery: "In focus", galleryLabel: "In focus — ALAUDIS photo gallery", navigation: "Main navigation", language: "Choose language" },
-  de: { models: "Modelle", modelAnchor: "modelle", history: "Geschichte", craft: "Handwerk", gallery: "Einblicke", galleryLabel: "Einblicke — ALAUDIS Fotogalerie", navigation: "Hauptnavigation", language: "Sprache wählen" },
-  fr: { models: "Modèles", modelAnchor: "modeles", history: "Histoire", craft: "Savoir-faire", gallery: "En images", galleryLabel: "En images — galerie de photographies ALAUDIS", navigation: "Navigation principale", language: "Choisir la langue" },
+  pl: { models: "Modele", history: "Historia", craft: "Rzemiosło", gallery: "W kadrze", galleryLabel: "W kadrze — galeria fotografii ALAUDIS", navigation: "Menu główne", language: "Wybierz język" },
+  en: { models: "Models", history: "History", craft: "Craft", gallery: "In focus", galleryLabel: "In focus — ALAUDIS photo gallery", navigation: "Main navigation", language: "Choose language" },
+  de: { models: "Modelle", history: "Geschichte", craft: "Handwerk", gallery: "Einblicke", galleryLabel: "Einblicke — ALAUDIS Fotogalerie", navigation: "Hauptnavigation", language: "Sprache wählen" },
+  fr: { models: "Modèles", history: "Histoire", craft: "Savoir-faire", gallery: "En images", galleryLabel: "En images — galerie de photographies ALAUDIS", navigation: "Navigation principale", language: "Choisir la langue" },
 } satisfies Record<GalleryLocale, Record<string, string>>;
 
 export default function HomeHeader({ locale, variant = "home" }: { locale: GalleryLocale; variant?: "home" | "page" }) {
@@ -24,13 +24,18 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
   const basePath = pathname.replace(/^\/(en|de|fr)(?=\/|$)/, "") || "/";
   const languageHref = (language: GalleryLocale) => (language === "pl" ? basePath : `/${language}${basePath === "/" ? "" : basePath}`);
   const links = [
-    { href: onHome ? `#${text.modelAnchor}` : `${prefix}/#${text.modelAnchor}`, label: text.models },
+    // „Modele” wraca na początek strony głównej.
+    { href: prefix || "/", label: text.models, top: true },
     { href: `${prefix}/historia`, label: text.history },
     { href: `${prefix}/rzemioslo`, label: text.craft },
   ];
-  const navigationLinks = links.map(link => link.href.startsWith("#")
-    ? <a key={link.href} href={link.href} className={styles.button}>{link.label}</a>
-    : <Link key={link.href} href={link.href} className={styles.button}>{link.label}</Link>);
+  const navigationLinks = links.map(link => <Link
+    key={link.href}
+    href={link.href}
+    className={styles.button}
+    // Already on the home page: just glide back to the top.
+    onClick={"top" in link && onHome ? event => { event.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); window.history.replaceState(null, "", link.href); } : undefined}
+  >{link.label}</Link>);
 
   return <>
   <header className={`${styles.header} ${onHome ? "" : styles.page}`}>
