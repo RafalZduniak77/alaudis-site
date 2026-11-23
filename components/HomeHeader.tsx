@@ -16,10 +16,10 @@ import { sitePages, type SeoPage } from "@/lib/seo";
 import styles from "./HomeHeader.module.css";
 
 const copy = {
-  pl: { models: "Modele", history: "Historia", craft: "Rzemiosło", gallery: "W kadrze", sound: "Brzmienie", galleryLabel: "W kadrze — galeria fotografii ALAUDIS", navigation: "Menu główne", language: "Wybierz język", menu: "Menu", close: "Zamknij", search: "Szukaj", searchPlaceholder: "Szukaj na stronie…", noResults: "Nic nie znaleziono. Spróbuj innego słowa.", searchHint: "Wpisz np. „konfigurator”, „zwiedzanie” albo „LEO 214”.", groups: ["Instrumenty", "Marka", "Spotkajmy się", "Galeria"] },
-  en: { models: "Models", history: "History", craft: "Craft", gallery: "In focus", sound: "Sound", galleryLabel: "In focus — ALAUDIS photo gallery", navigation: "Main navigation", language: "Choose language", menu: "Menu", close: "Close", search: "Search", searchPlaceholder: "Search the site…", noResults: "Nothing found. Try another word.", searchHint: "Try “configurator”, “tour” or “LEO 214”.", groups: ["Instruments", "Brand", "Meet us", "Gallery"] },
-  de: { models: "Modelle", history: "Geschichte", craft: "Handwerk", gallery: "Einblicke", sound: "Klang", galleryLabel: "Einblicke — ALAUDIS Fotogalerie", navigation: "Hauptnavigation", language: "Sprache wählen", menu: "Menü", close: "Schließen", search: "Suche", searchPlaceholder: "Website durchsuchen…", noResults: "Nichts gefunden. Versuchen Sie ein anderes Wort.", searchHint: "Zum Beispiel „Konfigurator“, „Führung“ oder „LEO 214“.", groups: ["Instrumente", "Marke", "Besuch & Kontakt", "Galerie"] },
-  fr: { models: "Modèles", history: "Histoire", craft: "Savoir-faire", gallery: "En images", sound: "Le son", galleryLabel: "En images — galerie de photographies ALAUDIS", navigation: "Navigation principale", language: "Choisir la langue", menu: "Menu", close: "Fermer", search: "Rechercher", searchPlaceholder: "Rechercher sur le site…", noResults: "Aucun résultat. Essayez un autre mot.", searchHint: "Par exemple « configurateur », « visite » ou « LEO 214 ».", groups: ["Instruments", "Marque", "Nous rencontrer", "Galerie"] },
+  pl: { searchTitle: "Szukaj w serwisie", home: "Strona główna", resultWords: ["wynik", "wyniki", "wyników"], models: "Modele", history: "Historia", craft: "Rzemiosło", gallery: "W kadrze", sound: "Brzmienie", galleryLabel: "W kadrze — galeria fotografii ALAUDIS", navigation: "Menu główne", language: "Wybierz język", menu: "Menu", close: "Zamknij", search: "Szukaj", searchPlaceholder: "Model, podstrona lub temat", noResults: "Nic nie znaleziono. Spróbuj innego słowa.", groups: ["Instrumenty", "Marka", "Spotkajmy się", "Galeria"] },
+  en: { searchTitle: "Search the site", home: "Home", resultWords: ["result", "results", "results"], models: "Models", history: "History", craft: "Craft", gallery: "In focus", sound: "Sound", galleryLabel: "In focus — ALAUDIS photo gallery", navigation: "Main navigation", language: "Choose language", menu: "Menu", close: "Close", search: "Search", searchPlaceholder: "Model, page or topic", noResults: "Nothing found. Try another word.", groups: ["Instruments", "Brand", "Meet us", "Gallery"] },
+  de: { searchTitle: "Website durchsuchen", home: "Startseite", resultWords: ["Ergebnis", "Ergebnisse", "Ergebnisse"], models: "Modelle", history: "Geschichte", craft: "Handwerk", gallery: "Einblicke", sound: "Klang", galleryLabel: "Einblicke — ALAUDIS Fotogalerie", navigation: "Hauptnavigation", language: "Sprache wählen", menu: "Menü", close: "Schließen", search: "Suche", searchPlaceholder: "Modell, Seite oder Thema", noResults: "Nichts gefunden. Versuchen Sie ein anderes Wort.", groups: ["Instrumente", "Marke", "Besuch & Kontakt", "Galerie"] },
+  fr: { searchTitle: "Rechercher sur le site", home: "Accueil", resultWords: ["résultat", "résultats", "résultats"], models: "Modèles", history: "Histoire", craft: "Savoir-faire", gallery: "En images", sound: "Le son", galleryLabel: "En images — galerie de photographies ALAUDIS", navigation: "Navigation principale", language: "Choisir la langue", menu: "Menu", close: "Fermer", search: "Rechercher", searchPlaceholder: "Modèle, page ou sujet", noResults: "Aucun résultat. Essayez un autre mot.", groups: ["Instruments", "Marque", "Nous rencontrer", "Galerie"] },
 } satisfies Record<GalleryLocale, Record<string, string | string[]>>;
 
 // Which pages go into which column of the pull-down menu.
@@ -31,7 +31,7 @@ const MENU_GROUPS: SeoPage[][] = [
 
 const fold = (value: string) => value.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ł/g, "l");
 
-type Entry = { href: string; label: string; description: string; haystack: string };
+type Entry = { href: string; label: string; category: string; haystack: string };
 
 export default function HomeHeader({ locale, variant = "home" }: { locale: GalleryLocale; variant?: "home" | "page" }) {
   const text = copy[locale];
@@ -51,12 +51,18 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
     { href: galleryPath(locale), label: text.gallery, description: text.galleryLabel },
     { href: `${galleryPath(locale)}?dzial=video`, label: text.sound, description: "" },
   ], [locale, text]);
-  const entries: Entry[] = useMemo(() => [
-    ...pages.filter(page => page.page !== "home").map(page => ({ href: page.href, label: page.label, description: page.description, haystack: fold(`${page.label} ${page.title} ${page.description}`) })),
-    ...galleryEntries.map(entry => ({ ...entry, haystack: fold(`${entry.label} ${entry.description} galeria gallery galerie video wideo`) })),
-  ], [pages, galleryEntries]);
+  // Everything on the site, listed right away; typing narrows the list.
+  const entries: Entry[] = useMemo(() => {
+    const categoryOf = (page: SeoPage) => text.groups[MENU_GROUPS.findIndex(group => group.includes(page))] ?? "ALAUDIS";
+    return [
+      ...pages.map(page => ({ href: page.href, label: page.page === "home" ? text.home : page.label, category: categoryOf(page.page), haystack: fold(`${page.label} ${page.title} ${page.description}`) })),
+      ...galleryEntries.map(entry => ({ href: entry.href, label: entry.label, category: text.groups[3], haystack: fold(`${entry.label} ${entry.description} galeria gallery galerie video wideo`) })),
+    ];
+  }, [pages, galleryEntries, text]);
   const words = fold(query).split(/\s+/).filter(Boolean);
-  const results = words.length ? entries.filter(entry => words.every(word => entry.haystack.includes(word))).slice(0, 8) : [];
+  const results = entries.filter(entry => words.every(word => entry.haystack.includes(word)));
+  // 1 wynik · 2–4 wyniki · 5+ wyników (other languages: singular / plural).
+  const resultWord = results.length === 1 ? text.resultWords[0] : locale === "pl" && [2, 3, 4].includes(results.length % 10) && ![12, 13, 14].includes(results.length % 100) ? text.resultWords[1] : text.resultWords[2];
 
   // Close the panel on Escape; choosing a link closes it too (see the panel's onClick).
   useEffect(() => {
@@ -129,10 +135,10 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
       </nav>
     </div>
 
-    {/* ROZWIJANY PANEL: MENU ALBO WYSZUKIWARKA */}
-    {panel && <div id="site-panel" className={styles.panel} onClick={event => { if ((event.target as HTMLElement).closest("a")) { setPanel(null); setQuery(""); } }}>
+    {/* ROZWIJANY PANEL MENU */}
+    {panel === "menu" && <div id="site-panel" className={styles.panel} onClick={event => { if ((event.target as HTMLElement).closest("a")) setPanel(null); }}>
       <div className={styles.panelInner}>
-        {panel === "menu" ? <nav className={styles.menuGrid} aria-label={text.menu}>
+        <nav className={styles.menuGrid} aria-label={text.menu}>
           {MENU_GROUPS.map((group, index) => <div key={text.groups[index]}>
             <p className={styles.groupTitle}>{text.groups[index]}</p>
             <ul>{group.map(key => { const page = pages.find(item => item.page === key); return page ? <li key={key}><Link href={page.href}>{page.label}</Link></li> : null; })}</ul>
@@ -141,22 +147,32 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
             <p className={styles.groupTitle}>{text.groups[3]}</p>
             <ul>{galleryEntries.map(entry => <li key={entry.href}><Link href={entry.href} prefetch={false}>{entry.label}</Link></li>)}</ul>
           </div>
-        </nav> : <div className={styles.search}>
-          <label className="sr-only" htmlFor="site-search">{text.search}</label>
-          <input id="site-search" ref={searchInput} type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder={text.searchPlaceholder} autoComplete="off" className={styles.searchInput} />
-          {!words.length && <p className={styles.searchNote}>{text.searchHint}</p>}
-          {words.length > 0 && !results.length && <p className={styles.searchNote} role="status">{text.noResults}</p>}
-          {results.length > 0 && <ul className={styles.results}>
-            {results.map(result => <li key={result.href}><Link href={result.href} prefetch={false}>
-              <span className={styles.resultTitle}>{result.label}</span>
-              {result.description && <span className={styles.resultText}>{result.description}</span>}
-            </Link></li>)}
-          </ul>}
-        </div>}
+        </nav>
       </div>
     </div>}
   </header>
-  {panel && <button type="button" className={styles.backdrop} aria-label={text.close} onClick={() => setPanel(null)} />}
+  {panel && <button type="button" className={`${styles.backdrop} ${panel === "search" ? styles.backdropFront : ""}`} aria-label={text.close} onClick={() => setPanel(null)} />}
+  {/* OKNO WYSZUKIWARKI */}
+  {panel === "search" && <div id="site-panel" role="dialog" aria-modal="true" aria-labelledby="site-search-title" className={styles.searchDialog} onClick={event => { if ((event.target as HTMLElement).closest("a")) { setPanel(null); setQuery(""); } }}>
+    <div className={styles.searchHead}>
+      <h2 id="site-search-title">{text.searchTitle}</h2>
+      <button type="button" className={styles.searchClose} aria-label={text.close} onClick={() => setPanel(null)}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" /></svg>
+      </button>
+    </div>
+    <label className={styles.searchField}>
+      <span className="sr-only">{text.search}</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
+      <input ref={searchInput} type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder={text.searchPlaceholder} autoComplete="off" />
+    </label>
+    <p className={styles.searchCount} role="status">{results.length ? `${results.length} ${resultWord}` : text.noResults}</p>
+    <ul className={styles.results}>
+      {results.map(result => <li key={result.href}><Link href={result.href} prefetch={false}>
+        <span className={styles.resultTitle}>{result.label}</span>
+        <span className={styles.resultText}>{result.category}</span>
+      </Link></li>)}
+    </ul>
+  </div>}
   {/* On phones the menu has two rows; push the page content below it. */}
   {!onHome && <div className={styles.spacer} aria-hidden="true" />}
   </>;
