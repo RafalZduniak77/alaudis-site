@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import AlaudisStory from "@/components/AlaudisStory";
-import StoryVideo from "@/components/StoryVideo";
 
 type StorySection = {
   eyebrow: string;
@@ -160,112 +159,6 @@ const storySections: StorySection[] = [
     image: "/historia/12 Ostateczna regulacja intonacja .jpg",
     imageAlt: "Réglage final et intonation du piano Alaudis",
     align: "right",
-  },
-];
-
-type ProductionVideo = {
-  src: string;
-  title: string;
-  text: string;
-};
-
-const productionVideos: ProductionVideo[] = [
-  {
-    src: "/historia-video-web/historia-01.mp4",
-    title: "Ponçage et ajustement du cadre en fonte",
-    text: "Préparation précise du cadre en fonte avant la poursuite de l’assemblage acoustique. Cette étape exige l’ajustement exact des surfaces de contact, le contrôle des points d’appui et le respect de la géométrie de la structure du piano.",
-  },
-  {
-    src: "/historia-video-web/historia-02.mp4",
-    title: "Profilage des nervures de la table d’harmonie",
-    text: "Mise en forme des nervures de la table d’harmonie, responsables de la stabilité, de l’élasticité et du bon fonctionnement acoustique de la surface résonante. Leur profil influence directement la courbure et la réponse de la table aux vibrations.",
-  },
-  {
-    src: "/historia-video-web/historia-03.mp4",
-    title: "Nettoyage des nervures après les résidus de colle",
-    text: "Travail minutieux sur les nervures après les étapes précédentes de collage. L’élimination de l’excès de colle et la préparation de surfaces propres permettent de préserver la précision des assemblages et l’esthétique des éléments structurels.",
-  },
-  {
-    src: "/historia-video-web/historia-04.mp4",
-    title: "Ponçage mécanique de la table d’harmonie",
-    text: "Premier ponçage de la table d’harmonie à l’aide d’outils mécaniques. L’objectif est d’uniformiser la surface, de préparer le matériau aux étapes suivantes et d’obtenir la qualité nécessaire aux travaux de finition.",
-  },
-  {
-    src: "/historia-video-web/historia-05.mp4",
-    title: "Ponçage manuel de la table d’harmonie",
-    text: "Finition manuelle délicate de la surface de la table d’harmonie. Cette étape offre un contrôle plus fin du détail, préserve le caractère naturel du bois et prépare la table à devenir le cœur acoustique de l’instrument.",
-  },
-  {
-    src: "/historia-video-web/historia-06.mp4",
-    title: "Fraisage du couvre-chevalet",
-    text: "Usinage précis du couvre-chevalet. Les chevalets font partie des éléments essentiels de transmission des vibrations des cordes vers la table d’harmonie ; leur géométrie, leur hauteur et la qualité de leur surface exigent donc une précision exceptionnelle.",
-  },
-  {
-    src: "/historia-video-web/historia-07.mp4",
-    title: "Coupe et ajustement de la longueur du chevalet aigu",
-    text: "Ajustement du chevalet aigu aux dimensions et à la géométrie de l’instrument. La bonne longueur et le bon positionnement sont essentiels au travail futur des cordes, à la transmission de l’énergie et à l’équilibre sonore du registre aigu.",
-  },
-  {
-    src: "/historia-video-web/historia-08.mp4",
-    title: "Rabotage mécanique du chevalet aigu",
-    text: "Usinage du chevalet aigu en respectant la ligne, la hauteur et le profil requis. Cette étape prépare le chevalet à l’ajustement final et à une coopération correcte avec les cordes et la table d’harmonie.",
-  },
-  // Nouvelles séquences consacrées au façonnage manuel et mécanique du corps du piano.
-  {
-    src: "/historia-video-web/historia-16.mp4",
-    title: "Calibrage manuel de la surface du corps",
-    text: "Chaque partie du corps est minutieusement contrôlée et nivelée à la main par un artisan expérimenté. Le guidage précis de l’outil permet d’éliminer les moindres irrégularités et de préparer la surface aux étapes d’usinage suivantes. Ce travail exigeant requiert de l’expérience, une parfaite sensibilité au matériau et une maîtrise absolue de chaque geste.",
-  },
-  {
-    src: "/historia-video-web/historia-17.mp4",
-    title: "Mise à niveau précise du corps du piano",
-    text: "La surface du corps est progressivement mise à niveau à l’aide d’une meuleuse d’angle guidée avec précision. Tout au long de l’opération, l’artisan contrôle la forme, la ligne et l’épaisseur du matériau afin d’obtenir une surface régulière et stable. L’alliance d’un outil spécialisé et du savoir-faire d’une main expérimentée garantit une maîtrise totale de chaque étape de l’usinage.",
-  },
-  {
-    src: "/historia-video-web/historia-18.mp4",
-    title: "Façonnage traditionnel du corps au rabot à main",
-    text: "Le rabot à main permet à l’artisan de niveler la surface du corps avec une extrême précision et de lui donner progressivement sa forme définitive. Chaque passage retire une fine couche de bois ; le processus exige donc patience, expérience et une parfaite sensibilité au matériau. Cette technique traditionnelle d’ébénisterie offre une maîtrise totale du détail et permet d’atteindre la plus haute précision d’exécution.",
-  },
-  {
-    src: "/historia-video-web/historia-09.mp4",
-    title: "Fraisage du corps de la caisse harmonique pour les nervures",
-    text: "Préparation des zones du corps de la caisse harmonique où seront logées les nervures de la table d’harmonie. Le fraisage permet d’obtenir des logements précis et d’assurer un soutien correct à l’ensemble de la structure acoustique.",
-  },
-  {
-    src: "/historia-video-web/historia-10.mp4",
-    title: "Ciselage manuel et ajustement des logements de la table d’harmonie",
-    text: "Finition manuelle des zones où la table d’harmonie sera installée. Le travail au ciseau permet d’atteindre une précision que la machine seule ne garantit pas toujours, notamment dans les points nécessitant un ajustement individuel.",
-  },
-  {
-    src: "/historia-video-web/historia-11.mp4",
-    title: "Collage et serrage de la table d’harmonie",
-    text: "Processus de mise en place de la table d’harmonie dans la structure de l’instrument. Une pression uniforme exercée par les serre-joints assure un assemblage stable, un bon contact et l’intégrité acoustique de tout l’ensemble résonant.",
-  },
-  {
-    src: "/historia-video-web/historia-12.mp4",
-    title: "Collage des couches du corps du piano Alaudis",
-    text: "Étape de collage des couches du corps du piano à queue Alaudis. La bonne conduite du matériau, la maîtrise des tensions et la précision du collage sont essentielles pour la stabilité structurelle et la ligne élégante de la caisse.",
-  },
-  {
-    src: "/historia-video-web/historia-14.mp4",
-    title: "Collage et serrage du corps du piano Alaudis",
-    text: "Formation du corps du piano par collage et pression contrôlée avec des serre-joints. C’est l’une des étapes où le savoir-faire structurel détermine la durabilité, la stabilité et la géométrie finale de l’instrument.",
-  },
-  // Séquences consacrées à l'ajustage précis des éléments porteurs du piano à queue.
-  {
-    src: "/historia-video-web/video-19-web.mp4",
-    title: "Ajustage précis des pieds et de la lyre du piano à queue",
-    text: "Chaque élément de la structure d’un piano à queue ALAUDis est ajusté individuellement par un artisan expérimenté. L’ajustage précis des pieds et de la lyre de pédalier garantit une géométrie correcte, une parfaite stabilité et un assemblage irréprochable de toutes les parties de l’instrument. Cette étape exige une grande exactitude, car le moindre écart pourrait compromettre la qualité du montage et l’aspect final du piano.",
-  },
-  {
-    src: "/historia-video-web/video-20-web.mp4",
-    title: "Ajustage exact de la roulette dans le pied du piano",
-    text: "La roulette est soigneusement ajustée dans le pied du piano à queue ALAUDis afin de garantir son positionnement correct, un roulement fluide et la parfaite stabilité de l’instrument. L’artisan contrôle la position, la profondeur d’insertion et la précision d’ajustage de chaque élément. À ce stade, la précision contribue autant à la sécurité d’utilisation qu’à l’esthétique de l’ensemble de la structure.",
-  },
-  {
-    src: "/historia-video-web/historia-15.mp4",
-    title: "Intonation finale des marteaux, Peter Salisbury",
-    text: "Intonation finale des marteaux réalisée par le maître Peter Salisbury. C’est la dernière étape artistique du travail sur la couleur sonore, où sont affinés la réponse des marteaux, le caractère de l’attaque, le chant et l’équilibre sonore de tout l’instrument.",
   },
 ];
 
@@ -436,52 +329,6 @@ export default function HistoriaPage() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-            {/* ====================================================
-          SECTION - PRODUCTION VIDEOS
-         ==================================================== */}
-      <section className="bg-black px-6 py-24 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="text-[11px] uppercase tracking-[0.42em] text-white/75">
-              De la production Alaudis
-            </p>
-
-            <h2 className="mt-5 text-3xl font-light text-white sm:text-4xl lg:text-[56px] lg:leading-[1.08]">
-              Le savoir-faire capturé en mouvement
-            </h2>
-
-            <p className="mx-auto mt-6 max-w-3xl leading-8 text-white/90 sm:text-[17px]">
-              De courtes vidéos montrent le processus de création de l’instrument : le travail des mains, les détails, les surfaces, la construction et l’atmosphère de l’atelier où l’idée d’Alaudis devient un véritable piano à queue.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {productionVideos.map((video) => (
-              <article
-                key={video.src}
-                className="overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03]"
-              >
-                <StoryVideo src={video.src} title={video.title} locale="fr" />
-
-                <div className="p-6">
-                  <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">
-                    Vidéo
-                  </p>
-
-                  <h3 className="mt-3 text-xl font-light text-white">
-                    {video.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-7 text-white/86">
-                    {video.text}
-                  </p>
-                </div>
-              </article>
-            ))}
           </div>
         </div>
       </section>

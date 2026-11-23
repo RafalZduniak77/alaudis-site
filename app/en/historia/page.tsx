@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import AlaudisStory from "@/components/AlaudisStory";
-import StoryVideo from "@/components/StoryVideo";
 
 type StorySection = {
   eyebrow: string;
@@ -160,112 +159,6 @@ const storySections: StorySection[] = [
     image: "/historia/12 Ostateczna regulacja intonacja .jpg",
     imageAlt: "Final regulation and voicing of the Alaudis piano",
     align: "right",
-  },
-];
-
-type ProductionVideo = {
-  src: string;
-  title: string;
-  text: string;
-};
-
-const productionVideos: ProductionVideo[] = [
-  {
-    src: "/historia-video-web/historia-01.mp4",
-    title: "Sanding and fitting the cast-iron frame",
-    text: "Precise preparation of the cast-iron frame before further acoustic assembly. This stage requires careful fitting of contact surfaces, control of the seating points and preservation of the correct geometry of the piano structure.",
-  },
-  {
-    src: "/historia-video-web/historia-02.mp4",
-    title: "Profiling the ribs of the soundboard",
-    text: "Shaping the ribs of the soundboard, responsible for stability, elasticity and the proper acoustic work of the resonant surface. The rib profile directly influences the crown and the response of the soundboard to vibration.",
-  },
-  {
-    src: "/historia-video-web/historia-03.mp4",
-    title: "Cleaning the ribs from glue residue",
-    text: "Careful processing of the ribs after previous gluing stages. Removing excess glue and preparing clean surfaces helps preserve the precision of joints and the aesthetic quality of the structural elements.",
-  },
-  {
-    src: "/historia-video-web/historia-04.mp4",
-    title: "Mechanical sanding of the soundboard",
-    text: "Initial sanding of the soundboard using mechanical tools. The purpose of this stage is to level the surface, prepare the material for further work and achieve the right quality for subsequent finishing operations.",
-  },
-  {
-    src: "/historia-video-web/historia-05.mp4",
-    title: "Hand sanding of the soundboard",
-    text: "Delicate manual refinement of the soundboard surface. This stage gives greater control over detail, preserves the natural character of the wood and prepares the board to work as the acoustic heart of the instrument.",
-  },
-  {
-    src: "/historia-video-web/historia-06.mp4",
-    title: "Routing the bridge cap",
-    text: "Precise machining of the bridge cap. Bridges are among the key elements transferring string vibration to the soundboard, which is why their geometry, height and surface quality require exceptional accuracy.",
-  },
-  {
-    src: "/historia-video-web/historia-07.mp4",
-    title: "Cutting and fitting the length of the treble bridge",
-    text: "Fitting the treble bridge to the dimensions and geometry of the individual instrument. Correct length and seating are essential for string behaviour, energy transfer and tonal balance in the treble register.",
-  },
-  {
-    src: "/historia-video-web/historia-08.mp4",
-    title: "Mechanical planing of the treble bridge",
-    text: "Machining the treble bridge while maintaining the required line, height and profile. This stage prepares the bridge for further fitting and for proper cooperation with the strings and the soundboard.",
-  },
-  // New footage showing the manual and mechanical shaping of the grand piano rim.
-  {
-    src: "/historia-video-web/historia-16.mp4",
-    title: "Hand-calibrating the grand piano rim",
-    text: "Every section of the rim is carefully inspected and levelled by hand by an experienced craftsman. Precise guidance of the tool removes even the slightest irregularities and prepares the surface for the next stages of machining. This demanding work calls for experience, a refined feel for the material and complete control of every movement.",
-  },
-  {
-    src: "/historia-video-web/historia-17.mp4",
-    title: "Precision levelling of the grand piano rim",
-    text: "The rim surface is gradually levelled with a precisely guided angle grinder. Throughout the process, the craftsman continually checks the shape, contour and thickness of the material to achieve an even, stable surface. Combining a specialist tool with the skill of an experienced hand ensures complete control at every stage of the work.",
-  },
-  {
-    src: "/historia-video-web/historia-18.mp4",
-    title: "Traditional shaping of the rim with a hand plane",
-    text: "A hand plane allows the craftsman to level the rim surface with exceptional accuracy and gradually bring it to the required shape. Each pass removes a fine shaving of wood, so the process demands patience, experience and an instinctive feel for the material. This traditional woodworking technique provides complete control over every detail and makes the highest precision possible.",
-  },
-  {
-    src: "/historia-video-web/historia-09.mp4",
-    title: "Routing the soundbox body for the soundboard ribs",
-    text: "Preparing the areas in the soundbox body where the soundboard ribs will be seated. Routing allows precise mounting sockets to be created and provides proper support for the entire acoustic structure.",
-  },
-  {
-    src: "/historia-video-web/historia-10.mp4",
-    title: "Hand chiselling and fitting the soundboard seats",
-    text: "Manual refinement of the places where the soundboard will be seated. Chisel work allows a level of precision that cannot always be achieved by machine alone, especially in points requiring individual fitting.",
-  },
-  {
-    src: "/historia-video-web/historia-11.mp4",
-    title: "Gluing and clamping the soundboard",
-    text: "The process of seating the soundboard in the instrument structure. Even pressure from clamps ensures a stable joint, proper contact and the acoustic integrity of the entire resonant assembly.",
-  },
-  {
-    src: "/historia-video-web/historia-12.mp4",
-    title: "Gluing the rim layers of the Alaudis grand piano",
-    text: "The stage of gluing the rim layers of the Alaudis grand piano. Proper handling of the material, control of tension and precision in gluing are crucial for structural stability and the elegant line of the case.",
-  },
-  {
-    src: "/historia-video-web/historia-14.mp4",
-    title: "Gluing and clamping the Alaudis piano body",
-    text: "Forming the piano body through gluing and controlled pressure from clamps. This is one of the stages where structural craftsmanship determines durability, stability and final geometry of the instrument.",
-  },
-  // Footage showing the precision fitting of the grand piano's supporting elements.
-  {
-    src: "/historia-video-web/video-19-web.mp4",
-    title: "Precision fitting of the grand piano legs and pedal lyre",
-    text: "Every structural element of an ALAUDis grand piano is individually fitted by an experienced craftsman. The precise fitting of the legs and pedal lyre ensures correct geometry, stability and a seamless connection between all parts of the instrument. This stage demands exceptional accuracy, as even slight deviations could affect proper assembly and the grand piano’s final appearance.",
-  },
-  {
-    src: "/historia-video-web/video-20-web.mp4",
-    title: "Exact fitting of the caster in the grand piano leg",
-    text: "The caster is carefully fitted into the leg of the ALAUDis grand piano to ensure correct seating, smooth movement and complete stability of the instrument. The craftsman checks the position, depth and accuracy of every element. Precision at this stage contributes both to safe use and to the refined appearance of the entire structure.",
-  },
-  {
-    src: "/historia-video-web/historia-15.mp4",
-    title: "Final hammer voicing, Peter Salisbury",
-    text: "Final hammer voicing performed by master Peter Salisbury. This is the final artistic stage of work on tone colour, where hammer response, attack character, singing quality and tonal balance of the entire instrument are refined.",
   },
 ];
 
@@ -436,52 +329,6 @@ export default function HistoriaPage() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-            {/* ====================================================
-          SECTION - PRODUCTION VIDEOS
-         ==================================================== */}
-      <section className="bg-black px-6 py-24 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="text-[11px] uppercase tracking-[0.42em] text-white/75">
-              From Alaudis production
-            </p>
-
-            <h2 className="mt-5 text-3xl font-light text-white sm:text-4xl lg:text-[56px] lg:leading-[1.08]">
-              Craftsmanship captured in motion
-            </h2>
-
-            <p className="mx-auto mt-6 max-w-3xl leading-8 text-white/90 sm:text-[17px]">
-              Short video materials show the process of creating the instrument: the work of hands, details, surfaces, construction and the atmosphere of the workshop where the idea of Alaudis becomes a real grand piano.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {productionVideos.map((video) => (
-              <article
-                key={video.src}
-                className="overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03]"
-              >
-                <StoryVideo src={video.src} title={video.title} locale="en" />
-
-                <div className="p-6">
-                  <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">
-                    Video
-                  </p>
-
-                  <h3 className="mt-3 text-xl font-light text-white">
-                    {video.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-7 text-white/86">
-                    {video.text}
-                  </p>
-                </div>
-              </article>
-            ))}
           </div>
         </div>
       </section>

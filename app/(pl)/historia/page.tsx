@@ -20,7 +20,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import AlaudisStory from "@/components/AlaudisStory";
-import StoryVideo from "@/components/StoryVideo";
 
 type StorySection = {
   eyebrow: string;
@@ -178,112 +177,6 @@ const storySections: StorySection[] = [
   },
 ];
 
-
-type ProductionVideo = {
-  src: string;
-  title: string;
-  text: string;
-};
-
-const productionVideos: ProductionVideo[] = [
-  {
-    src: "/historia-video-web/historia-01.mp4",
-    title: "Szlifowanie i dopasowanie ramy żeliwnej",
-    text: "Precyzyjne przygotowanie ramy żeliwnej przed dalszym montażem akustycznym. Ten etap wymaga dokładnego dopasowania powierzchni styku, kontroli osadzenia oraz zachowania właściwej geometrii konstrukcji fortepianu.",
-  },
-  {
-    src: "/historia-video-web/historia-02.mp4",
-    title: "Profilowanie żeber płyty rezonansowej",
-    text: "Kształtowanie żeber płyty rezonansowej odpowiedzialnych za stabilność, sprężystość i prawidłową pracę akustyczną dna rezonansowego. Profil żeber ma bezpośredni wpływ na zachowanie krzywizny i reakcję płyty na drgania.",
-  },
-  {
-    src: "/historia-video-web/historia-03.mp4",
-    title: "Oczyszczanie żeber z pozostałości kleju",
-    text: "Staranna obróbka żeber po wcześniejszych etapach klejenia. Usunięcie nadmiaru kleju i przygotowanie czystych powierzchni pozwala zachować precyzję połączeń oraz estetykę elementów konstrukcyjnych.",
-  },
-  {
-    src: "/historia-video-web/historia-04.mp4",
-    title: "Mechaniczne szlifowanie płyty rezonansowej",
-    text: "Wstępne szlifowanie płyty rezonansowej z użyciem narzędzi mechanicznych. Celem tego etapu jest wyrównanie powierzchni, przygotowanie materiału do dalszej obróbki oraz uzyskanie właściwej jakości pod kolejne prace wykończeniowe.",
-  },
-  {
-    src: "/historia-video-web/historia-05.mp4",
-    title: "Ręczne szlifowanie płyty rezonansowej",
-    text: "Delikatne, ręczne wyprowadzenie powierzchni płyty rezonansowej. Ten etap pozwala uzyskać większą kontrolę nad detalem, zachować naturalny charakter drewna i przygotować płytę do pracy jako serce akustyczne instrumentu.",
-  },
-  {
-    src: "/historia-video-web/historia-06.mp4",
-    title: "Frezowanie nakładki mostków rezonansowych",
-    text: "Precyzyjna obróbka nakładki mostków rezonansowych. Mostki są jednym z kluczowych elementów transmisji drgań ze strun na płytę rezonansową, dlatego ich geometria, wysokość i jakość powierzchni wymagają wyjątkowej dokładności.",
-  },
-  {
-    src: "/historia-video-web/historia-07.mp4",
-    title: "Cięcie i dopasowanie długości mostka wiolinowego",
-    text: "Dopasowanie mostka wiolinowego do wymiarów i geometrii konkretnego instrumentu. Właściwa długość i osadzenie mostka są istotne dla późniejszej pracy strun, przenoszenia energii oraz równowagi brzmieniowej rejestru wiolinowego.",
-  },
-  {
-    src: "/historia-video-web/historia-08.mp4",
-    title: "Mechaniczne struganie mostka wiolinowego",
-    text: "Obróbka mostka wiolinowego z zachowaniem wymaganej linii, wysokości i profilu. Ten etap przygotowuje mostek do dalszego dopasowania oraz do prawidłowego współdziałania ze strunami i płytą rezonansową.",
-  },
-  // Nowe materiały przedstawiające ręczną i mechaniczną obróbkę korpusu.
-  {
-    src: "/historia-video-web/historia-16.mp4",
-    title: "Ręczne kalibrowanie powierzchni korpusu",
-    text: "Każdy fragment korpusu jest starannie sprawdzany i ręcznie wyrównywany przez doświadczonego rzemieślnika. Precyzyjne prowadzenie narzędzia pozwala usunąć nawet najmniejsze nierówności oraz przygotować powierzchnię do kolejnych etapów obróbki. To wymagająca praca, w której liczą się doświadczenie, wyczucie materiału i pełna kontrola nad każdym ruchem.",
-  },
-  {
-    src: "/historia-video-web/historia-17.mp4",
-    title: "Precyzyjne wyrównywanie korpusu",
-    text: "Powierzchnia korpusu jest stopniowo wyrównywana za pomocą precyzyjnie prowadzonej szlifierki kątowej. Rzemieślnik na bieżąco kontroluje kształt, linię oraz grubość obrabianego materiału, aby uzyskać równą i stabilną powierzchnię. Połączenie specjalistycznego narzędzia z pracą doświadczonej ręki pozwala zachować pełną kontrolę nad każdym etapem obróbki.",
-  },
-  {
-    src: "/historia-video-web/historia-18.mp4",
-    title: "Tradycyjna obróbka korpusu strugiem ręcznym",
-    text: "Ręczny strug pozwala rzemieślnikowi niezwykle dokładnie wyrównać powierzchnię korpusu i stopniowo nadać jej właściwy kształt. Każde przejście narzędzia usuwa cienką warstwę drewna, dlatego proces wymaga cierpliwości, doświadczenia i doskonałego wyczucia materiału. To tradycyjna technika stolarska, która daje pełną kontrolę nad detalem i pozwala osiągnąć najwyższą precyzję wykonania.",
-  },
-  {
-    src: "/historia-video-web/historia-09.mp4",
-    title: "Frezowanie korpusu dźwięcznicy pod żebra rezonansowe",
-    text: "Przygotowanie miejsc w korpusie dźwięcznicy, w których zostaną osadzone żebra płyty rezonansowej. Frezowanie pozwala uzyskać precyzyjne gniazda montażowe i zapewnić właściwe podparcie dla całej konstrukcji akustycznej.",
-  },
-  {
-    src: "/historia-video-web/historia-10.mp4",
-    title: "Ręczne dłutowanie i dopasowanie gniazd płyty rezonansowej",
-    text: "Ręczne dopracowanie miejsc, w których zostanie osadzona płyta rezonansowa. Praca dłutem pozwala uzyskać dokładność, której nie zawsze da się osiągnąć wyłącznie maszynowo, szczególnie w punktach wymagających indywidualnego dopasowania.",
-  },
-  {
-    src: "/historia-video-web/historia-11.mp4",
-    title: "Wklejanie i dociskanie płyty rezonansowej",
-    text: "Proces osadzania płyty rezonansowej w konstrukcji instrumentu. Równomierne dociśnięcie ściskami zapewnia stabilne połączenie, prawidłowe przyleganie oraz właściwą integralność akustyczną całego zespołu rezonansowego.",
-  },
-  {
-    src: "/historia-video-web/historia-12.mp4",
-    title: "Wklejanie owinięcia korpusu fortepianu Alaudis",
-    text: "Etap klejenia warstw korpusu fortepianu Alaudis. Odpowiednie prowadzenie materiału, kontrola naprężeń i precyzja klejenia są kluczowe dla stabilności konstrukcji oraz eleganckiej linii obudowy instrumentu.",
-  },
-  {
-    src: "/historia-video-web/historia-14.mp4",
-    title: "Klejenie i dociskanie korpusu fortepianu Alaudis",
-    text: "Formowanie korpusu fortepianu poprzez klejenie i kontrolowany docisk ściskami. To jeden z etapów, w których rzemiosło konstrukcyjne decyduje o trwałości, stabilności i finalnej geometrii instrumentu.",
-  },
-  // Materiały przedstawiające precyzyjne pasowanie elementów podstawy fortepianu.
-  {
-    src: "/historia-video-web/video-19-web.mp4",
-    title: "Precyzyjne pasowanie nóg i liry fortepianu",
-    text: "Każdy element konstrukcji fortepianu ALAUDis jest indywidualnie dopasowywany przez doświadczonego rzemieślnika. Precyzyjne pasowanie nóg oraz liry pedałowej zapewnia właściwą geometrię, stabilność i idealne połączenie wszystkich części instrumentu. To etap wymagający dużej dokładności, ponieważ nawet niewielkie odchylenia mogłyby wpłynąć na prawidłowy montaż i końcowy wygląd fortepianu.",
-  },
-  {
-    src: "/historia-video-web/video-20-web.mp4",
-    title: "Dokładne pasowanie rolki w nodze fortepianu",
-    text: "Rolka jest starannie dopasowywana do nogi fortepianu ALAUDis, aby zapewnić jej prawidłowe osadzenie, płynną pracę i pełną stabilność instrumentu. Rzemieślnik kontroluje położenie, głębokość oraz dokładność dopasowania każdego elementu. Precyzja na tym etapie wpływa zarówno na bezpieczeństwo użytkowania, jak i na estetykę całej konstrukcji.",
-  },
-  {
-    src: "/historia-video-web/historia-15.mp4",
-    title: "Ostateczna intonacja młotków, Peter Salisbury",
-    text: "Finalna intonacja młotków wykonana przez mistrza Petera Salisbury. To ostatni, artystyczny etap pracy nad barwą dźwięku, w którym regulowana jest reakcja młotków, charakter ataku, śpiewność oraz równowaga brzmieniowa całego instrumentu.",
-  },
-];
 
 export default function HistoriaPage() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -452,54 +345,6 @@ export default function HistoriaPage() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================
-          SEKCJA - VIDEO Z PRODUKCJI
-         ==================================================== */}
-      <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="text-[11px] uppercase tracking-[0.42em] text-white/75">
-              Z produkcji Alaudis
-            </p>
-
-            <h2 className="mt-5 text-3xl font-light text-white sm:text-4xl lg:text-[56px] lg:leading-[1.08]">
-              Rzemiosło uchwycone w ruchu
-            </h2>
-
-            <p className="mx-auto mt-6 max-w-3xl leading-8 text-white/90 sm:text-[17px]">
-              Krótkie materiały video pokazują proces powstawania instrumentu:
-              pracę rąk, detale, powierzchnie, konstrukcję i atmosferę warsztatu,
-              w którym idea Alaudis zamienia się w realny fortepian.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {productionVideos.map((video) => (
-              <article
-                key={video.src}
-                className="overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03]"
-              >
-                <StoryVideo src={video.src} title={video.title} locale="pl" />
-
-                <div className="p-6">
-                  <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">
-                    Video
-                  </p>
-
-                  <h3 className="mt-3 text-xl font-light text-white">
-                    {video.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-7 text-white/86">
-                    {video.text}
-                  </p>
-                </div>
-              </article>
-            ))}
           </div>
         </div>
       </section>

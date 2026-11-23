@@ -384,6 +384,35 @@ const PAGES = {
       },
     },
   },
+  rzemioslo: {
+    path: "/rzemioslo",
+    copy: {
+      pl: {
+        label: "Rzemiosło",
+        title: "Rzemiosło ALAUDIS – jak powstaje fortepian, filmy z manufaktury",
+        description:
+          "Zobacz na filmach, jak w kaliskiej manufakturze powstaje fortepian ALAUDIS: rama żeliwna, płyta rezonansowa, żebra, naciąg i wykończenie.",
+      },
+      en: {
+        label: "Craft",
+        title: "ALAUDIS Craftsmanship – How a Grand Piano Is Made, in Film",
+        description:
+          "Watch how an ALAUDIS grand piano is made in the Kalisz manufactory: the cast-iron frame, soundboard, ribs, stringing and finishing.",
+      },
+      de: {
+        label: "Handwerk",
+        title: "ALAUDIS Handwerk – wie ein Flügel entsteht, in Filmen",
+        description:
+          "Sehen Sie in Filmen, wie in der Manufaktur in Kalisz ein ALAUDIS-Flügel entsteht: Gussrahmen, Resonanzboden, Rippen, Besaitung und Oberfläche.",
+      },
+      fr: {
+        label: "Savoir-faire",
+        title: "Savoir-faire ALAUDIS – la naissance d’un piano à queue, en vidéo",
+        description:
+          "Découvrez en vidéo comment naît un piano ALAUDIS à la manufacture de Kalisz : cadre en fonte, table d’harmonie, barres, cordage et finition.",
+      },
+    },
+  },
   artysci: {
     path: "/artysci",
     copy: {
