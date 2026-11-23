@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ALAUDIS_MODEL_IDS, getAlaudisModelName } from "./alaudisModels";
-import { alaudisStoryContent, type StoryLanguage } from "./alaudisStoryContent";
+import type { StoryLanguage } from "./alaudisStoryContent";
 import { OPEN_CONSENT_EVENT } from "./CookieConsent";
 
 const COOKIE_SETTINGS: Record<StoryLanguage, string> = {
@@ -116,7 +116,6 @@ export default function Footer() {
   const pathname = usePathname() || "/";
   const langPrefix = getLanguagePrefix(pathname);
   const language = (langPrefix.slice(1).toUpperCase() || "PL") as StoryLanguage;
-  const story = alaudisStoryContent[language];
   const sapRenovation = SAP_RENOVATION[language];
   const copy = FOOTER_COPY[language];
 
@@ -125,8 +124,6 @@ export default function Footer() {
   // --------------------------------------------------------
   const configuratorUrl = `${langPrefix}/konfigurator`;
   const aboutUrl = `${langPrefix}/historia`;
-  const factoryUrl = `${langPrefix}/historia`;
-  const contactUrl = `${langPrefix}/kontakt`;
 
   return (
     <footer className="border-t border-white/6 bg-black px-6 py-16 sm:px-10 lg:px-16">
@@ -142,23 +139,19 @@ export default function Footer() {
             ALAUDIS
           </p>
 
-          <p className="mt-8 text-[15px] text-white/92">{copy.tagline}</p>
+          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
+            <Link href={`${langPrefix}/zwiedzanie-manufaktury`} className="transition hover:text-white/90">
+              {copy.tour}
+            </Link>
 
-          <Link
-            href={`${aboutUrl}#alaudis-story`}
-            className="mt-3 block max-w-[260px] text-sm leading-6 text-white/70 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-          >
-            {story.closing}
-          </Link>
+            <Link href={`${langPrefix}/artysci`} className="transition hover:text-white/90">
+              {copy.artists}
+            </Link>
 
-          <Link
-            href={FACEBOOK_ALAUDIS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 block text-[15px] text-white/90 transition hover:text-white"
-          >
-            Facebook Alaudis
-          </Link>
+            <Link href={`${langPrefix}/aktualnosci`} className="transition hover:text-white/90">
+              {copy.news}
+            </Link>
+          </div>
         </div>
 
         {/* ==================================================
@@ -227,28 +220,17 @@ export default function Footer() {
               {copy.about}
             </Link>
 
-            <Link href={factoryUrl} className="transition hover:text-white/90">
-              {copy.factory}
-            </Link>
-
-            <Link href={`${langPrefix}/zwiedzanie-manufaktury`} className="transition hover:text-white/90">
-              {copy.tour}
-            </Link>
-
             <Link href={`${langPrefix}/tradycja`} className="transition hover:text-white/90">
               {copy.heritage}
             </Link>
 
-            <Link href={`${langPrefix}/artysci`} className="transition hover:text-white/90">
-              {copy.artists}
-            </Link>
-
-            <Link href={`${langPrefix}/aktualnosci`} className="transition hover:text-white/90">
-              {copy.news}
-            </Link>
-
-            <Link href={contactUrl} className="transition hover:text-white/90">
-              {copy.contact}
+            <Link
+              href={FACEBOOK_ALAUDIS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-white/90"
+            >
+              Facebook Alaudis
             </Link>
           </div>
         </div>
