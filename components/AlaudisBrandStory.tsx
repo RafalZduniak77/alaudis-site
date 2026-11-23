@@ -10,39 +10,31 @@ import styles from "./AlaudisBrandStory.module.css";
 const presentation = {
   PL: {
     detail: "Piękno zapisane w detalu",
-    identity: "Tożsamość Alaudis",
     voice: ["Własny charakter.", "Własny głos."],
     craft: "Zobacz, jak powstaje Alaudis",
     interiorAlt: "Złota rama, miedziane struny i klawiatura fortepianu Alaudis",
     pianoAlt: "Fortepian Alaudis w czarnym, lustrzanym wykończeniu",
-    craftAlt: "Ręczna praca nad strunami we wnętrzu fortepianu Alaudis",
   },
   EN: {
     detail: "Beauty in every detail",
-    identity: "The Alaudis identity",
     voice: ["Our own character.", "Our own voice."],
     craft: "See how Alaudis is made",
     interiorAlt: "The golden frame, copper strings and keyboard of an Alaudis grand piano",
     pianoAlt: "An Alaudis grand piano in a polished black finish",
-    craftAlt: "Working by hand on the strings inside an Alaudis grand piano",
   },
   DE: {
     detail: "Schönheit in jedem Detail",
-    identity: "Die Identität von Alaudis",
     voice: ["Unser eigener Charakter.", "Unsere eigene Stimme."],
     craft: "So entsteht ein Alaudis",
     interiorAlt: "Goldener Rahmen, Kupfersaiten und Klaviatur eines Alaudis-Flügels",
     pianoAlt: "Ein Alaudis-Flügel in poliertem Schwarz",
-    craftAlt: "Handarbeit an den Saiten im Inneren eines Alaudis-Flügels",
   },
   FR: {
     detail: "La beauté dans chaque détail",
-    identity: "L’identité Alaudis",
     voice: ["Notre propre caractère.", "Notre propre voix."],
     craft: "Découvrez la naissance d’un Alaudis",
     interiorAlt: "Le cadre doré, les cordes en cuivre et le clavier d’un piano à queue Alaudis",
     pianoAlt: "Un piano à queue Alaudis en finition noire polie",
-    craftAlt: "Le travail manuel sur les cordes à l’intérieur d’un piano à queue Alaudis",
   },
 };
 
@@ -147,21 +139,8 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
               <p>{copy.origin}</p>
               <p>{copy.nameMeaning} {copy.symbolism}</p>
             </div>
-          </div>
-          <p className={styles.photoNote}><span aria-hidden="true" />{ui.detail}</p>
-        </div>
-      </div>
-
-      <div className={styles.sceneDivider} aria-hidden="true" />
-
-      <div className={`${styles.scene} ${styles.identity}`}>
-        <div className={styles.scenePhoto}>
-          <Image src="/historia/9 Struny basowe Heller.jpg" alt={ui.craftAlt} fill sizes="100vw" className={styles.photo} />
-        </div>
-        <div className={styles.sceneInner}>
-          <div className={styles.glass}>
-            <p className={styles.eyebrow}>{ui.identity}</p>
-            <h3 className={styles.title}>{ui.voice.map((line) => <span key={line}>{line}</span>)}</h3>
+            <span className={styles.cardRule} aria-hidden="true" />
+            <h3 className={styles.cardSubtitle}>{ui.voice.map((line) => <span key={line}>{line}</span>)}</h3>
             <div className={styles.prose}>
               <p className={styles.voiceLead}>{copy.ownVoice.join(" ")}</p>
               <p>{copy.philosophy}</p>
@@ -171,6 +150,7 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
               <span>{ui.craft}</span><span className={styles.arrowCircle}><Arrow down /></span>
             </a>
           </div>
+          <p className={styles.photoNote}><span aria-hidden="true" />{ui.detail}</p>
         </div>
       </div>
 
