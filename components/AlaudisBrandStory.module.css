@@ -252,7 +252,7 @@
 .prose .voiceLead { color: #fff; font-size: 17px; line-height: 1.6; }
 
 /* Closing composition: collection line, family text and the brand motto, centred. */
-.signature { padding: 120px 24px 0; text-align: center; background: #080808; }
+.signature { padding: 64px 24px 0; text-align: center; background: #080808; }
 .signatureEyebrow { margin: 0; color: var(--story-accent); font-size: 10px; letter-spacing: .34em; text-transform: uppercase; }
 .signatureTitle { max-width: 880px; margin: 26px auto 0; font-size: clamp(32px, 3.6vw, 54px); font-weight: 300; letter-spacing: -.025em; line-height: 1.15; }
 .signatureTitle > span { display: block; }
@@ -310,7 +310,7 @@
   .identity .scenePhoto .photo { object-position: 20% center; }
   .identity .title { font-size: 30px; }
   .prose .voiceLead { font-size: 16px; }
-  .signature { padding-top: 64px; }
+  .signature { padding-top: 32px; }
   .signatureTitle { font-size: 29px; }
   .signatureRule { margin: 28px auto; }
   .signatureText { font-size: 14px; line-height: 1.8; }

@@ -9,27 +9,15 @@ import styles from "./AlaudisBrandStory.module.css";
 
 const presentation = {
   PL: {
-    detail: "Piękno zapisane w detalu",
-    craft: "Zobacz, jak powstaje Alaudis",
-    interiorAlt: "Złota rama, miedziane struny i klawiatura fortepianu Alaudis",
     pianoAlt: "Fortepian Alaudis w czarnym, lustrzanym wykończeniu",
   },
   EN: {
-    detail: "Beauty in every detail",
-    craft: "See how Alaudis is made",
-    interiorAlt: "The golden frame, copper strings and keyboard of an Alaudis grand piano",
     pianoAlt: "An Alaudis grand piano in a polished black finish",
   },
   DE: {
-    detail: "Schönheit in jedem Detail",
-    craft: "So entsteht ein Alaudis",
-    interiorAlt: "Goldener Rahmen, Kupfersaiten und Klaviatur eines Alaudis-Flügels",
     pianoAlt: "Ein Alaudis-Flügel in poliertem Schwarz",
   },
   FR: {
-    detail: "La beauté dans chaque détail",
-    craft: "Découvrez la naissance d’un Alaudis",
-    interiorAlt: "Le cadre doré, les cordes en cuivre et le clavier d’un piano à queue Alaudis",
     pianoAlt: "Un piano à queue Alaudis en finition noire polie",
   },
 };
@@ -120,31 +108,6 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
           </div>
         </div>
       </section>
-
-      <div className={`${styles.scene} ${styles.origin}`}>
-        <div className={styles.scenePhoto}>
-          <Image src="/galeria-home/11.jpg" alt={ui.interiorAlt} fill sizes="100vw" className={styles.photo} />
-        </div>
-        <div className={styles.sceneInner}>
-          <div className={styles.glass}>
-            <p className={styles.eyebrow}>{copy.storyLabel}</p>
-            <div className={`${styles.prose} ${styles.proseLead}`}>
-              <p>{copy.origin}</p>
-              <p>{copy.nameMeaning} {copy.symbolism}</p>
-            </div>
-            <span className={styles.cardRule} aria-hidden="true" />
-            <div className={styles.prose}>
-              <p className={styles.voiceLead}>{copy.ownVoice.join(" ")}</p>
-              <p>{copy.philosophy}</p>
-              <p>{copy.value}</p>
-            </div>
-            <a href="#alaudis-craft" className={styles.textLink}>
-              <span>{ui.craft}</span><span className={styles.arrowCircle}><Arrow down /></span>
-            </a>
-          </div>
-          <p className={styles.photoNote}><span aria-hidden="true" />{ui.detail}</p>
-        </div>
-      </div>
 
       <div className={styles.signature}>
         <p className={styles.signatureEyebrow}>{copy.collectionLabel}</p>
