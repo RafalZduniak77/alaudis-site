@@ -95,10 +95,10 @@ export default function Home() {
       </section>
 
       {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
-      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
+      <section className="hero-intro bg-[#f4f1ea] px-6 pb-4 pt-16 text-center text-[#111] sm:pt-20">
         <div className="mx-auto max-w-4xl">
-          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
-          <p className="mx-auto mt-0 max-w-2xl text-sm leading-7 text-white/90 sm:text-base sm:leading-8">
+          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#8a6d35]" />
+          <p className="mx-auto mt-0 max-w-2xl text-sm leading-7 text-black/75 sm:text-base sm:leading-8">
             Chaque Alaudis naît de l’union entre artisanat, proportion,
             matière noble et caractère sonore individuel.
           </p>
@@ -116,17 +116,17 @@ export default function Home() {
          ==================================================== */}
       <section
         id="contact"
-        className="bg-black px-6 py-20 text-center sm:px-10 lg:px-16"
+        className="bg-[#f4f1ea] px-6 pb-24 pt-8 text-center text-[#111] sm:px-10 lg:px-16"
       >
-        <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+        <p className="text-xs uppercase tracking-[0.32em] text-[#8a6d35]">
           Consultation privée
         </p>
 
-        <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+        <h2 className="mt-4 text-3xl font-light text-[#111] sm:text-4xl">
           Parlons de votre Alaudis
         </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-black/70">
           Contactez-nous pour discuter du modèle, de la finition, du caractère
           sonore et de la composition individuelle de votre piano Alaudis.
         </p>
@@ -134,14 +134,14 @@ export default function Home() {
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href="/fr/konfigurator"
-            className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+            className="rounded-full border border-[#111] bg-[#111] px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:bg-transparent hover:text-[#111]"
           >
             Ouvrir le configurateur
           </Link>
 
           <Link
             href="/fr/kontakt"
-            className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+            className="rounded-full border border-black/35 px-8 py-4 text-sm uppercase tracking-[0.22em] text-[#111] transition hover:border-[#111] hover:bg-[#111] hover:text-white"
           >
             Contactez-nous
           </Link>

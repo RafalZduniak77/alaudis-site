@@ -435,7 +435,7 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
           WebkitTransformOrigin: "center center",
         }}
       >
-        <div className="overflow-hidden rounded-[28px] border border-white/10 bg-black shadow-[0_30px_120px_rgba(0,0,0,0.6)]">
+        <div className="overflow-hidden rounded-[28px] border border-black/10 bg-black shadow-[0_30px_80px_rgba(0,0,0,0.22)]">
           {/* ZDJĘCIE MODELU */}
           <div className="relative aspect-[16/9] w-full">
             <Image
@@ -449,7 +449,7 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
           </div>
 
           {/* DOLNA CZĘŚĆ KARTY */}
-          <div className="grid items-center gap-6 bg-[#e9e9e9] px-8 py-7 text-black md:grid-cols-[1.4fr_1fr_110px]">
+          <div className="grid items-center gap-6 bg-white px-8 py-7 text-black md:grid-cols-[1.4fr_1fr_110px]">
             {/* OPIS GŁÓWNY */}
             <div>
               <p className="text-[11px] uppercase tracking-[0.28em] text-black/45">
@@ -507,9 +507,9 @@ export default function ScrollModelsShowcase() {
   const sectionTitle = slides[0]?.sectionTitle ?? "Modele i wykończenia";
 
   return (
-    <section className="bg-[#111] px-0 text-white">
+    <section className="bg-[#f4f1ea] px-0 text-[#111]">
       <div className="mx-auto max-w-[1600px] px-4 pb-10 pt-24">
-        <p className="text-[11px] uppercase tracking-[0.36em] text-white/75">
+        <p className="text-[11px] uppercase tracking-[0.36em] text-[#8a6d35]">
           {sectionTitle}
         </p>
       </div>

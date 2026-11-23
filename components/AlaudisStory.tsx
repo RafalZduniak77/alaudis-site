@@ -8,7 +8,7 @@ import {
 } from "./alaudisStoryContent";
 
 const storyLinkClassName =
-  "inline-flex min-h-11 items-center justify-center rounded-full border border-white/35 px-6 py-3 text-center text-[11px] uppercase tracking-[0.2em] text-white transition hover:border-white hover:bg-white hover:text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white";
+  "inline-flex min-h-11 items-center justify-center rounded-full border border-black/35 px-6 py-3 text-center text-[11px] uppercase tracking-[0.2em] text-[#111] transition hover:border-[#111] hover:bg-[#111] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111]";
 
 export default function AlaudisStory({
   language,
@@ -26,22 +26,22 @@ export default function AlaudisStory({
         id={copy.collectionId}
         lang={language.toLowerCase()}
         aria-labelledby={`${copy.collectionId}-title`}
-        className="relative z-20 scroll-mt-24 bg-neutral-950 px-6 py-16 sm:px-10 sm:py-20 lg:px-16"
+        className="relative z-20 scroll-mt-24 bg-[#f4f1ea] px-6 py-16 sm:px-10 sm:py-20 lg:px-16"
       >
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-[#8a6d35]">
               {copy.collectionLabel}
             </p>
             <h2
               id={`${copy.collectionId}-title`}
-              className="mt-4 text-3xl font-light leading-tight text-white sm:text-4xl lg:text-5xl"
+              className="mt-4 text-3xl font-light leading-tight text-[#111] sm:text-4xl lg:text-5xl"
             >
               {copy.collectionTitle[0]}
               <br />
               {copy.collectionTitle[1]}
             </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-white/90">
+            <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-black/70">
               {copy.collectionIntro}
             </p>
           </div>
@@ -51,7 +51,7 @@ export default function AlaudisStory({
               <Link
                 key={id}
                 href={`${prefix}/fortepiany/alaudis-${id}`}
-                className="flex min-w-0 flex-col rounded-[30px] border border-white/10 bg-white/[0.03] p-7 transition hover:border-white/25 hover:bg-white/[0.05] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:p-8"
+                className="flex min-w-0 flex-col rounded-[30px] border border-black/10 bg-[#0b0b0b] p-7 shadow-[0_24px_60px_rgba(0,0,0,0.18)] transition hover:-translate-y-1 hover:bg-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111] sm:p-8"
               >
                 <h3 className="text-2xl font-light leading-snug text-white">
                   ALAUDIS{" "}
@@ -69,8 +69,8 @@ export default function AlaudisStory({
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col items-center justify-between gap-5 border-t border-white/10 pt-8 text-center lg:flex-row lg:text-left">
-            <p className="text-base font-light leading-7 text-white/80 sm:text-lg">
+          <div className="mt-10 flex flex-col items-center justify-between gap-5 border-t border-black/10 pt-8 text-center lg:flex-row lg:text-left">
+            <p className="text-base font-light leading-7 text-black/75 sm:text-lg">
               {copy.title.join(" ")}
             </p>
             <Link href={`${prefix}/historia#alaudis-story`} className={storyLinkClassName}>
