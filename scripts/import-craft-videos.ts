@@ -6,6 +6,7 @@ import { craftContent } from "../components/craft/videos";
 
 // Imports the production films shown on /rzemioslo into the gallery panel (section „Rzemiosło”).
 // Usage: npm run cms:craft -- --hq /folder/with/historia-01.mp4+jpg [--production] [--replace]
+//        npm run cms:craft -- --hide 9,14 [--production]
 // For every film the high-quality file from --hq is used when present, otherwise the web file from public/.
 async function main() {
   const args = process.argv.slice(2);
@@ -15,12 +16,27 @@ async function main() {
   const client = getCliClient({ apiVersion: galleryApiVersion }).withConfig({ projectId: galleryProjectId, dataset, useCdn: false });
   if (!client.config().token) throw new Error("Uruchom przez sanity exec z --with-user-token.");
 
+  // --hide 9,14 → takes those films off the site but keeps them in the panel as drafts.
+  if (args.includes("--hide")) {
+    for (const number of args[args.indexOf("--hide") + 1].split(",")) {
+      const id = `gallery-video-craft-${number.trim().padStart(2, "0")}`;
+      const doc = await client.getDocument(id);
+      if (!doc) { console.log(`${id}: nie jest opublikowany.`); continue; }
+      const { _rev, _updatedAt, _createdAt, ...rest } = doc;
+      void _rev; void _updatedAt; void _createdAt;
+      await client.transaction().createOrReplace({ ...rest, _id: `drafts.${id}` }).delete(id).commit();
+      console.log(`${id}: zdjęty ze strony (szkic w panelu) — ${(rest as { title?: { pl?: string } }).title?.pl}`);
+    }
+    return;
+  }
+
   const list = craftContent.PL.videos;
   for (let index = 0; index < list.length; index++) {
     const name = list[index].src.split("/").pop()!.replace(/\.mp4$/, "");
     const id = `gallery-video-craft-${String(index + 1).padStart(2, "0")}`;
     const exists = await client.fetch<number>("count(*[_id == $id])", { id });
-    if (exists && !replace) { console.log(`${id}: już jest — pomijam.`); continue; }
+    const drafted = await client.fetch<number>("count(*[_id == $id])", { id: `drafts.${id}` }, { perspective: "raw" });
+    if ((exists || drafted) && !replace) { console.log(`${id}: już jest — pomijam.`); continue; }
 
     const hqVideo = hq && existsSync(`${hq}/${name}.mp4`) ? `${hq}/${name}.mp4` : "";
     const videoPath = hqVideo || resolve(`public/historia-video-web/${name}.mp4`);
