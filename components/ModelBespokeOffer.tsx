@@ -72,16 +72,16 @@ export default function ModelBespokeOffer({ language, model }: { language: Langu
   const prefix = PREFIX[language];
 
   return (
-    <section className="bg-[#f4f1ea] px-6 py-20 text-[#111] sm:px-10 lg:px-16" aria-labelledby={`bespoke-${model}`}>
+    <section className="bg-black px-6 py-20 sm:px-10 lg:px-16" aria-labelledby={`bespoke-${model}`}>
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-[#8a6d35]">{copy.eyebrow}</p>
-            <h2 id={`bespoke-${model}`} className="mt-4 text-3xl font-light text-[#111] sm:text-4xl">{copy.title}</h2>
-            <p className="mt-6 max-w-2xl leading-8 text-black/70">{copy.text}</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">{copy.eyebrow}</p>
+            <h2 id={`bespoke-${model}`} className="mt-4 text-3xl font-light text-white sm:text-4xl">{copy.title}</h2>
+            <p className="mt-6 max-w-2xl leading-8 text-white/90">{copy.text}</p>
           </div>
 
-          <div className="rounded-[30px] border border-black/10 bg-[#0b0b0b] text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] p-8 sm:p-10">
+          <div className="rounded-[30px] border border-[#d3bd8b]/40 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 sm:p-10">
             <p className="text-xs uppercase tracking-[0.32em] text-white/75">{copy.priceLabel}</p>
             <p className="mt-5 text-4xl font-light text-white sm:text-5xl">{copy.price}</p>
             <p className="mt-4 leading-7 text-white/70">{copy.onRequest}</p>
@@ -90,7 +90,7 @@ export default function ModelBespokeOffer({ language, model }: { language: Langu
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {copy.pillars.map((pillar) => (
-            <div key={pillar.label} className="rounded-[30px] border border-black/10 bg-[#0b0b0b] text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] p-8">
+            <div key={pillar.label} className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
               <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">{pillar.label}</p>
               <h3 className="mt-4 text-2xl font-light">{pillar.title}</h3>
               <p className="mt-5 leading-8 text-white/90">{pillar.text}</p>
@@ -101,13 +101,13 @@ export default function ModelBespokeOffer({ language, model }: { language: Langu
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
           <Link
             href={`${prefix}/konfigurator?model=${model}`}
-            className="rounded-full border border-[#111] bg-[#111] px-8 py-4 text-center text-sm uppercase tracking-[0.22em] text-white transition hover:bg-transparent hover:text-[#111]"
+            className="rounded-full border border-[#d3bd8b] bg-[#d3bd8b] px-8 py-4 text-center text-sm uppercase tracking-[0.22em] text-black transition hover:bg-transparent hover:text-[#d3bd8b]"
           >
             {copy.configure}
           </Link>
           <Link
             href={`${prefix}/kontakt`}
-            className="rounded-full border border-black/35 px-8 py-4 text-center text-sm uppercase tracking-[0.22em] text-[#111] transition hover:border-[#111] hover:bg-[#111] hover:text-white"
+            className="rounded-full border border-white/35 bg-white/10 px-8 py-4 text-center text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
           >
             {copy.quote}
           </Link>

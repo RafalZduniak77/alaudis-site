@@ -113,7 +113,7 @@ export default function KontaktPage() {
       <ModelPageTopBar backHref="/fr" activeLanguage="FR" />
 
       {/* Czołówka: tytuł, opis i przyciski — bez zdjęcia */}
-      <section className="hero-intro bg-black px-6 pb-20 pt-36 text-center sm:pb-24 sm:pt-44">
+      <section className="hero-intro bg-black px-6 pb-12 pt-36 text-center sm:pb-16 sm:pt-44">
         <div className="mx-auto max-w-4xl">
           <p className="mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">
             Contact Alaudis
@@ -155,8 +155,10 @@ export default function KontaktPage() {
 
       <section
         id="team"
-        className="scroll-mt-20 bg-[#f4f1ea] px-6 py-24 sm:px-10 lg:px-16"
+        className="scroll-mt-20 bg-black px-3 pb-16 pt-4 sm:px-6 sm:pb-20"
       >
+        {/* Jasny panel na ciemnej stronie */}
+        <div className="mx-auto max-w-[1520px] rounded-[32px] bg-[#f4f1ea] px-5 py-14 shadow-[0_40px_120px_rgba(0,0,0,0.55)] sm:rounded-[44px] sm:px-10 sm:py-20 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12">
             <p className="text-xs uppercase tracking-[0.32em] text-[#8a6d35]">
@@ -287,6 +289,7 @@ export default function KontaktPage() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </section>
 

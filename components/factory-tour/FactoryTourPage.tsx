@@ -65,13 +65,13 @@ export default function FactoryTourPage({ language }: { language: TourLanguage }
       </section>
 
       {/* JAK TO DZIAŁA */}
-      <section className="bg-[#f4f1ea] px-6 py-24 text-[#111] sm:px-10 lg:px-16">
+      <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-[#8a6d35]">{copy.infoEyebrow}</p>
-          <h2 className="mt-4 text-3xl font-light text-[#111] sm:text-4xl">{copy.infoTitle}</h2>
+          <p className="text-xs uppercase tracking-[0.32em] text-white/75">{copy.infoEyebrow}</p>
+          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">{copy.infoTitle}</h2>
           <ol className="mt-12 grid gap-6 lg:grid-cols-3">
             {copy.info.map((step, index) => (
-              <li key={step.title} className="rounded-[30px] border border-black/10 bg-[#0b0b0b] text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] p-8">
+              <li key={step.title} className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
                 <p className="text-xs uppercase tracking-[0.32em] text-white/75">0{index + 1}</p>
                 <h3 className="mt-4 text-2xl font-light">{step.title}</h3>
                 <p className="mt-5 leading-8 text-white/90">{step.text}</p>
