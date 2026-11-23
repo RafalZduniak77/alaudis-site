@@ -26,6 +26,8 @@ type Copy = {
   infoEyebrow: string;
   infoTitle: string;
   info: { title: string; text: string }[];
+  /** Ramki pod krokami: co, ile trwa i dla kogo (dawny tekst spod zdjęcia). */
+  highlights: { title: string; text: string }[];
   formEyebrow: string;
   formTitle: string;
   formText: string;
@@ -64,6 +66,11 @@ export const tourCopy: Record<TourLanguage, Copy> = {
     formEyebrow: "Formularz zgłoszenia", formTitle: "Zgłoś chęć udziału w zwiedzaniu",
     formText: "Wyślij zgłoszenie — odpowiemy i potwierdzimy termin. Zgłoszenie nie jest jeszcze rezerwacją.",
     address: "Obozowa 18, 62-800 Kalisz",
+    highlights: [
+      { title: "Od drewna po intonację", text: "Zobacz, jak powstaje fortepian ALAUDIS — od drewna i dna rezonansowego, przez wykończenie, aż po ostatnią regulację i intonację." },
+      { title: "Bezpłatnie, około 4 godzin", text: "Oprowadzanie po manufakturze jest bezpłatne i trwa około 4 godzin." },
+      { title: "Indywidualnie lub w małej grupie", text: "Zwiedzanie odbywa się indywidualnie lub w małych grupach, po wcześniejszym zgłoszeniu." },
+    ],
     facts: [{ label: "Czas zwiedzania", value: "ok. 4 godziny" }, { label: "Udział", value: "bezpłatny" }],
     form: {
       name: "Imię i nazwisko", email: "E-mail", phone: "Telefon", people: "Liczba osób",
@@ -103,6 +110,11 @@ export const tourCopy: Record<TourLanguage, Copy> = {
     formEyebrow: "Registration form", formTitle: "Register for a manufactory tour",
     formText: "Send your request — we will reply and confirm the date. A request is not yet a booking.",
     address: "Obozowa 18, 62-800 Kalisz, Poland",
+    highlights: [
+      { title: "From wood to voicing", text: "See how an ALAUDIS grand piano is made — from the wood and the soundboard, through the finish, to the final regulation and voicing." },
+      { title: "Free of charge, about 4 hours", text: "The guided tour of the manufactory is free and takes about 4 hours." },
+      { title: "On your own or in a small group", text: "Tours are held for individuals or small groups, by prior registration." },
+    ],
     facts: [{ label: "Duration", value: "approx. 4 hours" }, { label: "Admission", value: "free of charge" }],
     form: {
       name: "Full name", email: "E-mail", phone: "Phone", people: "Number of visitors",
@@ -142,6 +154,11 @@ export const tourCopy: Record<TourLanguage, Copy> = {
     formEyebrow: "Anmeldeformular", formTitle: "Für eine Manufakturführung anmelden",
     formText: "Senden Sie Ihre Anfrage — wir antworten und bestätigen den Termin. Die Anfrage ist noch keine Buchung.",
     address: "Obozowa 18, 62-800 Kalisz, Polen",
+    highlights: [
+      { title: "Vom Holz bis zur Intonation", text: "Erleben Sie, wie ein ALAUDIS-Flügel entsteht — vom Holz und Resonanzboden über die Oberflächenveredelung bis zur abschließenden Regulierung und Intonation." },
+      { title: "Kostenlos, etwa 4 Stunden", text: "Die Führung durch die Manufaktur ist kostenlos und dauert etwa 4 Stunden." },
+      { title: "Einzeln oder in kleiner Gruppe", text: "Die Führung findet für Einzelpersonen oder kleine Gruppen statt, nach vorheriger Anmeldung." },
+    ],
     facts: [{ label: "Dauer", value: "ca. 4 Stunden" }, { label: "Teilnahme", value: "kostenlos" }],
     form: {
       name: "Vor- und Nachname", email: "E-Mail", phone: "Telefon", people: "Anzahl der Personen",
@@ -181,6 +198,11 @@ export const tourCopy: Record<TourLanguage, Copy> = {
     formEyebrow: "Formulaire d’inscription", formTitle: "S’inscrire à une visite de la manufacture",
     formText: "Envoyez votre demande — nous vous répondrons pour confirmer la date. La demande ne vaut pas encore réservation.",
     address: "Obozowa 18, 62-800 Kalisz, Pologne",
+    highlights: [
+      { title: "Du bois à l’harmonisation", text: "Découvrez comment naît un piano à queue ALAUDIS — du bois et de la table d’harmonie, en passant par la finition, jusqu’au réglage final et à l’harmonisation." },
+      { title: "Gratuit, environ 4 heures", text: "La visite guidée de la manufacture est gratuite et dure environ 4 heures." },
+      { title: "Seul ou en petit groupe", text: "La visite se fait individuellement ou en petits groupes, sur inscription préalable." },
+    ],
     facts: [{ label: "Durée", value: "environ 4 heures" }, { label: "Participation", value: "gratuite" }],
     form: {
       name: "Nom et prénom", email: "E-mail", phone: "Téléphone", people: "Nombre de visiteurs",

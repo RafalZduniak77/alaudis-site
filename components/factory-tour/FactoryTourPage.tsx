@@ -5,7 +5,6 @@
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
-import PianoHeroImage from "@/components/PianoHeroImage";
 import SeoJsonLd from "@/components/SeoJsonLd";
 import FactoryTourForm from "./FactoryTourForm";
 import { TOUR_STAGES, tourCopy, type TourLanguage } from "./copy";
@@ -19,34 +18,11 @@ export default function FactoryTourPage({ language }: { language: TourLanguage }
       <SeoJsonLd locale={locale} page="zwiedzanieManufaktury" />
       <ModelPageTopBar backHref={copy.home} activeLanguage={language} />
 
-      {/* HERO */}
-      <section className="page-hero page-hero-spread hero-copy relative min-h-[88svh] overflow-hidden border-b border-white/10">
-        <PianoHeroImage alt={copy.hero.title} />
-        <div className="absolute inset-0 z-10 bg-black/35" />
-        <div className="page-hero-content relative z-20 flex min-h-[88svh] items-center justify-center px-6 pb-24 pt-28 text-center sm:pt-32">
-          <div className="mx-auto max-w-5xl">
-            <p className="page-hero-eyebrow mb-6 text-[11px] uppercase tracking-[0.48em] text-white/88">{copy.hero.eyebrow}</p>
-            <h1 className="page-hero-title text-3xl font-light uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.02]">{copy.hero.title}</h1>
-            <a href="#zgloszenie" className="mt-10 inline-flex rounded-full border border-[#d3bd8b] bg-[#d3bd8b] px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:bg-transparent hover:text-[#d3bd8b]">
-              {copy.hero.cta}
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Opis pod zdjęciem — tekst nie zasłania fortepianu */}
-      <section className="hero-intro border-b border-white/10 bg-black px-6 py-14 text-center sm:py-16">
-        <div className="mx-auto max-w-4xl">
-          <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
-          <p className="mx-auto max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">{copy.hero.text}</p>
-        </div>
-      </section>
-
       {/* TRASA ZWIEDZANIA */}
-      <section className="bg-black px-6 py-24 sm:px-10 lg:px-16">
+      <section className="bg-black px-6 pb-24 pt-36 sm:px-10 sm:pt-40 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">{copy.stagesEyebrow}</p>
-          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">{copy.stagesTitle}</h2>
+          <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">{copy.stagesEyebrow}</p>
+          <h1 className="mt-4 text-3xl font-light text-white sm:text-4xl lg:text-[52px] lg:leading-[1.08]">{copy.stagesTitle}</h1>
           <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {TOUR_STAGES.map((stage, index) => (
               <article key={stage.key} className="overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03]">
@@ -78,6 +54,22 @@ export default function FactoryTourPage({ language }: { language: TourLanguage }
               </li>
             ))}
           </ol>
+
+          {/* Najważniejsze informacje o zwiedzaniu — dawny tekst spod zdjęcia */}
+          <div className="mt-6 grid gap-6 lg:grid-cols-3">
+            {copy.highlights.map((item) => (
+              <div key={item.title} className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
+                <h3 className="text-2xl font-light">{item.title}</h3>
+                <p className="mt-5 leading-8 text-white/90">{item.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10">
+            <a href="#zgloszenie" className="inline-flex rounded-full border border-[#d3bd8b] bg-[#d3bd8b] px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:bg-transparent hover:text-[#d3bd8b]">
+              {copy.hero.cta}
+            </a>
+          </div>
         </div>
       </section>
 
