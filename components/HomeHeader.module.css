@@ -7,7 +7,7 @@
 /* "W kadrze", search, language and menu sit together at the edge. */
 .right { display: flex; align-items: flex-start; justify-content: flex-end; gap: 10px; margin-right: 16px; }
 .tools { display: flex; align-items: flex-start; gap: 10px; }
-.button.iconButton { width: 34px; height: 34px; padding: 0; gap: 0; }
+.button.iconButton { flex-shrink: 0; width: 34px; height: 34px; padding: 0; gap: 0; }
 .iconButton svg { flex-shrink: 0; }
 /* Search window (centred card, like on saprenovation.com). */
 .searchDialog { position: fixed; z-index: 70; top: clamp(72px, 12vh, 150px); left: 50%; width: min(680px, calc(100vw - 32px)); max-height: calc(100svh - clamp(72px, 12vh, 150px) - 24px); transform: translateX(-50%); display: flex; flex-direction: column; overflow: hidden; border-radius: 28px; background: #fbfaf7; color: #111; padding: 40px 40px 0; box-shadow: 0 40px 120px #000000b3; animation: panel-in 240ms cubic-bezier(.22, 1, .36, 1); }
@@ -47,11 +47,12 @@
 .languageMenu a:hover, .languageMenu a[aria-current] { background: #ffffff1a; color: #fff; }
 .languageMenu a:focus-visible { outline-offset: -4px; }
 .mobileNav { display: none; }
+.button.mobileBack { display: none; }
 .spacer { display: none; }
 
 @media (640px <= width < 1024px) {
   .inner { padding: 24px 24px 16px; column-gap: 12px; }
-  .desktopNav { gap: 8px; margin-left: 0; }
+  .desktopNav { gap: 6px; margin-left: 0; }
   .desktopNav .button { padding-inline: 7px; }
   .brand img { width: 60px; }
   .right { gap: 8px; margin-right: 0; }
@@ -65,6 +66,7 @@
   .inner, .page .inner { row-gap: 12px; column-gap: 0; padding: 20px 16px 12px; }
   .spacer { display: block; height: 32px; background: #000; }
   .desktopNav, .desktopGallery { display: none; }
+  .button.mobileBack { display: inline-flex; grid-column: 1; grid-row: 1; justify-self: start; align-self: center; }
   .brand { grid-row: 1; align-self: center; padding-top: 0; }
   .brand img { width: 58px; }
   .right { grid-column: 3; grid-row: 1; justify-content: flex-end; margin-right: 0; }

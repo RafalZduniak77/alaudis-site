@@ -135,7 +135,7 @@ export default function Footer() {
             KOLUMNA 1 - ALAUDIS
            ================================================== */}
         <div>
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">
             ALAUDIS
           </p>
 
@@ -158,7 +158,7 @@ export default function Footer() {
             KOLUMNA 2 - MODELS
            ================================================== */}
         <div>
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">
             {copy.models}
           </p>
 
@@ -179,7 +179,7 @@ export default function Footer() {
             KOLUMNA 3 - CONFIGURATOR
            ================================================== */}
         <div>
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">
             {copy.configurator}
           </p>
 
@@ -211,7 +211,7 @@ export default function Footer() {
             KOLUMNA 4 - COMPANY
            ================================================== */}
         <div>
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">
             {copy.company}
           </p>
 
