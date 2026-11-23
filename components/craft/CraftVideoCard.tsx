@@ -84,7 +84,7 @@ export default function CraftVideoCard({ video, index, total, fullscreenLabel, l
         </button>
       </div>
 
-      {open && <VideoLightbox video={viewerVideo} locale={locale} close={() => setOpen(false)} onClosed={restoreFocus} />}
+      {open && <VideoLightbox video={viewerVideo} locale={locale} close={() => setOpen(false)} onClosed={restoreFocus} muted />}
     </article>
   );
 }

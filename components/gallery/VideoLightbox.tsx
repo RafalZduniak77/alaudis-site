@@ -9,7 +9,7 @@ import { localize, type GalleryLocale, type GalleryVideo } from "@/lib/gallery/t
 import "yet-another-react-lightbox/styles.css";
 import styles from "./Gallery.module.css";
 
-export default function VideoLightbox({ video, locale, close, onClosed }: { video: GalleryVideo; locale: GalleryLocale; close: () => void; onClosed: () => void }) {
+export default function VideoLightbox({ video, locale, close, onClosed, muted = false }: { video: GalleryVideo; locale: GalleryLocale; close: () => void; onClosed: () => void; muted?: boolean }) {
   const copy = galleryCopy[locale];
   const player = useRef<HTMLVideoElement | null>(null);
   const [failed, setFailed] = useState(false);
@@ -43,7 +43,7 @@ export default function VideoLightbox({ video, locale, close, onClosed }: { vide
       buttonNext: () => null,
       iconClose: () => <svg className={styles.controlIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6" /></svg>,
       slide: () => failed ? <div className={styles.videoFailure} role="alert"><p>{copy.videoError}</p><button className={styles.button} onClick={() => { setFailed(false); setAttempt(value => value + 1); }}>{copy.tryAgain}</button></div> : <video
-        key={attempt} ref={player} controls autoPlay playsInline preload="metadata"
+        key={attempt} ref={player} controls autoPlay playsInline preload="metadata" muted={muted}
         controlsList="nofullscreen" poster={photoUrl(video.cover, 1280)} aria-label={title}
         style={{ width: "100%", height: "100%", maxWidth: "100%", maxHeight: "100%" }}
         onError={() => setFailed(true)}
