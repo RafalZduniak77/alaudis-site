@@ -254,15 +254,16 @@ export default function AlaudisARPreview({ intro }: { intro?: string }) {
               key={card.title}
               className={
                 card.featured
-                  ? "rounded-[24px] border border-[#c79a5c]/20 bg-[linear-gradient(135deg,rgba(199,154,92,0.16),rgba(255,255,255,0.03))] p-6"
-                  : "rounded-[22px] border border-white/10 bg-black/20 p-5 backdrop-blur-sm"
+                  ? "group rounded-[24px] border border-[#c79a5c]/20 bg-[linear-gradient(135deg,rgba(199,154,92,0.16),rgba(255,255,255,0.03))] p-6 transition duration-300 ease-out hover:-translate-y-1 motion-reduce:transform-none"
+                  // Hover: the card lifts a little and takes the gold tint of the first card.
+                  : "group rounded-[22px] border border-white/10 bg-black/20 p-5 backdrop-blur-sm transition duration-300 ease-out hover:-translate-y-1 hover:border-[#c79a5c]/20 hover:bg-[linear-gradient(135deg,rgba(199,154,92,0.16),rgba(255,255,255,0.03))] motion-reduce:transform-none"
               }
             >
               <p
                 className={
                   card.featured
                     ? "text-[11px] uppercase tracking-[0.28em] text-[#e6c08c]"
-                    : "text-[11px] uppercase tracking-[0.28em] text-white/75"
+                    : "text-[11px] uppercase tracking-[0.28em] text-white/75 transition-colors duration-300 group-hover:text-[#e6c08c]"
                 }
               >
                 {card.eyebrow}
