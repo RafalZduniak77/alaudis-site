@@ -126,10 +126,8 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
         </Link>
 
         <div className={styles.tools}>
-          <button type="button" className={`${styles.button} ${styles.iconButton}`} aria-label={panel === "search" ? text.close : text.search} aria-expanded={panel === "search"} aria-controls="site-panel" onClick={() => toggle("search")}>
-            {panel === "search"
-              ? <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" /></svg>
-              : <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>}
+          <button type="button" className={`${styles.button} ${styles.iconButton}`} aria-label={text.search} aria-expanded={panel === "search"} aria-controls="site-panel" onClick={() => toggle("search")}>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
           </button>
           <details className={styles.languages}>
             <summary className={styles.button} aria-label={text.language}>
@@ -186,31 +184,29 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
         <p className={styles.menuFoot}>ALAUDIS <span aria-hidden="true">·</span> Obozowa 18, 62-800 Kalisz</p>
       </div>
     </div>}
-    {/* WYSZUKIWARKA — ten sam ciemny, pełnoekranowy panel co menu */}
-    {panel === "search" && <div id="site-panel" role="dialog" aria-modal="true" aria-labelledby="site-search-title" className={styles.panel} onClick={event => { if ((event.target as HTMLElement).closest("a")) { setPanel(null); setQuery(""); } }}>
-      <div className={styles.panelInner}>
-        <div className={styles.search}>
-          <p id="site-search-title" className={styles.groupTitle}>{text.searchTitle}</p>
-          <label className={styles.searchField}>
-            <span className="sr-only">{text.search}</span>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
-            <input ref={searchInput} type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder={text.searchPlaceholder} autoComplete="off" />
-          </label>
-          <p className={styles.searchCount} role="status">{results.length ? `${results.length} ${resultWord}` : text.noResults}</p>
-          <ul className={styles.results}>
-            {results.map(result => <li key={result.href}><Link href={result.href} prefetch={false}>
-              <span className={styles.resultTitle}>{result.label}</span>
-              <span className={styles.resultText}>{result.category}</span>
-            </Link></li>)}
-          </ul>
-        </div>
-        <div className={styles.menuArt} aria-hidden="true">
-          <Image src="/galeria-home/Czarny Poliester połysk-v2.png" alt="" width={3000} height={2000} sizes="(min-width: 1000px) 46vw, 1px" />
-        </div>
-        <p className={styles.menuFoot}>ALAUDIS <span aria-hidden="true">·</span> Obozowa 18, 62-800 Kalisz</p>
-      </div>
-    </div>}
   </header>
+  {panel === "search" && <button type="button" className={`${styles.backdrop} ${styles.backdropFront}`} aria-label={text.close} onClick={() => setPanel(null)} />}
+  {/* OKNO WYSZUKIWARKI */}
+  {panel === "search" && <div id="site-panel" role="dialog" aria-modal="true" aria-labelledby="site-search-title" className={styles.searchDialog} onClick={event => { if ((event.target as HTMLElement).closest("a")) { setPanel(null); setQuery(""); } }}>
+    <div className={styles.searchHead}>
+      <h2 id="site-search-title">{text.searchTitle}</h2>
+      <button type="button" className={styles.searchClose} aria-label={text.close} onClick={() => setPanel(null)}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" /></svg>
+      </button>
+    </div>
+    <label className={styles.searchField}>
+      <span className="sr-only">{text.search}</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
+      <input ref={searchInput} type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder={text.searchPlaceholder} autoComplete="off" />
+    </label>
+    <p className={styles.searchCount} role="status">{results.length ? `${results.length} ${resultWord}` : text.noResults}</p>
+    <ul className={styles.results}>
+      {results.map(result => <li key={result.href}><Link href={result.href} prefetch={false}>
+        <span className={styles.resultTitle}>{result.label}</span>
+        <span className={styles.resultText}>{result.category}</span>
+      </Link></li>)}
+    </ul>
+  </div>}
   {/* On phones the menu has two rows; push the page content below it. */}
   {!onHome && <div className={styles.spacer} aria-hidden="true" />}
   </>;
