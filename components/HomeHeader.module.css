@@ -10,7 +10,7 @@
 .button.iconButton { flex-shrink: 0; width: 34px; height: 34px; padding: 0; gap: 0; }
 .iconButton svg { flex-shrink: 0; }
 /* Search window (centred card, like on saprenovation.com). */
-.searchDialog { position: fixed; z-index: 70; top: clamp(72px, 12vh, 150px); left: 50%; width: min(680px, calc(100vw - 32px)); max-height: calc(100svh - clamp(72px, 12vh, 150px) - 24px); transform: translateX(-50%); display: flex; flex-direction: column; overflow: hidden; border: 1px solid #ffffff1f; border-radius: 28px; background: #0b0b0b; color: #fff; padding: 40px 40px 0; box-shadow: 0 40px 120px #000000d9; animation: panel-in 240ms cubic-bezier(.22, 1, .36, 1); }
+.searchDialog { position: fixed; z-index: 70; top: clamp(72px, 12vh, 150px); left: 50%; width: min(680px, calc(100vw - 32px)); max-height: calc(100svh - clamp(72px, 12vh, 150px) - 24px); transform: translateX(-50%); display: flex; flex-direction: column; overflow: hidden; border: 1px solid rgb(255 255 255 / 13%); border-radius: 28px; background: rgb(8 8 8 / 65%); backdrop-filter: blur(14px); color: #fff; padding: 40px 40px 0; box-shadow: 0 40px 120px #000000d9; animation: panel-in 240ms cubic-bezier(.22, 1, .36, 1); }
 .searchDialog, .searchDialog * { text-shadow: none !important; }
 .searchHead { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .searchHead h2 { margin: 0; color: #fff; font-size: clamp(24px, 3vw, 32px); font-weight: 300; letter-spacing: -.01em; }
@@ -29,7 +29,7 @@
 .searchDialog :is(a, button):focus-visible { outline: 2px solid #d3bd8b; outline-offset: 2px; }
 .backdrop { position: fixed; inset: 0; z-index: 40; border: 0; background: #00000099; cursor: default; }
 /* Behind the search window the menu bar is dimmed too. */
-.backdropFront { z-index: 60; }
+.backdropFront { z-index: 60; background: #00000059; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 1px solid #ffffff59; border-radius: 999px; padding: 8px 20px; background: #0000001a; color: #fff; font-size: 11px; line-height: 16px; letter-spacing: .24em; text-transform: uppercase; white-space: nowrap; cursor: pointer; transition: color 160ms, background 160ms, border-color 160ms; }
 .button:hover { border-color: #fff; background: #fff; color: #080808; }
 .header :is(a, summary):focus-visible { outline: 2px solid #dac18a; outline-offset: 4px; }
