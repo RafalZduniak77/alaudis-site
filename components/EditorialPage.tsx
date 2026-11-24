@@ -123,12 +123,12 @@ export default function EditorialPage({
             {/* Na stronie Artyści nagłówek z opisem sekcji stoi w podłużnej,
                 podświetlanej ramce (ten sam styl co kafelki artystów). */}
             {page === "artysci" && section.body ? (
-              <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8 sm:p-10">
+              <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8 text-center sm:p-10">
                 <h2 className="text-3xl font-light text-white sm:text-4xl">
                   {section.heading}
                 </h2>
                 {section.body.map((paragraph) => (
-                  <p key={paragraph} className="mt-6 max-w-3xl leading-8 text-white">
+                  <p key={paragraph} className="mx-auto mt-6 max-w-3xl leading-8 text-white">
                     {paragraph}
                   </p>
                 ))}
