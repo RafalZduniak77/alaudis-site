@@ -73,7 +73,7 @@ export default function HomeHero({ alt, eyebrow, title, actions, scroll, descrip
           </div>
         ))}
       </div>
-      <div className={styles.shade} aria-hidden="true" />
+      <div className={`${styles.shade} ${slides[active]?.soft ? styles.shadeSoft : ""}`} aria-hidden="true" />
 
       <div className={styles.content}>
         <div className={styles.copy}>
