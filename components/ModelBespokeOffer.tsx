@@ -74,8 +74,9 @@ export default function ModelBespokeOffer({ language, model }: { language: Langu
   return (
     <section className="bg-black px-6 py-20 sm:px-10 lg:px-16" aria-labelledby={`bespoke-${model}`}>
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
-          <div>
+        <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch">
+          {/* Podświetlana ramka — ten sam styl co kafelki poniżej */}
+          <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8 sm:p-10">
             <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">{copy.eyebrow}</p>
             <h2 id={`bespoke-${model}`} className="mt-4 text-3xl font-light text-white sm:text-4xl">{copy.title}</h2>
             <p className="mt-6 max-w-2xl leading-8 text-white">{copy.text}</p>
