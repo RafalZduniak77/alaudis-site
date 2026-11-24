@@ -30,10 +30,10 @@ export default function ModelSoundCharacter({ eyebrow, lead, text }: Props) {
           <h2 className="flex items-center gap-4 text-[11px] uppercase tracking-[0.42em] text-[#e0ca96] before:h-px before:w-11 before:bg-[#d3bd8b]">
             {eyebrow}
           </h2>
-          <p className="mt-7 max-w-xl text-pretty text-[1.35rem] font-light leading-[1.5] text-white sm:text-2xl sm:leading-[1.5] lg:mt-9 lg:text-[1.7rem] lg:leading-[1.45]">
+          <p className="mt-7 max-w-xl text-pretty text-[1.15rem] font-light leading-[1.6] text-white sm:text-xl sm:leading-[1.6] lg:mt-9 lg:text-[1.35rem] lg:leading-[1.6]">
             {lead}
           </p>
-          <p className="mt-6 max-w-lg text-pretty text-[15px] leading-8 text-white/78 lg:mt-8">{text}</p>
+          <p className="mt-6 max-w-lg text-pretty text-[15px] leading-7 text-white/78 lg:mt-8">{text}</p>
         </div>
       </div>
 
