@@ -291,15 +291,16 @@ export default function KontaktPage() {
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-[1.25fr_0.9fr_1.15fr_1.3fr] lg:gap-3 xl:gap-5">
               <div className="flex flex-col rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6">
                 <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Company</p>
-                <p className="my-auto pt-3 text-sm leading-7 text-white xl:text-base xl:leading-8">
-                  SAP Renovation Sp. z o.o.
-                  <br />
-                  ul. Obozowa 18
-                  <br />
-                  62-800 Kalisz
-                  <br />
-                  Poland
-                </p>
+                <div className="my-auto pt-3">
+                  <p className="text-lg leading-8 text-white 2xl:text-xl">SAP Renovation Sp. z o.o.</p>
+                  <p className="mt-2 text-base leading-7 text-white xl:text-lg xl:leading-8">
+                    ul. Obozowa 18
+                    <br />
+                    62-800 Kalisz
+                    <br />
+                    Poland
+                  </p>
+                </div>
               </div>
               <div className="rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6">
                 <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Registry details</p>

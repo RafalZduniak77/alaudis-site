@@ -269,15 +269,16 @@ export default function KontaktPage() {
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-[1.25fr_0.9fr_1.15fr_1.3fr] lg:gap-3 xl:gap-5">
               <div className="flex flex-col rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6">
                 <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Firma</p>
-                <p className="my-auto pt-3 text-sm leading-7 text-white xl:text-base xl:leading-8">
-                  SAP Renovation Sp. z o.o.
-                  <br />
-                  ul. Obozowa 18
-                  <br />
-                  62-800 Kalisz
-                  <br />
-                  Polen
-                </p>
+                <div className="my-auto pt-3">
+                  <p className="text-lg leading-8 text-white 2xl:text-xl">SAP Renovation Sp. z o.o.</p>
+                  <p className="mt-2 text-base leading-7 text-white xl:text-lg xl:leading-8">
+                    ul. Obozowa 18
+                    <br />
+                    62-800 Kalisz
+                    <br />
+                    Polen
+                  </p>
+                </div>
               </div>
               <div className="rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6">
                 <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Registerdaten</p>
@@ -301,27 +302,27 @@ export default function KontaktPage() {
                 <div className="mt-3 space-y-2 text-sm text-white xl:text-base">
                   <p className="flex flex-wrap justify-between gap-x-3">
                     <span>Montag</span>
-                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00 Uhr</span>
+                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00</span>
                   </p>
                   <p className="flex flex-wrap justify-between gap-x-3">
                     <span>Dienstag</span>
-                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00 Uhr</span>
+                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00</span>
                   </p>
                   <p className="flex flex-wrap justify-between gap-x-3">
                     <span>Mittwoch</span>
-                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00 Uhr</span>
+                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00</span>
                   </p>
                   <p className="flex flex-wrap justify-between gap-x-3">
                     <span>Donnerstag</span>
-                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00 Uhr</span>
+                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00</span>
                   </p>
                   <p className="flex flex-wrap justify-between gap-x-3">
                     <span>Freitag</span>
-                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00 Uhr</span>
+                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00</span>
                   </p>
                   <p className="flex flex-wrap justify-between gap-x-3">
                     <span>Samstag</span>
-                    <span className="whitespace-nowrap tabular-nums text-white/80">10:00 – 16:00 Uhr</span>
+                    <span className="whitespace-nowrap tabular-nums text-white/80">10:00 – 16:00</span>
                   </p>
                 </div>
               </div>
