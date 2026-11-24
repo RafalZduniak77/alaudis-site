@@ -8,6 +8,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import ModelSoundCharacter from "@/components/ModelSoundCharacter";
 import HomeHero from "@/components/HomeHero";
 import ModelBespokeOffer from "@/components/ModelBespokeOffer";
 import ModelStorySignature from "@/components/ModelStorySignature";
@@ -80,31 +81,13 @@ export default function ModelAlaudis178Page() {
 
       <ModelStorySignature model="178" language="EN" />
 
-      <section id="charakter" className="scroll-mt-24 bg-black px-6 py-20 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-4xl text-center">
-          <div>
-            <h2 className="flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.42em] text-[#e0ca96] before:h-px before:w-10 before:bg-[#d3bd8b]/70 after:h-px after:w-10 after:bg-[#d3bd8b]/70">
-              Sound character
-            </h2>
-          </div>
-
-          <div className="mx-auto mt-10 max-w-3xl space-y-6 text-pretty text-white/88 sm:mt-12 [&>p:first-child]:text-[17px] [&>p:first-child]:leading-8 [&>p:first-child]:text-white sm:[&>p:first-child]:text-xl sm:[&>p:first-child]:leading-10">
-            <p className="leading-8">
-              ALAUDIS ONE 178 offers a sound with a clear culture of tone,
-              transparent, singing and naturally ordered. It is an instrument
-              that does not dominate a space through aggression, but instead
-              builds an atmosphere of class, calm and musical depth.
-            </p>
-
-            <p className="leading-8">
-              Its character is best described by subtle projection, a noble
-              middle register, a softly guided upper range, and a bass with an
-              elegant foundation. This is a model that sounds mature and refined
-              even in an intimate setting.
-            </p>
-          </div>
-        </div>
-      </section>
+      <ModelSoundCharacter
+        model="178"
+        language="EN"
+        eyebrow="Sound character"
+        lead="ALAUDIS ONE 178 offers a sound with a clear culture of tone, transparent, singing and naturally ordered. It is an instrument that does not dominate a space through aggression, but instead builds an atmosphere of class, calm and musical depth."
+        text="Its character is best described by subtle projection, a noble middle register, a softly guided upper range, and a bass with an elegant foundation. This is a model that sounds mature and refined even in an intimate setting."
+      />
 
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">

@@ -9,6 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import ModelSoundCharacter from "@/components/ModelSoundCharacter";
 import HomeHero from "@/components/HomeHero";
 import ModelBespokeOffer from "@/components/ModelBespokeOffer";
 import ModelStorySignature from "@/components/ModelStorySignature";
@@ -37,20 +38,13 @@ export default function ModelAlaudis214Page() {
 
       <ModelStorySignature model="214" language="EN" />
 
-      <section id="charakter" className="scroll-mt-24 bg-black px-6 py-20 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-4xl text-center">
-          <div>
-            <h2 className="flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.42em] text-[#e0ca96] before:h-px before:w-10 before:bg-[#d3bd8b]/70 after:h-px after:w-10 after:bg-[#d3bd8b]/70">
-              Sound character
-            </h2>
-          </div>
-
-          <div className="mx-auto mt-10 max-w-3xl space-y-6 text-pretty text-white/88 sm:mt-12 [&>p:first-child]:text-[17px] [&>p:first-child]:leading-8 [&>p:first-child]:text-white sm:[&>p:first-child]:text-xl sm:[&>p:first-child]:leading-10">
-            <p className="leading-8">ALAUDIS LEO 214 develops the brand’s tonal language towards a larger scale and stronger presence. It offers a more open sound, deeper bass and a more projecting middle register, while preserving culture, elegance and musical nobility.</p>
-            <p className="leading-8">This model is for those who want to feel a greater breath of the instrument: wider projection, a more tangible volume and a richer dynamic palette.</p>
-          </div>
-        </div>
-      </section>
+      <ModelSoundCharacter
+        model="214"
+        language="EN"
+        eyebrow="Sound character"
+        lead="ALAUDIS LEO 214 develops the brand’s tonal language towards a larger scale and stronger presence. It offers a more open sound, deeper bass and a more projecting middle register, while preserving culture, elegance and musical nobility."
+        text="This model is for those who want to feel a greater breath of the instrument: wider projection, a more tangible volume and a richer dynamic palette."
+      />
 
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">

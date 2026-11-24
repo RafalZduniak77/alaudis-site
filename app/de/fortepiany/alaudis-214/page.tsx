@@ -9,6 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import ModelSoundCharacter from "@/components/ModelSoundCharacter";
 import HomeHero from "@/components/HomeHero";
 import ModelBespokeOffer from "@/components/ModelBespokeOffer";
 import ModelStorySignature from "@/components/ModelStorySignature";
@@ -37,20 +38,13 @@ export default function ModelAlaudis214Page() {
 
       <ModelStorySignature model="214" language="DE" />
 
-      <section id="charakter" className="scroll-mt-24 bg-black px-6 py-20 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-4xl text-center">
-          <div>
-            <h2 className="flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.42em] text-[#e0ca96] before:h-px before:w-10 before:bg-[#d3bd8b]/70 after:h-px after:w-10 after:bg-[#d3bd8b]/70">
-              Klangcharakter
-            </h2>
-          </div>
-
-          <div className="mx-auto mt-10 max-w-3xl space-y-6 text-pretty text-white/88 sm:mt-12 [&>p:first-child]:text-[17px] [&>p:first-child]:leading-8 [&>p:first-child]:text-white sm:[&>p:first-child]:text-xl sm:[&>p:first-child]:leading-10">
-            <p className="leading-8">ALAUDIS LEO 214 entwickelt die Klangsprache der Marke in Richtung größerer Skala und stärkerer Präsenz. Das Modell bietet einen offeneren Klang, einen tieferen Bass und eine tragfähigere Mittellage.</p>
-            <p className="leading-8">Es bleibt raffiniert, erhält jedoch eine deutlichere Bühnenpräsenz und eine reichere dynamische Palette.</p>
-          </div>
-        </div>
-      </section>
+      <ModelSoundCharacter
+        model="214"
+        language="DE"
+        eyebrow="Klangcharakter"
+        lead="ALAUDIS LEO 214 entwickelt die Klangsprache der Marke in Richtung größerer Skala und stärkerer Präsenz. Das Modell bietet einen offeneren Klang, einen tieferen Bass und eine tragfähigere Mittellage."
+        text="Es bleibt raffiniert, erhält jedoch eine deutlichere Bühnenpräsenz und eine reichere dynamische Palette."
+      />
 
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
