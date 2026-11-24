@@ -620,7 +620,21 @@ function organizationSchema(locale: SeoLocale) {
       addressLocality: "Kalisz",
       addressCountry: "PL",
     },
+    telephone: "+48625013030",
     contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+48625013030",
+        email: "info@saprenovation.com",
+        contactType: "customer service",
+        availableLanguage: ["pl", "en", "de", "fr"],
+        hoursAvailable: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "08:00",
+          closes: "16:00",
+        },
+      },
       {
         "@type": "ContactPoint",
         telephone: "+48668216442",
@@ -637,6 +651,8 @@ function organizationSchema(locale: SeoLocale) {
     parentOrganization: {
       "@type": "Organization",
       name: "SAP Renovation",
+      legalName: "SAP Renovation Sp. z o.o.",
+      taxID: "6181893417",
       url: "https://saprenovation.com",
     },
     sameAs: ["https://www.facebook.com/profile.php?id=61579105662197", "https://www.instagram.com/alaudis_piano_factory/"],

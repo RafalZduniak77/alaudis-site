@@ -292,7 +292,7 @@ export default function KontaktPage() {
                 <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
                   Company
                 </p>
-                <p className="mt-2 text-base text-white lg:text-lg">SAP Renovation</p>
+                <p className="mt-2 text-base text-white lg:text-lg">SAP Renovation Sp. z o.o.</p>
               </div>
 
               <div>
@@ -300,17 +300,21 @@ export default function KontaktPage() {
                   Address
                 </p>
                 <p className="mt-2 text-base leading-7 text-white lg:text-lg">
-                  Obozowa 18
+                  ul. Obozowa 18
                   <br />
-                  62-800 Kalisz
+                  62-800 Kalisz, Poland
                 </p>
               </div>
 
               <div>
                 <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
-                  Tax ID
+                  Opening hours
                 </p>
-                <p className="mt-2 text-base text-white lg:text-lg">6181893417</p>
+                <p className="mt-2 text-base leading-7 text-white lg:text-lg">
+                  Monday – Friday
+                  <br />
+                  8:00 – 16:00
+                </p>
               </div>
 
               <div>
@@ -318,6 +322,16 @@ export default function KontaktPage() {
                   Contact
                 </p>
                 <div className="mt-2 space-y-1 text-base text-white lg:text-lg">
+                  <p>
+                    <a href="tel:+48625013030" className="transition hover:text-white/95">
+                      +48 62 501 30 30
+                    </a>
+                  </p>
+                  <p>
+                    <a href="mailto:info@saprenovation.com" className="break-all transition hover:text-white/95">
+                      info@saprenovation.com
+                    </a>
+                  </p>
                   <p>
                     <a
                       href={`tel:+${PAULINA_PHONE_RAW}`}
@@ -353,6 +367,37 @@ export default function KontaktPage() {
                 </div>
               </div>
             </div>
+
+            {/* Dane rejestrowe */}
+            <div className="mt-7 grid gap-6 border-t border-white/10 pt-7 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1.5fr] lg:gap-8">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
+                  KRS
+                </p>
+                <p className="mt-2 text-base text-white lg:text-lg">0000125505</p>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
+                  REGON
+                </p>
+                <p className="mt-2 text-base text-white lg:text-lg">250973192</p>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
+                  Tax ID (NIP)
+                </p>
+                <p className="mt-2 text-base text-white lg:text-lg">6181893417</p>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
+                  Share capital
+                </p>
+                <p className="mt-2 text-base text-white lg:text-lg">PLN 50,000.00</p>
+              </div>
+            </div>
+            <p className="mt-5 text-sm leading-6 text-white/70">
+              District Court Poznań – Nowe Miasto i Wilda in Poznań, 9th Commercial Division of the National Court Register
+            </p>
 
             <div className="mt-7 flex flex-wrap gap-2">
               <Link
