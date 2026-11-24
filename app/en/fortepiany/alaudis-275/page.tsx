@@ -36,6 +36,7 @@ import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import HomeHero from "@/components/HomeHero";
 import ModelBespokeOffer from "@/components/ModelBespokeOffer";
 import ModelStorySignature from "@/components/ModelStorySignature";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
@@ -58,63 +59,18 @@ export default function ModelAlaudis275Page() {
       {/* ====================================================
           HERO MODELU
          ==================================================== */}
-      <section className="hero-copy relative overflow-hidden border-b border-white/10 pt-28">
-        {/* TŁO HERO */}
-        <div className="absolute inset-0">
-          <Image
-            src="/galeria-home/3.jpg"
-            alt="ALAUDIS DREAM 275"
-            fill
-            sizes="100vw"
-            priority
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
-
-        {/* ==================================================
-            TREŚĆ HERO
-           ================================================== */}
-        <div className="relative z-20 px-6 pb-20 pt-8 text-center">
-          <div className="mx-auto max-w-5xl">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/95">
-              Concert model
-            </p>
-
-            <h1 className="text-3xl font-light uppercase tracking-[0.06em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.05]">
-              <span className="block text-[13px] tracking-[0.35em] sm:text-base">ALAUDIS </span>
-              <span className="mt-3 block">DREAM 275</span>
-            </h1>
-
-            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white sm:text-base">
-              The largest concert form of Alaudis, created for full tonal
-              scale, wide projection and stage presence. This is a model for
-              spaces where the instrument not only completes the interior, but
-              becomes its main voice and the central point of the entire
-              composition.
-            </p>
-
-            {/* ==================================================
-                CTA HERO
-               ================================================== */}
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href="/en/konfigurator?model=275"
-                className="rounded-full border border-white/35 bg-black/55 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Open configurator
-              </Link>
-
-              <Link
-                href="/en/odkryj-modele?model=275"
-                className="rounded-full border border-white/35 bg-black/40 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                View in 3D
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeHero
+        headingTitle
+        alt="ALAUDIS DREAM 275"
+        eyebrow="Concert model"
+        title={["ALAUDIS", "DREAM 275"]}
+        description="The largest concert form of Alaudis, created for full tonal scale, wide projection and stage presence. This is a model for spaces where the instrument not only completes the interior, but becomes its main voice and the central point of the entire composition."
+        actions={[
+          { href: "/en/konfigurator?model=275", label: "Open configurator" },
+          { href: "/en/odkryj-modele?model=275", label: "View in 3D" },
+        ]}
+        scroll="Scroll down"
+      />
 
       <ModelStorySignature model="275" language="EN" />
 

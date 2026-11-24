@@ -31,9 +31,12 @@ type Props = {
   title: string[];
   actions: { href: string; label: string }[];
   scroll: string;
+  // Model pages: a short text under the title, and the title (not the eyebrow) is the page heading.
+  description?: string;
+  headingTitle?: boolean;
 };
 
-export default function HomeHero({ alt, eyebrow, title, actions, scroll }: Props) {
+export default function HomeHero({ alt, eyebrow, title, actions, scroll, description, headingTitle }: Props) {
   const [active, setActive] = useState(0);
   // Photos are fetched one step ahead instead of all at once: the first with the page,
   // each next one shortly before it is shown. Keeps the first load light.
@@ -53,6 +56,9 @@ export default function HomeHero({ alt, eyebrow, title, actions, scroll }: Props
     }, SLIDE_TIME);
     return () => window.clearInterval(timer);
   }, [active]);
+
+  const Eyebrow = headingTitle ? "p" : "h1";
+  const Title = headingTitle ? "h1" : "p";
 
   return (
     <section className={styles.hero}>
@@ -76,10 +82,11 @@ export default function HomeHero({ alt, eyebrow, title, actions, scroll }: Props
 
       <div className={styles.content}>
         <div className={styles.copy}>
-          <h1 className={styles.eyebrow}><span aria-hidden="true" />{eyebrow}</h1>
-          <p className={styles.title}>
+          <Eyebrow className={styles.eyebrow}><span aria-hidden="true" />{eyebrow}</Eyebrow>
+          <Title className={styles.title}>
             {title.map((line, index) => <span key={line} style={{ animationDelay: `${180 + index * 140}ms` }}>{line}</span>)}
-          </p>
+          </Title>
+          {description && <p className={styles.description}>{description}</p>}
           <div className={styles.actions}>
             {actions.map((action) => (
               <Link key={action.href} href={action.href} className={styles.secondary}>

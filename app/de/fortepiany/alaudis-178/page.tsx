@@ -8,6 +8,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import HomeHero from "@/components/HomeHero";
 import ModelBespokeOffer from "@/components/ModelBespokeOffer";
 import ModelStorySignature from "@/components/ModelStorySignature";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
@@ -64,55 +65,18 @@ export default function ModelAlaudis178Page() {
     <main className="min-h-screen bg-black text-white">
       <ModelPageTopBar backHref="/de" activeLanguage="DE" />
 
-      <section className="hero-copy relative overflow-hidden border-b border-white/10 pt-28">
-        <div className="absolute inset-0">
-          <Image
-            src="/galeria-home/10.jpg"
-            alt="ALAUDIS ONE 178"
-            fill
-            sizes="100vw"
-            priority
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
-
-        <div className="relative z-20 px-6 pb-20 pt-8 text-center">
-          <div className="mx-auto max-w-5xl">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/95">
-              Premium-Modell
-            </p>
-
-            <h1 className="text-3xl font-light uppercase tracking-[0.06em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.05]">
-              <span className="block text-[13px] tracking-[0.35em] sm:text-base">ALAUDIS </span>
-              <span className="mt-3 block">ONE 178</span>
-            </h1>
-
-            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white sm:text-base">
-              Subtil, edel und raffiniert. ALAUDIS ONE 178 wurde als Flügel für
-              Premium-Interieurs gedacht, in denen Eleganz der Form,
-              musikalische Kultur des Klangs und die tägliche Freude am Umgang
-              mit dem Instrument eine zentrale Rolle spielen.
-            </p>
-
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href="/de/konfigurator?model=178"
-                className="rounded-full border border-white/35 bg-black/55 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Konfigurator öffnen
-              </Link>
-
-              <Link
-                href="/de/odkryj-modele?model=178"
-                className="rounded-full border border-white/35 bg-black/40 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                In 3D ansehen
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeHero
+        headingTitle
+        alt="ALAUDIS ONE 178"
+        eyebrow="Premium-Modell"
+        title={["ALAUDIS", "ONE 178"]}
+        description="Subtil, edel und raffiniert. ALAUDIS ONE 178 wurde als Flügel für Premium-Interieurs gedacht, in denen Eleganz der Form, musikalische Kultur des Klangs und die tägliche Freude am Umgang mit dem Instrument eine zentrale Rolle spielen."
+        actions={[
+          { href: "/de/konfigurator?model=178", label: "Konfigurator öffnen" },
+          { href: "/de/odkryj-modele?model=178", label: "In 3D ansehen" },
+        ]}
+        scroll="Nach unten scrollen"
+      />
 
       <ModelStorySignature model="178" language="DE" />
 

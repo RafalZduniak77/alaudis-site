@@ -35,6 +35,7 @@ import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import HomeHero from "@/components/HomeHero";
 import ModelBespokeOffer from "@/components/ModelBespokeOffer";
 import ModelStorySignature from "@/components/ModelStorySignature";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
@@ -57,62 +58,18 @@ export default function ModelAlaudis214Page() {
       {/* ====================================================
           HERO MODELU
          ==================================================== */}
-      <section className="hero-copy relative overflow-hidden border-b border-white/10 pt-28">
-        {/* TŁO HERO */}
-        <div className="absolute inset-0">
-          <Image
-            src="/galeria-home/3.jpg"
-            alt="ALAUDIS LEO 214"
-            fill
-            sizes="100vw"
-            priority
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
-
-        {/* ==================================================
-            TREŚĆ HERO
-           ================================================== */}
-        <div className="relative z-20 px-6 pb-20 pt-8 text-center">
-          <div className="mx-auto max-w-5xl">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/95">
-              Model premium
-            </p>
-
-            <h1 className="text-3xl font-light uppercase tracking-[0.06em] text-white sm:text-5xl lg:text-[64px] lg:leading-[1.05]">
-              <span className="block text-[13px] tracking-[0.35em] sm:text-base">ALAUDIS </span>
-              <span className="mt-3 block">LEO 214</span>
-            </h1>
-
-            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white sm:text-base">
-              Głębszy, bardziej obecny i bardziej koncertowy w charakterze.
-              ALAUDIS LEO 214 został pomyślany jako model dla tych, którzy oczekują
-              większego oddechu brzmienia, szerszej projekcji i jeszcze mocniej
-              zaznaczonej obecności instrumentu we wnętrzu premium.
-            </p>
-
-            {/* ==================================================
-                CTA HERO
-               ================================================== */}
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href="/konfigurator?model=214"
-                className="rounded-full border border-white/35 bg-black/55 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Otwórz konfigurator
-              </Link>
-
-              <Link
-                href="/odkryj-modele?model=214"
-                className="rounded-full border border-white/35 bg-black/40 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Zobacz w 3D
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeHero
+        headingTitle
+        alt="ALAUDIS LEO 214"
+        eyebrow="Model premium"
+        title={["ALAUDIS", "LEO 214"]}
+        description="Głębszy, bardziej obecny i bardziej koncertowy w charakterze. ALAUDIS LEO 214 został pomyślany jako model dla tych, którzy oczekują większego oddechu brzmienia, szerszej projekcji i jeszcze mocniej zaznaczonej obecności instrumentu we wnętrzu premium."
+        actions={[
+          { href: "/konfigurator?model=214", label: "Otwórz konfigurator" },
+          { href: "/odkryj-modele?model=214", label: "Zobacz w 3D" },
+        ]}
+        scroll="Przewiń w dół"
+      />
 
       <ModelStorySignature model="214" language="PL" />
 
