@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   // Old or mistyped addresses lead to the right page instead of „404”.
   async redirects() {
     return [
+      // www.alaudis.eu → alaudis.eu (one address for visitors and for Google).
+      { source: "/:path*", has: [{ type: "host", value: "www.alaudis.eu" }], destination: "https://alaudis.eu/:path*", permanent: true },
       // Polish has no /pl prefix.
       { source: "/pl", destination: "/", permanent: true },
       { source: "/pl/:path*", destination: "/:path*", permanent: true },
