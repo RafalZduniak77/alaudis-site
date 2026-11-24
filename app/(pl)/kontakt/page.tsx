@@ -293,13 +293,13 @@ export default function KontaktPage() {
             SAP Renovation
           </p>
 
-          <div className="mt-6 rounded-[24px] border border-black/10 bg-[#0b0b0b] p-6 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
-            {/* Trzy kolumny: dane firmy, a pod każdą numer rejestrowy. Czwarta: kontakt. */}
-            <div className="grid gap-x-8 gap-y-8 md:grid-cols-2 lg:grid-cols-[1.15fr_1fr_1fr_1.3fr] lg:gap-x-0 lg:gap-y-0">
-              <div className="grid content-start gap-6 lg:row-span-2 lg:grid-rows-subgrid lg:gap-y-0 lg:pr-5 xl:pr-8">
+          <div className="mt-6">
+            {/* Cztery oddzielne ramki: trzy z danymi firmy (pod każdą numer rejestrowy), czwarta z kontaktem. */}
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-[1.15fr_1fr_1fr_1.3fr] lg:gap-x-3 lg:gap-y-0 xl:gap-x-5">
+              <div className="grid content-start gap-6 rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6 lg:row-span-2 lg:grid-rows-subgrid lg:gap-y-0">
                 <div className="lg:pb-7">
                   <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Firma</p>
-                  <p className="mt-3 text-xl font-light leading-8 text-white lg:whitespace-nowrap lg:text-lg xl:text-xl">
+                  <p className="mt-3 text-xl font-light leading-8 text-white lg:text-lg xl:text-xl">
                   SAP Renovation Sp. z o.o.
                   </p>
                 </div>
@@ -308,10 +308,10 @@ export default function KontaktPage() {
                   <p className="mt-2 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">0000125505</p>
                 </div>
               </div>
-              <div className="grid content-start gap-6 lg:row-span-2 lg:grid-rows-subgrid lg:gap-y-0 lg:border-l lg:border-white/10 lg:px-5 xl:px-8">
+              <div className="grid content-start gap-6 rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6 lg:row-span-2 lg:grid-rows-subgrid lg:gap-y-0">
                 <div className="lg:pb-7">
                   <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Adres</p>
-                  <p className="mt-3 text-base leading-7 text-white lg:whitespace-nowrap xl:text-lg">
+                  <p className="mt-3 text-base leading-7 text-white xl:text-lg">
                   ul. Obozowa 18
                   <br />
                   62-800 Kalisz, Polska
@@ -322,10 +322,10 @@ export default function KontaktPage() {
                   <p className="mt-2 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">250973192</p>
                 </div>
               </div>
-              <div className="grid content-start gap-6 lg:row-span-2 lg:grid-rows-subgrid lg:gap-y-0 lg:border-l lg:border-white/10 lg:px-5 xl:px-8">
+              <div className="grid content-start gap-6 rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6 lg:row-span-2 lg:grid-rows-subgrid lg:gap-y-0">
                 <div className="lg:pb-7">
                   <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Godziny otwarcia</p>
-                  <p className="mt-3 text-base leading-7 text-white lg:whitespace-nowrap xl:text-lg">
+                  <p className="mt-3 text-base leading-7 text-white xl:text-lg">
                   Poniedziałek – piątek
                   <br />
                   8:00 – 16:00
@@ -336,7 +336,7 @@ export default function KontaktPage() {
                   <p className="mt-2 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">6181893417</p>
                 </div>
               </div>
-              <div className="lg:row-span-2 lg:border-l lg:border-white/10 lg:pl-5 xl:pl-8">
+              <div className="rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6 lg:row-span-2">
                 <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Kontakt</p>
                 <div className="mt-3 space-y-3 text-base text-white xl:text-lg">
                   <div className="space-y-0.5">
@@ -355,21 +355,21 @@ export default function KontaktPage() {
               </div>
             </div>
 
-            <div className="mt-8 flex flex-col gap-5 border-t border-white/10 pt-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
-              <p className="max-w-2xl text-xs leading-5 text-white/60">
+            <div className="mt-6 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+              <p className="max-w-2xl text-xs leading-5 text-black/65">
                 Sąd Rejonowy Poznań – Nowe Miasto i Wilda w Poznaniu, IX Wydział Gospodarczy Krajowego Rejestru Sądowego
               </p>
               <div className="flex shrink-0 flex-wrap gap-2">
                 <Link
                   href="/odwiedz-atelier"
-                  className="rounded-full border border-white/20 bg-black/20 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                  className="rounded-full border border-black/25 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-black transition hover:border-black hover:bg-black hover:text-white"
                 >
                   Odwiedź atelier
                 </Link>
 
                 <Link
                   href="/dla-architektow"
-                  className="rounded-full border border-white/35 bg-white/10 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                  className="rounded-full border border-black/25 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-black transition hover:border-black hover:bg-black hover:text-white"
                 >
                   Dla architektów
                 </Link>
