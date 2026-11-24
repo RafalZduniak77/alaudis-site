@@ -1,0 +1,20 @@
+{
+  "id": "gallery-video-antonina-waliszewska-klawiatura",
+  "filename": "alaudis-antonina-waliszewska-przy-klawiaturze",
+  "title": { "pl": "Antonina Waliszewska — przy klawiaturze", "en": "Antonina Waliszewska — at the keyboard", "de": "Antonina Waliszewska — an der Klaviatur", "fr": "Antonina Waliszewska — au clavier" },
+  "description": {
+    "pl": "Młoda pianistka z Konina przy fortepianie ALAUDIS. Kamera stoi blisko klawiatury i pokazuje pracę dłoni. Nagranie bez studyjnej obróbki.",
+    "en": "A young pianist from Konin at an ALAUDIS grand piano. The camera stays close to the keyboard and follows her hands. Recorded without studio processing.",
+    "de": "Eine junge Pianistin aus Konin am ALAUDIS-Flügel. Die Kamera bleibt nah an der Klaviatur und zeigt die Arbeit der Hände. Ohne Studiobearbeitung aufgenommen.",
+    "fr": "Une jeune pianiste de Konin au piano à queue ALAUDIS. La caméra reste près du clavier et suit le travail des mains. Enregistré sans traitement de studio."
+  },
+  "alt": {
+    "pl": "Antonina Waliszewska gra na czarnym fortepianie ALAUDIS, ujęcie z boku na klawiaturę",
+    "en": "Antonina Waliszewska playing a black ALAUDIS grand piano, side view of the keyboard",
+    "de": "Antonina Waliszewska spielt einen schwarzen ALAUDIS-Flügel, Seitenansicht der Klaviatur",
+    "fr": "Antonina Waliszewska joue sur un piano à queue noir ALAUDIS, vue de côté sur le clavier"
+  },
+  "date": "2026-11-12",
+  "duration": 55.97,
+  "order": 1000001
+}
