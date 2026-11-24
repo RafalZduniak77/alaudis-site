@@ -3,8 +3,9 @@
 // ==========================================================
 // FORMULARZ ZGŁOSZENIA NA ZWIEDZANIE MANUFAKTURY
 // ==========================================================
-// Tak jak konfigurator, formularz przygotowuje gotową wiadomość
-// e-mail do działu handlowego (mailto) — strona nie zapisuje danych.
+// Zgłoszenie wysyła się od razu ze strony (app/api/factory-tour).
+// Strona nie zapisuje danych. Gdyby wysyłka nie była skonfigurowana,
+// formularz otwiera gotową wiadomość w programie pocztowym (mailto).
 // ==========================================================
 
 import { useId, useState, type FormEvent } from "react";
@@ -17,13 +18,36 @@ const label = "text-[11px] uppercase tracking-[0.24em] text-white/88";
 export default function FactoryTourForm({ language }: { language: TourLanguage }) {
   const copy = tourCopy[language].form;
   const id = useId();
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "mailto" | "error">("idle");
   const today = new Date().toISOString().slice(0, 10);
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (status === "sending") return;
     const data = new FormData(event.currentTarget);
     const value = (name: string) => String(data.get(name) || "").trim();
+
+    setStatus("sending");
+    let code = 0;
+    try {
+      const response = await fetch("/api/factory-tour", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: value("name"), email: value("email"), phone: value("phone"), people: value("people"),
+          date: value("date"), altDate: value("altDate"), tourLanguage: value("tourLanguage"),
+          message: value("message"), website: value("website"), consent: data.get("consent") === "on", language,
+        }),
+      });
+      code = response.status;
+    } catch {
+      code = 0;
+    }
+    if (code === 200) return setStatus("done");
+    // Wysyłka ze strony jest włączona, ale się nie powiodła: pokaż błąd.
+    if (code !== 0 && code !== 503 && code !== 404) return setStatus("error");
+
+    // Brak wysyłki ze strony: gotowa wiadomość w programie pocztowym.
     const lines = [
       `${copy.name}: ${value("name")}`,
       `${copy.email}: ${value("email")}`,
@@ -36,19 +60,20 @@ export default function FactoryTourForm({ language }: { language: TourLanguage }
     ].filter(Boolean);
     const subject = `${copy.subject} — ${value("name")}`;
     window.location.href = `mailto:${TOUR_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
-    setSent(true);
+    setStatus("mailto");
   }
 
-  if (sent) {
+  if (status === "done" || status === "mailto") {
+    const done = status === "done";
     return (
       <div role="status" className="rounded-[32px] border border-[#d3bd8b]/40 bg-white/[0.03] p-8 sm:p-10">
-        <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">{copy.sentEyebrow}</p>
-        <h3 className="mt-4 text-2xl font-light text-white">{copy.sentTitle}</h3>
+        <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">{done ? copy.doneEyebrow : copy.sentEyebrow}</p>
+        <h3 className="mt-4 text-2xl font-light text-white">{done ? copy.doneTitle : copy.sentTitle}</h3>
         <p className="mt-5 leading-8 text-white/95">
-          {copy.sentText}{" "}
+          {done ? copy.doneText : copy.sentText}{" "}
           <a href={`mailto:${TOUR_EMAIL}`} className="text-[#d3bd8b] underline-offset-4 hover:underline">{TOUR_EMAIL}</a>.
         </p>
-        <button type="button" onClick={() => setSent(false)} className="mt-8 rounded-full border border-white/35 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black">
+        <button type="button" onClick={() => setStatus("idle")} className="mt-8 rounded-full border border-white/35 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black">
           {copy.back}
         </button>
       </div>
@@ -99,11 +124,19 @@ export default function FactoryTourForm({ language }: { language: TourLanguage }
           <input id={`${id}-consent`} name="consent" type="checkbox" required className="mt-1 h-4 w-4 shrink-0 accent-[#d3bd8b]" />
           <span>{copy.consent} *</span>
         </label>
+        {/* Pole-pułapka na automaty: niewidoczne dla ludzi. */}
+        <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 opacity-0" />
       </div>
+      {status === "error" && (
+        <p role="alert" className="mt-6 rounded-2xl border border-red-400/40 bg-red-500/10 px-4 py-3 text-sm leading-6 text-white">
+          {copy.error}{" "}
+          <a href={`mailto:${TOUR_EMAIL}`} className="text-[#d3bd8b] underline-offset-4 hover:underline">{TOUR_EMAIL}</a>.
+        </p>
+      )}
       <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs text-white/68">{copy.required}</p>
-        <button type="submit" className="rounded-full border border-[#d3bd8b] bg-[#d3bd8b] px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:bg-transparent hover:text-[#d3bd8b]">
-          {copy.submit}
+        <button type="submit" disabled={status === "sending"} className="rounded-full border border-[#d3bd8b] bg-[#d3bd8b] px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:bg-transparent hover:text-[#d3bd8b] disabled:cursor-wait disabled:opacity-60">
+          {status === "sending" ? copy.sending : copy.submit}
         </button>
       </div>
     </form>

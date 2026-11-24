@@ -80,7 +80,7 @@ function MessageMenu({
 }: MessageMenuProps) {
   return (
     <details className="group relative z-30">
-      <summary className="cursor-pointer list-none rounded-full border border-[#3c6b52]/70 bg-[#15261d]/90 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-[#5b9473] hover:bg-[#1b3126] hover:text-white">
+      <summary className="cursor-pointer list-none rounded-full border border-[#3c6b52]/70 bg-[#15261d]/90 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-white transition hover:border-[#5b9473] hover:bg-[#1b3126] hover:text-white">
         <span className="inline-flex items-center gap-2">
           Send message
           <span className="text-[10px] transition group-open:rotate-180">
@@ -137,42 +137,42 @@ export default function KontaktPage() {
         className="scroll-mt-20 bg-black px-3 pb-3 pt-32 sm:px-6 sm:pb-4 sm:pt-28"
       >
         {/* Jasny panel na ciemnej stronie */}
-        <div className="mx-auto max-w-[1520px] rounded-[32px] bg-[#f4f1ea] px-5 py-14 shadow-[0_40px_120px_rgba(0,0,0,0.55)] sm:rounded-[44px] sm:px-10 sm:py-20 lg:px-16">
+        <div className="mx-auto max-w-[1520px] rounded-[32px] bg-[#f4f1ea] px-4 py-8 shadow-[0_40px_120px_rgba(0,0,0,0.55)] sm:rounded-[44px] sm:px-10 sm:py-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12">
+          <div className="mb-6">
             <h1 className="text-xs font-normal uppercase tracking-[0.32em] text-[#8a6d35]">
               Contact team
             </h1>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
-            <div className="overflow-hidden rounded-[32px] border border-black/10 bg-[#0b0b0b] text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
-              <div className="relative aspect-[5/4] w-full overflow-hidden rounded-t-[32px] bg-[#080808]">
-                <div className="absolute inset-0 p-5">
+          <div className="grid gap-5 lg:grid-cols-2 lg:gap-6">
+            <div className="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] rounded-[24px] border border-black/10 bg-[#0b0b0b] text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
+              <div className="relative aspect-[2/3] w-full overflow-hidden rounded-l-[24px] bg-[#080808]">
+                <div className="absolute inset-0">
                   <div className="relative h-full w-full">
                     <Image
                       src="/kontakt/paulina-przybylska.jpg"
                       alt="Paulina Przybylska"
                       fill
                       priority
-                      sizes="(min-width: 1024px) 50vw, 100vw"
-                      className="object-contain object-center"
+                      sizes="(min-width: 1024px) 22vw, 40vw"
+                      className="object-cover object-top"
                     />
                   </div>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/18 via-transparent to-transparent" />
               </div>
 
-              <div className="p-8">
-                <p className="text-[11px] uppercase tracking-[0.32em] text-white/88">
+              <div className="flex min-w-0 flex-col justify-center p-4 sm:p-7">
+                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
                   Sales contact
                 </p>
 
-                <h3 className="mt-4 text-3xl font-light text-white">
+                <h3 className="mt-3 text-xl font-light sm:text-2xl text-white">
                   Paulina Przybylska
                 </h3>
 
-                <p className="mt-5 text-lg text-white/95">
+                <p className="mt-3 text-sm sm:text-base text-white/95">
                   <a
                     href={`tel:+${PAULINA_PHONE_RAW}`}
                     className="transition hover:text-white"
@@ -181,7 +181,7 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <p className="mt-3 break-all text-lg text-white/95">
+                <p className="mt-1.5 break-all text-sm sm:text-base text-white/95">
                   <a
                     href={`mailto:${PAULINA_EMAIL}`}
                     className="transition hover:text-white"
@@ -190,11 +190,11 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <div className="mt-8 min-h-[190px]">
-                  <div className="flex flex-wrap gap-3">
+                <div className="mt-5">
+                  <div className="flex flex-wrap gap-2">
                     <a
                       href={`tel:+${PAULINA_PHONE_RAW}`}
-                      className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                      className="rounded-full border border-white/35 bg-white/10 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-white transition hover:border-white hover:bg-white hover:text-black"
                     >
                       Call
                     </a>
@@ -209,33 +209,33 @@ export default function KontaktPage() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-[32px] border border-black/10 bg-[#0b0b0b] text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
-              <div className="relative aspect-[5/4] w-full overflow-hidden rounded-t-[32px] bg-[#080808]">
-                <div className="absolute inset-0 p-5">
+            <div className="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] rounded-[24px] border border-black/10 bg-[#0b0b0b] text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
+              <div className="relative aspect-[2/3] w-full overflow-hidden rounded-l-[24px] bg-[#080808]">
+                <div className="absolute inset-0">
                   <div className="relative h-full w-full">
                     <Image
                       src="/kontakt/krzysztof-skwarek.jpg"
                       alt="Krzysztof Skwarek"
                       fill
                       priority
-                      sizes="(min-width: 1024px) 50vw, 100vw"
-                      className="object-contain object-center"
+                      sizes="(min-width: 1024px) 22vw, 40vw"
+                      className="object-cover object-top"
                     />
                   </div>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/18 via-transparent to-transparent" />
               </div>
 
-              <div className="p-8">
-                <p className="text-[11px] uppercase tracking-[0.32em] text-white/88">
+              <div className="flex min-w-0 flex-col justify-center p-4 sm:p-7">
+                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
                   Sales contact
                 </p>
 
-                <h3 className="mt-4 text-3xl font-light text-white">
+                <h3 className="mt-3 text-xl font-light sm:text-2xl text-white">
                   Krzysztof Skwarek
                 </h3>
 
-                <p className="mt-5 text-lg text-white/95">
+                <p className="mt-3 text-sm sm:text-base text-white/95">
                   <a
                     href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
                     className="transition hover:text-white"
@@ -244,7 +244,7 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <p className="mt-3 break-all text-lg text-white/95">
+                <p className="mt-1.5 break-all text-sm sm:text-base text-white/95">
                   <a
                     href={`mailto:${KRZYSZTOF_EMAIL}`}
                     className="transition hover:text-white"
@@ -253,11 +253,11 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <div className="mt-8 min-h-[190px]">
-                  <div className="flex flex-wrap gap-3">
+                <div className="mt-5">
+                  <div className="flex flex-wrap gap-2">
                     <a
                       href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
-                      className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                      className="rounded-full border border-white/35 bg-white/10 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-white transition hover:border-white hover:bg-white hover:text-black"
                     >
                       Call
                     </a>

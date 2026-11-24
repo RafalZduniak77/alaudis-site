@@ -5,8 +5,8 @@
 // Po zmianie treści popraw też datę w polu „updated”.
 //
 // Co opisuje polityka (stan strony na dzień wersji):
-// - formularze przygotowują e-mail w programie pocztowym
-//   odwiedzającego — strona niczego nie zapisuje na serwerze,
+// - formularz zwiedzania wysyła e-mail ze strony (bez zapisu na serwerze),
+//   konfigurator przygotowuje e-mail w programie pocztowym odwiedzającego,
 // - statystyki Vercel włączają się dopiero po zgodzie,
 // - podgląd 360 ładuje się z serwisu Sirv, galeria z Sanity.
 // ==========================================================
@@ -38,7 +38,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         title: "2. Jakie dane przetwarzamy",
         paragraphs: [
           "Przetwarzamy dane, które sam nam podajesz, kontaktując się z nami e-mailem, telefonicznie, SMS-em lub przez WhatsApp, zgłaszając się na zwiedzanie manufaktury albo wysyłając konfigurację fortepianu: imię i nazwisko, adres e-mail, numer telefonu, liczbę osób i proponowane terminy wizyty, wybraną konfigurację instrumentu oraz treść wiadomości.",
-          "Formularze na stronie (zgłoszenie na zwiedzanie, konfigurator) nie zapisują danych na naszym serwerze. Przygotowują gotową wiadomość w Twoim programie pocztowym — dane trafiają do nas dopiero wtedy, gdy sam ją wyślesz.",
+          "Formularz zgłoszenia na zwiedzanie wysyła Twoje dane bezpośrednio na naszą skrzynkę e-mail po kliknięciu „Wyślij zgłoszenie” — strona przekazuje je dalej i nie zapisuje ich na serwerze. Konfigurator przygotowuje gotową wiadomość w Twoim programie pocztowym — dane trafiają do nas dopiero wtedy, gdy sam ją wyślesz.",
           "Podanie danych jest dobrowolne, ale bez nich nie możemy odpowiedzieć na zapytanie, umówić wizyty ani przygotować wyceny.",
         ],
       },
@@ -120,7 +120,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         title: "2. What data we process",
         paragraphs: [
           "We process the data you give us yourself when you contact us by e-mail, telephone, text message or WhatsApp, apply for a manufactory tour or send us a piano configuration: your name, e-mail address, telephone number, the number of visitors and proposed dates, the chosen configuration of the instrument and the content of your message.",
-          "The forms on this website (the tour application and the configurator) do not store data on our server. They prepare a ready message in your own e-mail program — the data reaches us only when you send it yourself.",
+          "The tour application form sends your data directly to our e-mail inbox when you click “Send request” — the website passes it on and does not store it on the server. The configurator prepares a ready message in your own e-mail program — the data reaches us only when you send it yourself.",
           "Providing data is voluntary, but without it we cannot answer your enquiry, arrange a visit or prepare a quotation.",
         ],
       },
@@ -202,7 +202,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         title: "2. Welche Daten wir verarbeiten",
         paragraphs: [
           "Wir verarbeiten die Daten, die Sie uns selbst mitteilen, wenn Sie uns per E-Mail, Telefon, SMS oder WhatsApp kontaktieren, sich für eine Manufakturführung anmelden oder uns eine Flügelkonfiguration senden: Vor- und Nachname, E-Mail-Adresse, Telefonnummer, Personenzahl und Terminvorschläge, die gewählte Konfiguration des Instruments sowie den Inhalt Ihrer Nachricht.",
-          "Die Formulare auf dieser Website (Anmeldung zur Führung, Konfigurator) speichern keine Daten auf unserem Server. Sie bereiten eine fertige Nachricht in Ihrem eigenen E-Mail-Programm vor — die Daten erreichen uns erst, wenn Sie die Nachricht selbst absenden.",
+          "Das Formular zur Anmeldung für die Führung sendet Ihre Daten nach dem Klick auf „Anfrage senden“ direkt an unser E-Mail-Postfach — die Website leitet sie weiter und speichert sie nicht auf dem Server. Der Konfigurator bereitet eine fertige Nachricht in Ihrem eigenen E-Mail-Programm vor — die Daten erreichen uns erst, wenn Sie die Nachricht selbst absenden.",
           "Die Angabe der Daten ist freiwillig; ohne sie können wir jedoch Ihre Anfrage nicht beantworten, keinen Besuch vereinbaren und kein Angebot erstellen.",
         ],
       },
@@ -284,7 +284,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         title: "2. Quelles données nous traitons",
         paragraphs: [
           "Nous traitons les données que vous nous communiquez vous-même en nous contactant par e-mail, par téléphone, par SMS ou via WhatsApp, en vous inscrivant à une visite de la manufacture ou en nous envoyant une configuration de piano : nom et prénom, adresse e-mail, numéro de téléphone, nombre de personnes et dates proposées, configuration choisie de l’instrument et contenu de votre message.",
-          "Les formulaires du site (inscription à la visite, configurateur) n’enregistrent aucune donnée sur notre serveur. Ils préparent un message prêt à l’envoi dans votre propre logiciel de messagerie — les données ne nous parviennent que lorsque vous l’envoyez vous-même.",
+          "Le formulaire d’inscription à la visite envoie vos données directement à notre boîte e-mail lorsque vous cliquez sur « Envoyer la demande » — le site les transmet et ne les enregistre pas sur le serveur. Le configurateur prépare un message prêt à l’envoi dans votre propre logiciel de messagerie — les données ne nous parviennent que lorsque vous l’envoyez vous-même.",
           "La communication des données est facultative, mais sans elles nous ne pouvons ni répondre à votre demande, ni organiser une visite, ni établir un devis.",
         ],
       },

@@ -38,6 +38,7 @@ type Copy = {
     tourLanguage: string; languageOptions: string[]; date: string; altDate: string;
     message: string; messagePlaceholder: string; consent: string; required: string; choose: string;
     submit: string; subject: string; sentEyebrow: string; sentTitle: string; sentText: string; back: string;
+    sending: string; doneEyebrow: string; doneTitle: string; doneText: string; error: string;
   };
 };
 
@@ -84,6 +85,9 @@ export const tourCopy: Record<TourLanguage, Copy> = {
       sentEyebrow: "Prawie gotowe", sentTitle: "Wiadomość czeka w Twoim programie pocztowym",
       sentText: "Otworzyliśmy gotową wiadomość ze zgłoszeniem — wystarczy ją wysłać. Jeśli program pocztowy się nie otworzył, napisz bezpośrednio na adres",
       back: "Wróć do formularza",
+      sending: "Wysyłanie…", doneEyebrow: "Dziękujemy", doneTitle: "Zgłoszenie zostało wysłane",
+      doneText: "Odezwiemy się, aby potwierdzić termin zwiedzania. W razie pytań napisz na adres",
+      error: "Nie udało się wysłać zgłoszenia. Spróbuj ponownie za chwilę albo napisz bezpośrednio na adres",
     },
   },
   EN: {
@@ -128,6 +132,9 @@ export const tourCopy: Record<TourLanguage, Copy> = {
       sentEyebrow: "Almost done", sentTitle: "Your message is ready in your e-mail app",
       sentText: "We have opened a ready-made message with your request — just send it. If your e-mail app did not open, please write directly to",
       back: "Back to the form",
+      sending: "Sending…", doneEyebrow: "Thank you", doneTitle: "Your request has been sent",
+      doneText: "We will get back to you to confirm the date of your visit. If you have any questions, please write to",
+      error: "We could not send your request. Please try again in a moment or write directly to",
     },
   },
   DE: {
@@ -172,6 +179,9 @@ export const tourCopy: Record<TourLanguage, Copy> = {
       sentEyebrow: "Fast geschafft", sentTitle: "Ihre Nachricht ist in Ihrem E-Mail-Programm bereit",
       sentText: "Wir haben eine fertige Nachricht mit Ihrer Anfrage geöffnet — Sie müssen sie nur noch senden. Falls sich Ihr E-Mail-Programm nicht geöffnet hat, schreiben Sie bitte direkt an",
       back: "Zurück zum Formular",
+      sending: "Wird gesendet…", doneEyebrow: "Vielen Dank", doneTitle: "Ihre Anfrage wurde gesendet",
+      doneText: "Wir melden uns bei Ihnen, um den Termin der Führung zu bestätigen. Bei Fragen schreiben Sie bitte an",
+      error: "Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es gleich noch einmal oder schreiben Sie direkt an",
     },
   },
   FR: {
@@ -216,6 +226,9 @@ export const tourCopy: Record<TourLanguage, Copy> = {
       sentEyebrow: "Presque terminé", sentTitle: "Votre message est prêt dans votre messagerie",
       sentText: "Nous avons ouvert un message prêt à l’envoi avec votre demande — il ne reste qu’à l’envoyer. Si votre messagerie ne s’est pas ouverte, écrivez directement à",
       back: "Retour au formulaire",
+      sending: "Envoi en cours…", doneEyebrow: "Merci", doneTitle: "Votre demande a été envoyée",
+      doneText: "Nous vous recontacterons pour confirmer la date de la visite. Pour toute question, écrivez à",
+      error: "Votre demande n’a pas pu être envoyée. Veuillez réessayer dans un instant ou écrire directement à",
     },
   },
 };
