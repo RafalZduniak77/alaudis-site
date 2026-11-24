@@ -267,9 +267,9 @@ export default function KontaktPage() {
           <div className="mt-6">
             {/* Cztery oddzielne ramki: nazwa i adres firmy, numery rejestrowe, godziny otwarcia dzień po dniu, kontakt. */}
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-[1.25fr_0.9fr_1.15fr_1.3fr] lg:gap-3 xl:gap-5">
-              <div className="rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6">
+              <div className="flex flex-col rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6">
                 <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Société</p>
-                <p className="mt-3 text-sm leading-7 text-white xl:text-base xl:leading-8">
+                <p className="my-auto pt-3 text-sm leading-7 text-white xl:text-base xl:leading-8">
                   SAP Renovation Sp. z o.o.
                   <br />
                   ul. Obozowa 18
