@@ -64,7 +64,7 @@ export default function Home() {
         id="contact"
         className="bg-black px-6 py-20 text-center sm:px-10 lg:px-16"
       >
-        <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+        <p className="text-xs uppercase tracking-[0.32em] text-white/88">
           Consultation privée
         </p>
 
@@ -72,7 +72,7 @@ export default function Home() {
           Parlons de votre Alaudis
         </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
           Contactez-nous pour discuter du modèle, de la finition, du caractère
           sonore et de la composition individuelle de votre piano Alaudis.
         </p>
@@ -103,7 +103,7 @@ export default function Home() {
         href="/fr/kontakt"
         className="block bg-neutral-950 px-6 py-20 text-center sm:hidden"
       >
-        <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+        <p className="text-xs uppercase tracking-[0.32em] text-white/88">
           Contact Alaudis
         </p>
 
@@ -111,7 +111,7 @@ export default function Home() {
           Trouvez votre piano
         </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
           Échangeons sur les modèles, les finitions et les possibilités de
           configuration. Prenez rendez-vous pour une consultation privée ou une
           visite de notre atelier.

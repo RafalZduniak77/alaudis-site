@@ -42,7 +42,7 @@ export default function Home() {
         id="kontakt"
         className="bg-black px-6 py-20 text-center sm:px-10 lg:px-16"
       >
-        <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+        <p className="text-xs uppercase tracking-[0.32em] text-white/88">
           Private Beratung
         </p>
 
@@ -50,7 +50,7 @@ export default function Home() {
           Sprechen wir über Ihren Alaudis
         </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
           Kontaktieren Sie uns, um über Modell, Ausführung, Klangcharakter und
           die individuelle Komposition Ihres Alaudis-Flügels zu sprechen.
         </p>
@@ -81,7 +81,7 @@ export default function Home() {
         href="/de/kontakt"
         className="block bg-neutral-950 px-6 py-20 text-center sm:hidden"
       >
-        <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+        <p className="text-xs uppercase tracking-[0.32em] text-white/88">
           Alaudis Kontakt
         </p>
 
@@ -89,7 +89,7 @@ export default function Home() {
           Finden Sie Ihren Flügel
         </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
           Sprechen Sie mit uns über Modelle, Ausführungen und
           Konfigurationsmöglichkeiten. Vereinbaren Sie eine persönliche Beratung
           oder einen Besuch in unserem Atelier.

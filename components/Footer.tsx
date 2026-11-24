@@ -146,7 +146,7 @@ export default function Footer() {
             ALAUDIS
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
+          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white">
             <Link href={`${langPrefix}/zwiedzanie-manufaktury`} className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none">
               {copy.tour}
             </Link>
@@ -169,7 +169,7 @@ export default function Footer() {
             {copy.models}
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
+          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white">
             {ALAUDIS_MODEL_IDS.map((model) => (
               <Link
                 key={model}
@@ -190,7 +190,7 @@ export default function Footer() {
             {copy.configurator}
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
+          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white">
             <Link
               href={configuratorUrl}
               className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none"
@@ -222,7 +222,7 @@ export default function Footer() {
             {copy.company}
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white/92">
+          <div className="mt-8 flex flex-col gap-4 text-[15px] text-white">
             <Link href={aboutUrl} className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none">
               {copy.about}
             </Link>
@@ -247,7 +247,7 @@ export default function Footer() {
           DÓŁ FOOTERA
          ==================================================== */}
       <div className="mx-auto mt-16 flex max-w-7xl flex-col items-center gap-6 border-t border-white/10 pt-8 text-center">
-        <p className="max-w-xl text-sm leading-6 text-white/60">{sapRenovation.intro}</p>
+        <p className="max-w-xl text-sm leading-6 text-white/78">{sapRenovation.intro}</p>
         <a
           href={sapRenovation.href}
           hrefLang={language.toLowerCase()}
@@ -259,7 +259,7 @@ export default function Footer() {
           <span aria-hidden="true" className="hidden text-white/30 transition-colors group-hover:text-[#080808]/40 sm:inline">
             ·
           </span>
-          <span className="inline-flex items-center gap-2 text-white/70 transition-colors group-hover:text-[#080808]">
+          <span className="inline-flex items-center gap-2 text-white/84 transition-colors group-hover:text-[#080808]">
             {sapRenovation.since}
             <svg
               aria-hidden="true"
@@ -278,19 +278,19 @@ export default function Footer() {
           <span className="sr-only"> ({sapRenovation.newTab})</span>
         </a>
         <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             © 2025 ALAUDIS
           </p>
           <Link
             href={`${langPrefix}/polityka-prywatnosci`}
-            className="text-xs uppercase tracking-[0.24em] text-white/55 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            className="text-xs uppercase tracking-[0.24em] text-white/72 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             {PRIVACY_POLICY[language]}
           </Link>
           <button
             type="button"
             onClick={() => window.dispatchEvent(new Event(OPEN_CONSENT_EVENT))}
-            className="text-xs uppercase tracking-[0.24em] text-white/55 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            className="text-xs uppercase tracking-[0.24em] text-white/72 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             {COOKIE_SETTINGS[language]}
           </button>

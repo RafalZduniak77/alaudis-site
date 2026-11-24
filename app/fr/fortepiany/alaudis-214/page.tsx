@@ -31,12 +31,12 @@ export default function ModelAlaudis214Page() {
             priority
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/35" />
+          <div className="absolute inset-0 bg-black/20" />
         </div>
 
         <div className="relative z-20 px-6 pb-20 pt-8 text-center">
           <div className="mx-auto max-w-5xl">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/88">
+            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/95">
               Modèle premium
             </p>
 
@@ -45,7 +45,7 @@ export default function ModelAlaudis214Page() {
               <span className="mt-3 block">LEO 214</span>
             </h1>
 
-            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/92 sm:text-base">
+            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white sm:text-base">
               Plus profond, plus présent et plus proche du caractère de concert. ALAUDIS LEO 214 a été conçu pour ceux qui recherchent une respiration sonore plus ample, une projection plus large et une présence plus marquée.
             </p>
 
@@ -73,7 +73,7 @@ export default function ModelAlaudis214Page() {
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Caractère sonore
             </p>
 
@@ -82,7 +82,7 @@ export default function ModelAlaudis214Page() {
             </h2>
           </div>
 
-          <div className="space-y-6 text-white/90">
+          <div className="space-y-6 text-white">
             <p className="leading-8">ALAUDIS LEO 214 développe le langage sonore de la marque vers une plus grande échelle et une présence plus affirmée.</p>
             <p className="leading-8">Il offre un son plus ouvert, un grave plus profond et un médium plus projeté, tout en conservant culture, élégance et noblesse musicale.</p>
           </div>
@@ -92,34 +92,34 @@ export default function ModelAlaudis214Page() {
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Destination
             </p>
             <h3 className="mt-4 text-2xl font-light">Salon et scène de chambre</h3>
-            <p className="mt-5 leading-8 text-white/90">Idéal pour les résidences spacieuses, les salons de musique privés, les hôtels boutique et les scènes de chambre.</p>
+            <p className="mt-5 leading-8 text-white">Idéal pour les résidences spacieuses, les salons de musique privés, les hôtels boutique et les scènes de chambre.</p>
           </div>
 
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Intérieurs cibles
             </p>
             <h3 className="mt-4 text-2xl font-light">Espace, lumière, présence</h3>
-            <p className="mt-5 leading-8 text-white/90">Il s’intègre particulièrement bien dans les intérieurs premium modernes, les appartements classiques et les espaces de réception.</p>
+            <p className="mt-5 leading-8 text-white">Il s’intègre particulièrement bien dans les intérieurs premium modernes, les appartements classiques et les espaces de réception.</p>
           </div>
 
           <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Identité du modèle
             </p>
             <h3 className="mt-4 text-2xl font-light">Entre élégance et ampleur</h3>
-            <p className="mt-5 leading-8 text-white/90">ALAUDIS LEO 214 conserve la classe visuelle d’un modèle premium tout en offrant une échelle sonore plus développée.</p>
+            <p className="mt-5 leading-8 text-white">ALAUDIS LEO 214 conserve la classe visuelle d’un modèle premium tout en offrant une échelle sonore plus développée.</p>
           </div>
         </div>
       </section>
 
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Galerie
           </p>
 
@@ -147,7 +147,7 @@ export default function ModelAlaudis214Page() {
 
       <section className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Prochaine étape
           </p>
 
@@ -155,7 +155,7 @@ export default function ModelAlaudis214Page() {
             Configurez ALAUDIS LEO 214 ou découvrez-le en 3D
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
             Accédez au configurateur pour choisir la finition et les détails, ou découvrez le modèle en 3D.
           </p>
 

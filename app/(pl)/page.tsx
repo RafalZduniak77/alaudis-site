@@ -68,7 +68,7 @@ export default function Home() {
         id="kontakt"
         className="bg-black px-6 py-20 text-center sm:px-10 lg:px-16"
       >
-        <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+        <p className="text-xs uppercase tracking-[0.32em] text-white/88">
           Prywatna konsultacja
         </p>
 
@@ -76,7 +76,7 @@ export default function Home() {
           Porozmawiajmy o Twoim Alaudis
         </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
           Skontaktuj się z nami, aby omówić model, wykończenie, charakter
           instrumentu oraz indywidualną kompozycję fortepianu Alaudis.
         </p>
@@ -107,7 +107,7 @@ export default function Home() {
             href="/kontakt"
             className="block bg-neutral-950 px-6 py-20 text-center sm:hidden"
           >
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Kontakt Alaudis
             </p>
 
@@ -115,7 +115,7 @@ export default function Home() {
               Znajdź swój fortepian
             </h2>
 
-            <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+            <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
               Porozmawiaj z nami o modelach, wykończeniach i możliwościach
               konfiguracji. Umów prywatną konsultację lub wizytę w atelier.
             </p>

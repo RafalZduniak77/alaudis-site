@@ -74,12 +74,12 @@ export default function ModelAlaudis178Page() {
             priority
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/35" />
+          <div className="absolute inset-0 bg-black/20" />
         </div>
 
         <div className="relative z-20 px-6 pb-20 pt-8 text-center">
           <div className="mx-auto max-w-5xl">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/88">
+            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/95">
               Premium model
             </p>
 
@@ -88,7 +88,7 @@ export default function ModelAlaudis178Page() {
               <span className="mt-3 block">ONE 178</span>
             </h1>
 
-            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/92 sm:text-base">
+            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white sm:text-base">
               Subtle, noble and refined. ALAUDIS ONE 178 was conceived as a grand
               piano for premium interiors where elegance of form, musical
               culture of sound, and the everyday pleasure of living with the
@@ -119,7 +119,7 @@ export default function ModelAlaudis178Page() {
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Sound character
             </p>
 
@@ -128,7 +128,7 @@ export default function ModelAlaudis178Page() {
             </h2>
           </div>
 
-          <div className="space-y-6 text-white/90">
+          <div className="space-y-6 text-white">
             <p className="leading-8">
               ALAUDIS ONE 178 offers a sound with a clear culture of tone,
               transparent, singing and naturally ordered. It is an instrument
@@ -149,13 +149,13 @@ export default function ModelAlaudis178Page() {
       <section className="bg-neutral-950 px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Purpose
             </p>
 
             <h3 className="mt-4 text-2xl font-light">Everyday art of playing</h3>
 
-            <p className="mt-5 leading-8 text-white/90">
+            <p className="mt-5 leading-8 text-white">
               Ideal for private music salons, premium apartments, boutique
               spaces, and for pianists seeking an instrument that combines
               visual class with mature musicality.
@@ -163,13 +163,13 @@ export default function ModelAlaudis178Page() {
           </div>
 
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Intended interiors
             </p>
 
             <h3 className="mt-4 text-2xl font-light">Elegance and proportion</h3>
 
-            <p className="mt-5 leading-8 text-white/90">
+            <p className="mt-5 leading-8 text-white">
               It feels most at home in modern, classical, art déco and soft
               luxury interiors, wherever detail, light, materials and the
               presence of the instrument form one shared composition.
@@ -177,13 +177,13 @@ export default function ModelAlaudis178Page() {
           </div>
 
           <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Model identity
             </p>
 
             <h3 className="mt-4 text-2xl font-light">Premium form</h3>
 
-            <p className="mt-5 leading-8 text-white/90">
+            <p className="mt-5 leading-8 text-white">
               ALAUDIS ONE 178 was conceived for those who expect not only quality of
               workmanship, but also the beauty of everyday contact with the
               grand piano as a premium-class object.
@@ -194,7 +194,7 @@ export default function ModelAlaudis178Page() {
 
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Gallery
           </p>
 
@@ -221,7 +221,7 @@ export default function ModelAlaudis178Page() {
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/4 to-transparent" />
 
-                <div className="absolute bottom-4 right-4 rounded-full border border-white/20 bg-black/45 px-4 py-2 text-[10px] uppercase tracking-[0.24em] text-white/90 backdrop-blur-sm">
+                <div className="absolute bottom-4 right-4 rounded-full border border-white/20 bg-black/45 px-4 py-2 text-[10px] uppercase tracking-[0.24em] text-white backdrop-blur-sm">
                   Enlarge
                 </div>
               </button>
@@ -234,7 +234,7 @@ export default function ModelAlaudis178Page() {
 
       <section className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Next step
           </p>
 
@@ -242,7 +242,7 @@ export default function ModelAlaudis178Page() {
             Configure ALAUDIS ONE 178 or view it in 3D
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
             Go to the configurator to choose finishes and details, or view the
             model in a 3D environment and see how it presents itself in an
             interior.

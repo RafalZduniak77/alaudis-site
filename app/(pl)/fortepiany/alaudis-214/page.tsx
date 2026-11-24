@@ -68,7 +68,7 @@ export default function ModelAlaudis214Page() {
             priority
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/35" />
+          <div className="absolute inset-0 bg-black/20" />
         </div>
 
         {/* ==================================================
@@ -76,7 +76,7 @@ export default function ModelAlaudis214Page() {
            ================================================== */}
         <div className="relative z-20 px-6 pb-20 pt-8 text-center">
           <div className="mx-auto max-w-5xl">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/88">
+            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/95">
               Model premium
             </p>
 
@@ -85,7 +85,7 @@ export default function ModelAlaudis214Page() {
               <span className="mt-3 block">LEO 214</span>
             </h1>
 
-            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/92 sm:text-base">
+            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white sm:text-base">
               Głębszy, bardziej obecny i bardziej koncertowy w charakterze.
               ALAUDIS LEO 214 został pomyślany jako model dla tych, którzy oczekują
               większego oddechu brzmienia, szerszej projekcji i jeszcze mocniej
@@ -122,7 +122,7 @@ export default function ModelAlaudis214Page() {
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Charakter brzmienia
             </p>
 
@@ -131,7 +131,7 @@ export default function ModelAlaudis214Page() {
             </h2>
           </div>
 
-          <div className="space-y-6 text-white/90">
+          <div className="space-y-6 text-white">
             <p className="leading-8">
               ALAUDIS LEO 214 rozwija język brzmieniowy marki w kierunku większej
               skali i mocniejszej obecności. Oferuje dźwięk bardziej otwarty,
@@ -156,7 +156,7 @@ export default function ModelAlaudis214Page() {
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
           {/* PRZEZNACZENIE */}
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Przeznaczenie
             </p>
 
@@ -164,7 +164,7 @@ export default function ModelAlaudis214Page() {
               Salon i scena kameralna
             </h3>
 
-            <p className="mt-5 leading-8 text-white/90">
+            <p className="mt-5 leading-8 text-white">
               Idealny do przestronnych rezydencji, prywatnych sal muzycznych,
               butikowych hoteli i kameralnych scen, gdzie instrument ma być nie
               tylko piękny, ale również bardziej wyraźny i nośny brzmieniowo.
@@ -173,7 +173,7 @@ export default function ModelAlaudis214Page() {
 
           {/* WNĘTRZA */}
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Docelowe wnętrza
             </p>
 
@@ -181,7 +181,7 @@ export default function ModelAlaudis214Page() {
               Przestrzeń, światło, obecność
             </h3>
 
-            <p className="mt-5 leading-8 text-white/90">
+            <p className="mt-5 leading-8 text-white">
               Najlepiej odnajduje się we wnętrzach nowoczesnych premium,
               klasycznych apartamentach, salach reprezentacyjnych i
               przestrzeniach, w których fortepian ma stać się wyraźnym centrum
@@ -191,7 +191,7 @@ export default function ModelAlaudis214Page() {
 
           {/* TOŻSAMOŚĆ */}
           <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Tożsamość modelu
             </p>
 
@@ -199,7 +199,7 @@ export default function ModelAlaudis214Page() {
               Między elegancją a skalą
             </h3>
 
-            <p className="mt-5 leading-8 text-white/90">
+            <p className="mt-5 leading-8 text-white">
               ALAUDIS LEO 214 to propozycja dla tych, którzy chcą zachować klasę
               wizualną modelu premium, ale wejść w bardziej rozbudowaną skalę
               brzmienia i silniejszą sceniczną osobowość instrumentu.
@@ -213,7 +213,7 @@ export default function ModelAlaudis214Page() {
          ==================================================== */}
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Galeria
           </p>
 
@@ -265,7 +265,7 @@ export default function ModelAlaudis214Page() {
 
       <section className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Następny krok
           </p>
 
@@ -273,7 +273,7 @@ export default function ModelAlaudis214Page() {
             Skonfiguruj ALAUDIS LEO 214 lub zobacz go w 3D
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
             Przejdź do konfiguratora, aby dopasować wykończenie i detale, albo
             zobacz model w podglądzie 3D i sprawdź jego obecność w przestrzeni.
           </p>

@@ -34,16 +34,16 @@ export default function KonfiguratorFallback({ locale }: { locale: SeoLocale }) 
   return (
     <main className="flex min-h-dvh items-center justify-center bg-black px-6 text-center text-white">
       <div className="mx-auto max-w-2xl">
-        <p className="text-[11px] uppercase tracking-[0.48em] text-white/75">
+        <p className="text-[11px] uppercase tracking-[0.48em] text-white/88">
           {text.eyebrow}
         </p>
         <h1 className="mt-5 text-2xl font-light uppercase tracking-[0.06em] sm:text-4xl">
           {text.title}
         </h1>
-        <p className="mt-6 text-sm leading-7 text-white/80 sm:text-base sm:leading-8">
+        <p className="mt-6 text-sm leading-7 text-white/92 sm:text-base sm:leading-8">
           {text.text}
         </p>
-        <nav className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 text-[11px] uppercase tracking-[0.24em] text-white/70">
+        <nav className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 text-[11px] uppercase tracking-[0.24em] text-white/84">
           {ALAUDIS_MODEL_IDS.map((model) => (
             <Link key={model} href={`${localePrefix(locale)}/fortepiany/alaudis-${model}`}>
               {getAlaudisModelName(model)}

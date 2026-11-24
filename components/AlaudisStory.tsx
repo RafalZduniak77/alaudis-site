@@ -61,10 +61,10 @@ export default function AlaudisStory({
                     {getAlaudisModelName(id).replace("ALAUDIS ", "")}
                   </span>
                 </h3>
-                <p className="mb-7 mt-5 text-[15px] leading-7 text-white/90">
+                <p className="mb-7 mt-5 text-[15px] leading-7 text-white">
                   {copy.models[id].description}
                 </p>
-                <p className="mt-auto text-[11px] uppercase tracking-[0.24em] text-white/85">
+                <p className="mt-auto text-[11px] uppercase tracking-[0.24em] text-white/95">
                   {copy.discover} <span aria-hidden="true">→</span>
                 </p>
               </Link>

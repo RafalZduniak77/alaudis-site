@@ -510,7 +510,7 @@ export default function ScrollModelsShowcase() {
   return (
     <section className="bg-[#111] px-0 text-white">
       <div className="mx-auto max-w-[1600px] px-4 pb-10 pt-24">
-        <p className="text-[11px] uppercase tracking-[0.36em] text-white/75">
+        <p className="text-[11px] uppercase tracking-[0.36em] text-white/88">
           {sectionTitle}
         </p>
       </div>

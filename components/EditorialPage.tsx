@@ -82,13 +82,13 @@ export default function EditorialPage({
 
       <section className="border-b border-white/10 px-6 pb-20 pt-40 text-center sm:px-10 sm:pt-48 lg:px-16">
         <div className="mx-auto max-w-4xl">
-          <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/75">
+          <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/88">
             {content.eyebrow}
           </p>
           <h1 className="text-3xl font-light uppercase tracking-[0.06em] text-white sm:text-5xl lg:text-[60px] lg:leading-[1.05]">
             {content.title}
           </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-sm leading-8 text-white/90 sm:text-base sm:leading-9">
+          <p className="mx-auto mt-8 max-w-2xl text-sm leading-8 text-white sm:text-base sm:leading-9">
             {content.lead}
           </p>
         </div>
@@ -105,7 +105,7 @@ export default function EditorialPage({
             </h2>
 
             {section.body?.map((paragraph) => (
-              <p key={paragraph} className="mt-6 max-w-3xl leading-8 text-white/90">
+              <p key={paragraph} className="mt-6 max-w-3xl leading-8 text-white">
                 {paragraph}
               </p>
             ))}
@@ -118,13 +118,13 @@ export default function EditorialPage({
                     className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8"
                   >
                     {item.meta && (
-                      <p className="text-xs uppercase tracking-[0.28em] text-white/75">
+                      <p className="text-xs uppercase tracking-[0.28em] text-white/88">
                         {item.meta}
                       </p>
                     )}
                     <h3 className="mt-4 text-2xl font-light text-white">{item.title}</h3>
                     {item.text && (
-                      <p className="mt-5 leading-8 text-white/90">{item.text}</p>
+                      <p className="mt-5 leading-8 text-white">{item.text}</p>
                     )}
                     {item.link && <TextLink link={item.link} prefix={prefix} />}
                   </article>
@@ -138,7 +138,7 @@ export default function EditorialPage({
       ))}
 
       <section className="border-t border-white/10 bg-black px-6 py-20 text-center sm:px-10 lg:px-16">
-        <p className="text-xs uppercase tracking-[0.32em] text-white/75">{text.more}</p>
+        <p className="text-xs uppercase tracking-[0.32em] text-white/88">{text.more}</p>
         <nav className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           {PAGE_KEYS.filter((key) => key !== page).map((key) => (
             <Link
@@ -152,7 +152,7 @@ export default function EditorialPage({
         </nav>
 
         <h2 className="mt-20 text-3xl font-light text-white sm:text-4xl">{text.contact}</h2>
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">{text.contactText}</p>
+        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">{text.contactText}</p>
         <Link
           href={`${prefix}/kontakt`}
           className="mt-10 inline-flex rounded-full border border-white/35 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"

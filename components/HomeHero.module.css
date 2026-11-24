@@ -8,7 +8,7 @@
 .current .photo { animation: hero-drift 9s linear forwards; }
 .shade { z-index: 1; background:
   linear-gradient(180deg, #000000b3 0%, #00000033 22%, transparent 42%),
-  linear-gradient(90deg, #000000c7 0%, #00000080 32%, transparent 62%),
+  linear-gradient(90deg, #000000a8 0%, #00000061 32%, transparent 62%),
   linear-gradient(0deg, #000 0%, #000000b8 16%, transparent 46%); }
 
 .content { position: absolute; inset: auto 0 0; z-index: 2; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; max-width: 1280px; margin: 0 auto; padding: 0 56px clamp(84px, 13vh, 132px); }

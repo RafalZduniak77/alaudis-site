@@ -67,7 +67,7 @@ function MessageMenu({
 }: MessageMenuProps) {
   return (
     <details className="group relative z-30">
-      <summary className="cursor-pointer list-none rounded-full border border-[#3c6b52]/70 bg-[#15261d]/90 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/90 transition hover:border-[#5b9473] hover:bg-[#1b3126] hover:text-white">
+      <summary className="cursor-pointer list-none rounded-full border border-[#3c6b52]/70 bg-[#15261d]/90 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-[#5b9473] hover:bg-[#1b3126] hover:text-white">
         <span className="inline-flex items-center gap-2">
           Envoyer un message
           <span className="text-[10px] transition group-open:rotate-180">
@@ -79,7 +79,7 @@ function MessageMenu({
       <div className="absolute left-0 top-full z-40 mt-3 min-w-[220px] overflow-hidden rounded-2xl border border-[#426f57]/80 bg-[#193629]/96 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
         <a
           href={getSmsHref(phoneRaw, personName)}
-          className="block px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/90 transition hover:bg-[#28513d] hover:text-white"
+          className="block px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white transition hover:bg-[#28513d] hover:text-white"
         >
           SMS
         </a>
@@ -88,14 +88,14 @@ function MessageMenu({
           href={getWhatsAppHref(phoneRaw, personName)}
           target="_blank"
           rel="noreferrer"
-          className="block border-t border-[#426f57]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/90 transition hover:bg-[#28513d] hover:text-white"
+          className="block border-t border-[#426f57]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white transition hover:bg-[#28513d] hover:text-white"
         >
           WHATSAPP
         </a>
 
         <a
           href={getMailHref(emailAddress, personName)}
-          className="block border-t border-[#426f57]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/90 transition hover:bg-[#28513d] hover:text-white"
+          className="block border-t border-[#426f57]/70 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white transition hover:bg-[#28513d] hover:text-white"
         >
           MAIL
         </a>
@@ -145,7 +145,7 @@ export default function KontaktPage() {
               </div>
 
               <div className="p-8">
-                <p className="text-[11px] uppercase tracking-[0.32em] text-white/75">
+                <p className="text-[11px] uppercase tracking-[0.32em] text-white/88">
                   Contact commercial
                 </p>
 
@@ -153,7 +153,7 @@ export default function KontaktPage() {
                   Piotr Soliński
                 </h3>
 
-                <p className="mt-5 text-lg text-white/86">
+                <p className="mt-5 text-lg text-white/95">
                   <a
                     href={`tel:+${PIOTR_PHONE_RAW}`}
                     className="transition hover:text-white"
@@ -162,7 +162,7 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <p className="mt-3 break-all text-lg text-white/86">
+                <p className="mt-3 break-all text-lg text-white/95">
                   <a
                     href={`mailto:${PIOTR_EMAIL}`}
                     className="transition hover:text-white"
@@ -208,7 +208,7 @@ export default function KontaktPage() {
               </div>
 
               <div className="p-8">
-                <p className="text-[11px] uppercase tracking-[0.32em] text-white/75">
+                <p className="text-[11px] uppercase tracking-[0.32em] text-white/88">
                   Contact commercial
                 </p>
 
@@ -216,7 +216,7 @@ export default function KontaktPage() {
                   Krzysztof Skwarek
                 </h3>
 
-                <p className="mt-5 text-lg text-white/86">
+                <p className="mt-5 text-lg text-white/95">
                   <a
                     href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
                     className="transition hover:text-white"
@@ -225,7 +225,7 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <p className="mt-3 break-all text-lg text-white/86">
+                <p className="mt-3 break-all text-lg text-white/95">
                   <a
                     href={`mailto:${KRZYSZTOF_EMAIL}`}
                     className="transition hover:text-white"
@@ -267,14 +267,14 @@ export default function KontaktPage() {
           <div className="mt-12 rounded-[32px] border border-black/10 bg-[#0b0b0b] p-8 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-12">
             <div className="grid gap-8 md:grid-cols-2">
               <div>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-white/88">
                   Société
                 </p>
                 <p className="mt-3 text-xl text-white">SAP Renovation</p>
               </div>
 
               <div>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-white/88">
                   Adresse
                 </p>
                 <p className="mt-3 text-xl leading-8 text-white">
@@ -285,21 +285,21 @@ export default function KontaktPage() {
               </div>
 
               <div>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-white/88">
                   NIF
                 </p>
                 <p className="mt-3 text-xl text-white">6181893417</p>
               </div>
 
               <div>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-white/75">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-white/88">
                   Contact
                 </p>
                 <div className="mt-3 space-y-3 text-xl text-white">
                   <p>
                     <a
                       href={`tel:+${PIOTR_PHONE_RAW}`}
-                      className="transition hover:text-white/88"
+                      className="transition hover:text-white/95"
                     >
                       {PIOTR_PHONE_DISPLAY}
                     </a>
@@ -307,7 +307,7 @@ export default function KontaktPage() {
                   <p>
                     <a
                       href={`mailto:${PIOTR_EMAIL}`}
-                      className="break-all transition hover:text-white/88"
+                      className="break-all transition hover:text-white/95"
                     >
                       {PIOTR_EMAIL}
                     </a>
@@ -315,7 +315,7 @@ export default function KontaktPage() {
                   <p>
                     <a
                       href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
-                      className="transition hover:text-white/88"
+                      className="transition hover:text-white/95"
                     >
                       {KRZYSZTOF_PHONE_DISPLAY}
                     </a>
@@ -323,7 +323,7 @@ export default function KontaktPage() {
                   <p>
                     <a
                       href={`mailto:${KRZYSZTOF_EMAIL}`}
-                      className="break-all transition hover:text-white/88"
+                      className="break-all transition hover:text-white/95"
                     >
                       {KRZYSZTOF_EMAIL}
                     </a>
@@ -335,7 +335,7 @@ export default function KontaktPage() {
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
                 href="/fr/odwiedz-atelier"
-                className="rounded-full border border-white/20 bg-black/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white/90 transition hover:border-white hover:bg-white hover:text-black"
+                className="rounded-full border border-white/20 bg-black/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Visiter l’atelier
               </Link>

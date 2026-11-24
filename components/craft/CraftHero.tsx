@@ -45,13 +45,13 @@ export default function CraftHero({ video, eyebrow, title, cta, pauseLabel, play
         aria-label={video.title}
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-black/50 via-black/10 to-black/85" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-black/35 via-black/5 to-black/70" />
 
       <div className="mx-auto flex w-full max-w-[1520px] items-end justify-between gap-6 px-6 pb-14 sm:px-10 sm:pb-20 lg:px-16">
         <div className="max-w-4xl">
           <p className="text-[11px] uppercase tracking-[0.42em] text-[#d3bd8b]">{eyebrow}</p>
           <h1 className="mt-5 text-4xl font-light leading-[1.05] tracking-[-0.02em] text-white sm:text-6xl lg:text-[88px]">{title}</h1>
-          <p className="mt-6 text-sm text-white/75 sm:text-base">{video.title}</p>
+          <p className="mt-6 text-sm text-white/88 sm:text-base">{video.title}</p>
           <a href="#filmy" className="mt-8 inline-flex rounded-2xl bg-white/15 px-7 py-4 text-sm uppercase tracking-[0.2em] text-white backdrop-blur-md transition hover:bg-white hover:text-black">
             {cta}
           </a>

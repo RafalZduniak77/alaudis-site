@@ -12,7 +12,7 @@ import { TOUR_EMAIL, type TourLanguage, tourCopy } from "./copy";
 
 const field =
   "mt-2 w-full rounded-2xl border border-white/15 bg-white/[0.04] px-4 py-3 text-white placeholder:text-white/35 focus:border-[#d3bd8b] focus:outline-none";
-const label = "text-[11px] uppercase tracking-[0.24em] text-white/75";
+const label = "text-[11px] uppercase tracking-[0.24em] text-white/88";
 
 export default function FactoryTourForm({ language }: { language: TourLanguage }) {
   const copy = tourCopy[language].form;
@@ -44,7 +44,7 @@ export default function FactoryTourForm({ language }: { language: TourLanguage }
       <div role="status" className="rounded-[32px] border border-[#d3bd8b]/40 bg-white/[0.03] p-8 sm:p-10">
         <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">{copy.sentEyebrow}</p>
         <h3 className="mt-4 text-2xl font-light text-white">{copy.sentTitle}</h3>
-        <p className="mt-5 leading-8 text-white/85">
+        <p className="mt-5 leading-8 text-white/95">
           {copy.sentText}{" "}
           <a href={`mailto:${TOUR_EMAIL}`} className="text-[#d3bd8b] underline-offset-4 hover:underline">{TOUR_EMAIL}</a>.
         </p>
@@ -95,13 +95,13 @@ export default function FactoryTourForm({ language }: { language: TourLanguage }
           <span className={label}>{copy.message}</span>
           <textarea name="message" rows={4} placeholder={copy.messagePlaceholder} className={field} />
         </label>
-        <label htmlFor={`${id}-consent`} className="flex items-start gap-3 text-sm leading-6 text-white/75 sm:col-span-2">
+        <label htmlFor={`${id}-consent`} className="flex items-start gap-3 text-sm leading-6 text-white/88 sm:col-span-2">
           <input id={`${id}-consent`} name="consent" type="checkbox" required className="mt-1 h-4 w-4 shrink-0 accent-[#d3bd8b]" />
           <span>{copy.consent} *</span>
         </label>
       </div>
       <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs text-white/50">{copy.required}</p>
+        <p className="text-xs text-white/68">{copy.required}</p>
         <button type="submit" className="rounded-full border border-[#d3bd8b] bg-[#d3bd8b] px-8 py-4 text-sm uppercase tracking-[0.22em] text-black transition hover:bg-transparent hover:text-[#d3bd8b]">
           {copy.submit}
         </button>

@@ -139,11 +139,11 @@ export default function PreviewPanel({ imageSrc }: Props) {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/4 to-transparent" />
 
           {hasError ? (
-            <p role="status" className="absolute inset-0 flex items-center justify-center px-6 text-center text-sm text-white/85">
+            <p role="status" className="absolute inset-0 flex items-center justify-center px-6 text-center text-sm text-white/95">
               {labels.unavailable}
             </p>
           ) : isLoading ? (
-            <p role="status" className="absolute inset-x-0 bottom-0 bg-black/75 px-3 py-2 text-center text-xs text-white/85">
+            <p role="status" className="absolute inset-x-0 bottom-0 bg-black/75 px-3 py-2 text-center text-xs text-white/95">
               {labels.loading}
             </p>
           ) : null}

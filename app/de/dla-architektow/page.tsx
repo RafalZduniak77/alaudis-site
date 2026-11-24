@@ -26,7 +26,7 @@ export default function FuerArchitektenPage() {
 
       <section className="bg-neutral-950 px-6 pb-24 pt-32 sm:pt-36 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Projektinspiration
           </p>
 
@@ -75,14 +75,14 @@ export default function FuerArchitektenPage() {
         <div className="mx-auto max-w-4xl">
           <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
           <div>
-            <p className="mx-auto mt-0 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
+            <p className="mx-auto mt-0 max-w-3xl text-sm leading-8 text-white sm:text-base sm:leading-9">
               Alaudis kann ein integraler Bestandteil einer Residenz, eines
               Apartments, eines Hotels oder eines repräsentativen Innenraums
               werden, nicht als gewöhnliches Objekt, sondern als bewusst
               gewähltes Element der Raumkomposition.
             </p>
 
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/95 sm:text-[15px] sm:leading-8">
               Wir arbeiten an Projekten, in denen Proportion, Material, Licht,
               Charakter und die Präsenz des Instruments in einem Premiumraum
               wirklich zählen.
@@ -96,7 +96,7 @@ export default function FuerArchitektenPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/88">
                 01
               </p>
 
@@ -104,7 +104,7 @@ export default function FuerArchitektenPage() {
                 Auswahl des Modells nach Maßstab des Innenraums
               </h3>
 
-              <p className="mt-5 leading-8 text-white/90">
+              <p className="mt-5 leading-8 text-white">
                 Wir helfen dabei, Größe und Charakter des Modells an die
                 Proportionen des Raums anzupassen, von Wohnräumen und
                 Apartments bis zu größeren Residenzen, Lobbys und
@@ -113,7 +113,7 @@ export default function FuerArchitektenPage() {
             </div>
 
             <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/88">
                 02
               </p>
 
@@ -121,7 +121,7 @@ export default function FuerArchitektenPage() {
                 Ausführung im Einklang mit dem Projekt
               </h3>
 
-              <p className="mt-5 leading-8 text-white/90">
+              <p className="mt-5 leading-8 text-white">
                 Wir sprechen über Materialton, Glanz, Oberflächencharakter,
                 Farbigkeit und Details, damit das Instrument die Erzählung des
                 Innenraums mitgestaltet, anstatt ein zufälliger Zusatz zu sein.
@@ -129,7 +129,7 @@ export default function FuerArchitektenPage() {
             </div>
 
             <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/88">
                 03
               </p>
 
@@ -137,7 +137,7 @@ export default function FuerArchitektenPage() {
                 Premium-Projektberatung
               </h3>
 
-              <p className="mt-5 leading-8 text-white/90">
+              <p className="mt-5 leading-8 text-white">
                 Die Zusammenarbeit kann mit einem privaten Projektgespräch
                 beginnen, in dem wir gemeinsam die Richtung festlegen: Modell,
                 Präsenz im Raum, Ausführung und finaler visueller Effekt.
@@ -152,7 +152,7 @@ export default function FuerArchitektenPage() {
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
               <h3 className="text-xl font-light text-white">Residenzen</h3>
-              <p className="mt-4 leading-7 text-white/90">
+              <p className="mt-4 leading-7 text-white">
                 Der Flügel als zentrales Element eines Wohnraums, einer
                 Bibliothek oder eines repräsentativen Bereichs.
               </p>
@@ -162,7 +162,7 @@ export default function FuerArchitektenPage() {
               <h3 className="text-xl font-light text-white">
                 Premium-Apartments
               </h3>
-              <p className="mt-4 leading-7 text-white/90">
+              <p className="mt-4 leading-7 text-white">
                 Auswahl des passenden Modells für einen kleineren, aber sehr
                 bewusst gestalteten Raum.
               </p>
@@ -170,7 +170,7 @@ export default function FuerArchitektenPage() {
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
               <h3 className="text-xl font-light text-white">Luxury Hotels</h3>
-              <p className="mt-4 leading-7 text-white/90">
+              <p className="mt-4 leading-7 text-white">
                 Die Präsenz des Instruments in Lobbys, Suiten und Bereichen mit
                 hoher repräsentativer Wirkung.
               </p>
@@ -180,7 +180,7 @@ export default function FuerArchitektenPage() {
               <h3 className="text-xl font-light text-white">
                 Repräsentative Innenräume
               </h3>
-              <p className="mt-4 leading-7 text-white/90">
+              <p className="mt-4 leading-7 text-white">
                 Projekte, in denen Prestige, Maßstab, Detail und eine starke
                 Identität des Innenraums zählen.
               </p>
@@ -192,7 +192,7 @@ export default function FuerArchitektenPage() {
 
       <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Projektgespräch
           </p>
 
@@ -200,7 +200,7 @@ export default function FuerArchitektenPage() {
             Beginnen wir mit der Richtung des Projekts
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
             Wenn Sie an einer Residenz, einem Apartment, einem Hotel oder einem
             repräsentativen Innenraum arbeiten, können wir mit einem ruhigen
             Gespräch über Modell, Ausführung und die Rolle des Instruments in

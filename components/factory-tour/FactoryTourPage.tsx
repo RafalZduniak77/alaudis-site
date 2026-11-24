@@ -32,7 +32,7 @@ export default function FactoryTourPage({ language }: { language: TourLanguage }
                 <div className="p-7">
                   <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">0{index + 1}</p>
                   <h3 className="mt-3 text-2xl font-light">{copy.stages[stage.key].title}</h3>
-                  <p className="mt-4 leading-7 text-white/85">{copy.stages[stage.key].text}</p>
+                  <p className="mt-4 leading-7 text-white/95">{copy.stages[stage.key].text}</p>
                 </div>
               </article>
             ))}
@@ -43,14 +43,14 @@ export default function FactoryTourPage({ language }: { language: TourLanguage }
       {/* JAK TO DZIAŁA */}
       <section className="bg-neutral-950 px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">{copy.infoEyebrow}</p>
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">{copy.infoEyebrow}</p>
           <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">{copy.infoTitle}</h2>
           <ol className="mt-12 grid gap-6 lg:grid-cols-3">
             {copy.info.map((step, index) => (
               <li key={step.title} className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-                <p className="text-xs uppercase tracking-[0.32em] text-white/75">0{index + 1}</p>
+                <p className="text-xs uppercase tracking-[0.32em] text-white/88">0{index + 1}</p>
                 <h3 className="mt-4 text-2xl font-light">{step.title}</h3>
-                <p className="mt-5 leading-8 text-white/90">{step.text}</p>
+                <p className="mt-5 leading-8 text-white">{step.text}</p>
               </li>
             ))}
           </ol>
@@ -60,7 +60,7 @@ export default function FactoryTourPage({ language }: { language: TourLanguage }
             {copy.highlights.map((item) => (
               <div key={item.title} className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
                 <h3 className="text-2xl font-light">{item.title}</h3>
-                <p className="mt-5 leading-8 text-white/90">{item.text}</p>
+                <p className="mt-5 leading-8 text-white">{item.text}</p>
               </div>
             ))}
           </div>
@@ -79,13 +79,13 @@ export default function FactoryTourPage({ language }: { language: TourLanguage }
           <div>
             <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">{copy.formEyebrow}</p>
             <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">{copy.formTitle}</h2>
-            <p className="mt-6 leading-8 text-white/90">{copy.formText}</p>
-            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/75">ALAUDIS / SAP Renovation</p>
+            <p className="mt-6 leading-8 text-white">{copy.formText}</p>
+            <p className="mt-8 text-[11px] uppercase tracking-[0.28em] text-white/88">ALAUDIS / SAP Renovation</p>
             <p className="mt-3 text-xl font-light text-white">{copy.address}</p>
             <dl className="mt-8 grid grid-cols-2 gap-4">
               {copy.facts.map((fact) => (
                 <div key={fact.label} className="rounded-[22px] border border-white/10 bg-white/[0.03] p-5">
-                  <dt className="text-[11px] uppercase tracking-[0.24em] text-white/60">{fact.label}</dt>
+                  <dt className="text-[11px] uppercase tracking-[0.24em] text-white/78">{fact.label}</dt>
                   <dd className="mt-2 text-lg font-light text-white">{fact.value}</dd>
                 </div>
               ))}

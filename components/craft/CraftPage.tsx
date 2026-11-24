@@ -114,7 +114,7 @@ export default async function CraftPage({ language }: { language: CraftLanguage 
       {/* FILMY */}
       <section id="filmy" className="scroll-mt-24 px-4 pb-20 pt-16 sm:px-8 sm:pt-20 lg:px-12">
         <div className="mx-auto max-w-[1520px]">
-          <p className="max-w-3xl leading-8 text-white/80 sm:text-[17px]">{copy.intro}</p>
+          <p className="max-w-3xl leading-8 text-white/92 sm:text-[17px]">{copy.intro}</p>
 
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:gap-7">
             {videos.map((video, index) => (
@@ -135,7 +135,7 @@ export default async function CraftPage({ language }: { language: CraftLanguage 
               <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16">
                 <p className="text-[11px] uppercase tracking-[0.32em] text-[#d3bd8b]">{ui.tour.eyebrow}</p>
                 <h2 className="mt-4 text-3xl font-light leading-tight sm:text-4xl">{ui.tour.title}</h2>
-                <p className="mt-5 max-w-md leading-8 text-white/80">{ui.tour.text}</p>
+                <p className="mt-5 max-w-md leading-8 text-white/92">{ui.tour.text}</p>
                 <Link href={`${prefix}/zwiedzanie-manufaktury`} className="mt-9 inline-flex w-fit rounded-full bg-white px-7 py-4 text-sm uppercase tracking-[0.2em] text-black transition hover:bg-[#d3bd8b]">
                   {ui.tour.cta}
                 </Link>
@@ -148,7 +148,7 @@ export default async function CraftPage({ language }: { language: CraftLanguage 
               {ui.cards.map((card) => (
                 <Link key={card.href} href={card.href} prefetch={false} className="group relative isolate flex aspect-square items-end overflow-hidden rounded-[32px] bg-[#0b0b0b] text-white">
                   <Image src={card.image} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="-z-10 object-cover transition duration-700 group-hover:scale-105" />
-                  <span aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-black/10 to-black/85" />
+                  <span aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-black/5 to-black/70" />
                   <span className="flex w-full items-end justify-between gap-4 p-7 sm:p-8">
                     <span className="text-2xl font-light leading-tight">{card.title}</span>
                     <Arrow />

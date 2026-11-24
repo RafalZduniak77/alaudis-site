@@ -85,7 +85,7 @@ export default function VisitezLatelierPage() {
             <div className="mt-10 sm:mt-12">
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-[30px] border border-black/10 bg-[#0b0b0b] p-7 text-left shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/88">
                 01
               </p>
 
@@ -93,7 +93,7 @@ export default function VisitezLatelierPage() {
                 Voir les modèles de près
               </h3>
 
-              <p className="mt-5 leading-8 text-white/90">
+              <p className="mt-5 leading-8 text-white">
                 Découvrez l’échelle, la ligne et la présence du piano dans un
                 espace réel. Voyez comment le modèle se perçoit non pas à
                 l’écran, mais dans un contact physique avec le matériau et le
@@ -102,7 +102,7 @@ export default function VisitezLatelierPage() {
             </div>
 
             <div className="rounded-[30px] border border-black/10 bg-[#0b0b0b] p-7 text-left shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/88">
                 02
               </p>
 
@@ -110,7 +110,7 @@ export default function VisitezLatelierPage() {
                 Parler des finitions
               </h3>
 
-              <p className="mt-5 leading-8 text-white/90">
+              <p className="mt-5 leading-8 text-white">
                 Discutez du choix de la finition, du caractère de la surface, de
                 la tonalité du matériau et de la composition générale de
                 l’instrument afin qu’elle réponde harmonieusement à
@@ -119,7 +119,7 @@ export default function VisitezLatelierPage() {
             </div>
 
             <div className="rounded-[30px] border border-black/10 bg-[#0b0b0b] p-7 text-left shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/88">
                 03
               </p>
 
@@ -127,7 +127,7 @@ export default function VisitezLatelierPage() {
                 Définir la direction d’une composition individuelle
               </h3>
 
-              <p className="mt-5 leading-8 text-white/90">
+              <p className="mt-5 leading-8 text-white">
                 La visite peut devenir le début d’une consultation privée,
                 une conversation autour du modèle, du caractère de
                 l’instrument, de son usage, de l’échelle souhaitée et du langage
@@ -140,7 +140,7 @@ export default function VisitezLatelierPage() {
             <div className="mt-6 border-t border-black/10 pt-6 sm:mt-8 sm:pt-8">
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-[30px] border border-black/10 bg-[#0b0b0b] p-7 text-left shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/88">
                 01 · Expérience de la visite
               </p>
 
@@ -148,13 +148,13 @@ export default function VisitezLatelierPage() {
                 Une rencontre avec la marque dans son environnement naturel
               </h3>
 
-              <p className="mt-5 leading-8 text-white/90">
+              <p className="mt-5 leading-8 text-white">
                 Dans l’atelier, vous pouvez découvrir les modèles Alaudis dans un cadre calme et privé, de près, sans précipitation, avec la possibilité d’échanger sur les proportions, les finitions, la destination de l’instrument et sa place dans un espace concret.
               </p>
             </div>
 
             <div className="rounded-[30px] border border-black/10 bg-[#0b0b0b] p-7 text-left shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/88">
                 02
               </p>
 
@@ -162,13 +162,13 @@ export default function VisitezLatelierPage() {
                 Une conversation privée
               </h3>
 
-              <p className="mt-5 leading-8 text-white/90">
+              <p className="mt-5 leading-8 text-white">
                 La rencontre se déroule sous la forme d’un échange privé. Cela nous permet de discuter sereinement des modèles, de l’échelle souhaitée de l’instrument, des finitions premium et de la place du piano dans un espace concret.
               </p>
             </div>
 
             <div className="flex flex-col rounded-[30px] border border-black/10 bg-[#0b0b0b] p-7 text-left shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/88">
                 03 · Atelier / SAP Renovation
               </p>
 
@@ -178,7 +178,7 @@ export default function VisitezLatelierPage() {
                 62-800 Kalisz
               </h3>
 
-              <p className="mt-5 leading-8 text-white/90">
+              <p className="mt-5 leading-8 text-white">
                 Il est préférable de planifier les visites à l’avance afin que nous puissions préparer une rencontre calme et privée autour des modèles Alaudis et adapter le déroulement de l’échange à votre projet.
               </p>
 
@@ -205,7 +205,7 @@ export default function VisitezLatelierPage() {
 
       <section className="bg-neutral-950 px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Étape suivante
           </p>
 
@@ -213,7 +213,7 @@ export default function VisitezLatelierPage() {
             Commencez par un échange privé
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
             Le meilleur début pour une visite à l’atelier est un premier contact
             rapide, grâce à lui, nous préparerons la rencontre autour du bon
             modèle, du caractère recherché et de la direction de la composition

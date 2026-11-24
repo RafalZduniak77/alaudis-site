@@ -11,6 +11,27 @@ body {
   box-sizing: border-box;
 }
 
+/* Site-wide lift for photos and films. One place to tune or switch off:
+   set both values to 1 to return to the untouched pictures.
+   Kept in the base layer so per-image filter classes still win. */
+:root {
+  --media-brightness: 1.12;
+  --media-saturate: 1.06;
+}
+
+@layer base {
+  img,
+  video {
+    filter: brightness(var(--media-brightness)) saturate(var(--media-saturate));
+  }
+
+  /* Logos and icons keep their exact colours. */
+  img[src*="logo"],
+  img[src$=".svg"] {
+    filter: none;
+  }
+}
+
 /* Keep hero text legible while allowing the photography to stay bright. */
 .hero-copy h1,
 .hero-copy p {

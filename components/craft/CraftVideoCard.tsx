@@ -86,16 +86,16 @@ export default function CraftVideoCard({ video, index, total, fullscreenLabel, l
         aria-label={video.title}
         className="absolute inset-0 -z-10 h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
       />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-black/55 via-transparent to-black/85" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
 
-      <p className="px-7 pt-7 text-[11px] uppercase tracking-[0.3em] text-white/80 sm:px-9 sm:pt-9">
+      <p className="px-7 pt-7 text-[11px] uppercase tracking-[0.3em] text-white/92 sm:px-9 sm:pt-9">
         {number} <span className="text-white/45">/ {total}</span>
       </p>
 
       <div className="flex items-end gap-5 px-7 pb-7 sm:px-9 sm:pb-9">
         <div className="min-w-0 flex-1">
           <h2 className="text-2xl font-light leading-tight text-white sm:text-[28px]">{video.title}</h2>
-          <p className="mt-3 line-clamp-3 text-sm leading-6 text-white/80 sm:text-[15px] sm:leading-7">{video.text}</p>
+          <p className="mt-3 line-clamp-3 text-sm leading-6 text-white/92 sm:text-[15px] sm:leading-7">{video.text}</p>
         </div>
         <button
           ref={trigger}

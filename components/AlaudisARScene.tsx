@@ -341,13 +341,13 @@ export default function AlaudisARScene({
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-white/8 to-transparent" />
 
       <div className="pointer-events-none absolute left-5 top-5 z-20 rounded-full border border-white/10 bg-black/35 px-4 py-2 backdrop-blur-sm">
-        <span className="text-[11px] uppercase tracking-[0.24em] text-white/84">
+        <span className="text-[11px] uppercase tracking-[0.24em] text-white/95">
           {labels.experience}
         </span>
       </div>
 
       <div className="pointer-events-none absolute right-16 top-5 z-20 hidden rounded-full sm:block border border-white/10 bg-black/35 px-4 py-2 backdrop-blur-sm">
-        <span className="text-[11px] uppercase tracking-[0.24em] text-white/84">
+        <span className="text-[11px] uppercase tracking-[0.24em] text-white/95">
           {labels.controlsBadge}
         </span>
       </div>
@@ -403,7 +403,7 @@ export default function AlaudisARScene({
             className="alaudis-sirv-host relative z-[1] h-full w-full"
           />
         ) : (
-          <div className="relative z-[1] flex h-full w-full items-center justify-center text-white/80">
+          <div className="relative z-[1] flex h-full w-full items-center justify-center text-white/92">
             {labels.loading}
           </div>
         )}
@@ -412,12 +412,12 @@ export default function AlaudisARScene({
       <div className="relative z-20">
         <div className="border-t border-white/10 bg-black/60 px-5 py-4">
           <div className="flex items-center justify-between gap-4">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-white/75">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-white/88">
               {labels.controls}
             </p>
 
             <div className="flex flex-nowrap items-center gap-2 overflow-x-auto sm:overflow-visible">
-              <span className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/88">
+              <span className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/95">
                 {labels.activeSpin}
               </span>
 
@@ -427,13 +427,13 @@ export default function AlaudisARScene({
                 className={
                   autoRotateEnabled
                     ? "whitespace-nowrap rounded-full border border-[#c79a5c]/40 bg-[#c79a5c]/15 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-[#f0cd98] transition hover:border-[#c79a5c]/60 hover:bg-[#c79a5c]/20"
-                    : "whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/90 transition hover:border-white/25"
+                    : "whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white/25"
                 }
               >
                 {autoRotateEnabled ? labels.autoRotateOn : labels.autoRotateOff}
               </button>
 
-              <span className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/90">
+              <span className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white">
                 {labels.zoomActive}
               </span>
 

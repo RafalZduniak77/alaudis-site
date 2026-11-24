@@ -78,13 +78,13 @@ export default function ModelBespokeOffer({ language, model }: { language: Langu
           <div>
             <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">{copy.eyebrow}</p>
             <h2 id={`bespoke-${model}`} className="mt-4 text-3xl font-light text-white sm:text-4xl">{copy.title}</h2>
-            <p className="mt-6 max-w-2xl leading-8 text-white/90">{copy.text}</p>
+            <p className="mt-6 max-w-2xl leading-8 text-white">{copy.text}</p>
           </div>
 
           <div className="rounded-[30px] border border-[#d3bd8b]/40 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 sm:p-10">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">{copy.priceLabel}</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">{copy.priceLabel}</p>
             <p className="mt-5 text-4xl font-light text-white sm:text-5xl">{copy.price}</p>
-            <p className="mt-4 leading-7 text-white/70">{copy.onRequest}</p>
+            <p className="mt-4 leading-7 text-white/84">{copy.onRequest}</p>
           </div>
         </div>
 
@@ -93,7 +93,7 @@ export default function ModelBespokeOffer({ language, model }: { language: Langu
             <div key={pillar.label} className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
               <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">{pillar.label}</p>
               <h3 className="mt-4 text-2xl font-light">{pillar.title}</h3>
-              <p className="mt-5 leading-8 text-white/90">{pillar.text}</p>
+              <p className="mt-5 leading-8 text-white">{pillar.text}</p>
             </div>
           ))}
         </div>

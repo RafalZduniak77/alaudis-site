@@ -130,7 +130,7 @@ export default function CookieConsent() {
               <h2 className="text-[15px] font-medium tracking-[0.01em] text-white">
                 {text.title}
               </h2>
-              <p className="mt-1 text-[13px] leading-[1.55] text-white/72">
+              <p className="mt-1 text-[13px] leading-[1.55] text-white/88">
                 {text.text}{" "}
                 <a href={`${locale === "pl" ? "" : `/${locale}`}/polityka-prywatnosci`} className="whitespace-nowrap text-[#d3bd8b] underline-offset-4 hover:underline">
                   {POLICY_LABEL[locale]}

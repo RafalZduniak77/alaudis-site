@@ -252,13 +252,13 @@ export default function HistoriaPage() {
                           : "translate-y-8 opacity-35"
                       }`}
                     >
-                      <p className="text-xs text-white/90 uppercase">
+                      <p className="text-xs text-white uppercase">
                         {section.eyebrow}
                       </p>
 
                       <h2 className="mt-3 text-[25px] font-light leading-tight text-white sm:text-[28px]">{section.title}</h2>
 
-                      <div className="mt-4 space-y-2 text-[15px] leading-[1.55] text-white/90 sm:text-[16px] sm:leading-[1.58]">
+                      <div className="mt-4 space-y-2 text-[15px] leading-[1.55] text-white sm:text-[16px] sm:leading-[1.58]">
                         {section.text.map((paragraph, i) => (
                           <p key={`${section.title}-${i}`}>{paragraph}</p>
                         ))}
@@ -274,13 +274,13 @@ export default function HistoriaPage() {
 
 <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Next step
           </p>
           <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
             Discover Alaudis more closely
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
             Discover the models, open the configurator, or arrange a private
             conversation to talk about instruments created in the Alaudis
             philosophy.

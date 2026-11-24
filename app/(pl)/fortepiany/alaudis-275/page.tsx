@@ -68,7 +68,7 @@ export default function ModelAlaudis275Page() {
             priority
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/35" />
+          <div className="absolute inset-0 bg-black/20" />
         </div>
 
         {/* ==================================================
@@ -76,7 +76,7 @@ export default function ModelAlaudis275Page() {
            ================================================== */}
         <div className="relative z-20 px-6 pb-20 pt-8 text-center">
           <div className="mx-auto max-w-5xl">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/88">
+            <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/95">
               Model koncertowy
             </p>
 
@@ -85,7 +85,7 @@ export default function ModelAlaudis275Page() {
               <span className="mt-3 block">DREAM 275</span>
             </h1>
 
-            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white/92 sm:text-base">
+            <p className="mx-auto mt-7 max-w-3xl text-sm leading-8 text-white sm:text-base">
               Największa forma koncertowa Alaudis, stworzona dla pełnej skali
               brzmienia, szerokiej projekcji i scenicznej obecności. To model
               dla przestrzeni, w których instrument nie tylko dopełnia wnętrze,
@@ -123,7 +123,7 @@ export default function ModelAlaudis275Page() {
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Charakter brzmienia
             </p>
 
@@ -132,7 +132,7 @@ export default function ModelAlaudis275Page() {
             </h2>
           </div>
 
-          <div className="space-y-6 text-white/90">
+          <div className="space-y-6 text-white">
             <p className="leading-8">
               ALAUDIS DREAM 275 otwiera pełną skalę języka brzmieniowego marki.
               Oferuje rozległą projekcję, głęboki fundament basowy, szeroki
@@ -157,7 +157,7 @@ export default function ModelAlaudis275Page() {
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
           {/* PRZEZNACZENIE */}
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Przeznaczenie
             </p>
 
@@ -165,7 +165,7 @@ export default function ModelAlaudis275Page() {
               Scena, sala koncertowa, rezydencja premium
             </h3>
 
-            <p className="mt-5 leading-8 text-white/90">
+            <p className="mt-5 leading-8 text-white">
               Stworzony do sal koncertowych, dużych przestrzeni reprezentacyjnych,
               instytucji artystycznych oraz najbardziej wymagających prywatnych
               wnętrz, w których fortepian ma oferować pełną projekcję i wielką
@@ -175,7 +175,7 @@ export default function ModelAlaudis275Page() {
 
           {/* WNĘTRZA */}
           <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Docelowe wnętrza i sceny
             </p>
 
@@ -183,7 +183,7 @@ export default function ModelAlaudis275Page() {
               Skala, architektura, prestiż
             </h3>
 
-            <p className="mt-5 leading-8 text-white/90">
+            <p className="mt-5 leading-8 text-white">
               Najlepiej odnajduje się w przestrzeniach o dużym oddechu:
               reprezentacyjnych salonach, salach koncertowych, hotelach klasy
               luxury oraz wnętrzach, w których instrument ma mieć charakter
@@ -193,7 +193,7 @@ export default function ModelAlaudis275Page() {
 
           {/* TOŻSAMOŚĆ */}
           <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
               Tożsamość modelu
             </p>
 
@@ -201,7 +201,7 @@ export default function ModelAlaudis275Page() {
               Największa forma Alaudis
             </h3>
 
-            <p className="mt-5 leading-8 text-white/90">
+            <p className="mt-5 leading-8 text-white">
               ALAUDIS DREAM 275 reprezentuje szczytową skalę marki, instrument o
               najbardziej rozbudowanej osobowości, największym oddechu i
               najbardziej koncertowej naturze. To Alaudis w swojej najbardziej
@@ -216,7 +216,7 @@ export default function ModelAlaudis275Page() {
          ==================================================== */}
       <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Galeria
           </p>
 
@@ -268,7 +268,7 @@ export default function ModelAlaudis275Page() {
 
       <section className="bg-neutral-950 px-6 py-20 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Następny krok
           </p>
 
@@ -276,7 +276,7 @@ export default function ModelAlaudis275Page() {
             Skonfiguruj ALAUDIS DREAM 275 lub zobacz go w 3D
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
             Przejdź do konfiguratora, aby dopasować wykończenie i detale, albo
             zobacz model w podglądzie 3D i sprawdź jego skalę, proporcje oraz
             sceniczną obecność w przestrzeni.

@@ -18,7 +18,7 @@ import styles from "./HomeHero.module.css";
 // dim: extra darkening for bright photos, so the white title stays readable.
 const SLIDES = [
   { src: "/hero/gala-scena.jpg", position: "58% 50%", dim: 0 },
-  { src: "/hero/manufaktura.jpg", position: "62% 50%", dim: 0.42 },
+  { src: "/hero/manufaktura.jpg", position: "62% 50%", dim: 0.3 },
   { src: "/hero/gala-logo.jpg", position: "38% 50%", dim: 0 },
   { src: "/hero/gala-sala.jpg", position: "62% 50%", dim: 0 },
   { src: "/hero/gala-pianista.jpg", position: "40% 50%", dim: 0 },

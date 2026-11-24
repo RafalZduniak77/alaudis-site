@@ -315,7 +315,7 @@ export default function ConfiguratorPanel({
         <h1 className="mb-2 text-xs font-light tracking-[0.16em] text-[#dec38c] lg:mb-2 lg:text-sm">
           {modelName}
         </h1>
-        <p className="hidden text-white/65 lg:mb-3 lg:block lg:text-xs lg:leading-5">{BESPOKE_NOTE[language]}</p>
+        <p className="hidden text-white/78 lg:mb-3 lg:block lg:text-xs lg:leading-5">{BESPOKE_NOTE[language]}</p>
         <input
           value={offerTitle}
           onChange={(e) => setOfferTitle(e.target.value)}
@@ -338,7 +338,7 @@ export default function ConfiguratorPanel({
             ref={tabRefs[tab]}
             onClick={() => onScrollToSection(tab)}
             className={`min-h-11 min-w-0 flex-1 px-1 py-2.5 text-[11px] tracking-[0.08em] sm:text-xs lg:min-h-0 lg:py-3.5 lg:text-[13px] ${
-              activeTab === tab ? "text-white" : "text-white/90"
+              activeTab === tab ? "text-white" : "text-white"
             }`}
           >
             {labels.tabs[tab]}
@@ -369,7 +369,7 @@ export default function ConfiguratorPanel({
                   : mechanizmRef
             }
           >
-            <h3 className="mb-2.5 text-[11px] uppercase tracking-[0.18em] text-white/60 lg:mb-3 lg:text-xs">
+            <h3 className="mb-2.5 text-[11px] uppercase tracking-[0.18em] text-white/78 lg:mb-3 lg:text-xs">
               {labels.sections[section]}
             </h3>
 

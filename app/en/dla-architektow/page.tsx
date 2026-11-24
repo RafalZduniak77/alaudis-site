@@ -26,7 +26,7 @@ export default function ForArchitectsPage() {
 
       <section className="bg-neutral-950 px-6 pb-24 pt-32 sm:pt-36 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Design inspiration
           </p>
 
@@ -75,13 +75,13 @@ export default function ForArchitectsPage() {
         <div className="mx-auto max-w-4xl">
           <div aria-hidden="true" className="mx-auto mb-8 h-px w-12 bg-[#d3bd8b]/70" />
           <div>
-            <p className="mx-auto mt-0 max-w-3xl text-sm leading-8 text-white/92 sm:text-base sm:leading-9">
+            <p className="mx-auto mt-0 max-w-3xl text-sm leading-8 text-white sm:text-base sm:leading-9">
               Alaudis can become an integral part of a residence, apartment,
               hotel or representative interior, not as an ordinary object,
               but as a consciously selected element of the interior composition.
             </p>
 
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/86 sm:text-[15px] sm:leading-8">
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/95 sm:text-[15px] sm:leading-8">
               We collaborate on projects where proportion, material, light,
               character and the presence of the instrument within a premium
               space truly matter.
@@ -95,7 +95,7 @@ export default function ForArchitectsPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/88">
                 01
               </p>
 
@@ -103,7 +103,7 @@ export default function ForArchitectsPage() {
                 Choosing the model for the scale of the interior
               </h3>
 
-              <p className="mt-5 leading-8 text-white/90">
+              <p className="mt-5 leading-8 text-white">
                 We help select the size and character of the model according to
                 the proportions of the space, from living rooms and apartments
                 to larger residences, lobbies and representative hotel areas.
@@ -111,7 +111,7 @@ export default function ForArchitectsPage() {
             </div>
 
             <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/88">
                 02
               </p>
 
@@ -119,7 +119,7 @@ export default function ForArchitectsPage() {
                 Finishes aligned with the project
               </h3>
 
-              <p className="mt-5 leading-8 text-white/90">
+              <p className="mt-5 leading-8 text-white">
                 We discuss the tone of the material, gloss, surface character,
                 colour palette and details so that the instrument co-creates the
                 interior narrative instead of becoming a random addition.
@@ -127,7 +127,7 @@ export default function ForArchitectsPage() {
             </div>
 
             <div className="rounded-[30px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/88">
                 03
               </p>
 
@@ -135,7 +135,7 @@ export default function ForArchitectsPage() {
                 Premium design consultation
               </h3>
 
-              <p className="mt-5 leading-8 text-white/90">
+              <p className="mt-5 leading-8 text-white">
                 The collaboration can begin with a private design conversation
                 in which we define the direction together: model, presence in
                 the space, finish and final visual effect.
@@ -150,7 +150,7 @@ export default function ForArchitectsPage() {
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
               <h3 className="text-xl font-light text-white">Residences</h3>
-              <p className="mt-4 leading-7 text-white/90">
+              <p className="mt-4 leading-7 text-white">
                 A piano as the central element of a living room, library or
                 representative area.
               </p>
@@ -160,7 +160,7 @@ export default function ForArchitectsPage() {
               <h3 className="text-xl font-light text-white">
                 Premium apartments
               </h3>
-              <p className="mt-4 leading-7 text-white/90">
+              <p className="mt-4 leading-7 text-white">
                 Selecting the right model for a smaller but very consciously
                 designed space.
               </p>
@@ -168,7 +168,7 @@ export default function ForArchitectsPage() {
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
               <h3 className="text-xl font-light text-white">Luxury hotels</h3>
-              <p className="mt-4 leading-7 text-white/90">
+              <p className="mt-4 leading-7 text-white">
                 The presence of the instrument in lobbies, suites and spaces
                 with strong image-building value.
               </p>
@@ -178,7 +178,7 @@ export default function ForArchitectsPage() {
               <h3 className="text-xl font-light text-white">
                 Representative interiors
               </h3>
-              <p className="mt-4 leading-7 text-white/90">
+              <p className="mt-4 leading-7 text-white">
                 Projects in which prestige, scale, detail and a strong interior
                 identity matter.
               </p>
@@ -190,7 +190,7 @@ export default function ForArchitectsPage() {
 
       <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Design conversation
           </p>
 
@@ -198,7 +198,7 @@ export default function ForArchitectsPage() {
             Let’s begin with the direction of the project
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/90">
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
             If you are working on a residence, apartment, hotel or a
             representative interior, we can begin with a calm conversation
             about the model, finish and the role of the instrument within the
