@@ -133,11 +133,11 @@ export default function Footer() {
   const aboutUrl = `${langPrefix}/historia`;
 
   return (
-    <footer className="border-t border-white/6 bg-black px-6 py-16 sm:px-10 lg:px-16">
+    <footer className="bg-black px-6 pb-16 pt-10 sm:px-10 lg:px-16">
       {/* ====================================================
           GŁÓWNA SIATKA FOOTERA
          ==================================================== */}
-      <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl gap-12 border-t border-white/20 pt-14 md:grid-cols-2 lg:grid-cols-4">
         {/* ==================================================
             KOLUMNA 1 - ALAUDIS
            ================================================== */}
@@ -246,7 +246,7 @@ export default function Footer() {
       {/* ====================================================
           DÓŁ FOOTERA
          ==================================================== */}
-      <div className="mx-auto mt-16 flex max-w-7xl flex-col items-center gap-6 border-t border-white/10 pt-8 text-center">
+      <div className="mx-auto mt-14 flex max-w-7xl flex-col items-center gap-6 border-t border-white/20 pt-10 text-center">
         <p className="max-w-xl text-sm leading-6 text-white/78">{sapRenovation.intro}</p>
         <a
           href={sapRenovation.href}
