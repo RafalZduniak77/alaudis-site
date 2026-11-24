@@ -505,15 +505,9 @@ export default function ScrollModelsShowcase() {
   const language = getLanguageFromPathname(pathname);
 
   const slides = useMemo(() => getSlides(language), [language]);
-  const sectionTitle = slides[0]?.sectionTitle ?? "Modele i wykończenia";
 
   return (
-    <section className="bg-[#111] px-0 text-white">
-      <div className="mx-auto max-w-[1600px] px-4 pb-10 pt-24">
-        <p className="text-[11px] uppercase tracking-[0.36em] text-white/88">
-          {sectionTitle}
-        </p>
-      </div>
+    <section className="bg-[#111] px-0 pt-10 text-white">
 
       {slides.map((slide) => (
         <SlideItem key={slide.id} slide={slide} />
