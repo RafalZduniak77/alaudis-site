@@ -352,6 +352,12 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
               title: "Per Quattro",
               text: "Duet założony w 2016 roku przez Joannę Kaczmarską-Bieżyńską i Roberta Adamczaka, pianistów i pedagogów związanych z Kaliszem i Uniwersytetem im. Adama Mickiewicza. Wykonuje muzykę na cztery ręce i na dwa fortepiany, występował między innymi na festiwalu „Chopin nad wodami Motławy” w Gdańsku i na Konfrontacjach Chopinowskich w Antoninie. W 2025 roku nakładem CD Accord ukazał się album „Per Quattro” z muzyką Schuberta, Debussy’ego i Faurégo.\n\nNa koncercie premierowym duet wykonał muzykę Chopina, trzy tańce węgierskie Johannesa Brahmsa oraz „Libertango” Astora Piazzolli.",
             },
+            {
+              meta: "Fortepian, młode talenty",
+              title: "Antonina Waliszewska",
+              text: "Pianistka z Konina, uczennica Państwowej Szkoły Muzycznej II stopnia im. F. Chopina w Poznaniu w klasie fortepianu Joanny Marcinkowskiej. Laureatka ponad stu konkursów pianistycznych, stypendystka programu „Młoda Polska” Ministra Kultury i Dziedzictwa Narodowego oraz Fundacji Santander. Występowała między innymi w Muzeum Fryderyka Chopina w Warszawie, w Żelazowej Woli, w Wiedniu i w Paryżu, a jej recital w Pałacu Myśliwskim w Antoninie transmitowało Polskie Radio Chopin.\n\nNa fortepianie Alaudis zagrała podczas wizyty w naszej pracowni. Nagrania i fotografie z tego spotkania znajdziesz w galerii „W kadrze”.",
+              link: { href: "/galeria", label: "Otwórz galerię" },
+            },
           ],
         },
         {
@@ -407,6 +413,12 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
               meta: "Piano duo, four hands",
               title: "Per Quattro",
               text: "A duo founded in 2016 by Joanna Kaczmarska-Bieżyńska and Robert Adamczak, pianists and teachers associated with Kalisz and Adam Mickiewicz University. It performs music for four hands and for two pianos, and has appeared at the “Chopin nad wodami Motławy” festival in Gdańsk and the Chopin Confrontations in Antonin, among others. In 2025 CD Accord released the album “Per Quattro” with music by Schubert, Debussy and Fauré.\n\nAt the premiere concert the duo performed music by Chopin, three Hungarian Dances by Johannes Brahms and Astor Piazzolla’s “Libertango”.",
+            },
+            {
+              meta: "Piano, young talents",
+              title: "Antonina Waliszewska",
+              text: "A pianist from Konin and a student of Joanna Marcinkowska at the Fryderyk Chopin Secondary Music School in Poznań. She has won prizes at more than a hundred piano competitions and holds scholarships from the Polish Minister of Culture’s “Młoda Polska” programme and the Santander Foundation. She has performed at the Fryderyk Chopin Museum in Warsaw, in Żelazowa Wola, Vienna and Paris, among others, and her recital at the Hunting Palace in Antonin was broadcast by Polish Radio Chopin.\n\nShe played the Alaudis grand piano during a visit to our workshop. Recordings and photographs from that meeting can be found in the “In focus” gallery.",
+              link: { href: "/galeria", label: "Open the gallery" },
             },
           ],
         },
@@ -464,6 +476,12 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
               title: "Per Quattro",
               text: "Das Duo wurde 2016 von Joanna Kaczmarska-Bieżyńska und Robert Adamczak gegründet, Pianisten und Pädagogen, die mit Kalisz und der Adam-Mickiewicz-Universität verbunden sind. Es spielt Musik zu vier Händen und für zwei Klaviere und trat unter anderem beim Festival „Chopin nad wodami Motławy“ in Danzig und bei den Chopin-Konfrontationen in Antonin auf. 2025 erschien bei CD Accord das Album „Per Quattro“ mit Musik von Schubert, Debussy und Fauré.\n\nBeim Premierenkonzert spielte das Duo Musik von Chopin, drei Ungarische Tänze von Johannes Brahms und „Libertango“ von Astor Piazzolla.",
             },
+            {
+              meta: "Klavier, junge Talente",
+              title: "Antonina Waliszewska",
+              text: "Die Pianistin aus Konin ist Schülerin von Joanna Marcinkowska an der Staatlichen Fryderyk-Chopin-Musikschule in Posen. Sie ist Preisträgerin von mehr als hundert Klavierwettbewerben und Stipendiatin des Programms „Młoda Polska“ des polnischen Kulturministers sowie der Santander-Stiftung. Sie trat unter anderem im Fryderyk-Chopin-Museum in Warschau, in Żelazowa Wola, in Wien und in Paris auf; ihr Recital im Jagdschloss Antonin wurde vom Polnischen Rundfunk Chopin übertragen.\n\nAuf dem Alaudis Flügel spielte sie bei einem Besuch in unserer Werkstatt. Aufnahmen und Fotos dieser Begegnung finden Sie in der Galerie „Einblicke“.",
+              link: { href: "/galeria", label: "Galerie öffnen" },
+            },
           ],
         },
         {
@@ -519,6 +537,12 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
               meta: "Duo de piano à quatre mains",
               title: "Per Quattro",
               text: "Duo fondé en 2016 par Joanna Kaczmarska-Bieżyńska et Robert Adamczak, pianistes et pédagogues liés à Kalisz et à l’Université Adam Mickiewicz. Il joue la musique à quatre mains et pour deux pianos et s’est produit notamment au festival « Chopin nad wodami Motławy » à Gdańsk et aux Confrontations Chopin d’Antonin. En 2025, l’album « Per Quattro », consacré à Schubert, Debussy et Fauré, est paru chez CD Accord.\n\nLors du concert de première, le duo a interprété de la musique de Chopin, trois Danses hongroises de Johannes Brahms et « Libertango » d’Astor Piazzolla.",
+            },
+            {
+              meta: "Piano, jeunes talents",
+              title: "Antonina Waliszewska",
+              text: "Pianiste originaire de Konin, élève de Joanna Marcinkowska à l’École nationale de musique Frédéric Chopin de Poznań. Lauréate de plus de cent concours de piano, elle est boursière du programme « Młoda Polska » du ministre polonais de la Culture et de la Fondation Santander. Elle s’est produite notamment au Musée Frédéric Chopin de Varsovie, à Żelazowa Wola, à Vienne et à Paris, et son récital au Palais de chasse d’Antonin a été retransmis par la Radio polonaise Chopin.\n\nElle a joué sur le piano à queue Alaudis lors d’une visite dans notre atelier. Les enregistrements et les photographies de cette rencontre se trouvent dans la galerie « En images ».",
+              link: { href: "/galeria", label: "Ouvrir la galerie" },
             },
           ],
         },
