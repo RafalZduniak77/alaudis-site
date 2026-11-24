@@ -42,33 +42,36 @@ export default function Home() {
         id="kontakt"
         className="bg-black px-6 py-20 text-center sm:px-10 lg:px-16"
       >
-        <p className="text-xs uppercase tracking-[0.32em] text-white/88">
-          Private Beratung
-        </p>
+        {/* Podłużna, podświetlana ramka (ten sam styl co kafelki na stronie) */}
+        <div className="mx-auto max-w-5xl rounded-[30px] border border-white/10 bg-white/[0.03] px-8 py-12 sm:px-10 sm:py-14">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
+            Private Beratung
+          </p>
 
-        <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
-          Sprechen wir über Ihren Alaudis
-        </h2>
+          <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+            Sprechen wir über Ihren Alaudis
+          </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
-          Kontaktieren Sie uns, um über Modell, Ausführung, Klangcharakter und
-          die individuelle Komposition Ihres Alaudis-Flügels zu sprechen.
-        </p>
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">
+            Kontaktieren Sie uns, um über Modell, Ausführung, Klangcharakter und
+            die individuelle Komposition Ihres Alaudis-Flügels zu sprechen.
+          </p>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link
-            href="/de/kontakt"
-            className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-          >
-            Kontaktieren Sie uns
-          </Link>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/de/kontakt"
+              className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+            >
+              Kontaktieren Sie uns
+            </Link>
 
-          <Link
-            href="/de/odwiedz-atelier"
-            className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-          >
-            Atelier besuchen
-          </Link>
+            <Link
+              href="/de/odwiedz-atelier"
+              className="rounded-full border border-white/35 bg-black/10 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+            >
+              Atelier besuchen
+            </Link>
+          </div>
         </div>
       </section>
 
