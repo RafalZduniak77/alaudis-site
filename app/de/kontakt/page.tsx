@@ -258,26 +258,26 @@ export default function KontaktPage() {
       </section>
 
       <section className="bg-black px-3 pb-16 sm:px-6 sm:pb-20">
-        <div className="mx-auto max-w-[1520px] rounded-[32px] bg-[#f4f1ea] px-5 py-14 shadow-[0_40px_120px_rgba(0,0,0,0.55)] sm:rounded-[44px] sm:px-10 sm:py-20 lg:px-16">
+        <div className="mx-auto max-w-[1520px] rounded-[32px] bg-[#f4f1ea] px-4 py-8 shadow-[0_40px_120px_rgba(0,0,0,0.55)] sm:rounded-[44px] sm:px-10 sm:py-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <p className="text-xs uppercase tracking-[0.32em] text-[#8a6d35]">
             SAP Renovation
           </p>
 
-          <div className="mt-12 rounded-[32px] border border-black/10 bg-[#0b0b0b] p-8 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-12">
-            <div className="grid gap-8 md:grid-cols-2">
+          <div className="mt-6 rounded-[24px] border border-black/10 bg-[#0b0b0b] p-6 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1.5fr] lg:gap-8">
               <div>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-white/88">
+                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
                   Firma
                 </p>
-                <p className="mt-3 text-xl text-white">SAP Renovation</p>
+                <p className="mt-2 text-base text-white lg:text-lg">SAP Renovation</p>
               </div>
 
               <div>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-white/88">
+                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
                   Adresse
                 </p>
-                <p className="mt-3 text-xl leading-8 text-white">
+                <p className="mt-2 text-base leading-7 text-white lg:text-lg">
                   Obozowa 18
                   <br />
                   62-800 Kalisz
@@ -285,17 +285,17 @@ export default function KontaktPage() {
               </div>
 
               <div>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-white/88">
+                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
                   Steuernummer
                 </p>
-                <p className="mt-3 text-xl text-white">6181893417</p>
+                <p className="mt-2 text-base text-white lg:text-lg">6181893417</p>
               </div>
 
               <div>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-white/88">
+                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
                   Kontakt
                 </p>
-                <div className="mt-3 space-y-3 text-xl text-white">
+                <div className="mt-2 space-y-1 text-base text-white lg:text-lg">
                   <p>
                     <a
                       href={`tel:+${SZYMON_PHONE_RAW}`}
@@ -332,17 +332,17 @@ export default function KontaktPage() {
               </div>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-7 flex flex-wrap gap-2">
               <Link
                 href="/de/odwiedz-atelier"
-                className="rounded-full border border-white/20 bg-black/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                className="rounded-full border border-white/20 bg-black/20 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Atelier besuchen
               </Link>
 
               <Link
                 href="/de/dla-architektow"
-                className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                className="rounded-full border border-white/35 bg-white/10 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-white transition hover:border-white hover:bg-white hover:text-black"
               >
                 Für Architekten
               </Link>
