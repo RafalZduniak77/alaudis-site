@@ -40,12 +40,8 @@ export default function ModelAlaudis214Page() {
       <section id="charakter" className="scroll-mt-24 bg-black px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl text-center">
           <div>
-            <p className="flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.42em] text-[#e0ca96] before:h-px before:w-10 before:bg-[#d3bd8b]/70 after:h-px after:w-10 after:bg-[#d3bd8b]/70">
+            <h2 className="flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.42em] text-[#e0ca96] before:h-px before:w-10 before:bg-[#d3bd8b]/70 after:h-px after:w-10 after:bg-[#d3bd8b]/70">
               Klangcharakter
-            </p>
-
-            <h2 className="mt-7 text-balance text-[2rem] font-extralight leading-[1.12] tracking-[-0.01em] text-white sm:text-5xl lg:text-[4rem]">
-              Voller, singend, konzertanter
             </h2>
           </div>
 
