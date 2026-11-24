@@ -189,14 +189,17 @@ export default function EditorialPage({
           ))}
         </nav>
 
-        <h2 className="mt-20 text-3xl font-light text-white sm:text-4xl">{text.contact}</h2>
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">{text.contactText}</p>
-        <Link
-          href={`${prefix}/kontakt`}
-          className="mt-10 inline-flex rounded-full border border-white/35 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
-        >
-          {text.contactButton}
-        </Link>
+        {/* Podłużna, podświetlana ramka (ten sam styl co kafelki na stronie) */}
+        <div className="mx-auto mt-16 max-w-5xl rounded-[30px] border border-white/10 bg-white/[0.03] px-8 py-12 sm:px-10 sm:py-14">
+          <h2 className="text-3xl font-light text-white sm:text-4xl">{text.contact}</h2>
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white">{text.contactText}</p>
+          <Link
+            href={`${prefix}/kontakt`}
+            className="mt-10 inline-flex rounded-full border border-white/35 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black"
+          >
+            {text.contactButton}
+          </Link>
+        </div>
       </section>
 
       <Footer />
