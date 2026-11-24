@@ -294,49 +294,62 @@ export default function KontaktPage() {
           </p>
 
           <div className="mt-6">
-            {/* Cztery oddzielne ramki: trzy z danymi firmy (pod każdą numer rejestrowy), czwarta z kontaktem. */}
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-[1.15fr_1fr_1fr_1.3fr] lg:gap-x-3 lg:gap-y-0 xl:gap-x-5">
-              <div className="grid content-start gap-6 rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6 lg:row-span-2 lg:grid-rows-subgrid lg:gap-y-0">
-                <div className="lg:pb-7">
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Firma</p>
-                  <p className="mt-3 text-xl font-light leading-8 text-white lg:text-lg xl:text-xl">
-                  SAP Renovation Sp. z o.o.
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-white/60">KRS</p>
-                  <p className="mt-2 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">0000125505</p>
+            {/* Cztery oddzielne ramki: firma z numerami rejestrowymi, adres, godziny otwarcia dzień po dniu, kontakt. */}
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-[1.25fr_0.9fr_1.15fr_1.3fr] lg:gap-3 xl:gap-5">
+              <div className="rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6">
+                <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Firma</p>
+                <p className="mt-3 text-xl font-light leading-8 text-white lg:text-base xl:text-lg 2xl:text-xl">SAP Renovation Sp. z o.o.</p>
+                <div className="mt-5 space-y-3">
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-white/60">NIP</p>
+                    <p className="mt-1 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">6181893417</p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-white/60">REGON</p>
+                    <p className="mt-1 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">250973192</p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-white/60">KRS</p>
+                    <p className="mt-1 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">0000125505</p>
+                  </div>
                 </div>
               </div>
-              <div className="grid content-start gap-6 rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6 lg:row-span-2 lg:grid-rows-subgrid lg:gap-y-0">
-                <div className="lg:pb-7">
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Adres</p>
-                  <p className="mt-3 text-base leading-7 text-white xl:text-lg">
+              <div className="rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6">
+                <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Adres</p>
+                <p className="mt-3 text-base leading-8 text-white xl:text-lg">
                   ul. Obozowa 18
                   <br />
-                  62-800 Kalisz, Polska
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-white/60">REGON</p>
-                  <p className="mt-2 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">250973192</p>
-                </div>
-              </div>
-              <div className="grid content-start gap-6 rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6 lg:row-span-2 lg:grid-rows-subgrid lg:gap-y-0">
-                <div className="lg:pb-7">
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Godziny otwarcia</p>
-                  <p className="mt-3 text-base leading-7 text-white xl:text-lg">
-                  Poniedziałek – piątek
+                  62-800 Kalisz
                   <br />
-                  8:00 – 16:00
+                  Polska
+                </p>
+              </div>
+              <div className="rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6">
+                <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Godziny otwarcia</p>
+                <div className="mt-3 space-y-2 text-sm text-white xl:text-base">
+                  <p className="flex flex-wrap justify-between gap-x-3">
+                    <span>Poniedziałek</span>
+                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00</span>
+                  </p>
+                  <p className="flex flex-wrap justify-between gap-x-3">
+                    <span>Wtorek</span>
+                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00</span>
+                  </p>
+                  <p className="flex flex-wrap justify-between gap-x-3">
+                    <span>Środa</span>
+                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00</span>
+                  </p>
+                  <p className="flex flex-wrap justify-between gap-x-3">
+                    <span>Czwartek</span>
+                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00</span>
+                  </p>
+                  <p className="flex flex-wrap justify-between gap-x-3">
+                    <span>Piątek</span>
+                    <span className="whitespace-nowrap tabular-nums text-white/80">8:00 – 16:00</span>
                   </p>
                 </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-white/60">NIP</p>
-                  <p className="mt-2 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">6181893417</p>
-                </div>
               </div>
-              <div className="rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6 lg:row-span-2">
+              <div className="rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6">
                 <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Kontakt</p>
                 <div className="mt-3 space-y-3 text-base text-white xl:text-lg">
                   <div className="space-y-0.5">
