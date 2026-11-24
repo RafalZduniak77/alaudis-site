@@ -27,6 +27,7 @@ export const ARTISTS_SLIDES: HeroSlide[] = [
   { src: "/hero/gala-pianista.jpg", position: "40% 50%", dim: 0 },
   { src: "/hero/gala-scena.jpg", position: "58% 50%", dim: 0 },
   { src: "/hero/artysci-duet.jpg", position: "34% 50%", dim: 0 },
+  { src: "/hero/artysci-pianistka.jpg", position: "30% 40%", dim: 0.3 },
 ];
 
 // Strona „Aktualności i prasa”
