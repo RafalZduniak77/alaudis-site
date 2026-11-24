@@ -32,7 +32,6 @@ import ConfiguratorPanel from "./ConfiguratorPanel";
 import PreviewPanel from "./PreviewPanel";
 import { ConfigTab, SelectedState } from "./types";
 import {
-  defaultPreviewImage,
   getPreviewImageForModel,
   groupMap,
   normalizeConfiguratorModel,
@@ -357,6 +356,9 @@ ${formatMailList(selected.mechanizm, language)}
   };
 }
 
+// Konfigurator startuje od białego fortepianu z zaznaczoną białą obudową.
+const DEFAULT_FINISH = "Bialy poliester połysk";
+
 export default function KonfiguratorShell() {
   const pathname = usePathname() || "/";
   const searchParams = useSearchParams();
@@ -376,10 +378,12 @@ export default function KonfiguratorShell() {
   const [activeTab, setActiveTab] = useState<ConfigTab>("obudowa");
   const [offerTitle, setOfferTitle] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [previewImage, setPreviewImage] = useState<string>(defaultPreviewImage);
+  const [previewImage, setPreviewImage] = useState<string>(() =>
+    getPreviewImageForModel(DEFAULT_FINISH, configuratorModel)
+  );
 
   const [selected, setSelected] = useState<SelectedState>({
-    obudowa: "",
+    obudowa: DEFAULT_FINISH,
     akustyka: {},
     mechanizm: {},
   });
