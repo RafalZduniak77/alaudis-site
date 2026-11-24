@@ -66,6 +66,28 @@ const UI: Record<CraftLanguage, {
       { title: "Écouter le son", href: "/fr/galeria?dzial=video", image: "/rzemioslo/brzmienie-leszek-mozdzer-gala.jpg" },
     ],
   },
+  ES: {
+    heroCta: "Vea los vídeos", pause: "Pausar el vídeo", play: "Reproducir el vídeo",
+    fullscreen: "Pantalla completa",
+    tour: { eyebrow: "Manufactura · Kalisz", title: "Véalo con sus propios ojos", text: "Una visita guiada gratuita a la manufactura ALAUDIS, de unas cuatro horas: de la madera a la última entonación.", cta: "Visita a la manufactura", alt: "Pianos de cola en el atelier ALAUDIS de Kalisz" },
+    discover: "Descubra",
+    cards: [
+      { title: "Vea los modelos en 3D", href: "/es/odkryj-modele?model=178", image: "/galeria-home/10.jpg" },
+      { title: "Configure su piano de cola", href: "/es/konfigurator", image: "/galeria-home/11.jpg" },
+      { title: "Escuche su sonido", href: "/es/galeria?dzial=video", image: "/rzemioslo/brzmienie-leszek-mozdzer-gala.jpg" },
+    ],
+  },
+  IT: {
+    heroCta: "Guarda i video", pause: "Metti in pausa il video", play: "Riproduci il video",
+    fullscreen: "Schermo intero",
+    tour: { eyebrow: "Manifattura · Kalisz", title: "Vedilo con i tuoi occhi", text: "Una visita guidata gratuita alla manifattura ALAUDIS, di circa quattro ore: dal legno all’ultima intonazione.", cta: "Visita alla manifattura", alt: "Pianoforti a coda nell’atelier ALAUDIS a Kalisz" },
+    discover: "Scopri",
+    cards: [
+      { title: "Guarda i modelli in 3D", href: "/it/odkryj-modele?model=178", image: "/galeria-home/10.jpg" },
+      { title: "Configura il tuo pianoforte", href: "/it/konfigurator", image: "/galeria-home/11.jpg" },
+      { title: "Ascolta il suono", href: "/it/galeria?dzial=video", image: "/rzemioslo/brzmienie-leszek-mozdzer-gala.jpg" },
+    ],
+  },
 };
 
 function Arrow() {
@@ -78,7 +100,7 @@ function Arrow() {
 
 // Films come from the gallery panel (section „Rzemiosło”); the bundled list is the fallback.
 async function loadVideos(language: CraftLanguage): Promise<CraftVideo[]> {
-  const locale = language.toLowerCase() as "pl" | "en" | "de" | "fr";
+  const locale = language.toLowerCase() as "pl" | "en" | "de" | "fr" | "es" | "it";
   const cms = await getCraftVideos().catch(() => []);
   if (!cms.length) return craftContent[language].videos;
   return cms.map((video) => ({
@@ -95,7 +117,7 @@ export default async function CraftPage({ language }: { language: CraftLanguage 
   const copy = craftContent[language];
   const ui = UI[language];
   const prefix = language === "PL" ? "" : `/${language.toLowerCase()}`;
-  const locale = language.toLowerCase() as "pl" | "en" | "de" | "fr";
+  const locale = language.toLowerCase() as "pl" | "en" | "de" | "fr" | "es" | "it";
   // The final-voicing film opens the page as a banner; the rest fill the grid.
   const allVideos = await loadVideos(language);
   const hero = allVideos[allVideos.length - 1];

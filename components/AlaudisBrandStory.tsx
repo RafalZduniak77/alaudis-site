@@ -20,6 +20,12 @@ const presentation = {
   FR: {
     pianoAlt: "Un piano à queue Alaudis en finition noire polie",
   },
+  ES: {
+    pianoAlt: "Un piano de cola Alaudis en acabado negro de alto brillo",
+  },
+  IT: {
+    pianoAlt: "Un pianoforte a coda Alaudis in finitura nera lucida a specchio",
+  },
 };
 
 function Arrow({ down = false }: { down?: boolean }) {

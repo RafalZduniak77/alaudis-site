@@ -26,6 +26,16 @@ const copy: Record<SeoLocale, { eyebrow: string; title: string; text: string }> 
     title: "Configurateur de piano à queue ALAUDIS",
     text: "Composez votre propre piano à queue ALAUDIS : choisissez le modèle, la finition et la couleur de la caisse, les éléments acoustiques et la mécanique. Vous pouvez enregistrer votre configuration, la télécharger en PDF ou nous l’envoyer pour une consultation privée.",
   },
+  es: {
+    eyebrow: "Configurador",
+    title: "Configurador de pianos de cola ALAUDIS",
+    text: "Componga su propio piano de cola ALAUDIS: elija el modelo, el acabado y el color del mueble, los elementos acústicos y el mecanismo. Puede guardar su configuración, descargarla en PDF o enviárnosla para solicitar un asesoramiento privado.",
+  },
+  it: {
+    eyebrow: "Configuratore",
+    title: "Configuratore del pianoforte a coda ALAUDIS",
+    text: "Componi il tuo pianoforte a coda ALAUDIS: scegli il modello, la finitura e il colore del mobile, gli elementi acustici e la meccanica. Puoi salvare la configurazione, scaricarla in PDF o inviarcela per richiedere una consulenza privata.",
+  },
 };
 
 export default function KonfiguratorFallback({ locale }: { locale: SeoLocale }) {

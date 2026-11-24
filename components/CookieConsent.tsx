@@ -19,7 +19,7 @@ const STORAGE_KEY = "alaudis-consent-v1";
 export const OPEN_CONSENT_EVENT = "alaudis:open-consent";
 
 type Choice = "accepted" | "necessary";
-type Locale = "pl" | "en" | "de" | "fr";
+type Locale = "pl" | "en" | "de" | "fr" | "es" | "it";
 
 const copy: Record<
   Locale,
@@ -57,13 +57,29 @@ const copy: Record<
     necessary: "Nécessaires uniquement",
     label: "Consentement aux cookies",
   },
+  es: {
+    eyebrow: "Privacidad",
+    title: "Respetamos su privacidad",
+    text: "Utilizamos el almacenamiento del navegador necesario para que el sitio funcione, por ejemplo, para guardar la configuración de su piano. Con su consentimiento, activaremos también estadísticas de visitas anónimas que nos ayudan a mejorar el sitio. No utilizamos publicidad ni seguimiento entre sitios.",
+    accept: "Aceptar",
+    necessary: "Solo las necesarias",
+    label: "Consentimiento de cookies",
+  },
+  it: {
+    eyebrow: "Privacy",
+    title: "Rispettiamo la privacy di chi ci visita",
+    text: "Utilizziamo la memoria del browser necessaria al funzionamento del sito, ad esempio per salvare la configurazione del pianoforte. Previo consenso, attiveremo anche statistiche anonime sulle visite, che ci aiutano a migliorare il sito. Non utilizziamo pubblicità né tracciamento tra siti.",
+    accept: "Accetto",
+    necessary: "Solo i necessari",
+    label: "Consenso ai cookie",
+  },
 };
 
-const POLICY_LABEL: Record<Locale, string> = { pl: "Polityka prywatności", en: "Privacy policy", de: "Datenschutz", fr: "Politique de confidentialité" };
+const POLICY_LABEL: Record<Locale, string> = { pl: "Polityka prywatności", en: "Privacy policy", de: "Datenschutz", fr: "Politique de confidentialité", es: "Política de privacidad", it: "Informativa sulla privacy" };
 
 function localeFromPath(pathname: string): Locale {
   const first = pathname.split("/")[1];
-  return first === "en" || first === "de" || first === "fr" ? first : "pl";
+  return first === "en" || first === "de" || first === "fr" || first === "es" || first === "it" ? first : "pl";
 }
 
 function readChoice(): Choice | null {

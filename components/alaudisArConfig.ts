@@ -27,7 +27,7 @@ import type { AlaudisModelId } from "./alaudisModels";
 export type { AlaudisModelId } from "./alaudisModels";
 export { getAlaudisModelName } from "./alaudisModels";
 
-export type LanguageKey = "PL" | "EN" | "DE" | "FR";
+export type LanguageKey = "PL" | "EN" | "DE" | "FR" | "ES" | "IT";
 
 export type ModelOption = {
   id: string;
@@ -144,6 +144,20 @@ export function getModelOptions(
     ];
   }
 
+  if (language === "ES") {
+    return [
+      { id: "czarny", label: "Negro", file: modelFiles.czarny },
+      { id: "czerwony", label: "Rojo", file: modelFiles.czerwony },
+    ];
+  }
+
+  if (language === "IT") {
+    return [
+      { id: "czarny", label: "Nero", file: modelFiles.czarny },
+      { id: "czerwony", label: "Rosso", file: modelFiles.czerwony },
+    ];
+  }
+
   return [
     { id: "czarny", label: "Czarny", file: modelFiles.czarny },
     { id: "czerwony", label: "Czerwony", file: modelFiles.czerwony },
@@ -239,6 +253,64 @@ export function getInfoCards(
         eyebrow: "L’expérience ALAUDIS",
         title: "Le piano en 3D",
         text: "Faites-le pivoter, zoomez et découvrez son apparence dans un intérieur réel. C’est la première étape vers l’expérience complète Alaudis.",
+        featured: false,
+      },
+    ];
+  }
+
+  if (language === "ES") {
+    return [
+      {
+        eyebrow: modelName,
+        title: "Vista previa digital de alta gama",
+        text: "Puede alternar entre las variantes de acabado y comprobar cómo luce el modelo Alaudis elegido en un interior de lujo o sobre su propio fondo.",
+        featured: true,
+      },
+      {
+        eyebrow: "Modo",
+        title: "Vista 3D y 360",
+        text: "Puede girar el modelo, acercarlo y contemplar el piano de cola desde distintas perspectivas según la variante elegida.",
+        featured: false,
+      },
+      {
+        eyebrow: "Acabado",
+        title: "Variantes de acabado",
+        text: "Puede cambiar el acabado en el selector de variantes, alternando entre negro y rojo.",
+        featured: false,
+      },
+      {
+        eyebrow: "La experiencia ALAUDIS",
+        title: "Contemple el piano de cola en 3D",
+        text: "Gírelo, acérquelo y compruebe cómo queda en un interior real. Es el primer paso hacia la experiencia Alaudis completa.",
+        featured: false,
+      },
+    ];
+  }
+
+  if (language === "IT") {
+    return [
+      {
+        eyebrow: modelName,
+        title: "Anteprima digitale di alta gamma",
+        text: "Puoi passare da una finitura all’altra e vedere come si presenta il modello Alaudis scelto in un interno di pregio o sul tuo sfondo.",
+        featured: true,
+      },
+      {
+        eyebrow: "Modalità",
+        title: "Anteprima 3D e 360",
+        text: "Puoi ruotare il modello, ingrandirlo e osservare il pianoforte a coda da diverse prospettive, a seconda della variante scelta.",
+        featured: false,
+      },
+      {
+        eyebrow: "Finitura",
+        title: "Varianti di finitura",
+        text: "Puoi cambiare la finitura nel selettore delle varianti, passando dal nero al rosso.",
+        featured: false,
+      },
+      {
+        eyebrow: "L’esperienza ALAUDIS",
+        title: "Osserva il pianoforte a coda in 3D",
+        text: "Ruotalo, ingrandiscilo e guarda come si presenta in un ambiente reale. È il primo passo verso l’esperienza Alaudis completa.",
         featured: false,
       },
     ];

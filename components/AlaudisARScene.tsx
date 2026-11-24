@@ -56,6 +56,14 @@ function getLanguageFromPathname(pathname: string): LanguageKey {
     return "FR";
   }
 
+  if (pathname === "/es/odkryj-modele" || pathname.startsWith("/es/odkryj-modele")) {
+    return "ES";
+  }
+
+  if (pathname === "/it/odkryj-modele" || pathname.startsWith("/it/odkryj-modele")) {
+    return "IT";
+  }
+
   return "PL";
 }
 
@@ -102,6 +110,32 @@ function getLabels(language: LanguageKey) {
     };
   }
 
+  if (language === "ES") {
+    return {
+      experience: "Experiencia Alaudis",
+      controlsBadge: "Rotación / Zoom / 360",
+      loading: "Cargando la vista 360...",
+      controls: "Controles",
+      activeSpin: "Giro 360 activo",
+      autoRotateOn: "Rotación auto ON",
+      autoRotateOff: "Rotación auto OFF",
+      zoomActive: "Zoom activo",
+    };
+  }
+
+  if (language === "IT") {
+    return {
+      experience: "Esperienza Alaudis",
+      controlsBadge: "Rotazione / Zoom / 360",
+      loading: "Caricamento dell’anteprima 360...",
+      controls: "Comandi",
+      activeSpin: "Rotazione 360 attiva",
+      autoRotateOn: "Rotazione auto ON",
+      autoRotateOff: "Rotazione auto OFF",
+      zoomActive: "Zoom attivo",
+    };
+  }
+
   return {
     experience: "Doświadczenie Alaudis",
     controlsBadge: "Obrót / Zoom / 360",
@@ -133,7 +167,7 @@ function getSpinUrlByModelId(modelId: string): string {
     .replace(/[\u0300-\u036f]/g, "")
     .trim();
 
-  if (normalized === "czerwony" || normalized === "red" || normalized === "rot" || normalized === "rouge" || normalized.includes("czerw") || normalized.includes("red") || normalized.includes("rot") || normalized.includes("roug")) {
+  if (normalized === "czerwony" || normalized === "red" || normalized === "rot" || normalized === "rouge" || normalized === "rojo" || normalized === "rosso" || normalized.includes("czerw") || normalized.includes("red") || normalized.includes("rot") || normalized.includes("roug") || normalized.includes("rojo") || normalized.includes("ross")) {
     return RED_SPIN_URL;
   }
 

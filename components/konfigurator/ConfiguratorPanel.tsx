@@ -57,7 +57,7 @@ type ConfiguratorPanelProps = {
   onPdf: () => void;
 };
 
-type LanguageKey = "PL" | "EN" | "DE" | "FR";
+type LanguageKey = "PL" | "EN" | "DE" | "FR" | "ES" | "IT";
 
 // ----------------------------------------------------------
 // ROZPOZNAWANIE JĘZYKA
@@ -73,6 +73,14 @@ function getLanguageFromPathname(pathname: string): LanguageKey {
 
   if (pathname === "/fr/konfigurator" || pathname.startsWith("/fr/konfigurator")) {
     return "FR";
+  }
+
+  if (pathname === "/es/konfigurator" || pathname.startsWith("/es/konfigurator")) {
+    return "ES";
+  }
+
+  if (pathname === "/it/konfigurator" || pathname.startsWith("/it/konfigurator")) {
+    return "IT";
   }
 
   return "PL";
@@ -130,6 +138,38 @@ function getLabels(language: LanguageKey) {
     };
   }
 
+  if (language === "ES") {
+    return {
+      offerTitlePlaceholder: "Título de la oferta...",
+      tabs: {
+        obudowa: "MUEBLE",
+        akustyka: "ACÚSTICA",
+        mechanizm: "MECANISMO",
+      },
+      sections: {
+        obudowa: "Mueble",
+        akustyka: "Acústica",
+        mechanizm: "Mecanismo",
+      },
+    };
+  }
+
+  if (language === "IT") {
+    return {
+      offerTitlePlaceholder: "Titolo dell’offerta...",
+      tabs: {
+        obudowa: "MOBILE",
+        akustyka: "ACUSTICA",
+        mechanizm: "MECCANICA",
+      },
+      sections: {
+        obudowa: "Mobile",
+        akustyka: "Acustica",
+        mechanizm: "Meccanica",
+      },
+    };
+  }
+
   return {
     offerTitlePlaceholder: "Tytuł oferty...",
     tabs: {
@@ -153,6 +193,8 @@ const BESPOKE_NOTE: Record<LanguageKey, string> = {
   EN: "ALAUDIS Bespoke — you choose the look, the sound and the action of your piano. Price on request.",
   DE: "ALAUDIS Bespoke — Sie wählen Erscheinung, Klang und Mechanik Ihres Flügels. Preis auf Anfrage.",
   FR: "ALAUDIS Bespoke — vous choisissez l’apparence, le son et la mécanique de votre piano. Prix sur demande.",
+  ES: "ALAUDIS Bespoke: usted elige el aspecto, el sonido y el mecanismo de su piano de cola. Precio a consultar.",
+  IT: "ALAUDIS Bespoke: scegli tu l’aspetto, il suono e la meccanica del tuo pianoforte a coda. Prezzo su richiesta.",
 };
 
 function translateOption(value: string, language: LanguageKey) {
@@ -272,9 +314,93 @@ function translateOption(value: string, language: LanguageKey) {
     "Tłumiki Abel": "Étouffoirs Abel",
   };
 
+  const mapES: Record<string, string> = {
+    "Bialy poliester połysk": "Poliéster blanco, alto brillo",
+    "Czarny Poliester połysk": "Poliéster negro, alto brillo",
+    "Ferrari poliester połysk": "Poliéster rojo, alto brillo (rojo Ferrari)",
+    "Heban polerowany": "Ébano pulido",
+    "Okleina Jabłoń Indyjska -połysk":
+      "Chapa de manzano indio, alto brillo",
+
+    "Dno rezonansowe Strunz": "Tabla armónica Strunz",
+    "Dno rezonansowe Ciresa": "Tabla armónica Ciresa",
+    "Lakierowanie dna rezonansowego mat": "Barnizado mate de la tabla armónica",
+    "Lakierowanie dna rezonansowego połysk":
+      "Barnizado brillante de la tabla armónica",
+    "Mostki rezonansowe klon": "Puentes de arce",
+    "Mostki rezonansowe buk": "Puentes de haya",
+    "Kolor ramy złoty": "Color del bastidor: dorado",
+    "Kolor ramy srebrny": "Color del bastidor: plateado",
+    "Struny stalowe Röslau": "Cuerdas de acero Röslau",
+    "Struny stalowe Paulello": "Cuerdas de acero Paulello",
+    "Struny basowe Heller": "Cuerdas graves Heller",
+    "Struny basowe SAP Renovation": "Cuerdas graves SAP Renovation",
+    "Kołki stroikowe niklowane": "Clavijas de afinación niqueladas",
+    "Kołki stroikowe Blau": "Clavijas de afinación Blau",
+    "Kolor sukna czerwony": "Color del fieltro: rojo",
+    "Kolor sukna biały": "Color del fieltro: blanco",
+    "Kolor sukna czarny": "Color del fieltro: negro",
+
+    "Klawiatura Alaudis SAP Renovation": "Teclado Alaudis SAP Renovation",
+    "Klawiatura Kluge": "Teclado Kluge",
+    "Mechanizm Alaudis SAP Renovation": "Mecanismo Alaudis SAP Renovation",
+    "Mechanizm Louis Renner": "Mecanismo Louis Renner",
+    "Mechanizm Abel": "Mecanismo Abel",
+    "Młotki Alaudis": "Macillos Alaudis",
+    "Młotki Louis Renner": "Macillos Louis Renner",
+    "Młotki Abel": "Macillos Abel",
+    "Tłumiki Alaudis": "Apagadores Alaudis",
+    "Tłumiki Louis Renner": "Apagadores Louis Renner",
+    "Tłumiki Abel": "Apagadores Abel",
+  };
+
+  const mapIT: Record<string, string> = {
+    "Bialy poliester połysk": "Poliestere bianco, lucido a specchio",
+    "Czarny Poliester połysk": "Poliestere nero, lucido a specchio",
+    "Ferrari poliester połysk":
+      "Poliestere rosso, lucido a specchio (rosso Ferrari)",
+    "Heban polerowany": "Ebano lucidato",
+    "Okleina Jabłoń Indyjska -połysk":
+      "Impiallacciatura di melo indiano, lucida",
+
+    "Dno rezonansowe Strunz": "Tavola armonica Strunz",
+    "Dno rezonansowe Ciresa": "Tavola armonica Ciresa",
+    "Lakierowanie dna rezonansowego mat":
+      "Verniciatura opaca della tavola armonica",
+    "Lakierowanie dna rezonansowego połysk":
+      "Verniciatura lucida della tavola armonica",
+    "Mostki rezonansowe klon": "Ponticelli in acero",
+    "Mostki rezonansowe buk": "Ponticelli in faggio",
+    "Kolor ramy złoty": "Colore del telaio: oro",
+    "Kolor ramy srebrny": "Colore del telaio: argento",
+    "Struny stalowe Röslau": "Corde in acciaio Röslau",
+    "Struny stalowe Paulello": "Corde in acciaio Paulello",
+    "Struny basowe Heller": "Corde dei bassi Heller",
+    "Struny basowe SAP Renovation": "Corde dei bassi SAP Renovation",
+    "Kołki stroikowe niklowane": "Caviglie nichelate",
+    "Kołki stroikowe Blau": "Caviglie Blau",
+    "Kolor sukna czerwony": "Colore del feltro: rosso",
+    "Kolor sukna biały": "Colore del feltro: bianco",
+    "Kolor sukna czarny": "Colore del feltro: nero",
+
+    "Klawiatura Alaudis SAP Renovation": "Tastiera Alaudis SAP Renovation",
+    "Klawiatura Kluge": "Tastiera Kluge",
+    "Mechanizm Alaudis SAP Renovation": "Meccanica Alaudis SAP Renovation",
+    "Mechanizm Louis Renner": "Meccanica Louis Renner",
+    "Mechanizm Abel": "Meccanica Abel",
+    "Młotki Alaudis": "Martelletti Alaudis",
+    "Młotki Louis Renner": "Martelletti Louis Renner",
+    "Młotki Abel": "Martelletti Abel",
+    "Tłumiki Alaudis": "Smorzatori Alaudis",
+    "Tłumiki Louis Renner": "Smorzatori Louis Renner",
+    "Tłumiki Abel": "Smorzatori Abel",
+  };
+
   if (language === "EN") return mapEN[value] || value;
   if (language === "DE") return mapDE[value] || value;
   if (language === "FR") return mapFR[value] || value;
+  if (language === "ES") return mapES[value] || value;
+  if (language === "IT") return mapIT[value] || value;
 
   return value;
 }

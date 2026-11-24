@@ -1,18 +1,22 @@
 {
   "id": "gallery-video-antonina-waliszewska",
   "filename": "alaudis-antonina-waliszewska",
-  "title": { "pl": "Antonina Waliszewska", "en": "Antonina Waliszewska", "de": "Antonina Waliszewska", "fr": "Antonina Waliszewska" },
+  "title": { "pl": "Antonina Waliszewska", "en": "Antonina Waliszewska", "de": "Antonina Waliszewska", "fr": "Antonina Waliszewska", "es": "Antonina Waliszewska", "it": "Antonina Waliszewska" },
   "description": {
     "pl": "Młody polski talent przy fortepianie ALAUDIS. Nagranie bez studyjnej obróbki — tak, jak instrument brzmi w sali.",
     "en": "A young Polish talent at an ALAUDIS grand piano. Recorded without studio processing — just as the instrument sounds in the room.",
     "de": "Ein junges polnisches Talent am ALAUDIS-Flügel. Ohne Studiobearbeitung aufgenommen — so, wie das Instrument im Raum klingt.",
-    "fr": "Un jeune talent polonais au piano ALAUDIS. Enregistré sans traitement de studio — tel que l’instrument sonne dans la salle."
+    "fr": "Un jeune talent polonais au piano ALAUDIS. Enregistré sans traitement de studio — tel que l’instrument sonne dans la salle.",
+    "es": "Un joven talento polaco al piano de cola ALAUDIS. Grabación sin retoques de estudio: tal como suena el instrumento en la sala.",
+    "it": "Un giovane talento polacco al pianoforte a coda ALAUDIS. Registrazione senza ritocchi in studio: così come lo strumento suona in sala."
   },
   "alt": {
     "pl": "Antonina Waliszewska gra na czarnym fortepianie ALAUDIS z otwartą pokrywą",
     "en": "Antonina Waliszewska playing a black ALAUDIS grand piano with the lid open",
     "de": "Antonina Waliszewska spielt einen schwarzen ALAUDIS-Flügel mit geöffnetem Deckel",
-    "fr": "Antonina Waliszewska joue sur un piano à queue noir ALAUDIS, couvercle ouvert"
+    "fr": "Antonina Waliszewska joue sur un piano à queue noir ALAUDIS, couvercle ouvert",
+    "es": "Antonina Waliszewska toca un piano de cola ALAUDIS negro con la tapa abierta",
+    "it": "Antonina Waliszewska suona un pianoforte a coda ALAUDIS nero con il coperchio aperto"
   },
   "date": "2026-11-12",
   "duration": 56

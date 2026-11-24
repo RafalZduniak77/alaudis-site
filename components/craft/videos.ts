@@ -2,7 +2,7 @@
 // RZEMIOSŁO — FILMY Z PRODUKCJI (PL / EN / DE / FR)
 // ==========================================================
 
-export type CraftLanguage = "PL" | "EN" | "DE" | "FR";
+export type CraftLanguage = "PL" | "EN" | "DE" | "FR" | "ES" | "IT";
 // poster: ready-to-use still for the card; posterSource: the original image (used by the viewer).
 export type CraftVideo = { src: string; title: string; text: string; poster?: string; posterSource?: string };
 
@@ -412,6 +412,210 @@ export const craftContent: Record<CraftLanguage, { eyebrow: string; title: strin
         "src": "/historia-video-web/historia-15.mp4",
         "title": "Intonation finale des marteaux, Peter Salisbury",
         "text": "Intonation finale des marteaux réalisée par le maître Peter Salisbury. C’est la dernière étape artistique du travail sur la couleur sonore, où sont affinés la réponse des marteaux, le caractère de l’attaque, le chant et l’équilibre sonore de tout l’instrument."
+      }
+    ]
+  },
+  "ES": {
+    "eyebrow": "De la producción de Alaudis",
+    "title": "La artesanía captada en movimiento",
+    "intro": "Unos vídeos breves muestran cómo nace el instrumento: el trabajo de las manos, los detalles, las superficies, la construcción y la atmósfera del taller en el que la idea de Alaudis se convierte en un piano de cola real.",
+    "videos": [
+      {
+        "src": "/historia-video-web/historia-01.mp4",
+        "title": "Esmerilado y ajuste del bastidor de hierro fundido",
+        "text": "Preparación precisa del bastidor de hierro fundido antes de continuar con el montaje acústico. Esta etapa exige un ajuste exacto de las superficies de contacto, el control del asiento y el respeto de la geometría correcta de la estructura del piano."
+      },
+      {
+        "src": "/historia-video-web/historia-02.mp4",
+        "title": "Perfilado de las barras armónicas",
+        "text": "Conformado de las barras armónicas, responsables de la estabilidad, la elasticidad y el correcto comportamiento acústico de la tabla armónica. El perfil de las barras influye directamente en la conservación del bombeo y en la respuesta de la tabla a las vibraciones."
+      },
+      {
+        "src": "/historia-video-web/historia-03.mp4",
+        "title": "Limpieza de los restos de cola en las barras armónicas",
+        "text": "Trabajo minucioso sobre las barras tras las fases previas de encolado. Eliminar el exceso de cola y dejar las superficies limpias permite conservar la precisión de las uniones y la estética de los elementos estructurales."
+      },
+      {
+        "src": "/historia-video-web/historia-04.mp4",
+        "title": "Lijado mecánico de la tabla armónica",
+        "text": "Primer lijado de la tabla armónica con herramientas mecánicas. El objetivo de esta etapa es nivelar la superficie, preparar el material para los trabajos posteriores y obtener la calidad adecuada para las siguientes operaciones de acabado."
+      },
+      {
+        "src": "/historia-video-web/historia-05.mp4",
+        "title": "Lijado manual de la tabla armónica",
+        "text": "Acabado manual y delicado de la superficie de la tabla armónica. Esta etapa permite un mayor control del detalle, conserva el carácter natural de la madera y prepara la tabla para actuar como corazón acústico del instrumento."
+      },
+      {
+        "src": "/historia-video-web/historia-06.mp4",
+        "title": "Fresado de la cubierta de los puentes",
+        "text": "Mecanizado preciso de la cubierta de los puentes. Los puentes son uno de los elementos clave en la transmisión de las vibraciones de las cuerdas a la tabla armónica; por eso su geometría, su altura y la calidad de su superficie exigen una exactitud excepcional."
+      },
+      {
+        "src": "/historia-video-web/historia-07.mp4",
+        "title": "Corte y ajuste de la longitud del puente de agudos",
+        "text": "Ajuste del puente de agudos a las dimensiones y la geometría de cada instrumento. La longitud y el asiento correctos del puente son esenciales para el trabajo posterior de las cuerdas, la transmisión de la energía y el equilibrio sonoro del registro agudo."
+      },
+      {
+        "src": "/historia-video-web/historia-08.mp4",
+        "title": "Cepillado mecánico del puente de agudos",
+        "text": "Mecanizado del puente de agudos respetando la línea, la altura y el perfil requeridos. Esta etapa prepara el puente para su ajuste posterior y para que trabaje correctamente con las cuerdas y la tabla armónica."
+      },
+      {
+        "src": "/historia-video-web/historia-16.mp4",
+        "title": "Calibrado manual de la superficie de la caja",
+        "text": "Un artesano experimentado revisa con esmero cada tramo de la caja y lo nivela a mano. El guiado preciso de la herramienta permite eliminar hasta las más mínimas irregularidades y preparar la superficie para las siguientes fases de trabajo. Es una labor exigente, en la que cuentan la experiencia, la sensibilidad hacia el material y el control absoluto de cada movimiento."
+      },
+      {
+        "src": "/historia-video-web/historia-17.mp4",
+        "title": "Nivelado preciso de la caja",
+        "text": "La superficie de la caja se nivela de forma gradual con una amoladora angular guiada con precisión. El artesano controla en todo momento la forma, la línea y el grosor del material para lograr una superficie uniforme y estable. La unión de una herramienta especializada y una mano experimentada permite mantener el control total en cada fase del trabajo."
+      },
+      {
+        "src": "/historia-video-web/historia-18.mp4",
+        "title": "Trabajo tradicional de la caja con cepillo de mano",
+        "text": "El cepillo de mano permite al artesano nivelar la superficie de la caja con extraordinaria exactitud y darle poco a poco la forma adecuada. Cada pasada de la herramienta retira una fina capa de madera, por lo que el proceso requiere paciencia, experiencia y una excelente sensibilidad hacia el material. Es una técnica tradicional de carpintería que ofrece un control total del detalle y permite alcanzar la máxima precisión de ejecución."
+      },
+      {
+        "src": "/historia-video-web/historia-09.mp4",
+        "title": "Fresado del aro interior para las barras armónicas",
+        "text": "Preparación de las zonas del aro interior en las que encajarán las barras de la tabla armónica. El fresado permite obtener alojamientos de montaje precisos y garantizar un apoyo correcto para toda la estructura acústica."
+      },
+      {
+        "src": "/historia-video-web/historia-10.mp4",
+        "title": "Trabajo manual a formón y ajuste de los asientos de la tabla armónica",
+        "text": "Retoque manual de los puntos en los que se asentará la tabla armónica. El trabajo con el formón permite alcanzar una exactitud que no siempre se consigue solo con máquinas, sobre todo allí donde hace falta un ajuste individual."
+      },
+      {
+        "src": "/historia-video-web/historia-11.mp4",
+        "title": "Encolado y prensado de la tabla armónica",
+        "text": "Proceso de colocación de la tabla armónica en la estructura del instrumento. La presión uniforme de los sargentos garantiza una unión estable, un contacto correcto y la integridad acústica de todo el conjunto resonante."
+      },
+      {
+        "src": "/historia-video-web/historia-12.mp4",
+        "title": "Encolado del aro de la caja del piano de cola Alaudis",
+        "text": "Etapa de encolado de las láminas que forman la caja del piano de cola Alaudis. El guiado adecuado del material, el control de las tensiones y la precisión del encolado son decisivos para la estabilidad de la estructura y la elegante línea del mueble del instrumento."
+      },
+      {
+        "src": "/historia-video-web/historia-14.mp4",
+        "title": "Encolado y prensado de la caja del piano de cola Alaudis",
+        "text": "Conformado de la caja del piano de cola mediante encolado y presión controlada con sargentos. Es una de las etapas en las que el oficio constructivo determina la durabilidad, la estabilidad y la geometría final del instrumento."
+      },
+      {
+        "src": "/historia-video-web/video-19-web.mp4",
+        "title": "Ajuste preciso de las patas y la lira del piano de cola",
+        "text": "Un artesano experimentado ajusta individualmente cada elemento de la estructura del piano de cola ALAUDis. El ajuste preciso de las patas y de la lira de pedales garantiza la geometría correcta, la estabilidad y la unión perfecta de todas las partes del instrumento. Es una etapa que exige gran exactitud, ya que incluso una desviación mínima podría afectar al montaje correcto y al aspecto final del piano."
+      },
+      {
+        "src": "/historia-video-web/video-20-web.mp4",
+        "title": "Ajuste exacto de la rueda en la pata del piano de cola",
+        "text": "La rueda se ajusta con esmero a la pata del piano de cola ALAUDis para garantizar su asiento correcto, una rodadura suave y la plena estabilidad del instrumento. El artesano controla la posición, la profundidad y la exactitud del ajuste de cada elemento. La precisión en esta etapa repercute tanto en la seguridad de uso como en la estética de toda la estructura."
+      },
+      {
+        "src": "/historia-video-web/historia-15.mp4",
+        "title": "Entonación final de los macillos, Peter Salisbury",
+        "text": "Entonación final de los macillos, realizada por el maestro Peter Salisbury. Es la última etapa, la artística, del trabajo sobre el timbre, en la que se ajustan la respuesta de los macillos, el carácter del ataque, la cantabilidad y el equilibrio sonoro de todo el instrumento."
+      }
+    ]
+  },
+  "IT": {
+    "eyebrow": "Dalla produzione Alaudis",
+    "title": "L’artigianato ripreso in movimento",
+    "intro": "Brevi video mostrano come nasce lo strumento: il lavoro delle mani, i dettagli, le superfici, la costruzione e l’atmosfera del laboratorio in cui l’idea di Alaudis diventa un vero pianoforte a coda.",
+    "videos": [
+      {
+        "src": "/historia-video-web/historia-01.mp4",
+        "title": "Molatura e adattamento del telaio in ghisa",
+        "text": "Preparazione precisa del telaio in ghisa prima di proseguire con il montaggio acustico. Questa fase richiede un adattamento accurato delle superfici di contatto, il controllo dell’appoggio e il rispetto della corretta geometria della struttura del pianoforte."
+      },
+      {
+        "src": "/historia-video-web/historia-02.mp4",
+        "title": "Profilatura delle catene della tavola armonica",
+        "text": "Sagomatura delle catene, responsabili della stabilità, dell’elasticità e del corretto comportamento acustico della tavola armonica. Il profilo delle catene incide direttamente sul mantenimento della bombatura e sulla risposta della tavola alle vibrazioni."
+      },
+      {
+        "src": "/historia-video-web/historia-03.mp4",
+        "title": "Pulizia delle catene dai residui di colla",
+        "text": "Lavorazione accurata delle catene dopo le precedenti fasi di incollaggio. Rimuovere la colla in eccesso e preparare superfici pulite consente di preservare la precisione delle giunzioni e l’estetica degli elementi strutturali."
+      },
+      {
+        "src": "/historia-video-web/historia-04.mp4",
+        "title": "Levigatura meccanica della tavola armonica",
+        "text": "Prima levigatura della tavola armonica con utensili meccanici. Lo scopo di questa fase è spianare la superficie, preparare il materiale alle lavorazioni successive e ottenere la qualità adeguata per i lavori di finitura che seguono."
+      },
+      {
+        "src": "/historia-video-web/historia-05.mp4",
+        "title": "Levigatura a mano della tavola armonica",
+        "text": "Delicata rifinitura manuale della superficie della tavola armonica. Questa fase consente un maggiore controllo del dettaglio, preserva il carattere naturale del legno e prepara la tavola a lavorare come cuore acustico dello strumento."
+      },
+      {
+        "src": "/historia-video-web/historia-06.mp4",
+        "title": "Fresatura della cartella dei ponticelli",
+        "text": "Lavorazione di precisione della cartella dei ponticelli. I ponticelli sono tra gli elementi chiave nella trasmissione delle vibrazioni dalle corde alla tavola armonica; per questo la loro geometria, l’altezza e la qualità della superficie richiedono un’accuratezza eccezionale."
+      },
+      {
+        "src": "/historia-video-web/historia-07.mp4",
+        "title": "Taglio e adattamento della lunghezza del ponticello degli acuti",
+        "text": "Adattamento del ponticello degli acuti alle dimensioni e alla geometria del singolo strumento. La giusta lunghezza e il corretto posizionamento del ponticello sono essenziali per il successivo lavoro delle corde, la trasmissione dell’energia e l’equilibrio sonoro del registro acuto."
+      },
+      {
+        "src": "/historia-video-web/historia-08.mp4",
+        "title": "Piallatura meccanica del ponticello degli acuti",
+        "text": "Lavorazione del ponticello degli acuti nel rispetto della linea, dell’altezza e del profilo richiesti. Questa fase prepara il ponticello all’adattamento successivo e alla corretta interazione con le corde e la tavola armonica."
+      },
+      {
+        "src": "/historia-video-web/historia-16.mp4",
+        "title": "Calibratura manuale della superficie della cassa",
+        "text": "Ogni tratto della cassa viene controllato con cura e spianato a mano da un artigiano esperto. La guida precisa dell’utensile permette di eliminare anche le più piccole irregolarità e di preparare la superficie alle fasi di lavorazione successive. È un lavoro impegnativo, in cui contano l’esperienza, la sensibilità per il materiale e il pieno controllo di ogni gesto."
+      },
+      {
+        "src": "/historia-video-web/historia-17.mp4",
+        "title": "Spianatura di precisione della cassa",
+        "text": "La superficie della cassa viene spianata gradualmente con una smerigliatrice angolare guidata con precisione. L’artigiano controlla costantemente la forma, la linea e lo spessore del materiale, per ottenere una superficie uniforme e stabile. L’unione di un utensile specializzato e di una mano esperta consente di mantenere il pieno controllo in ogni fase della lavorazione."
+      },
+      {
+        "src": "/historia-video-web/historia-18.mp4",
+        "title": "Lavorazione tradizionale della cassa con la pialla a mano",
+        "text": "La pialla a mano permette all’artigiano di spianare la superficie della cassa con straordinaria accuratezza e di darle gradualmente la forma corretta. Ogni passata dell’utensile asporta un sottile strato di legno: per questo il processo richiede pazienza, esperienza e un’eccellente sensibilità per il materiale. È una tecnica tradizionale di falegnameria, che offre il pieno controllo del dettaglio e consente di raggiungere la massima precisione di esecuzione."
+      },
+      {
+        "src": "/historia-video-web/historia-09.mp4",
+        "title": "Fresatura della fascia interna per le catene",
+        "text": "Preparazione dei punti della fascia interna in cui verranno alloggiate le catene della tavola armonica. La fresatura consente di ottenere sedi di montaggio precise e di assicurare il giusto sostegno all’intera struttura acustica."
+      },
+      {
+        "src": "/historia-video-web/historia-10.mp4",
+        "title": "Lavorazione a scalpello e adattamento manuale delle sedi della tavola armonica",
+        "text": "Rifinitura manuale dei punti in cui verrà alloggiata la tavola armonica. Il lavoro con lo scalpello permette di raggiungere un’accuratezza che non sempre si ottiene con le sole macchine, soprattutto nei punti che richiedono un adattamento individuale."
+      },
+      {
+        "src": "/historia-video-web/historia-11.mp4",
+        "title": "Incollaggio e serraggio della tavola armonica",
+        "text": "L’inserimento della tavola armonica nella struttura dello strumento. La pressione uniforme dei morsetti assicura una giunzione stabile, una perfetta aderenza e l’integrità acustica dell’intero complesso risonante."
+      },
+      {
+        "src": "/historia-video-web/historia-12.mp4",
+        "title": "Incollaggio della fascia del pianoforte a coda Alaudis",
+        "text": "La fase di incollaggio degli strati che formano la fascia del pianoforte a coda Alaudis. La corretta conduzione del materiale, il controllo delle tensioni e la precisione dell’incollaggio sono decisivi per la stabilità della struttura e per la linea elegante del mobile dello strumento."
+      },
+      {
+        "src": "/historia-video-web/historia-14.mp4",
+        "title": "Incollaggio e serraggio della cassa del pianoforte a coda Alaudis",
+        "text": "Formatura della cassa del pianoforte a coda mediante incollaggio e pressione controllata con i morsetti. È una delle fasi in cui la maestria costruttiva determina la durata, la stabilità e la geometria finale dello strumento."
+      },
+      {
+        "src": "/historia-video-web/video-19-web.mp4",
+        "title": "Adattamento di precisione delle gambe e della lira del pianoforte a coda",
+        "text": "Ogni elemento della struttura del pianoforte a coda ALAUDis viene adattato singolarmente da un artigiano esperto. L’adattamento preciso delle gambe e della lira dei pedali assicura la corretta geometria, la stabilità e l’unione perfetta di tutte le parti dello strumento. È una fase che richiede grande accuratezza, perché anche scostamenti minimi potrebbero compromettere il corretto montaggio e l’aspetto finale del pianoforte."
+      },
+      {
+        "src": "/historia-video-web/video-20-web.mp4",
+        "title": "Adattamento esatto della rotella nella gamba del pianoforte a coda",
+        "text": "La rotella viene adattata con cura alla gamba del pianoforte a coda ALAUDis, per garantirne il corretto alloggiamento, uno scorrimento fluido e la piena stabilità dello strumento. L’artigiano controlla la posizione, la profondità e la precisione di adattamento di ogni elemento. La precisione in questa fase incide tanto sulla sicurezza d’uso quanto sull’estetica dell’intera struttura."
+      },
+      {
+        "src": "/historia-video-web/historia-15.mp4",
+        "title": "Intonazione finale dei martelletti, Peter Salisbury",
+        "text": "L’intonazione finale dei martelletti, eseguita dal maestro Peter Salisbury. È l’ultima fase, quella artistica, del lavoro sul timbro, in cui si regolano la risposta dei martelletti, il carattere dell’attacco, la cantabilità e l’equilibrio sonoro dell’intero strumento."
       }
     ]
   }

@@ -5,19 +5,25 @@
     "pl": "Gala ALAUDIS — film z wydarzenia",
     "en": "ALAUDIS Gala — the film",
     "de": "ALAUDIS Gala — der Film",
-    "fr": "Gala ALAUDIS — le film"
+    "fr": "Gala ALAUDIS — le film",
+    "es": "Gala ALAUDIS — el vídeo del evento",
+    "it": "Gala ALAUDIS — il video dell’evento"
   },
   "description": {
     "pl": "„Kaliskie fortepiany znane są od ponad 200 lat.” Gala inauguracyjna ALAUDIS w Kaliszu, 29 października 2026 — na scenie Łukasz Byrdy, duet Per Quattro i Leszek Możdżer.",
     "en": "“Kalisz pianos have been known for more than 200 years.” The ALAUDIS Inaugural Gala in Kalisz, 29 October 2026 — with Łukasz Byrdy, the Per Quattro duo and Leszek Możdżer on stage.",
     "de": "„Klaviere aus Kalisz sind seit über 200 Jahren bekannt.“ Die ALAUDIS Eröffnungsgala in Kalisz am 29. Oktober 2026 — auf der Bühne Łukasz Byrdy, das Duo Per Quattro und Leszek Możdżer.",
-    "fr": "« Les pianos de Kalisz sont connus depuis plus de 200 ans. » Le gala d’inauguration ALAUDIS à Kalisz, le 29 octobre 2026 — avec Łukasz Byrdy, le duo Per Quattro et Leszek Możdżer sur scène."
+    "fr": "« Les pianos de Kalisz sont connus depuis plus de 200 ans. » Le gala d’inauguration ALAUDIS à Kalisz, le 29 octobre 2026 — avec Łukasz Byrdy, le duo Per Quattro et Leszek Możdżer sur scène.",
+    "es": "«Los pianos de Kalisz son conocidos desde hace más de 200 años». Gala inaugural ALAUDIS en Kalisz, 29 de octubre de 2026: en el escenario, Łukasz Byrdy, el dúo Per Quattro y Leszek Możdżer.",
+    "it": "«I pianoforti di Kalisz sono conosciuti da oltre 200 anni». Gala inaugurale ALAUDIS a Kalisz, 29 ottobre 2026: sul palco Łukasz Byrdy, il duo Per Quattro e Leszek Możdżer."
   },
   "alt": {
     "pl": "Prowadzący Galę ALAUDIS na scenie, na kadrze napis Gala ALAUDIS 29.10.2026",
     "en": "The host of the ALAUDIS Gala on stage, with the caption ALAUDIS Gala 29.10.2026",
     "de": "Der Moderator der ALAUDIS Gala auf der Bühne, mit dem Schriftzug Gala ALAUDIS 29.10.2026",
-    "fr": "Le présentateur du gala ALAUDIS sur scène, avec la mention Gala ALAUDIS 29.10.2026"
+    "fr": "Le présentateur du gala ALAUDIS sur scène, avec la mention Gala ALAUDIS 29.10.2026",
+    "es": "El presentador de la Gala ALAUDIS en el escenario, con el rótulo Gala ALAUDIS 29.10.2026",
+    "it": "Il presentatore del Gala ALAUDIS sul palco, con la scritta Gala ALAUDIS 29.10.2026"
   },
   "location": "Kalisz",
   "date": "2026-10-29",

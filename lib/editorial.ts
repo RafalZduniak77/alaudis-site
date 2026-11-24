@@ -320,6 +320,140 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
         },
       ],
     },
+    es: {
+      eyebrow: "Actualidad y prensa",
+      title: "Actualidad ALAUDIS",
+      lead: "Presentaciones, conciertos y eventos en torno al nuevo piano de cola polaco de Kalisz, y lo que los medios escriben sobre nosotros.",
+      sections: [
+        {
+          heading: "Eventos",
+          items: [
+            {
+              meta: "4 de diciembre de 2026 · Kalisz",
+              title: "Visita al taller donde nació Alaudis",
+              text: "El viernes a las 12:00, la Oficina de Información Turística de Kalisz invita a visitar el taller de SAP Renovation, en la calle Obozowa 18. Los asistentes verán cómo se restauran los pianos antiguos y cómo es un instrumento por dentro. La participación es gratuita.",
+              link: { href: PRESS.wKaliszu, label: "Detalles en wKaliszu (en polaco)" },
+            },
+            {
+              meta: "29 de noviembre de 2026 · Kalisz",
+              title: "Paseo «Por la ruta de los pianos de Kalisz»",
+              text: "Un paseo gratuito por los lugares vinculados a la historia pianística de la ciudad. Punto de encuentro: el domingo a las 12:00 junto al piano del ayuntamiento, Główny Rynek 20. Lo organiza la Oficina de Información Turística de Kalisz.",
+              link: { href: "/tradycja", label: "Descubra la tradición de Kalisz" },
+            },
+            {
+              meta: "29 de octubre de 2026 · Kalisz",
+              title: "Presentación del piano de cola ALAUDIS ONE",
+              text: "El primer modelo de la marca se presentó oficialmente en el Aula Prof. Jerzy Rubiński de la Facultad de Pedagogía y Bellas Artes de la Universidad Adam Mickiewicz en Kalisz. Actuaron Łukasz Byrdy, el dúo Per Quattro y Leszek Możdżer. La velada fue coorganizada por la Facultad, con la Sociedad Fryderyk Chopin como entidad colaboradora. El concierto estuvo acompañado de una exposición de fotografías de Wojciech Neubauer que documentan la creación del instrumento.",
+              link: { href: "/artysci", label: "Los artistas del concierto de presentación" },
+            },
+            {
+              meta: "Septiembre de 2026 · Kalisz",
+              title: "Adam Makowicz toca un Alaudis",
+              text: "Adam Makowicz tocó un piano de cola Alaudis en el Akcelerator Kultury de Kalisz.",
+            },
+          ],
+        },
+        {
+          heading: "En la prensa",
+          items: [
+            {
+              meta: "KaliszOnline · en polaco",
+              title: "«Kalisz vuelve a tener su propio piano de cola. Alaudis One cautivó a Leszek Możdżer»",
+              link: { href: PRESS.kaliszOnline, label: "Lea el artículo" },
+            },
+            {
+              meta: "Nasze Miasto Kalisz · en polaco",
+              title: "«Inauguración solemne del piano de cola Alaudis. Lo ha construido una empresa de Kalisz»",
+              link: { href: PRESS.naszeMiasto, label: "Lea el artículo" },
+            },
+            {
+              meta: "Sociedad Fryderyk Chopin · en polaco",
+              title: "«Concierto inaugural del nuevo modelo de piano de cola Alaudis, de la empresa SAP Renovation de Kalisz»",
+              link: { href: PRESS.chopin, label: "Lea el artículo" },
+            },
+            {
+              meta: "wKaliszu · en polaco",
+              title: "«Paseo pianístico por Kalisz y visita al taller»",
+              link: { href: PRESS.wKaliszu, label: "Lea el artículo" },
+            },
+          ],
+        },
+        {
+          heading: "Para los medios",
+          body: [
+            "¿Prepara un reportaje sobre el piano de cola Alaudis? Con mucho gusto le facilitaremos fotografías e información sobre el instrumento y concertaremos una entrevista con sus creadores. Las fotografías y grabaciones de nuestros eventos también están disponibles en la galería «En imágenes».",
+          ],
+          link: { href: "/galeria", label: "Abra la galería" },
+        },
+      ],
+    },
+    it: {
+      eyebrow: "Notizie e stampa",
+      title: "Notizie ALAUDIS",
+      lead: "Presentazioni, concerti ed eventi dedicati al nuovo pianoforte a coda polacco di Kalisz, e ciò che i media scrivono di noi.",
+      sections: [
+        {
+          heading: "Eventi",
+          items: [
+            {
+              meta: "4 dicembre 2026 · Kalisz",
+              title: "Visita al laboratorio in cui è nato Alaudis",
+              text: "Venerdì alle 12:00 l’Ufficio informazioni turistiche di Kalisz invita il pubblico nel laboratorio SAP Renovation, in via Obozowa 18. I partecipanti vedranno come si restaurano i pianoforti d’epoca e com’è fatto uno strumento al suo interno. La partecipazione è gratuita.",
+              link: { href: PRESS.wKaliszu, label: "Dettagli su wKaliszu (in polacco)" },
+            },
+            {
+              meta: "29 novembre 2026 · Kalisz",
+              title: "Passeggiata «Sulle tracce dei pianoforti di Kalisz»",
+              text: "Una passeggiata gratuita nei luoghi legati alla storia pianistica della città. Ritrovo domenica alle 12:00 presso il pianoforte del municipio, Główny Rynek 20. L’iniziativa è organizzata dall’Ufficio informazioni turistiche di Kalisz.",
+              link: { href: "/tradycja", label: "Scopri la tradizione di Kalisz" },
+            },
+            {
+              meta: "29 ottobre 2026 · Kalisz",
+              title: "Presentazione del pianoforte a coda ALAUDIS ONE",
+              text: "Il primo modello del marchio è stato presentato ufficialmente nell’Aula Prof. Jerzy Rubiński della Facoltà di Pedagogia e Belle Arti dell’Università Adam Mickiewicz a Kalisz. Si sono esibiti Łukasz Byrdy, il duo Per Quattro e Leszek Możdżer. La serata è stata coorganizzata dalla Facoltà; partner dell’evento è stata la Società Fryderyk Chopin. Il concerto è stato accompagnato da una mostra di fotografie di Wojciech Neubauer che documentano la nascita dello strumento.",
+              link: { href: "/artysci", label: "Gli artisti del concerto di presentazione" },
+            },
+            {
+              meta: "Settembre 2026 · Kalisz",
+              title: "Adam Makowicz suona un Alaudis",
+              text: "Adam Makowicz ha suonato un pianoforte a coda Alaudis all’Akcelerator Kultury di Kalisz.",
+            },
+          ],
+        },
+        {
+          heading: "Dicono di noi",
+          items: [
+            {
+              meta: "KaliszOnline · in polacco",
+              title: "«Kalisz ha di nuovo un pianoforte tutto suo. Alaudis One ha conquistato Leszek Możdżer»",
+              link: { href: PRESS.kaliszOnline, label: "Leggi l’articolo" },
+            },
+            {
+              meta: "Nasze Miasto Kalisz · in polacco",
+              title: "«Inaugurazione solenne del pianoforte a coda Alaudis, costruito da un’azienda di Kalisz»",
+              link: { href: PRESS.naszeMiasto, label: "Leggi l’articolo" },
+            },
+            {
+              meta: "Società Fryderyk Chopin · in polacco",
+              title: "«Concerto di inaugurazione del nuovo modello di pianoforte a coda Alaudis dell’azienda SAP Renovation di Kalisz»",
+              link: { href: PRESS.chopin, label: "Leggi l’articolo" },
+            },
+            {
+              meta: "wKaliszu · in polacco",
+              title: "«Passeggiata pianistica per Kalisz e visita al laboratorio»",
+              link: { href: PRESS.wKaliszu, label: "Leggi l’articolo" },
+            },
+          ],
+        },
+        {
+          heading: "Per i media",
+          body: [
+            "Stai preparando un servizio sul pianoforte a coda Alaudis? Saremo lieti di fornirti fotografie e informazioni sullo strumento e di organizzare un’intervista con i suoi creatori. Fotografie e registrazioni dei nostri eventi sono disponibili anche nella galleria «In immagini».",
+          ],
+          link: { href: "/galeria", label: "Apri la galleria" },
+        },
+      ],
+    },
   },
 
   // ========================================================
@@ -570,6 +704,128 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
         },
       ],
     },
+    es: {
+      eyebrow: "Artistas",
+      title: "Artistas al piano ALAUDIS",
+      lead: "Un piano de cola solo se revela bajo los dedos de un pianista. Estos son los músicos que han tocado un Alaudis y el maestro que le dio su voz definitiva.",
+      sections: [
+        {
+          heading: "Concierto de presentación, 29 de octubre de 2026",
+          body: [
+            "La velada de presentación, en el Aula Prof. Jerzy Rubiński de Kalisz, mostró el instrumento en tres facetas: el recital chopiniano, la interpretación a cuatro manos y la improvisación jazzística.",
+          ],
+          items: [
+            {
+              meta: "Piano, improvisación",
+              title: "Leszek Możdżer",
+              text: "Nacido en Gdansk en 1971, este pianista de jazz, compositor y productor es uno de los músicos de jazz polacos más destacados. Ha grabado más de cien álbumes, entre ellos «Komeda», «Kaczmarek by Możdżer» y «Polska», en trío con Lars Danielsson y Zohar Fresco. Ha sido galardonado con premios Fryderyk y con el Paszport Polityki.\n\nCerró el concierto de presentación con obras propias e improvisaciones. Interpretó también «Liberetto» de Lars Danielsson, «Przygoda z Marią» de Jan Ptaszyn Wróblewski y el Estudio «Revolucionario» de Chopin. Según informó el portal KaliszOnline, el artista valoró muy positivamente el sonido del piano y lo consideró una construcción de talla mundial.",
+              link: { href: PRESS.kaliszOnline, label: "Crónica de KaliszOnline (en polaco)" },
+            },
+            {
+              meta: "Piano",
+              title: "Łukasz Byrdy",
+              text: "Titulado por la Academia de Música Ignacy Jan Paderewski de Poznań y por la Universidad de las Artes de Berlín. Participó en la segunda fase del XVII Concurso Internacional de Piano Fryderyk Chopin de Varsovia (2015), ganó el Concurso Internacional Chopin de Hanóver (2019) y fue semifinalista del concurso Honens de Calgary (2022). En 2017 publicó su disco de debut, con conciertos de Chopin y Mozart en versión de cámara. Es profesor en la Academia de Música de Poznań y en la Universidad Adam Mickiewicz.\n\nAbrió el concierto de presentación con interpretaciones de obras de Frédéric Chopin.",
+            },
+            {
+              meta: "Dúo de piano a cuatro manos",
+              title: "Per Quattro",
+              text: "Dúo fundado en 2016 por Joanna Kaczmarska-Bieżyńska y Robert Adamczak, pianistas y pedagogos vinculados a Kalisz y a la Universidad Adam Mickiewicz. Interpreta música a cuatro manos y para dos pianos, y ha actuado, entre otros escenarios, en el festival «Chopin nad wodami Motławy» de Gdansk y en las Confrontaciones Chopinianas de Antonin. En 2025, el sello CD Accord publicó el álbum «Per Quattro», con música de Schubert, Debussy y Fauré.\n\nEn el concierto de presentación, el dúo interpretó música de Chopin, tres Danzas húngaras de Johannes Brahms y «Libertango» de Astor Piazzolla.",
+            },
+            {
+              meta: "Piano, jóvenes talentos",
+              title: "Antonina Waliszewska",
+              text: "Pianista de Konin, alumna de la clase de piano de Joanna Marcinkowska en la Escuela Estatal de Música de segundo grado Fryderyk Chopin de Poznań. Premiada en más de cien concursos de piano, es becaria del programa «Młoda Polska» del ministro de Cultura y Patrimonio Nacional de Polonia y de la Fundación Santander. Ha actuado, entre otros lugares, en el Museo Fryderyk Chopin de Varsovia, en Żelazowa Wola, en Viena y en París, y su recital en el Palacio de Caza de Antonin fue retransmitido por la emisora Polskie Radio Chopin.\n\nTocó el piano de cola Alaudis durante una visita a nuestro taller. Las grabaciones y fotografías de aquel encuentro pueden verse en la galería «En imágenes».",
+              link: { href: "/galeria", label: "Abra la galería" },
+            },
+          ],
+        },
+        {
+          heading: "Primeros encuentros con el instrumento",
+          body: [
+            "Antes de que Alaudis ONE llegara al escenario, varios pianistas lo conocieron en encuentros privados. Según KaliszOnline, lo han tocado, entre otros, Rafał Blechacz, Adam Makowicz, Piotr Pawlak y Michał Tokaj.",
+            "En septiembre de 2026, Adam Makowicz actuó al piano de cola Alaudis en el Akcelerator Kultury de Kalisz.",
+          ],
+        },
+        {
+          items: [
+            {
+              meta: "Regulación y entonación",
+              title: "Peter Salisbury",
+              text: "La regulación y la entonación final de Alaudis ONE se confiaron a Peter Salisbury, técnico de concierto principal del Royal Festival Hall de Londres.\n\nComenzó como técnico en Steinway y, desde hace más de dos décadas, prepara en el Southbank Centre los pianos de cola para los pianistas más destacados del mundo. Es conocido también por sus pianos de cola de concierto dotados de dos mecanismos intercambiables.",
+              link: { href: "/historia", label: "Descubra cómo nace un Alaudis" },
+            },
+          ],
+        },
+        {
+          heading: "Jóvenes talentos",
+          body: [
+            "Nuestro taller recibe también a jóvenes pianistas. Las fotografías de la visita de Antonina Waliszewska, así como de conciertos y encuentros con artistas, pueden verse en la galería «En imágenes».",
+          ],
+          link: { href: "/galeria", label: "Abra la galería" },
+        },
+      ],
+    },
+    it: {
+      eyebrow: "Artisti",
+      title: "Gli artisti al pianoforte ALAUDIS",
+      lead: "Un pianoforte a coda si rivela soltanto sotto le dita di un pianista. Ecco i musicisti che hanno suonato un Alaudis e il maestro che gli ha dato la sua voce definitiva.",
+      sections: [
+        {
+          heading: "Concerto di presentazione, 29 ottobre 2026",
+          body: [
+            "La serata di presentazione, nell’Aula Prof. Jerzy Rubiński di Kalisz, ha mostrato lo strumento in tre vesti: il recital chopiniano, l’esecuzione a quattro mani e l’improvvisazione jazz.",
+          ],
+          items: [
+            {
+              meta: "Pianoforte, improvvisazione",
+              title: "Leszek Możdżer",
+              text: "Nato a Danzica nel 1971, pianista jazz, compositore e produttore, è uno dei più illustri musicisti jazz polacchi. Ha inciso oltre cento album, tra cui «Komeda», «Kaczmarek by Możdżer» e «Polska», in trio con Lars Danielsson e Zohar Fresco. È stato insignito dei premi Fryderyk e del Paszport Polityki.\n\nHa chiuso il concerto di presentazione con brani propri e improvvisazioni. Ha eseguito inoltre «Liberetto» di Lars Danielsson, «Przygoda z Marią» di Jan Ptaszyn Wróblewski e lo Studio «Rivoluzionario» di Chopin. Come ha riferito il portale KaliszOnline, l’artista ha espresso grande apprezzamento per il suono del pianoforte, definendolo una costruzione di livello mondiale.",
+              link: { href: PRESS.kaliszOnline, label: "Resoconto di KaliszOnline (in polacco)" },
+            },
+            {
+              meta: "Pianoforte",
+              title: "Łukasz Byrdy",
+              text: "Diplomato all’Accademia di Musica Ignacy Jan Paderewski di Poznań e all’Università delle Arti di Berlino. Ha partecipato al secondo turno del XVII Concorso Pianistico Internazionale Fryderyk Chopin di Varsavia (2015), ha vinto il Concorso Internazionale Chopin di Hannover (2019) ed è stato semifinalista del concorso Honens di Calgary (2022). Nel 2017 ha pubblicato il suo album d’esordio, con concerti di Chopin e Mozart in versione cameristica. Insegna all’Accademia di Musica di Poznań e all’Università Adam Mickiewicz.\n\nHa aperto il concerto di presentazione con le sue interpretazioni di composizioni di Fryderyk Chopin.",
+            },
+            {
+              meta: "Duo pianistico a quattro mani",
+              title: "Per Quattro",
+              text: "Duo fondato nel 2016 da Joanna Kaczmarska-Bieżyńska e Robert Adamczak, pianisti e didatti legati a Kalisz e all’Università Adam Mickiewicz. Esegue musica a quattro mani e per due pianoforti e si è esibito, tra l’altro, al festival «Chopin nad wodami Motławy» di Danzica e alle «Konfrontacje Chopinowskie» (Confronti chopiniani) di Antonin. Nel 2025 l’etichetta CD Accord ha pubblicato l’album «Per Quattro», con musiche di Schubert, Debussy e Fauré.\n\nAl concerto di presentazione il duo ha eseguito musiche di Chopin, tre Danze ungheresi di Johannes Brahms e «Libertango» di Astor Piazzolla.",
+            },
+            {
+              meta: "Pianoforte, giovani talenti",
+              title: "Antonina Waliszewska",
+              text: "Pianista di Konin, allieva della classe di pianoforte di Joanna Marcinkowska alla Scuola Statale di Musica di secondo grado Fryderyk Chopin di Poznań. Premiata in oltre cento concorsi pianistici, è borsista del programma «Młoda Polska» del Ministro della Cultura e del Patrimonio Nazionale polacco e della Fondazione Santander. Si è esibita, tra l’altro, al Museo Fryderyk Chopin di Varsavia, a Żelazowa Wola, a Vienna e a Parigi, e il suo recital al Palazzo di caccia di Antonin è stato trasmesso dall’emittente Polskie Radio Chopin.\n\nHa suonato il pianoforte a coda Alaudis durante una visita al nostro laboratorio. Trovi registrazioni e fotografie di quell’incontro nella galleria «In immagini».",
+              link: { href: "/galeria", label: "Apri la galleria" },
+            },
+          ],
+        },
+        {
+          heading: "Primi incontri con lo strumento",
+          body: [
+            "Prima che Alaudis ONE salisse sul palco, alcuni pianisti lo hanno conosciuto nel corso di incontri raccolti. Secondo KaliszOnline, lo hanno suonato, tra gli altri, Rafał Blechacz, Adam Makowicz, Piotr Pawlak e Michał Tokaj.",
+            "Nel settembre 2026 Adam Makowicz si è esibito su un pianoforte a coda Alaudis all’Akcelerator Kultury di Kalisz.",
+          ],
+        },
+        {
+          items: [
+            {
+              meta: "Regolazione e intonazione",
+              title: "Peter Salisbury",
+              text: "La regolazione e l’intonazione finale di Alaudis ONE sono state affidate a Peter Salisbury, capo tecnico da concerto della Royal Festival Hall di Londra.\n\nHa iniziato come tecnico presso Steinway e da oltre vent’anni, al Southbank Centre, prepara i pianoforti per i più grandi pianisti del mondo. È noto anche per i suoi pianoforti a coda da concerto dotati di due meccaniche intercambiabili.",
+              link: { href: "/historia", label: "Scopri come nasce un Alaudis" },
+            },
+          ],
+        },
+        {
+          heading: "Giovani talenti",
+          body: [
+            "Il nostro laboratorio accoglie anche giovani pianisti. Trovi le fotografie della visita di Antonina Waliszewska, dei concerti e degli incontri con gli artisti nella galleria «In immagini».",
+          ],
+          link: { href: "/galeria", label: "Apri la galleria" },
+        },
+      ],
+    },
   },
 
   // ========================================================
@@ -713,6 +969,76 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
             "Le nom vient du mot latin alauda, l’alouette : un petit oiseau dont le chant porte loin.",
           ],
           link: { href: "/historia", label: "Découvrir comment naît un Alaudis" },
+        },
+      ],
+    },
+    es: {
+      eyebrow: "Legado",
+      title: "Kalisz, ciudad de pianos",
+      lead: "Alaudis no nació en un lugar cualquiera. Kalisz construye pianos desde hace generaciones, y nuestro instrumento es el siguiente capítulo de esa historia.",
+      sections: [
+        {
+          heading: "Del taller a la fábrica",
+          body: [
+            "La tradición de la construcción de pianos en Kalisz se remonta al siglo XVIII. Su capítulo más célebre lo abrió Gustaw Arnold Fibiger, que en 1873 fundó en la ciudad un taller de reparación y en 1878 terminó su primer piano de cola. Esa fecha se considera el inicio de la Fábrica de Pianos de Cola y Pianos Verticales Arnold Fibiger.",
+            "La empresa se dio a conocer gracias a un gran piano de cola de concierto de 240 cm de longitud, presentado en 1885 en la exposición de Varsovia. Antes de la Primera Guerra Mundial, la fábrica podía producir más de mil instrumentos al año y figuraba entre las primeras de la industria pianística polaca.",
+          ],
+        },
+        {
+          heading: "Calisia",
+          body: [
+            "Tras la Segunda Guerra Mundial, la fábrica fue nacionalizada y recibió el nombre de «Calisia». Los pianos verticales y de cola de Kalisz se enviaban, entre otros destinos, a Escandinavia, y en 1954 se creó en la ciudad la Escuela Técnica de Construcción de Pianos, que formó a nuevas generaciones de especialistas. La fábrica funcionó hasta 2007.",
+          ],
+        },
+        {
+          heading: "Una ciudad que sigue entendiendo de pianos",
+          body: [
+            "El oficio no desapareció con el cierre de la fábrica. Según KaliszOnline, en Kalisz y sus alrededores trabajan hoy más de 40 empresas que reparan y restauran pianos de cola y verticales.",
+            "SAP Renovation es una de ellas. Desde 1990, nuestro equipo ha restaurado 14 000 instrumentos y ha conocido por dentro la construcción de los instrumentos de los mayores fabricantes del mundo.",
+          ],
+        },
+        {
+          heading: "Alaudis: un nuevo capítulo",
+          body: [
+            "De esa experiencia nació Alaudis, el primer piano de cola diseñado y construido en Kalisz en más de una década. En el modelo ONE 178 trabajó un equipo de 77 personas.",
+            "El nombre procede de la palabra latina alauda, es decir, alondra: un ave pequeña cuyo canto llega lejos.",
+          ],
+          link: { href: "/historia", label: "Descubra cómo nace un Alaudis" },
+        },
+      ],
+    },
+    it: {
+      eyebrow: "Eredità",
+      title: "Kalisz, città dei pianoforti",
+      lead: "Alaudis non è nato in un luogo qualunque. A Kalisz si costruiscono pianoforti da generazioni, e il nostro strumento è il nuovo capitolo di questa storia.",
+      sections: [
+        {
+          heading: "Dal laboratorio alla fabbrica",
+          body: [
+            "La tradizione della costruzione di pianoforti a Kalisz risale al XVIII secolo. Il suo capitolo più celebre fu aperto da Gustaw Arnold Fibiger, che nel 1873 fondò in città un laboratorio di riparazione e nel 1878 completò il suo primo pianoforte a coda. Questa data è considerata l’inizio della Fabbrica di Pianoforti a Coda e Verticali Arnold Fibiger.",
+            "A dare notorietà all’azienda fu un grande pianoforte a coda da concerto lungo 240 cm, presentato nel 1885 all’esposizione di Varsavia. Alla vigilia della Prima guerra mondiale la fabbrica era in grado di produrre oltre mille strumenti all’anno ed era tra le prime dell’industria pianistica polacca.",
+          ],
+        },
+        {
+          heading: "Calisia",
+          body: [
+            "Dopo la Seconda guerra mondiale lo stabilimento fu nazionalizzato e ribattezzato «Calisia». I pianoforti verticali e a coda di Kalisz raggiungevano, tra l’altro, la Scandinavia, e nel 1954 in città fu fondato l’Istituto Tecnico per la Costruzione di Pianoforti, che formò nuove generazioni di specialisti. La fabbrica rimase in attività fino al 2007.",
+          ],
+        },
+        {
+          heading: "Una città che di pianoforti se ne intende ancora",
+          body: [
+            "Con la chiusura della fabbrica il mestiere non è scomparso. Secondo KaliszOnline, a Kalisz e nei dintorni operano oggi più di 40 aziende che riparano e restaurano pianoforti a coda e verticali.",
+            "SAP Renovation è una di queste. Dal 1990 il nostro team ha restaurato 14.000 strumenti, imparando a conoscere dall’interno le soluzioni costruttive dei più grandi costruttori del mondo.",
+          ],
+        },
+        {
+          heading: "Alaudis: un nuovo capitolo",
+          body: [
+            "Da questa esperienza è nato Alaudis, il primo pianoforte a coda progettato e costruito a Kalisz da oltre un decennio. Al modello ONE 178 ha lavorato un team di 77 persone.",
+            "Il nome deriva dalla parola latina alauda, cioè allodola: un piccolo uccello il cui canto si diffonde lontano.",
+          ],
+          link: { href: "/historia", label: "Scopri come nasce un Alaudis" },
         },
       ],
     },

@@ -43,7 +43,7 @@ import indianAppleImage from "@/public/galeria-home/okleina-jablon-indyjska-poly
 // ----------------------------------------------------------
 // TYPY
 // ----------------------------------------------------------
-type LanguageKey = "PL" | "EN" | "DE" | "FR";
+type LanguageKey = "PL" | "EN" | "DE" | "FR" | "ES" | "IT";
 
 type ShowcaseSlide = {
   id: string;
@@ -66,6 +66,8 @@ function getLanguageFromPathname(pathname: string): LanguageKey {
   if (pathname === "/en" || pathname.startsWith("/en/")) return "EN";
   if (pathname === "/de" || pathname.startsWith("/de/")) return "DE";
   if (pathname === "/fr" || pathname.startsWith("/fr/")) return "FR";
+  if (pathname === "/es" || pathname.startsWith("/es/")) return "ES";
+  if (pathname === "/it" || pathname.startsWith("/it/")) return "IT";
   return "PL";
 }
 
@@ -301,6 +303,156 @@ function getSlides(language: LanguageKey): ShowcaseSlide[] {
         exterior: "Placage brillant",
         ctaHref: configuratorHref,
         sectionTitle: "Modèles et finitions",
+      },
+    ];
+  }
+
+  if (language === "ES") {
+    return [
+      {
+        id: "01",
+        eyebrow: "Alaudis",
+        title: "Poliéster blanco",
+        subtitle:
+          "Forma pura, luz y elegancia contemporánea en alto brillo.",
+        image: "/konfigurator/Bialy poliester połysk.png",
+        interiorLabel: "Interior",
+        interior: "Poliéster blanco",
+        exteriorLabel: "Acabado",
+        exterior: "Alto brillo",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelos y acabados",
+      },
+      {
+        id: "02",
+        eyebrow: "Alaudis",
+        title: "Poliéster negro",
+        subtitle:
+          "El clásico de concierto y una superficie profunda y noble, en acabado brillante.",
+        image: "/konfigurator/Czarny Poliester połysk-v2.png",
+        interiorLabel: "Interior",
+        interior: "Poliéster negro",
+        exteriorLabel: "Acabado",
+        exterior: "Alto brillo",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelos y acabados",
+      },
+      {
+        id: "03",
+        eyebrow: "Alaudis",
+        title: "Rojo Ferrari",
+        subtitle:
+          "Una interpretación audaz del lujo y de una presencia excepcional, en acabado brillante.",
+        image: "/konfigurator/Ferrari poliester połysk.png",
+        interiorLabel: "Interior",
+        interior: "Poliéster rojo de alto brillo",
+        exteriorLabel: "Acabado",
+        exterior: "Alto brillo",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelos y acabados",
+      },
+      {
+        id: "04",
+        eyebrow: "Alaudis",
+        title: "Ébano pulido",
+        subtitle:
+          "Elegancia atemporal y refinamiento clásico en un brillo noble.",
+        image: polishedEbonyImage.src,
+        interiorLabel: "Interior",
+        interior: "Ébano pulido",
+        exteriorLabel: "Acabado",
+        exterior: "Pulido brillante",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelos y acabados",
+      },
+      {
+        id: "05",
+        eyebrow: "Alaudis",
+        title: "Chapa de manzano indio",
+        subtitle:
+          "Un veteado noble y un carácter decorativo de alta gama, en acabado brillante.",
+        image: indianAppleImage.src,
+        interiorLabel: "Interior",
+        interior: "Manzano indio",
+        exteriorLabel: "Acabado",
+        exterior: "Chapa brillante",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelos y acabados",
+      },
+    ];
+  }
+
+  if (language === "IT") {
+    return [
+      {
+        id: "01",
+        eyebrow: "Alaudis",
+        title: "Poliestere bianco",
+        subtitle:
+          "Forma pura, luce ed eleganza contemporanea in finitura lucida a specchio.",
+        image: "/konfigurator/Bialy poliester połysk.png",
+        interiorLabel: "Interno",
+        interior: "Poliestere bianco",
+        exteriorLabel: "Finitura",
+        exterior: "Lucido a specchio",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelli e finiture",
+      },
+      {
+        id: "02",
+        eyebrow: "Alaudis",
+        title: "Poliestere nero",
+        subtitle:
+          "Il classico da concerto e una superficie profonda e nobile in finitura lucida.",
+        image: "/konfigurator/Czarny Poliester połysk-v2.png",
+        interiorLabel: "Interno",
+        interior: "Poliestere nero",
+        exteriorLabel: "Finitura",
+        exterior: "Lucido a specchio",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelli e finiture",
+      },
+      {
+        id: "03",
+        eyebrow: "Alaudis",
+        title: "Rosso Ferrari",
+        subtitle:
+          "Un’interpretazione audace del lusso e di una presenza fuori dal comune in finitura lucida.",
+        image: "/konfigurator/Ferrari poliester połysk.png",
+        interiorLabel: "Interno",
+        interior: "Poliestere rosso lucido a specchio",
+        exteriorLabel: "Finitura",
+        exterior: "Lucido a specchio",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelli e finiture",
+      },
+      {
+        id: "04",
+        eyebrow: "Alaudis",
+        title: "Ebano lucido",
+        subtitle:
+          "Eleganza senza tempo e raffinatezza classica in una nobile lucentezza.",
+        image: polishedEbonyImage.src,
+        interiorLabel: "Interno",
+        interior: "Ebano lucido",
+        exteriorLabel: "Finitura",
+        exterior: "Lucidatura a specchio",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelli e finiture",
+      },
+      {
+        id: "05",
+        eyebrow: "Alaudis",
+        title: "Impiallacciatura di melo indiano",
+        subtitle:
+          "Una venatura nobile e un carattere decorativo di pregio in finitura lucida.",
+        image: indianAppleImage.src,
+        interiorLabel: "Interno",
+        interior: "Melo indiano",
+        exteriorLabel: "Finitura",
+        exterior: "Impiallacciatura lucida",
+        ctaHref: configuratorHref,
+        sectionTitle: "Modelli e finiture",
       },
     ];
   }

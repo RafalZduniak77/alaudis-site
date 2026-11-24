@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 import { getCliClient } from "sanity/cli";
 import { galleryApiVersion, galleryProjectId } from "../lib/gallery/config";
 
-type Localized = { pl: string; en?: string; de?: string; fr?: string };
+type Localized = { pl: string; en?: string; de?: string; fr?: string; es?: string; it?: string };
 type VideoSpec = { id: string; filename: string; title: Localized; description?: Localized; alt: Localized; location?: string; date?: string; author?: string; duration?: number; order?: number };
 
 // Usage: npm run cms:video -- --spec scripts/videos/<name>.json --file film.mp4 --poster kadr.jpg [--production]

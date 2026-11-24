@@ -2,7 +2,7 @@
 // ZWIEDZANIE MANUFAKTURY — TEKSTY PL / EN / DE / FR
 // ==========================================================
 
-export type TourLanguage = "PL" | "EN" | "DE" | "FR";
+export type TourLanguage = "PL" | "EN" | "DE" | "FR" | "ES" | "IT";
 
 // Zgłoszenia na zwiedzanie trafiają do Rafała Zduniaka.
 export const TOUR_EMAIL = "rafal.zduniak@alaudis.eu";
@@ -229,6 +229,100 @@ export const tourCopy: Record<TourLanguage, Copy> = {
       sending: "Envoi en cours…", doneEyebrow: "Merci", doneTitle: "Votre demande a été envoyée",
       doneText: "Nous vous recontacterons pour confirmer la date de la visite. Pour toute question, écrivez à",
       error: "Votre demande n’a pas pu être envoyée. Veuillez réessayer dans un instant ou écrire directement à",
+    },
+  },
+  ES: {
+    home: "/es", atelier: "/es/odwiedz-atelier",
+    hero: {
+      eyebrow: "Manufactura ALAUDIS · Kalisz",
+      title: "Visita a la manufactura",
+      text: "Descubra cómo nace un piano de cola ALAUDIS: de la madera y la tabla armónica, pasando por el acabado, hasta la regulación y la entonación finales. La visita guiada gratuita dura unas 4 horas y se realiza de forma individual o en grupos reducidos, previa solicitud.",
+      cta: "Solicite su visita",
+    },
+    stagesEyebrow: "El recorrido", stagesTitle: "Lo que verá en la manufactura",
+    stages: {
+      wood: { title: "La madera", text: "Selección y preparación de la madera de la que nacen la caja y los elementos resonantes del instrumento." },
+      soundboard: { title: "La tabla armónica", text: "El corazón del sonido: la tabla armónica, los puentes y el encordado, el lugar donde nace el carácter del sonido." },
+      finish: { title: "El acabado", text: "Lacado, lijado y pulido: la especialidad de SAP Renovation, perfeccionada en 14 000 instrumentos." },
+      voicing: { title: "Regulación y entonación", text: "La última etapa: el ajuste preciso del mecanismo y del sonido antes de que el piano de cola llegue a su propietario." },
+    },
+    infoEyebrow: "Cómo funciona", infoTitle: "De la solicitud a la visita",
+    info: [
+      { title: "Solicitud", text: "Rellene el formulario e indique la fecha que prefiere y el número de personas." },
+      { title: "Confirmación", text: "Nos pondremos en contacto con usted para acordar el día y la hora exactos de la visita." },
+      { title: "Visita", text: "Un recorrido guiado por la manufactura con nuestro equipo, que concluye con la posibilidad de tocar un piano de cola ALAUDIS." },
+    ],
+    formEyebrow: "Formulario de solicitud", formTitle: "Solicite una visita a la manufactura",
+    formText: "Envíe su solicitud: le responderemos y confirmaremos la fecha. La solicitud no constituye todavía una reserva.",
+    address: "Obozowa 18, 62-800 Kalisz, Polonia",
+    highlights: [
+      { title: "De la madera a la entonación", text: "Descubra cómo nace un piano de cola ALAUDIS: de la madera y la tabla armónica, pasando por el acabado, hasta la regulación y la entonación finales." },
+      { title: "Gratuita, unas 4 horas", text: "La visita guiada a la manufactura es gratuita y dura unas 4 horas." },
+      { title: "Individual o en grupo reducido", text: "Las visitas se realizan de forma individual o en grupos reducidos, previa solicitud." },
+    ],
+    facts: [{ label: "Duración", value: "aprox. 4 horas" }, { label: "Participación", value: "gratuita" }],
+    form: {
+      name: "Nombre y apellidos", email: "Correo electrónico", phone: "Teléfono", people: "Número de personas",
+      peopleOptions: ["1", "2", "3–5", "6–10", "Grupo de más de 10 personas"],
+      tourLanguage: "Idioma de la visita", languageOptions: ["Inglés", "Polaco", "Alemán"],
+      date: "Fecha preferida", altDate: "Fecha alternativa",
+      message: "Mensaje", messagePlaceholder: "P. ej., grupo escolar, interés por un modelo concreto, necesidades de accesibilidad…",
+      consent: "Acepto que ALAUDIS / SAP Renovation se ponga en contacto conmigo en relación con mi solicitud de visita.",
+      required: "* campos obligatorios", choose: "Seleccione…",
+      submit: "Enviar solicitud", subject: "Solicitud de visita a la manufactura ALAUDIS",
+      sentEyebrow: "Casi listo", sentTitle: "El mensaje le espera en su programa de correo",
+      sentText: "Hemos abierto un mensaje ya preparado con su solicitud: solo tiene que enviarlo. Si su programa de correo no se ha abierto, escriba directamente a",
+      back: "Volver al formulario",
+      sending: "Enviando…", doneEyebrow: "Gracias", doneTitle: "Su solicitud se ha enviado",
+      doneText: "Nos pondremos en contacto con usted para confirmar la fecha de la visita. Si tiene alguna pregunta, escriba a",
+      error: "No se ha podido enviar la solicitud. Inténtelo de nuevo en unos instantes o escriba directamente a",
+    },
+  },
+  IT: {
+    home: "/it", atelier: "/it/odwiedz-atelier",
+    hero: {
+      eyebrow: "Manifattura ALAUDIS · Kalisz",
+      title: "Visita alla manifattura",
+      text: "Scopri come nasce un pianoforte a coda ALAUDIS: dal legno e dalla tavola armonica, passando per la finitura, fino alla regolazione e all’intonazione finali. La visita guidata gratuita dura circa 4 ore e si svolge individualmente o in piccoli gruppi, previa richiesta.",
+      cta: "Richiedi una visita",
+    },
+    stagesEyebrow: "Il percorso", stagesTitle: "Che cosa vedrai in manifattura",
+    stages: {
+      wood: { title: "Il legno", text: "Selezione e preparazione del legno da cui nascono la cassa e gli elementi risonanti dello strumento." },
+      soundboard: { title: "La tavola armonica", text: "Il cuore del suono: la tavola armonica, i ponticelli e l’incordatura: il luogo in cui nasce il carattere del suono." },
+      finish: { title: "La finitura", text: "Verniciatura, levigatura e lucidatura: la specialità di SAP Renovation, perfezionata su 14.000 strumenti." },
+      voicing: { title: "Regolazione e intonazione", text: "L’ultima fase: la messa a punto precisa della meccanica e del suono, prima che il pianoforte a coda raggiunga il suo proprietario." },
+    },
+    infoEyebrow: "Come funziona", infoTitle: "Dalla richiesta alla visita",
+    info: [
+      { title: "Richiesta", text: "Compila il modulo indicando la data preferita e il numero di persone." },
+      { title: "Conferma", text: "Ti contatteremo per concordare il giorno e l’ora esatti della visita." },
+      { title: "Visita", text: "Una visita guidata alla manifattura con il nostro team, che si conclude con la possibilità di suonare un pianoforte a coda ALAUDIS." },
+    ],
+    formEyebrow: "Modulo di richiesta", formTitle: "Richiedi una visita alla manifattura",
+    formText: "Invia la tua richiesta: ti risponderemo e confermeremo la data. La richiesta non costituisce ancora una prenotazione.",
+    address: "Obozowa 18, 62-800 Kalisz, Polonia",
+    highlights: [
+      { title: "Dal legno all’intonazione", text: "Scopri come nasce un pianoforte a coda ALAUDIS: dal legno e dalla tavola armonica, passando per la finitura, fino alla regolazione e all’intonazione finali." },
+      { title: "Gratuita, circa 4 ore", text: "La visita guidata alla manifattura è gratuita e dura circa 4 ore." },
+      { title: "Individualmente o in piccolo gruppo", text: "Le visite si svolgono individualmente o in piccoli gruppi, previa richiesta." },
+    ],
+    facts: [{ label: "Durata", value: "circa 4 ore" }, { label: "Partecipazione", value: "gratuita" }],
+    form: {
+      name: "Nome e cognome", email: "E-mail", phone: "Telefono", people: "Numero di persone",
+      peopleOptions: ["1", "2", "3–5", "6–10", "Gruppo di oltre 10 persone"],
+      tourLanguage: "Lingua della visita", languageOptions: ["Inglese", "Polacco", "Tedesco"],
+      date: "Data preferita", altDate: "Data alternativa",
+      message: "Messaggio", messagePlaceholder: "Ad es. gruppo scolastico, interesse per un modello specifico, esigenze di accessibilità…",
+      consent: "Acconsento a essere contattato/a da ALAUDIS / SAP Renovation in merito alla mia richiesta di visita.",
+      required: "* campi obbligatori", choose: "Scegli…",
+      submit: "Invia la richiesta", subject: "Richiesta di visita alla manifattura ALAUDIS",
+      sentEyebrow: "Quasi fatto", sentTitle: "Il messaggio ti aspetta nel tuo programma di posta",
+      sentText: "Abbiamo aperto un messaggio già pronto con la tua richiesta: basta inviarlo. Se il programma di posta non si è aperto, scrivi direttamente a",
+      back: "Torna al modulo",
+      sending: "Invio in corso…", doneEyebrow: "Grazie", doneTitle: "La tua richiesta è stata inviata",
+      doneText: "Ti ricontatteremo per confermare la data della visita. Per qualsiasi domanda, scrivi a",
+      error: "Non è stato possibile inviare la richiesta. Riprova tra qualche istante oppure scrivi direttamente a",
     },
   },
 };

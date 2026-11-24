@@ -1,4 +1,4 @@
-export const galleryLocales = ["pl", "en", "de", "fr"] as const;
+export const galleryLocales = ["pl", "en", "de", "fr", "es", "it"] as const;
 export type GalleryLocale = (typeof galleryLocales)[number];
 export type LocalizedText = Partial<Record<GalleryLocale, string>>;
 export type GalleryCategory = "instruments" | "craft" | "events";

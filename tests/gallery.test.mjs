@@ -109,3 +109,22 @@ test("Mixed gallery pagination counts videos and keeps a deterministic order", a
   assert.equal(new Set([...first.items, ...second.items].map(item => item._id)).size, 15);
   assert.equal((await page(0, "video")).total, 14);
 });
+
+test("Every language version has the full gallery wording and falls back to Polish content", async () => {
+  const { galleryLocales, galleryPath, isGalleryLocale, localize } = await import("../lib/gallery/types.ts");
+  const { galleryCopy } = await import("../lib/gallery/i18n.ts");
+  assert.deepEqual([...galleryLocales], ["pl", "en", "de", "fr", "es", "it"]);
+  assert.deepEqual(Object.keys(galleryCopy), [...galleryLocales]);
+  const keys = Object.keys(galleryCopy.pl).sort();
+  for (const locale of galleryLocales) {
+    assert.deepEqual(Object.keys(galleryCopy[locale]).sort(), keys, locale);
+    for (const key of keys) assert(galleryCopy[locale][key].trim(), `${locale}.${key}`);
+    assert.equal(galleryPath(locale), locale === "pl" ? "/galeria" : `/${locale}/galeria`);
+    assert(isGalleryLocale(locale));
+  }
+  // Albums described only in Polish still show a title on the Spanish and Italian pages.
+  assert.equal(localize({ pl: "Album", es: "Álbum" }, "es"), "Álbum");
+  assert.equal(localize({ pl: "Album", es: "  " }, "es"), "Album");
+  assert.equal(localize({ pl: "Album", en: "Album EN" }, "it"), "Album");
+  assert.equal(localize(undefined, "it"), "");
+});

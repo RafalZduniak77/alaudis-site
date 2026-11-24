@@ -8,10 +8,10 @@ import Link from "next/link";
 // (components/konfigurator/data.ts): obudowę, akustykę, mechanikę.
 // ==========================================================
 
-type Language = "PL" | "EN" | "DE" | "FR";
+type Language = "PL" | "EN" | "DE" | "FR" | "ES" | "IT";
 type Pillar = { label: string; title: string; text: string };
 
-const PREFIX: Record<Language, string> = { PL: "", EN: "/en", DE: "/de", FR: "/fr" };
+const PREFIX: Record<Language, string> = { PL: "", EN: "/en", DE: "/de", FR: "/fr", ES: "/es", IT: "/it" };
 
 const COPY: Record<Language, {
   eyebrow: string; title: string; text: string; pillars: Pillar[];
@@ -64,6 +64,30 @@ const COPY: Record<Language, {
     ],
     priceLabel: "Prix", price: "Sur demande", onRequest: "Chaque devis est établi individuellement — selon le modèle et la configuration choisie.",
     configure: "Configurer votre piano", quote: "Demander un devis",
+  },
+  ES: {
+    eyebrow: "ALAUDIS Bespoke",
+    title: "Un piano de cola a medida",
+    text: "Cada piano de cola ALAUDIS se construye por encargo individual. El cliente decide no solo el aspecto del instrumento, sino también cómo suena y con qué componentes está construido. Todas estas elecciones pueden reunirse en el configurador y, a continuación, concretarse con nosotros en detalle.",
+    pillars: [
+      { label: "01 · Diseño", title: "Aspecto y acabado", text: "Poliéster de alto brillo (blanco, negro o rojo), ébano pulido o chapa de manzano indio. A ello se suma el color del bastidor y del fieltro." },
+      { label: "02 · Sonido", title: "Madera y perfil sonoro", text: "Tabla armónica Strunz o Ciresa, puentes de arce o de haya, cuerdas Röslau o Paulello y cuerdas graves Heller o SAP Renovation." },
+      { label: "03 · Técnica", title: "Mecanismo y teclado", text: "Mecanismo, macillos y apagadores ALAUDIS, Louis Renner o Abel, y teclado ALAUDIS o Kluge, elegidos según su manera de tocar." },
+    ],
+    priceLabel: "Precio", price: "A consultar", onRequest: "Preparamos cada presupuesto de forma individual: depende del modelo y de la configuración elegida.",
+    configure: "Configure su piano de cola", quote: "Solicite un presupuesto",
+  },
+  IT: {
+    eyebrow: "ALAUDIS Bespoke",
+    title: "Un pianoforte a coda su misura",
+    text: "Ogni pianoforte a coda ALAUDIS nasce su ordinazione individuale. Il cliente decide non solo l’aspetto dello strumento, ma anche il suo suono e i componenti con cui è costruito. Tutte queste scelte si possono comporre nel configuratore, per poi definirne insieme a noi i dettagli.",
+    pillars: [
+      { label: "01 · Design", title: "Aspetto e finitura", text: "Poliestere lucido a specchio (bianco, nero o rosso), ebano lucido oppure impiallacciatura di melo indiano. A questo si aggiungono il colore del telaio e quello del feltro." },
+      { label: "02 · Suono", title: "Legno e profilo sonoro", text: "Tavola armonica Strunz o Ciresa, ponticelli in acero o in faggio, corde Röslau o Paulello e corde dei bassi Heller o SAP Renovation." },
+      { label: "03 · Tecnica", title: "Meccanica e tastiera", text: "Meccanica, martelletti e smorzatori ALAUDIS, Louis Renner o Abel, e tastiera ALAUDIS o Kluge, scelti in base al tuo modo di suonare." },
+    ],
+    priceLabel: "Prezzo", price: "Su richiesta", onRequest: "Prepariamo ogni preventivo individualmente: dipende dal modello e dalla configurazione scelta.",
+    configure: "Configura il tuo pianoforte", quote: "Richiedi un preventivo",
   },
 };
 

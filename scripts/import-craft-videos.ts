@@ -44,7 +44,7 @@ async function main() {
 
     const videoAsset = await client.assets.upload("file", createReadStream(videoPath), { filename: `alaudis-rzemioslo-${name}.mp4`, contentType: "video/mp4" });
     const posterAsset = await client.assets.upload("image", createReadStream(posterPath), { filename: `alaudis-rzemioslo-${name}.jpg`, contentType: "image/jpeg" });
-    const localized = (pick: (video: { title: string; text: string }) => string) => ({ pl: pick(craftContent.PL.videos[index]), en: pick(craftContent.EN.videos[index]), de: pick(craftContent.DE.videos[index]), fr: pick(craftContent.FR.videos[index]) });
+    const localized = (pick: (video: { title: string; text: string }) => string) => ({ pl: pick(craftContent.PL.videos[index]), en: pick(craftContent.EN.videos[index]), de: pick(craftContent.DE.videos[index]), fr: pick(craftContent.FR.videos[index]), es: pick(craftContent.ES.videos[index]), it: pick(craftContent.IT.videos[index]) });
 
     await client.createOrReplace({
       _id: id, _type: "galleryVideo", section: "craft", order: index + 1,

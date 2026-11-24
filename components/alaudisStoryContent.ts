@@ -1,6 +1,6 @@
 import type { AlaudisModelId } from "./alaudisModels";
 
-export type StoryLanguage = "PL" | "EN" | "DE" | "FR";
+export type StoryLanguage = "PL" | "EN" | "DE" | "FR" | "ES" | "IT";
 
 type BrandStory = {
   collectionId: string;
@@ -215,6 +215,102 @@ export const alaudisStoryContent: Record<StoryLanguage, BrandStory> = {
     closing: "Trois alouettes. Une même voix, celle de l’artisanat et de la passion.",
     discover: "Découvrir le modèle",
     readStory: "Découvrir notre histoire",
+  },
+  ES: {
+    collectionId: "modelos",
+    collectionLabel: "Colección Alaudis",
+    collectionTitle: ["Tres escalas de presencia.", "Una sola filosofía artesanal."],
+    collectionIntro:
+      "Cada modelo Alaudis nace como una interpretación propia de la proporción, el carácter y el sonido, desde la presencia refinada de un salón hasta la plena escala de un piano de cola de concierto.",
+    storyLabel: "El alma de nuestra marca",
+    title: ["Tres alondras.", "Tres voces.", "Una sola alma."],
+    origin:
+      "En latín, alauda significa alondra, un ave cuyo canto simboliza desde hace siglos la belleza, la libertad y la armonía con la naturaleza.",
+    nameMeaning: "ALAUDIS es una de las formas del plural de esta palabra.",
+    symbolism:
+      "Y es precisamente en ese plural donde reside el hermoso simbolismo de nuestra marca.",
+    family:
+      "Nuestra familia de pianos de cola son tres alondras. Cada una distinta, cada una con su propio carácter, pero todas nacidas de la misma pasión por la música y por la excelencia artesanal.",
+    models: {
+      "178": {
+        description:
+          "Una interpretación lírica del piano de cola de alta gama, elegante, equilibrada y concebida para interiores en los que el detalle importa tanto como el sonido.",
+        story:
+          "El comienzo de nuestro relato musical. La primera voz propia a la que dimos vida.",
+      },
+      "214": {
+        description:
+          "Un piano de cola de presencia más profunda y proyección más amplia, para espacios que requieren mayor escala, mayor nitidez y un carácter de concierto.",
+        story:
+          "Un paso más en la evolución de nuestra concepción constructiva, expresión de la valentía de buscar un camino propio.",
+      },
+      "275": {
+        description:
+          "La máxima expresión de concierto de Alaudis: plena escala sonora, proyección y presencia escénica concebidas para los espacios más exigentes.",
+        story:
+          "Nuestro mayor sueño: un piano de cola de concierto creado pensando en los grandes escenarios del mundo.",
+      },
+    },
+    familyLine: "Tres instrumentos. Tres personalidades. Una sola familia.",
+    ownVoice: [
+      "La alondra no imita a otras aves.",
+      "Canta con su propia voz.",
+    ],
+    philosophy:
+      "Del mismo modo, nosotros no aspiramos a crear copias de pianos de cola ya existentes. Queremos que ALAUDIS tenga su propia identidad, su propio carácter y su propio lugar en el mundo de la música.",
+    value:
+      "Porque el mayor valor de un instrumento no reside solo en la perfección de su factura, sino también en lo que es capaz de transmitir al ser humano a través de la música.",
+    closing: "Tres alondras. Una sola voz común, la del oficio y la pasión.",
+    discover: "Descubra el modelo",
+    readStory: "Conozca la historia de la marca",
+  },
+  IT: {
+    collectionId: "modelli",
+    collectionLabel: "Collezione Alaudis",
+    collectionTitle: ["Tre dimensioni della presenza.", "Un’unica filosofia artigianale."],
+    collectionIntro:
+      "Ogni modello Alaudis nasce come un’interpretazione a sé di proporzione, carattere e suono, dalla raffinata presenza da salotto alla piena dimensione di un pianoforte a coda da concerto.",
+    storyLabel: "L’anima del nostro marchio",
+    title: ["Tre allodole.", "Tre voci.", "Un’unica anima."],
+    origin:
+      "In latino alauda significa allodola, un uccello il cui canto è da secoli simbolo di bellezza, libertà e armonia con la natura.",
+    nameMeaning: "ALAUDIS è una delle forme plurali di questa parola.",
+    symbolism:
+      "Ed è proprio in questo plurale che si cela la bella simbologia del nostro marchio.",
+    family:
+      "La nostra famiglia di pianoforti a coda è composta da tre allodole. Ognuna diversa, ognuna con il proprio carattere, ma tutte nate dalla stessa passione per la musica e per l’eccellenza artigianale.",
+    models: {
+      "178": {
+        description:
+          "Un’interpretazione lirica del pianoforte a coda di alta gamma, elegante, equilibrata e pensata per interni in cui il dettaglio conta quanto il suono.",
+        story:
+          "L’inizio del nostro racconto musicale. La prima voce davvero nostra, a cui abbiamo dato vita.",
+      },
+      "214": {
+        description:
+          "Un pianoforte a coda dalla presenza più profonda e dalla proiezione più ampia, per spazi che richiedono maggiore ampiezza, maggiore incisività e un carattere da concerto.",
+        story:
+          "Un passo ulteriore nell’evoluzione del nostro pensiero costruttivo, espressione del coraggio di cercare una strada propria.",
+      },
+      "275": {
+        description:
+          "La massima espressione concertistica di Alaudis: piena ampiezza del suono, proiezione e presenza scenica concepite per gli spazi più esigenti.",
+        story:
+          "Il nostro sogno più grande: un pianoforte a coda da concerto creato pensando ai grandi palcoscenici del mondo.",
+      },
+    },
+    familyLine: "Tre strumenti. Tre personalità. Un’unica famiglia.",
+    ownVoice: [
+      "L’allodola non imita gli altri uccelli.",
+      "Canta con la propria voce.",
+    ],
+    philosophy:
+      "Allo stesso modo, noi non desideriamo creare copie di pianoforti a coda già esistenti. Vogliamo che ALAUDIS abbia una propria identità, un proprio carattere e un proprio posto nel mondo della musica.",
+    value:
+      "Perché il valore più grande di uno strumento non sta soltanto nella perfezione della sua fattura, ma anche in ciò che sa trasmettere all’uomo attraverso la musica.",
+    closing: "Tre allodole. Un’unica voce comune, quella dell’artigianato e della passione.",
+    discover: "Scopri il modello",
+    readStory: "Scopri la storia del marchio",
   },
 };
 

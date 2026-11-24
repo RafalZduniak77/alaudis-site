@@ -11,7 +11,7 @@
 // - podgląd 360 ładuje się z serwisu Sirv, galeria z Sanity.
 // ==========================================================
 
-export type PrivacyLocale = "pl" | "en" | "de" | "fr";
+export type PrivacyLocale = "pl" | "en" | "de" | "fr" | "es" | "it";
 
 export const PRIVACY_EMAIL = "rafal.zduniak@alaudis.eu";
 export const PRIVACY_PHONE = "+48 62 501 30 30";
@@ -349,5 +349,169 @@ export const privacyCopy: Record<PrivacyLocale, {
     questionsTitle: "Des questions ?",
     questionsText: "Écrivez-nous — nous vous expliquerons volontiers comment nous protégeons vos données.",
     contact: "Contact",
+  },
+  es: {
+    eyebrow: "ALAUDIS",
+    title: "Política de privacidad",
+    lead: "Cómo tratamos los datos personales de quienes visitan alaudis.eu y se ponen en contacto con nosotros.",
+    sections: [
+      {
+        title: "1. Responsable del tratamiento",
+        paragraphs: [
+          "El responsable del tratamiento de los datos personales es SAP Renovation Sp. z o.o., ul. Obozowa 18, 62-800 Kalisz, Polonia, inscrita en el Registro Judicial Nacional polaco (KRS) con el número 0000125505, número de identificación fiscal (NIP) 6181893417, titular de la marca ALAUDIS.",
+          `Contacto para cuestiones relativas a los datos personales: ${PRIVACY_EMAIL}, tel. ${PRIVACY_PHONE}.`,
+        ],
+      },
+      {
+        title: "2. Qué datos tratamos",
+        paragraphs: [
+          "Tratamos los datos que usted nos facilita directamente al ponerse en contacto con nosotros por correo electrónico, por teléfono, por SMS o por WhatsApp, al solicitar una visita a la manufactura o al enviarnos una configuración de piano: nombre y apellidos, dirección de correo electrónico, número de teléfono, número de personas y fechas propuestas para la visita, la configuración elegida del instrumento y el contenido de su mensaje.",
+          "El formulario de solicitud de visita envía sus datos directamente a nuestro buzón de correo electrónico cuando hace clic en «Enviar solicitud»: el sitio web los transmite y no los guarda en el servidor. El configurador prepara un mensaje listo para enviar en su propio programa de correo: los datos solo nos llegan cuando es usted quien lo envía.",
+          "Facilitar los datos es voluntario, pero sin ellos no podemos responder a su consulta, concertar una visita ni preparar un presupuesto.",
+        ],
+      },
+      {
+        title: "3. Fines y bases jurídicas",
+        paragraphs: [
+          "Utilizamos los datos para responder a su consulta, concertar una visita al atelier o a la manufactura, preparar un presupuesto y, si llegamos a colaborar, celebrar y ejecutar un contrato (artículo 6, apartado 1, letra b), del RGPD).",
+          "Una vez concluido el asunto, conservamos la correspondencia para la formulación, el ejercicio o la defensa de reclamaciones, lo que constituye nuestro interés legítimo (artículo 6, apartado 1, letra f), del RGPD). Tratamos los datos de facturación porque así lo exige la normativa fiscal y contable (artículo 6, apartado 1, letra c), del RGPD).",
+          "No enviamos comunicaciones comerciales sin su consentimiento ni adoptamos decisiones automatizadas que le afecten.",
+        ],
+      },
+      {
+        title: "4. A quién comunicamos los datos",
+        paragraphs: [
+          "Solo confiamos los datos a entidades que nos ayudan a gestionar el sitio web y a atender las consultas: el proveedor de alojamiento del sitio y los proveedores de correo electrónico, así como, cuando se ejecuta un pedido, las empresas de transporte, la aseguradora y la asesoría contable. Si decide ponerse en contacto con nosotros por WhatsApp, el mensaje lo gestiona el proveedor de ese servicio. No vendemos datos.",
+          "Algunos proveedores de servicios técnicos tienen su sede fuera del Espacio Económico Europeo, en particular en Estados Unidos. En esos casos, los datos se transfieren sobre la base de las cláusulas contractuales tipo aprobadas por la Comisión Europea o de una decisión de adecuación.",
+        ],
+      },
+      {
+        title: "5. Plazo de conservación",
+        paragraphs: [
+          "Conservamos los datos de las consultas mientras dure la correspondencia y, después, hasta que prescriban las posibles reclamaciones. Los datos relacionados con el contrato y las facturas se conservan durante el plazo que exige la ley.",
+        ],
+      },
+      {
+        title: "6. Sus derechos",
+        paragraphs: [
+          `Tiene derecho a acceder a sus datos, a su rectificación, a su supresión, a la limitación del tratamiento y a la portabilidad de los datos, así como a oponerse al tratamiento basado en nuestro interés legítimo. Para ejercer estos derechos, escriba a ${PRIVACY_EMAIL}.`,
+          "También tiene derecho a presentar una reclamación ante el presidente de la Oficina de Protección de Datos Personales de Polonia (ul. Stawki 2, 00-193 Varsovia).",
+        ],
+      },
+      {
+        title: "7. Cookies, almacenamiento del navegador y estadísticas",
+        paragraphs: [
+          "Nuestro sitio web no utiliza cookies con fines publicitarios ni de seguimiento entre sitios. En el almacenamiento de su navegador guardamos únicamente lo necesario para que el sitio funcione: su elección en materia de privacidad y la configuración de su piano, para que pueda volver a ella.",
+          "Las estadísticas anónimas de visitas y de velocidad del sitio (Vercel Analytics y Speed Insights) solo se activan cuando hace clic en «Aceptar» en la ventana de privacidad. No utilizan cookies y no nos permiten identificarle. Puede cambiar su elección en cualquier momento haciendo clic en «Configuración de cookies» al pie de la página.",
+          "El servidor en el que se aloja el sitio web registra los datos técnicos habituales de cada visita (entre otros, la dirección IP, la fecha y el tipo de navegador) con el único fin de garantizar la seguridad y el correcto funcionamiento del sitio.",
+        ],
+      },
+      {
+        title: "8. Contenidos de servicios externos",
+        paragraphs: [
+          "La vista de 360° del piano en la página «Descubra los modelos» se carga desde el servicio Sirv, y las fotografías y los vídeos de la galería, desde el servicio Sanity. Para mostrarlos, su navegador se conecta a los servidores de estos proveedores y les transmite datos técnicos, como su dirección IP.",
+          "La fotografía o el vídeo de su propio espacio que cargue en la vista 3D permanece únicamente en su navegador: no se envía a nuestro servidor.",
+        ],
+      },
+      {
+        title: "9. Fotografías y vídeos de eventos",
+        paragraphs: [
+          `En la galería publicamos reportajes fotográficos y grabaciones de conciertos y eventos en los que participa ALAUDIS. Si aparece en ellos y no desea que un determinado material esté disponible en el sitio web, escriba a ${PRIVACY_EMAIL} y lo retiraremos.`,
+        ],
+      },
+      {
+        title: "10. Cambios en la política",
+        paragraphs: [
+          "Podemos actualizar esta política de privacidad cuando cambie el funcionamiento del sitio web o la normativa. La versión vigente está siempre disponible en esta página.",
+        ],
+      },
+    ],
+    updated: "Versión del 24 de noviembre de 2026.",
+    cookieSettings: "Configuración de cookies",
+    questionsTitle: "¿Tiene alguna pregunta?",
+    questionsText: "Escríbanos: le explicaremos con mucho gusto cómo cuidamos sus datos.",
+    contact: "Contacto",
+  },
+  it: {
+    eyebrow: "ALAUDIS",
+    title: "Informativa sulla privacy",
+    lead: "Come trattiamo i dati personali di chi visita alaudis.eu e di chi ci contatta.",
+    sections: [
+      {
+        title: "1. Titolare del trattamento",
+        paragraphs: [
+          "Il titolare del trattamento dei dati personali è SAP Renovation Sp. z o.o., ul. Obozowa 18, 62-800 Kalisz, Polonia, iscritta al Registro giudiziario nazionale polacco (KRS) con il numero 0000125505, numero di identificazione fiscale (NIP) 6181893417, proprietaria del marchio ALAUDIS.",
+          `Contatto per le questioni relative ai dati personali: ${PRIVACY_EMAIL}, tel. ${PRIVACY_PHONE}.`,
+        ],
+      },
+      {
+        title: "2. Quali dati trattiamo",
+        paragraphs: [
+          "Trattiamo i dati che l’utente ci fornisce direttamente quando ci contatta via e-mail, per telefono, tramite SMS o WhatsApp, quando richiede una visita alla manifattura o ci invia la configurazione di un pianoforte: nome e cognome, indirizzo e-mail, numero di telefono, numero di persone e date proposte per la visita, configurazione scelta per lo strumento e contenuto del messaggio.",
+          "Il modulo di richiesta della visita invia i dati dell’utente direttamente alla nostra casella di posta elettronica dopo il clic su «Invia la richiesta»: il sito li inoltra e non li salva sul server. Il configuratore prepara un messaggio già pronto nel programma di posta dell’utente: i dati ci arrivano soltanto quando è l’utente stesso a inviarlo.",
+          "Il conferimento dei dati è facoltativo, ma senza di essi non possiamo rispondere alla richiesta, fissare una visita né preparare un preventivo.",
+        ],
+      },
+      {
+        title: "3. Finalità e basi giuridiche",
+        paragraphs: [
+          "Utilizziamo i dati per rispondere alla richiesta, fissare una visita all’atelier o una visita guidata alla manifattura, preparare un preventivo e, qualora si avvii una collaborazione, concludere ed eseguire un contratto (art. 6, par. 1, lett. b) del GDPR).",
+          "Una volta conclusa la pratica, conserviamo la corrispondenza per accertare, esercitare o difendere un diritto in sede giudiziaria, il che costituisce un nostro legittimo interesse (art. 6, par. 1, lett. f) del GDPR). Trattiamo i dati di fatturazione perché lo richiede la normativa fiscale e contabile (art. 6, par. 1, lett. c) del GDPR).",
+          "Non inviamo comunicazioni commerciali senza il consenso dell’interessato e non adottiamo nei suoi confronti decisioni basate unicamente sul trattamento automatizzato.",
+        ],
+      },
+      {
+        title: "4. A chi comunichiamo i dati",
+        paragraphs: [
+          "Affidiamo i dati esclusivamente a soggetti che ci aiutano a gestire il sito e a rispondere alle richieste: il fornitore di hosting del sito e i fornitori di posta elettronica nonché, in caso di esecuzione di un ordine, le imprese di trasporto, l’assicuratore e lo studio contabile. Se l’utente sceglie di contattarci tramite WhatsApp, il messaggio è gestito dal fornitore di tale servizio. Non vendiamo dati.",
+          "Alcuni fornitori di servizi tecnici hanno sede al di fuori dello Spazio economico europeo, in particolare negli Stati Uniti. In tali casi i dati sono trasferiti sulla base delle clausole contrattuali tipo approvate dalla Commissione europea o di una decisione di adeguatezza.",
+        ],
+      },
+      {
+        title: "5. Periodo di conservazione",
+        paragraphs: [
+          "Conserviamo i dati delle richieste per la durata della corrispondenza e, successivamente, fino alla scadenza del termine di prescrizione di eventuali pretese. I dati relativi al contratto e alle fatture sono conservati per il periodo previsto dalla legge.",
+        ],
+      },
+      {
+        title: "6. Diritti dell’interessato",
+        paragraphs: [
+          `L’interessato ha il diritto di accedere ai propri dati, di ottenerne la rettifica, la cancellazione, la limitazione del trattamento e la portabilità, nonché il diritto di opporsi al trattamento fondato sul nostro legittimo interesse. Per esercitare questi diritti è sufficiente scrivere a ${PRIVACY_EMAIL}.`,
+          "L’interessato ha inoltre il diritto di proporre reclamo al Presidente dell’Ufficio polacco per la protezione dei dati personali (ul. Stawki 2, 00-193 Varsavia).",
+        ],
+      },
+      {
+        title: "7. Cookie, memoria del browser e statistiche",
+        paragraphs: [
+          "Il nostro sito non utilizza cookie a fini pubblicitari né di tracciamento tra siti. Nella memoria del browser dell’utente salviamo soltanto ciò che serve al funzionamento del sito: la scelta in materia di privacy e la configurazione del pianoforte, perché l’utente possa ritrovarla.",
+          "Le statistiche anonime sulle visite e sulla velocità del sito (Vercel Analytics e Speed Insights) vengono attivate soltanto dopo il clic su «Accetto» nella finestra relativa alla privacy. Non utilizzano cookie e non ci consentono di identificare l’utente. La scelta può essere modificata in qualsiasi momento con un clic su «Impostazioni dei cookie» in fondo alla pagina.",
+          "Il server su cui è ospitato il sito registra i dati tecnici standard di ogni visita (tra cui l’indirizzo IP, la data e il tipo di browser) al solo scopo di garantire la sicurezza e il corretto funzionamento del sito.",
+        ],
+      },
+      {
+        title: "8. Contenuti di servizi esterni",
+        paragraphs: [
+          "L’anteprima a 360° del pianoforte nella pagina «Scopri i modelli» viene caricata dal servizio Sirv, mentre le fotografie e i video della galleria dal servizio Sanity. Per visualizzarli, il browser dell’utente si collega ai server di questi fornitori e trasmette loro dati tecnici, come l’indirizzo IP.",
+          "La fotografia o il video del proprio ambiente che l’utente carica nell’anteprima 3D rimane esclusivamente nel suo browser: non viene inviato al nostro server.",
+        ],
+      },
+      {
+        title: "9. Fotografie e video degli eventi",
+        paragraphs: [
+          `Nella galleria pubblichiamo reportage fotografici e registrazioni di concerti ed eventi con la partecipazione di ALAUDIS. Chi vi compare e non desidera che un determinato contenuto sia disponibile sul sito può scrivere a ${PRIVACY_EMAIL}: lo rimuoveremo.`,
+        ],
+      },
+      {
+        title: "10. Modifiche all’informativa",
+        paragraphs: [
+          "Possiamo aggiornare la presente informativa sulla privacy quando cambiano il funzionamento del sito o la normativa. La versione in vigore è sempre disponibile in questa pagina.",
+        ],
+      },
+    ],
+    updated: "Versione del 24 novembre 2026.",
+    cookieSettings: "Impostazioni dei cookie",
+    questionsTitle: "Domande?",
+    questionsText: "Basta scriverci: spiegheremo volentieri come ci prendiamo cura dei dati personali.",
+    contact: "Contatti",
   },
 };

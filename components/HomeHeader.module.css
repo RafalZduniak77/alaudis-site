@@ -82,6 +82,8 @@
   .resultText { font-size: 12px; }
   .mobileNav { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
   .mobileNav .button { min-width: 0; padding: 8px 4px; }
+  /* Spanish and Italian labels differ a lot in length: columns follow the text instead of four equal parts. */
+  .mobileNav:lang(es), .mobileNav:lang(it) { grid-template-columns: repeat(4, auto); }
   .languageMenu { min-width: 130px; top: calc(100% + 8px); }
 }
 @media (width < 375px) { .mobileNav .button { font-size: 9px; letter-spacing: .08em; } }

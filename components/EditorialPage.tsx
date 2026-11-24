@@ -41,6 +41,18 @@ const copy: Record<SeoLocale, { more: string; contact: string; contactText: stri
     contactText: "Réservez une consultation privée ou une visite de notre atelier à Kalisz.",
     contactButton: "Contact",
   },
+  es: {
+    more: "Lea también",
+    contact: "Hablemos de su Alaudis",
+    contactText: "Concierte un asesoramiento privado o una visita a nuestro atelier de Kalisz.",
+    contactButton: "Contacto",
+  },
+  it: {
+    more: "Leggi anche",
+    contact: "Parliamo del tuo Alaudis",
+    contactText: "Prenota una consulenza privata o una visita al nostro atelier di Kalisz.",
+    contactButton: "Contatti",
+  },
 };
 
 // Każda z tych stron ma baner jak na stronie głównej, z własnymi zdjęciami
@@ -51,6 +63,8 @@ const SCROLL: Record<SeoLocale, string> = {
   en: "Scroll down",
   de: "Nach unten scrollen",
   fr: "Faire défiler vers le bas",
+  es: "Desplácese hacia abajo",
+  it: "Scorri verso il basso",
 };
 
 // Splits a title into two lines of similar length for the banner.
@@ -100,7 +114,7 @@ export default function EditorialPage({
       <SeoJsonLd locale={locale} page={page} />
       <ModelPageTopBar
         backHref={prefix || "/"}
-        activeLanguage={locale.toUpperCase() as "PL" | "EN" | "DE" | "FR"}
+        activeLanguage={locale.toUpperCase() as "PL" | "EN" | "DE" | "FR" | "ES" | "IT"}
       />
 
       <HomeHero

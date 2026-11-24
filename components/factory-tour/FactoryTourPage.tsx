@@ -11,7 +11,7 @@ import { TOUR_STAGES, tourCopy, type TourLanguage } from "./copy";
 
 export default function FactoryTourPage({ language }: { language: TourLanguage }) {
   const copy = tourCopy[language];
-  const locale = language.toLowerCase() as "pl" | "en" | "de" | "fr";
+  const locale = language.toLowerCase() as "pl" | "en" | "de" | "fr" | "es" | "it";
 
   return (
     <main className="min-h-screen bg-black text-white">

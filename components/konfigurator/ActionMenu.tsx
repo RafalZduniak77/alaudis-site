@@ -29,7 +29,7 @@ type ActionMenuProps = {
   onPdf: () => void;
 };
 
-type LanguageKey = "PL" | "EN" | "DE" | "FR";
+type LanguageKey = "PL" | "EN" | "DE" | "FR" | "ES" | "IT";
 
 // ----------------------------------------------------------
 // ROZPOZNAWANIE JĘZYKA
@@ -45,6 +45,14 @@ function getLanguageFromPathname(pathname: string): LanguageKey {
 
   if (pathname === "/fr/konfigurator" || pathname.startsWith("/fr/konfigurator")) {
     return "FR";
+  }
+
+  if (pathname === "/es/konfigurator" || pathname.startsWith("/es/konfigurator")) {
+    return "ES";
+  }
+
+  if (pathname === "/it/konfigurator" || pathname.startsWith("/it/konfigurator")) {
+    return "IT";
   }
 
   return "PL";
@@ -78,6 +86,24 @@ function getLabels(language: LanguageKey) {
       save: "💾 Enregistrer la configuration",
       send: "✉️ Envoyer la configuration",
       pdf: "📄 Exporter en PDF",
+    };
+  }
+
+  if (language === "ES") {
+    return {
+      manage: "GESTIONAR LA OFERTA",
+      save: "💾 Guardar la configuración",
+      send: "✉️ Enviar la configuración",
+      pdf: "📄 Exportar a PDF",
+    };
+  }
+
+  if (language === "IT") {
+    return {
+      manage: "GESTISCI L’OFFERTA",
+      save: "💾 Salva la configurazione",
+      send: "✉️ Invia la configurazione",
+      pdf: "📄 Esporta in PDF",
     };
   }
 

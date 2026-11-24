@@ -20,6 +20,8 @@ const copy = {
   en: { back: "Back", company: "Company", searchTitle: "Search the site", home: "Home", resultWords: ["result", "results", "results"], models: "Models", history: "History", craft: "Craft", gallery: "In focus", sound: "Sound", galleryLabel: "In focus — ALAUDIS photo gallery", navigation: "Main navigation", language: "Choose language", menu: "Menu", close: "Close", search: "Search", searchPlaceholder: "Model, page or topic", noResults: "Nothing found. Try another word.", groups: ["Instruments", "Brand", "Meet us", "Gallery"] },
   de: { back: "Zurück", company: "Unternehmen", searchTitle: "Website durchsuchen", home: "Startseite", resultWords: ["Ergebnis", "Ergebnisse", "Ergebnisse"], models: "Modelle", history: "Geschichte", craft: "Handwerk", gallery: "Einblicke", sound: "Klang", galleryLabel: "Einblicke — ALAUDIS Fotogalerie", navigation: "Hauptnavigation", language: "Sprache wählen", menu: "Menü", close: "Schließen", search: "Suche", searchPlaceholder: "Modell, Seite oder Thema", noResults: "Nichts gefunden. Versuchen Sie ein anderes Wort.", groups: ["Instrumente", "Marke", "Besuch & Kontakt", "Galerie"] },
   fr: { back: "Retour", company: "Entreprise", searchTitle: "Rechercher sur le site", home: "Accueil", resultWords: ["résultat", "résultats", "résultats"], models: "Modèles", history: "Histoire", craft: "Savoir-faire", gallery: "En images", sound: "Le son", galleryLabel: "En images — galerie de photographies ALAUDIS", navigation: "Navigation principale", language: "Choisir la langue", menu: "Menu", close: "Fermer", search: "Rechercher", searchPlaceholder: "Modèle, page ou sujet", noResults: "Aucun résultat. Essayez un autre mot.", groups: ["Instruments", "Marque", "Nous rencontrer", "Galerie"] },
+  es: { back: "Volver", company: "Empresa", searchTitle: "Buscar en el sitio", home: "Inicio", resultWords: ["resultado", "resultados", "resultados"], models: "Modelos", history: "Historia", craft: "Artesanía", gallery: "En imágenes", sound: "Sonido", galleryLabel: "En imágenes: galería de fotografías de ALAUDIS", navigation: "Navegación principal", language: "Elegir idioma", menu: "Menú", close: "Cerrar", search: "Buscar", searchPlaceholder: "Modelo, página o tema", noResults: "No se ha encontrado nada. Pruebe con otra palabra.", groups: ["Instrumentos", "Marca", "Visita y contacto", "Galería"] },
+  it: { back: "Indietro", company: "Azienda", searchTitle: "Cerca nel sito", home: "Pagina iniziale", resultWords: ["risultato", "risultati", "risultati"], models: "Modelli", history: "Storia", craft: "Artigianato", gallery: "In immagini", sound: "Il suono", galleryLabel: "In immagini: galleria fotografica ALAUDIS", navigation: "Navigazione principale", language: "Scegli la lingua", menu: "Menu", close: "Chiudi", search: "Cerca", searchPlaceholder: "Modello, pagina o argomento", noResults: "Nessun risultato. Prova con un’altra parola.", groups: ["Strumenti", "Marchio", "Visita e contatti", "Galleria"] },
 } satisfies Record<GalleryLocale, Record<string, string | string[]>>;
 
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61579105662197&locale=pl_PL";
@@ -54,7 +56,7 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
 
   // Language switch keeps the visitor on the same page.
   const pathname = usePathname() || "/";
-  const basePath = pathname.replace(/^\/(en|de|fr)(?=\/|$)/, "") || "/";
+  const basePath = pathname.replace(/^\/(en|de|fr|es|it)(?=\/|$)/, "") || "/";
   const languageHref = (language: GalleryLocale) => (language === "pl" ? basePath : `/${language}${basePath === "/" ? "" : basePath}`);
 
   const pages = useMemo(() => sitePages(locale), [locale]);
@@ -67,7 +69,7 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
     const categoryOf = (page: SeoPage) => text.groups[MENU_GROUPS.findIndex(group => group.includes(page))] ?? "ALAUDIS";
     return [
       ...pages.map(page => ({ href: page.href, label: page.page === "home" ? text.home : page.label, category: categoryOf(page.page), haystack: fold(`${page.label} ${page.title} ${page.description}`) })),
-      ...galleryEntries.map(entry => ({ href: entry.href, label: entry.label, category: text.groups[3], haystack: fold(`${entry.label} ${entry.description} galeria gallery galerie video wideo`) })),
+      ...galleryEntries.map(entry => ({ href: entry.href, label: entry.label, category: text.groups[3], haystack: fold(`${entry.label} ${entry.description} galeria gallery galerie galleria video wideo`) })),
     ];
   }, [pages, galleryEntries, text]);
   const words = fold(query).split(/\s+/).filter(Boolean);

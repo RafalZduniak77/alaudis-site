@@ -1,7 +1,7 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 import CoverInput from "./CoverInput";
 
-const languages = [{ name: "pl", title: "Polski (PL)" }, { name: "en", title: "Angielski (EN)" }, { name: "de", title: "Niemiecki (DE)" }, { name: "fr", title: "Francuski (FR)" }];
+const languages = [{ name: "pl", title: "Polski (PL)" }, { name: "en", title: "Angielski (EN)" }, { name: "de", title: "Niemiecki (DE)" }, { name: "fr", title: "Francuski (FR)" }, { name: "es", title: "Hiszpański (ES)" }, { name: "it", title: "Włoski (IT)" }];
 const localizedString = defineType({ name: "galleryLocalizedString", title: "Wersje językowe", type: "object", fields: languages.map(lang => defineField({ ...lang, type: "string", validation: rule => rule.max(240) })) });
 const localizedText = defineType({ name: "galleryLocalizedText", title: "Wersje językowe", type: "object", fields: languages.map(lang => defineField({ ...lang, type: "text", rows: 3, validation: rule => rule.max(1000) })) });
 

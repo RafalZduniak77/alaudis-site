@@ -1,0 +1,81 @@
+{
+  "1cfa936d-6b8c-4d3a-8b68-2bd08cd76d76": {
+    "title": { "es": "GALA ALAUDIS", "it": "GALA ALAUDIS" },
+    "description": {
+      "es": "Reportaje fotográfico de la Gala inaugural de ALAUDIS en la Universidad Adam Mickiewicz (UAM) de Kalisz, 29 de octubre de 2026. Al piano de cola ALAUDIS actuaron Łukasz Byrdy, el dúo Per Quattro y Leszek Możdżer.",
+      "it": "Le immagini del Gala inaugurale ALAUDIS all’Università Adam Mickiewicz (UAM) di Kalisz, 29 ottobre 2026. Ai pianoforti a coda ALAUDIS si sono esibiti Łukasz Byrdy, il duo Per Quattro e Leszek Możdżer."
+    }
+  },
+  "32e511af-9cda-4a37-a94b-91ee0024c65e": {
+    "title": { "es": "Concierto de Perquattro — Zajezdnia Kultury de Pleszew", "it": "Concerto dei Perquattro — Zajezdnia Kultury di Pleszew" },
+    "description": {
+      "es": "Reportaje fotográfico del concierto de Perquattro en la Zajezdnia Kultury de Pleszew.",
+      "it": "Le immagini del concerto dei Perquattro alla Zajezdnia Kultury di Pleszew."
+    },
+    "seoTitle": { "es": "Perquattro en Pleszew — fotos del concierto", "it": "Perquattro a Pleszew — foto del concerto" },
+    "seoDescription": {
+      "es": "Vea las fotos del concierto de Perquattro en la Zajezdnia Kultury de Pleszew. El reportaje del evento, en la galería ALAUDIS.",
+      "it": "Guarda le foto del concerto dei Perquattro alla Zajezdnia Kultury di Pleszew. Le immagini dell’evento nella galleria ALAUDIS."
+    }
+  },
+  "4c2d1219-d032-4cdc-bc53-6e28ccf78bfb": {
+    "title": { "es": "Peter Salisbury", "it": "Peter Salisbury" },
+    "description": {
+      "es": "Peter Salisbury, técnico de concierto británico, durante la regulación y la entonación finales de un piano de cola ALAUDIS en la manufactura de Kalisz.",
+      "it": "Peter Salisbury, tecnico da concerto britannico, durante la regolazione e l’intonazione finali di un pianoforte a coda ALAUDIS nella manifattura di Kalisz."
+    },
+    "seoTitle": { "es": "Peter Salisbury", "it": "Peter Salisbury" },
+    "seoDescription": { "es": "Peter Salisbury", "it": "Peter Salisbury" }
+  },
+  "8ebfe98f-cd1a-420c-945c-33ad5653236f": {
+    "title": { "es": "Inauguración del Año Cultural 2026/2027 en Kalisz", "it": "Inaugurazione dell’Anno culturale 2026/2027 a Kalisz" },
+    "description": {
+      "es": "Reportaje fotográfico de la Inauguración del Año Cultural 2026/2027 en Kalisz, 21 de octubre de 2026: una ceremonia con la participación de SAP Renovation, fabricante de los pianos de cola ALAUDIS, y un concierto de jazz.",
+      "it": "Le immagini dell’Inaugurazione dell’Anno culturale 2026/2027 a Kalisz, 21 ottobre 2026: una cerimonia con la partecipazione di SAP Renovation, costruttore dei pianoforti a coda ALAUDIS, e un concerto jazz."
+    }
+  },
+  "dfc5502b-2b3e-4ee0-86b4-c87deb6f7f25": {
+    "title": { "es": "Antonina Waliszewska en ALAUDIS Piano Factory", "it": "Antonina Waliszewska all’ALAUDIS Piano Factory" },
+    "description": {
+      "es": "Antonina Maria Waliszewska, pianista de la joven generación y premiada en concursos nacionales e internacionales, visitó la manufactura ALAUDIS en Kalisz y conoció el sonido del ALAUDIS ONE 178.",
+      "it": "Antonina Maria Waliszewska, pianista della giovane generazione e premiata in concorsi nazionali e internazionali, ha visitato la manifattura ALAUDIS a Kalisz e ha scoperto il suono dell’ALAUDIS ONE 178."
+    },
+    "seoTitle": { "es": "Antonina Waliszewska en ALAUDIS | Galería", "it": "Antonina Waliszewska da ALAUDIS | Galleria" },
+    "seoDescription": {
+      "es": "Antonina Maria Waliszewska visitó la manufactura ALAUDIS. Descubra el reportaje fotográfico del encuentro de la joven pianista y sus primeras impresiones al tocar el ALAUDIS ONE 178.",
+      "it": "Antonina Maria Waliszewska ha visitato la manifattura ALAUDIS. Scopri le immagini dell’incontro della giovane pianista e le sue prime impressioni al pianoforte ALAUDIS ONE 178."
+    }
+  },
+  "gallery-album-forma-i-brzmienie": {
+    "title": { "es": "Forma y sonido", "it": "Forma e suono" },
+    "description": {
+      "es": "Negro, luz y detalle dorado. Una mirada de cerca a los instrumentos ALAUDIS.",
+      "it": "Nero, luce e dettagli dorati. Uno sguardo ravvicinato agli strumenti ALAUDIS."
+    },
+    "photos": {
+      "form": { "es": "Forma y sonido", "it": "Forma e suono" },
+      "strings": { "es": "En el corazón del instrumento", "it": "Nel cuore dello strumento" },
+      "detail": { "es": "La precisión de cada detalle", "it": "La precisione di ogni dettaglio" },
+      "interior": { "es": "Alaudis en un interior", "it": "Alaudis in un interno" },
+      "action": { "es": "El mecanismo del piano de cola", "it": "La meccanica del pianoforte" },
+      "presence": { "es": "Presencia", "it": "Presenza" }
+    }
+  },
+  "gallery-album-w-rekach-mistrzow": {
+    "title": { "es": "En manos de maestros", "it": "Nelle mani dei maestri" },
+    "description": {
+      "es": "De la madera en bruto a la última entonación. Los detalles y los gestos de los que nace un piano de cola.",
+      "it": "Dal legno grezzo all’ultima intonazione. I dettagli e i gesti da cui nasce un pianoforte a coda."
+    },
+    "photos": {
+      "wood": { "es": "Todo empieza con la madera", "it": "Tutto comincia dal legno" },
+      "rim": { "es": "El conformado del aro", "it": "La curvatura della fascia" },
+      "soundboard": { "es": "La tabla armónica", "it": "La tavola armonica" },
+      "bridges": { "es": "Los puentes", "it": "I ponticelli" },
+      "hands": { "es": "El trabajo de las manos", "it": "Il lavoro delle mani" },
+      "renner": { "es": "La precisión del mecanismo", "it": "La precisione della meccanica" },
+      "keyboard": { "es": "El tacto del teclado", "it": "Il tocco della tastiera" },
+      "voicing": { "es": "Los últimos matices sonoros", "it": "Le ultime rifiniture del suono" }
+    }
+  }
+}

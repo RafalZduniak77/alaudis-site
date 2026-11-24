@@ -8,6 +8,8 @@ const labels = {
   en: { fullscreen: "Full screen", back: "Back to the page" },
   de: { fullscreen: "Vollbild", back: "Zurück zur Seite" },
   fr: { fullscreen: "Plein écran", back: "Retour à la page" },
+  es: { fullscreen: "Pantalla completa", back: "Volver a la página" },
+  it: { fullscreen: "Schermo intero", back: "Torna alla pagina" },
 };
 
 type FullscreenPlayer = HTMLDivElement & {

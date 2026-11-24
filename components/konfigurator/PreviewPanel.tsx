@@ -29,7 +29,7 @@ type Props = {
 // ----------------------------------------------------------
 // POMOCNICZA FUNKCJA
 // ----------------------------------------------------------
-function getHomeHref(pathname: string): "/" | "/en" | "/de" | "/fr" {
+function getHomeHref(pathname: string): "/" | "/en" | "/de" | "/fr" | "/es" | "/it" {
   if (pathname === "/en/konfigurator" || pathname.startsWith("/en/konfigurator")) {
     return "/en";
   }
@@ -40,6 +40,14 @@ function getHomeHref(pathname: string): "/" | "/en" | "/de" | "/fr" {
 
   if (pathname === "/fr/konfigurator" || pathname.startsWith("/fr/konfigurator")) {
     return "/fr";
+  }
+
+  if (pathname === "/es/konfigurator" || pathname.startsWith("/es/konfigurator")) {
+    return "/es";
+  }
+
+  if (pathname === "/it/konfigurator" || pathname.startsWith("/it/konfigurator")) {
+    return "/it";
   }
 
   return "/";
@@ -72,6 +80,18 @@ export default function PreviewPanel({ imageSrc }: Props) {
       preview: "Aperçu de l’option Alaudis sélectionnée",
       loading: "Chargement de la photo…",
       unavailable: "La photo de cette option n’est pas disponible.",
+    },
+    "/es": {
+      back: "Volver a la página de inicio",
+      preview: "Vista previa de la opción Alaudis seleccionada",
+      loading: "Cargando la fotografía…",
+      unavailable: "La fotografía de esta opción no está disponible.",
+    },
+    "/it": {
+      back: "Torna alla pagina iniziale",
+      preview: "Anteprima dell’opzione Alaudis selezionata",
+      loading: "Caricamento della foto…",
+      unavailable: "La foto di questa opzione non è disponibile.",
     },
   }[homeHref];
 

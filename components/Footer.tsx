@@ -11,6 +11,8 @@ const PRIVACY_POLICY: Record<StoryLanguage, string> = {
   EN: "Privacy policy",
   DE: "Datenschutz",
   FR: "Politique de confidentialité",
+  ES: "Política de privacidad",
+  IT: "Informativa sulla privacy",
 };
 
 const COOKIE_SETTINGS: Record<StoryLanguage, string> = {
@@ -18,6 +20,8 @@ const COOKIE_SETTINGS: Record<StoryLanguage, string> = {
   EN: "Cookie settings",
   DE: "Cookie-Einstellungen",
   FR: "Paramètres des cookies",
+  ES: "Configuración de cookies",
+  IT: "Impostazioni dei cookie",
 };
 
 // ==========================================================
@@ -59,6 +63,16 @@ const FOOTER_COPY: Record<
     finish: "Choisir la finition", color: "Choisir la couleur", accessories: "Accessoires",
     about: "À propos", factory: "Manufacture", tour: "Visite de la manufacture", heritage: "Tradition", artists: "Artistes", news: "Actualités & presse", contact: "Contact",
   },
+  ES: {
+    tagline: "Piano de cola de concierto polaco", models: "Modelos", configurator: "Configurador", company: "Empresa",
+    finish: "Elegir el acabado", color: "Elegir el color", accessories: "Accesorios",
+    about: "Sobre nosotros", factory: "Manufactura", tour: "Visita a la manufactura", heritage: "Tradición", artists: "Artistas", news: "Actualidad y prensa", contact: "Contacto",
+  },
+  IT: {
+    tagline: "Pianoforte a coda da concerto polacco", models: "Modelli", configurator: "Configuratore", company: "Azienda",
+    finish: "Scegli la finitura", color: "Scegli il colore", accessories: "Accessori",
+    about: "Chi siamo", factory: "Manifattura", tour: "Visita alla manifattura", heritage: "Tradizione", artists: "Artisti", news: "Notizie e stampa", contact: "Contatti",
+  },
 };
 
 const FACEBOOK_ALAUDIS_URL =
@@ -92,6 +106,18 @@ const SAP_RENOVATION: Record<
     intro: "ALAUDIS est une marque de SAP Renovation — l’un des spécialistes européens de référence de la restauration et de la finition des pianos.",
     newTab: "s’ouvre dans un nouvel onglet",
   },
+  ES: {
+    href: "https://saprenovation.com/es/",
+    since: "desde 1990",
+    intro: "ALAUDIS es una marca de SAP Renovation, uno de los líderes europeos en la restauración y el acabado de pianos de cola.",
+    newTab: "se abre en una pestaña nueva",
+  },
+  IT: {
+    href: "https://saprenovation.com/it/",
+    since: "dal 1990",
+    intro: "ALAUDIS è un marchio di SAP Renovation, uno dei leader europei nel restauro e nella finitura dei pianoforti a coda.",
+    newTab: "si apre in una nuova scheda",
+  },
 };
 
 // ----------------------------------------------------------
@@ -114,6 +140,14 @@ function getLanguagePrefix(pathname: string) {
 
   if (pathname === "/fr" || pathname.startsWith("/fr/")) {
     return "/fr";
+  }
+
+  if (pathname === "/es" || pathname.startsWith("/es/")) {
+    return "/es";
+  }
+
+  if (pathname === "/it" || pathname.startsWith("/it/")) {
+    return "/it";
   }
 
   return "";

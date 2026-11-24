@@ -43,6 +43,14 @@ function getLanguageFromPathname(pathname: string): LanguageKey {
     return "FR";
   }
 
+  if (path === "/es" || path.startsWith("/es/")) {
+    return "ES";
+  }
+
+  if (path === "/it" || path.startsWith("/it/")) {
+    return "IT";
+  }
+
   return "PL";
 }
 
@@ -71,6 +79,24 @@ function getLabels(language: LanguageKey) {
       uploadRoomImage: "Télécharger une image de l’intérieur",
       uploadRoomVideo: "Télécharger une vidéo de l’intérieur",
       removeBackground: "Supprimer l’arrière-plan",
+    };
+  }
+
+  if (language === "ES") {
+    return {
+      modelLabel: "Modelo",
+      uploadRoomImage: "Subir una foto de su salón",
+      uploadRoomVideo: "Subir un vídeo de su salón",
+      removeBackground: "Quitar el fondo",
+    };
+  }
+
+  if (language === "IT") {
+    return {
+      modelLabel: "Modello",
+      uploadRoomImage: "Carica una foto del tuo salotto",
+      uploadRoomVideo: "Carica un video del tuo salotto",
+      removeBackground: "Rimuovi lo sfondo",
     };
   }
 

@@ -5,19 +5,25 @@
     "pl": "Duet Per Quattro — Gala inauguracyjna ALAUDIS",
     "en": "Per Quattro duo — ALAUDIS Inaugural Gala",
     "de": "Duo Per Quattro — ALAUDIS Eröffnungsgala",
-    "fr": "Duo Per Quattro — Gala d’inauguration ALAUDIS"
+    "fr": "Duo Per Quattro — Gala d’inauguration ALAUDIS",
+    "es": "Dúo Per Quattro — Gala inaugural ALAUDIS",
+    "it": "Duo Per Quattro — Gala inaugurale ALAUDIS"
   },
   "description": {
     "pl": "Fortepian na cztery ręce. Kaliski duet Per Quattro na scenie Gali inauguracyjnej ALAUDIS w Kaliszu. Nagranie z widowni.",
     "en": "Piano for four hands. The Per Quattro duo from Kalisz on stage at the ALAUDIS Inaugural Gala in Kalisz. Recorded from the audience.",
     "de": "Klavier zu vier Händen. Das Duo Per Quattro aus Kalisz auf der Bühne der ALAUDIS Eröffnungsgala in Kalisz. Aufgenommen aus dem Publikum.",
-    "fr": "Piano à quatre mains. Le duo Per Quattro de Kalisz sur la scène du gala d’inauguration ALAUDIS à Kalisz. Enregistré depuis la salle."
+    "fr": "Piano à quatre mains. Le duo Per Quattro de Kalisz sur la scène du gala d’inauguration ALAUDIS à Kalisz. Enregistré depuis la salle.",
+    "es": "Piano a cuatro manos. El dúo Per Quattro, de Kalisz, en el escenario de la Gala inaugural ALAUDIS en Kalisz. Grabación desde el público.",
+    "it": "Pianoforte a quattro mani. Il duo Per Quattro di Kalisz sul palco del Gala inaugurale ALAUDIS a Kalisz. Ripresa dalla platea."
   },
   "alt": {
     "pl": "Duet Per Quattro przy fortepianie ALAUDIS na oświetlonej scenie, na pierwszym planie publiczność",
     "en": "The Per Quattro duo at an ALAUDIS grand piano on a lit stage, with the audience in the foreground",
     "de": "Das Duo Per Quattro an einem ALAUDIS-Flügel auf der beleuchteten Bühne, im Vordergrund das Publikum",
-    "fr": "Le duo Per Quattro au piano à queue ALAUDIS sur une scène éclairée, le public au premier plan"
+    "fr": "Le duo Per Quattro au piano à queue ALAUDIS sur une scène éclairée, le public au premier plan",
+    "es": "El dúo Per Quattro al piano de cola ALAUDIS en un escenario iluminado, con el público en primer plano",
+    "it": "Il duo Per Quattro al pianoforte a coda ALAUDIS su un palco illuminato, con il pubblico in primo piano"
   },
   "location": "Kalisz",
   "date": "2026-10-29",

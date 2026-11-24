@@ -1,18 +1,22 @@
 {
   "id": "gallery-video-antonina-waliszewska-2",
   "filename": "alaudis-antonina-waliszewska-wokol-fortepianu",
-  "title": { "pl": "Antonina Waliszewska — wokół fortepianu", "en": "Antonina Waliszewska — around the piano", "de": "Antonina Waliszewska — rund um den Flügel", "fr": "Antonina Waliszewska — autour du piano" },
+  "title": { "pl": "Antonina Waliszewska — wokół fortepianu", "en": "Antonina Waliszewska — around the piano", "de": "Antonina Waliszewska — rund um den Flügel", "fr": "Antonina Waliszewska — autour du piano", "es": "Antonina Waliszewska — alrededor del piano", "it": "Antonina Waliszewska — intorno al pianoforte" },
   "description": {
     "pl": "Kamera okrąża instrument i zagląda do jego wnętrza — płyta, struny i rezonans w trakcie gry. Nagranie bez studyjnej obróbki.",
     "en": "The camera circles the instrument and looks inside — the frame, strings and resonance as the music unfolds. Recorded without studio processing.",
     "de": "Die Kamera umkreist das Instrument und blickt in sein Inneres — Rahmen, Saiten und Resonanz während des Spiels. Ohne Studiobearbeitung aufgenommen.",
-    "fr": "La caméra fait le tour de l’instrument et en dévoile l’intérieur — cadre, cordes et résonance pendant le jeu. Enregistré sans traitement de studio."
+    "fr": "La caméra fait le tour de l’instrument et en dévoile l’intérieur — cadre, cordes et résonance pendant le jeu. Enregistré sans traitement de studio.",
+    "es": "La cámara rodea el instrumento y se asoma a su interior: bastidor, cuerdas y resonancia mientras suena la música. Grabación sin retoques de estudio.",
+    "it": "La telecamera gira intorno allo strumento e ne esplora l’interno: telaio, corde e risonanza durante l’esecuzione. Registrazione senza ritocchi in studio."
   },
   "alt": {
     "pl": "Antonina Waliszewska gra na fortepianie ALAUDIS w jasnym salonie z intarsjowaną podłogą",
     "en": "Antonina Waliszewska playing an ALAUDIS grand piano in a bright showroom with an inlaid parquet floor",
     "de": "Antonina Waliszewska spielt einen ALAUDIS-Flügel in einem hellen Saal mit Intarsienparkett",
-    "fr": "Antonina Waliszewska joue sur un piano à queue ALAUDIS dans un salon lumineux au parquet marqueté"
+    "fr": "Antonina Waliszewska joue sur un piano à queue ALAUDIS dans un salon lumineux au parquet marqueté",
+    "es": "Antonina Waliszewska toca un piano de cola ALAUDIS en una luminosa sala de exposición con suelo de marquetería",
+    "it": "Antonina Waliszewska suona un pianoforte a coda ALAUDIS in uno showroom luminoso con pavimento intarsiato"
   },
   "date": "2026-11-12",
   "duration": 66.77

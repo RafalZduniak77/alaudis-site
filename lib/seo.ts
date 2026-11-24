@@ -2,7 +2,7 @@
 // SEO - ALAUDIS
 // ==========================================================
 // Jedno miejsce na tytuły, opisy, adresy kanoniczne, hreflang
-// i dane strukturalne wszystkich podstron w PL / EN / DE / FR.
+// i dane strukturalne wszystkich podstron w PL / EN / DE / FR / ES / IT.
 // Aby zmienić tekst widoczny w Google, wystarczy edytować
 // obiekt PAGES poniżej.
 // ==========================================================
@@ -13,7 +13,7 @@ export const SITE_URL = "https://alaudis.eu";
 export const SITE_NAME = "ALAUDIS";
 export const OG_IMAGE = "/og-alaudis.jpg";
 
-export const seoLocales = ["pl", "en", "de", "fr"] as const;
+export const seoLocales = ["pl", "en", "de", "fr", "es", "it"] as const;
 export type SeoLocale = (typeof seoLocales)[number];
 
 // Tylko produkcja (alaudis.eu) może być indeksowana.
@@ -25,6 +25,8 @@ const OG_LOCALE: Record<SeoLocale, string> = {
   en: "en_GB",
   de: "de_DE",
   fr: "fr_FR",
+  es: "es_ES",
+  it: "it_IT",
 };
 
 type PageCopy = { label: string; title: string; description: string };
@@ -63,6 +65,18 @@ const PAGES = {
         description:
           "ALAUDIS est le nouveau piano à queue polonais, fabriqué à la main dans notre manufacture de Kalisz. Trois modèles : ONE 178, LEO 214 et le piano de concert DREAM 275.",
       },
+      es: {
+        label: "ALAUDIS",
+        title: "ALAUDIS – El nuevo piano de cola polaco | Manufactura en Kalisz",
+        description:
+          "ALAUDIS es el nuevo piano de cola polaco, construido a mano en nuestra manufactura de Kalisz. Tres modelos: ONE 178, LEO 214 y el piano de cola de concierto DREAM 275.",
+      },
+      it: {
+        label: "ALAUDIS",
+        title: "ALAUDIS – Il nuovo pianoforte a coda polacco | Manifattura a Kalisz",
+        description:
+          "ALAUDIS è il nuovo pianoforte a coda polacco, costruito a mano nella nostra manifattura di Kalisz. Tre modelli: ONE 178, LEO 214 e il gran coda da concerto DREAM 275.",
+      },
     },
   },
   model178: {
@@ -91,6 +105,18 @@ const PAGES = {
         title: "ALAUDIS ONE 178 – Piano à queue polonais fait main, 178 cm",
         description:
           "ALAUDIS ONE 178 : un piano à queue de 178 cm fabriqué à la main à Kalisz. Mécanique Renner, clavier Kluge, épicéa de résonance Strunz. Une voix lyrique et équilibrée.",
+      },
+      es: {
+        label: "ALAUDIS ONE 178",
+        title: "ALAUDIS ONE 178 – Piano de cola polaco hecho a mano, 178 cm",
+        description:
+          "ALAUDIS ONE 178: un piano de cola de 178 cm construido a mano en Kalisz. Mecanismo Renner, teclado Kluge, abeto de resonancia Strunz. Un sonido lírico y equilibrado.",
+      },
+      it: {
+        label: "ALAUDIS ONE 178",
+        title: "ALAUDIS ONE 178 – Pianoforte a coda polacco fatto a mano, 178 cm",
+        description:
+          "ALAUDIS ONE 178: un pianoforte a coda di 178 cm costruito a mano a Kalisz. Meccanica Renner, tastiera Kluge, abete di risonanza Strunz. Un suono lirico ed equilibrato.",
       },
     },
   },
@@ -121,6 +147,18 @@ const PAGES = {
         description:
           "ALAUDIS LEO 214 : un piano à queue de 214 cm à la présence plus profonde et à la projection plus ample. Fabriqué à la main à Kalisz pour les espaces de grande échelle.",
       },
+      es: {
+        label: "ALAUDIS LEO 214",
+        title: "ALAUDIS LEO 214 – Piano de cola polaco con carácter de concierto",
+        description:
+          "ALAUDIS LEO 214: un piano de cola de 214 cm con una presencia más profunda y una proyección sonora más amplia. Artesanía de Kalisz para espacios que exigen mayor escala.",
+      },
+      it: {
+        label: "ALAUDIS LEO 214",
+        title: "ALAUDIS LEO 214 – Pianoforte a coda polacco, carattere da concerto",
+        description:
+          "ALAUDIS LEO 214: un pianoforte a coda di 214 cm dalla presenza più profonda e dalla proiezione sonora più ampia. Artigianato di Kalisz per spazi di scala maggiore.",
+      },
     },
   },
   model275: {
@@ -149,6 +187,18 @@ const PAGES = {
         title: "ALAUDIS DREAM 275 – Piano de concert polonais",
         description:
           "ALAUDIS DREAM 275 : la plus grande forme de concert de la marque. Un piano de concert de 275 cm à la pleine échelle sonore, conçu pour les salles de concert et les grandes scènes.",
+      },
+      es: {
+        label: "ALAUDIS DREAM 275",
+        title: "ALAUDIS DREAM 275 – Piano de cola de concierto polaco",
+        description:
+          "ALAUDIS DREAM 275: la mayor forma de concierto de la marca. Un piano de cola de concierto de 275 cm, con toda la amplitud sonora, para salas de concierto y grandes escenarios.",
+      },
+      it: {
+        label: "ALAUDIS DREAM 275",
+        title: "ALAUDIS DREAM 275 – Pianoforte gran coda da concerto polacco",
+        description:
+          "ALAUDIS DREAM 275: la più grande forma da concerto del marchio. Un gran coda di 275 cm dalla piena ampiezza sonora, per sale da concerto e grandi palcoscenici.",
       },
     },
   },
@@ -179,6 +229,18 @@ const PAGES = {
         description:
           "Du bois séché à l’harmonisation finale : découvrez comment un piano à queue ALAUDIS est fabriqué à la main à Kalisz. Ceinture en érable, table en épicéa, mécanique Renner.",
       },
+      es: {
+        label: "Historia y artesanía",
+        title: "Cómo nace un piano de cola ALAUDIS – manufactura y artesanía",
+        description:
+          "De la madera curada a la entonación: descubra cómo se construye a mano un piano de cola ALAUDIS en Kalisz. Caja de arce, tabla armónica de abeto, mecanismo Renner.",
+      },
+      it: {
+        label: "Storia e artigianato",
+        title: "Come nasce un pianoforte a coda ALAUDIS – manifattura e artigianato",
+        description:
+          "Dal legno stagionato all’intonazione: scopri come nasce a mano un pianoforte a coda ALAUDIS a Kalisz. Fascia in acero, tavola armonica in abete, meccanica Renner.",
+      },
     },
   },
   konfigurator: {
@@ -207,6 +269,18 @@ const PAGES = {
         title: "Configurateur de piano à queue ALAUDIS – finition, couleur, détails",
         description:
           "Composez votre propre piano à queue ALAUDIS : modèle, finition et couleur, marteaux, étouffoirs et détails. Enregistrez votre configuration et réservez une consultation privée.",
+      },
+      es: {
+        label: "Configurador",
+        title: "Configurador del piano de cola ALAUDIS – acabado, color, detalles",
+        description:
+          "Componga su propio piano de cola ALAUDIS: modelo, acabado y color, macillos, apagadores y detalles. Guarde su configuración y reserve un asesoramiento privado.",
+      },
+      it: {
+        label: "Configuratore",
+        title: "Configuratore del pianoforte ALAUDIS – finitura, colore, dettagli",
+        description:
+          "Componi il tuo pianoforte a coda ALAUDIS: modello, finitura e colore, martelletti, smorzatori e dettagli. Salva la configurazione e prenota una consulenza privata.",
       },
     },
   },
@@ -237,6 +311,18 @@ const PAGES = {
         description:
           "Contactez ALAUDIS : consultation privée, choix du modèle et visite de l’atelier. SAP Renovation, Obozowa 18, 62-800 Kalisz, Pologne.",
       },
+      es: {
+        label: "Contacto",
+        title: "Contacto – ALAUDIS, fabricante polaco de pianos de cola | Kalisz",
+        description:
+          "Póngase en contacto con ALAUDIS: asesoramiento privado, elección del modelo y visita al atelier. SAP Renovation, Obozowa 18, 62-800 Kalisz, Polonia.",
+      },
+      it: {
+        label: "Contatti",
+        title: "Contatti – ALAUDIS, costruttore polacco di pianoforti | Kalisz",
+        description:
+          "Contatta ALAUDIS per una consulenza privata, la scelta del modello e una visita all’atelier. SAP Renovation, Obozowa 18, 62-800 Kalisz, Polonia.",
+      },
     },
   },
   odkryjModele: {
@@ -265,6 +351,18 @@ const PAGES = {
         title: "Pianos à queue ALAUDIS en 3D et RA – dans votre propre intérieur",
         description:
           "Découvrez un piano à queue ALAUDIS en 3D, faites-le pivoter, zoomez et voyez en réalité augmentée comment il s’intègre à votre intérieur.",
+      },
+      es: {
+        label: "Descubra los modelos",
+        title: "Pianos de cola ALAUDIS en 3D y RA – véalos en su propio espacio",
+        description:
+          "Contemple un piano de cola ALAUDIS en 3D, gírelo, amplíelo y compruebe en realidad aumentada cómo queda en su propio espacio.",
+      },
+      it: {
+        label: "Scopri i modelli",
+        title: "Pianoforti a coda ALAUDIS in 3D e AR – nel tuo ambiente",
+        description:
+          "Osserva un pianoforte a coda ALAUDIS in 3D, ruotalo, ingrandiscilo e scopri in realtà aumentata come si inserisce nel tuo ambiente.",
       },
     },
   },
@@ -295,6 +393,18 @@ const PAGES = {
         description:
           "Organisez une visite de l’atelier ALAUDIS à Kalisz. Découvrez les instruments de près, leur fabrication, et parlons de votre propre piano à queue.",
       },
+      es: {
+        label: "Visite el atelier",
+        title: "Visite el atelier ALAUDIS en Kalisz – manufactura de pianos",
+        description:
+          "Concierte una visita al atelier ALAUDIS en Kalisz. Vea los instrumentos de cerca, conozca cómo se crean y hable con nosotros de su propio piano de cola.",
+      },
+      it: {
+        label: "Visita l’atelier",
+        title: "Visita l’atelier ALAUDIS a Kalisz – manifattura di pianoforti",
+        description:
+          "Prenota una visita all’atelier ALAUDIS di Kalisz. Osserva gli strumenti da vicino, scopri come nascono e parlaci del tuo pianoforte a coda.",
+      },
     },
   },
   zwiedzanieManufaktury: {
@@ -323,6 +433,18 @@ const PAGES = {
         title: "Visite de la manufacture ALAUDIS à Kalisz – inscrivez-vous",
         description:
           "Découvrez comment naissent les pianos ALAUDIS. Inscrivez-vous à une visite guidée gratuite d’environ 4 heures de la manufacture à Kalisz – seul ou en petit groupe.",
+      },
+      es: {
+        label: "Visita a la manufactura",
+        title: "Visita a la manufactura ALAUDIS en Kalisz – envíe su solicitud",
+        description:
+          "Descubra cómo nacen los pianos de cola ALAUDIS. Visita guiada gratuita, de unas 4 horas, a la manufactura de Kalisz: solicítela de forma individual o en un grupo reducido.",
+      },
+      it: {
+        label: "Visita alla manifattura",
+        title: "Visita alla manifattura ALAUDIS di Kalisz – invia la richiesta",
+        description:
+          "Scopri come nascono i pianoforti a coda ALAUDIS. Visita guidata gratuita, di circa 4 ore, alla manifattura di Kalisz: richiedila da solo o in piccolo gruppo.",
       },
     },
   },
@@ -353,6 +475,18 @@ const PAGES = {
         description:
           "Collaboration de projet avec ALAUDIS : un piano à queue adapté à l’intérieur, finitions sur mesure, modèles 3D et accompagnement des architectes et décorateurs.",
       },
+      es: {
+        label: "Para arquitectos",
+        title: "El piano de cola en el interior – ALAUDIS para arquitectos",
+        description:
+          "Colaboración en proyectos con ALAUDIS: un piano de cola adaptado al interior, acabados a medida, modelos 3D y apoyo para arquitectos e interioristas.",
+      },
+      it: {
+        label: "Per gli architetti",
+        title: "Il pianoforte a coda negli interni – ALAUDIS per gli architetti",
+        description:
+          "Collaborazione progettuale con ALAUDIS: un pianoforte a coda in armonia con l’ambiente, finiture personalizzate, modelli 3D e supporto per architetti e interior designer.",
+      },
     },
   },
   aktualnosci: {
@@ -381,6 +515,18 @@ const PAGES = {
         title: "Actualités et presse – piano ALAUDIS | Premières et concerts",
         description:
           "La première du piano à queue ALAUDIS ONE à Kalisz, les concerts, les événements et la presse sur le nouveau piano à queue polonais.",
+      },
+      es: {
+        label: "Actualidad y prensa",
+        title: "Actualidad y prensa – ALAUDIS | Presentaciones y conciertos",
+        description:
+          "La presentación del piano de cola ALAUDIS ONE en Kalisz, conciertos, eventos y artículos de prensa sobre el nuevo piano de cola polaco.",
+      },
+      it: {
+        label: "Notizie e stampa",
+        title: "Notizie e stampa – pianoforte ALAUDIS | Presentazioni e concerti",
+        description:
+          "La presentazione del pianoforte a coda ALAUDIS ONE a Kalisz, i concerti, gli eventi e gli articoli di stampa sul nuovo pianoforte a coda polacco.",
       },
     },
   },
@@ -411,6 +557,18 @@ const PAGES = {
         description:
           "Découvrez en vidéo comment naît un piano ALAUDIS à la manufacture de Kalisz : cadre en fonte, table d’harmonie, barres, cordage et finition.",
       },
+      es: {
+        label: "Artesanía",
+        title: "Artesanía ALAUDIS – cómo nace un piano de cola, en vídeo",
+        description:
+          "Vea en vídeo cómo nace un piano de cola ALAUDIS en la manufactura de Kalisz: bastidor de hierro fundido, tabla armónica, barras armónicas, encordado y acabado.",
+      },
+      it: {
+        label: "Artigianato",
+        title: "Artigianato ALAUDIS – come nasce un pianoforte a coda, in video",
+        description:
+          "Guarda nei video come nasce un pianoforte a coda ALAUDIS nella manifattura di Kalisz: telaio in ghisa, tavola armonica, catene, incordatura e finitura.",
+      },
     },
   },
   artysci: {
@@ -439,6 +597,18 @@ const PAGES = {
         title: "Les artistes au piano ALAUDIS – Możdżer, Byrdy, Per Quattro",
         description:
           "Leszek Możdżer, Łukasz Byrdy, le duo Per Quattro, Adam Makowicz : les pianistes qui ont joué sur le piano à queue polonais ALAUDIS, et Peter Salisbury, qui l’a harmonisé.",
+      },
+      es: {
+        label: "Artistas",
+        title: "Artistas al piano de cola ALAUDIS – Możdżer, Byrdy, Per Quattro",
+        description:
+          "Leszek Możdżer, Łukasz Byrdy, el dúo Per Quattro, Adam Makowicz: los pianistas que han tocado el piano de cola polaco ALAUDIS, y Peter Salisbury, autor de su entonación.",
+      },
+      it: {
+        label: "Artisti",
+        title: "Gli artisti al pianoforte ALAUDIS – Możdżer, Byrdy, Per Quattro",
+        description:
+          "Leszek Możdżer, Łukasz Byrdy, il duo Per Quattro, Adam Makowicz: i pianisti che hanno suonato il pianoforte polacco ALAUDIS, e Peter Salisbury, che lo ha intonato.",
       },
     },
   },
@@ -469,6 +639,18 @@ const PAGES = {
         description:
           "L’histoire de la facture de pianos à Kalisz : l’atelier d’Arnold Fibiger de 1873, la fabrique Calisia et ALAUDIS, premier piano à queue conçu et construit à Kalisz depuis des années.",
       },
+      es: {
+        label: "Tradición de Kalisz",
+        title: "Kalisz, ciudad de pianos – de Fibiger y Calisia a ALAUDIS",
+        description:
+          "La historia de la construcción de pianos en Kalisz: el taller de Arnold Fibiger (1873), la fábrica Calisia y ALAUDIS, el primer piano de cola diseñado y construido en Kalisz en años.",
+      },
+      it: {
+        label: "La tradizione di Kalisz",
+        title: "Kalisz, città dei pianoforti – da Fibiger e Calisia ad ALAUDIS",
+        description:
+          "La costruzione di pianoforti a Kalisz: il laboratorio di Arnold Fibiger (1873), la fabbrica Calisia e ALAUDIS, primo pianoforte a coda progettato e costruito in città dopo anni.",
+      },
     },
   },
   politykaPrywatnosci: {
@@ -497,6 +679,18 @@ const PAGES = {
         title: "Politique de confidentialité – ALAUDIS",
         description:
           "Comment ALAUDIS (SAP Renovation Sp. z o.o.) traite les données personnelles : contact, inscriptions à la visite de la manufacture, cookies, statistiques et vos droits.",
+      },
+      es: {
+        label: "Política de privacidad",
+        title: "Política de privacidad – ALAUDIS",
+        description:
+          "Cómo trata ALAUDIS (SAP Renovation Sp. z o.o.) los datos personales: contacto, solicitudes de visita a la manufactura, cookies, estadísticas y sus derechos.",
+      },
+      it: {
+        label: "Informativa sulla privacy",
+        title: "Informativa sulla privacy – ALAUDIS",
+        description:
+          "Come ALAUDIS (SAP Renovation Sp. z o.o.) tratta i dati personali: contatti, richieste di visita alla manifattura, cookie, statistiche e diritti degli interessati.",
       },
     },
   },
@@ -529,7 +723,7 @@ export function pageLabel(locale: SeoLocale, page: SeoPage) {
   return PAGES[page].copy[locale].label;
 }
 
-// hreflang: cztery języki + x-default (wersja angielska dla reszty świata).
+// hreflang: sześć języków + x-default (wersja angielska dla reszty świata).
 export function languageAlternates(urlFor: (locale: SeoLocale) => string) {
   return {
     ...Object.fromEntries(seoLocales.map((locale) => [locale, urlFor(locale)])),
@@ -601,6 +795,8 @@ const ORGANIZATION_DESCRIPTION: Record<SeoLocale, string> = {
   en: "ALAUDIS is a Polish grand piano maker. The instruments are built by hand in the SAP Renovation manufactory in Kalisz, Poland.",
   de: "ALAUDIS ist ein polnischer Flügelhersteller. Die Instrumente entstehen in Handarbeit in der Manufaktur von SAP Renovation in Kalisz.",
   fr: "ALAUDIS est un facteur de pianos à queue polonais. Les instruments sont fabriqués à la main dans la manufacture SAP Renovation à Kalisz.",
+  es: "ALAUDIS es un fabricante polaco de pianos de cola. Los instrumentos se construyen a mano en la manufactura de SAP Renovation en Kalisz.",
+  it: "ALAUDIS è un costruttore polacco di pianoforti a coda. Gli strumenti nascono a mano nella manifattura di SAP Renovation a Kalisz.",
 };
 
 function organizationSchema(locale: SeoLocale) {

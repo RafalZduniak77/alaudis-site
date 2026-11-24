@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
       { source: "/pl/:path*", destination: "/:path*", permanent: true },
       // „/fortepiany” alone has no page: the models are presented on the home page.
       { source: "/fortepiany", destination: "/", permanent: true },
-      { source: "/:locale(en|de|fr)/fortepiany", destination: "/:locale", permanent: true },
+      { source: "/:locale(en|de|fr|es|it)/fortepiany", destination: "/:locale", permanent: true },
     ];
   },
 
