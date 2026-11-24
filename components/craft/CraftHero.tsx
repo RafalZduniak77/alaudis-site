@@ -4,18 +4,30 @@
 // BANER STRONY RZEMIOSŁO — film na cały ekran
 // ==========================================================
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { craftPoster, type CraftVideo } from "./videos";
 
 export default function CraftHero({ video, eyebrow, title, cta, pauseLabel, playLabel }: { video: CraftVideo; eyebrow: string; title: string; cta: string; pauseLabel: string; playLabel: string }) {
   const ref = useRef<HTMLVideoElement>(null);
-  const [paused, setPaused] = useState(false);
+  // The button follows what the film is really doing.
+  const [paused, setPaused] = useState(true);
+
+  // The still frame appears first; the film starts once the page itself has loaded,
+  // so the large video file does not slow down the first view.
+  useEffect(() => {
+    const element = ref.current;
+    if (!element || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const start = () => { element.play().catch(() => {}); };
+    if (document.readyState === "complete") { start(); return; }
+    window.addEventListener("load", start, { once: true });
+    return () => window.removeEventListener("load", start);
+  }, []);
 
   function toggle() {
     const element = ref.current;
     if (!element) return;
-    if (element.paused) { element.play().catch(() => {}); setPaused(false); }
-    else { element.pause(); setPaused(true); }
+    if (element.paused) element.play().catch(() => {});
+    else element.pause();
   }
 
   return (
@@ -24,7 +36,9 @@ export default function CraftHero({ video, eyebrow, title, cta, pauseLabel, play
         ref={ref}
         src={video.src}
         poster={video.poster ?? craftPoster(video.src)}
-        autoPlay
+        preload="none"
+        onPlay={() => setPaused(false)}
+        onPause={() => setPaused(true)}
         muted
         loop
         playsInline

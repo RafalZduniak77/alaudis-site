@@ -51,7 +51,17 @@ export default function CraftVideoCard({ video, index, total, fullscreenLabel, l
     return () => observer.disconnect();
   }, []);
 
-  const poster = video.poster ?? craftPoster(video.src);
+  // Card stills are half the screen wide at most: ask the image server for a smaller file.
+  const poster = (video.poster ?? craftPoster(video.src)).replace("w=1600", "w=1000");
+  // …and only fetch it when the card is getting close to the screen.
+  const [near, setNear] = useState(false);
+  useEffect(() => {
+    const element = card.current;
+    if (!element) return;
+    const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { setNear(true); observer.disconnect(); } }, { rootMargin: "700px 0px" });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
   const number = String(index + 1).padStart(2, "0");
   // The gallery viewer expects a gallery film; describe this one in the same shape.
   const viewerVideo: GalleryVideo = {
@@ -68,7 +78,7 @@ export default function CraftVideoCard({ video, index, total, fullscreenLabel, l
       <video
         ref={ref}
         src={video.src}
-        poster={poster}
+        poster={near ? poster : undefined}
         muted
         loop
         playsInline
