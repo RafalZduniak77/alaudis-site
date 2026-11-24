@@ -265,132 +265,86 @@ export default function KontaktPage() {
           </p>
 
           <div className="mt-6 rounded-[24px] border border-black/10 bg-[#0b0b0b] p-6 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-8">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1.5fr] lg:gap-8">
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
-                  Société
-                </p>
-                <p className="mt-2 text-base text-white lg:text-lg">SAP Renovation Sp. z o.o.</p>
+            {/* Trzy kolumny: dane firmy, a pod każdą numer rejestrowy. Czwarta: kontakt. */}
+            <div className="grid gap-x-8 gap-y-8 md:grid-cols-2 lg:grid-cols-[1.15fr_1fr_1fr_1.3fr] lg:gap-x-0 lg:gap-y-0">
+              <div className="grid content-start gap-6 lg:row-span-2 lg:grid-rows-subgrid lg:gap-y-0 lg:pr-5 xl:pr-8">
+                <div className="lg:pb-7">
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Société</p>
+                  <p className="mt-3 text-xl font-light leading-8 text-white lg:whitespace-nowrap lg:text-lg xl:text-xl">
+                  SAP Renovation Sp. z o.o.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-white/60">KRS</p>
+                  <p className="mt-2 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">0000125505</p>
+                </div>
               </div>
-
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
-                  Adresse
-                </p>
-                <p className="mt-2 text-base leading-7 text-white lg:text-lg">
+              <div className="grid content-start gap-6 lg:row-span-2 lg:grid-rows-subgrid lg:gap-y-0 lg:border-l lg:border-white/10 lg:px-5 xl:px-8">
+                <div className="lg:pb-7">
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Adresse</p>
+                  <p className="mt-3 text-base leading-7 text-white lg:whitespace-nowrap xl:text-lg">
                   ul. Obozowa 18
                   <br />
                   62-800 Kalisz, Pologne
-                </p>
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-white/60">REGON</p>
+                  <p className="mt-2 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">250973192</p>
+                </div>
               </div>
-
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
-                  Horaires d’ouverture
-                </p>
-                <p className="mt-2 text-base leading-7 text-white lg:text-lg">
+              <div className="grid content-start gap-6 lg:row-span-2 lg:grid-rows-subgrid lg:gap-y-0 lg:border-l lg:border-white/10 lg:px-5 xl:px-8">
+                <div className="lg:pb-7">
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Horaires d’ouverture</p>
+                  <p className="mt-3 text-base leading-7 text-white lg:whitespace-nowrap xl:text-lg">
                   Du lundi au vendredi
                   <br />
                   8 h – 16 h
-                </p>
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-white/60">NIF (NIP)</p>
+                  <p className="mt-2 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">6181893417</p>
+                </div>
               </div>
-
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
-                  Contact
-                </p>
-                <div className="mt-2 space-y-1 text-base text-white lg:text-lg">
-                  <p>
-                    <a href="tel:+48625013030" className="transition hover:text-white/95">
-                      +48 62 501 30 30
-                    </a>
-                  </p>
-                  <p>
-                    <a href="mailto:info@saprenovation.com" className="break-all transition hover:text-white/95">
-                      info@saprenovation.com
-                    </a>
-                  </p>
-                  <p>
-                    <a
-                      href={`tel:+${PIOTR_PHONE_RAW}`}
-                      className="transition hover:text-white/95"
-                    >
-                      {PIOTR_PHONE_DISPLAY}
-                    </a>
-                  </p>
-                  <p>
-                    <a
-                      href={`mailto:${PIOTR_EMAIL}`}
-                      className="break-all transition hover:text-white/95"
-                    >
-                      {PIOTR_EMAIL}
-                    </a>
-                  </p>
-                  <p>
-                    <a
-                      href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
-                      className="transition hover:text-white/95"
-                    >
-                      {KRZYSZTOF_PHONE_DISPLAY}
-                    </a>
-                  </p>
-                  <p>
-                    <a
-                      href={`mailto:${KRZYSZTOF_EMAIL}`}
-                      className="break-all transition hover:text-white/95"
-                    >
-                      {KRZYSZTOF_EMAIL}
-                    </a>
-                  </p>
+              <div className="lg:row-span-2 lg:border-l lg:border-white/10 lg:pl-5 xl:pl-8">
+                <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Contact</p>
+                <div className="mt-3 space-y-3 text-base text-white xl:text-lg">
+                  <div className="space-y-0.5">
+                    <p><a href="tel:+48625013030" className="transition hover:text-[#d3bd8b]"> +48 62 501 30 30 </a></p>
+                    <p className="text-sm lg:text-[13px] xl:text-base"><a href="mailto:info@saprenovation.com" className="break-all text-white/80 transition hover:text-white"> info@saprenovation.com </a></p>
+                  </div>
+                  <div className="space-y-0.5">
+                    <p><a href={`tel:+${PIOTR_PHONE_RAW}`} className="transition hover:text-[#d3bd8b]" > {PIOTR_PHONE_DISPLAY} </a></p>
+                    <p className="text-sm lg:text-[13px] xl:text-base"><a href={`mailto:${PIOTR_EMAIL}`} className="break-all text-white/80 transition hover:text-white" > {PIOTR_EMAIL} </a></p>
+                  </div>
+                  <div className="space-y-0.5">
+                    <p><a href={`tel:+${KRZYSZTOF_PHONE_RAW}`} className="transition hover:text-[#d3bd8b]" > {KRZYSZTOF_PHONE_DISPLAY} </a></p>
+                    <p className="text-sm lg:text-[13px] xl:text-base"><a href={`mailto:${KRZYSZTOF_EMAIL}`} className="break-all text-white/80 transition hover:text-white" > {KRZYSZTOF_EMAIL} </a></p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Dane rejestrowe */}
-            <div className="mt-7 grid gap-6 border-t border-white/10 pt-7 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1.5fr] lg:gap-8">
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
-                  KRS
-                </p>
-                <p className="mt-2 text-base text-white lg:text-lg">0000125505</p>
-              </div>
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
-                  REGON
-                </p>
-                <p className="mt-2 text-base text-white lg:text-lg">250973192</p>
-              </div>
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
-                  NIF (NIP)
-                </p>
-                <p className="mt-2 text-base text-white lg:text-lg">6181893417</p>
-              </div>
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.24em] text-white/88">
-                  Capital social
-                </p>
-                <p className="mt-2 text-base text-white lg:text-lg">50 000,00 PLN</p>
-              </div>
-            </div>
-            <p className="mt-5 text-sm leading-6 text-white/70">
-              Tribunal d’arrondissement Poznań – Nowe Miasto i Wilda à Poznań, IXe chambre commerciale du Registre judiciaire national
-            </p>
+            <div className="mt-8 flex flex-col gap-5 border-t border-white/10 pt-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+              <p className="max-w-2xl text-xs leading-5 text-white/60">
+                Tribunal d’arrondissement Poznań – Nowe Miasto i Wilda à Poznań, IXe chambre commerciale du Registre judiciaire national
+              </p>
+              <div className="flex shrink-0 flex-wrap gap-2">
+                <Link
+                  href="/fr/odwiedz-atelier"
+                  className="rounded-full border border-white/20 bg-black/20 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                >
+                  Visiter l’atelier
+                </Link>
 
-            <div className="mt-7 flex flex-wrap gap-2">
-              <Link
-                href="/fr/odwiedz-atelier"
-                className="rounded-full border border-white/20 bg-black/20 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Visiter l’atelier
-              </Link>
-
-              <Link
-                href="/fr/dla-architektow"
-                className="rounded-full border border-white/35 bg-white/10 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-white transition hover:border-white hover:bg-white hover:text-black"
-              >
-                Pour les architectes
-              </Link>
+                <Link
+                  href="/fr/dla-architektow"
+                  className="rounded-full border border-white/35 bg-white/10 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-white transition hover:border-white hover:bg-white hover:text-black"
+                >
+                  Pour les architectes
+                </Link>
+              </div>
             </div>
           </div>
         </div>
