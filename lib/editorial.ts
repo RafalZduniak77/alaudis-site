@@ -20,7 +20,8 @@ export type EditorialItem = {
 };
 
 export type EditorialSection = {
-  heading: string;
+  // Sekcja bez nagłówka pokazuje same kafelki.
+  heading?: string;
   body?: string[];
   items?: EditorialItem[];
   link?: EditorialLink;
@@ -368,7 +369,6 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
           ],
         },
         {
-          heading: "Mistrz intonacji",
           items: [
             {
               meta: "Regulacja i intonacja",
@@ -430,7 +430,6 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
           ],
         },
         {
-          heading: "The master of voicing",
           items: [
             {
               meta: "Regulation and voicing",
@@ -492,7 +491,6 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
           ],
         },
         {
-          heading: "Der Meister der Intonation",
           items: [
             {
               meta: "Regulierung und Intonation",
@@ -554,7 +552,6 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
           ],
         },
         {
-          heading: "Le maître de l’harmonisation",
           items: [
             {
               meta: "Réglage et harmonisation",

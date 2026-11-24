@@ -116,7 +116,7 @@ export default function EditorialPage({
 
       {content.sections.map((section, index) => (
         <section
-          key={section.heading}
+          key={section.heading ?? index}
           className={`px-6 py-20 sm:px-10 lg:px-16 ${index % 2 ? "bg-neutral-950" : "bg-black"}`}
         >
           <div className="mx-auto max-w-5xl">
@@ -136,17 +136,22 @@ export default function EditorialPage({
                 {section.link && !section.items && <TextLink link={section.link} prefix={prefix} />}
               </div>
             ) : (
-              <h2 className="text-3xl font-light text-white sm:text-4xl">
-                {section.heading}
-              </h2>
+              section.heading && (
+                <h2 className="text-3xl font-light text-white sm:text-4xl">
+                  {section.heading}
+                </h2>
+              )
             )}
 
             {section.items && (
-              <div className="mt-10 grid gap-6 md:grid-cols-2">
+              <div className={`grid gap-6 md:grid-cols-2 ${section.heading ? "mt-10" : ""}`}>
                 {section.items.map((item) => (
                   <article
                     key={item.title}
-                    className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8"
+                    // Pojedynczy kafelek w sekcji bez nagłówka: podłużna ramka na całą szerokość.
+                    className={`rounded-[30px] border border-white/10 bg-white/[0.03] p-8 ${
+                      !section.heading && section.items?.length === 1 ? "text-center sm:p-10 md:col-span-2" : ""
+                    }`}
                   >
                     {item.meta && (
                       <p className="text-xs uppercase tracking-[0.28em] text-white/88">
@@ -155,7 +160,7 @@ export default function EditorialPage({
                     )}
                     <h3 className="mt-4 text-2xl font-light text-white">{item.title}</h3>
                     {item.text && (
-                      <p className="mt-5 whitespace-pre-line leading-8 text-white">{item.text}</p>
+                      <p className="mx-auto mt-5 max-w-3xl whitespace-pre-line leading-8 text-white">{item.text}</p>
                     )}
                     {item.link && <TextLink link={item.link} prefix={prefix} />}
                   </article>
