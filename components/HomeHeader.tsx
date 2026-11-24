@@ -23,6 +23,7 @@ const copy = {
 } satisfies Record<GalleryLocale, Record<string, string | string[]>>;
 
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61579105662197&locale=pl_PL";
+const INSTAGRAM_URL = "https://www.instagram.com/alaudis_piano_factory/";
 
 // Which pages go into which column of the pull-down menu.
 const MENU_GROUPS: SeoPage[][] = [
@@ -177,6 +178,7 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
             <ul>
               {menuLinks(["politykaPrywatnosci"])}
               <li><a href={FACEBOOK_URL} target="_blank" rel="noreferrer">Facebook Alaudis <span aria-hidden="true">↗</span></a></li>
+              <li><a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Instagram Alaudis <span aria-hidden="true">↗</span></a></li>
               <li><a href={`https://saprenovation.com/${locale}/`} target="_blank" rel="noreferrer">SAP Renovation <span aria-hidden="true">↗</span></a></li>
             </ul>
           </div>

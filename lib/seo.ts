@@ -641,7 +641,7 @@ function organizationSchema(locale: SeoLocale) {
       name: "SAP Renovation",
       url: "https://saprenovation.com",
     },
-    sameAs: ["https://www.facebook.com/profile.php?id=61579105662197"],
+    sameAs: ["https://www.facebook.com/profile.php?id=61579105662197", "https://www.instagram.com/alaudis_piano_factory/"],
   };
 }
 
