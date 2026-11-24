@@ -150,8 +150,8 @@ export default function KontaktPage() {
             {/* ==================================================
                 PAULINA
                ================================================== */}
-            <div className="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] rounded-[24px] border border-black/10 bg-[#0b0b0b] text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
-              <div className="relative aspect-[2/3] w-full overflow-hidden rounded-l-[24px] bg-[#080808]">
+            <div className="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] rounded-[24px] lg:h-[calc(100svh-252px)] lg:max-h-[760px] lg:min-h-[400px] lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] border border-black/10 bg-[#0b0b0b] text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
+              <div className="relative aspect-[2/3] w-full overflow-hidden rounded-l-[24px] bg-[#080808] lg:aspect-auto">
                 <div className="absolute inset-0">
                   <div className="relative h-full w-full">
                     <Image
@@ -159,7 +159,7 @@ export default function KontaktPage() {
                       alt="Paulina Przybylska"
                       fill
                       priority
-                      sizes="(min-width: 1024px) 22vw, 40vw"
+                      sizes="(min-width: 1024px) 25vw, 40vw"
                       className="object-cover object-top"
                     />
                   </div>
@@ -172,11 +172,11 @@ export default function KontaktPage() {
                   Kontakt handlowy
                 </p>
 
-                <h3 className="mt-3 text-xl font-light sm:text-2xl text-white">
+                <h3 className="mt-3 text-xl font-light sm:text-2xl xl:text-3xl text-white">
                   Paulina Przybylska
                 </h3>
 
-                <p className="mt-3 text-sm sm:text-base text-white/95">
+                <p className="mt-3 text-sm sm:text-base xl:mt-4 xl:text-lg text-white/95">
                   <a
                     href={`tel:+${PAULINA_PHONE_RAW}`}
                     className="transition hover:text-white"
@@ -185,7 +185,7 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <p className="mt-1.5 break-all text-sm sm:text-base text-white/95">
+                <p className="mt-1.5 break-all text-sm sm:text-base lg:text-sm xl:mt-2 xl:text-lg text-white/95">
                   <a
                     href={`mailto:${PAULINA_EMAIL}`}
                     className="transition hover:text-white"
@@ -194,7 +194,7 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <div className="mt-5">
+                <div className="mt-5 xl:mt-7">
                   <div className="flex flex-wrap gap-2">
                     <a
                       href={`tel:+${PAULINA_PHONE_RAW}`}
@@ -216,8 +216,8 @@ export default function KontaktPage() {
             {/* ==================================================
                 KRZYSZTOF
                ================================================== */}
-            <div className="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] rounded-[24px] border border-black/10 bg-[#0b0b0b] text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
-              <div className="relative aspect-[2/3] w-full overflow-hidden rounded-l-[24px] bg-[#080808]">
+            <div className="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] rounded-[24px] lg:h-[calc(100svh-252px)] lg:max-h-[760px] lg:min-h-[400px] lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] border border-black/10 bg-[#0b0b0b] text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
+              <div className="relative aspect-[2/3] w-full overflow-hidden rounded-l-[24px] bg-[#080808] lg:aspect-auto">
                 <div className="absolute inset-0">
                   <div className="relative h-full w-full">
                     <Image
@@ -225,7 +225,7 @@ export default function KontaktPage() {
                       alt="Krzysztof Skwarek"
                       fill
                       priority
-                      sizes="(min-width: 1024px) 22vw, 40vw"
+                      sizes="(min-width: 1024px) 25vw, 40vw"
                       className="object-cover object-top"
                     />
                   </div>
@@ -238,11 +238,11 @@ export default function KontaktPage() {
                   Kontakt handlowy
                 </p>
 
-                <h3 className="mt-3 text-xl font-light sm:text-2xl text-white">
+                <h3 className="mt-3 text-xl font-light sm:text-2xl xl:text-3xl text-white">
                   Krzysztof Skwarek
                 </h3>
 
-                <p className="mt-3 text-sm sm:text-base text-white/95">
+                <p className="mt-3 text-sm sm:text-base xl:mt-4 xl:text-lg text-white/95">
                   <a
                     href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
                     className="transition hover:text-white"
@@ -251,7 +251,7 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <p className="mt-1.5 break-all text-sm sm:text-base text-white/95">
+                <p className="mt-1.5 break-all text-sm sm:text-base lg:text-sm xl:mt-2 xl:text-lg text-white/95">
                   <a
                     href={`mailto:${KRZYSZTOF_EMAIL}`}
                     className="transition hover:text-white"
@@ -260,7 +260,7 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <div className="mt-5">
+                <div className="mt-5 xl:mt-7">
                   <div className="flex flex-wrap gap-2">
                     <a
                       href={`tel:+${KRZYSZTOF_PHONE_RAW}`}
