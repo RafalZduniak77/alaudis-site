@@ -114,7 +114,10 @@ export default async function CraftPage({ language }: { language: CraftLanguage 
       {/* FILMY */}
       <section id="filmy" className="scroll-mt-24 px-4 pb-20 pt-16 sm:px-8 sm:pt-20 lg:px-12">
         <div className="mx-auto max-w-[1520px]">
-          <p className="max-w-3xl leading-8 text-white/92 sm:text-[17px]">{copy.intro}</p>
+          {/* Podłużna, podświetlana ramka (ten sam styl co kafelki na stronie) */}
+          <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8 text-center sm:p-10">
+            <p className="mx-auto max-w-3xl leading-8 text-white/92 sm:text-[17px]">{copy.intro}</p>
+          </div>
 
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:gap-7">
             {videos.map((video, index) => (
