@@ -61,8 +61,6 @@ const FOOTER_COPY: Record<
   },
 };
 
-const INSTAGRAM_ALAUDIS_URL = "https://www.instagram.com/alaudis_piano_factory/";
-
 const FACEBOOK_ALAUDIS_URL =
   "https://www.facebook.com/profile.php?id=61579105662197&locale=pl_PL";
 
@@ -240,15 +238,6 @@ export default function Footer() {
               className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none"
             >
               Facebook Alaudis
-            </Link>
-
-            <Link
-              href={INSTAGRAM_ALAUDIS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block transition duration-300 ease-out hover:translate-x-1.5 hover:text-[#d3bd8b] focus-visible:translate-x-1.5 focus-visible:text-[#d3bd8b] motion-reduce:transform-none"
-            >
-              Instagram Alaudis
             </Link>
           </div>
         </div>
