@@ -1,15 +1,13 @@
-"use client";
-
 // ==========================================================
 // CHARAKTER BRZMIENIA — SEKCJA NA STRONACH MODELI
 // ==========================================================
-// Duże zdanie rozjaśnia się słowo po słowie podczas przewijania,
-// w tle stoi konturowy numer modelu, a pod spodem — drugi akapit
-// i cztery cechy brzmienia w równych kolumnach.
+// Po lewej krótki tekst, po prawej duże zdjęcie wnętrza
+// fortepianu (public/galeria-home/11.jpg), które wtapia się
+// w czarne tło. Pod spodem cztery cechy brzmienia.
 // Cechy brzmienia zapisane są niżej, w tabeli TRAITS.
 // ==========================================================
 
-import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 type Model = "178" | "214" | "275";
 type Language = "PL" | "EN" | "DE" | "FR";
@@ -38,76 +36,41 @@ const TRAITS: Record<Model, Record<Language, [string, string][]>> = {
 type Props = { model: Model; language: Language; eyebrow: string; lead: string; text: string };
 
 export default function ModelSoundCharacter({ model, language, eyebrow, lead, text }: Props) {
-  const statement = useRef<HTMLParagraphElement>(null);
-  const words = lead.split(" ");
-
-  // The statement lights up as it travels through the screen. Without scripts
-  // (or with reduced motion) the whole sentence simply stays bright.
-  useEffect(() => {
-    const element = statement.current;
-    if (!element || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const box = element.getBoundingClientRect();
-      const start = window.innerHeight * 0.9;
-      const end = window.innerHeight * 0.38;
-      const progress = (start - box.top) / (start - end + box.height * 0.6);
-      element.style.setProperty("--lit", String(Math.min(1, Math.max(0, progress))));
-    };
-    const onScroll = () => { if (!frame) frame = window.requestAnimationFrame(update); };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (frame) window.cancelAnimationFrame(frame);
-    };
-  }, []);
-
   return (
-    <section id="charakter" className="relative isolate scroll-mt-24 overflow-hidden bg-black px-6 py-20 sm:px-10 sm:py-28 lg:px-16 lg:py-36">
-      {/* Ciepła poświata i konturowy numer modelu w tle */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_70%_at_12%_0%,rgb(199_154_92/0.13),transparent_70%)]" />
-      <p aria-hidden="true" className="pointer-events-none absolute -right-[0.06em] top-1/2 -z-10 -translate-y-[58%] select-none text-[clamp(190px,34vw,520px)] font-extralight leading-none tracking-[-0.04em] text-transparent [-webkit-text-stroke:1px_rgb(211_189_139/0.13)]">
-        {model}
-      </p>
-
-      <div className="mx-auto max-w-7xl">
-        <h2 className="flex items-center gap-4 text-[11px] uppercase tracking-[0.42em] text-[#e0ca96] before:h-px before:w-11 before:bg-[#d3bd8b]">
-          {eyebrow}
-        </h2>
-
-        <p
-          ref={statement}
-          style={{ "--lit": 1, "--words": words.length } as React.CSSProperties}
-          className="mt-8 max-w-5xl text-[clamp(1.55rem,3.3vw,3.25rem)] font-extralight leading-[1.22] tracking-[-0.012em] text-white sm:mt-10"
-        >
-          {words.map((word, index) => (
-            <span
-              key={index}
-              style={{ opacity: `clamp(0.26, calc((var(--lit) * (var(--words) + 6) - ${index}) * 0.3), 1)` }}
-              className="transition-opacity duration-300 ease-out"
-            >
-              {word}{" "}
-            </span>
-          ))}
-        </p>
-
-        <div className="mt-12 grid gap-10 border-t border-white/12 pt-10 sm:mt-16 sm:pt-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
-          <p className="max-w-xl text-[15px] leading-8 text-white/84 sm:text-base">{text}</p>
-
-          <dl className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4 lg:gap-x-8">
-            {TRAITS[model][language].map(([label, value], index) => (
-              <div key={label} className="border-l border-[#d3bd8b]/35 pl-4">
-                <p aria-hidden="true" className="text-[10px] tracking-[0.3em] text-white/45 tabular-nums">0{index + 1}</p>
-                <dt className="mt-3 text-[10px] uppercase tracking-[0.3em] text-[#e0ca96]">{label}</dt>
-                <dd className="mt-2 text-lg font-light leading-snug text-white lg:text-xl">{value}</dd>
-              </div>
-            ))}
-          </dl>
+    <section id="charakter" className="scroll-mt-24 overflow-hidden bg-black">
+      <div className="grid lg:min-h-[min(78svh,760px)] lg:grid-cols-2">
+        {/* Zdjęcie — na telefonie nad tekstem, na komputerze po prawej */}
+        <div className="relative aspect-[4/3] sm:aspect-[16/9] lg:order-2 lg:aspect-auto">
+          <Image
+            src="/galeria-home/11.jpg"
+            alt=""
+            fill
+            sizes="(max-width: 1023px) 100vw, 50vw"
+            className="object-cover object-[62%_50%]"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(0deg,#000_0%,transparent_38%)] lg:bg-[linear-gradient(90deg,#000_0%,rgb(0_0_0/0.55)_18%,transparent_48%),linear-gradient(0deg,#000_0%,transparent_26%)]" />
         </div>
+
+        <div className="relative flex flex-col justify-center px-6 pb-4 pt-2 sm:px-10 lg:order-1 lg:py-24 lg:pl-16 lg:pr-6 xl:pl-[max(4rem,calc((100vw-80rem)/2))]">
+          <h2 className="flex items-center gap-4 text-[11px] uppercase tracking-[0.42em] text-[#e0ca96] before:h-px before:w-11 before:bg-[#d3bd8b]">
+            {eyebrow}
+          </h2>
+          <p className="mt-7 max-w-xl text-pretty text-[1.35rem] font-light leading-[1.5] text-white sm:text-2xl sm:leading-[1.5] lg:mt-9 lg:text-[1.7rem] lg:leading-[1.45]">
+            {lead}
+          </p>
+          <p className="mt-6 max-w-lg text-pretty text-[15px] leading-8 text-white/78 lg:mt-8">{text}</p>
+        </div>
+      </div>
+
+      <div className="px-6 pb-16 pt-8 sm:px-10 lg:px-16 lg:pb-24 lg:pt-4">
+        <dl className="mx-auto grid max-w-7xl grid-cols-2 border-t border-white/12 sm:grid-cols-4">
+          {TRAITS[model][language].map(([label, value]) => (
+            <div key={label} className="border-b border-white/12 py-6 pr-4 sm:border-b-0 sm:py-8 lg:pr-8">
+              <dt className="text-[10px] uppercase tracking-[0.32em] text-[#e0ca96]">{label}</dt>
+              <dd className="mt-3 text-lg font-light leading-snug text-white lg:text-2xl">{value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );
