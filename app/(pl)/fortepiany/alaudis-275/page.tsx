@@ -76,19 +76,19 @@ export default function ModelAlaudis275Page() {
       {/* ====================================================
           CHARAKTER BRZMIENIA
          ==================================================== */}
-      <section className="bg-black px-6 py-20 sm:px-10 lg:px-16">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+      <section id="charakter" className="scroll-mt-24 bg-black px-6 py-20 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-4xl text-center">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/88">
+            <p className="flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.42em] text-[#e0ca96] before:h-px before:w-10 before:bg-[#d3bd8b]/70 after:h-px after:w-10 after:bg-[#d3bd8b]/70">
               Charakter brzmienia
             </p>
 
-            <h2 className="mt-4 text-3xl font-light text-white sm:text-4xl">
+            <h2 className="mt-7 text-balance text-[2rem] font-extralight leading-[1.12] tracking-[-0.01em] text-white sm:text-5xl lg:text-[4rem]">
               Monumentalny, nośny, w pełni koncertowy
             </h2>
           </div>
 
-          <div className="space-y-6 text-white">
+          <div className="mx-auto mt-10 max-w-3xl space-y-6 text-pretty text-white/88 sm:mt-12 [&>p:first-child]:text-[17px] [&>p:first-child]:leading-8 [&>p:first-child]:text-white sm:[&>p:first-child]:text-xl sm:[&>p:first-child]:leading-10">
             <p className="leading-8">
               ALAUDIS DREAM 275 otwiera pełną skalę języka brzmieniowego marki.
               Oferuje rozległą projekcję, głęboki fundament basowy, szeroki
