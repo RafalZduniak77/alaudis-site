@@ -110,6 +110,8 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
       </section>
 
       <div className={styles.signature}>
+        {/* Podłużna, podświetlana ramka (ten sam styl co kafelki na stronie) */}
+        <div className="mx-auto max-w-5xl rounded-[30px] border border-white/10 bg-white/[0.03] px-8 py-12 sm:px-10 sm:py-14">
         <p className={styles.signatureEyebrow}>{copy.collectionLabel}</p>
         <h1 id="alaudis-family-title" className={styles.signatureTitle}>
           {/* "Three instruments. Three personalities." / "One family." — last sentence on its own line */}
@@ -117,6 +119,7 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
         </h1>
         <span className={styles.signatureRule} aria-hidden="true" />
         <p className={styles.signatureClosing}>{copy.closing}</p>
+        </div>
         <span className={styles.signatureLine} aria-hidden="true" />
       </div>
     </section>
