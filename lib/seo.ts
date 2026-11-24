@@ -548,12 +548,10 @@ export function rootMetadata(locale: SeoLocale): Metadata {
     description: PAGES.home.copy[locale].description,
     robots: { index: isIndexable, follow: isIndexable },
     icons: {
+      // Small files on purpose: the icon is fetched on every page.
       icon: [
-        {
-          url: "/favicon-alaudis-transparent-v4.png",
-          sizes: "1024x1024",
-          type: "image/png",
-        },
+        { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
+        { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
       ],
       apple: "/apple-touch-icon-alaudis-transparent-v4.png",
     },

@@ -442,6 +442,7 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
               src={slide.image}
               alt={slide.title}
               fill
+              sizes="(min-width: 1640px) 1600px, 98vw"
               className="object-contain object-center [transform:translateZ(0)]"
             />
 

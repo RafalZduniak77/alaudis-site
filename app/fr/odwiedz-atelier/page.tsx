@@ -33,6 +33,7 @@ export default function VisitezLatelierPage() {
                 src="/galeria-home/3.jpg"
                 alt="Atelier Alaudis - vue 1"
                 fill
+                priority
                 sizes="(min-width: 1024px) 66vw, 100vw"
                 className="object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.04]"
               />

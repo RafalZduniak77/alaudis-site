@@ -13,7 +13,7 @@ import SeoJsonLd from "@/components/SeoJsonLd";
 import CraftHero from "./CraftHero";
 import CraftVideoCard from "./CraftVideoCard";
 import { getCraftVideos } from "@/lib/gallery/server";
-import { craftContent, type CraftLanguage, type CraftVideo } from "./videos";
+import { craftContent, craftPoster, type CraftLanguage, type CraftVideo } from "./videos";
 
 const UI: Record<CraftLanguage, {
   heroCta: string; pause: string; play: string;
@@ -104,6 +104,8 @@ export default async function CraftPage({ language }: { language: CraftLanguage 
   return (
     <main className="min-h-screen bg-black text-white">
       <SeoJsonLd locale={locale} page="rzemioslo" />
+      {/* The banner shows this still first: the browser fetches it straight away. */}
+      <link rel="preload" as="image" href={hero.poster ?? craftPoster(hero.src)} fetchPriority="high" />
       <ModelPageTopBar backHref={prefix || "/"} activeLanguage={language} />
 
       {/* BANER: ostatni film (intonacja) na cały ekran */}

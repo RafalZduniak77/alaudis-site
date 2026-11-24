@@ -154,6 +154,8 @@ export default function KontaktPage() {
                       src="/kontakt/paulina-przybylska.jpg"
                       alt="Paulina Przybylska"
                       fill
+                      priority
+                      sizes="(min-width: 1024px) 50vw, 100vw"
                       className="object-contain object-center"
                     />
                   </div>
@@ -215,6 +217,8 @@ export default function KontaktPage() {
                       src="/kontakt/krzysztof-skwarek.jpg"
                       alt="Krzysztof Skwarek"
                       fill
+                      priority
+                      sizes="(min-width: 1024px) 50vw, 100vw"
                       className="object-contain object-center"
                     />
                   </div>

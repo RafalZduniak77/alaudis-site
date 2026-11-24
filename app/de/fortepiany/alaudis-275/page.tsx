@@ -65,6 +65,7 @@ export default function ModelAlaudis275Page() {
             src="/galeria-home/3.jpg"
             alt="ALAUDIS DREAM 275"
             fill
+            sizes="100vw"
             priority
             className="object-cover object-center"
           />
@@ -235,6 +236,7 @@ export default function ModelAlaudis275Page() {
                 src="/galeria-home/3.jpg"
                 alt="ALAUDIS DREAM 275 - Ansicht 1"
                 fill
+                sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
                 className="object-cover"
               />
             </div>
@@ -242,9 +244,10 @@ export default function ModelAlaudis275Page() {
             {/* ZDJĘCIE 2 */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
               <Image
-                src="/galeria-home/5.JPG"
+                src="/galeria-home/5.jpg"
                 alt="ALAUDIS DREAM 275 - Ansicht 2"
                 fill
+                sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
                 className="object-cover"
               />
             </div>
@@ -255,6 +258,7 @@ export default function ModelAlaudis275Page() {
                 src="/galeria-home/2.jpg"
                 alt="ALAUDIS DREAM 275 - Ansicht 3"
                 fill
+                sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
                 className="object-cover"
               />
             </div>

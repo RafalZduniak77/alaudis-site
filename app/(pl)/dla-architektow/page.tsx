@@ -47,6 +47,8 @@ export default function DlaArchitektowPage() {
           src="/galeria-home/3.jpg"
                 alt="Alaudis - inspiracja projektowa 1"
                 fill
+                priority
+                sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
                 className="object-cover"
               />
             </div>
@@ -56,6 +58,7 @@ export default function DlaArchitektowPage() {
           src="/galeria-home/5.jpg"
                 alt="Alaudis - inspiracja projektowa 2"
                 fill
+                sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
                 className="object-cover"
               />
             </div>
@@ -65,6 +68,7 @@ export default function DlaArchitektowPage() {
           src="/galeria-home/2.jpg"
                 alt="Alaudis - inspiracja projektowa 3"
                 fill
+                sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
                 className="object-cover"
               />
             </div>

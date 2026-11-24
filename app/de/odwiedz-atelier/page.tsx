@@ -33,6 +33,7 @@ export default function BesuchenSieDasAtelierPage() {
                 src="/galeria-home/3.jpg"
                 alt="Alaudis Atelier - Ansicht 1"
                 fill
+                priority
                 sizes="(min-width: 1024px) 66vw, 100vw"
                 className="object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.04]"
               />

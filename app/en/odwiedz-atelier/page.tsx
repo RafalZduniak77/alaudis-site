@@ -47,6 +47,7 @@ export default function VisitAtelierPage() {
                 src="/galeria-home/Salonik 1.jpg"
                 alt="Alaudis atelier - view 1"
                 fill
+                priority
                 sizes="(min-width: 1024px) 66vw, 100vw"
                 className="object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.04]"
               />

@@ -27,6 +27,7 @@ export default function ModelAlaudis214Page() {
             src="/galeria-home/3.jpg"
             alt="ALAUDIS LEO 214"
             fill
+            sizes="100vw"
             priority
             className="object-cover object-center"
           />
@@ -128,15 +129,15 @@ export default function ModelAlaudis214Page() {
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image src="/galeria-home/3.jpg" alt="ALAUDIS LEO 214 - 1" fill className="object-cover" />
+              <Image src="/galeria-home/3.jpg" alt="ALAUDIS LEO 214 - 1" fill sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover" />
             </div>
 
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image src="/galeria-home/5.JPG" alt="ALAUDIS LEO 214 - 2" fill className="object-cover" />
+              <Image src="/galeria-home/5.jpg" alt="ALAUDIS LEO 214 - 2" fill sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover" />
             </div>
 
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10">
-              <Image src="/galeria-home/2.jpg" alt="ALAUDIS LEO 214 - 3" fill className="object-cover" />
+              <Image src="/galeria-home/2.jpg" alt="ALAUDIS LEO 214 - 3" fill sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover" />
             </div>
           </div>
         </div>

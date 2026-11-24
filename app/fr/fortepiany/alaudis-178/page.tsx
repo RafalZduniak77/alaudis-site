@@ -70,6 +70,7 @@ export default function ModelAlaudis178Page() {
             src="/galeria-home/10.jpg"
             alt="ALAUDIS ONE 178"
             fill
+            sizes="100vw"
             priority
             className="object-cover object-center"
           />
@@ -220,6 +221,7 @@ export default function ModelAlaudis178Page() {
                   src={image.src}
                   alt={image.alt}
                   fill
+                  sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
                   className="object-cover transition duration-500 hover:scale-105"
                 />
 

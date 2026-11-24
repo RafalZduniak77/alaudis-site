@@ -35,6 +35,15 @@ type Props = {
 
 export default function HomeHero({ alt, eyebrow, title, actions, scroll }: Props) {
   const [active, setActive] = useState(0);
+  // Photos are fetched one step ahead instead of all at once: the first with the page,
+  // each next one shortly before it is shown. Keeps the first load light.
+  const [wanted, setWanted] = useState(1);
+
+  useEffect(() => {
+    const next = Math.max(active + 2, 2);
+    const timer = window.setTimeout(() => setWanted(count => Math.max(count, Math.min(next, SLIDES.length))), active === 0 ? 2500 : 0);
+    return () => window.clearTimeout(timer);
+  }, [active]);
 
   // Change the photo every few seconds; wait while the tab is hidden.
   useEffect(() => {
@@ -50,17 +59,15 @@ export default function HomeHero({ alt, eyebrow, title, actions, scroll }: Props
       <div className={styles.slides}>
         {SLIDES.map((slide, index) => (
           <div key={slide.src} className={`${styles.slide} ${index === active ? styles.current : ""}`}>
-            <Image
+            {(index < wanted || index === active) && <Image
               src={slide.src}
               alt={index === 0 ? alt : ""}
               fill
               priority={index === 0}
-              loading={index === 0 ? undefined : "lazy"}
               sizes="100vw"
-              quality={85}
               style={{ objectPosition: slide.position }}
               className={styles.photo}
-            />
+            />}
             {slide.dim > 0 && <div className={styles.dim} style={{ opacity: slide.dim }} />}
           </div>
         ))}
@@ -74,7 +81,7 @@ export default function HomeHero({ alt, eyebrow, title, actions, scroll }: Props
             {title.map((line, index) => <span key={line} style={{ animationDelay: `${180 + index * 140}ms` }}>{line}</span>)}
           </p>
           <div className={styles.actions}>
-            {actions.map((action, index) => (
+            {actions.map((action) => (
               <Link key={action.href} href={action.href} className={styles.secondary}>
                 {action.label}
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" /></svg>
