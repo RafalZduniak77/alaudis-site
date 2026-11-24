@@ -312,10 +312,10 @@ export default function ConfiguratorPanel({
           GÓRA PANELU - TYTUŁ OFERTY
          ==================================================== */}
       <div className="shrink-0 px-4 pb-3 pt-3 sm:px-6 lg:pb-4 lg:pt-8">
-        <h1 className="mb-1.5 text-xs font-light tracking-[0.16em] text-[#dec38c] lg:mb-2 lg:text-sm">
+        <h1 className="mb-2 text-xs font-light tracking-[0.16em] text-[#dec38c] lg:mb-2 lg:text-sm">
           {modelName}
         </h1>
-        <p className="mb-2.5 text-[11px] leading-4 text-white/65 lg:mb-3 lg:text-xs lg:leading-5">{BESPOKE_NOTE[language]}</p>
+        <p className="hidden text-white/65 lg:mb-3 lg:block lg:text-xs lg:leading-5">{BESPOKE_NOTE[language]}</p>
         <input
           value={offerTitle}
           onChange={(e) => setOfferTitle(e.target.value)}
