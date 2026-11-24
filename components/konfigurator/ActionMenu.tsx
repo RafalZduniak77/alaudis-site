@@ -101,13 +101,13 @@ export default function ActionMenu({
   const labels = getLabels(language);
 
   return (
-    <div className="shrink-0 border-t border-white/10 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-6 lg:p-6">
+    <div className="shrink-0 border-t border-white/10 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 sm:px-6 lg:py-4">
       <div className="relative">
         {/* GŁÓWNY PRZYCISK */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           aria-expanded={menuOpen}
-          className="w-full rounded-full bg-red-600 py-3 text-sm lg:py-4 lg:text-base"
+          className="w-full rounded-full bg-red-600 py-2.5 text-xs tracking-[0.12em] transition hover:bg-red-500 lg:text-[13px]"
         >
           {labels.manage}
         </button>
@@ -121,7 +121,7 @@ export default function ActionMenu({
                 onSave();
                 setMenuOpen(false);
               }}
-              className="w-full px-6 py-4 text-left transition hover:bg-white/10"
+              className="w-full px-5 py-3 text-left text-sm transition hover:bg-white/10"
             >
               {labels.save}
             </button>
@@ -132,7 +132,7 @@ export default function ActionMenu({
                 onSend();
                 setMenuOpen(false);
               }}
-              className="w-full border-t border-white/10 px-6 py-4 text-left transition hover:bg-white/10"
+              className="w-full border-t border-white/10 px-5 py-3 text-left text-sm transition hover:bg-white/10"
             >
               {labels.send}
             </button>
@@ -143,7 +143,7 @@ export default function ActionMenu({
                 onPdf();
                 setMenuOpen(false);
               }}
-              className="w-full border-t border-white/10 px-6 py-4 text-left transition hover:bg-white/10"
+              className="w-full border-t border-white/10 px-5 py-3 text-left text-sm transition hover:bg-white/10"
             >
               {labels.pdf}
             </button>

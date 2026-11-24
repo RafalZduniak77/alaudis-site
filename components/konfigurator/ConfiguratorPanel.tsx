@@ -311,17 +311,17 @@ export default function ConfiguratorPanel({
       {/* ====================================================
           GÓRA PANELU - TYTUŁ OFERTY
          ==================================================== */}
-      <div className="shrink-0 p-4 sm:px-6 lg:p-6 lg:pt-24">
-        <h1 className="mb-3 text-xs font-light tracking-[0.16em] text-[#dec38c] sm:text-sm">
+      <div className="shrink-0 px-4 pb-3 pt-3 sm:px-6 lg:pb-4 lg:pt-8">
+        <h1 className="mb-1.5 text-xs font-light tracking-[0.16em] text-[#dec38c] lg:mb-2 lg:text-sm">
           {modelName}
         </h1>
-        <p className="mb-3 text-[11px] leading-5 text-white/65 sm:text-xs">{BESPOKE_NOTE[language]}</p>
+        <p className="mb-2.5 text-[11px] leading-4 text-white/65 lg:mb-3 lg:text-xs lg:leading-5">{BESPOKE_NOTE[language]}</p>
         <input
           value={offerTitle}
           onChange={(e) => setOfferTitle(e.target.value)}
           placeholder={labels.offerTitlePlaceholder}
           aria-label={labels.offerTitlePlaceholder}
-          className="w-full rounded-xl border border-white/10 bg-white/5 p-3 backdrop-blur-md lg:p-4"
+          className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-base backdrop-blur-md placeholder:text-white/45 lg:text-sm"
         />
       </div>
 
@@ -337,7 +337,7 @@ export default function ConfiguratorPanel({
             key={tab}
             ref={tabRefs[tab]}
             onClick={() => onScrollToSection(tab)}
-            className={`min-h-11 min-w-0 flex-1 px-1 py-3 text-[11px] sm:text-xs lg:py-5 lg:text-base ${
+            className={`min-h-11 min-w-0 flex-1 px-1 py-2.5 text-[11px] tracking-[0.08em] sm:text-xs lg:min-h-0 lg:py-3.5 lg:text-[13px] ${
               activeTab === tab ? "text-white" : "text-white/90"
             }`}
           >
@@ -356,7 +356,7 @@ export default function ConfiguratorPanel({
          ==================================================== */}
       <div
         ref={scrollRef}
-        className="min-h-0 flex-1 space-y-10 overflow-y-auto overscroll-contain px-4 py-4 sm:px-6 lg:space-y-24 lg:py-8"
+        className="min-h-0 flex-1 space-y-6 overflow-y-auto overscroll-contain px-4 py-4 sm:px-6 lg:space-y-8 lg:py-5"
       >
         {(["obudowa", "akustyka", "mechanizm"] as ConfigTab[]).map((section) => (
           <div
@@ -368,9 +368,8 @@ export default function ConfiguratorPanel({
                   ? akustykaRef
                   : mechanizmRef
             }
-            className="lg:min-h-[80vh]"
           >
-            <h3 className="mb-6 uppercase tracking-wider opacity-80">
+            <h3 className="mb-2.5 text-[11px] uppercase tracking-[0.18em] text-white/60 lg:mb-3 lg:text-xs">
               {labels.sections[section]}
             </h3>
 
@@ -385,10 +384,10 @@ export default function ConfiguratorPanel({
                   key={item}
                   onClick={() => onSelect(section, item)}
                   aria-pressed={isActive}
-                  className={`mb-3 w-full rounded-xl p-3 text-left text-sm transition lg:p-4 lg:text-base ${
+                  className={`mb-1.5 w-full rounded-lg border px-3 py-2.5 text-left text-[13px] leading-5 transition lg:mb-2 lg:px-3.5 lg:text-sm ${
                     isActive
-                      ? "border border-white/30 bg-white/10 backdrop-blur-md"
-                      : "bg-white/5 hover:bg-white/10"
+                      ? "border-white/30 bg-white/10 backdrop-blur-md"
+                      : "border-transparent bg-white/5 hover:bg-white/10"
                   }`}
                 >
                   {translateOption(item, language)}

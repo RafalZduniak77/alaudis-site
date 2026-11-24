@@ -433,6 +433,13 @@ export default function KonfiguratorShell() {
         }
       });
 
+      // Sekcje są niskie, więc ostatnia może nie dojść do linii aktywacji:
+      // na samym dole listy aktywna jest zawsze ostatnia zakładka.
+      const overflow = container.scrollHeight - container.clientHeight;
+      if (overflow > 1 && container.scrollTop >= overflow - 2) {
+        closest = "mechanizm";
+      }
+
       setActiveTab(closest);
     };
 
