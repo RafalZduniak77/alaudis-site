@@ -120,9 +120,10 @@ export default function EditorialPage({
           className={`px-6 py-20 sm:px-10 lg:px-16 ${index % 2 ? "bg-neutral-950" : "bg-black"}`}
         >
           <div className="mx-auto max-w-5xl">
-            {/* Na stronie Artyści nagłówek z opisem sekcji stoi w podłużnej,
-                podświetlanej ramce (ten sam styl co kafelki artystów). */}
-            {page === "artysci" && section.body ? (
+            {/* Nagłówek z opisem sekcji stoi w podłużnej, podświetlanej ramce
+                (ten sam styl co kafelki). Przycisk sekcji bez kafelków
+                trafia do środka ramki. */}
+            {section.body ? (
               <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8 text-center sm:p-10">
                 <h2 className="text-3xl font-light text-white sm:text-4xl">
                   {section.heading}
@@ -132,19 +133,12 @@ export default function EditorialPage({
                     {paragraph}
                   </p>
                 ))}
+                {section.link && !section.items && <TextLink link={section.link} prefix={prefix} />}
               </div>
             ) : (
-              <>
-                <h2 className="text-3xl font-light text-white sm:text-4xl">
-                  {section.heading}
-                </h2>
-
-                {section.body?.map((paragraph) => (
-                  <p key={paragraph} className="mt-6 max-w-3xl leading-8 text-white">
-                    {paragraph}
-                  </p>
-                ))}
-              </>
+              <h2 className="text-3xl font-light text-white sm:text-4xl">
+                {section.heading}
+              </h2>
             )}
 
             {section.items && (
@@ -169,7 +163,9 @@ export default function EditorialPage({
               </div>
             )}
 
-            {section.link && <TextLink link={section.link} prefix={prefix} />}
+            {section.link && !(section.body && !section.items) && (
+              <TextLink link={section.link} prefix={prefix} />
+            )}
           </div>
         </section>
       ))}
