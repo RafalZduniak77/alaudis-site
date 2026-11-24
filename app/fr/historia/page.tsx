@@ -273,7 +273,8 @@ export default function HistoriaPage() {
       </section>
 
 <section className="bg-black px-6 py-24 text-center sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-4xl">
+        {/* Podłużna, podświetlana ramka (ten sam styl co kafelki na stronie) */}
+        <div className="mx-auto max-w-5xl rounded-[30px] border border-white/10 bg-white/[0.03] px-8 py-12 sm:px-10 sm:py-14">
           <p className="text-xs uppercase tracking-[0.32em] text-white/88">
             Étape suivante
           </p>
