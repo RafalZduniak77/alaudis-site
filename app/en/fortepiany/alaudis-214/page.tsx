@@ -39,8 +39,6 @@ export default function ModelAlaudis214Page() {
       <ModelStorySignature model="214" language="EN" />
 
       <ModelSoundCharacter
-        model="214"
-        language="EN"
         eyebrow="Sound character"
         lead="ALAUDIS LEO 214 develops the brand’s tonal language towards a larger scale and stronger presence. It offers a more open sound, deeper bass and a more projecting middle register, while preserving culture, elegance and musical nobility."
         text="This model is for those who want to feel a greater breath of the instrument: wider projection, a more tangible volume and a richer dynamic palette."

@@ -78,8 +78,6 @@ export default function ModelAlaudis214Page() {
           CHARAKTER BRZMIENIA
          ==================================================== */}
       <ModelSoundCharacter
-        model="214"
-        language="PL"
         eyebrow="Charakter brzmienia"
         lead="ALAUDIS LEO 214 rozwija język brzmieniowy marki w kierunku większej skali i mocniejszej obecności. Oferuje dźwięk bardziej otwarty, głębszy w basie i bardziej nośny w średnicy, zachowując przy tym kulturę, elegancję i muzyczną szlachetność."
         text="To model dla osób, które chcą czuć większy oddech instrumentu: szerszą projekcję, bardziej wyczuwalny wolumen i bogatszą paletę dynamiczną. Nadal pozostaje wyrafinowany, ale z bardziej zdecydowaną sceniczną obecnością."

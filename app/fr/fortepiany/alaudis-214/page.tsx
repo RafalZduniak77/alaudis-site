@@ -39,8 +39,6 @@ export default function ModelAlaudis214Page() {
       <ModelStorySignature model="214" language="FR" />
 
       <ModelSoundCharacter
-        model="214"
-        language="FR"
         eyebrow="Caractère sonore"
         lead="ALAUDIS LEO 214 développe le langage sonore de la marque vers une plus grande échelle et une présence plus affirmée."
         text="Il offre un son plus ouvert, un grave plus profond et un médium plus projeté, tout en conservant culture, élégance et noblesse musicale."

@@ -39,8 +39,6 @@ export default function ModelAlaudis214Page() {
       <ModelStorySignature model="214" language="DE" />
 
       <ModelSoundCharacter
-        model="214"
-        language="DE"
         eyebrow="Klangcharakter"
         lead="ALAUDIS LEO 214 entwickelt die Klangsprache der Marke in Richtung größerer Skala und stärkerer Präsenz. Das Modell bietet einen offeneren Klang, einen tieferen Bass und eine tragfähigere Mittellage."
         text="Es bleibt raffiniert, erhält jedoch eine deutlichere Bühnenpräsenz und eine reichere dynamische Palette."

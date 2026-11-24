@@ -79,8 +79,6 @@ export default function ModelAlaudis275Page() {
           CHARAKTER BRZMIENIA
          ==================================================== */}
       <ModelSoundCharacter
-        model="275"
-        language="DE"
         eyebrow="Klangcharakter"
         lead="ALAUDIS DREAM 275 öffnet die volle Skala der Klangsprache der Marke. Er bietet eine weitreichende Projektion, ein tiefes Bassfundament, einen breiten harmonischen Atem und eine Bühnen-Tragfähigkeit, die es dem Instrument ermöglicht, größere Räume frei und souverän zu füllen."
         text="Dieses Modell ist für jene geschaffen, die maximale Präsenz erwarten: großes Volumen, eine erweiterte dynamische Palette und einen vollständigen Konzertcharakter. Es bewahrt die Kultur und Noblesse von Alaudis, entwickelt sie jedoch zur expansivsten und repräsentativsten Form der Marke."

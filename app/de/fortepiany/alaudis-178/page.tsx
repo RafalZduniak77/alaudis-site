@@ -82,8 +82,6 @@ export default function ModelAlaudis178Page() {
       <ModelStorySignature model="178" language="DE" />
 
       <ModelSoundCharacter
-        model="178"
-        language="DE"
         eyebrow="Klangcharakter"
         lead="ALAUDIS ONE 178 bietet einen Klang mit ausgeprägter Klangkultur, klar, singend und natürlich geordnet. Es ist ein Instrument, das einen Raum nicht durch Aggressivität dominiert, sondern eine Atmosphäre von Klasse, Ruhe und musikalischer Tiefe aufbaut."
         text="Sein Charakter lässt sich am besten durch subtile Projektion, einen edlen Mitteltonbereich, weich geführte Höhen und einen Bass mit eleganter Grundlage beschreiben. Dieses Modell klingt selbst in einem intimen Umfeld reif und raffiniert."
