@@ -269,25 +269,25 @@ export default function KontaktPage() {
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-[1.25fr_0.9fr_1.15fr_1.3fr] lg:gap-3 xl:gap-5">
               <div className="rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6">
                 <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Société</p>
-                <p className="mt-3 text-xl font-light leading-8 text-white lg:text-base xl:text-lg 2xl:text-xl">SAP Renovation Sp. z o.o.</p>
+                <p className="mt-3 text-sm text-white xl:text-base">SAP Renovation Sp. z o.o.</p>
                 <div className="mt-5 space-y-3">
                   <div>
                     <p className="text-[10px] uppercase tracking-[0.28em] text-white/60">NIP</p>
-                    <p className="mt-1 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">6181893417</p>
+                    <p className="mt-1 text-sm tabular-nums text-white xl:text-base">6181893417</p>
                   </div>
                   <div>
                     <p className="text-[10px] uppercase tracking-[0.28em] text-white/60">REGON</p>
-                    <p className="mt-1 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">250973192</p>
+                    <p className="mt-1 text-sm tabular-nums text-white xl:text-base">250973192</p>
                   </div>
                   <div>
                     <p className="text-[10px] uppercase tracking-[0.28em] text-white/60">KRS</p>
-                    <p className="mt-1 text-base font-light tabular-nums tracking-[0.08em] text-white xl:text-lg">0000125505</p>
+                    <p className="mt-1 text-sm tabular-nums text-white xl:text-base">0000125505</p>
                   </div>
                 </div>
               </div>
               <div className="rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6">
                 <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Adresse</p>
-                <p className="mt-3 text-base leading-8 text-white xl:text-lg">
+                <p className="mt-3 text-sm leading-7 text-white xl:text-base xl:leading-8">
                   ul. Obozowa 18
                   <br />
                   62-800 Kalisz
@@ -318,22 +318,26 @@ export default function KontaktPage() {
                     <span>Vendredi</span>
                     <span className="whitespace-nowrap tabular-nums text-white/80">8 h – 16 h</span>
                   </p>
+                  <p className="flex flex-wrap justify-between gap-x-3">
+                    <span>Samedi</span>
+                    <span className="whitespace-nowrap tabular-nums text-white/80">10 h – 16 h</span>
+                  </p>
                 </div>
               </div>
               <div className="rounded-[24px] border border-black/10 bg-[#0b0b0b] p-5 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] xl:p-6">
                 <p className="text-[10px] uppercase tracking-[0.28em] text-[#d3bd8b]">Contact</p>
-                <div className="mt-3 space-y-3 text-base text-white xl:text-lg">
+                <div className="mt-3 space-y-3 text-sm text-white xl:text-base">
                   <div className="space-y-0.5">
                     <p><a href="tel:+48625013030" className="transition hover:text-[#d3bd8b]"> +48 62 501 30 30 </a></p>
-                    <p className="text-sm lg:text-[13px] xl:text-base"><a href="mailto:info@saprenovation.com" className="break-all text-white/80 transition hover:text-white"> info@saprenovation.com </a></p>
+                    <p><a href="mailto:info@saprenovation.com" className="break-all text-white/80 transition hover:text-white"> info@saprenovation.com </a></p>
                   </div>
                   <div className="space-y-0.5">
                     <p><a href={`tel:+${PIOTR_PHONE_RAW}`} className="transition hover:text-[#d3bd8b]" > {PIOTR_PHONE_DISPLAY} </a></p>
-                    <p className="text-sm lg:text-[13px] xl:text-base"><a href={`mailto:${PIOTR_EMAIL}`} className="break-all text-white/80 transition hover:text-white" > {PIOTR_EMAIL} </a></p>
+                    <p><a href={`mailto:${PIOTR_EMAIL}`} className="break-all text-white/80 transition hover:text-white" > {PIOTR_EMAIL} </a></p>
                   </div>
                   <div className="space-y-0.5">
                     <p><a href={`tel:+${KRZYSZTOF_PHONE_RAW}`} className="transition hover:text-[#d3bd8b]" > {KRZYSZTOF_PHONE_DISPLAY} </a></p>
-                    <p className="text-sm lg:text-[13px] xl:text-base"><a href={`mailto:${KRZYSZTOF_EMAIL}`} className="break-all text-white/80 transition hover:text-white" > {KRZYSZTOF_EMAIL} </a></p>
+                    <p><a href={`mailto:${KRZYSZTOF_EMAIL}`} className="break-all text-white/80 transition hover:text-white" > {KRZYSZTOF_EMAIL} </a></p>
                   </div>
                 </div>
               </div>

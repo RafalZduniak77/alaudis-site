@@ -628,12 +628,20 @@ function organizationSchema(locale: SeoLocale) {
         email: "info@saprenovation.com",
         contactType: "customer service",
         availableLanguage: ["pl", "en", "de", "fr"],
-        hoursAvailable: {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          opens: "08:00",
-          closes: "16:00",
-        },
+        hoursAvailable: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "08:00",
+            closes: "16:00",
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: "Saturday",
+            opens: "10:00",
+            closes: "16:00",
+          },
+        ],
       },
       {
         "@type": "ContactPoint",
