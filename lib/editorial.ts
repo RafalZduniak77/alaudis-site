@@ -339,18 +339,18 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
             {
               meta: "Fortepian, improwizacja",
               title: "Leszek Możdżer",
-              text: "Pianista jazzowy i kompozytor zamknął koncert premierowy własnymi utworami i improwizacjami. Sięgnął też po „Liberetto” Larsa Danielssona, „Przygodę z Marią” Jana Ptaszyna Wróblewskiego i Etiudę „Rewolucyjną” Chopina. Jak relacjonował portal KaliszOnline, artysta wysoko ocenił brzmienie fortepianu i uznał go za konstrukcję światowej klasy.",
+              text: "Urodzony w 1971 roku w Gdańsku pianista jazzowy, kompozytor i producent, jeden z najwybitniejszych polskich muzyków jazzowych. Nagrał ponad sto albumów, wśród nich „Komedę”, „Kaczmarek by Możdżer” oraz „Polskę” w trio z Larsem Danielssonem i Zoharem Fresco. Laureat Fryderyków i Paszportu „Polityki”.\n\nKoncert premierowy zamknął własnymi utworami i improwizacjami. Sięgnął też po „Liberetto” Larsa Danielssona, „Przygodę z Marią” Jana Ptaszyna Wróblewskiego i Etiudę „Rewolucyjną” Chopina. Jak relacjonował portal KaliszOnline, artysta wysoko ocenił brzmienie fortepianu i uznał go za konstrukcję światowej klasy.",
               link: { href: PRESS.kaliszOnline, label: "Relacja KaliszOnline" },
             },
             {
               meta: "Fortepian",
               title: "Łukasz Byrdy",
-              text: "Otworzył wieczór interpretacjami utworów Fryderyka Chopina.",
+              text: "Absolwent Akademii Muzycznej im. I. J. Paderewskiego w Poznaniu i Universität der Künste w Berlinie. Uczestnik II etapu XVII Międzynarodowego Konkursu Pianistycznego im. Fryderyka Chopina w Warszawie (2015), zwycięzca Międzynarodowego Konkursu Chopinowskiego w Hanowerze (2019) i półfinalista konkursu Honens w Calgary (2022). W 2017 roku wydał debiutancką płytę z koncertami Chopina i Mozarta w wersji kameralnej. Wykłada w Akademii Muzycznej w Poznaniu i na Uniwersytecie im. Adama Mickiewicza.\n\nKoncert premierowy otworzył interpretacjami utworów Fryderyka Chopina.",
             },
             {
               meta: "Duet fortepianowy na cztery ręce",
               title: "Per Quattro",
-              text: "Joanna Kaczmarska-Bieżyńska i Robert Adamczak wykonali muzykę Chopina, trzy tańce węgierskie Johannesa Brahmsa oraz „Libertango” Astora Piazzolli.",
+              text: "Duet założony w 2016 roku przez Joannę Kaczmarską-Bieżyńską i Roberta Adamczaka, pianistów i pedagogów związanych z Kaliszem i Uniwersytetem im. Adama Mickiewicza. Wykonuje muzykę na cztery ręce i na dwa fortepiany, występował między innymi na festiwalu „Chopin nad wodami Motławy” w Gdańsku i na Konfrontacjach Chopinowskich w Antoninie. W 2025 roku nakładem CD Accord ukazał się album „Per Quattro” z muzyką Schuberta, Debussy’ego i Faurégo.\n\nNa koncercie premierowym duet wykonał muzykę Chopina, trzy tańce węgierskie Johannesa Brahmsa oraz „Libertango” Astora Piazzolli.",
             },
           ],
         },
@@ -367,7 +367,7 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
             {
               meta: "Regulacja i intonacja",
               title: "Peter Salisbury",
-              text: "Regulację i końcową intonację Alaudis ONE powierzono Peterowi Salisbury’emu, głównemu technikowi koncertowemu londyńskiej Royal Festival Hall.",
+              text: "Regulację i końcową intonację Alaudis ONE powierzono Peterowi Salisbury’emu, głównemu technikowi koncertowemu londyńskiej Royal Festival Hall.\n\nZaczynał jako technik w firmie Steinway, a w Southbank Centre od ponad dwóch dekad przygotowuje fortepiany dla czołowych pianistów świata. Znany jest także z fortepianów koncertowych wyposażonych w dwa wymienne mechanizmy gry.",
               link: { href: "/historia", label: "Zobacz, jak powstaje Alaudis" },
             },
           ],
@@ -395,18 +395,18 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
             {
               meta: "Piano, improvisation",
               title: "Leszek Możdżer",
-              text: "The jazz pianist and composer closed the premiere concert with his own pieces and improvisations. He also played Lars Danielsson’s “Liberetto”, Jan Ptaszyn Wróblewski’s “Przygoda z Marią” and Chopin’s “Revolutionary” Étude. According to KaliszOnline, he spoke highly of the piano’s sound and called it a world-class design.",
+              text: "Born in Gdańsk in 1971, he is a jazz pianist, composer and producer, and one of Poland’s most distinguished jazz musicians. He has recorded more than a hundred albums, among them “Komeda”, “Kaczmarek by Możdżer” and “Polska” in a trio with Lars Danielsson and Zohar Fresco. He has won Fryderyk awards and the Paszport Polityki prize.\n\nHe closed the premiere concert with his own pieces and improvisations. He also played Lars Danielsson’s “Liberetto”, Jan Ptaszyn Wróblewski’s “Przygoda z Marią” and Chopin’s “Revolutionary” Étude. According to KaliszOnline, he spoke highly of the piano’s sound and called it a world-class design.",
               link: { href: PRESS.kaliszOnline, label: "KaliszOnline report (in Polish)" },
             },
             {
               meta: "Piano",
               title: "Łukasz Byrdy",
-              text: "He opened the evening with interpretations of works by Fryderyk Chopin.",
+              text: "A graduate of the Ignacy Jan Paderewski Academy of Music in Poznań and the Berlin University of the Arts. He reached the second stage of the 17th International Fryderyk Chopin Piano Competition in Warsaw (2015), won the International Chopin Competition in Hanover (2019) and was a semifinalist of the Honens competition in Calgary (2022). His debut album, released in 2017, features concertos by Chopin and Mozart in chamber versions. He teaches at the Academy of Music in Poznań and at Adam Mickiewicz University.\n\nHe opened the premiere concert with interpretations of works by Fryderyk Chopin.",
             },
             {
               meta: "Piano duo, four hands",
               title: "Per Quattro",
-              text: "Joanna Kaczmarska-Bieżyńska and Robert Adamczak performed music by Chopin, three Hungarian Dances by Johannes Brahms and Astor Piazzolla’s “Libertango”.",
+              text: "A duo founded in 2016 by Joanna Kaczmarska-Bieżyńska and Robert Adamczak, pianists and teachers associated with Kalisz and Adam Mickiewicz University. It performs music for four hands and for two pianos, and has appeared at the “Chopin nad wodami Motławy” festival in Gdańsk and the Chopin Confrontations in Antonin, among others. In 2025 CD Accord released the album “Per Quattro” with music by Schubert, Debussy and Fauré.\n\nAt the premiere concert the duo performed music by Chopin, three Hungarian Dances by Johannes Brahms and Astor Piazzolla’s “Libertango”.",
             },
           ],
         },
@@ -423,7 +423,7 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
             {
               meta: "Regulation and voicing",
               title: "Peter Salisbury",
-              text: "The regulation and final voicing of Alaudis ONE were entrusted to Peter Salisbury, chief concert technician of London’s Royal Festival Hall.",
+              text: "The regulation and final voicing of Alaudis ONE were entrusted to Peter Salisbury, chief concert technician of London’s Royal Festival Hall.\n\nHe started out as a technician with Steinway and has spent more than two decades at the Southbank Centre preparing pianos for the world’s leading pianists. He is also known for concert grands fitted with two interchangeable actions.",
               link: { href: "/historia", label: "See how an Alaudis is made" },
             },
           ],
@@ -451,18 +451,18 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
             {
               meta: "Klavier, Improvisation",
               title: "Leszek Możdżer",
-              text: "Der Jazzpianist und Komponist beschloss das Premierenkonzert mit eigenen Stücken und Improvisationen. Er spielte außerdem „Liberetto“ von Lars Danielsson, „Przygoda z Marią“ von Jan Ptaszyn Wróblewski und Chopins „Revolutionsetüde“. Wie das Portal KaliszOnline berichtete, lobte er den Klang des Flügels und nannte ihn eine Konstruktion von Weltklasse.",
+              text: "Der 1971 in Danzig geborene Jazzpianist, Komponist und Produzent zählt zu den bedeutendsten Jazzmusikern Polens. Er hat mehr als hundert Alben aufgenommen, darunter „Komeda“, „Kaczmarek by Możdżer“ und „Polska“ im Trio mit Lars Danielsson und Zohar Fresco. Er wurde mit Fryderyk-Preisen und dem Paszport Polityki ausgezeichnet.\n\nDas Premierenkonzert beschloss er mit eigenen Stücken und Improvisationen. Er spielte außerdem „Liberetto“ von Lars Danielsson, „Przygoda z Marią“ von Jan Ptaszyn Wróblewski und Chopins „Revolutionsetüde“. Wie das Portal KaliszOnline berichtete, lobte er den Klang des Flügels und nannte ihn eine Konstruktion von Weltklasse.",
               link: { href: PRESS.kaliszOnline, label: "Bericht von KaliszOnline (auf Polnisch)" },
             },
             {
               meta: "Klavier",
               title: "Łukasz Byrdy",
-              text: "Er eröffnete den Abend mit Interpretationen von Werken Fryderyk Chopins.",
+              text: "Absolvent der Ignacy-Jan-Paderewski-Musikakademie in Posen und der Universität der Künste Berlin. Er erreichte die zweite Runde des 17. Internationalen Fryderyk-Chopin-Klavierwettbewerbs in Warschau (2015), gewann den Internationalen Chopin-Wettbewerb in Hannover (2019) und war Halbfinalist des Honens-Wettbewerbs in Calgary (2022). Sein Debütalbum von 2017 enthält Konzerte von Chopin und Mozart in Kammerfassung. Er lehrt an der Musikakademie in Posen und an der Adam-Mickiewicz-Universität.\n\nDas Premierenkonzert eröffnete er mit Interpretationen von Werken Fryderyk Chopins.",
             },
             {
               meta: "Klavierduo zu vier Händen",
               title: "Per Quattro",
-              text: "Joanna Kaczmarska-Bieżyńska und Robert Adamczak spielten Musik von Chopin, drei Ungarische Tänze von Johannes Brahms und „Libertango“ von Astor Piazzolla.",
+              text: "Das Duo wurde 2016 von Joanna Kaczmarska-Bieżyńska und Robert Adamczak gegründet, Pianisten und Pädagogen, die mit Kalisz und der Adam-Mickiewicz-Universität verbunden sind. Es spielt Musik zu vier Händen und für zwei Klaviere und trat unter anderem beim Festival „Chopin nad wodami Motławy“ in Danzig und bei den Chopin-Konfrontationen in Antonin auf. 2025 erschien bei CD Accord das Album „Per Quattro“ mit Musik von Schubert, Debussy und Fauré.\n\nBeim Premierenkonzert spielte das Duo Musik von Chopin, drei Ungarische Tänze von Johannes Brahms und „Libertango“ von Astor Piazzolla.",
             },
           ],
         },
@@ -479,7 +479,7 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
             {
               meta: "Regulierung und Intonation",
               title: "Peter Salisbury",
-              text: "Regulierung und abschließende Intonation des Alaudis ONE lagen in den Händen von Peter Salisbury, dem leitenden Konzerttechniker der Londoner Royal Festival Hall.",
+              text: "Regulierung und abschließende Intonation des Alaudis ONE lagen in den Händen von Peter Salisbury, dem leitenden Konzerttechniker der Londoner Royal Festival Hall.\n\nEr begann als Techniker bei Steinway und bereitet im Southbank Centre seit mehr als zwei Jahrzehnten Flügel für die führenden Pianisten der Welt vor. Bekannt ist er auch für Konzertflügel mit zwei austauschbaren Mechaniken.",
               link: { href: "/historia", label: "So entsteht ein Alaudis" },
             },
           ],
@@ -507,18 +507,18 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
             {
               meta: "Piano, improvisation",
               title: "Leszek Możdżer",
-              text: "Le pianiste de jazz et compositeur a clos le concert de première avec ses propres pièces et improvisations. Il a également joué « Liberetto » de Lars Danielsson, « Przygoda z Marią » de Jan Ptaszyn Wróblewski et l’Étude « Révolutionnaire » de Chopin. Selon le portail KaliszOnline, il a salué la sonorité du piano et l’a qualifié de construction de classe mondiale.",
+              text: "Né à Gdańsk en 1971, ce pianiste de jazz, compositeur et producteur compte parmi les plus grands musiciens de jazz polonais. Il a enregistré plus de cent albums, dont « Komeda », « Kaczmarek by Możdżer » et « Polska » en trio avec Lars Danielsson et Zohar Fresco. Il est lauréat de prix Fryderyk et du Paszport Polityki.\n\nIl a clos le concert de première avec ses propres pièces et improvisations. Il a également joué « Liberetto » de Lars Danielsson, « Przygoda z Marią » de Jan Ptaszyn Wróblewski et l’Étude « Révolutionnaire » de Chopin. Selon le portail KaliszOnline, il a salué la sonorité du piano et l’a qualifié de construction de classe mondiale.",
               link: { href: PRESS.kaliszOnline, label: "Compte rendu de KaliszOnline (en polonais)" },
             },
             {
               meta: "Piano",
               title: "Łukasz Byrdy",
-              text: "Il a ouvert la soirée avec des interprétations d’œuvres de Frédéric Chopin.",
+              text: "Diplômé de l’Académie de musique Ignacy Jan Paderewski de Poznań et de l’Université des arts de Berlin. Il a atteint le deuxième tour du 17e Concours international de piano Frédéric Chopin de Varsovie (2015), remporté le Concours international Chopin de Hanovre (2019) et été demi-finaliste du concours Honens à Calgary (2022). Son premier album, paru en 2017, réunit des concertos de Chopin et de Mozart en version de chambre. Il enseigne à l’Académie de musique de Poznań et à l’Université Adam Mickiewicz.\n\nIl a ouvert le concert de première avec des interprétations d’œuvres de Frédéric Chopin.",
             },
             {
               meta: "Duo de piano à quatre mains",
               title: "Per Quattro",
-              text: "Joanna Kaczmarska-Bieżyńska et Robert Adamczak ont interprété de la musique de Chopin, trois Danses hongroises de Johannes Brahms et « Libertango » d’Astor Piazzolla.",
+              text: "Duo fondé en 2016 par Joanna Kaczmarska-Bieżyńska et Robert Adamczak, pianistes et pédagogues liés à Kalisz et à l’Université Adam Mickiewicz. Il joue la musique à quatre mains et pour deux pianos et s’est produit notamment au festival « Chopin nad wodami Motławy » à Gdańsk et aux Confrontations Chopin d’Antonin. En 2025, l’album « Per Quattro », consacré à Schubert, Debussy et Fauré, est paru chez CD Accord.\n\nLors du concert de première, le duo a interprété de la musique de Chopin, trois Danses hongroises de Johannes Brahms et « Libertango » d’Astor Piazzolla.",
             },
           ],
         },
@@ -535,7 +535,7 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
             {
               meta: "Réglage et harmonisation",
               title: "Peter Salisbury",
-              text: "Le réglage et l’harmonisation finale d’Alaudis ONE ont été confiés à Peter Salisbury, technicien de concert en chef du Royal Festival Hall de Londres.",
+              text: "Le réglage et l’harmonisation finale d’Alaudis ONE ont été confiés à Peter Salisbury, technicien de concert en chef du Royal Festival Hall de Londres.\n\nIl a débuté comme technicien chez Steinway et prépare depuis plus de vingt ans, au Southbank Centre, les pianos des plus grands pianistes du monde. Il est également connu pour ses pianos de concert dotés de deux mécaniques interchangeables.",
               link: { href: "/historia", label: "Découvrir comment naît un Alaudis" },
             },
           ],

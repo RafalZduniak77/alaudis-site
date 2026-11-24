@@ -144,7 +144,7 @@ export default function EditorialPage({
                     )}
                     <h3 className="mt-4 text-2xl font-light text-white">{item.title}</h3>
                     {item.text && (
-                      <p className="mt-5 leading-8 text-white">{item.text}</p>
+                      <p className="mt-5 whitespace-pre-line leading-8 text-white">{item.text}</p>
                     )}
                     {item.link && <TextLink link={item.link} prefix={prefix} />}
                   </article>
