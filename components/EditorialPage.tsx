@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import HomeHero from "@/components/HomeHero";
+import { ARTISTS_SLIDES, NEWS_SLIDES, TRADITION_SLIDES } from "@/components/heroBanners";
 import ModelPageTopBar from "@/components/ModelPageTopBar";
 import SeoJsonLd from "@/components/SeoJsonLd";
 import { editorial, type EditorialLink, type EditorialPageKey } from "@/lib/editorial";
@@ -41,6 +43,27 @@ const copy: Record<SeoLocale, { more: string; contact: string; contactText: stri
   },
 };
 
+// Każda z tych stron ma baner jak na stronie głównej, z własnymi zdjęciami
+// (listy zdjęć: components/heroBanners.ts).
+const BANNER_SLIDES = { artysci: ARTISTS_SLIDES, aktualnosci: NEWS_SLIDES, tradycja: TRADITION_SLIDES };
+const SCROLL: Record<SeoLocale, string> = {
+  pl: "Przewiń w dół",
+  en: "Scroll down",
+  de: "Nach unten scrollen",
+  fr: "Faire défiler vers le bas",
+};
+
+// Splits a title into two lines of similar length for the banner.
+function twoLines(title: string) {
+  const words = title.split(" ");
+  let best = 1;
+  for (let cut = 1; cut < words.length; cut++) {
+    const gap = (at: number) => Math.abs(words.slice(0, at).join(" ").length - words.slice(at).join(" ").length);
+    if (gap(cut) < gap(best)) best = cut;
+  }
+  return words.length > 1 ? [words.slice(0, best).join(" "), words.slice(best).join(" ")] : words;
+}
+
 const linkClass =
   "mt-6 inline-flex rounded-full border border-white/35 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white transition hover:border-white hover:bg-white hover:text-black";
 
@@ -80,19 +103,16 @@ export default function EditorialPage({
         activeLanguage={locale.toUpperCase() as "PL" | "EN" | "DE" | "FR"}
       />
 
-      <section className="border-b border-white/10 px-6 pb-20 pt-40 text-center sm:px-10 sm:pt-48 lg:px-16">
-        <div className="mx-auto max-w-4xl">
-          <p className="mb-5 text-[11px] uppercase tracking-[0.48em] text-white/88">
-            {content.eyebrow}
-          </p>
-          <h1 className="text-3xl font-light uppercase tracking-[0.06em] text-white sm:text-5xl lg:text-[60px] lg:leading-[1.05]">
-            {content.title}
-          </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-sm leading-8 text-white sm:text-base sm:leading-9">
-            {content.lead}
-          </p>
-        </div>
-      </section>
+      <HomeHero
+        headingTitle
+        slides={BANNER_SLIDES[page]}
+        alt={content.title}
+        eyebrow={content.eyebrow}
+        title={twoLines(content.title)}
+        description={content.lead}
+        actions={[]}
+        scroll={SCROLL[locale]}
+      />
 
       {content.sections.map((section, index) => (
         <section
