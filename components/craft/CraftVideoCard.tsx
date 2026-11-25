@@ -94,7 +94,10 @@ export default function CraftVideoCard({ video, index, total, fullscreenLabel, l
 
       <div className="flex items-end gap-5 px-7 pb-7 sm:px-9 sm:pb-9">
         <div className="min-w-0 flex-1">
-          <h2 className="text-2xl font-light leading-tight text-white sm:text-[28px]">{video.title}</h2>
+          <h2 className="text-2xl font-light leading-tight text-white sm:text-[28px]">
+            {/* Tytuł prowadzi na własną stronę filmu (pełny opis, adres do udostępnienia). */}
+            {video.href ? <a href={video.href} onClick={(event) => event.stopPropagation()} className="underline-offset-4 hover:underline">{video.title}</a> : video.title}
+          </h2>
           <p className="mt-3 line-clamp-3 text-sm leading-6 text-white/92 sm:text-[15px] sm:leading-7">{video.text}</p>
         </div>
         <button

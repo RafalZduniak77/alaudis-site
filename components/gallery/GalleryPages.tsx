@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
-import { getAlbum, getAlbums } from "@/lib/gallery/server";
+import { getAlbum, getAlbums, getVideo, getVideoList } from "@/lib/gallery/server";
 import { galleryIsProduction } from "@/lib/gallery/config";
 import { galleryCopy } from "@/lib/gallery/i18n";
-import { galleryLocales, galleryPath, galleryFilters, isGalleryFilter, localize, type GalleryLocale } from "@/lib/gallery/types";
+import { galleryLocales, galleryPath, galleryFilters, isGalleryFilter, localize, videoPath, type GalleryLocale, type VideoPageData } from "@/lib/gallery/types";
 import { photoUrl } from "@/lib/gallery/images";
 import { gallerySeo, metaDescription } from "@/lib/gallery/seo";
 import type { GalleryPhoto } from "@/lib/gallery/types";
 import GalleryHeader from "./GalleryHeader";
 import AlbumCards from "./AlbumCards";
 import AlbumPhotos from "./AlbumPhotos";
+import GalleryImage from "./GalleryImage";
 import styles from "./Gallery.module.css";
 
 function Unavailable({ locale }: { locale: GalleryLocale }) {
@@ -148,5 +149,115 @@ export async function GalleryAlbumPage({ locale, params }: { locale: GalleryLoca
       <h1 className="sr-only">{localize(album.title, locale)}</h1>
       <AlbumPhotos key={`${album._id}-${album._updatedAt}`} album={album} locale={locale} />
     </div><Footer />
+  </main>;
+}
+
+// ==========================================================
+// STRONA FILMU — /galeria/film/<slug>
+// ==========================================================
+// Każdy film ma własny adres, tytuł i opis, żeby Google mógł pokazać go
+// w wynikach wideo. Odtwarzany jest oryginalny plik, bez utraty jakości.
+// ==========================================================
+
+function videoAlternates(locale: GalleryLocale, id: string) {
+  const url = (language: GalleryLocale) => new URL(videoPath(language, id), galleryOrigin()).href;
+  return { canonical: url(locale), languages: { ...Object.fromEntries(galleryLocales.map(language => [language, url(language)])), "x-default": url("en") } };
+}
+
+function videoTitle(video: VideoPageData, locale: GalleryLocale) {
+  const name = localize(video.title, locale);
+  return `${name} – ${gallerySeo[locale].film}${/alaudis/i.test(name) ? "" : " | ALAUDIS"}`;
+}
+
+function videoDescription(video: VideoPageData, locale: GalleryLocale) {
+  const own = localize(video.description, locale);
+  return metaDescription(own.length > 40 ? own : `${localize(video.title, locale)}. ${gallerySeo[locale].description}`);
+}
+
+// 96.4 → „PT1M36S” (zapis czasu trwania dla wyszukiwarek).
+const isoDuration = (seconds: number) => `PT${Math.floor(Math.round(seconds) / 60)}M${Math.round(seconds) % 60}S`;
+const clock = (seconds: number) => `${Math.floor(Math.round(seconds) / 60)}:${String(Math.round(seconds) % 60).padStart(2, "0")}`;
+
+export async function galleryVideoMetadata(locale: GalleryLocale, params: Promise<{ slug: string }>): Promise<Metadata> {
+  const { slug } = await params;
+  const video = /^[a-z0-9-]{1,96}$/.test(slug) ? await getVideo(slug).catch(() => null) : null;
+  if (!video) return galleryMetadata(locale);
+  const title = videoTitle(video, locale);
+  const description = videoDescription(video, locale);
+  const alternates = videoAlternates(locale, video._id);
+  const share = shareData(locale, title, description, alternates.canonical, { url: shareImage(video.cover), width: 1200, height: 630, alt: localize(video.cover.alt, locale) || localize(video.title, locale) });
+  return {
+    ...galleryMetadata(locale), alternates, title, description, ...share,
+    openGraph: { ...share.openGraph, type: "video.other", videos: [{ url: video.video.url, type: video.video.mimeType, width: video.cover.width, height: video.cover.height }] },
+  };
+}
+
+export async function GalleryVideoPage({ locale, params }: { locale: GalleryLocale; params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  if (!/^[a-z0-9-]{1,96}$/.test(slug)) notFound();
+  const result = await Promise.all([getVideo(slug), getVideoList()]).then(([video, list]) => ({ video, list, failed: false })).catch(() => ({ video: null, list: [], failed: true }));
+  if (result.failed) return <Unavailable locale={locale} />;
+  if (!result.video) notFound();
+  const video = result.video;
+  const text = gallerySeo[locale];
+  const origin = galleryOrigin();
+  const url = new URL(videoPath(locale, video._id), origin).href;
+  const title = localize(video.title, locale);
+  const description = localize(video.description, locale);
+  const craft = video.section === "craft";
+  const sectionHref = craft ? `${locale === "pl" ? "" : `/${locale}`}/rzemioslo` : `${galleryPath(locale)}?dzial=video`;
+  const recorded = video.date ? new Intl.DateTimeFormat(locale, { dateStyle: "long", timeZone: "UTC" }).format(new Date(`${video.date}T00:00:00Z`)) : "";
+  const portrait = video.cover.height > video.cover.width;
+  // Kolejne filmy po bieżącym (lista zawija się na początek), więc każdy film ma do siebie odnośniki.
+  const sameSection = result.list.filter(item => item.section === video.section);
+  const position = sameSection.findIndex(item => item._id === video._id);
+  const more = [...sameSection.slice(position + 1), ...sameSection.slice(0, Math.max(position, 0))].slice(0, 6);
+  const videoData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "VideoObject", "@id": `${url}#video`, url, name: title, description: description || videoDescription(video, locale),
+        thumbnailUrl: [shareImage(video.cover), photoUrl(video.cover, 1920, 85)],
+        uploadDate: video.date ? `${video.date}T12:00:00+01:00` : video._createdAt,
+        contentUrl: video.video.url, encodingFormat: video.video.mimeType,
+        duration: video.duration ? isoDuration(video.duration) : undefined,
+        width: video.cover.width, height: video.cover.height, inLanguage: locale,
+        contentLocation: video.location ? { "@type": "Place", name: video.location } : undefined,
+        creator: video.author ? { "@type": "Person", name: video.author } : undefined,
+        publisher: { "@id": "https://alaudis.eu/#organization" },
+      },
+      breadcrumbs(locale, { name: title, url }),
+    ],
+  };
+  return <main className={styles.page} lang={locale}>
+    <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(videoData)} />
+    <GalleryHeader locale={locale} />
+    <article className={`${styles.content} ${styles.film}`}>
+      <nav className={styles.filmPath} aria-label={text.gallery}>
+        <Link href={galleryPath(locale)} prefetch={false}>{text.gallery}</Link><span aria-hidden="true">›</span>
+        <Link href={sectionHref} prefetch={false}>{craft ? text.craft : text.films}</Link>
+      </nav>
+      <div className={`${styles.filmPlayer} ${portrait ? styles.filmPortrait : ""}`} style={{ aspectRatio: `${video.cover.width} / ${video.cover.height}` }}>
+        <video controls playsInline preload="metadata" poster={photoUrl(video.cover, 1920, 85)} aria-label={title}>
+          <source src={video.video.url} type={video.video.mimeType} />
+        </video>
+      </div>
+      <header className={styles.filmInfo}>
+        <p className={styles.eyebrow}>{[craft ? text.craft : galleryCopy[locale].sound, video.location, video.duration ? clock(video.duration) : ""].filter(Boolean).join(" · ")}</p>
+        <h1>{title}</h1>
+        {description && <p className={styles.filmText}>{description}</p>}
+        {(recorded || video.author) && <p className={styles.filmMeta}>{recorded && <>{text.recorded}: <time dateTime={video.date}>{recorded}</time></>}{recorded && video.author ? " · " : ""}{video.author}</p>}
+        <Link className={styles.button} href={sectionHref} prefetch={false}>{craft ? text.craftFilms : text.allFilms}</Link>
+      </header>
+      {more.length > 0 && <section className={styles.filmMore} aria-labelledby="more-films">
+        <h2 id="more-films">{text.moreFilms}</h2>
+        <ul>{more.map(item => <li key={item._id}>
+          <Link href={videoPath(locale, item._id)} prefetch={false}>
+            <span className={styles.filmThumb}><GalleryImage photo={item.cover} alt={localize(item.cover.alt, locale) || localize(item.title, locale)} sizes="(min-width: 1100px) 30vw, (min-width: 700px) 45vw, 92vw" /></span>
+            <span className={styles.filmName}>{localize(item.title, locale)}</span>
+          </Link>
+        </li>)}</ul>
+      </section>}
+    </article><Footer />
   </main>;
 }

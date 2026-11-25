@@ -2,11 +2,11 @@ import "server-only";
 import { cache } from "react";
 import { galleryApiVersion, galleryDataset, galleryProjectId } from "./config";
 import { demoAlbums } from "./demo";
-import { ALBUM_BATCH_SIZE, PHOTO_BATCH_SIZE, type AlbumList, type AlbumPageData, type GalleryItem, type GalleryFilter, type GalleryPhoto, type LocalizedText } from "./types";
+import { ALBUM_BATCH_SIZE, PHOTO_BATCH_SIZE, type AlbumList, type AlbumPageData, type GalleryItem, type GalleryFilter, type GalleryPhoto, type LocalizedText, type VideoPageData, type VideoSummary, VIDEO_ID_PREFIX } from "./types";
 
 export const galleryIsDemo = !galleryProjectId;
 
-import { photoProjection, albumProjection, published, galleryItemsFilter, galleryItemProjection, galleryItemsOrder, craftVideosQuery } from "./queries";
+import { photoProjection, albumProjection, published, galleryItemsFilter, galleryItemProjection, galleryItemsOrder, craftVideosQuery, videoPageQuery, videoListQuery } from "./queries";
 
 async function query<T>(groq: string, params: Record<string, unknown> = {}): Promise<T> {
   if (!/^[a-z0-9]+$/.test(galleryProjectId)) throw new Error("Gallery project is not configured");
@@ -60,6 +60,18 @@ export async function getAlbumPhotos(slug: string, offset: number) {
   }`, { slug });
 }
 
+
+// One film for its own page. The address carries the document id without the common prefix.
+export const getVideo = cache(async (slug: string): Promise<VideoPageData | null> => {
+  if (galleryIsDemo) return null;
+  return query<VideoPageData | null>(videoPageQuery, { ids: [`${VIDEO_ID_PREFIX}${slug}`, slug] });
+});
+
+// All published films (concerts first, then production films): sitemap and „more films”.
+export const getVideoList = cache(async (): Promise<VideoSummary[]> => {
+  if (galleryIsDemo) return [];
+  return query<VideoSummary[]>(videoListQuery);
+});
 
 export type CmsCraftVideo = { _id: string; title: LocalizedText; description?: LocalizedText; duration?: number; src: string; poster: string };
 

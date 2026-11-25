@@ -48,3 +48,16 @@ export const galleryPath = (locale: GalleryLocale) => `${locale === "pl" ? "" : 
 export const localize = (text: LocalizedText | undefined, locale: GalleryLocale) => text?.[locale]?.trim() || text?.pl?.trim() || "";
 export function isGalleryLocale(value: string): value is GalleryLocale { return galleryLocales.includes(value as GalleryLocale); }
 
+
+// Each film has its own page: /galeria/film/<slug>. The slug comes from the document id
+// (the „gallery-video-” prefix is dropped), so it never changes when a title is edited.
+export const VIDEO_ID_PREFIX = "gallery-video-";
+export const videoSlug = (id: string) => (id.startsWith(VIDEO_ID_PREFIX) ? id.slice(VIDEO_ID_PREFIX.length) : id).toLowerCase();
+export const videoPath = (locale: GalleryLocale, id: string) => `${galleryPath(locale)}/film/${videoSlug(id)}`;
+export type VideoPageData = {
+  _id: string; _createdAt: string; _updatedAt: string;
+  title: LocalizedText; description?: LocalizedText; section: "sound" | "craft";
+  date?: string; location?: string; author?: string; duration?: number;
+  cover: GalleryPhoto; video: { url: string; mimeType: string; size?: number };
+};
+export type VideoSummary = Pick<VideoPageData, "_id" | "_createdAt" | "_updatedAt" | "title" | "description" | "section" | "date" | "duration" | "cover" | "video">;

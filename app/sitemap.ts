@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
-import { getAlbums } from "@/lib/gallery/server";
-import { ALBUM_BATCH_SIZE, galleryPath } from "@/lib/gallery/types";
+import { getAlbums, getVideoList } from "@/lib/gallery/server";
+import { photoUrl } from "@/lib/gallery/images";
+import { ALBUM_BATCH_SIZE, galleryPath, localize, videoPath } from "@/lib/gallery/types";
 import {
   SITE_URL,
   languageAlternates,
@@ -66,5 +67,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
   );
 
-  return [...pages, ...gallery, ...albums];
+  // Każdy film ma własną stronę; wpis „video” mówi Google, co jest na niej do obejrzenia.
+  const films = (await getVideoList().catch(() => [])).flatMap((video) => {
+    const languages = languageAlternates((locale) => `${SITE_URL}${videoPath(locale, video._id)}`);
+    return seoLocales.map((locale) => ({
+      url: `${SITE_URL}${videoPath(locale, video._id)}`,
+      alternates: { languages },
+      changeFrequency: "monthly" as const,
+      priority: video.section === "craft" ? 0.4 : 0.6,
+      lastModified: video._updatedAt,
+      videos: [{
+        title: localize(video.title, locale).slice(0, 100),
+        thumbnail_loc: photoUrl(video.cover, 1280, 85),
+        description: (localize(video.description, locale) || localize(video.title, locale)).slice(0, 2000),
+        content_loc: video.video.url,
+        ...(video.duration ? { duration: Math.round(video.duration) } : {}),
+        publication_date: video.date ? `${video.date}T12:00:00+01:00` : video._createdAt,
+      }],
+    }));
+  });
+
+  return [...pages, ...gallery, ...albums, ...films];
 }

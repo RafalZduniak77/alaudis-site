@@ -61,7 +61,6 @@ export const options: OptionsMap = {
     "Kolor ramy złoty",
     "Kolor ramy srebrny",
     "Struny stalowe Röslau",
-    "Struny stalowe Paulello",
     "Struny basowe Heller",
     "Struny basowe SAP Renovation",
     "Kołki stroikowe niklowane",
@@ -76,19 +75,18 @@ export const options: OptionsMap = {
     "Klawiatura Kluge",
     "Mechanizm Alaudis SAP Renovation",
     "Mechanizm Louis Renner",
-    "Mechanizm Abel",
-    "Młotki Alaudis",
     "Młotki Louis Renner",
     "Młotki Abel",
     "Tłumiki Alaudis",
     "Tłumiki Louis Renner",
-    "Tłumiki Abel",
   ],
 };
 
 // ----------------------------------------------------------
 // MAPOWANIE OPCJI DO GRUP
 // ----------------------------------------------------------
+// Opcje „Struny stalowe Paulello”, „Mechanizm Abel”, „Młotki Alaudis” i „Tłumiki Abel”
+// są wyłączone z oferty do czasu dostarczenia ich zdjęć (grupy i tłumaczenia zostają).
 export const groupMap: Record<string, string> = {
   "Dno rezonansowe Strunz": "dno",
   "Dno rezonansowe Ciresa": "dno",
@@ -196,8 +194,6 @@ export const previewImageMap: Record<string, string> = {
   "Klawiatura Kluge":
     "/konfigurator/klawiatura Kluge.JPG",
 
-  "Młotki Alaudis":
-    "/konfigurator/mlotki-alaudis.jpg",
 
   "Młotki Louis Renner":
     "/konfigurator/młotki Renner.JPG",
@@ -211,8 +207,6 @@ export const previewImageMap: Record<string, string> = {
   "Mechanizm Louis Renner":
     "/konfigurator/mechanizm Renner.jpg",
 
-  "Mechanizm Abel":
-    "/konfigurator/mechanizm-abbel.jpg",
 
   "Tłumiki Alaudis":
     "/konfigurator/tłumiki alaudis.jpg",

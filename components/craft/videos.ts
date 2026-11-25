@@ -4,7 +4,7 @@
 
 export type CraftLanguage = "PL" | "EN" | "DE" | "FR" | "ES" | "IT";
 // poster: ready-to-use still for the card; posterSource: the original image (used by the viewer).
-export type CraftVideo = { src: string; title: string; text: string; poster?: string; posterSource?: string };
+export type CraftVideo = { src: string; title: string; text: string; poster?: string; posterSource?: string; /** Adres własnej strony filmu (filmy z panelu galerii). */ href?: string };
 
 export const craftContent: Record<CraftLanguage, { eyebrow: string; title: string; intro: string; videos: CraftVideo[] }> = {
   "PL": {

@@ -32,3 +32,13 @@ export const craftVideosQuery = `*[${publishedVideo} && section == "craft"] | or
 // Videos with an editor-set order come first; the rest stay newest first.
 export const galleryItemsOrder = `_type asc, coalesce(order, 1000000) asc, coalesce(date, _createdAt) desc, _id asc`;
 
+
+// Film pages (/galeria/film/<slug>), the video sitemap and „more films” lists.
+export const videoPageProjection = `{
+  _id, _createdAt, _updatedAt, title, description, date, location, author, duration,
+  "section": coalesce(section, "sound"),
+  "cover": poster${photoProjection},
+  "video": video.asset->{url, mimeType, size}
+}`;
+export const videoPageQuery = `*[${publishedVideo} && _id in $ids][0]${videoPageProjection}`;
+export const videoListQuery = `*[${publishedVideo}] | order(coalesce(section, "sound") desc, coalesce(order, 1000000) asc, coalesce(date, _createdAt) desc, _id asc)${videoPageProjection}`;

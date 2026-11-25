@@ -13,6 +13,7 @@ import SeoJsonLd from "@/components/SeoJsonLd";
 import CraftHero from "./CraftHero";
 import CraftVideoCard from "./CraftVideoCard";
 import { getCraftVideos } from "@/lib/gallery/server";
+import { videoPath } from "@/lib/gallery/types";
 import { craftContent, craftPoster, type CraftLanguage, type CraftVideo } from "./videos";
 
 const UI: Record<CraftLanguage, {
@@ -110,6 +111,7 @@ async function loadVideos(language: CraftLanguage): Promise<CraftVideo[]> {
     posterSource: video.poster,
     title: video.title[locale]?.trim() || video.title.pl || "",
     text: video.description?.[locale]?.trim() || video.description?.pl || "",
+    href: videoPath(locale, video._id),
   }));
 }
 
