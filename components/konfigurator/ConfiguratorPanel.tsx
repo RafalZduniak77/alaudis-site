@@ -447,7 +447,7 @@ export default function ConfiguratorPanel({
         {/* Nazwa modelu dla wyszukiwarek i czytników ekranu; widoczny jest wybór modelu poniżej. */}
         <h1 className="sr-only">{modelName}</h1>
         {/* WYBÓR MODELU: ten sam konfigurator dla trzech fortepianów (adres ?model=…). */}
-        <nav aria-label={MODEL_LABEL[language]} className="mb-2 grid grid-cols-3 gap-1.5 lg:mb-3 lg:gap-2">
+        <nav aria-label={MODEL_LABEL[language]} className="grid grid-cols-3 gap-1.5 lg:mb-0 lg:gap-2">
           {ALAUDIS_MODEL_IDS.map((id) => (
             <Link
               key={id}
@@ -465,13 +465,6 @@ export default function ConfiguratorPanel({
             </Link>
           ))}
         </nav>
-        <input
-          value={offerTitle}
-          onChange={(e) => setOfferTitle(e.target.value)}
-          placeholder={labels.offerTitlePlaceholder}
-          aria-label={labels.offerTitlePlaceholder}
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-base backdrop-blur-md placeholder:text-white/45 lg:h-[38px] lg:py-0 lg:text-sm"
-        />
       </div>
 
       {/* ====================================================
@@ -548,6 +541,9 @@ export default function ConfiguratorPanel({
       </div>
 
       <ActionMenu
+        offerTitle={offerTitle}
+        setOfferTitle={setOfferTitle}
+        titlePlaceholder={labels.offerTitlePlaceholder}
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
         onSave={onSave}

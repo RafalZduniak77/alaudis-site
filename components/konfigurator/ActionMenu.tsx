@@ -22,6 +22,9 @@ import { usePathname } from "next/navigation";
 // TYPY
 // ----------------------------------------------------------
 type ActionMenuProps = {
+  offerTitle: string;
+  setOfferTitle: (value: string) => void;
+  titlePlaceholder: string;
   menuOpen: boolean;
   setMenuOpen: (value: boolean) => void;
   onSave: () => void;
@@ -116,6 +119,9 @@ function getLabels(language: LanguageKey) {
 }
 
 export default function ActionMenu({
+  offerTitle,
+  setOfferTitle,
+  titlePlaceholder,
   menuOpen,
   setMenuOpen,
   onSave,
@@ -141,6 +147,18 @@ export default function ActionMenu({
         {/* ROZWIJANE MENU */}
         {menuOpen && (
           <div className="absolute bottom-full mb-3 w-full overflow-hidden rounded-xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl">
+            {/* TYTUŁ OFERTY: trafia do zapisu, wiadomości e-mail i PDF */}
+            <div className="border-b border-white/10 p-3">
+              <input
+                value={offerTitle}
+                onChange={(e) => setOfferTitle(e.target.value)}
+                placeholder={titlePlaceholder}
+                aria-label={titlePlaceholder}
+                maxLength={200}
+                className="h-[38px] w-full rounded-lg border border-white/10 bg-white/5 px-3 text-base placeholder:text-white/45 lg:text-sm"
+              />
+            </div>
+
             {/* ZAPISZ */}
             <button
               onClick={() => {
