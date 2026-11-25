@@ -24,13 +24,16 @@
 import { RefObject, useMemo } from "react";
 import { usePathname } from "next/navigation";
 import { ConfigTab, OptionsMap, SelectedState } from "./types";
+import Link from "next/link";
 import ActionMenu from "./ActionMenu";
+import { ALAUDIS_MODEL_IDS, getAlaudisModelName, type AlaudisModelId } from "@/components/alaudisModels";
 import { polishOptionLabel } from "./data";
 
 // ----------------------------------------------------------
 // TYPY PROPSÓW
 // ----------------------------------------------------------
 type ConfiguratorPanelProps = {
+  model: AlaudisModelId;
   modelName: string;
   offerTitle: string;
   setOfferTitle: (value: string) => void;
@@ -196,6 +199,15 @@ const BESPOKE_NOTE: Record<LanguageKey, string> = {
   FR: "ALAUDIS Bespoke — vous choisissez l’apparence, le son et la mécanique de votre piano. Prix sur demande.",
   ES: "ALAUDIS Bespoke: usted elige el aspecto, el sonido y el mecanismo de su piano de cola. Precio a consultar.",
   IT: "ALAUDIS Bespoke: scegli tu l’aspetto, il suono e la meccanica del tuo pianoforte a coda. Prezzo su richiesta.",
+};
+
+const MODEL_LABEL: Record<LanguageKey, string> = {
+  PL: "Wybór modelu",
+  EN: "Choose the model",
+  DE: "Modell wählen",
+  FR: "Choisir le modèle",
+  ES: "Elegir el modelo",
+  IT: "Scegli il modello",
 };
 
 function translateOption(value: string, language: LanguageKey) {
@@ -407,6 +419,7 @@ function translateOption(value: string, language: LanguageKey) {
 }
 
 export default function ConfiguratorPanel({
+  model,
   modelName,
   offerTitle,
   setOfferTitle,
@@ -439,9 +452,27 @@ export default function ConfiguratorPanel({
           GÓRA PANELU - TYTUŁ OFERTY
          ==================================================== */}
       <div className="shrink-0 px-4 pb-3 pt-3 sm:px-6 lg:pb-4 lg:pt-8">
-        <h1 className="mb-2 text-xs font-light tracking-[0.16em] text-[#dec38c] lg:mb-2 lg:text-sm">
-          {modelName}
-        </h1>
+        {/* Nazwa modelu dla wyszukiwarek i czytników ekranu; widoczny jest wybór modelu poniżej. */}
+        <h1 className="sr-only">{modelName}</h1>
+        {/* WYBÓR MODELU: ten sam konfigurator dla trzech fortepianów (adres ?model=…). */}
+        <nav aria-label={MODEL_LABEL[language]} className="mb-2 grid grid-cols-3 gap-1.5 lg:mb-3 lg:gap-2">
+          {ALAUDIS_MODEL_IDS.map((id) => (
+            <Link
+              key={id}
+              href={`${pathname}?model=${id}`}
+              replace
+              scroll={false}
+              aria-current={id === model ? "page" : undefined}
+              className={`rounded-full border px-2 py-2 text-center text-[10px] font-light uppercase tracking-[0.12em] transition lg:whitespace-nowrap lg:px-1 lg:py-2.5 lg:text-[10.5px] lg:tracking-[0.07em] ${
+                id === model
+                  ? "border-[#dec38c] bg-[#dec38c] text-black"
+                  : "border-white/20 text-[#dec38c] hover:border-[#dec38c]"
+              }`}
+            >
+              {getAlaudisModelName(id)}
+            </Link>
+          ))}
+        </nav>
         <p className="hidden text-white/78 lg:mb-3 lg:block lg:text-xs lg:leading-5">{BESPOKE_NOTE[language]}</p>
         <input
           value={offerTitle}

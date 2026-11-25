@@ -574,9 +574,10 @@ export default function KonfiguratorShell() {
   const [activeTab, setActiveTab] = useState<ConfigTab>("obudowa");
   const [offerTitle, setOfferTitle] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [previewImage, setPreviewImage] = useState<string>(() =>
-    getPreviewImageForModel(DEFAULT_FINISH, configuratorModel)
-  );
+  // Ostatnio kliknięta opcja: jej zdjęcie widać w podglądzie. Zdjęcie zależy też od modelu,
+  // więc po zmianie modelu podgląd od razu pokazuje tę samą opcję dla nowego modelu.
+  const [previewOption, setPreviewOption] = useState<string>(DEFAULT_FINISH);
+  const previewImage = getPreviewImageForModel(previewOption, configuratorModel);
 
   const [selected, setSelected] = useState<SelectedState>({
     obudowa: DEFAULT_FINISH,
@@ -596,11 +597,9 @@ export default function KonfiguratorShell() {
     const frame = requestAnimationFrame(() => {
       setSelected(saved.config);
       setOfferTitle(saved.title);
-      setPreviewImage(getPreviewImageForModel(saved.config.obudowa, configuratorModel));
+      setPreviewOption(saved.config.obudowa);
     });
     return () => cancelAnimationFrame(frame);
-    // Tylko przy wejściu na stronę: zmiana modelu nie może nadpisać bieżącego wyboru.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // --------------------------------------------------------
@@ -721,7 +720,7 @@ export default function KonfiguratorShell() {
       }));
     }
 
-    setPreviewImage(getPreviewImageForModel(value, configuratorModel));
+    setPreviewOption(value);
   };
 
   // --------------------------------------------------------
@@ -1032,6 +1031,7 @@ export default function KonfiguratorShell() {
         <PreviewPanel imageSrc={previewImage} />
 
         <ConfiguratorPanel
+          model={configuratorModel}
           modelName={modelName}
           offerTitle={offerTitle}
           setOfferTitle={setOfferTitle}
