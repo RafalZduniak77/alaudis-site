@@ -25,11 +25,12 @@
 
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { getAlaudisModelName } from "@/components/alaudisModels";
 import ConfiguratorPanel from "./ConfiguratorPanel";
 import PreviewPanel from "./PreviewPanel";
+import SendDialog from "./SendDialog";
 import { ConfigTab, SelectedState } from "./types";
 import {
   getPreviewImageForModel,
@@ -748,20 +749,11 @@ export default function KonfiguratorShell() {
   // --------------------------------------------------------
   // WYSYŁKA KONFIGURACJI
   // --------------------------------------------------------
-  const handleSend = () => {
-    const documentTitle =
-      offerTitle.trim() || `${modelName} - ${labels.configTitleFallback}`;
-
-    const text = labels.composeText(documentTitle, selected, modelName);
-
-    // Kopia do schowka jest dodatkiem: gdy przeglądarka jej nie pozwala, i tak otwieramy pocztę.
-    try {
-      navigator.clipboard?.writeText(text).catch(() => {});
-    } catch {}
-    window.location.href = `mailto:Krzysztof@saprenovation.eu?cc=Rafal.zduniak@alaudis.eu&subject=${encodeURIComponent(
-      documentTitle
-    )}&body=${encodeURIComponent(text)}`;
-  };
+  // Otwiera okno z danymi kontaktowymi; wysyłkę wykonuje strona (SendDialog).
+  const [sendOpen, setSendOpen] = useState(false);
+  const handleSend = () => setSendOpen(true);
+  const closeSend = useCallback(() => setSendOpen(false), []);
+  const sendTitle = offerTitle.trim() || `${modelName} - ${labels.configTitleFallback}`;
 
   // --------------------------------------------------------
   // EXPORT PDF
@@ -1055,6 +1047,19 @@ export default function KonfiguratorShell() {
           onPdf={handlePDF}
         />
       </section>
+
+      {sendOpen && (
+        <SendDialog
+          language={language}
+          model={modelName}
+          title={offerTitle.trim()}
+          // Pracownia dostaje konfigurację po polsku, niezależnie od języka strony.
+          summary={getLabels("PL").composeText(offerTitle.trim() || modelName, selected, modelName).trim()}
+          mailSubject={sendTitle}
+          mailBody={labels.composeText(sendTitle, selected, modelName)}
+          onClose={closeSend}
+        />
+      )}
     </main>
   );
 }

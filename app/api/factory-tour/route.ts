@@ -2,73 +2,23 @@
 // WYSYŁKA ZGŁOSZENIA NA ZWIEDZANIE MANUFAKTURY
 // ==========================================================
 // Formularz wysyła dane tutaj, a serwer wysyła e-mail przez skrzynkę
-// ALAUDIS (SMTP). Dane logowania są tylko w ustawieniach Vercel:
-//   SMTP_USER  – adres skrzynki, z której wychodzi wiadomość
-//   SMTP_PASS  – hasło do tej skrzynki
-//   SMTP_HOST  – opcjonalnie (domyślnie serwer OVH)
-//   SMTP_PORT  – opcjonalnie (domyślnie 465)
+// ALAUDIS (SMTP, ustawienia: lib/siteMail.ts).
 //   TOUR_EMAIL_TO – opcjonalnie inny adres odbiorcy
-// Bez tych danych odpowiadamy 503, a formularz wraca do starego
+// Bez danych skrzynki odpowiadamy 503, a formularz wraca do starego
 // sposobu (gotowa wiadomość w programie pocztowym).
 // ==========================================================
 
-import nodemailer from "nodemailer";
 import { TOUR_EMAIL } from "@/components/factory-tour/copy";
+import { EMAIL, fromOurSite, mailConfigured, oneLine, readBody, reply, sendSiteMail, text, tooMany } from "@/lib/siteMail";
 
 export const dynamic = "force-dynamic";
 
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
-// Prosta ochrona przed zalewaniem skrzynki z jednego adresu.
-const recent = new Map<string, number[]>();
-function tooMany(ip: string) {
-  const now = Date.now();
-  const hits = (recent.get(ip) || []).filter((time) => now - time < 10 * 60 * 1000);
-  hits.push(now);
-  // Lista adresów nie rośnie bez końca: przy większej liczbie usuwamy wpisy starsze niż 10 minut.
-  if (recent.size > 5000) {
-    for (const [key, times] of recent) if (times.every((time) => now - time >= 10 * 60 * 1000)) recent.delete(key);
-  }
-  recent.set(ip, hits);
-  return hits.length > 5;
-}
-
-// Zgłoszenie musi przyjść z formularza na naszej stronie, nie z obcej witryny.
-function fromOurSite(request: Request) {
-  const origin = request.headers.get("origin");
-  const host = request.headers.get("x-forwarded-host") || request.headers.get("host");
-  if (!origin || !host) return false;
-  try {
-    return new URL(origin).host === host;
-  } catch {
-    return false;
-  }
-}
-
-function text(value: unknown, max: number) {
-  return typeof value === "string" ? value.trim().slice(0, max) : "";
-}
-
-const oneLine = (value: string) => value.replace(/[\r\n]+/g, " ");
-
-function reply(status: number, body: Record<string, unknown>) {
-  return Response.json(body, { status, headers: { "Cache-Control": "no-store" } });
-}
-
 export async function POST(request: Request) {
-  if (!fromOurSite(request) || !(request.headers.get("content-type") || "").includes("application/json")) {
-    return reply(403, { error: "forbidden" });
-  }
-
-  let body: Record<string, unknown>;
-  try {
-    const parsed: unknown = await request.json();
-    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return reply(400, { error: "invalid" });
-    body = parsed as Record<string, unknown>;
-  } catch {
-    return reply(400, { error: "invalid" });
-  }
+  if (!fromOurSite(request)) return reply(403, { error: "forbidden" });
+  const body = await readBody(request);
+  if (!body) return reply(400, { error: "invalid" });
 
   // Pole-pułapka: człowiek go nie widzi, automat je wypełnia.
   if (text(body.website, 200)) return reply(200, { ok: true });
@@ -90,12 +40,8 @@ export async function POST(request: Request) {
     return reply(400, { error: "invalid" });
   }
 
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-  if (!user || !pass) return reply(503, { error: "not-configured" });
-
-  const ip = (request.headers.get("x-forwarded-for") || "").split(",")[0].trim() || "unknown";
-  if (tooMany(ip)) return reply(429, { error: "too-many" });
+  if (!mailConfigured()) return reply(503, { error: "not-configured" });
+  if (tooMany("tour", request)) return reply(429, { error: "too-many" });
 
   const lines = [
     `Imię i nazwisko: ${name}`,
@@ -110,19 +56,9 @@ export async function POST(request: Request) {
     message && `\nWiadomość:\n${message}`,
   ].filter(Boolean);
 
-  const port = Number(process.env.SMTP_PORT || 465);
-  const transport = nodemailer.createTransport({
-    host: process.env.SMTP_HOST || "ssl0.ovh.net",
-    port,
-    secure: port === 465,
-    auth: { user, pass },
-    connectionTimeout: 10000,
-    socketTimeout: 15000,
-  });
-
   try {
-    await transport.sendMail({
-      from: { name: "ALAUDIS — formularz zwiedzania", address: user },
+    await sendSiteMail({
+      fromName: "ALAUDIS — formularz zwiedzania",
       to: process.env.TOUR_EMAIL_TO || TOUR_EMAIL,
       replyTo: { name, address: email },
       subject: `Zgłoszenie na zwiedzanie manufaktury ALAUDIS — ${name}`,
