@@ -192,14 +192,6 @@ function getLabels(language: LanguageKey) {
 // ----------------------------------------------------------
 // TŁUMACZENIA OPCJI
 // ----------------------------------------------------------
-const BESPOKE_NOTE: Record<LanguageKey, string> = {
-  PL: "ALAUDIS Bespoke — wybierasz wygląd, brzmienie i mechanikę swojego fortepianu. Cena na zapytanie.",
-  EN: "ALAUDIS Bespoke — you choose the look, the sound and the action of your piano. Price on request.",
-  DE: "ALAUDIS Bespoke — Sie wählen Erscheinung, Klang und Mechanik Ihres Flügels. Preis auf Anfrage.",
-  FR: "ALAUDIS Bespoke — vous choisissez l’apparence, le son et la mécanique de votre piano. Prix sur demande.",
-  ES: "ALAUDIS Bespoke: usted elige el aspecto, el sonido y el mecanismo de su piano de cola. Precio a consultar.",
-  IT: "ALAUDIS Bespoke: scegli tu l’aspetto, il suono e la meccanica del tuo pianoforte a coda. Prezzo su richiesta.",
-};
 
 const MODEL_LABEL: Record<LanguageKey, string> = {
   PL: "Wybór modelu",
@@ -473,13 +465,12 @@ export default function ConfiguratorPanel({
             </Link>
           ))}
         </nav>
-        <p className="hidden text-white/78 lg:mb-3 lg:block lg:text-xs lg:leading-5">{BESPOKE_NOTE[language]}</p>
         <input
           value={offerTitle}
           onChange={(e) => setOfferTitle(e.target.value)}
           placeholder={labels.offerTitlePlaceholder}
           aria-label={labels.offerTitlePlaceholder}
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-base backdrop-blur-md placeholder:text-white/45 lg:text-sm"
+          className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-base backdrop-blur-md placeholder:text-white/45 lg:h-[38px] lg:py-0 lg:text-sm"
         />
       </div>
 
