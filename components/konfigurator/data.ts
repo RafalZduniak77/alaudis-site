@@ -165,6 +165,9 @@ export const previewImageMap: Record<string, string> = {
   "Struny stalowe Röslau":
     "/konfigurator/struny stalowe resalu.jpg",
 
+  "Struny stalowe Paulello":
+    "/konfigurator/struny stalowe paulello.jpg",
+
   "Struny basowe Heller":
     "/konfigurator/struny basowe heller.jpg",
 
