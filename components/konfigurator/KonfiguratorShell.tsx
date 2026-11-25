@@ -36,6 +36,7 @@ import {
   groupMap,
   normalizeConfiguratorModel,
   options,
+  polishOptionLabel,
 } from "./data";
 
 type LanguageKey = "PL" | "EN" | "DE" | "FR" | "ES" | "IT";
@@ -255,7 +256,7 @@ function translateOption(value: string, language: LanguageKey) {
   if (!value) return "";
 
   if (language === "PL") {
-    return value === "Ferrari poliester połysk" ? "Czerwony poliester połysk (czerwień Ferrari)" : value;
+    return polishOptionLabel(value);
   }
 
   return optionTranslations[language]?.[value] || value;
@@ -499,7 +500,7 @@ Alaudis konfiguracja: ${offerTitle}
 
 Model: ${modelName}
 
-Obudowa: ${selected.obudowa || ""}
+Obudowa: ${translateOption(selected.obudowa, language) || ""}
 
 Akustyka:
 ${formatMailList(selected.akustyka, language)}
@@ -512,6 +513,47 @@ ${formatMailList(selected.mechanizm, language)}
 
 // Konfigurator startuje od białego fortepianu z zaznaczoną białą obudową.
 const DEFAULT_FINISH = "Bialy poliester połysk";
+
+// Klucz, pod którym przeglądarka klienta trzyma zapisaną konfigurację.
+const SAVED_KEY = "alaudis-config";
+
+// Odczyt zapisanej konfiguracji. Zwraca tylko opcje, które nadal są w ofercie.
+function readSavedConfiguration(): { title: string; config: SelectedState } | null {
+  try {
+    const raw = localStorage.getItem(SAVED_KEY);
+    if (!raw) return null;
+    const saved = JSON.parse(raw) as { title?: unknown; config?: Partial<SelectedState> };
+    const config = saved?.config;
+    if (!config || typeof config !== "object") return null;
+
+    const pick = (tab: "akustyka" | "mechanizm") => {
+      const result: Record<string, string> = {};
+      const source = config[tab];
+      if (source && typeof source === "object") {
+        for (const [group, value] of Object.entries(source)) {
+          if (typeof value === "string" && options[tab].includes(value) && groupMap[value] === group) {
+            result[group] = value;
+          }
+        }
+      }
+      return result;
+    };
+
+    return {
+      title: typeof saved.title === "string" ? saved.title.slice(0, 200) : "",
+      config: {
+        obudowa:
+          typeof config.obudowa === "string" && options.obudowa.includes(config.obudowa)
+            ? config.obudowa
+            : DEFAULT_FINISH,
+        akustyka: pick("akustyka"),
+        mechanizm: pick("mechanizm"),
+      },
+    };
+  } catch {
+    return null;
+  }
+}
 
 export default function KonfiguratorShell() {
   const pathname = usePathname() || "/";
@@ -541,6 +583,25 @@ export default function KonfiguratorShell() {
     akustyka: {},
     mechanizm: {},
   });
+
+  // --------------------------------------------------------
+  // PRZYWRÓCENIE ZAPISANEJ KONFIGURACJI
+  // --------------------------------------------------------
+  // „Zapisz konfigurację” zapisuje wybór w przeglądarce klienta. Po powrocie
+  // na stronę przywracamy go, o ile zapisane opcje nadal istnieją w ofercie.
+  useEffect(() => {
+    const saved = readSavedConfiguration();
+    if (!saved) return;
+    // Czekamy na koniec pierwszego renderu, żeby strona z serwera i z przeglądarki były zgodne.
+    const frame = requestAnimationFrame(() => {
+      setSelected(saved.config);
+      setOfferTitle(saved.title);
+      setPreviewImage(getPreviewImageForModel(saved.config.obudowa, configuratorModel));
+    });
+    return () => cancelAnimationFrame(frame);
+    // Tylko przy wejściu na stronę: zmiana modelu nie może nadpisać bieżącego wyboru.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // --------------------------------------------------------
   // REFY DO SCROLLA I ZAKŁADEK
@@ -667,15 +728,20 @@ export default function KonfiguratorShell() {
   // ZAPIS KONFIGURACJI
   // --------------------------------------------------------
   const handleSave = () => {
-    localStorage.setItem(
-      "alaudis-config",
-      JSON.stringify({
-        title: offerTitle,
-        model: modelName,
-        config: selected,
-        language,
-      })
-    );
+    try {
+      localStorage.setItem(
+        SAVED_KEY,
+        JSON.stringify({
+          title: offerTitle,
+          model: modelName,
+          config: selected,
+          language,
+        })
+      );
+    } catch {
+      // Przeglądarka blokuje zapis (tryb prywatny, pełna pamięć): nie udajemy, że się udało.
+      return;
+    }
 
     alert(labels.saveAlert);
   };
@@ -689,7 +755,10 @@ export default function KonfiguratorShell() {
 
     const text = labels.composeText(documentTitle, selected, modelName);
 
-    navigator.clipboard.writeText(text);
+    // Kopia do schowka jest dodatkiem: gdy przeglądarka jej nie pozwala, i tak otwieramy pocztę.
+    try {
+      navigator.clipboard?.writeText(text).catch(() => {});
+    } catch {}
     window.location.href = `mailto:Krzysztof@saprenovation.eu?cc=Rafal.zduniak@alaudis.eu&subject=${encodeURIComponent(
       documentTitle
     )}&body=${encodeURIComponent(text)}`;
@@ -699,7 +768,13 @@ export default function KonfiguratorShell() {
   // EXPORT PDF
   // --------------------------------------------------------
   const handlePDF = async () => {
-    const { jsPDF } = await import("jspdf");
+    let jsPDF: typeof import("jspdf").jsPDF;
+    try {
+      ({ jsPDF } = await import("jspdf"));
+    } catch {
+      // Biblioteka PDF się nie pobrała (np. zerwane połączenie): klient może spróbować ponownie.
+      return;
+    }
 
     const doc = new jsPDF({
       orientation: "portrait",

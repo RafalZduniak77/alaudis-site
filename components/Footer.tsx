@@ -51,7 +51,7 @@ const FOOTER_COPY: Record<
   EN: {
     tagline: "Polish Grand Piano", models: "Models", configurator: "Configurator", company: "Company",
     finish: "Choose finish", color: "Choose color", accessories: "Accessories",
-    about: "About", factory: "Factory", tour: "Manufactory tour", heritage: "Heritage", artists: "Artists", news: "News & Press", contact: "Contact",
+    about: "About", factory: "Factory", tour: "Factory tour", heritage: "Heritage", artists: "Artists", news: "News & Press", contact: "Contact",
   },
   DE: {
     tagline: "Polnischer Flügel", models: "Modelle", configurator: "Konfigurator", company: "Unternehmen",
@@ -312,8 +312,8 @@ export default function Footer() {
           <span className="sr-only"> ({sapRenovation.newTab})</span>
         </a>
         <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
-          <p className="text-xs uppercase tracking-[0.32em] text-white/88">
-            © 2025 ALAUDIS
+          <p suppressHydrationWarning className="text-xs uppercase tracking-[0.32em] text-white/88">
+            © {new Date().getFullYear()} ALAUDIS
           </p>
           <Link
             href={`${langPrefix}/polityka-prywatnosci`}

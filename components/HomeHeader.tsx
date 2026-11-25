@@ -55,9 +55,30 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
   }, []);
 
   // Language switch keeps the visitor on the same page.
+  const router = useRouter();
   const pathname = usePathname() || "/";
   const basePath = pathname.replace(/^\/(en|de|fr|es|it)(?=\/|$)/, "") || "/";
   const languageHref = (language: GalleryLocale) => (language === "pl" ? basePath : `/${language}${basePath === "/" ? "" : basePath}`);
+  // The language list closes on a click beside it and on Escape.
+  const languages = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    const close = (event: Event) => {
+      const menu = languages.current;
+      if (!menu?.open) return;
+      if (event instanceof KeyboardEvent ? event.key === "Escape" : !menu.contains(event.target as Node)) menu.open = false;
+    };
+    document.addEventListener("pointerdown", close);
+    document.addEventListener("keydown", close);
+    return () => { document.removeEventListener("pointerdown", close); document.removeEventListener("keydown", close); };
+  }, []);
+  // The chosen model or gallery section (?model=…, ?dzial=…) travels along to the other language.
+  const keepQuery = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const query = window.location.search;
+    if (languages.current) languages.current.open = false;
+    if (!query || event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+    event.preventDefault();
+    router.push(`${event.currentTarget.getAttribute("href")}${query}`);
+  };
 
   const pages = useMemo(() => sitePages(locale), [locale]);
   const galleryEntries = useMemo(() => [
@@ -106,7 +127,6 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
   >{link.label}</Link>);
   const menuLinks = (keys: SeoPage[]) => keys.map(key => { const page = pages.find(item => item.page === key); return page ? <li key={key}><Link href={page.href}>{page.label}</Link></li> : null; });
   // Back arrow on subpages: the previous page, or the home page when there is none.
-  const router = useRouter();
   const goBack = () => { if (window.history.length > 1) router.back(); else router.push(prefix || "/"); };
   const backButton = (extra: string) => <button type="button" className={`${styles.button} ${styles.iconButton} ${extra}`} aria-label={text.back} title={text.back} onClick={goBack}>
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 12H4m7-7-7 7 7 7" /></svg>
@@ -140,12 +160,12 @@ export default function HomeHeader({ locale, variant = "home" }: { locale: Galle
           <button type="button" className={`${styles.button} ${styles.iconButton}`} aria-label={text.search} aria-expanded={panel === "search"} aria-controls="site-panel" onClick={() => toggle("search")}>
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
           </button>
-          <details className={styles.languages}>
+          <details ref={languages} className={styles.languages}>
             <summary className={styles.button} aria-label={text.language}>
               {locale.toUpperCase()}<span aria-hidden="true" className={styles.chevron}>▾</span>
             </summary>
             <nav className={styles.languageMenu} aria-label={text.language}>
-              {galleryLocales.map(language => <Link key={language} href={languageHref(language)} lang={language} aria-current={locale === language ? "page" : undefined}>{language.toUpperCase()}</Link>)}
+              {galleryLocales.map(language => <Link key={language} href={languageHref(language)} lang={language} aria-current={locale === language ? "page" : undefined} onClick={keepQuery}>{language.toUpperCase()}</Link>)}
             </nav>
           </details>
           <button type="button" className={`${styles.button} ${styles.iconButton}`} aria-label={panel === "menu" ? text.close : text.menu} aria-expanded={panel === "menu"} aria-controls="site-panel" onClick={() => toggle("menu")}>

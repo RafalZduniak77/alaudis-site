@@ -8,7 +8,7 @@
 // formularz otwiera gotową wiadomość w programie pocztowym (mailto).
 // ==========================================================
 
-import { useId, useState, type FormEvent } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { TOUR_EMAIL, type TourLanguage, tourCopy } from "./copy";
 
 const field =
@@ -19,7 +19,14 @@ export default function FactoryTourForm({ language }: { language: TourLanguage }
   const copy = tourCopy[language].form;
   const id = useId();
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "mailto" | "error">("idle");
-  const today = new Date().toISOString().slice(0, 10);
+  // Najwcześniejszy termin to dzisiejszy dzień u klienta. Ustawiamy go w przeglądarce,
+  // bo strona jest budowana wcześniej i „dzisiaj” z serwera byłoby datą wdrożenia.
+  const form = useRef<HTMLFormElement>(null);
+  useEffect(() => {
+    const now = new Date();
+    const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+    form.current?.querySelectorAll<HTMLInputElement>('input[type="date"]').forEach((input) => { input.min = today; });
+  }, []);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -81,7 +88,7 @@ export default function FactoryTourForm({ language }: { language: TourLanguage }
   }
 
   return (
-    <form onSubmit={submit} className="rounded-[32px] border border-white/10 bg-white/[0.03] p-6 sm:p-10">
+    <form ref={form} onSubmit={submit} className="rounded-[32px] border border-white/10 bg-white/[0.03] p-6 sm:p-10">
       <div className="grid gap-6 sm:grid-cols-2">
         <label className="sm:col-span-2">
           <span className={label}>{copy.name} *</span>
@@ -110,11 +117,11 @@ export default function FactoryTourForm({ language }: { language: TourLanguage }
         </label>
         <label>
           <span className={label}>{copy.date}</span>
-          <input name="date" type="date" min={today} className={`${field} [color-scheme:dark]`} />
+          <input name="date" type="date" className={`${field} [color-scheme:dark]`} />
         </label>
         <label>
           <span className={label}>{copy.altDate}</span>
-          <input name="altDate" type="date" min={today} className={`${field} [color-scheme:dark]`} />
+          <input name="altDate" type="date" className={`${field} [color-scheme:dark]`} />
         </label>
         <label className="sm:col-span-2">
           <span className={label}>{copy.message}</span>

@@ -25,6 +25,7 @@ import { RefObject, useMemo } from "react";
 import { usePathname } from "next/navigation";
 import { ConfigTab, OptionsMap, SelectedState } from "./types";
 import ActionMenu from "./ActionMenu";
+import { polishOptionLabel } from "./data";
 
 // ----------------------------------------------------------
 // TYPY PROPSÓW
@@ -198,7 +199,7 @@ const BESPOKE_NOTE: Record<LanguageKey, string> = {
 };
 
 function translateOption(value: string, language: LanguageKey) {
-  if (language === "PL") return value === "Ferrari poliester połysk" ? "Czerwony poliester połysk (czerwień Ferrari)" : value;
+  if (language === "PL") return polishOptionLabel(value);
 
   const mapEN: Record<string, string> = {
     "Bialy poliester połysk": "White polyester gloss",

@@ -119,7 +119,7 @@ export const privacyCopy: Record<PrivacyLocale, {
       {
         title: "2. What data we process",
         paragraphs: [
-          "We process the data you give us yourself when you contact us by e-mail, telephone, text message or WhatsApp, apply for a manufactory tour or send us a piano configuration: your name, e-mail address, telephone number, the number of visitors and proposed dates, the chosen configuration of the instrument and the content of your message.",
+          "We process the data you give us yourself when you contact us by e-mail, telephone, text message or WhatsApp, apply for a factory tour or send us a piano configuration: your name, e-mail address, telephone number, the number of visitors and proposed dates, the chosen configuration of the instrument and the content of your message.",
           "The tour application form sends your data directly to our e-mail inbox when you click “Send request” — the website passes it on and does not store it on the server. The configurator prepares a ready message in your own e-mail program — the data reaches us only when you send it yourself.",
           "Providing data is voluntary, but without it we cannot answer your enquiry, arrange a visit or prepare a quotation.",
         ],
@@ -127,7 +127,7 @@ export const privacyCopy: Record<PrivacyLocale, {
       {
         title: "3. Purposes and legal bases",
         paragraphs: [
-          "We use the data to answer your enquiry, arrange a visit to the atelier or a manufactory tour, prepare a quotation and — if we work together — conclude and perform a contract (Article 6(1)(b) GDPR).",
+          "We use the data to answer your enquiry, arrange a visit to the atelier or a factory tour, prepare a quotation and — if we work together — conclude and perform a contract (Article 6(1)(b) GDPR).",
           "Once a matter is closed, we keep the correspondence in order to establish, pursue or defend claims, which is our legitimate interest (Article 6(1)(f) GDPR). We process invoice data because tax and accounting law requires it (Article 6(1)(c) GDPR).",
           "We do not send commercial information without your consent and we do not make automated decisions about you.",
         ],

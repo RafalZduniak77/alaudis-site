@@ -26,8 +26,24 @@ function tooMany(ip: string) {
   const now = Date.now();
   const hits = (recent.get(ip) || []).filter((time) => now - time < 10 * 60 * 1000);
   hits.push(now);
+  // Lista adresów nie rośnie bez końca: przy większej liczbie usuwamy wpisy starsze niż 10 minut.
+  if (recent.size > 5000) {
+    for (const [key, times] of recent) if (times.every((time) => now - time >= 10 * 60 * 1000)) recent.delete(key);
+  }
   recent.set(ip, hits);
   return hits.length > 5;
+}
+
+// Zgłoszenie musi przyjść z formularza na naszej stronie, nie z obcej witryny.
+function fromOurSite(request: Request) {
+  const origin = request.headers.get("origin");
+  const host = request.headers.get("x-forwarded-host") || request.headers.get("host");
+  if (!origin || !host) return false;
+  try {
+    return new URL(origin).host === host;
+  } catch {
+    return false;
+  }
 }
 
 function text(value: unknown, max: number) {
@@ -41,9 +57,15 @@ function reply(status: number, body: Record<string, unknown>) {
 }
 
 export async function POST(request: Request) {
+  if (!fromOurSite(request) || !(request.headers.get("content-type") || "").includes("application/json")) {
+    return reply(403, { error: "forbidden" });
+  }
+
   let body: Record<string, unknown>;
   try {
-    body = await request.json();
+    const parsed: unknown = await request.json();
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return reply(400, { error: "invalid" });
+    body = parsed as Record<string, unknown>;
   } catch {
     return reply(400, { error: "invalid" });
   }

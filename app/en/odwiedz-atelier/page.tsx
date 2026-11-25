@@ -205,7 +205,7 @@ export default function VisitAtelierPage() {
                 href="/en/zwiedzanie-manufaktury"
                 className="inline-flex rounded-full border border-[#d3bd8b]/70 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-[#d3bd8b] transition hover:bg-[#d3bd8b] hover:text-black"
               >
-                Manufactory tour
+                Factory tour
               </Link>
             </div>
             </div>

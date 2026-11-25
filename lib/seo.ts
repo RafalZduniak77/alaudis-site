@@ -43,39 +43,39 @@ const PAGES = {
     copy: {
       pl: {
         label: "ALAUDIS",
-        title: "ALAUDIS – nowy polski fortepian | Manufaktura fortepianów w Kaliszu",
+        title: "ALAUDIS – nowy polski fortepian | Manufaktura w Kaliszu",
         description:
-          "ALAUDIS to nowy polski fortepian, ręcznie budowany w manufakturze w Kaliszu. Trzy modele: ONE 178, LEO 214 i koncertowy DREAM 275. Skonfiguruj własny instrument.",
+          "ALAUDIS to nowy polski fortepian, ręcznie budowany w Kaliszu. Trzy modele: ONE 178, LEO 214 i koncertowy DREAM 275. Skonfiguruj własny instrument.",
       },
       en: {
         label: "ALAUDIS",
         title: "ALAUDIS – The New Polish Grand Piano | Handcrafted in Kalisz",
         description:
-          "ALAUDIS is the new Polish grand piano, built by hand in our manufactory in Kalisz, Poland. Three models: ONE 178, LEO 214 and the DREAM 275 concert grand.",
+          "ALAUDIS is the new Polish grand piano, built by hand in our workshop in Kalisz, Poland. Three models: ONE 178, LEO 214 and the DREAM 275 concert grand.",
       },
       de: {
         label: "ALAUDIS",
-        title: "ALAUDIS – Der neue polnische Flügel | Flügelmanufaktur in Kalisz",
+        title: "ALAUDIS – der neue polnische Flügel | Manufaktur in Kalisz",
         description:
-          "ALAUDIS ist der neue polnische Flügel, in Handarbeit gefertigt in unserer Manufaktur in Kalisz. Drei Modelle: ONE 178, LEO 214 und der Konzertflügel DREAM 275.",
+          "ALAUDIS ist der neue polnische Flügel, handgefertigt in unserer Manufaktur in Kalisz. Drei Modelle: ONE 178, LEO 214 und der Konzertflügel DREAM 275.",
       },
       fr: {
         label: "ALAUDIS",
-        title: "ALAUDIS – Le nouveau piano à queue polonais | Manufacture à Kalisz",
+        title: "ALAUDIS – le nouveau piano à queue polonais | Kalisz",
         description:
-          "ALAUDIS est le nouveau piano à queue polonais, fabriqué à la main dans notre manufacture de Kalisz. Trois modèles : ONE 178, LEO 214 et le piano de concert DREAM 275.",
+          "ALAUDIS est le nouveau piano à queue polonais, fabriqué à la main à Kalisz. Trois modèles : ONE 178, LEO 214 et le piano à queue de concert DREAM 275.",
       },
       es: {
         label: "ALAUDIS",
-        title: "ALAUDIS – El nuevo piano de cola polaco | Manufactura en Kalisz",
+        title: "ALAUDIS – el nuevo piano de cola polaco | Hecho en Kalisz",
         description:
-          "ALAUDIS es el nuevo piano de cola polaco, construido a mano en nuestra manufactura de Kalisz. Tres modelos: ONE 178, LEO 214 y el piano de cola de concierto DREAM 275.",
+          "ALAUDIS es el nuevo piano de cola polaco, construido a mano en nuestra manufactura de Kalisz. Tres modelos: ONE 178, LEO 214 y el DREAM 275 de concierto.",
       },
       it: {
         label: "ALAUDIS",
-        title: "ALAUDIS – Il nuovo pianoforte a coda polacco | Manifattura a Kalisz",
+        title: "ALAUDIS – il nuovo pianoforte a coda polacco | Kalisz",
         description:
-          "ALAUDIS è il nuovo pianoforte a coda polacco, costruito a mano nella nostra manifattura di Kalisz. Tre modelli: ONE 178, LEO 214 e il gran coda da concerto DREAM 275.",
+          "ALAUDIS è il nuovo pianoforte a coda polacco, costruito a mano nella nostra manifattura di Kalisz. Tre modelli: ONE 178, LEO 214 e il gran coda DREAM 275.",
       },
     },
   },
@@ -86,37 +86,37 @@ const PAGES = {
         label: "ALAUDIS ONE 178",
         title: "ALAUDIS ONE 178 – polski fortepian salonowy, ręcznie budowany",
         description:
-          "ALAUDIS ONE 178: fortepian o długości 178 cm, ręcznie budowany w Kaliszu. Mechanizm Renner, klawiatura Kluge, świerk rezonansowy Strunz. Liryczne, zrównoważone brzmienie.",
+          "ALAUDIS ONE 178: fortepian o długości 178 cm, ręcznie budowany w Kaliszu. Mechanizm Renner, klawiatura Kluge, świerk Strunz. Liryczne, zrównoważone brzmienie.",
       },
       en: {
         label: "ALAUDIS ONE 178",
         title: "ALAUDIS ONE 178 – Handcrafted Polish Grand Piano, 178 cm",
         description:
-          "ALAUDIS ONE 178: a 178 cm grand piano built by hand in Kalisz, Poland. Renner action, Kluge keyboard, Strunz tonewood spruce. A lyrical, balanced and elegant voice.",
+          "ALAUDIS ONE 178: a 178 cm grand piano built by hand in Kalisz, Poland. Renner action, Kluge keyboard, Strunz spruce. A lyrical, balanced and elegant voice.",
       },
       de: {
         label: "ALAUDIS ONE 178",
         title: "ALAUDIS ONE 178 – Handgefertigter Flügel aus Polen, 178 cm",
         description:
-          "ALAUDIS ONE 178: ein 178 cm langer Flügel, in Handarbeit in Kalisz gebaut. Renner-Mechanik, Kluge-Klaviatur, Resonanzfichte von Strunz. Lyrischer, ausgewogener Klang.",
+          "ALAUDIS ONE 178: ein 178 cm langer Flügel, in Handarbeit in Kalisz gebaut. Renner-Mechanik, Kluge-Klaviatur, Strunz-Fichte. Lyrischer, ausgewogener Klang.",
       },
       fr: {
         label: "ALAUDIS ONE 178",
         title: "ALAUDIS ONE 178 – Piano à queue polonais fait main, 178 cm",
         description:
-          "ALAUDIS ONE 178 : un piano à queue de 178 cm fabriqué à la main à Kalisz. Mécanique Renner, clavier Kluge, épicéa de résonance Strunz. Une voix lyrique et équilibrée.",
+          "ALAUDIS ONE 178 : un piano à queue de 178 cm fabriqué à la main à Kalisz. Mécanique Renner, clavier Kluge, épicéa Strunz. Une voix lyrique et équilibrée.",
       },
       es: {
         label: "ALAUDIS ONE 178",
         title: "ALAUDIS ONE 178 – Piano de cola polaco hecho a mano, 178 cm",
         description:
-          "ALAUDIS ONE 178: un piano de cola de 178 cm construido a mano en Kalisz. Mecanismo Renner, teclado Kluge, abeto de resonancia Strunz. Un sonido lírico y equilibrado.",
+          "ALAUDIS ONE 178: un piano de cola de 178 cm construido a mano en Kalisz. Mecanismo Renner, teclado Kluge, abeto Strunz. Un sonido lírico y equilibrado.",
       },
       it: {
         label: "ALAUDIS ONE 178",
-        title: "ALAUDIS ONE 178 – Pianoforte a coda polacco fatto a mano, 178 cm",
+        title: "ALAUDIS ONE 178 – Pianoforte a coda polacco fatto a mano",
         description:
-          "ALAUDIS ONE 178: un pianoforte a coda di 178 cm costruito a mano a Kalisz. Meccanica Renner, tastiera Kluge, abete di risonanza Strunz. Un suono lirico ed equilibrato.",
+          "ALAUDIS ONE 178: un pianoforte a coda di 178 cm costruito a mano a Kalisz. Meccanica Renner, tastiera Kluge, abete Strunz. Un suono lirico ed equilibrato.",
       },
     },
   },
@@ -127,7 +127,7 @@ const PAGES = {
         label: "ALAUDIS LEO 214",
         title: "ALAUDIS LEO 214 – polski fortepian o koncertowym charakterze",
         description:
-          "ALAUDIS LEO 214: fortepian 214 cm o głębszej obecności i szerszej projekcji brzmienia. Ręczne rzemiosło z Kalisza dla przestrzeni, które wymagają większej skali.",
+          "ALAUDIS LEO 214: fortepian 214 cm o głębszej obecności i szerszej projekcji brzmienia. Ręczne rzemiosło z Kalisza dla przestrzeni wymagających większej skali.",
       },
       en: {
         label: "ALAUDIS LEO 214",
@@ -139,25 +139,25 @@ const PAGES = {
         label: "ALAUDIS LEO 214",
         title: "ALAUDIS LEO 214 – Polnischer Flügel mit Konzertcharakter",
         description:
-          "ALAUDIS LEO 214: ein 214 cm langer Flügel mit tieferer Präsenz und weiterer Klangprojektion. Handarbeit aus Kalisz für Räume, die größere Dimensionen verlangen.",
+          "ALAUDIS LEO 214: ein 214 cm langer Flügel mit tieferer Präsenz und weiterer Klangprojektion. Handarbeit aus Kalisz für größere Räume.",
       },
       fr: {
         label: "ALAUDIS LEO 214",
-        title: "ALAUDIS LEO 214 – Piano à queue polonais au caractère de concert",
+        title: "ALAUDIS LEO 214 – Piano à queue polonais, caractère de concert",
         description:
-          "ALAUDIS LEO 214 : un piano à queue de 214 cm à la présence plus profonde et à la projection plus ample. Fabriqué à la main à Kalisz pour les espaces de grande échelle.",
+          "ALAUDIS LEO 214 : un piano à queue de 214 cm à la présence plus profonde et à la projection plus ample. Fabriqué à la main à Kalisz pour les grands espaces.",
       },
       es: {
         label: "ALAUDIS LEO 214",
-        title: "ALAUDIS LEO 214 – Piano de cola polaco con carácter de concierto",
+        title: "ALAUDIS LEO 214 – Piano de cola polaco, carácter de concierto",
         description:
-          "ALAUDIS LEO 214: un piano de cola de 214 cm con una presencia más profunda y una proyección sonora más amplia. Artesanía de Kalisz para espacios que exigen mayor escala.",
+          "ALAUDIS LEO 214: un piano de cola de 214 cm de presencia más profunda y proyección sonora más amplia. Artesanía de Kalisz para espacios de mayor escala.",
       },
       it: {
         label: "ALAUDIS LEO 214",
-        title: "ALAUDIS LEO 214 – Pianoforte a coda polacco, carattere da concerto",
+        title: "ALAUDIS LEO 214 – Pianoforte a coda dal carattere da concerto",
         description:
-          "ALAUDIS LEO 214: un pianoforte a coda di 214 cm dalla presenza più profonda e dalla proiezione sonora più ampia. Artigianato di Kalisz per spazi di scala maggiore.",
+          "ALAUDIS LEO 214: un pianoforte a coda di 214 cm dalla presenza più profonda e dalla proiezione sonora più ampia. Artigianato di Kalisz per spazi più grandi.",
       },
     },
   },
@@ -168,13 +168,13 @@ const PAGES = {
         label: "ALAUDIS DREAM 275",
         title: "ALAUDIS DREAM 275 – polski fortepian koncertowy",
         description:
-          "ALAUDIS DREAM 275: największa forma koncertowa marki. Fortepian koncertowy 275 cm o pełnej skali brzmienia, tworzony z myślą o salach koncertowych i wielkich estradach.",
+          "ALAUDIS DREAM 275: największa forma koncertowa marki. Fortepian koncertowy 275 cm o pełnej skali brzmienia, stworzony dla sal koncertowych i wielkich estrad.",
       },
       en: {
         label: "ALAUDIS DREAM 275",
         title: "ALAUDIS DREAM 275 – Polish Concert Grand Piano",
         description:
-          "ALAUDIS DREAM 275: the largest concert form of the brand. A 275 cm concert grand piano with a full scale of sound, created for concert halls and the great stages.",
+          "ALAUDIS DREAM 275: the brand’s largest concert instrument. A 275 cm concert grand piano with a full scale of sound, made for concert halls and great stages.",
       },
       de: {
         label: "ALAUDIS DREAM 275",
@@ -184,21 +184,21 @@ const PAGES = {
       },
       fr: {
         label: "ALAUDIS DREAM 275",
-        title: "ALAUDIS DREAM 275 – Piano de concert polonais",
+        title: "ALAUDIS DREAM 275 – Piano à queue de concert polonais",
         description:
-          "ALAUDIS DREAM 275 : la plus grande forme de concert de la marque. Un piano de concert de 275 cm à la pleine échelle sonore, conçu pour les salles de concert et les grandes scènes.",
+          "ALAUDIS DREAM 275 : un piano à queue de concert de 275 cm, le plus grand de la marque. Toute l’ampleur sonore, pour les salles de concert et grandes scènes.",
       },
       es: {
         label: "ALAUDIS DREAM 275",
         title: "ALAUDIS DREAM 275 – Piano de cola de concierto polaco",
         description:
-          "ALAUDIS DREAM 275: la mayor forma de concierto de la marca. Un piano de cola de concierto de 275 cm, con toda la amplitud sonora, para salas de concierto y grandes escenarios.",
+          "ALAUDIS DREAM 275: un piano de cola de concierto de 275 cm, el mayor de la marca. Toda la amplitud sonora, para salas de concierto y grandes escenarios.",
       },
       it: {
         label: "ALAUDIS DREAM 275",
         title: "ALAUDIS DREAM 275 – Pianoforte gran coda da concerto polacco",
         description:
-          "ALAUDIS DREAM 275: la più grande forma da concerto del marchio. Un gran coda di 275 cm dalla piena ampiezza sonora, per sale da concerto e grandi palcoscenici.",
+          "ALAUDIS DREAM 275: il più grande modello da concerto del marchio. Un gran coda di 275 cm dalla piena ampiezza sonora, per sale da concerto e grandi palchi.",
       },
     },
   },
@@ -209,11 +209,11 @@ const PAGES = {
         label: "Historia i rzemiosło",
         title: "Jak powstaje fortepian ALAUDIS – manufaktura i rzemiosło",
         description:
-          "Od sezonowanego drewna po intonację: zobacz, jak w kaliskiej manufakturze ręcznie powstaje fortepian ALAUDIS. Korpus z klonu, świerkowa płyta rezonansowa, mechanizm Renner.",
+          "Od sezonowanego drewna po intonację: zobacz, jak w Kaliszu ręcznie powstaje fortepian ALAUDIS. Korpus z klonu, świerkowa płyta rezonansowa, mechanizm Renner.",
       },
       en: {
         label: "Story and craftsmanship",
-        title: "How an ALAUDIS Grand Piano Is Made – Manufactory and Craft",
+        title: "How an ALAUDIS Grand Piano Is Made – Inside the Workshop",
         description:
           "From seasoned wood to final voicing: see how an ALAUDIS grand piano is built by hand in Kalisz, Poland. Maple rim, spruce soundboard, Renner action.",
       },
@@ -225,21 +225,21 @@ const PAGES = {
       },
       fr: {
         label: "Histoire et savoir-faire",
-        title: "Comment naît un piano ALAUDIS – manufacture et savoir-faire",
+        title: "Comment naît un piano à queue ALAUDIS – manufacture",
         description:
-          "Du bois séché à l’harmonisation finale : découvrez comment un piano à queue ALAUDIS est fabriqué à la main à Kalisz. Ceinture en érable, table en épicéa, mécanique Renner.",
+          "Du bois séché à l’harmonisation : comment un piano à queue ALAUDIS est fabriqué à la main à Kalisz. Ceinture en érable, table en épicéa, mécanique Renner.",
       },
       es: {
         label: "Historia y artesanía",
         title: "Cómo nace un piano de cola ALAUDIS – manufactura y artesanía",
         description:
-          "De la madera curada a la entonación: descubra cómo se construye a mano un piano de cola ALAUDIS en Kalisz. Caja de arce, tabla armónica de abeto, mecanismo Renner.",
+          "De la madera curada a la entonación: así se construye a mano un piano de cola ALAUDIS en Kalisz. Caja de arce, tabla armónica de abeto, mecanismo Renner.",
       },
       it: {
         label: "Storia e artigianato",
-        title: "Come nasce un pianoforte a coda ALAUDIS – manifattura e artigianato",
+        title: "Come nasce un pianoforte a coda ALAUDIS – la manifattura",
         description:
-          "Dal legno stagionato all’intonazione: scopri come nasce a mano un pianoforte a coda ALAUDIS a Kalisz. Fascia in acero, tavola armonica in abete, meccanica Renner.",
+          "Dal legno stagionato all’intonazione: scopri come nasce a mano un pianoforte a coda ALAUDIS. Fascia in acero, tavola armonica in abete, meccanica Renner.",
       },
     },
   },
@@ -256,31 +256,31 @@ const PAGES = {
         label: "Configurator",
         title: "ALAUDIS Grand Piano Configurator – Finish, Colour, Details",
         description:
-          "Compose your own ALAUDIS grand piano: choose the model, finish and colour, hammers, dampers and details. Save your configuration and book a private consultation.",
+          "Compose your own ALAUDIS grand piano: choose the model, finish, colour, hammers, dampers and details. Save your configuration and book a private consultation.",
       },
       de: {
         label: "Konfigurator",
         title: "ALAUDIS Flügel-Konfigurator – Oberfläche, Farbe, Details",
         description:
-          "Stellen Sie Ihren eigenen ALAUDIS Flügel zusammen: Modell, Oberfläche und Farbe, Hämmer, Dämpfer und Details. Konfiguration speichern und private Beratung vereinbaren.",
+          "Stellen Sie Ihren ALAUDIS Flügel zusammen: Modell, Oberfläche, Farbe, Hämmer, Dämpfer und Details. Konfiguration speichern und private Beratung vereinbaren.",
       },
       fr: {
         label: "Configurateur",
-        title: "Configurateur de piano à queue ALAUDIS – finition, couleur, détails",
+        title: "Configurateur de piano à queue ALAUDIS – finitions, couleurs",
         description:
-          "Composez votre propre piano à queue ALAUDIS : modèle, finition et couleur, marteaux, étouffoirs et détails. Enregistrez votre configuration et réservez une consultation privée.",
+          "Composez votre piano à queue ALAUDIS : modèle, finition, couleur, marteaux, étouffoirs et détails. Enregistrez vos choix et réservez une consultation privée.",
       },
       es: {
         label: "Configurador",
-        title: "Configurador del piano de cola ALAUDIS – acabado, color, detalles",
+        title: "Configurador del piano de cola ALAUDIS – acabados y colores",
         description:
-          "Componga su propio piano de cola ALAUDIS: modelo, acabado y color, macillos, apagadores y detalles. Guarde su configuración y reserve un asesoramiento privado.",
+          "Componga su propio piano de cola ALAUDIS: modelo, acabado, color, macillos, apagadores y detalles. Guarde su configuración y reserve un asesoramiento privado.",
       },
       it: {
         label: "Configuratore",
-        title: "Configuratore del pianoforte ALAUDIS – finitura, colore, dettagli",
+        title: "Configuratore pianoforte a coda ALAUDIS – finiture, colori",
         description:
-          "Componi il tuo pianoforte a coda ALAUDIS: modello, finitura e colore, martelletti, smorzatori e dettagli. Salva la configurazione e prenota una consulenza privata.",
+          "Componi il tuo pianoforte a coda ALAUDIS: modello, finitura, colore, martelletti, smorzatori e dettagli. Salva la tua scelta e prenota una consulenza privata.",
       },
     },
   },
@@ -307,19 +307,19 @@ const PAGES = {
       },
       fr: {
         label: "Contact",
-        title: "Contact – ALAUDIS, facteur de pianos polonais | Kalisz",
+        title: "Contact – ALAUDIS, facteur de pianos à queue | Kalisz",
         description:
           "Contactez ALAUDIS : consultation privée, choix du modèle et visite de l’atelier. SAP Renovation, Obozowa 18, 62-800 Kalisz, Pologne.",
       },
       es: {
         label: "Contacto",
-        title: "Contacto – ALAUDIS, fabricante polaco de pianos de cola | Kalisz",
+        title: "Contacto – ALAUDIS, fabricante de pianos de cola | Kalisz",
         description:
           "Póngase en contacto con ALAUDIS: asesoramiento privado, elección del modelo y visita al atelier. SAP Renovation, Obozowa 18, 62-800 Kalisz, Polonia.",
       },
       it: {
         label: "Contatti",
-        title: "Contatti – ALAUDIS, costruttore polacco di pianoforti | Kalisz",
+        title: "Contatti – ALAUDIS, pianoforti a coda polacchi | Kalisz",
         description:
           "Contatta ALAUDIS per una consulenza privata, la scelta del modello e una visita all’atelier. SAP Renovation, Obozowa 18, 62-800 Kalisz, Polonia.",
       },
@@ -348,13 +348,13 @@ const PAGES = {
       },
       fr: {
         label: "Découvrir les modèles",
-        title: "Pianos à queue ALAUDIS en 3D et RA – dans votre propre intérieur",
+        title: "Pianos à queue ALAUDIS en 3D et réalité augmentée",
         description:
           "Découvrez un piano à queue ALAUDIS en 3D, faites-le pivoter, zoomez et voyez en réalité augmentée comment il s’intègre à votre intérieur.",
       },
       es: {
         label: "Descubra los modelos",
-        title: "Pianos de cola ALAUDIS en 3D y RA – véalos en su propio espacio",
+        title: "Pianos de cola ALAUDIS en 3D y realidad aumentada",
         description:
           "Contemple un piano de cola ALAUDIS en 3D, gírelo, amplíelo y compruebe en realidad aumentada cómo queda en su propio espacio.",
       },
@@ -377,7 +377,7 @@ const PAGES = {
       },
       en: {
         label: "Visit the atelier",
-        title: "Visit the ALAUDIS Atelier in Kalisz – Polish Piano Manufactory",
+        title: "Visit the ALAUDIS Atelier in Kalisz – Polish Piano Maker",
         description:
           "Arrange a visit to the ALAUDIS atelier in Kalisz, Poland. See the instruments up close, discover how they are made and talk about your own grand piano.",
       },
@@ -385,23 +385,23 @@ const PAGES = {
         label: "Atelier besuchen",
         title: "Besuchen Sie das ALAUDIS Atelier in Kalisz – Flügelmanufaktur",
         description:
-          "Vereinbaren Sie einen Besuch im ALAUDIS Atelier in Kalisz. Erleben Sie die Instrumente aus der Nähe, ihre Entstehung und sprechen Sie über Ihren eigenen Flügel.",
+          "Vereinbaren Sie einen Besuch im ALAUDIS Atelier in Kalisz: Flügel aus der Nähe erleben, ihre Entstehung kennenlernen und über Ihr eigenes Instrument sprechen.",
       },
       fr: {
         label: "Visiter l’atelier",
-        title: "Visitez l’atelier ALAUDIS à Kalisz – manufacture de pianos",
+        title: "Visitez l’atelier ALAUDIS à Kalisz – pianos à queue polonais",
         description:
           "Organisez une visite de l’atelier ALAUDIS à Kalisz. Découvrez les instruments de près, leur fabrication, et parlons de votre propre piano à queue.",
       },
       es: {
         label: "Visite el atelier",
-        title: "Visite el atelier ALAUDIS en Kalisz – manufactura de pianos",
+        title: "Visite el atelier ALAUDIS en Kalisz – pianos de cola polacos",
         description:
           "Concierte una visita al atelier ALAUDIS en Kalisz. Vea los instrumentos de cerca, conozca cómo se crean y hable con nosotros de su propio piano de cola.",
       },
       it: {
         label: "Visita l’atelier",
-        title: "Visita l’atelier ALAUDIS a Kalisz – manifattura di pianoforti",
+        title: "Visita l’atelier ALAUDIS a Kalisz – pianoforti a coda polacchi",
         description:
           "Prenota una visita all’atelier ALAUDIS di Kalisz. Osserva gli strumenti da vicino, scopri come nascono e parlaci del tuo pianoforte a coda.",
       },
@@ -414,31 +414,31 @@ const PAGES = {
         label: "Zwiedzanie manufaktury",
         title: "Zwiedzanie manufaktury ALAUDIS w Kaliszu – zgłoś udział",
         description:
-          "Zobacz, jak powstają fortepiany ALAUDIS. Bezpłatne, ok. 4-godzinne oprowadzanie po manufakturze w Kaliszu – zgłoś chęć udziału indywidualnie lub w małej grupie.",
+          "Zobacz, jak powstają fortepiany ALAUDIS. Bezpłatne, ok. 4-godzinne oprowadzanie po manufakturze w Kaliszu – zgłoś udział indywidualnie lub w małej grupie.",
       },
       en: {
-        label: "Manufactory tour",
-        title: "ALAUDIS Manufactory Tour in Kalisz – Register Your Interest",
+        label: "Factory tour",
+        title: "ALAUDIS Piano Factory Tour in Kalisz – Register Your Interest",
         description:
-          "See how ALAUDIS grand pianos are made. Register for a free, approx. 4-hour guided tour of the manufactory in Kalisz, Poland – individually or in a small group.",
+          "See how ALAUDIS grand pianos are made. Register for a free guided tour (approx. 4 hours) of our piano factory in Kalisz, Poland – solo or in a small group.",
       },
       de: {
         label: "Manufakturführung",
-        title: "Führung durch die ALAUDIS Manufaktur in Kalisz – jetzt anmelden",
+        title: "Führung durch die ALAUDIS Manufaktur in Kalisz – Anmeldung",
         description:
-          "Erleben Sie, wie ALAUDIS-Flügel entstehen. Melden Sie sich für eine kostenlose, ca. 4-stündige Führung durch die Manufaktur in Kalisz an – einzeln oder in einer kleinen Gruppe.",
+          "Erleben Sie, wie ALAUDIS-Flügel entstehen: kostenlose, ca. 4-stündige Führung durch die Manufaktur in Kalisz. Anmeldung einzeln oder als kleine Gruppe.",
       },
       fr: {
         label: "Visite de la manufacture",
         title: "Visite de la manufacture ALAUDIS à Kalisz – inscrivez-vous",
         description:
-          "Découvrez comment naissent les pianos ALAUDIS. Inscrivez-vous à une visite guidée gratuite d’environ 4 heures de la manufacture à Kalisz – seul ou en petit groupe.",
+          "Comment naît un piano à queue ALAUDIS ? Visite guidée gratuite d’environ 4 heures de la manufacture de Kalisz. Inscrivez-vous seul ou en petit groupe.",
       },
       es: {
         label: "Visita a la manufactura",
         title: "Visita a la manufactura ALAUDIS en Kalisz – envíe su solicitud",
         description:
-          "Descubra cómo nacen los pianos de cola ALAUDIS. Visita guiada gratuita, de unas 4 horas, a la manufactura de Kalisz: solicítela de forma individual o en un grupo reducido.",
+          "Descubra cómo nacen los pianos de cola ALAUDIS. Visita guiada gratuita, de unas 4 horas, a la manufactura de Kalisz: solicítela solo o en un grupo reducido.",
       },
       it: {
         label: "Visita alla manifattura",
@@ -467,13 +467,13 @@ const PAGES = {
         label: "Für Architekten",
         title: "Der Flügel im Raum – ALAUDIS für Architekten und Designer",
         description:
-          "Projektzusammenarbeit mit ALAUDIS: ein Flügel passend zum Interieur, individuelle Oberflächen, 3D-Modelle und Unterstützung für Architekten und Innenarchitekten.",
+          "Zusammenarbeit mit ALAUDIS: ein Flügel passend zum Interieur, individuelle Oberflächen, 3D-Modelle und Unterstützung für Architekten und Innenarchitekten.",
       },
       fr: {
         label: "Pour les architectes",
-        title: "Le piano à queue dans l’intérieur – ALAUDIS pour les architectes",
+        title: "Le piano à queue dans l’intérieur – ALAUDIS pour architectes",
         description:
-          "Collaboration de projet avec ALAUDIS : un piano à queue adapté à l’intérieur, finitions sur mesure, modèles 3D et accompagnement des architectes et décorateurs.",
+          "Collaborez avec ALAUDIS : un piano à queue adapté à l’intérieur, des finitions sur mesure, des modèles 3D et un accompagnement des architectes et décorateurs.",
       },
       es: {
         label: "Para arquitectos",
@@ -483,9 +483,9 @@ const PAGES = {
       },
       it: {
         label: "Per gli architetti",
-        title: "Il pianoforte a coda negli interni – ALAUDIS per gli architetti",
+        title: "Il pianoforte a coda negli interni – ALAUDIS per architetti",
         description:
-          "Collaborazione progettuale con ALAUDIS: un pianoforte a coda in armonia con l’ambiente, finiture personalizzate, modelli 3D e supporto per architetti e interior designer.",
+          "Collaborazione progettuale con ALAUDIS: un pianoforte a coda in armonia con l’ambiente, finiture su misura, modelli 3D e supporto per architetti e designer.",
       },
     },
   },
@@ -512,19 +512,19 @@ const PAGES = {
       },
       fr: {
         label: "Actualités et presse",
-        title: "Actualités et presse – piano ALAUDIS | Premières et concerts",
+        title: "Actualités et presse – piano à queue ALAUDIS | Concerts",
         description:
           "La première du piano à queue ALAUDIS ONE à Kalisz, les concerts, les événements et la presse sur le nouveau piano à queue polonais.",
       },
       es: {
         label: "Actualidad y prensa",
-        title: "Actualidad y prensa – ALAUDIS | Presentaciones y conciertos",
+        title: "Actualidad y prensa – piano de cola ALAUDIS | Conciertos",
         description:
           "La presentación del piano de cola ALAUDIS ONE en Kalisz, conciertos, eventos y artículos de prensa sobre el nuevo piano de cola polaco.",
       },
       it: {
         label: "Notizie e stampa",
-        title: "Notizie e stampa – pianoforte ALAUDIS | Presentazioni e concerti",
+        title: "Notizie e stampa – pianoforte a coda ALAUDIS | Concerti",
         description:
           "La presentazione del pianoforte a coda ALAUDIS ONE a Kalisz, i concerti, gli eventi e gli articoli di stampa sul nuovo pianoforte a coda polacco.",
       },
@@ -535,7 +535,7 @@ const PAGES = {
     copy: {
       pl: {
         label: "Rzemiosło",
-        title: "Rzemiosło ALAUDIS – jak powstaje fortepian, filmy z manufaktury",
+        title: "Rzemiosło ALAUDIS – filmy o tym, jak powstaje fortepian",
         description:
           "Zobacz na filmach, jak w kaliskiej manufakturze powstaje fortepian ALAUDIS: rama żeliwna, płyta rezonansowa, żebra, naciąg i wykończenie.",
       },
@@ -543,7 +543,7 @@ const PAGES = {
         label: "Craft",
         title: "ALAUDIS Craftsmanship – How a Grand Piano Is Made, in Film",
         description:
-          "Watch how an ALAUDIS grand piano is made in the Kalisz manufactory: the cast-iron frame, soundboard, ribs, stringing and finishing.",
+          "Watch how an ALAUDIS grand piano is made in our Kalisz workshop: the cast-iron frame, soundboard, ribs, stringing and finishing.",
       },
       de: {
         label: "Handwerk",
@@ -553,19 +553,19 @@ const PAGES = {
       },
       fr: {
         label: "Savoir-faire",
-        title: "Savoir-faire ALAUDIS – la naissance d’un piano à queue, en vidéo",
+        title: "Savoir-faire ALAUDIS – naissance d’un piano à queue en vidéo",
         description:
-          "Découvrez en vidéo comment naît un piano ALAUDIS à la manufacture de Kalisz : cadre en fonte, table d’harmonie, barres, cordage et finition.",
+          "Découvrez en vidéo comment naît un piano à queue ALAUDIS à la manufacture de Kalisz : cadre en fonte, table d’harmonie, barres, cordage et finition.",
       },
       es: {
         label: "Artesanía",
         title: "Artesanía ALAUDIS – cómo nace un piano de cola, en vídeo",
         description:
-          "Vea en vídeo cómo nace un piano de cola ALAUDIS en la manufactura de Kalisz: bastidor de hierro fundido, tabla armónica, barras armónicas, encordado y acabado.",
+          "Vea en vídeo cómo nace un piano de cola ALAUDIS en la manufactura de Kalisz: bastidor de hierro fundido, tabla armónica, barras, encordado y acabado.",
       },
       it: {
         label: "Artigianato",
-        title: "Artigianato ALAUDIS – come nasce un pianoforte a coda, in video",
+        title: "Artigianato ALAUDIS – come nasce un pianoforte a coda in video",
         description:
           "Guarda nei video come nasce un pianoforte a coda ALAUDIS nella manifattura di Kalisz: telaio in ghisa, tavola armonica, catene, incordatura e finitura.",
       },
@@ -578,37 +578,37 @@ const PAGES = {
         label: "Artyści",
         title: "Artyści przy fortepianie ALAUDIS – Możdżer, Byrdy, Per Quattro",
         description:
-          "Leszek Możdżer, Łukasz Byrdy, duet Per Quattro, Adam Makowicz: pianiści, którzy zagrali na polskim fortepianie ALAUDIS, oraz Peter Salisbury, autor jego intonacji.",
+          "Leszek Możdżer, Łukasz Byrdy, duet Per Quattro, Adam Makowicz: pianiści, którzy zagrali na fortepianie ALAUDIS, oraz Peter Salisbury, autor jego intonacji.",
       },
       en: {
         label: "Artists",
-        title: "Artists at the ALAUDIS Grand Piano – Możdżer, Byrdy, Per Quattro",
+        title: "Artists at the ALAUDIS Grand Piano – Możdżer, Byrdy",
         description:
-          "Leszek Możdżer, Łukasz Byrdy, the Per Quattro duo, Adam Makowicz: the pianists who have played the Polish ALAUDIS grand piano, and Peter Salisbury, who voiced it.",
+          "Leszek Możdżer, Łukasz Byrdy, the Per Quattro duo, Adam Makowicz: pianists who have played the ALAUDIS grand piano, and Peter Salisbury, who voiced it.",
       },
       de: {
         label: "Künstler",
         title: "Künstler am ALAUDIS Flügel – Możdżer, Byrdy, Per Quattro",
         description:
-          "Leszek Możdżer, Łukasz Byrdy, das Duo Per Quattro, Adam Makowicz: Pianisten, die auf dem polnischen ALAUDIS Flügel gespielt haben, und Peter Salisbury, der ihn intonierte.",
+          "Leszek Możdżer, Łukasz Byrdy, das Duo Per Quattro, Adam Makowicz: Pianisten, die den ALAUDIS Flügel gespielt haben, und Peter Salisbury, der ihn intonierte.",
       },
       fr: {
         label: "Artistes",
-        title: "Les artistes au piano ALAUDIS – Możdżer, Byrdy, Per Quattro",
+        title: "Artistes au piano à queue ALAUDIS – Możdżer, Byrdy",
         description:
-          "Leszek Możdżer, Łukasz Byrdy, le duo Per Quattro, Adam Makowicz : les pianistes qui ont joué sur le piano à queue polonais ALAUDIS, et Peter Salisbury, qui l’a harmonisé.",
+          "Leszek Możdżer, Łukasz Byrdy, le duo Per Quattro, Adam Makowicz : ils ont joué sur le piano à queue ALAUDIS, harmonisé par Peter Salisbury.",
       },
       es: {
         label: "Artistas",
-        title: "Artistas al piano de cola ALAUDIS – Możdżer, Byrdy, Per Quattro",
+        title: "Artistas al piano de cola ALAUDIS – Możdżer, Byrdy",
         description:
-          "Leszek Możdżer, Łukasz Byrdy, el dúo Per Quattro, Adam Makowicz: los pianistas que han tocado el piano de cola polaco ALAUDIS, y Peter Salisbury, autor de su entonación.",
+          "Leszek Możdżer, Łukasz Byrdy, el dúo Per Quattro, Adam Makowicz: pianistas que han tocado el piano de cola ALAUDIS, y Peter Salisbury, autor de su entonación.",
       },
       it: {
         label: "Artisti",
-        title: "Gli artisti al pianoforte ALAUDIS – Możdżer, Byrdy, Per Quattro",
+        title: "Gli artisti al pianoforte a coda ALAUDIS – Możdżer, Byrdy",
         description:
-          "Leszek Możdżer, Łukasz Byrdy, il duo Per Quattro, Adam Makowicz: i pianisti che hanno suonato il pianoforte polacco ALAUDIS, e Peter Salisbury, che lo ha intonato.",
+          "Leszek Możdżer, Łukasz Byrdy, il duo Per Quattro, Adam Makowicz: pianisti che hanno suonato il pianoforte a coda ALAUDIS, e Peter Salisbury, suo intonatore.",
       },
     },
   },
@@ -619,37 +619,37 @@ const PAGES = {
         label: "Kaliska tradycja",
         title: "Kalisz, miasto fortepianów – od Fibigera i Calisii do ALAUDIS",
         description:
-          "Historia budowy fortepianów w Kaliszu: pracownia Arnolda Fibigera z 1873 roku, fabryka Calisia i ALAUDIS, pierwszy od lat fortepian skonstruowany i wykonany w Kaliszu.",
+          "Historia budowy fortepianów w Kaliszu: pracownia Arnolda Fibigera z 1873 roku, fabryka Calisia i ALAUDIS – pierwszy od lat fortepian zbudowany w Kaliszu.",
       },
       en: {
         label: "Kalisz heritage",
         title: "Kalisz, a City of Pianos – from Fibiger and Calisia to ALAUDIS",
         description:
-          "The history of piano making in Kalisz, Poland: Arnold Fibiger’s workshop of 1873, the Calisia factory and ALAUDIS, the first grand piano designed and built in Kalisz in years.",
+          "Piano making in Kalisz, Poland: Arnold Fibiger’s workshop of 1873, the Calisia factory and ALAUDIS, the first grand piano designed and built here in years.",
       },
       de: {
-        label: "Kalischer Tradition",
-        title: "Kalisz, Stadt der Flügel – von Fibiger und Calisia zu ALAUDIS",
+        label: "Klavierbautradition in Kalisz",
+        title: "Klavierstadt Kalisz – von Fibiger und Calisia zu ALAUDIS",
         description:
-          "Die Geschichte des Klavierbaus in Kalisz: Arnold Fibigers Werkstatt von 1873, die Fabrik Calisia und ALAUDIS, der erste seit Jahren in Kalisz konstruierte und gebaute Flügel.",
+          "Klavierbau in Kalisz: Arnold Fibigers Werkstatt von 1873, die Fabrik Calisia und ALAUDIS, der erste seit Jahren in Kalisz konstruierte und gebaute Flügel.",
       },
       fr: {
         label: "Tradition de Kalisz",
         title: "Kalisz, ville des pianos – de Fibiger et Calisia à ALAUDIS",
         description:
-          "L’histoire de la facture de pianos à Kalisz : l’atelier d’Arnold Fibiger de 1873, la fabrique Calisia et ALAUDIS, premier piano à queue conçu et construit à Kalisz depuis des années.",
+          "La facture de pianos à Kalisz : atelier d’Arnold Fibiger (1873), fabrique Calisia et ALAUDIS, premier piano à queue conçu et construit ici depuis des années.",
       },
       es: {
         label: "Tradición de Kalisz",
         title: "Kalisz, ciudad de pianos – de Fibiger y Calisia a ALAUDIS",
         description:
-          "La historia de la construcción de pianos en Kalisz: el taller de Arnold Fibiger (1873), la fábrica Calisia y ALAUDIS, el primer piano de cola diseñado y construido en Kalisz en años.",
+          "La construcción de pianos en Kalisz: el taller de Arnold Fibiger (1873), la fábrica Calisia y ALAUDIS, primer piano de cola construido en la ciudad en años.",
       },
       it: {
         label: "La tradizione di Kalisz",
         title: "Kalisz, città dei pianoforti – da Fibiger e Calisia ad ALAUDIS",
         description:
-          "La costruzione di pianoforti a Kalisz: il laboratorio di Arnold Fibiger (1873), la fabbrica Calisia e ALAUDIS, primo pianoforte a coda progettato e costruito in città dopo anni.",
+          "I pianoforti a Kalisz: il laboratorio di Arnold Fibiger (1873), la fabbrica Calisia e ALAUDIS, primo pianoforte a coda progettato e costruito qui dopo anni.",
       },
     },
   },
@@ -666,7 +666,7 @@ const PAGES = {
         label: "Privacy policy",
         title: "Privacy Policy – ALAUDIS",
         description:
-          "How ALAUDIS (SAP Renovation Sp. z o.o.) processes personal data: contact, manufactory tour applications, cookies, statistics and your rights.",
+          "How ALAUDIS (SAP Renovation Sp. z o.o.) processes personal data: contact, piano factory tour applications, cookies, statistics and your rights.",
       },
       de: {
         label: "Datenschutz",
@@ -678,7 +678,7 @@ const PAGES = {
         label: "Politique de confidentialité",
         title: "Politique de confidentialité – ALAUDIS",
         description:
-          "Comment ALAUDIS (SAP Renovation Sp. z o.o.) traite les données personnelles : contact, inscriptions à la visite de la manufacture, cookies, statistiques et vos droits.",
+          "Comment ALAUDIS (SAP Renovation Sp. z o.o.) traite les données personnelles : contact, inscriptions aux visites, cookies, statistiques et vos droits.",
       },
       es: {
         label: "Política de privacidad",
@@ -690,7 +690,7 @@ const PAGES = {
         label: "Informativa sulla privacy",
         title: "Informativa sulla privacy – ALAUDIS",
         description:
-          "Come ALAUDIS (SAP Renovation Sp. z o.o.) tratta i dati personali: contatti, richieste di visita alla manifattura, cookie, statistiche e diritti degli interessati.",
+          "Come ALAUDIS (SAP Renovation Sp. z o.o.) tratta i dati personali: contatti, richieste di visita alla manifattura, cookie, statistiche e i tuoi diritti.",
       },
     },
   },
@@ -792,7 +792,7 @@ const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 
 const ORGANIZATION_DESCRIPTION: Record<SeoLocale, string> = {
   pl: "ALAUDIS to polski producent fortepianów. Instrumenty powstają ręcznie w manufakturze SAP Renovation w Kaliszu.",
-  en: "ALAUDIS is a Polish grand piano maker. The instruments are built by hand in the SAP Renovation manufactory in Kalisz, Poland.",
+  en: "ALAUDIS is a Polish grand piano maker. The instruments are built by hand in the SAP Renovation workshop in Kalisz, Poland.",
   de: "ALAUDIS ist ein polnischer Flügelhersteller. Die Instrumente entstehen in Handarbeit in der Manufaktur von SAP Renovation in Kalisz.",
   fr: "ALAUDIS est un facteur de pianos à queue polonais. Les instruments sont fabriqués à la main dans la manufacture SAP Renovation à Kalisz.",
   es: "ALAUDIS es un fabricante polaco de pianos de cola. Los instrumentos se construyen a mano en la manufactura de SAP Renovation en Kalisz.",

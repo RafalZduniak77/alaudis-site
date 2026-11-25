@@ -94,7 +94,7 @@ export const tourCopy: Record<TourLanguage, Copy> = {
     home: "/en", atelier: "/en/odwiedz-atelier",
     hero: {
       eyebrow: "ALAUDIS Manufactory · Kalisz",
-      title: "Manufactory tour",
+      title: "Factory tour",
       text: "See how an ALAUDIS grand piano is made — from the wood and the soundboard, through the finish, to the final regulation and voicing. The free guided tour takes about 4 hours — for individuals or small groups, by prior registration.",
       cta: "Register your interest",
     },
@@ -111,7 +111,7 @@ export const tourCopy: Record<TourLanguage, Copy> = {
       { title: "Confirmation", text: "We will contact you to agree on the exact day and time of the tour." },
       { title: "Visit", text: "A guided tour of the manufactory with our team, ending with the chance to play an ALAUDIS grand piano." },
     ],
-    formEyebrow: "Registration form", formTitle: "Register for a manufactory tour",
+    formEyebrow: "Registration form", formTitle: "Register for a factory tour",
     formText: "Send your request — we will reply and confirm the date. A request is not yet a booking.",
     address: "Obozowa 18, 62-800 Kalisz, Poland",
     highlights: [
@@ -128,7 +128,7 @@ export const tourCopy: Record<TourLanguage, Copy> = {
       message: "Message", messagePlaceholder: "E.g. school group, interest in a specific model, accessibility needs…",
       consent: "I agree to be contacted by ALAUDIS / SAP Renovation regarding my tour request.",
       required: "* required fields", choose: "Choose…",
-      submit: "Send request", subject: "ALAUDIS manufactory tour request",
+      submit: "Send request", subject: "ALAUDIS factory tour request",
       sentEyebrow: "Almost done", sentTitle: "Your message is ready in your e-mail app",
       sentText: "We have opened a ready-made message with your request — just send it. If your e-mail app did not open, please write directly to",
       back: "Back to the form",

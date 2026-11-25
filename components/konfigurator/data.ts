@@ -293,3 +293,20 @@ export function normalizeConfiguratorModel(
 
   return "178";
 }
+
+// ----------------------------------------------------------
+// POLSKIE NAZWY OPCJI DO WYŚWIETLENIA
+// ----------------------------------------------------------
+// Klucze opcji są też nazwami plików ze zdjęciami, dlatego zostają bez zmian.
+// Tutaj poprawiamy tylko to, co widzi klient (ekran, e-mail, PDF).
+// ----------------------------------------------------------
+const polishOptionLabels: Record<string, string> = {
+  "Bialy poliester połysk": "Biały poliester połysk",
+  "Czarny Poliester połysk": "Czarny poliester połysk",
+  "Ferrari poliester połysk": "Czerwony poliester połysk (czerwień Ferrari)",
+  "Okleina Jabłoń Indyjska -połysk": "Okleina Jabłoń Indyjska – połysk",
+};
+
+export function polishOptionLabel(value: string) {
+  return polishOptionLabels[value] || value;
+}

@@ -16,8 +16,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 // ----------------------------------------------------------
 // PROPSY KOMPONENTU
@@ -53,9 +53,40 @@ function getHomeHref(pathname: string): "/" | "/en" | "/de" | "/fr" | "/es" | "/
   return "/";
 }
 
+// Języki w przełączniku: ten sam konfigurator (i ten sam model) w innej wersji językowej.
+const LANGUAGES = ["pl", "en", "de", "fr", "es", "it"] as const;
+const LANGUAGE_LABEL: Record<string, string> = {
+  "/": "Wybierz język",
+  "/en": "Choose language",
+  "/de": "Sprache wählen",
+  "/fr": "Choisir la langue",
+  "/es": "Elegir idioma",
+  "/it": "Scegli la lingua",
+};
+
 export default function PreviewPanel({ imageSrc }: Props) {
   const pathname = usePathname() || "/";
   const homeHref = useMemo(() => getHomeHref(pathname), [pathname]);
+  const model = useSearchParams().get("model");
+  const activeLanguage = homeHref === "/" ? "pl" : homeHref.slice(1);
+  const languageHref = (language: string) =>
+    `${language === "pl" ? "" : `/${language}`}/konfigurator${model ? `?model=${encodeURIComponent(model)}` : ""}`;
+
+  // Lista języków zamyka się po kliknięciu obok i po Escape.
+  const languages = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    const close = (event: Event) => {
+      const menu = languages.current;
+      if (!menu?.open) return;
+      if (event instanceof KeyboardEvent ? event.key === "Escape" : !menu.contains(event.target as Node)) menu.open = false;
+    };
+    document.addEventListener("pointerdown", close);
+    document.addEventListener("keydown", close);
+    return () => {
+      document.removeEventListener("pointerdown", close);
+      document.removeEventListener("keydown", close);
+    };
+  }, []);
   const labels = {
     "/": {
       back: "Powrót do strony głównej",
@@ -180,6 +211,35 @@ export default function PreviewPanel({ imageSrc }: Props) {
       >
         ←
       </Link>
+
+      {/* ====================================================
+          PRZEŁĄCZNIK JĘZYKA
+         ==================================================== */}
+      <details ref={languages} className="group absolute right-6 top-6 z-50 lg:right-[560px] lg:top-10">
+        <summary
+          aria-label={LANGUAGE_LABEL[homeHref]}
+          className="flex h-10 cursor-pointer list-none items-center gap-2 rounded-full border border-white/25 bg-black/60 px-4 text-[11px] uppercase tracking-[0.2em] text-white backdrop-blur lg:h-12 [&::-webkit-details-marker]:hidden"
+        >
+          {activeLanguage.toUpperCase()}
+          <span aria-hidden="true" className="text-xs transition-transform group-open:rotate-180">▾</span>
+        </summary>
+        <nav
+          aria-label={LANGUAGE_LABEL[homeHref]}
+          className="absolute right-0 top-[calc(100%+8px)] min-w-[120px] overflow-hidden rounded-2xl border border-white/10 bg-[#080808ed] shadow-2xl backdrop-blur-xl"
+        >
+          {LANGUAGES.map((language) => (
+            <Link
+              key={language}
+              href={languageHref(language)}
+              lang={language}
+              aria-current={language === activeLanguage ? "page" : undefined}
+              className="block border-b border-white/10 px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white/90 last:border-b-0 hover:bg-white/10 aria-[current]:bg-white/10"
+            >
+              {language.toUpperCase()}
+            </Link>
+          ))}
+        </nav>
+      </details>
 
       {/* ====================================================
           LOGO U GÓRY

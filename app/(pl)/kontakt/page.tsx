@@ -89,7 +89,7 @@ function MessageMenu({
         </span>
       </summary>
 
-      <div className="absolute left-0 top-full z-40 mt-3 min-w-[220px] overflow-hidden rounded-2xl border border-[#426f57]/80 bg-[#193629]/96 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
+      <div className="absolute right-0 top-full z-40 mt-3 min-w-[220px] sm:left-0 sm:right-auto overflow-hidden rounded-2xl border border-[#426f57]/80 bg-[#193629]/96 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
         <a
           href={getSmsHref(phoneRaw, personName)}
           className="block px-5 py-3 text-[11px] uppercase tracking-[0.24em] text-white transition hover:bg-[#28513d] hover:text-white"
@@ -185,12 +185,12 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <p className="mt-1.5 break-all text-sm sm:text-base lg:text-sm xl:mt-2 xl:text-lg text-white/95">
+                <p className="mt-1.5 break-words text-sm sm:text-base lg:text-sm xl:mt-2 xl:text-lg text-white/95">
                   <a
                     href={`mailto:${PAULINA_EMAIL}`}
                     className="transition hover:text-white"
                   >
-                    {PAULINA_EMAIL}
+                    {PAULINA_EMAIL.split("@")[0]}@<wbr />{PAULINA_EMAIL.split("@")[1]}
                   </a>
                 </p>
 
@@ -251,12 +251,12 @@ export default function KontaktPage() {
                   </a>
                 </p>
 
-                <p className="mt-1.5 break-all text-sm sm:text-base lg:text-sm xl:mt-2 xl:text-lg text-white/95">
+                <p className="mt-1.5 break-words text-sm sm:text-base lg:text-sm xl:mt-2 xl:text-lg text-white/95">
                   <a
                     href={`mailto:${KRZYSZTOF_EMAIL}`}
                     className="transition hover:text-white"
                   >
-                    {KRZYSZTOF_EMAIL}
+                    {KRZYSZTOF_EMAIL.split("@")[0]}@<wbr />{KRZYSZTOF_EMAIL.split("@")[1]}
                   </a>
                 </p>
 
