@@ -6,7 +6,7 @@
 //
 // Co opisuje polityka (stan strony na dzień wersji):
 // - formularz zwiedzania wysyła e-mail ze strony (bez zapisu na serwerze),
-//   konfigurator przygotowuje e-mail w programie pocztowym odwiedzającego,
+//   konfigurator wysyła konfigurację tak samo (awaryjnie: e-mail w programie odwiedzającego),
 // - statystyki Vercel włączają się dopiero po zgodzie,
 // - podgląd 360 ładuje się z serwisu Sirv, galeria z Sanity.
 // ==========================================================
@@ -38,7 +38,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         title: "2. Jakie dane przetwarzamy",
         paragraphs: [
           "Przetwarzamy dane, które sam nam podajesz, kontaktując się z nami e-mailem, telefonicznie, SMS-em lub przez WhatsApp, zgłaszając się na zwiedzanie manufaktury albo wysyłając konfigurację fortepianu: imię i nazwisko, adres e-mail, numer telefonu, liczbę osób i proponowane terminy wizyty, wybraną konfigurację instrumentu oraz treść wiadomości.",
-          "Formularz zgłoszenia na zwiedzanie wysyła Twoje dane bezpośrednio na naszą skrzynkę e-mail po kliknięciu „Wyślij zgłoszenie” — strona przekazuje je dalej i nie zapisuje ich na serwerze. Konfigurator przygotowuje gotową wiadomość w Twoim programie pocztowym — dane trafiają do nas dopiero wtedy, gdy sam ją wyślesz.",
+          "Formularz zgłoszenia na zwiedzanie wysyła Twoje dane bezpośrednio na naszą skrzynkę e-mail po kliknięciu „Wyślij zgłoszenie” — strona przekazuje je dalej i nie zapisuje ich na serwerze. Tak samo działa okno „Wyślij konfigurację” w konfiguratorze: po kliknięciu „Wyślij” Twoje dane kontaktowe i wybrana konfiguracja trafiają bezpośrednio na naszą skrzynkę e-mail, bez zapisu na serwerze. Tylko gdy wysyłka ze strony jest chwilowo niedostępna, strona przygotowuje gotową wiadomość w Twoim programie pocztowym — wtedy dane trafiają do nas dopiero, gdy sam ją wyślesz.",
           "Podanie danych jest dobrowolne, ale bez nich nie możemy odpowiedzieć na zapytanie, umówić wizyty ani przygotować wyceny.",
         ],
       },
@@ -98,7 +98,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         ],
       },
     ],
-    updated: "Wersja z dnia 24 listopada 2026 r.",
+    updated: "Wersja z dnia 25 listopada 2026 r.",
     cookieSettings: "Ustawienia cookies",
     questionsTitle: "Masz pytania?",
     questionsText: "Napisz do nas — chętnie wyjaśnimy, jak dbamy o Twoje dane.",
@@ -120,7 +120,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         title: "2. What data we process",
         paragraphs: [
           "We process the data you give us yourself when you contact us by e-mail, telephone, text message or WhatsApp, apply for a factory tour or send us a piano configuration: your name, e-mail address, telephone number, the number of visitors and proposed dates, the chosen configuration of the instrument and the content of your message.",
-          "The tour application form sends your data directly to our e-mail inbox when you click “Send request” — the website passes it on and does not store it on the server. The configurator prepares a ready message in your own e-mail program — the data reaches us only when you send it yourself.",
+          "The tour application form sends your data directly to our e-mail inbox when you click “Send request” — the website passes it on and does not store it on the server. The “Send configuration” window in the configurator works the same way: when you click “Send”, your contact details and the chosen configuration go directly to our e-mail inbox and are not stored on the server. Only if sending from the website is temporarily unavailable does the site prepare a ready message in your own e-mail program — in that case the data reaches us only when you send it yourself.",
           "Providing data is voluntary, but without it we cannot answer your enquiry, arrange a visit or prepare a quotation.",
         ],
       },
@@ -180,7 +180,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         ],
       },
     ],
-    updated: "Version dated 24 November 2026.",
+    updated: "Version dated 25 November 2026.",
     cookieSettings: "Cookie settings",
     questionsTitle: "Any questions?",
     questionsText: "Write to us — we will gladly explain how we look after your data.",
@@ -202,7 +202,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         title: "2. Welche Daten wir verarbeiten",
         paragraphs: [
           "Wir verarbeiten die Daten, die Sie uns selbst mitteilen, wenn Sie uns per E-Mail, Telefon, SMS oder WhatsApp kontaktieren, sich für eine Manufakturführung anmelden oder uns eine Flügelkonfiguration senden: Vor- und Nachname, E-Mail-Adresse, Telefonnummer, Personenzahl und Terminvorschläge, die gewählte Konfiguration des Instruments sowie den Inhalt Ihrer Nachricht.",
-          "Das Formular zur Anmeldung für die Führung sendet Ihre Daten nach dem Klick auf „Anfrage senden“ direkt an unser E-Mail-Postfach — die Website leitet sie weiter und speichert sie nicht auf dem Server. Der Konfigurator bereitet eine fertige Nachricht in Ihrem eigenen E-Mail-Programm vor — die Daten erreichen uns erst, wenn Sie die Nachricht selbst absenden.",
+          "Das Formular zur Anmeldung für die Führung sendet Ihre Daten nach dem Klick auf „Anfrage senden“ direkt an unser E-Mail-Postfach — die Website leitet sie weiter und speichert sie nicht auf dem Server. Genauso funktioniert das Fenster „Konfiguration senden“ im Konfigurator: Nach dem Klick auf „Senden“ gehen Ihre Kontaktdaten und die gewählte Konfiguration direkt an unser E-Mail-Postfach und werden nicht auf dem Server gespeichert. Nur wenn der Versand über die Website vorübergehend nicht verfügbar ist, bereitet die Website eine fertige Nachricht in Ihrem eigenen E-Mail-Programm vor — dann erreichen uns die Daten erst, wenn Sie die Nachricht selbst absenden.",
           "Die Angabe der Daten ist freiwillig; ohne sie können wir jedoch Ihre Anfrage nicht beantworten, keinen Besuch vereinbaren und kein Angebot erstellen.",
         ],
       },
@@ -262,7 +262,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         ],
       },
     ],
-    updated: "Fassung vom 24. November 2026.",
+    updated: "Fassung vom 25. November 2026.",
     cookieSettings: "Cookie-Einstellungen",
     questionsTitle: "Haben Sie Fragen?",
     questionsText: "Schreiben Sie uns — wir erklären gern, wie wir mit Ihren Daten umgehen.",
@@ -284,7 +284,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         title: "2. Quelles données nous traitons",
         paragraphs: [
           "Nous traitons les données que vous nous communiquez vous-même en nous contactant par e-mail, par téléphone, par SMS ou via WhatsApp, en vous inscrivant à une visite de la manufacture ou en nous envoyant une configuration de piano : nom et prénom, adresse e-mail, numéro de téléphone, nombre de personnes et dates proposées, configuration choisie de l’instrument et contenu de votre message.",
-          "Le formulaire d’inscription à la visite envoie vos données directement à notre boîte e-mail lorsque vous cliquez sur « Envoyer la demande » — le site les transmet et ne les enregistre pas sur le serveur. Le configurateur prépare un message prêt à l’envoi dans votre propre logiciel de messagerie — les données ne nous parviennent que lorsque vous l’envoyez vous-même.",
+          "Le formulaire d’inscription à la visite envoie vos données directement à notre boîte e-mail lorsque vous cliquez sur « Envoyer la demande » — le site les transmet et ne les enregistre pas sur le serveur. La fenêtre « Envoyer la configuration » du configurateur fonctionne de la même manière : lorsque vous cliquez sur « Envoyer », vos coordonnées et la configuration choisie sont transmises directement à notre boîte e-mail, sans être enregistrées sur le serveur. C’est seulement lorsque l’envoi depuis le site est momentanément indisponible que le site prépare un message prêt à l’envoi dans votre propre logiciel de messagerie — les données ne nous parviennent alors que lorsque vous l’envoyez vous-même.",
           "La communication des données est facultative, mais sans elles nous ne pouvons ni répondre à votre demande, ni organiser une visite, ni établir un devis.",
         ],
       },
@@ -344,7 +344,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         ],
       },
     ],
-    updated: "Version du 24 novembre 2026.",
+    updated: "Version du 25 novembre 2026.",
     cookieSettings: "Paramètres des cookies",
     questionsTitle: "Des questions ?",
     questionsText: "Écrivez-nous — nous vous expliquerons volontiers comment nous protégeons vos données.",
@@ -366,7 +366,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         title: "2. Qué datos tratamos",
         paragraphs: [
           "Tratamos los datos que usted nos facilita directamente al ponerse en contacto con nosotros por correo electrónico, por teléfono, por SMS o por WhatsApp, al solicitar una visita a la manufactura o al enviarnos una configuración de piano: nombre y apellidos, dirección de correo electrónico, número de teléfono, número de personas y fechas propuestas para la visita, la configuración elegida del instrumento y el contenido de su mensaje.",
-          "El formulario de solicitud de visita envía sus datos directamente a nuestro buzón de correo electrónico cuando hace clic en «Enviar solicitud»: el sitio web los transmite y no los guarda en el servidor. El configurador prepara un mensaje listo para enviar en su propio programa de correo: los datos solo nos llegan cuando es usted quien lo envía.",
+          "El formulario de solicitud de visita envía sus datos directamente a nuestro buzón de correo electrónico cuando hace clic en «Enviar solicitud»: el sitio web los transmite y no los guarda en el servidor. La ventana «Enviar la configuración» del configurador funciona del mismo modo: al hacer clic en «Enviar», sus datos de contacto y la configuración elegida llegan directamente a nuestro buzón de correo electrónico, sin guardarse en el servidor. Solo cuando el envío desde el sitio web no está disponible temporalmente, el sitio prepara un mensaje listo para enviar en su propio programa de correo: en ese caso, los datos solo nos llegan cuando es usted quien lo envía.",
           "Facilitar los datos es voluntario, pero sin ellos no podemos responder a su consulta, concertar una visita ni preparar un presupuesto.",
         ],
       },
@@ -426,7 +426,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         ],
       },
     ],
-    updated: "Versión del 24 de noviembre de 2026.",
+    updated: "Versión del 25 de noviembre de 2026.",
     cookieSettings: "Configuración de cookies",
     questionsTitle: "¿Tiene alguna pregunta?",
     questionsText: "Escríbanos: le explicaremos con mucho gusto cómo cuidamos sus datos.",
@@ -448,7 +448,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         title: "2. Quali dati trattiamo",
         paragraphs: [
           "Trattiamo i dati che l’utente ci fornisce direttamente quando ci contatta via e-mail, per telefono, tramite SMS o WhatsApp, quando richiede una visita alla manifattura o ci invia la configurazione di un pianoforte: nome e cognome, indirizzo e-mail, numero di telefono, numero di persone e date proposte per la visita, configurazione scelta per lo strumento e contenuto del messaggio.",
-          "Il modulo di richiesta della visita invia i dati dell’utente direttamente alla nostra casella di posta elettronica dopo il clic su «Invia la richiesta»: il sito li inoltra e non li salva sul server. Il configuratore prepara un messaggio già pronto nel programma di posta dell’utente: i dati ci arrivano soltanto quando è l’utente stesso a inviarlo.",
+          "Il modulo di richiesta della visita invia i dati dell’utente direttamente alla nostra casella di posta elettronica dopo il clic su «Invia la richiesta»: il sito li inoltra e non li salva sul server. La finestra «Invia la configurazione» del configuratore funziona allo stesso modo: dopo il clic su «Invia», i recapiti dell’utente e la configurazione scelta arrivano direttamente alla nostra casella di posta elettronica, senza essere salvati sul server. Solo quando l’invio dal sito è temporaneamente non disponibile, il sito prepara un messaggio già pronto nel programma di posta dell’utente: in tal caso i dati ci arrivano soltanto quando è l’utente stesso a inviarlo.",
           "Il conferimento dei dati è facoltativo, ma senza di essi non possiamo rispondere alla richiesta, fissare una visita né preparare un preventivo.",
         ],
       },
@@ -508,7 +508,7 @@ export const privacyCopy: Record<PrivacyLocale, {
         ],
       },
     ],
-    updated: "Versione del 24 novembre 2026.",
+    updated: "Versione del 25 novembre 2026.",
     cookieSettings: "Impostazioni dei cookie",
     questionsTitle: "Domande?",
     questionsText: "Basta scriverci: spiegheremo volentieri come ci prendiamo cura dei dati personali.",
