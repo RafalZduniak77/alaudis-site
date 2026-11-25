@@ -24,7 +24,7 @@ const COPY: Record<Language, {
     pillars: [
       { label: "01 · Projekt", title: "Wygląd i wykończenie", text: "Poliester w wysokim połysku — biały, czarny lub czerwony — polerowany heban albo okleina z jabłoni indyjskiej. Do tego kolor ramy i sukna." },
       { label: "02 · Brzmienie", title: "Drewno i profil brzmienia", text: "Dno rezonansowe Strunz lub Ciresa, mostki z klonu lub buku, struny Röslau lub Paulello oraz struny basowe Heller lub SAP Renovation." },
-      { label: "03 · Technika", title: "Mechanika i klawiatura", text: "Mechanizm, młotki i tłumiki ALAUDIS, Louis Renner lub Abel oraz klawiatura ALAUDIS lub Kluge — dobrane do sposobu gry." },
+      { label: "03 · Technika", title: "Mechanika i klawiatura", text: "Mechanizm i tłumiki ALAUDIS lub Louis Renner, młotki Louis Renner lub Abel oraz klawiatura ALAUDIS lub Kluge — dobrane do sposobu gry." },
     ],
     priceLabel: "Cena", price: "Na zapytanie", onRequest: "Każdą wycenę przygotowujemy indywidualnie — zależy od modelu i wybranej konfiguracji.",
     configure: "Skonfiguruj swój fortepian", quote: "Zapytaj o wycenę",
@@ -36,7 +36,7 @@ const COPY: Record<Language, {
     pillars: [
       { label: "01 · Design", title: "Appearance and finish", text: "High-gloss polyester in white, black or red, polished ebony or Indian apple veneer — plus the colour of the frame and the cloth." },
       { label: "02 · Sound", title: "Wood and tonal profile", text: "A Strunz or Ciresa soundboard, maple or beech bridges, Röslau or Paulello strings, and Heller or SAP Renovation bass strings." },
-      { label: "03 · Technology", title: "Action and keyboard", text: "ALAUDIS, Louis Renner or Abel action, hammers and dampers, with an ALAUDIS or Kluge keyboard — matched to the way you play." },
+      { label: "03 · Technology", title: "Action and keyboard", text: "An ALAUDIS or Louis Renner action and dampers, Louis Renner or Abel hammers, and an ALAUDIS or Kluge keyboard — matched to the way you play." },
     ],
     priceLabel: "Price", price: "On request", onRequest: "Every quotation is prepared individually — it depends on the model and the chosen configuration.",
     configure: "Configure your piano", quote: "Request a quote",
@@ -48,7 +48,7 @@ const COPY: Record<Language, {
     pillars: [
       { label: "01 · Design", title: "Erscheinung und Oberfläche", text: "Polyester in Hochglanz — weiß, schwarz oder rot —, poliertes Ebenholz oder Furnier aus Indischem Apfelbaum. Dazu die Farbe von Rahmen und Tuch." },
       { label: "02 · Klang", title: "Holz und Klangprofil", text: "Resonanzboden von Strunz oder Ciresa, Stege aus Ahorn oder Buche, Saiten von Röslau oder Paulello sowie Basssaiten von Heller oder SAP Renovation." },
-      { label: "03 · Technik", title: "Mechanik und Klaviatur", text: "Mechanik, Hämmer und Dämpfer von ALAUDIS, Louis Renner oder Abel sowie eine Klaviatur von ALAUDIS oder Kluge — abgestimmt auf Ihre Spielweise." },
+      { label: "03 · Technik", title: "Mechanik und Klaviatur", text: "Mechanik und Dämpfer von ALAUDIS oder Louis Renner, Hämmer von Louis Renner oder Abel sowie eine Klaviatur von ALAUDIS oder Kluge — abgestimmt auf Ihre Spielweise." },
     ],
     priceLabel: "Preis", price: "Auf Anfrage", onRequest: "Jedes Angebot erstellen wir individuell — abhängig vom Modell und der gewählten Konfiguration.",
     configure: "Ihren Flügel konfigurieren", quote: "Angebot anfragen",
@@ -60,7 +60,7 @@ const COPY: Record<Language, {
     pillars: [
       { label: "01 · Design", title: "Apparence et finition", text: "Polyester brillant blanc, noir ou rouge, ébène poli ou placage de pommier indien — ainsi que la couleur du cadre et du feutre." },
       { label: "02 · Son", title: "Bois et profil sonore", text: "Table d’harmonie Strunz ou Ciresa, chevalets en érable ou en hêtre, cordes Röslau ou Paulello et cordes de basse Heller ou SAP Renovation." },
-      { label: "03 · Technique", title: "Mécanique et clavier", text: "Mécanique, marteaux et étouffoirs ALAUDIS, Louis Renner ou Abel, avec un clavier ALAUDIS ou Kluge — adaptés à votre jeu." },
+      { label: "03 · Technique", title: "Mécanique et clavier", text: "Mécanique et étouffoirs ALAUDIS ou Louis Renner, marteaux Louis Renner ou Abel, avec un clavier ALAUDIS ou Kluge — adaptés à votre jeu." },
     ],
     priceLabel: "Prix", price: "Sur demande", onRequest: "Chaque devis est établi individuellement — selon le modèle et la configuration choisie.",
     configure: "Configurer votre piano", quote: "Demander un devis",
@@ -72,7 +72,7 @@ const COPY: Record<Language, {
     pillars: [
       { label: "01 · Diseño", title: "Aspecto y acabado", text: "Poliéster de alto brillo (blanco, negro o rojo), ébano pulido o chapa de manzano indio. A ello se suma el color del bastidor y del fieltro." },
       { label: "02 · Sonido", title: "Madera y perfil sonoro", text: "Tabla armónica Strunz o Ciresa, puentes de arce o de haya, cuerdas Röslau o Paulello y cuerdas graves Heller o SAP Renovation." },
-      { label: "03 · Técnica", title: "Mecanismo y teclado", text: "Mecanismo, macillos y apagadores ALAUDIS, Louis Renner o Abel, y teclado ALAUDIS o Kluge, elegidos según su manera de tocar." },
+      { label: "03 · Técnica", title: "Mecanismo y teclado", text: "Mecanismo y apagadores ALAUDIS o Louis Renner, macillos Louis Renner o Abel y teclado ALAUDIS o Kluge, elegidos según su manera de tocar." },
     ],
     priceLabel: "Precio", price: "A consultar", onRequest: "Preparamos cada presupuesto de forma individual: depende del modelo y de la configuración elegida.",
     configure: "Configure su piano de cola", quote: "Solicite un presupuesto",
@@ -84,7 +84,7 @@ const COPY: Record<Language, {
     pillars: [
       { label: "01 · Design", title: "Aspetto e finitura", text: "Poliestere lucido a specchio (bianco, nero o rosso), ebano lucido oppure impiallacciatura di melo indiano. A questo si aggiungono il colore del telaio e quello del feltro." },
       { label: "02 · Suono", title: "Legno e profilo sonoro", text: "Tavola armonica Strunz o Ciresa, ponticelli in acero o in faggio, corde Röslau o Paulello e corde dei bassi Heller o SAP Renovation." },
-      { label: "03 · Tecnica", title: "Meccanica e tastiera", text: "Meccanica, martelletti e smorzatori ALAUDIS, Louis Renner o Abel, e tastiera ALAUDIS o Kluge, scelti in base al tuo modo di suonare." },
+      { label: "03 · Tecnica", title: "Meccanica e tastiera", text: "Meccanica e smorzatori ALAUDIS o Louis Renner, martelletti Louis Renner o Abel e tastiera ALAUDIS o Kluge, scelti in base al tuo modo di suonare." },
     ],
     priceLabel: "Prezzo", price: "Su richiesta", onRequest: "Prepariamo ogni preventivo individualmente: dipende dal modello e dalla configurazione scelta.",
     configure: "Configura il tuo pianoforte", quote: "Richiedi un preventivo",

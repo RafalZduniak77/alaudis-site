@@ -61,6 +61,7 @@ export const options: OptionsMap = {
     "Kolor ramy złoty",
     "Kolor ramy srebrny",
     "Struny stalowe Röslau",
+    "Struny stalowe Paulello",
     "Struny basowe Heller",
     "Struny basowe SAP Renovation",
     "Kołki stroikowe niklowane",
@@ -85,7 +86,7 @@ export const options: OptionsMap = {
 // ----------------------------------------------------------
 // MAPOWANIE OPCJI DO GRUP
 // ----------------------------------------------------------
-// Opcje „Struny stalowe Paulello”, „Mechanizm Abel”, „Młotki Alaudis” i „Tłumiki Abel”
+// Opcje „Mechanizm Abel”, „Młotki Alaudis” i „Tłumiki Abel”
 // są wyłączone z oferty do czasu dostarczenia ich zdjęć (grupy i tłumaczenia zostają).
 export const groupMap: Record<string, string> = {
   "Dno rezonansowe Strunz": "dno",
