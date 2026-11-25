@@ -146,7 +146,7 @@ export default function ActionMenu({
 
         {/* ROZWIJANE MENU */}
         {menuOpen && (
-          <div className="absolute bottom-full mb-3 w-full overflow-hidden rounded-xl border border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl">
+          <div className="absolute bottom-full mb-3 w-full overflow-hidden rounded-xl border border-white/15 bg-[#101010] shadow-2xl">
             {/* TYTUŁ OFERTY: trafia do zapisu, wiadomości e-mail i PDF */}
             <div className="border-b border-white/10 p-3">
               <input
