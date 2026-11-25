@@ -89,9 +89,9 @@ export default function BesuchenSieDasAtelierPage() {
                 01
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Sehen Sie die Modelle aus der Nähe
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Erleben Sie die Größe, die Linie und die Präsenz des Flügels in
@@ -106,9 +106,9 @@ export default function BesuchenSieDasAtelierPage() {
                 02
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Sprechen Sie über Ausführungen
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Besprechen Sie die Wahl der Ausführung, den Charakter der
@@ -123,9 +123,9 @@ export default function BesuchenSieDasAtelierPage() {
                 03
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Bestimmen Sie die Richtung einer individuellen Komposition
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Der Besuch kann zum Beginn einer privaten Beratung werden,
@@ -144,9 +144,9 @@ export default function BesuchenSieDasAtelierPage() {
                 01 · Erlebnis des Besuchs
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Eine Begegnung mit der Marke in ihrer natürlichen Umgebung
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Im Atelier können Sie die Alaudis Modelle in einem ruhigen, privaten Kontext erleben, aus der Nähe, ohne Eile, mit der Möglichkeit, über Proportionen, Ausführungen, die Bestimmung des Instruments und seinen Platz in einem konkreten Raum zu sprechen.
@@ -158,9 +158,9 @@ export default function BesuchenSieDasAtelierPage() {
                 02
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Ein privates Gespräch
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Das Treffen findet als privates Gespräch statt. Dadurch können wir in Ruhe die Modelle, die gewünschte Größe des Instruments, Premium-Ausführungen und den Platz des Flügels in einem konkreten Raum besprechen.
@@ -172,11 +172,11 @@ export default function BesuchenSieDasAtelierPage() {
                 03 · Atelier / SAP Renovation
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Obozowa 18
                 <br />
                 62-800 Kalisz
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Besuche vereinbart man am besten im Voraus, damit wir ein ruhiges, privates Treffen rund um die Alaudis Modelle vorbereiten und den Verlauf des Gesprächs passend auf Ihr Projekt abstimmen können.

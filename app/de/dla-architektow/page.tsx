@@ -100,9 +100,9 @@ export default function FuerArchitektenPage() {
                 01
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Auswahl des Modells nach Maßstab des Innenraums
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Wir helfen dabei, Größe und Charakter des Modells an die
@@ -117,9 +117,9 @@ export default function FuerArchitektenPage() {
                 02
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Ausführung im Einklang mit dem Projekt
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Wir sprechen über Materialton, Glanz, Oberflächencharakter,
@@ -133,9 +133,9 @@ export default function FuerArchitektenPage() {
                 03
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Premium-Projektberatung
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Die Zusammenarbeit kann mit einem privaten Projektgespräch
@@ -151,7 +151,7 @@ export default function FuerArchitektenPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">Residenzen</h3>
+              <h2 className="text-xl font-light text-white">Residenzen</h2>
               <p className="mt-4 leading-7 text-white">
                 Der Flügel als zentrales Element eines Wohnraums, einer
                 Bibliothek oder eines repräsentativen Bereichs.
@@ -159,9 +159,9 @@ export default function FuerArchitektenPage() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">
+              <h2 className="text-xl font-light text-white">
                 Premium-Apartments
-              </h3>
+              </h2>
               <p className="mt-4 leading-7 text-white">
                 Auswahl des passenden Modells für einen kleineren, aber sehr
                 bewusst gestalteten Raum.
@@ -169,7 +169,7 @@ export default function FuerArchitektenPage() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">Luxury Hotels</h3>
+              <h2 className="text-xl font-light text-white">Luxury Hotels</h2>
               <p className="mt-4 leading-7 text-white">
                 Die Präsenz des Instruments in Lobbys, Suiten und Bereichen mit
                 hoher repräsentativer Wirkung.
@@ -177,9 +177,9 @@ export default function FuerArchitektenPage() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">
+              <h2 className="text-xl font-light text-white">
                 Repräsentative Innenräume
-              </h3>
+              </h2>
               <p className="mt-4 leading-7 text-white">
                 Projekte, in denen Prestige, Maßstab, Detail und eine starke
                 Identität des Innenraums zählen.

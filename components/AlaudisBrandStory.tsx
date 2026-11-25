@@ -98,10 +98,10 @@ export default function AlaudisBrandStory({ language }: { language: StoryLanguag
                     inert={selected !== index}
                     className={styles.modelPanel}
                   >
-                    <h4 className={styles.modelName}>
+                    <h2 className={styles.modelName}>
                       <span className={styles.modelBrand}>ALAUDIS</span>{" "}
                       <span className={styles.modelVoice}>{ALAUDIS_MODELS[id].voice} <span>{id}</span></span>
-                    </h4>
+                    </h2>
                     <p className={styles.modelStory}>{copy.models[id].story}</p>
                     <p className={styles.modelDescription}>{copy.models[id].description}</p>
                     <Link href={`${prefix}/fortepiany/alaudis-${id}`} className={styles.textLink}>

@@ -106,9 +106,9 @@ export default function OdwiedzAtelierPage() {
                 01
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Zobacz modele z bliska
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Poznaj skalę, linię i obecność fortepianu w realnej przestrzeni.
@@ -122,9 +122,9 @@ export default function OdwiedzAtelierPage() {
                 02
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Porozmawiaj o wykończeniach
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Omów dobór wykończenia, charakter powierzchni, ton materiału i
@@ -138,9 +138,9 @@ export default function OdwiedzAtelierPage() {
                 03
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Ustal kierunek indywidualnej kompozycji
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Wizyta może stać się początkiem prywatnej konsultacji,
@@ -158,9 +158,9 @@ export default function OdwiedzAtelierPage() {
                 01 · Doświadczenie wizyty
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Spotkanie z marką w jej naturalnym środowisku
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 W atelier możesz zobaczyć modele Alaudis w spokojnym, prywatnym kontekście, z bliska, bez pośpiechu, z możliwością rozmowy o proporcjach, wykończeniach, przeznaczeniu instrumentu i jego miejscu w konkretnej przestrzeni.
@@ -172,9 +172,9 @@ export default function OdwiedzAtelierPage() {
                 02
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Prywatna rozmowa
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Spotkanie odbywa się w formule prywatnej rozmowy. Dzięki temu możemy spokojnie omówić modele, oczekiwaną skalę instrumentu, wykończenia premium oraz miejsce fortepianu w konkretnej przestrzeni.
@@ -186,11 +186,11 @@ export default function OdwiedzAtelierPage() {
                 03 · Atelier / SAP Renovation
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Obozowa 18
                 <br />
                 62-800 Kalisz
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Wizyty najlepiej umawiać wcześniej, aby przygotować spokojne, prywatne spotkanie wokół modeli Alaudis i właściwie dopasować przebieg rozmowy do Twojego projektu.

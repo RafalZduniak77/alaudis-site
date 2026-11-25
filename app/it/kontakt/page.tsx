@@ -149,9 +149,9 @@ export default function KontaktPage() {
                   Contatto commerciale
                 </p>
 
-                <h3 className="mt-3 text-xl font-light sm:text-2xl xl:text-3xl text-white">
+                <h2 className="mt-3 text-xl font-light sm:text-2xl xl:text-3xl text-white">
                   Paulina Przybylska
-                </h3>
+                </h2>
 
                 <p className="mt-3 text-sm sm:text-base xl:mt-4 xl:text-lg text-white/95">
                   <a
@@ -212,9 +212,9 @@ export default function KontaktPage() {
                   Contatto commerciale
                 </p>
 
-                <h3 className="mt-3 text-xl font-light sm:text-2xl xl:text-3xl text-white">
+                <h2 className="mt-3 text-xl font-light sm:text-2xl xl:text-3xl text-white">
                   Krzysztof Skwarek
-                </h3>
+                </h2>
 
                 <p className="mt-3 text-sm sm:text-base xl:mt-4 xl:text-lg text-white/95">
                   <a

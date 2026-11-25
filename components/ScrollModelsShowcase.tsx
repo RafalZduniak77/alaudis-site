@@ -609,9 +609,9 @@ function SlideItem({ slide }: { slide: ShowcaseSlide }) {
                 {slide.eyebrow}
               </p>
 
-              <h3 className="mt-3 text-3xl font-light uppercase">
+              <h2 className="mt-3 text-3xl font-light uppercase">
                 {slide.title}
-              </h3>
+              </h2>
 
               <p className="mt-3 text-sm text-black/70">{slide.subtitle}</p>
             </div>

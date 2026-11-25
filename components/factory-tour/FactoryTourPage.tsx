@@ -31,7 +31,7 @@ export default function FactoryTourPage({ language }: { language: TourLanguage }
                 </div>
                 <div className="p-7">
                   <p className="text-xs uppercase tracking-[0.32em] text-[#d3bd8b]">0{index + 1}</p>
-                  <h3 className="mt-3 text-2xl font-light">{copy.stages[stage.key].title}</h3>
+                  <h2 className="mt-3 text-2xl font-light">{copy.stages[stage.key].title}</h2>
                   <p className="mt-4 leading-7 text-white/95">{copy.stages[stage.key].text}</p>
                 </div>
               </article>

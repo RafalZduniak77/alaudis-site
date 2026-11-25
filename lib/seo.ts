@@ -817,6 +817,7 @@ function organizationSchema(locale: SeoLocale) {
       addressCountry: "PL",
     },
     telephone: "+48625013030",
+    email: "info@saprenovation.com",
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -824,20 +825,7 @@ function organizationSchema(locale: SeoLocale) {
         email: "info@saprenovation.com",
         contactType: "customer service",
         availableLanguage: ["pl", "en", "de", "fr"],
-        hoursAvailable: [
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            opens: "08:00",
-            closes: "16:00",
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: "Saturday",
-            opens: "10:00",
-            closes: "16:00",
-          },
-        ],
+        hoursAvailable: OPENING_HOURS,
       },
       {
         "@type": "ContactPoint",
@@ -863,40 +851,116 @@ function organizationSchema(locale: SeoLocale) {
   };
 }
 
+const OPENING_HOURS = [
+  { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "16:00" },
+  { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:00", closes: "16:00" },
+];
+
+// Atelier w Kaliszu jako miejsce, które można odwiedzić: adres, godziny i położenie
+// na mapie dla wyników lokalnych Google. Godziny muszą zgadzać się ze stroną Kontakt.
+const ATELIER_ID = `${SITE_URL}/#atelier`;
+function atelierSchema(locale: SeoLocale) {
+  return {
+    "@type": "LocalBusiness",
+    "@id": ATELIER_ID,
+    name: "ALAUDIS Atelier",
+    description: ORGANIZATION_DESCRIPTION[locale],
+    url: pageUrl(locale, "odwiedzAtelier"),
+    image: `${SITE_URL}${OG_IMAGE}`,
+    logo: `${SITE_URL}/logo-alaudis.png`,
+    telephone: "+48625013030",
+    email: "info@saprenovation.com",
+    address: { "@type": "PostalAddress", streetAddress: "Obozowa 18", postalCode: "62-800", addressLocality: "Kalisz", addressCountry: "PL" },
+    geo: { "@type": "GeoCoordinates", latitude: 51.7406965, longitude: 18.0700942 },
+    hasMap: "https://www.openstreetmap.org/?mlat=51.7406965&mlon=18.0700942#map=17/51.7406965/18.0700942",
+    openingHoursSpecification: OPENING_HOURS,
+    parentOrganization: { "@id": ORGANIZATION_ID },
+  };
+}
+
+// Modele jako produkty. Bez ceny (jest „na zapytanie”) i bez ocen: podajemy tylko to,
+// co jest na stronie modelu. Zdjęcia to te same, które pokazuje strona modelu.
+const MODELS: Partial<Record<SeoPage, { length: number; images: string[] }>> = {
+  model178: { length: 178, images: ["/galeria-home/10.jpg", "/galeria-home/11.jpg", "/galeria-home/12.jpg"] },
+  model214: { length: 214, images: ["/galeria-home/3.jpg", "/galeria-home/5.jpg", "/galeria-home/2.jpg"] },
+  model275: { length: 275, images: ["/galeria-home/3.jpg", "/galeria-home/5.jpg", "/galeria-home/2.jpg"] },
+};
+const PRODUCT_WORDS: Record<SeoLocale, { category: string; length: string }> = {
+  pl: { category: "Fortepian", length: "Długość" },
+  en: { category: "Grand piano", length: "Length" },
+  de: { category: "Flügel", length: "Länge" },
+  fr: { category: "Piano à queue", length: "Longueur" },
+  es: { category: "Piano de cola", length: "Longitud" },
+  it: { category: "Pianoforte a coda", length: "Lunghezza" },
+};
+function productSchema(locale: SeoLocale, page: SeoPage) {
+  const model = MODELS[page];
+  if (!model) return null;
+  const copy = PAGES[page].copy[locale];
+  const url = pageUrl(locale, page);
+  return {
+    "@type": "Product",
+    "@id": `${url}#product`,
+    name: copy.label,
+    description: copy.description,
+    url,
+    image: model.images.map((image) => `${SITE_URL}${image}`),
+    category: PRODUCT_WORDS[locale].category,
+    brand: { "@type": "Brand", name: SITE_NAME, logo: `${SITE_URL}/logo-alaudis.png` },
+    manufacturer: { "@id": ORGANIZATION_ID },
+    countryOfOrigin: { "@type": "Country", name: "Poland" },
+    depth: { "@type": "QuantitativeValue", value: model.length, unitCode: "CMT" },
+    additionalProperty: [{ "@type": "PropertyValue", name: PRODUCT_WORDS[locale].length, value: model.length, unitCode: "CMT", unitText: "cm" }],
+  };
+}
+
+const WEBSITE_ID = `${SITE_URL}/#website`;
+
 export function pageSchema(locale: SeoLocale, page: SeoPage) {
   const home = PAGES.home.copy[locale];
-  const graph: Record<string, unknown>[] = [];
+  const copy = PAGES[page].copy[locale];
+  const url = pageUrl(locale, page);
+  // Firma jest opisana na każdej stronie, żeby produkty i podstrony miały do czego się odwołać.
+  const graph: Record<string, unknown>[] = [organizationSchema(locale)];
 
   if (page === "home" || page === "kontakt" || page === "odwiedzAtelier" || page === "zwiedzanieManufaktury") {
-    graph.push(organizationSchema(locale));
+    graph.push(atelierSchema(locale));
   }
 
-  if (page === "home") {
-    graph.push({
-      "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
-      name: SITE_NAME,
-      url: pageUrl(locale, "home"),
-      inLanguage: locale,
-      description: home.description,
-      publisher: { "@id": ORGANIZATION_ID },
-    });
-  } else {
+  // Jeden opis serwisu dla wszystkich wersji językowych (nazwa strony w wynikach Google).
+  graph.push({
+    "@type": "WebSite",
+    "@id": WEBSITE_ID,
+    name: SITE_NAME,
+    alternateName: "Alaudis",
+    url: SITE_URL,
+    inLanguage: [...seoLocales],
+    publisher: { "@id": ORGANIZATION_ID },
+  });
+
+  const product = productSchema(locale, page);
+  if (product) graph.push(product);
+
+  graph.push({
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: copy.title,
+    description: copy.description,
+    inLanguage: locale,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": ORGANIZATION_ID },
+    ...(product ? { mainEntity: { "@id": product["@id"] } } : {}),
+    ...(page === "home" ? {} : { breadcrumb: { "@id": `${url}#breadcrumb` } }),
+  });
+
+  if (page !== "home") {
     graph.push({
       "@type": "BreadcrumbList",
+      "@id": `${url}#breadcrumb`,
       itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: home.label,
-          item: pageUrl(locale, "home"),
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: PAGES[page].copy[locale].label,
-          item: pageUrl(locale, page),
-        },
+        { "@type": "ListItem", position: 1, name: home.label, item: pageUrl(locale, "home") },
+        { "@type": "ListItem", position: 2, name: copy.label, item: url },
       ],
     });
   }

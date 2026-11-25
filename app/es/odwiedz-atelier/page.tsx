@@ -89,9 +89,9 @@ export default function VisiteElAtelierPage() {
                 01
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Vea los modelos de cerca
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Descubra la escala, la línea y la presencia del piano de cola en un espacio real. Compruebe cómo se percibe el modelo no en una pantalla, sino en el contacto físico con el material y el detalle.
@@ -103,9 +103,9 @@ export default function VisiteElAtelierPage() {
                 02
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Hable de los acabados
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Comente la elección del acabado, el carácter de la superficie, el tono del material y la composición general del instrumento, para que responda con armonía a la arquitectura y al interior.
@@ -117,9 +117,9 @@ export default function VisiteElAtelierPage() {
                 03
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Defina la orientación de una composición personalizada
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 La visita puede ser el comienzo de un asesoramiento privado: una conversación sobre el modelo, el carácter del instrumento, su uso, la escala preferida y el lenguaje global de Alaudis.
@@ -135,9 +135,9 @@ export default function VisiteElAtelierPage() {
                 01 · La experiencia de la visita
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Un encuentro con la marca en su entorno natural
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 En el atelier puede ver los modelos Alaudis en un contexto tranquilo y privado, de cerca y sin prisas, con la posibilidad de conversar sobre las proporciones, los acabados, el uso previsto del instrumento y su lugar en un espacio concreto.
@@ -149,9 +149,9 @@ export default function VisiteElAtelierPage() {
                 02
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Una conversación privada
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 El encuentro tiene el formato de una conversación privada. Así podemos tratar con calma los modelos, la escala deseada del instrumento, los acabados de alta gama y el lugar del piano de cola en un espacio concreto.
@@ -163,11 +163,11 @@ export default function VisiteElAtelierPage() {
                 03 · Atelier / SAP Renovation
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Obozowa 18
                 <br />
                 62-800 Kalisz
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Lo mejor es concertar la visita con antelación, para preparar un encuentro tranquilo y privado en torno a los modelos Alaudis y adaptar el desarrollo de la conversación a su proyecto.

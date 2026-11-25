@@ -99,9 +99,9 @@ export default function ForArchitectsPage() {
                 01
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Choosing the model for the scale of the interior
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 We help select the size and character of the model according to
@@ -115,9 +115,9 @@ export default function ForArchitectsPage() {
                 02
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Finishes aligned with the project
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 We discuss the tone of the material, gloss, surface character,
@@ -131,9 +131,9 @@ export default function ForArchitectsPage() {
                 03
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Premium design consultation
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 The collaboration can begin with a private design conversation
@@ -149,7 +149,7 @@ export default function ForArchitectsPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">Residences</h3>
+              <h2 className="text-xl font-light text-white">Residences</h2>
               <p className="mt-4 leading-7 text-white">
                 A piano as the central element of a living room, library or
                 representative area.
@@ -157,9 +157,9 @@ export default function ForArchitectsPage() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">
+              <h2 className="text-xl font-light text-white">
                 Premium apartments
-              </h3>
+              </h2>
               <p className="mt-4 leading-7 text-white">
                 Selecting the right model for a smaller but very consciously
                 designed space.
@@ -167,7 +167,7 @@ export default function ForArchitectsPage() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">Luxury hotels</h3>
+              <h2 className="text-xl font-light text-white">Luxury hotels</h2>
               <p className="mt-4 leading-7 text-white">
                 The presence of the instrument in lobbies, suites and spaces
                 with strong image-building value.
@@ -175,9 +175,9 @@ export default function ForArchitectsPage() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">
+              <h2 className="text-xl font-light text-white">
                 Representative interiors
-              </h3>
+              </h2>
               <p className="mt-4 leading-7 text-white">
                 Projects in which prestige, scale, detail and a strong interior
                 identity matter.

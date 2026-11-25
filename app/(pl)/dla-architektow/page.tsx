@@ -106,9 +106,9 @@ export default function DlaArchitektowPage() {
                 01
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Dobór modelu do skali wnętrza
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Pomagamy dobrać wielkość i charakter modelu do proporcji
@@ -122,9 +122,9 @@ export default function DlaArchitektowPage() {
                 02
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Wykończenie spójne z projektem
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Rozmawiamy o tonie materiału, połysku, charakterze powierzchni,
@@ -138,9 +138,9 @@ export default function DlaArchitektowPage() {
                 03
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Konsultacja projektowa premium
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Współpraca może rozpocząć się od prywatnej rozmowy projektowej,
@@ -156,7 +156,7 @@ export default function DlaArchitektowPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">Rezydencje</h3>
+              <h2 className="text-xl font-light text-white">Rezydencje</h2>
               <p className="mt-4 leading-7 text-white">
                 Fortepian jako centralny element salonu, biblioteki lub strefy
                 reprezentacyjnej.
@@ -164,9 +164,9 @@ export default function DlaArchitektowPage() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">
+              <h2 className="text-xl font-light text-white">
                 Apartamenty premium
-              </h3>
+              </h2>
               <p className="mt-4 leading-7 text-white">
                 Dobór modelu do mniejszej, ale bardzo świadomie zaprojektowanej
                 przestrzeni.
@@ -174,7 +174,7 @@ export default function DlaArchitektowPage() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">Hotele premium</h3>
+              <h2 className="text-xl font-light text-white">Hotele premium</h2>
               <p className="mt-4 leading-7 text-white">
                 Obecność instrumentu w lobby, apartamentach i przestrzeniach
                 o wysokim znaczeniu wizerunkowym.
@@ -182,9 +182,9 @@ export default function DlaArchitektowPage() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">
+              <h2 className="text-xl font-light text-white">
                 Przestrzenie reprezentacyjne
-              </h3>
+              </h2>
               <p className="mt-4 leading-7 text-white">
                 Projekty, w których liczy się prestiż, skala, detal i mocna
                 tożsamość wnętrza.

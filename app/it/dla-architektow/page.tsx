@@ -95,9 +95,9 @@ export default function PerGliArchitettiPage() {
                 01
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Il modello adatto alla scala dell’interno
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Aiutiamo a scegliere la dimensione e il carattere del modello in base alle proporzioni dello spazio: dai salotti e dagli appartamenti fino alle residenze più ampie, alle lobby e alle aree di rappresentanza degli hotel.
@@ -109,9 +109,9 @@ export default function PerGliArchitettiPage() {
                 02
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Una finitura coerente con il progetto
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Parliamo del tono del materiale, della lucentezza, del carattere della superficie, della palette cromatica e dei dettagli, perché lo strumento contribuisca al racconto dell’interno anziché essere un’aggiunta casuale.
@@ -123,9 +123,9 @@ export default function PerGliArchitettiPage() {
                 03
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Consulenza progettuale di alto livello
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 La collaborazione può iniziare con un colloquio privato sul progetto, durante il quale definiamo insieme la linea da seguire: modello, presenza nello spazio, finitura ed effetto visivo finale.
@@ -139,32 +139,32 @@ export default function PerGliArchitettiPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">Residenze</h3>
+              <h2 className="text-xl font-light text-white">Residenze</h2>
               <p className="mt-4 leading-7 text-white">
                 Il pianoforte a coda come elemento centrale di un salotto, di una biblioteca o di un’area di rappresentanza.
               </p>
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">
+              <h2 className="text-xl font-light text-white">
                 Appartamenti di pregio
-              </h3>
+              </h2>
               <p className="mt-4 leading-7 text-white">
                 Il modello adatto a uno spazio più raccolto, ma progettato con grande consapevolezza.
               </p>
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">Hotel di alta gamma</h3>
+              <h2 className="text-xl font-light text-white">Hotel di alta gamma</h2>
               <p className="mt-4 leading-7 text-white">
                 La presenza dello strumento nelle lobby, nelle suite e negli spazi di grande valore d’immagine.
               </p>
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">
+              <h2 className="text-xl font-light text-white">
                 Spazi di rappresentanza
-              </h3>
+              </h2>
               <p className="mt-4 leading-7 text-white">
                 Progetti in cui contano il prestigio, la scala, il dettaglio e una forte identità dell’interno.
               </p>

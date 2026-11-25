@@ -103,9 +103,9 @@ export default function VisitAtelierPage() {
                 01
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 See the models up close
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Discover the scale, line and presence of the grand piano in a
@@ -119,9 +119,9 @@ export default function VisitAtelierPage() {
                 02
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Discuss the finishes
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Talk through the choice of finish, the character of the surface,
@@ -136,9 +136,9 @@ export default function VisitAtelierPage() {
                 03
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Define the direction of an individual composition
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 The visit can become the beginning of a private consultation,
@@ -156,9 +156,9 @@ export default function VisitAtelierPage() {
                 01 · Visit experience
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 A meeting with the brand in its natural environment
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 In the atelier, you can see Alaudis models in a calm, private context, up close, without haste, with the opportunity to discuss proportions, finishes, the purpose of the instrument and its place in a specific space.
@@ -170,9 +170,9 @@ export default function VisitAtelierPage() {
                 02
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 A private conversation
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 The meeting takes the form of a private conversation. This allows us to calmly discuss the models, the expected scale of the instrument, premium finishes and the place of the grand piano in a specific space.
@@ -184,11 +184,11 @@ export default function VisitAtelierPage() {
                 03 · Atelier / SAP Renovation
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Obozowa 18
                 <br />
                 62-800 Kalisz
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Visits are best arranged in advance, so we can prepare a calm, private meeting around the Alaudis models and properly adapt the conversation to your project.

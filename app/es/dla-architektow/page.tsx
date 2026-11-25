@@ -95,9 +95,9 @@ export default function ParaArquitectosPage() {
                 01
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 El modelo adecuado a la escala del interior
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Ayudamos a elegir el tamaño y el carácter del modelo según las proporciones del espacio: desde salones y apartamentos hasta grandes residencias, vestíbulos y zonas de representación de hoteles.
@@ -109,9 +109,9 @@ export default function ParaArquitectosPage() {
                 02
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Un acabado coherente con el proyecto
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 Hablamos del tono del material, del brillo, del carácter de la superficie, de la gama cromática y de los detalles, para que el instrumento participe en el relato del interior en lugar de ser un añadido casual.
@@ -123,9 +123,9 @@ export default function ParaArquitectosPage() {
                 03
               </p>
 
-              <h3 className="mt-4 text-2xl font-light text-white">
+              <h2 className="mt-4 text-2xl font-light text-white">
                 Asesoramiento de proyecto de alta gama
-              </h3>
+              </h2>
 
               <p className="mt-5 leading-8 text-white">
                 La colaboración puede comenzar con una conversación privada sobre el proyecto, en la que definimos juntos la orientación: modelo, presencia en el espacio, acabado y efecto visual final.
@@ -139,32 +139,32 @@ export default function ParaArquitectosPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">Residencias</h3>
+              <h2 className="text-xl font-light text-white">Residencias</h2>
               <p className="mt-4 leading-7 text-white">
                 El piano de cola como elemento central de un salón, una biblioteca o una zona de representación.
               </p>
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">
+              <h2 className="text-xl font-light text-white">
                 Apartamentos de lujo
-              </h3>
+              </h2>
               <p className="mt-4 leading-7 text-white">
                 El modelo adecuado para un espacio más pequeño, pero diseñado muy a conciencia.
               </p>
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">Hoteles de lujo</h3>
+              <h2 className="text-xl font-light text-white">Hoteles de lujo</h2>
               <p className="mt-4 leading-7 text-white">
                 La presencia del instrumento en vestíbulos, suites y espacios de gran valor para la imagen.
               </p>
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
-              <h3 className="text-xl font-light text-white">
+              <h2 className="text-xl font-light text-white">
                 Espacios de representación
-              </h3>
+              </h2>
               <p className="mt-4 leading-7 text-white">
                 Proyectos en los que cuentan el prestigio, la escala, el detalle y una marcada identidad del interior.
               </p>
