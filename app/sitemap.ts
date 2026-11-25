@@ -27,6 +27,9 @@ function entries(
   }));
 }
 
+// Wpisy „video” trafiają do pliku bez zmian, dlatego znaki specjalne XML zamieniamy sami.
+const xml = (value: string) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
 async function albumSlugs() {
   const albums: { slug: string; updatedAt: string }[] = [];
   try {
@@ -77,10 +80,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: video.section === "craft" ? 0.4 : 0.6,
       lastModified: video._updatedAt,
       videos: [{
-        title: localize(video.title, locale).slice(0, 100),
-        thumbnail_loc: photoUrl(video.cover, 1280, 85),
-        description: (localize(video.description, locale) || localize(video.title, locale)).slice(0, 2000),
-        content_loc: video.video.url,
+        title: xml(localize(video.title, locale).slice(0, 100)),
+        thumbnail_loc: xml(photoUrl(video.cover, 1280, 85)),
+        description: xml((localize(video.description, locale) || localize(video.title, locale)).slice(0, 2000)),
+        content_loc: xml(video.video.url),
         ...(video.duration ? { duration: Math.round(video.duration) } : {}),
         publication_date: video.date ? `${video.date}T12:00:00+01:00` : video._createdAt,
       }],
