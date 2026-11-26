@@ -33,6 +33,7 @@ import PreviewPanel from "./PreviewPanel";
 import SendDialog from "./SendDialog";
 import { ConfigTab, SelectedState } from "./types";
 import {
+  type ConfiguratorModel,
   getPreviewImageForModel,
   groupMap,
   normalizeConfiguratorModel,
@@ -515,6 +516,13 @@ ${formatMailList(selected.mechanizm, language)}
 // Konfigurator startuje od białego fortepianu z zaznaczoną białą obudową.
 const DEFAULT_FINISH = "Bialy poliester połysk";
 
+// Obudowa, od której startuje każdy model: ONE biały, LEO czarny, DREAM w okleinie.
+const START_FINISH: Record<ConfiguratorModel, string> = {
+  "178": DEFAULT_FINISH,
+  "214": "Czarny Poliester połysk",
+  "275": "Okleina Jabłoń Indyjska -połysk",
+};
+
 // Klucz, pod którym przeglądarka klienta trzyma zapisaną konfigurację.
 const SAVED_KEY = "alaudis-config";
 
@@ -577,14 +585,23 @@ export default function KonfiguratorShell() {
   const [menuOpen, setMenuOpen] = useState(false);
   // Ostatnio kliknięta opcja: jej zdjęcie widać w podglądzie. Zdjęcie zależy też od modelu,
   // więc po zmianie modelu podgląd od razu pokazuje tę samą opcję dla nowego modelu.
-  const [previewOption, setPreviewOption] = useState<string>(DEFAULT_FINISH);
+  const [previewOption, setPreviewOption] = useState<string>(START_FINISH[configuratorModel]);
   const previewImage = getPreviewImageForModel(previewOption, configuratorModel);
 
   const [selected, setSelected] = useState<SelectedState>({
-    obudowa: DEFAULT_FINISH,
+    obudowa: START_FINISH[configuratorModel],
     akustyka: {},
     mechanizm: {},
   });
+
+  // Zmiana modelu przyciskiem u góry: nowy model startuje od swojej obudowy
+  // (pozostałe wybory zostają bez zmian).
+  const [finishModel, setFinishModel] = useState(configuratorModel);
+  if (finishModel !== configuratorModel) {
+    setFinishModel(configuratorModel);
+    setSelected((prev) => ({ ...prev, obudowa: START_FINISH[configuratorModel] }));
+    setPreviewOption(START_FINISH[configuratorModel]);
+  }
 
   // --------------------------------------------------------
   // PRZYWRÓCENIE ZAPISANEJ KONFIGURACJI
