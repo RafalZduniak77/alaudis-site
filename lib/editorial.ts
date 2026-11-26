@@ -37,7 +37,15 @@ export type Editorial = {
 export type EditorialPageKey = "aktualnosci" | "artysci" | "tradycja";
 
 const PRESS = {
-  pianoAtlas: "https://onlinepianoatlas.com/magazine/alaudis/",
+  // Artykuł ma u wydawcy wersje językowe: z każdego języka naszej strony prowadzimy do tej samej wersji.
+  pianoAtlas: {
+    pl: "https://onlinepianoatlas.com/magazine/alaudis/pl/",
+    en: "https://onlinepianoatlas.com/magazine/alaudis/",
+    de: "https://onlinepianoatlas.com/magazine/alaudis/de/",
+    fr: "https://onlinepianoatlas.com/magazine/alaudis/fr/",
+    es: "https://onlinepianoatlas.com/magazine/alaudis/es/",
+    it: "https://onlinepianoatlas.com/magazine/alaudis/it/",
+  },
   kaliszOnline:
     "https://www.kaliszonline.pl/2026/11/kalisz-znow-ma-wlasny-fortepian-alaudis-one-zachwycil-leszka-mozdzera/",
   naszeMiasto:
@@ -90,9 +98,9 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
           heading: "Napisali o nas",
           items: [
             {
-              meta: "Online Piano Atlas · po angielsku",
+              meta: "Online Piano Atlas",
               title: "„Nowa marka fortepianów? Na tym rynku? Tak, naprawdę!”",
-              link: { href: PRESS.pianoAtlas, label: "Czytaj artykuł" },
+              link: { href: PRESS.pianoAtlas.pl, label: "Czytaj artykuł" },
             },
             {
               meta: "KaliszOnline",
@@ -164,7 +172,7 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
             {
               meta: "Online Piano Atlas",
               title: "“A New Piano Brand? In This Market? Yes, Really!”",
-              link: { href: PRESS.pianoAtlas, label: "Read the article" },
+              link: { href: PRESS.pianoAtlas.en, label: "Read the article" },
             },
             {
               meta: "KaliszOnline · in Polish",
@@ -234,9 +242,9 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
           heading: "Pressestimmen",
           items: [
             {
-              meta: "Online Piano Atlas · auf Englisch",
+              meta: "Online Piano Atlas",
               title: "„Eine neue Klaviermarke? In diesem Markt? Ja, wirklich!“",
-              link: { href: PRESS.pianoAtlas, label: "Artikel lesen" },
+              link: { href: PRESS.pianoAtlas.de, label: "Artikel lesen" },
             },
             {
               meta: "KaliszOnline · auf Polnisch",
@@ -306,9 +314,9 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
           heading: "Dans la presse",
           items: [
             {
-              meta: "Online Piano Atlas · en anglais",
-              title: "« Une nouvelle marque de pianos ? Sur ce marché ? Oui, vraiment ! »",
-              link: { href: PRESS.pianoAtlas, label: "Lire l’article" },
+              meta: "Online Piano Atlas",
+              title: "« Une nouvelle marque de piano ? Dans ce marché ? Oui, vraiment ! »",
+              link: { href: PRESS.pianoAtlas.fr, label: "Lire l’article" },
             },
             {
               meta: "KaliszOnline · en polonais",
@@ -378,9 +386,9 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
           heading: "En la prensa",
           items: [
             {
-              meta: "Online Piano Atlas · en inglés",
-              title: "«¿Una nueva marca de pianos? ¿En este mercado? ¡Sí, de verdad!»",
-              link: { href: PRESS.pianoAtlas, label: "Lea el artículo" },
+              meta: "Online Piano Atlas",
+              title: "«¿Una nueva marca de piano? ¿En este mercado? ¡Sí, de verdad!»",
+              link: { href: PRESS.pianoAtlas.es, label: "Lea el artículo" },
             },
             {
               meta: "KaliszOnline · en polaco",
@@ -450,9 +458,9 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
           heading: "Dicono di noi",
           items: [
             {
-              meta: "Online Piano Atlas · in inglese",
+              meta: "Online Piano Atlas",
               title: "«Un nuovo marchio di pianoforti? In questo mercato? Sì, davvero!»",
-              link: { href: PRESS.pianoAtlas, label: "Leggi l’articolo" },
+              link: { href: PRESS.pianoAtlas.it, label: "Leggi l’articolo" },
             },
             {
               meta: "KaliszOnline · in polacco",
