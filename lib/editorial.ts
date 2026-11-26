@@ -37,6 +37,7 @@ export type Editorial = {
 export type EditorialPageKey = "aktualnosci" | "artysci" | "tradycja";
 
 const PRESS = {
+  pianoAtlas: "https://onlinepianoatlas.com/magazine/alaudis/",
   kaliszOnline:
     "https://www.kaliszonline.pl/2026/11/kalisz-znow-ma-wlasny-fortepian-alaudis-one-zachwycil-leszka-mozdzera/",
   naszeMiasto:
@@ -88,6 +89,11 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
         {
           heading: "Napisali o nas",
           items: [
+            {
+              meta: "Online Piano Atlas · po angielsku",
+              title: "„Nowa marka fortepianów? Na tym rynku? Tak, naprawdę!”",
+              link: { href: PRESS.pianoAtlas, label: "Czytaj artykuł" },
+            },
             {
               meta: "KaliszOnline",
               title: "„Kalisz znów ma własny fortepian. Alaudis One zachwycił Leszka Możdżera”",
@@ -156,6 +162,11 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
           heading: "In the press",
           items: [
             {
+              meta: "Online Piano Atlas",
+              title: "“A New Piano Brand? In This Market? Yes, Really!”",
+              link: { href: PRESS.pianoAtlas, label: "Read the article" },
+            },
+            {
               meta: "KaliszOnline · in Polish",
               title: "“Kalisz has its own grand piano again. Alaudis One delighted Leszek Możdżer”",
               link: { href: PRESS.kaliszOnline, label: "Read the article" },
@@ -222,6 +233,11 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
         {
           heading: "Pressestimmen",
           items: [
+            {
+              meta: "Online Piano Atlas · auf Englisch",
+              title: "„Eine neue Klaviermarke? In diesem Markt? Ja, wirklich!“",
+              link: { href: PRESS.pianoAtlas, label: "Artikel lesen" },
+            },
             {
               meta: "KaliszOnline · auf Polnisch",
               title: "„Kalisz hat wieder einen eigenen Flügel. Alaudis One begeisterte Leszek Możdżer“",
@@ -290,6 +306,11 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
           heading: "Dans la presse",
           items: [
             {
+              meta: "Online Piano Atlas · en anglais",
+              title: "« Une nouvelle marque de pianos ? Sur ce marché ? Oui, vraiment ! »",
+              link: { href: PRESS.pianoAtlas, label: "Lire l’article" },
+            },
+            {
               meta: "KaliszOnline · en polonais",
               title: "« Kalisz a de nouveau son propre piano. Alaudis One a enchanté Leszek Możdżer »",
               link: { href: PRESS.kaliszOnline, label: "Lire l’article" },
@@ -357,6 +378,11 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
           heading: "En la prensa",
           items: [
             {
+              meta: "Online Piano Atlas · en inglés",
+              title: "«¿Una nueva marca de pianos? ¿En este mercado? ¡Sí, de verdad!»",
+              link: { href: PRESS.pianoAtlas, label: "Lea el artículo" },
+            },
+            {
               meta: "KaliszOnline · en polaco",
               title: "«Kalisz vuelve a tener su propio piano de cola. Alaudis One cautivó a Leszek Możdżer»",
               link: { href: PRESS.kaliszOnline, label: "Lea el artículo" },
@@ -423,6 +449,11 @@ export const editorial: Record<EditorialPageKey, Record<SeoLocale, Editorial>> =
         {
           heading: "Dicono di noi",
           items: [
+            {
+              meta: "Online Piano Atlas · in inglese",
+              title: "«Un nuovo marchio di pianoforti? In questo mercato? Sì, davvero!»",
+              link: { href: PRESS.pianoAtlas, label: "Leggi l’articolo" },
+            },
             {
               meta: "KaliszOnline · in polacco",
               title: "«Kalisz ha di nuovo un pianoforte tutto suo. Alaudis One ha conquistato Leszek Możdżer»",
